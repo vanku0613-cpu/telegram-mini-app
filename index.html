@@ -1,73 +1,228 @@
-
 <!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+  >
+
   <meta name="theme-color" content="#061a33">
+
   <title>Главный справочник Измаил</title>
-  <link rel="stylesheet" href="styles.css?v=7">
+
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
+
 <body>
-  <main class="screen" id="screen">
 
-    <img
-      class="menu-image"
-      src="file_000000000628820a991aedd6c0479451.png"
-      alt="Главный справочник Измаил"
-      draggable="false"
-    >
+  <main class="app" id="app">
 
-    <!-- Главная -->
-    <button class="hotspot logo" data-action="main" aria-label="Главная"></button>
+    <div class="screen" id="screen">
 
-    <!-- Погода -->
-    <button class="hotspot weather" data-action="weather" aria-label="Погода"></button>
+      <img
+        class="menu-image"
+        id="menuImage"
+        src="file_000000000628820a991aedd6c0479451.png"
+        alt="Главный справочник Измаил"
+        draggable="false"
+      >
 
-    <!-- Курс валют -->
-    <button class="hotspot currency" data-action="currency" aria-label="Курс валют"></button>
+      <!-- Логотип -->
+      <button
+        class="hotspot logo"
+        data-action="main"
+        aria-label="Главная"
+      ></button>
 
-    <!-- Укрытия -->
-    <button class="hotspot shelters" data-action="shelters" aria-label="Укрытия"></button>
 
-    <!-- Поиск -->
-    <button class="hotspot search-zone" data-action="search" aria-label="Поиск"></button>
+      <!-- Погода -->
+      <button
+        class="hotspot weather"
+        data-action="weather"
+        aria-label="Погода"
+      ></button>
 
-    <!-- Категории -->
-    <button class="hotspot cat1" data-action="health" aria-label="Здоровье и уход"></button>
-    <button class="hotspot cat2" data-action="transport" aria-label="Транспорт и такси"></button>
-    <button class="hotspot cat3" data-action="services" aria-label="Услуги и мастера"></button>
-    <button class="hotspot cat4" data-action="food" aria-label="Продукты питания"></button>
-    <button class="hotspot cat5" data-action="utilities" aria-label="Коммунальные службы"></button>
-    <button class="hotspot cat6" data-action="jobs" aria-label="Работа и вакансии"></button>
-    <button class="hotspot cat7" data-action="education" aria-label="Образование и развитие"></button>
-    <button class="hotspot cat8" data-action="leisure" aria-label="Отдых, жильё, море"></button>
 
-    <!-- Наши группы -->
-    <button class="hotspot groups" data-action="groups" aria-label="Наши группы"></button>
+      <!-- Курс валют -->
+      <button
+        class="hotspot currency"
+        data-action="currency"
+        aria-label="Курс валют"
+      ></button>
 
-    <!-- Нижнее меню -->
-    <button class="hotspot bottom-home" data-action="main" aria-label="Главная"></button>
-    <button class="hotspot bottom-ad" data-action="ad" aria-label="Реклама"></button>
-    <button class="hotspot bottom-fav" data-action="favorites" aria-label="Избранное"></button>
 
-    <!-- Погода и курсы -->
-    <div class="live-weather" id="liveWeather">Загрузка...</div>
-    <div class="live-usd" id="liveUsd">USD —</div>
-    <div class="live-eur" id="liveEur">EUR —</div>
+      <!-- Укрытия -->
+      <button
+        class="hotspot shelters"
+        data-action="shelters"
+        aria-label="Укрытия"
+      ></button>
+
+
+      <!-- ПОИСК -->
+      <div class="search-area">
+
+        <input
+          id="searchInput"
+          class="search-input"
+          type="text"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="none"
+          spellcheck="false"
+          placeholder="Поиск по справочнику"
+          aria-label="Поиск по справочнику"
+        >
+
+        <div
+          id="searchResults"
+          class="search-results hidden"
+        ></div>
+
+      </div>
+
+
+      <!-- Категории -->
+
+      <button
+        class="hotspot cat1"
+        data-action="health"
+        aria-label="Здоровье и уход"
+      ></button>
+
+      <button
+        class="hotspot cat2"
+        data-action="transport"
+        aria-label="Транспорт и такси"
+      ></button>
+
+      <button
+        class="hotspot cat3"
+        data-action="services"
+        aria-label="Услуги и мастера"
+      ></button>
+
+      <button
+        class="hotspot cat4"
+        data-action="food"
+        aria-label="Продукты питания"
+      ></button>
+
+      <button
+        class="hotspot cat5"
+        data-action="utilities"
+        aria-label="Коммунальные службы"
+      ></button>
+
+      <button
+        class="hotspot cat6"
+        data-action="jobs"
+        aria-label="Работа и вакансии"
+      ></button>
+
+      <button
+        class="hotspot cat7"
+        data-action="education"
+        aria-label="Образование и развитие"
+      ></button>
+
+      <button
+        class="hotspot cat8"
+        data-action="leisure"
+        aria-label="Отдых, жильё, море"
+      ></button>
+
+
+      <!-- Наши группы -->
+
+      <button
+        class="hotspot groups"
+        data-action="groups"
+        aria-label="Наши группы"
+      ></button>
+
+
+      <!-- Нижняя навигация -->
+
+      <button
+        class="hotspot bottom-home"
+        data-action="main"
+        aria-label="Главная"
+      ></button>
+
+      <button
+        class="hotspot bottom-ad"
+        data-action="ad"
+        aria-label="Реклама"
+      ></button>
+
+      <button
+        class="hotspot bottom-fav"
+        data-action="favorites"
+        aria-label="Избранное"
+      ></button>
+
+
+      <!-- Живые данные -->
+
+      <div
+        class="live-weather"
+        id="liveWeather"
+      >
+        —°
+      </div>
+
+      <div
+        class="live-usd"
+        id="liveUsd"
+      >
+        USD —
+      </div>
+
+      <div
+        class="live-eur"
+        id="liveEur"
+      >
+        EUR —
+      </div>
+
+    </div>
 
   </main>
 
-  <!-- Всплывающее окно -->
-  <div class="modal hidden" id="modal">
+
+  <!-- Окно только для подробной информации -->
+
+  <div
+    class="modal hidden"
+    id="modal"
+  >
+
     <div class="modal-box">
-      <button class="close" id="close" aria-label="Закрыть">×</button>
-      <h2 id="modalTitle">Справочник Измаил</h2>
+
+      <button
+        class="close"
+        id="close"
+        aria-label="Закрыть"
+      >
+        ×
+      </button>
+
+      <h2 id="modalTitle">
+        Справочник Измаил
+      </h2>
+
       <div id="modalBody"></div>
+
     </div>
+
   </div>
 
-  <script src="config.js?v=7"></script>
-  <script src="app.js?v=7"></script>
+
+  <script src="config.js?v=8"></script>
+  <script src="app.js?v=8"></script>
+
 </body>
 </html>
