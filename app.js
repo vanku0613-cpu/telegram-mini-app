@@ -1,60 +1,300 @@
-const tg = window.Telegram?.WebApp;
-if(tg){tg.ready();tg.expand();}
-const $=id=>document.getElementById(id);
+(() => {
+  "use strict";
 
-function openLink(url,msg){
-  if(!url){show(msg||"Ссылка ещё не подключена.");return;}
-  if(tg?.openTelegramLink && /^https?:\/\/t\.me\//i.test(url)) tg.openTelegramLink(url);
-  else window.open(url,"_blank","noopener,noreferrer");
-}
-function show(titleOrText, body){
-  if(body===undefined){$("modalTitle").textContent="Главный справочник Измаил";$("modalBody").innerHTML=`<p>${titleOrText}</p>`}
-  else {$("modalTitle").textContent=titleOrText;$("modalBody").innerHTML=body}
-  $("modal").classList.remove("hidden");
-}
-$("close").onclick=()=>$("modal").classList.add("hidden");
-$("modal").onclick=e=>{if(e.target===$("modal"))$("modal").classList.add("hidden")};
+  const tg = window.Telegram?.WebApp;
 
-const names={
- health:["Здоровье и уход",LINKS.HEALTH],transport:["Транспорт / Такси",LINKS.TRANSPORT],services:["Услуги и мастера",LINKS.SERVICES],food:["Продукты питания",LINKS.FOOD],utilities:["Коммунальные службы",LINKS.UTILITIES],jobs:["Работа / Вакансии",LINKS.JOBS],education:["Образование и развитие",LINKS.EDUCATION],leisure:["Отдых • Жильё • Море",LINKS.LEISURE]
-};
+  if (tg) {
+    tg.ready();
+    tg.expand();
 
-function category(key){const [title,url]=names[key];openLink(url,`Раздел «${title}» кликабельный. Пришли ссылку на него — я подключу переход.`)}
+    try {
+      tg.setHeaderColor("#061a33");
+      tg.setBackgroundColor("#061a33");
+    } catch (e) {}
+  }
 
-document.querySelectorAll('.hotspot').forEach(el=>el.addEventListener('click',()=>{
- const a=el.dataset.action;
- if(a==='main')return openLink(LINKS.MAIN_GROUP,'Верхняя картинка и логотип кликабельны. Пришли ссылку на главную группу — я подключу переход.');
- if(a==='shelters')return openLink(LINKS.SHELTERS,'Кнопка «Укрытия Измаил» кликабельна. Пришли ссылку на группу укрытий.');
- if(a==='groups')return openLink(LINKS.OUR_GROUPS,'Кнопка «Наши группы» кликабельна. Пришли ссылку.');
- if(a==='instagram')return openLink(LINKS.INSTAGRAM,'Кнопка «Заказать рекламу» кликабельна. Пришли ссылку Instagram.');
- if(a==='home')return window.location.reload();
- if(a==='favorites')return favorites();
- if(a==='weather')return show('Погода в Измаиле','Погода обновляется автоматически. Нажми «Закрыть», чтобы вернуться в меню.');
- if(a==='currency')return show('Курс валют','USD и EUR обновляются автоматически по данным НБУ.');
- if(a==='search')return search();
- if(names[a])return category(a);
-}));
+  const $ = (id) => document.getElementById(id);
 
-function search(){
- show('Поиск по справочнику',`<input class="search-input" id="q" placeholder="Например: такси, аптека, ремонт..."><div id="results" class="small">Начни вводить запрос.</div>`);
- const q=$("q");q.focus();q.oninput=()=>{
-  const v=q.value.trim().toLowerCase();
-  if(!v){$("results").innerHTML='Начни вводить запрос.';return;}
-  const found=Object.entries(names).filter(([k,[t]])=>t.toLowerCase().includes(v)).map(([k,[t,url]])=>`<div class="result"><b>${t}</b><br><span class="small">Раздел справочника</span><br><button onclick="category('${k}')">Открыть раздел</button></div>`).join('');
-  $("results").innerHTML=found||'Ничего не найдено. Для поиска по сообщениям Telegram-групп понадобится отдельный поиск/индексация.';
- };
-}
-function favorites(){
- const list=JSON.parse(localStorage.getItem('izmail_favorites')||'[]');
- show('Избранное',list.length?list.map(x=>`<div class="result"><b>${x.title}</b><br>${x.value}</div>`).join(''):'<p>Избранное пока пустое.</p>');
-}
+  /* =========================================================
+     НАСТРОЙКИ
+     ========================================================= */
 
-async function weather(){
- try{const u=`https://api.open-meteo.com/v1/forecast?latitude=${WEATHER.latitude}&longitude=${WEATHER.longitude}&current=temperature_2m&timezone=${encodeURIComponent(WEATHER.timezone)}`;const d=await (await fetch(u)).json();const t=Math.round(d.current.temperature_2m);$("liveWeather").textContent=`${t>0?'+':''}${t}°`;}
- catch{$("liveWeather").textContent='';}
-}
-async function currency(){
- try{const d=await (await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')).json();const u=d.find(x=>x.cc==='USD'),e=d.find(x=>x.cc==='EUR');if(u)$("liveUsd").textContent=Number(u.rate).toFixed(2);if(e)$("liveEur").textContent=Number(e.rate).toFixed(2);}
- catch{$("liveUsd").textContent='';$("liveEur").textContent='';}
-}
-weather();currency();setInterval(weather,600000);setInterval(currency,900000);
+  const LINKS_SAFE =
+    window.LINKS ||
+    (typeof LINKS !== "undefined" ? LINKS : {});
+
+  const WEATHER_SAFE =
+    window.WEATHER ||
+    (typeof WEATHER !== "undefined"
+      ? WEATHER
+      : {
+          latitude: 45.35,
+          longitude: 28.84,
+          timezone: "Europe/Kyiv"
+        });
+
+  /* =========================================================
+     МОДАЛЬНОЕ ОКНО
+     ========================================================= */
+
+  function show(title, body) {
+    const modal = $("modal");
+    const modalTitle = $("modalTitle");
+    const modalBody = $("modalBody");
+
+    if (!modal || !modalTitle || !modalBody) return;
+
+    modalTitle.textContent = title || "Главный справочник Измаил";
+    modalBody.innerHTML = body || "";
+
+    modal.classList.remove("hidden");
+  }
+
+  function closeModal() {
+    const modal = $("modal");
+    if (modal) modal.classList.add("hidden");
+  }
+
+  const closeButton = $("close");
+
+  if (closeButton) {
+    closeButton.addEventListener("click", closeModal);
+  }
+
+  const modal = $("modal");
+
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  /* =========================================================
+     ОТКРЫТИЕ ССЫЛОК
+     ========================================================= */
+
+  function openLink(url, message) {
+    if (!url) {
+      show(
+        "Раздел готов",
+        `<p>${message || "Ссылка на этот раздел пока не подключена."}</p>`
+      );
+      return;
+    }
+
+    try {
+      if (
+        tg?.openTelegramLink &&
+        /^https?:\/\/t\.me\//i.test(url)
+      ) {
+        tg.openTelegramLink(url);
+        return;
+      }
+
+      if (tg?.openLink) {
+        tg.openLink(url);
+        return;
+      }
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    } catch (e) {
+      window.location.href = url;
+    }
+  }
+
+  /* =========================================================
+     КАТЕГОРИИ
+     ========================================================= */
+
+  const names = {
+    health: [
+      "Здоровье и уход",
+      LINKS_SAFE.HEALTH
+    ],
+
+    transport: [
+      "Транспорт и такси",
+      LINKS_SAFE.TRANSPORT
+    ],
+
+    services: [
+      "Услуги и мастера",
+      LINKS_SAFE.SERVICES
+    ],
+
+    food: [
+      "Продукты питания",
+      LINKS_SAFE.FOOD
+    ],
+
+    utilities: [
+      "Коммунальные службы",
+      LINKS_SAFE.UTILITIES
+    ],
+
+    jobs: [
+      "Работа и вакансии",
+      LINKS_SAFE.JOBS
+    ],
+
+    education: [
+      "Образование и развитие",
+      LINKS_SAFE.EDUCATION
+    ],
+
+    leisure: [
+      "Отдых, жильё, море",
+      LINKS_SAFE.LEISURE
+    ]
+  };
+
+  function category(key) {
+    const item = names[key];
+
+    if (!item) return;
+
+    const title = item[0];
+    const url = item[1];
+
+    openLink(
+      url,
+      `Раздел «${title}» готов к работе. Ссылка на него пока не подключена.`
+    );
+  }
+
+  /* =========================================================
+     ПОИСК
+     ========================================================= */
+
+  function search() {
+    show(
+      "Поиск по справочнику",
+      `
+        <input
+          class="search-input"
+          id="q"
+          placeholder="Например: такси, аптека, ремонт..."
+          autocomplete="off"
+        >
+
+        <div
+          id="results"
+          class="small"
+        >
+          Начни вводить запрос.
+        </div>
+      `
+    );
+
+    const input = $("q");
+
+    if (!input) return;
+
+    setTimeout(() => {
+      input.focus();
+    }, 50);
+
+    input.addEventListener("input", () => {
+      const value = input.value.trim().toLowerCase();
+      const results = $("results");
+
+      if (!results) return;
+
+      if (!value) {
+        results.innerHTML = "Начни вводить запрос.";
+        return;
+      }
+
+      const found = Object.entries(names)
+        .filter(([key, item]) => {
+          return item[0].toLowerCase().includes(value);
+        })
+        .map(([key, item]) => {
+          return `
+            <div class="result">
+              <b>${escapeHtml(item[0])}</b>
+
+              <br>
+
+              <span class="small">
+                Раздел справочника
+              </span>
+
+              <br>
+
+              <button
+                type="button"
+                class="search-open"
+                data-category="${escapeHtml(key)}"
+              >
+                Открыть раздел
+              </button>
+            </div>
+          `;
+        })
+        .join("");
+
+      results.innerHTML =
+        found ||
+        "Ничего не найдено. Попробуй другой запрос.";
+
+      results
+        .querySelectorAll(".search-open")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            category(button.dataset.category);
+          });
+        });
+    });
+  }
+
+  /* =========================================================
+     ИЗБРАННОЕ
+     ========================================================= */
+
+  function favorites() {
+    let list = [];
+
+    try {
+      list = JSON.parse(
+        localStorage.getItem("izmail_favorites") || "[]"
+      );
+    } catch (e) {
+      list = [];
+    }
+
+    if (!list.length) {
+      show(
+        "Избранное",
+        "<p>Избранное пока пустое.</p>"
+      );
+      return;
+    }
+
+    const html = list
+      .map((item) => {
+        return `
+          <div class="result">
+            <b>${escapeHtml(item.title || "")}</b>
+            <br>
+            ${escapeHtml(item.value || "")}
+          </div>
+        `;
+      })
+      .join("");
+
+    show("Избранное", html);
+  }
+
+  /* =========================================================
+     ПОГОДА
+     ========================================================= */
+
+  async function weather() {
+    const weatherElement = $("liveWeather");
+
+    if (!weatherElement) return;
+
+   
