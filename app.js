@@ -1,172 +1,81 @@
+
 (() => {
   "use strict";
+
+  const $ = (id) => document.getElementById(id);
+
+  const LINKS = window.LINKS || {};
+  const WEATHER = window.WEATHER || {
+    latitude: 45.35,
+    longitude: 28.84,
+    timezone: "Europe/Kyiv"
+  };
+
+  const categories = {
+    health: ["Здоровье и уход", LINKS.HEALTH],
+    transport: ["Транспорт и такси", LINKS.TRANSPORT],
+    services: ["Услуги и мастера", LINKS.SERVICES],
+    food: ["Продукты питания", LINKS.FOOD],
+    utilities: ["Коммунальные службы", LINKS.UTILITIES],
+    jobs: ["Работа и вакансии", LINKS.JOBS],
+    education: ["Образование и развитие", LINKS.EDUCATION],
+    leisure: ["Отдых, жильё, море", LINKS.LEISURE]
+  };
 
   const tg = window.Telegram?.WebApp;
 
   if (tg) {
     tg.ready();
     tg.expand();
-
     try {
       tg.setHeaderColor("#061a33");
       tg.setBackgroundColor("#061a33");
-    } catch (e) {}
+    } catch (_) {}
   }
 
-  const $ = (id) => document.getElementById(id);
-
-  /* =========================================================
-     НАСТРОЙКИ
-     ========================================================= */
-
-  const LINKS_SAFE =
-    window.LINKS ||
-    (typeof LINKS !== "undefined" ? LINKS : {});
-
-  const WEATHER_SAFE =
-    window.WEATHER ||
-    (typeof WEATHER !== "undefined"
-      ? WEATHER
-      : {
-          latitude: 45.35,
-          longitude: 28.84,
-          timezone: "Europe/Kyiv"
-        });
-
-  /* =========================================================
-     МОДАЛЬНОЕ ОКНО
-     ========================================================= */
-
-  function show(title, body) {
-    const modal = $("modal");
-    const modalTitle = $("modalTitle");
-    const modalBody = $("modalBody");
-
-    if (!modal || !modalTitle || !modalBody) return;
-
-    modalTitle.textContent = title || "Главный справочник Измаил";
-    modalBody.innerHTML = body || "";
-
-    modal.classList.remove("hidden");
+  function show(title, content) {
+    $("modalTitle").textContent = title;
+    $("modalBody").innerHTML = content;
+    $("modal").classList.remove("hidden");
   }
 
   function closeModal() {
-    const modal = $("modal");
-    if (modal) modal.classList.add("hidden");
+    $("modal").classList.add("hidden");
   }
 
-  const closeButton = $("close");
+  $("close").addEventListener("click", closeModal);
 
-  if (closeButton) {
-    closeButton.addEventListener("click", closeModal);
-  }
+  $("modal").addEventListener("click", (event) => {
+    if (event.target === $("modal")) closeModal();
+  });
 
-  const modal = $("modal");
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeModal();
+  });
 
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-  }
-
-  /* =========================================================
-     ОТКРЫТИЕ ССЫЛОК
-     ========================================================= */
-
-  function openLink(url, message) {
+  function openLink(url, title) {
     if (!url) {
       show(
-        "Раздел готов",
-        `<p>${message || "Ссылка на этот раздел пока не подключена."}</p>`
+        title || "Раздел справочника",
+        "<p>Раздел готов. Ссылка будет добавлена позже.</p>"
       );
       return;
     }
 
-    try {
-      if (
-        tg?.openTelegramLink &&
-        /^https?:\/\/t\.me\//i.test(url)
-      ) {
-        tg.openTelegramLink(url);
-        return;
-      }
-
-      if (tg?.openLink) {
-        tg.openLink(url);
-        return;
-      }
-
+    if (tg && /^https?:\/\/t\.me\//i.test(url)) {
+      tg.openTelegramLink(url);
+    } else if (tg) {
+      tg.openLink(url);
+    } else {
       window.open(url, "_blank", "noopener,noreferrer");
-    } catch (e) {
-      window.location.href = url;
     }
   }
 
-  /* =========================================================
-     КАТЕГОРИИ
-     ========================================================= */
-
-  const names = {
-    health: [
-      "Здоровье и уход",
-      LINKS_SAFE.HEALTH
-    ],
-
-    transport: [
-      "Транспорт и такси",
-      LINKS_SAFE.TRANSPORT
-    ],
-
-    services: [
-      "Услуги и мастера",
-      LINKS_SAFE.SERVICES
-    ],
-
-    food: [
-      "Продукты питания",
-      LINKS_SAFE.FOOD
-    ],
-
-    utilities: [
-      "Коммунальные службы",
-      LINKS_SAFE.UTILITIES
-    ],
-
-    jobs: [
-      "Работа и вакансии",
-      LINKS_SAFE.JOBS
-    ],
-
-    education: [
-      "Образование и развитие",
-      LINKS_SAFE.EDUCATION
-    ],
-
-    leisure: [
-      "Отдых, жильё, море",
-      LINKS_SAFE.LEISURE
-    ]
-  };
-
   function category(key) {
-    const item = names[key];
-
+    const item = categories[key];
     if (!item) return;
-
-    const title = item[0];
-    const url = item[1];
-
-    openLink(
-      url,
-      `Раздел «${title}» готов к работе. Ссылка на него пока не подключена.`
-    );
+    openLink(item[1], item[0]);
   }
-
-  /* =========================================================
-     ПОИСК
-     ========================================================= */
 
   function search() {
     show(
@@ -174,127 +83,255 @@
       `
         <input
           class="search-input"
-          id="q"
-          placeholder="Например: такси, аптека, ремонт..."
+          id="searchInput"
+          placeholder="Например: здоровье, транспорт..."
           autocomplete="off"
         >
-
-        <div
-          id="results"
-          class="small"
-        >
+        <div id="searchResults" class="small">
           Начни вводить запрос.
         </div>
       `
     );
 
-    const input = $("q");
+    const input = $("searchInput");
+    const results = $("searchResults");
 
-    if (!input) return;
-
-    setTimeout(() => {
-      input.focus();
-    }, 50);
+    input.focus();
 
     input.addEventListener("input", () => {
-      const value = input.value.trim().toLowerCase();
-      const results = $("results");
+      const query = input.value.trim().toLowerCase();
 
-      if (!results) return;
-
-      if (!value) {
-        results.innerHTML = "Начни вводить запрос.";
+      if (!query) {
+        results.textContent = "Начни вводить запрос.";
         return;
       }
 
-      const found = Object.entries(names)
-        .filter(([key, item]) => {
-          return item[0].toLowerCase().includes(value);
-        })
-        .map(([key, item]) => {
-          return `
-            <div class="result">
-              <b>${escapeHtml(item[0])}</b>
+      const matches = Object.entries(categories).filter(
+        ([, item]) => item[0].toLowerCase().includes(query)
+      );
 
-              <br>
+      results.innerHTML = "";
 
-              <span class="small">
-                Раздел справочника
-              </span>
+      if (!matches.length) {
+        results.textContent = "Ничего не найдено.";
+        return;
+      }
 
-              <br>
+      matches.forEach(([key, item]) => {
+        const row = document.createElement("div");
+        row.className = "result";
 
-              <button
-                type="button"
-                class="search-open"
-                data-category="${escapeHtml(key)}"
-              >
-                Открыть раздел
-              </button>
-            </div>
-          `;
-        })
-        .join("");
+        const name = document.createElement("b");
+        name.textContent = item[0];
 
-      results.innerHTML =
-        found ||
-        "Ничего не найдено. Попробуй другой запрос.";
+        const button = document.createElement("button");
+        button.className = "search-open";
+        button.textContent = "Открыть раздел";
+        button.addEventListener("click", () => category(key));
 
-      results
-        .querySelectorAll(".search-open")
-        .forEach((button) => {
-          button.addEventListener("click", () => {
-            category(button.dataset.category);
-          });
-        });
+        row.append(name, document.createElement("br"), button);
+        results.appendChild(row);
+      });
     });
   }
 
-  /* =========================================================
-     ИЗБРАННОЕ
-     ========================================================= */
-
   function favorites() {
-    let list = [];
-
-    try {
-      list = JSON.parse(
-        localStorage.getItem("izmail_favorites") || "[]"
-      );
-    } catch (e) {
-      list = [];
-    }
-
-    if (!list.length) {
-      show(
-        "Избранное",
-        "<p>Избранное пока пустое.</p>"
-      );
-      return;
-    }
-
-    const html = list
-      .map((item) => {
-        return `
-          <div class="result">
-            <b>${escapeHtml(item.title || "")}</b>
-            <br>
-            ${escapeHtml(item.value || "")}
-          </div>
-        `;
-      })
-      .join("");
-
-    show("Избранное", html);
+    show(
+      "Избранное",
+      "<p>Избранное пока пустое. Возможность добавления избранных разделов можно подключить позже.</p>"
+    );
   }
 
-  /* =========================================================
-     ПОГОДА
-     ========================================================= */
+  function main() {
+    openLink(LINKS.MAIN_GROUP, "Главная");
+  }
 
-  async function weather() {
-    const weatherElement = $("liveWeather");
+  function shelters() {
+    openLink(LINKS.SHELTERS, "Укрытия Измаил");
+  }
 
-    if (!weatherElement) return;
+  function groups() {
+    openLink(LINKS.OUR_GROUPS, "Наши группы");
+  }
 
-   
+  function weatherDescription(code) {
+    const descriptions = {
+      0: "Ясно",
+      1: "Преимущественно ясно",
+      2: "Переменная облачность",
+      3: "Облачно",
+      45: "Туман",
+      48: "Изморозь",
+      51: "Морось",
+      53: "Морось",
+      55: "Сильная морось",
+      61: "Небольшой дождь",
+      63: "Дождь",
+      65: "Сильный дождь",
+      71: "Небольшой снег",
+      73: "Снег",
+      75: "Сильный снег",
+      80: "Ливень",
+      81: "Ливень",
+      82: "Сильный ливень",
+      95: "Гроза",
+      96: "Гроза с градом",
+      99: "Сильная гроза"
+    };
+
+    return descriptions[code] || "Погодные условия";
+  }
+
+  async function loadWeather() {
+    const element = $("liveWeather");
+
+    try {
+      const url = new URL(
+        "https://api.open-meteo.com/v1/forecast"
+      );
+
+      url.search = new URLSearchParams({
+        latitude: WEATHER.latitude,
+        longitude: WEATHER.longitude,
+        current: "temperature_2m,weather_code",
+        timezone: WEATHER.timezone
+      });
+
+      const response = await fetch(url);
+
+      if (!response.ok) throw new Error("Weather unavailable");
+
+      const data = await response.json();
+      const current = data.current;
+
+      element.textContent =
+        `${Math.round(current.temperature_2m)}°`;
+
+      element.title = weatherDescription(current.weather_code);
+
+      window.currentWeather = {
+        temperature: current.temperature_2m,
+        description: weatherDescription(current.weather_code)
+      };
+    } catch (error) {
+      element.textContent = "—°";
+      element.title = "Погода временно недоступна";
+    }
+  }
+
+  async function showWeather() {
+    show("Погода в Измаиле", "<p>Загружаем погоду...</p>");
+
+    try {
+      const url = new URL(
+        "https://api.open-meteo.com/v1/forecast"
+      );
+
+      url.search = new URLSearchParams({
+        latitude: WEATHER.latitude,
+        longitude: WEATHER.longitude,
+        current: "temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code",
+        timezone: WEATHER.timezone
+      });
+
+      const response = await fetch(url);
+
+      if (!response.ok) throw new Error();
+
+      const data = await response.json();
+      const current = data.current;
+
+      $("modalBody").innerHTML = `
+        <p><b>${Math.round(current.temperature_2m)}°C</b> — ${weatherDescription(current.weather_code)}</p>
+        <p>Влажность: ${current.relative_humidity_2m}%</p>
+        <p>Ветер: ${current.wind_speed_10m} км/ч</p>
+        <p class="small">Данные обновляются автоматически.</p>
+      `;
+    } catch (_) {
+      $("modalBody").innerHTML =
+        '<p class="data-error">Не удалось загрузить погоду. Попробуй позже.</p>';
+    }
+  }
+
+  async function loadCurrency() {
+    try {
+      const [usdResponse, eurResponse] = await Promise.all([
+        fetch("https://api.frankfurter.dev/v1/latest?base=USD&symbols=UAH"),
+        fetch("https://api.frankfurter.dev/v1/latest?base=EUR&symbols=UAH")
+      ]);
+
+      if (!usdResponse.ok || !eurResponse.ok) throw new Error();
+
+      const usdData = await usdResponse.json();
+      const eurData = await eurResponse.json();
+
+      const usd = usdData.rates.UAH;
+      const eur = eurData.rates.UAH;
+
+      $("liveUsd").textContent = `USD ${usd.toFixed(2)}`;
+      $("liveEur").textContent = `EUR ${eur.toFixed(2)}`;
+
+      window.currentCurrency = { usd, eur };
+    } catch (_) {
+      $("liveUsd").textContent = "USD —";
+      $("liveEur").textContent = "EUR —";
+    }
+  }
+
+  async function showCurrency() {
+    show("Курс валют", "<p>Загружаем курсы...</p>");
+
+    try {
+      const [usdResponse, eurResponse] = await Promise.all([
+        fetch("https://api.frankfurter.dev/v1/latest?base=USD&symbols=UAH"),
+        fetch("https://api.frankfurter.dev/v1/latest?base=EUR&symbols=UAH")
+      ]);
+
+      if (!usdResponse.ok || !eurResponse.ok) throw new Error();
+
+      const usdData = await usdResponse.json();
+      const eurData = await eurResponse.json();
+
+      $("modalBody").innerHTML = `
+        <p><b>1 USD</b> = ${usdData.rates.UAH.toFixed(2)} грн</p>
+        <p><b>1 EUR</b> = ${eurData.rates.UAH.toFixed(2)} грн</p>
+        <p class="small">Дата курса: ${usdData.date}</p>
+        <p class="small">Курс справочный и может отличаться от банковского.</p>
+      `;
+    } catch (_) {
+      $("modalBody").innerHTML =
+        '<p class="data-error">Не удалось загрузить курсы валют. Попробуй позже.</p>';
+    }
+  }
+
+  const actions = {
+    main,
+    weather: showWeather,
+    currency: showCurrency,
+    shelters,
+    search,
+    groups,
+    favorites,
+    health: () => category("health"),
+    transport: () => category("transport"),
+    services: () => category("services"),
+    food: () => category("food"),
+    utilities: () => category("utilities"),
+    jobs: () => category("jobs"),
+    education: () => category("education"),
+    leisure: () => category("leisure")
+  };
+
+  document.querySelectorAll("[data-action]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const action = actions[button.dataset.action];
+      if (action) action();
+    });
+  });
+
+  loadWeather();
+  loadCurrency();
+
+  setInterval(loadWeather, 30 * 60 * 1000);
+  setInterval(loadCurrency, 60 * 60 * 1000);
+})();
