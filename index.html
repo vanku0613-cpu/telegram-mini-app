@@ -27,7 +27,7 @@
       draggable="false"
     >
 
-    <!-- ЛОГОТИП / ВЕРХ -->
+    <!-- ЛОГОТИП / ГЛАВНАЯ -->
     <button
       type="button"
       class="hotspot logo"
@@ -126,7 +126,6 @@
     </button>
 
     <!-- НАШИ ГРУППЫ -->
-
     <button
       type="button"
       class="hotspot groups"
@@ -138,4 +137,32 @@
 
     <button
       type="button"
-      class="hotspot bottom
+      class="hotspot bottom-home"
+      data-action="main"
+      aria-label="Главная">
+    </button>
+
+    <button
+      type="button"
+      class="hotspot bottom-search"
+      data-action="search"
+      aria-label="Поиск">
+    </button>
+
+    <button
+      type="button"
+      class="hotspot bottom-groups"
+      data-action="groups"
+      aria-label="Группы">
+    </button>
+
+  </main>
+
+  <script src="script.js?v=5"></script>
+
+</body>
+</html>
+
+Важно: я оставил подключение именно к твоим существующим "styles.css" и "script.js", а картинку — "file_00000000fb5482109371913b11c5aacd.png". То есть остальные файлы мы не переделываем.
+
+Если после замены какая-то кнопка перестанет работать, тогда уже будем исправлять только "index.html", не трогая остальные файлы.
