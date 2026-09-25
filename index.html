@@ -12,7 +12,7 @@
 
 <title>Главный справочник Измаил</title>
 
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 
 </head>
 
@@ -20,13 +20,14 @@
 
 <main class="screen" id="screen">
 
+  <!-- НОВАЯ КАРТИНКА -->
   <img
     class="menu-image"
-    src="file_000000003e7081f4ae5c4fd743f03b10.png"
+    src="file_00000000fb5482109371913b11c5aacd.png"
     alt="Главный справочник Измаил"
   >
 
-  <!-- Вся картинка -->
+  <!-- ГЛАВНЫЙ СПРАВОЧНИК -->
   <button
     class="hotspot whole"
     data-action="main"
@@ -40,111 +41,122 @@
     aria-label="Главный справочник Измаил">
   </button>
 
-  <!-- Погода -->
+  <!-- ПОГОДА -->
   <button
     class="hotspot weather"
     data-action="weather"
     aria-label="Погода в Измаиле">
   </button>
 
-  <!-- Валюта -->
+  <!-- ВАЛЮТА -->
   <button
     class="hotspot currency"
     data-action="currency"
     aria-label="Курс валют USD EUR">
   </button>
 
-  <!-- Укрытия -->
+  <!-- УКРЫТИЯ -->
   <button
     class="hotspot shelters"
     data-action="shelters"
     aria-label="Укрытия Измаил">
   </button>
 
-  <!-- Поиск -->
+  <!-- ПОИСК -->
   <button
     class="hotspot search-zone"
     data-action="search"
     aria-label="Поиск по справочнику">
   </button>
 
-  <!-- Категории -->
-
+  <!-- ЗДОРОВЬЕ -->
   <button
     class="hotspot cat1"
     data-action="health"
     aria-label="Здоровье и уход">
   </button>
 
+  <!-- ТРАНСПОРТ -->
   <button
     class="hotspot cat2"
     data-action="transport"
     aria-label="Транспорт и такси">
   </button>
 
+  <!-- УСЛУГИ -->
   <button
     class="hotspot cat3"
     data-action="services"
     aria-label="Услуги и мастера">
   </button>
 
+  <!-- ПРОДУКТЫ -->
   <button
     class="hotspot cat4"
     data-action="food"
     aria-label="Продукты питания">
   </button>
 
+  <!-- КОММУНАЛЬНЫЕ -->
   <button
     class="hotspot cat5"
     data-action="utilities"
     aria-label="Коммунальные службы">
   </button>
 
+  <!-- РАБОТА -->
   <button
     class="hotspot cat6"
     data-action="jobs"
     aria-label="Работа и вакансии">
   </button>
 
+  <!-- ОБРАЗОВАНИЕ -->
   <button
     class="hotspot cat7"
     data-action="education"
     aria-label="Образование и развитие">
   </button>
 
+  <!-- ОТДЫХ -->
   <button
     class="hotspot cat8"
     data-action="leisure"
     aria-label="Отдых, жильё, море">
   </button>
 
-  <!-- Наши группы -->
+  <!-- НАШИ ГРУППЫ -->
   <button
     class="hotspot groups"
     data-action="groups"
     aria-label="Наши группы">
   </button>
 
-  <!-- Нижняя панель -->
+  <!-- НИЖНЯЯ ПАНЕЛЬ -->
+
+  <!-- Главная -->
   <button
     class="hotspot bottom-home"
     data-action="home"
     aria-label="Главная">
   </button>
 
+  <!-- Заказать рекламу -->
   <button
     class="hotspot bottom-ad"
     data-action="instagram"
     aria-label="Заказать рекламу">
   </button>
 
+  <!-- Избранное -->
   <button
     class="hotspot bottom-fav"
     data-action="favorites"
     aria-label="Избранное">
   </button>
 
-  <!-- Динамические данные -->
+  <!-- ДИНАМИЧЕСКИЕ ДАННЫЕ -->
+
   <div
     class="live-weather"
     id="liveWeather">
@@ -165,7 +177,8 @@
 
 </main>
 
-<!-- Окно -->
+<!-- МОДАЛЬНОЕ ОКНО -->
+
 <div
   class="modal hidden"
   id="modal">
@@ -186,11 +199,17 @@
 
 </div>
 
+<!-- TELEGRAM -->
+
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-<script src="config.js?v=3"></script>
+<!-- НАСТРОЙКИ -->
 
-<script src="app.js?v=3"></script>
+<script src="config.js?v=4"></script>
+
+<!-- ОСНОВНОЙ JS -->
+
+<script src="app.js?v=4"></script>
 
 </body>
 </html>
