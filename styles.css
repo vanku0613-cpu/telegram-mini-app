@@ -16,39 +16,43 @@ body {
   overscroll-behavior: none;
 }
 
-/* Основной экран */
+/* ОСНОВНОЙ ЭКРАН */
 .screen {
   position: relative;
-  width: 100vw;
+  width: 100%;
   max-width: 1024px;
   margin: 0 auto;
   background: #061a33;
   overflow: hidden;
 }
 
-/* Главная картинка */
+/* ГЛАВНАЯ КАРТИНКА
+   Сохраняем исходные пропорции.
+   Картинка НЕ растягивается по высоте. */
 .menu-image {
   display: block;
   width: 100%;
   height: auto;
+  max-width: 100%;
   user-select: none;
   -webkit-user-drag: none;
+  pointer-events: none;
 }
 
-/* Все невидимые кнопки */
+/* НЕВИДИМЫЕ КНОПКИ */
 .hotspot {
   position: absolute;
+  display: block;
   border: 0;
-  background: transparent;
   padding: 0;
   margin: 0;
+  background: transparent;
   cursor: pointer;
   z-index: 3;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Не показываем подсветку при нажатии */
 .hotspot:active {
   background: transparent;
 }
@@ -59,7 +63,7 @@ body {
   z-index: 1;
 }
 
-/* Логотип */
+/* ЛОГОТИП */
 .logo {
   left: 0%;
   top: 0%;
@@ -67,7 +71,7 @@ body {
   height: 21.5%;
 }
 
-/* Погода */
+/* ПОГОДА */
 .weather {
   left: 2%;
   top: 20.8%;
@@ -75,7 +79,7 @@ body {
   height: 7.2%;
 }
 
-/* Валюта */
+/* ВАЛЮТА */
 .currency {
   left: 36.5%;
   top: 20.8%;
@@ -83,7 +87,7 @@ body {
   height: 7.2%;
 }
 
-/* Укрытия */
+/* УКРЫТИЯ */
 .shelters {
   left: 65%;
   top: 20.8%;
@@ -91,7 +95,7 @@ body {
   height: 7.2%;
 }
 
-/* Поиск */
+/* ПОИСК */
 .search-zone {
   left: 2%;
   top: 28.1%;
@@ -99,7 +103,7 @@ body {
   height: 5.7%;
 }
 
-/* Категории */
+/* КАТЕГОРИЯ 1 */
 .cat1 {
   left: 2%;
   top: 34.8%;
@@ -107,6 +111,7 @@ body {
   height: 12.1%;
 }
 
+/* КАТЕГОРИЯ 2 */
 .cat2 {
   left: 50.8%;
   top: 34.8%;
@@ -114,6 +119,7 @@ body {
   height: 12.1%;
 }
 
+/* КАТЕГОРИЯ 3 */
 .cat3 {
   left: 2%;
   top: 47.8%;
@@ -121,6 +127,7 @@ body {
   height: 12.1%;
 }
 
+/* КАТЕГОРИЯ 4 */
 .cat4 {
   left: 50.8%;
   top: 47.8%;
@@ -128,6 +135,7 @@ body {
   height: 12.1%;
 }
 
+/* КАТЕГОРИЯ 5 */
 .cat5 {
   left: 2%;
   top: 61.2%;
@@ -135,6 +143,7 @@ body {
   height: 11.6%;
 }
 
+/* КАТЕГОРИЯ 6 */
 .cat6 {
   left: 50.8%;
   top: 61.2%;
@@ -142,6 +151,7 @@ body {
   height: 11.6%;
 }
 
+/* КАТЕГОРИЯ 7 */
 .cat7 {
   left: 2%;
   top: 73.7%;
@@ -149,6 +159,7 @@ body {
   height: 11.2%;
 }
 
+/* КАТЕГОРИЯ 8 */
 .cat8 {
   left: 50.8%;
   top: 73.7%;
@@ -156,7 +167,7 @@ body {
   height: 11.2%;
 }
 
-/* Наши группы */
+/* НАШИ ГРУППЫ */
 .groups {
   left: 2%;
   top: 86%;
@@ -164,7 +175,7 @@ body {
   height: 6.5%;
 }
 
-/* Нижняя панель */
+/* НИЖНЯЯ ПАНЕЛЬ */
 .bottom-home {
   left: 0%;
   top: 92.4%;
@@ -186,30 +197,23 @@ body {
   height: 7.6%;
 }
 
-/* Динамическая погода и курс валют */
+/* ДИНАМИЧЕСКАЯ ПОГОДА И ВАЛЮТА */
 .live-weather,
 .live-usd,
 .live-eur {
   position: absolute;
   z-index: 4;
   pointer-events: none;
-  color: #fff;
+  color: #ffffff;
   font-weight: 800;
-  text-shadow: 0 2px 4px #000;
+  text-shadow: 0 2px 4px #000000;
 }
 
-/* Температура */
+/* ТЕМПЕРАТУРА */
 .live-weather {
   left: 27%;
   top: 23.1%;
   font-size: clamp(13px, 2.6vw, 28px);
 }
 
-/* Доллар */
-.live-usd {
-  left: 57.2%;
-  top: 22.2%;
-  font-size: clamp(12px, 2.2vw, 23px);
-}
-
-/*
+/
