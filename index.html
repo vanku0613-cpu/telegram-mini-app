@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#061a33">
   <title>Главный справочник Измаил</title>
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <main class="screen" id="screen">
@@ -18,13 +18,13 @@
       draggable="false"
     >
 
-    <!-- Главный логотип -->
+    <!-- Главная -->
     <button class="hotspot logo" data-action="main" aria-label="Главная"></button>
 
     <!-- Погода -->
     <button class="hotspot weather" data-action="weather" aria-label="Погода"></button>
 
-    <!-- Валюта -->
+    <!-- Курс валют -->
     <button class="hotspot currency" data-action="currency" aria-label="Курс валют"></button>
 
     <!-- Укрытия -->
@@ -46,12 +46,12 @@
     <!-- Наши группы -->
     <button class="hotspot groups" data-action="groups" aria-label="Наши группы"></button>
 
-    <!-- Нижняя навигация -->
+    <!-- Нижнее меню -->
     <button class="hotspot bottom-home" data-action="main" aria-label="Главная"></button>
-    <button class="hotspot bottom-ad" data-action="search" aria-label="Поиск"></button>
+    <button class="hotspot bottom-ad" data-action="ad" aria-label="Реклама"></button>
     <button class="hotspot bottom-fav" data-action="favorites" aria-label="Избранное"></button>
 
-    <!-- Данные погоды и валют -->
+    <!-- Погода и курсы -->
     <div class="live-weather" id="liveWeather">Загрузка...</div>
     <div class="live-usd" id="liveUsd">USD —</div>
     <div class="live-eur" id="liveEur">EUR —</div>
@@ -67,7 +67,7 @@
     </div>
   </div>
 
-  <script src="config.js?v=6"></script>
-  <script src="app.js?v=6"></script>
+  <script src="config.js?v=7"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
