@@ -27,9 +27,7 @@ body {
   background: #061a33;
 }
 
-/* ГЛАВНАЯ КАРТИНКА
-   Растягиваем изображение ровно на весь экран,
-   чтобы оно доходило до самого низа. */
+/* ГЛАВНАЯ КАРТИНКА */
 .menu-image {
   position: absolute;
   left: 0;
@@ -119,4 +117,165 @@ body {
 .cat2 {
   left: 50.8%;
   top: 34.8%;
-  width: 47
+  width: 47.2%;
+  height: 12.1%;
+}
+
+.cat3 {
+  left: 2%;
+  top: 47.8%;
+  width: 48%;
+  height: 12.1%;
+}
+
+.cat4 {
+  left: 50.8%;
+  top: 47.8%;
+  width: 47.2%;
+  height: 12.1%;
+}
+
+.cat5 {
+  left: 2%;
+  top: 61.2%;
+  width: 48%;
+  height: 11.6%;
+}
+
+.cat6 {
+  left: 50.8%;
+  top: 61.2%;
+  width: 47.2%;
+  height: 11.6%;
+}
+
+.cat7 {
+  left: 2%;
+  top: 73.7%;
+  width: 48%;
+  height: 11.2%;
+}
+
+.cat8 {
+  left: 50.8%;
+  top: 73.7%;
+  width: 47.2%;
+  height: 11.2%;
+}
+
+/* Наши группы */
+.groups {
+  left: 2%;
+  top: 86%;
+  width: 96%;
+  height: 6.5%;
+}
+
+/* Нижняя строка */
+.bottom-home {
+  left: 0%;
+  top: 92.4%;
+  width: 33%;
+  height: 7.6%;
+}
+
+.bottom-ad {
+  left: 33%;
+  top: 92.4%;
+  width: 40%;
+  height: 7.6%;
+}
+
+.bottom-fav {
+  left: 73%;
+  top: 92.4%;
+  width: 27%;
+  height: 7.6%;
+}
+
+/* =========================================================
+   ДИНАМИЧЕСКИЕ ДАННЫЕ
+   =========================================================
+   
+   Значения остаются видимыми, но размещаются ВНУТРИ
+   соответствующих блоков.
+*/
+
+/* Температура внутри кнопки погоды */
+.live-weather {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  left: 27%;
+  top: 22.1%;
+  font-size: clamp(13px, 2.6vw, 28px);
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 2px 4px #000000;
+}
+
+/* USD внутри блока валют */
+.live-usd {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  left: 57.2%;
+  top: 21.8%;
+  font-size: clamp(12px, 2.2vw, 23px);
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 2px 4px #000000;
+}
+
+/* EUR внутри блока валют */
+.live-eur {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  left: 57.2%;
+  top: 24.7%;
+  font-size: clamp(12px, 2.2vw, 23px);
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 2px 4px #000000;
+}
+
+/* Окно */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.72);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  position: relative;
+  width: min(520px, 100%);
+  max-height: 82dvh;
+  overflow: auto;
+  background: #08284a;
+  color: #ffffff;
+  border: 2px solid #12bfff;
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 20px 60px #00000099;
+}
+
+.close {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font-size: 34px
