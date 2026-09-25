@@ -7,7 +7,8 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
   background: #061a33;
 }
 
@@ -16,30 +17,34 @@ body {
   overscroll-behavior: none;
 }
 
-/* ОСНОВНОЙ ЭКРАН */
+/* Весь экран */
 .screen {
   position: relative;
-  width: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
-  background: #061a33;
+  width: 100vw;
+  height: 100dvh;
+  margin: 0;
   overflow: hidden;
+  background: #061a33;
 }
 
 /* ГЛАВНАЯ КАРТИНКА
-   Сохраняем исходные пропорции.
-   Картинка НЕ растягивается по высоте. */
+   Растягиваем изображение ровно на весь экран,
+   чтобы оно доходило до самого низа. */
 .menu-image {
+  position: absolute;
+  left: 0;
+  top: 0;
   display: block;
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
 }
 
-/* НЕВИДИМЫЕ КНОПКИ */
+/* Невидимые кнопки */
 .hotspot {
   position: absolute;
   display: block;
@@ -63,7 +68,7 @@ body {
   z-index: 1;
 }
 
-/* ЛОГОТИП */
+/* Логотип */
 .logo {
   left: 0%;
   top: 0%;
@@ -71,7 +76,7 @@ body {
   height: 21.5%;
 }
 
-/* ПОГОДА */
+/* Погода */
 .weather {
   left: 2%;
   top: 20.8%;
@@ -79,7 +84,7 @@ body {
   height: 7.2%;
 }
 
-/* ВАЛЮТА */
+/* Валюта */
 .currency {
   left: 36.5%;
   top: 20.8%;
@@ -87,7 +92,7 @@ body {
   height: 7.2%;
 }
 
-/* УКРЫТИЯ */
+/* Укрытия */
 .shelters {
   left: 65%;
   top: 20.8%;
@@ -95,7 +100,7 @@ body {
   height: 7.2%;
 }
 
-/* ПОИСК */
+/* Поиск */
 .search-zone {
   left: 2%;
   top: 28.1%;
@@ -103,7 +108,7 @@ body {
   height: 5.7%;
 }
 
-/* КАТЕГОРИЯ 1 */
+/* Категории */
 .cat1 {
   left: 2%;
   top: 34.8%;
@@ -111,7 +116,6 @@ body {
   height: 12.1%;
 }
 
-/* КАТЕГОРИЯ 2 */
 .cat2 {
   left: 50.8%;
   top: 34.8%;
@@ -119,7 +123,6 @@ body {
   height: 12.1%;
 }
 
-/* КАТЕГОРИЯ 3 */
 .cat3 {
   left: 2%;
   top: 47.8%;
@@ -127,7 +130,6 @@ body {
   height: 12.1%;
 }
 
-/* КАТЕГОРИЯ 4 */
 .cat4 {
   left: 50.8%;
   top: 47.8%;
@@ -135,7 +137,6 @@ body {
   height: 12.1%;
 }
 
-/* КАТЕГОРИЯ 5 */
 .cat5 {
   left: 2%;
   top: 61.2%;
@@ -143,7 +144,6 @@ body {
   height: 11.6%;
 }
 
-/* КАТЕГОРИЯ 6 */
 .cat6 {
   left: 50.8%;
   top: 61.2%;
@@ -151,7 +151,6 @@ body {
   height: 11.6%;
 }
 
-/* КАТЕГОРИЯ 7 */
 .cat7 {
   left: 2%;
   top: 73.7%;
@@ -159,7 +158,6 @@ body {
   height: 11.2%;
 }
 
-/* КАТЕГОРИЯ 8 */
 .cat8 {
   left: 50.8%;
   top: 73.7%;
@@ -167,7 +165,7 @@ body {
   height: 11.2%;
 }
 
-/* НАШИ ГРУППЫ */
+/* Наши группы */
 .groups {
   left: 2%;
   top: 86%;
@@ -175,7 +173,7 @@ body {
   height: 6.5%;
 }
 
-/* НИЖНЯЯ ПАНЕЛЬ */
+/* Нижняя строка */
 .bottom-home {
   left: 0%;
   top: 92.4%;
@@ -197,7 +195,7 @@ body {
   height: 7.6%;
 }
 
-/* ДИНАМИЧЕСКАЯ ПОГОДА И ВАЛЮТА */
+/* Динамические данные */
 .live-weather,
 .live-usd,
 .live-eur {
@@ -209,11 +207,99 @@ body {
   text-shadow: 0 2px 4px #000000;
 }
 
-/* ТЕМПЕРАТУРА */
 .live-weather {
   left: 27%;
   top: 23.1%;
   font-size: clamp(13px, 2.6vw, 28px);
 }
 
-/
+.live-usd {
+  left: 57.2%;
+  top: 22.2%;
+  font-size: clamp(12px, 2.2vw, 23px);
+}
+
+.live-eur {
+  left: 57.2%;
+  top: 25%;
+  font-size: clamp(12px, 2.2vw, 23px);
+}
+
+/* Окно */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.72);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  position: relative;
+  width: min(520px, 100%);
+  max-height: 82dvh;
+  overflow: auto;
+  background: #08284a;
+  color: #ffffff;
+  border: 2px solid #12bfff;
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 20px 60px #00000099;
+}
+
+.close {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font-size: 34px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+h2 {
+  margin: 0 42px 16px 0;
+  font-size: 23px;
+}
+
+.result {
+  padding: 13px;
+  border: 1px solid #18bfff55;
+  border-radius: 14px;
+  background: #061f3c;
+  margin: 8px 0;
+}
+
+.result button {
+  margin-top: 8px;
+  border: 1px solid #16c9ff;
+  background: #0a8ed2;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #15bfff;
+  background: #061a33;
+  color: #ffffff;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.small {
+  color: #ccecff;
+  font-size: 14px;
+}
