@@ -3,43 +3,76 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   background: #061a33;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Экран */
 .screen {
   position: relative;
   width: 100%;
+  aspect-ratio: 1080 / 2400;
   margin: 0 auto;
+  overflow: hidden;
 }
 
+/* Основное изображение */
 .menu-image {
+  position: absolute;
+  inset: 0;
+
   display: block;
+
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  height: 100%;
+
+  object-fit: fill;
+
   margin: 0;
   padding: 0;
+
   user-select: none;
   -webkit-user-drag: none;
+
+  z-index: 1;
 }
 
-/* Невидимые кнопки */
+
+/* =====================================================
+   НЕВИДИМЫЕ КНОПКИ
+   ===================================================== */
+
 .hotspot {
   position: absolute;
+
   display: block;
+
   border: 0;
   padding: 0;
   margin: 0;
+
   background: transparent;
+
   cursor: pointer;
-  z-index: 3;
+
+  z-index: 10;
+
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Логотип */
+
+/* =====================================================
+   ЛОГОТИП
+   ===================================================== */
+
 .logo {
   left: 10.5%;
   top: 8.8%;
@@ -47,7 +80,11 @@ body {
   height: 13.2%;
 }
 
-/* Погода */
+
+/* =====================================================
+   ПОГОДА
+   ===================================================== */
+
 .weather {
   left: 3%;
   top: 28.2%;
@@ -55,7 +92,43 @@ body {
   height: 6.9%;
 }
 
-/* Валюта */
+
+/* Живая температура поверх изображения */
+.live-weather {
+  position: absolute;
+
+  left: 3%;
+  top: 28.2%;
+
+  width: 32.3%;
+  height: 6.9%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  z-index: 5;
+
+  color: #ffffff;
+
+  font-size: clamp(18px, 4vw, 42px);
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-align: center;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.65);
+}
+
+
+/* =====================================================
+   ВАЛЮТА
+   ===================================================== */
+
 .currency {
   left: 37.4%;
   top: 28.2%;
@@ -63,7 +136,75 @@ body {
   height: 6.9%;
 }
 
-/* Укрытия */
+
+/* USD */
+.live-usd {
+  position: absolute;
+
+  left: 37.4%;
+  top: 28.2%;
+
+  width: 25.4%;
+  height: 3.45%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  pointer-events: none;
+
+  z-index: 5;
+
+  color: #ffffff;
+
+  font-size: clamp(9px, 2.2vw, 22px);
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-align: center;
+
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.65);
+}
+
+
+/* EUR */
+.live-eur {
+  position: absolute;
+
+  left: 37.4%;
+  top: 31.65%;
+
+  width: 25.4%;
+  height: 3.45%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  pointer-events: none;
+
+  z-index: 5;
+
+  color: #ffffff;
+
+  font-size: clamp(9px, 2.2vw, 22px);
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-align: center;
+
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.65);
+}
+
+
+/* =====================================================
+   УКРЫТИЯ
+   ===================================================== */
+
 .shelters {
   left: 64.6%;
   top: 28.2%;
@@ -71,15 +212,143 @@ body {
   height: 6.9%;
 }
 
-/* Поиск */
-.search-zone {
+
+/* =====================================================
+   ПОИСК — ПРЯМО ПОВЕРХ ИЗОБРАЖЕНИЯ
+   ===================================================== */
+
+.search-area {
+  position: absolute;
+
   left: 3%;
   top: 36.4%;
+
   width: 94%;
   height: 4.9%;
+
+  z-index: 20;
+
+  box-sizing: border-box;
 }
 
-/* Здоровье и уход */
+
+/* Поле поиска */
+.search-input {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0 5%;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: clamp(12px, 3.2vw, 30px);
+  font-weight: 600;
+
+  text-align: center;
+
+  caret-color: #ffffff;
+
+  z-index: 21;
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+/* Placeholder */
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 1;
+}
+
+
+/* Результаты поиска */
+.search-results {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: calc(100% + 6px);
+
+  max-height: 220px;
+
+  overflow-y: auto;
+
+  box-sizing: border-box;
+
+  padding: 4px;
+
+  border-radius: 12px;
+
+  background: rgba(6, 26, 51, 0.96);
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.35);
+
+  z-index: 30;
+}
+
+
+/* Результат */
+.search-result {
+  display: block;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  padding: 10px 12px;
+
+  margin: 2px 0;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+
+.search-result:active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* Скрытие */
+.hidden {
+  display: none !important;
+}
+
+
+/* =====================================================
+   КАТЕГОРИИ
+   ===================================================== */
+
 .cat1 {
   left: 3%;
   top: 43%;
@@ -87,7 +356,6 @@ body {
   height: 9.5%;
 }
 
-/* Транспорт и такси */
 .cat2 {
   left: 51.3%;
   top: 43%;
@@ -95,7 +363,6 @@ body {
   height: 9.5%;
 }
 
-/* Услуги и мастера */
 .cat3 {
   left: 3%;
   top: 53.5%;
@@ -103,7 +370,6 @@ body {
   height: 9.5%;
 }
 
-/* Продукты питания */
 .cat4 {
   left: 51.3%;
   top: 53.5%;
@@ -111,7 +377,6 @@ body {
   height: 9.5%;
 }
 
-/* Коммунальные службы */
 .cat5 {
   left: 3%;
   top: 64.1%;
@@ -119,7 +384,6 @@ body {
   height: 9.1%;
 }
 
-/* Работа и вакансии */
 .cat6 {
   left: 51.3%;
   top: 64.1%;
@@ -127,7 +391,6 @@ body {
   height: 9.1%;
 }
 
-/* Образование и развитие */
 .cat7 {
   left: 3%;
   top: 74.5%;
@@ -135,7 +398,6 @@ body {
   height: 9.2%;
 }
 
-/* Отдых, жильё, море */
 .cat8 {
   left: 51.3%;
   top: 74.5%;
@@ -143,7 +405,11 @@ body {
   height: 9.2%;
 }
 
-/* Наши группы */
+
+/* =====================================================
+   НАШИ ГРУППЫ
+   ===================================================== */
+
 .groups {
   left: 3%;
   top: 84%;
@@ -151,7 +417,11 @@ body {
   height: 5.2%;
 }
 
-/* Нижняя навигация */
+
+/* =====================================================
+   НИЖНЯЯ НАВИГАЦИЯ
+   ===================================================== */
+
 .bottom-home {
   left: 3%;
   top: 90.3%;
@@ -171,4 +441,115 @@ body {
   top: 90.3%;
   width: 27%;
   height: 4.8%;
+}
+
+
+/* =====================================================
+   МОДАЛЬНОЕ ОКНО
+   ===================================================== */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  z-index: 100;
+}
+
+
+.modal.hidden {
+  display: none;
+}
+
+
+.modal-box {
+  position: relative;
+
+  width: min(92vw, 500px);
+
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  box-sizing: border-box;
+
+  padding: 24px;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  color: #061a33;
+
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+
+.modal-box h2 {
+  margin: 0 35px 18px 0;
+}
+
+
+.close {
+  position: absolute;
+
+  top: 8px;
+  right: 12px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #061a33;
+
+  font-size: 32px;
+
+  cursor: pointer;
+}
+
+
+.small {
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+
+.data-error {
+  color: #b00020;
+}
+
+
+/* =====================================================
+   МОБИЛЬНЫЕ ЭКРАНЫ
+   ===================================================== */
+
+@media (max-aspect-ratio: 9/20) {
+
+  .screen {
+    width: 100vw;
+    height: auto;
+  }
+
+}
+
+
+@media (min-aspect-ratio: 9/20) {
+
+  .screen {
+    height: 100vh;
+    width: calc(100vh * 1080 / 2400);
+  }
+
 }
