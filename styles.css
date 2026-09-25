@@ -1,48 +1,37 @@
+
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
   background: #061a33;
-}
-
-body {
   font-family: Arial, Helvetica, sans-serif;
-  overscroll-behavior: none;
 }
 
-/* Весь экран */
 .screen {
   position: relative;
   width: 100vw;
   height: 100dvh;
-  margin: 0;
   overflow: hidden;
   background: #061a33;
 }
 
-/* ГЛАВНАЯ КАРТИНКА */
 .menu-image {
   position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
+  inset: 0;
   width: 100%;
   height: 100%;
-  max-width: none;
   object-fit: fill;
+  pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
-  pointer-events: none;
 }
 
-/* Невидимые кнопки */
 .hotspot {
   position: absolute;
   display: block;
@@ -56,17 +45,11 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.hotspot:active {
-  background: transparent;
+.hotspot:focus-visible {
+  outline: 2px solid #12bfff;
+  outline-offset: -3px;
 }
 
-/* Вся картинка */
-.whole {
-  inset: 0;
-  z-index: 1;
-}
-
-/* Логотип */
 .logo {
   left: 0%;
   top: 0%;
@@ -74,7 +57,6 @@ body {
   height: 21.5%;
 }
 
-/* Погода */
 .weather {
   left: 2%;
   top: 20.8%;
@@ -82,7 +64,6 @@ body {
   height: 7.2%;
 }
 
-/* Валюта */
 .currency {
   left: 36.5%;
   top: 20.8%;
@@ -90,7 +71,6 @@ body {
   height: 7.2%;
 }
 
-/* Укрытия */
 .shelters {
   left: 65%;
   top: 20.8%;
@@ -98,7 +78,6 @@ body {
   height: 7.2%;
 }
 
-/* Поиск */
 .search-zone {
   left: 2%;
   top: 28.1%;
@@ -106,7 +85,6 @@ body {
   height: 5.7%;
 }
 
-/* Категории */
 .cat1 {
   left: 2%;
   top: 34.8%;
@@ -163,7 +141,6 @@ body {
   height: 11.2%;
 }
 
-/* Наши группы */
 .groups {
   left: 2%;
   top: 86%;
@@ -171,7 +148,6 @@ body {
   height: 6.5%;
 }
 
-/* Нижняя строка */
 .bottom-home {
   left: 0%;
   top: 92.4%;
@@ -193,62 +169,44 @@ body {
   height: 7.6%;
 }
 
-/* =========================================================
-   ДИНАМИЧЕСКИЕ ДАННЫЕ
-   =========================================================
-   
-   Значения остаются видимыми, но размещаются ВНУТРИ
-   соответствующих блоков.
-*/
-
-/* Температура внутри кнопки погоды */
-.live-weather {
-  position: absolute;
-  z-index: 4;
-  pointer-events: none;
-  left: 27%;
-  top: 22.1%;
-  font-size: clamp(13px, 2.6vw, 28px);
-  color: #ffffff;
-  font-weight: 800;
-  line-height: 1;
-  text-shadow: 0 2px 4px #000000;
-}
-
-/* USD внутри блока валют */
-.live-usd {
-  position: absolute;
-  z-index: 4;
-  pointer-events: none;
-  left: 57.2%;
-  top: 21.8%;
-  font-size: clamp(12px, 2.2vw, 23px);
-  color: #ffffff;
-  font-weight: 800;
-  line-height: 1;
-  text-shadow: 0 2px 4px #000000;
-}
-
-/* EUR внутри блока валют */
+/* Данные погоды и валют */
+.live-weather,
+.live-usd,
 .live-eur {
   position: absolute;
   z-index: 4;
   pointer-events: none;
-  left: 57.2%;
-  top: 24.7%;
-  font-size: clamp(12px, 2.2vw, 23px);
-  color: #ffffff;
+  color: #fff;
   font-weight: 800;
-  line-height: 1;
-  text-shadow: 0 2px 4px #000000;
+  line-height: 1.15;
+  text-shadow: 0 2px 4px #000;
+  white-space: nowrap;
 }
 
-/* Окно */
+.live-weather {
+  left: 27%;
+  top: 22.1%;
+  font-size: clamp(12px, 2.6vw, 28px);
+}
+
+.live-usd {
+  left: 57.2%;
+  top: 21.8%;
+  font-size: clamp(10px, 2.2vw, 23px);
+}
+
+.live-eur {
+  left: 57.2%;
+  top: 24.7%;
+  font-size: clamp(10px, 2.2vw, 23px);
+}
+
+/* Всплывающее окно */
 .modal {
   position: fixed;
   inset: 0;
   z-index: 20;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, .72);
   display: grid;
   place-items: center;
   padding: 18px;
@@ -264,18 +222,67 @@ body {
   max-height: 82dvh;
   overflow: auto;
   background: #08284a;
-  color: #ffffff;
+  color: #fff;
   border: 2px solid #12bfff;
   border-radius: 22px;
   padding: 22px;
-  box-shadow: 0 20px 60px #00000099;
+  box-shadow: 0 20px 60px #0009;
+}
+
+.modal-box h2 {
+  margin: 0 35px 18px 0;
+  font-size: 22px;
 }
 
 .close {
   position: absolute;
-  right: 8px;
-  top: 4px;
+  right: 10px;
+  top: 5px;
   border: 0;
   background: transparent;
-  color: #ffffff;
-  font-size: 34px
+  color: #fff;
+  font-size: 34px;
+  cursor: pointer;
+}
+
+.modal-box p {
+  line-height: 1.5;
+}
+
+.search-input {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: 1px solid #5c8eb9;
+  background: #fff;
+  color: #111;
+  font-size: 16px;
+}
+
+.result {
+  margin-top: 12px;
+  padding: 12px;
+  background: #123b61;
+  border-radius: 10px;
+}
+
+.search-open {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #12bfff;
+  color: #061a33;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.small {
+  font-size: 13px;
+  opacity: .85;
+  margin-top: 10px;
+}
+
+.data-error {
+  color: #ffd27d;
+}
