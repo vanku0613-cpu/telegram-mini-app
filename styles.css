@@ -9,11 +9,8 @@ html {
   min-width: 0;
   margin: 0;
   padding: 0;
-
   background: #061b35;
-
   overflow-x: hidden;
-
   -webkit-text-size-adjust: 100%;
 }
 
@@ -21,14 +18,10 @@ body {
   width: 100%;
   min-width: 0;
   min-height: 100vh;
-
   margin: 0;
   padding: 0;
-
   background: #061b35;
-
   overflow-x: hidden;
-
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
@@ -36,10 +29,8 @@ body {
 .app {
   width: 100%;
   min-width: 0;
-
   margin: 0;
   padding: 0;
-
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -47,36 +38,26 @@ body {
 
 .reference {
   position: relative;
-
   width: min(100%, 709px);
   max-width: 709px;
   min-width: 0;
-
   margin: 0;
   padding: 0;
-
   overflow: hidden;
-
   line-height: 0;
 }
 
 .reference-image {
   position: relative;
-
   display: block;
-
   width: 100%;
   max-width: 100%;
   height: auto;
-
   margin: 0;
   padding: 0;
-
   border: 0;
-
   object-fit: contain;
   object-position: top left;
-
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
@@ -85,13 +66,6 @@ body {
 
 /* =========================================================
    ПОГОДА + КУРС НБУ
-
-   ВАЖНО:
-   СПРАВА ОСТАЁТСЯ МЕСТО ПОД СУЩЕСТВУЮЩУЮ
-   КНОПКУ "УКРЫТИЯ ИЗМАИЛ".
-
-   ИТОГО:
-   ПОГОДА | КУРС | УКРЫТИЯ
    ========================================================= */
 
 .live-widgets {
@@ -99,35 +73,16 @@ body {
 
   z-index: 20;
 
-  /*
-   * ЛЕВАЯ ГРАНИЦА ПЕРВОГО ВИДЖЕТА
-   */
   left: 3.1%;
-
-  /*
-   * ВЕРХ ТОЧНО НА УРОВНЕ КНОПКИ "УКРЫТИЯ"
-   */
   top: 27.8%;
 
-  /*
-   * ДВА ВИДЖЕТА ЗАНИМАЮТ
-   * ТОЛЬКО СВОЮ ЛЕВУЮ ОБЛАСТЬ.
-   */
   width: 59.7%;
-
-  /*
-   * ТА ЖЕ ВЫСОТА,
-   * ЧТО И КНОПКА "УКРЫТИЯ".
-   */
   height: 6.25%;
 
   display: grid;
 
   grid-template-columns: 1fr 1fr;
 
-  /*
-   * Небольшой ровный промежуток.
-   */
   gap: 1.8%;
 
   margin: 0;
@@ -161,21 +116,20 @@ body {
   text-decoration: none;
 
   /*
-   * НЕТ ЗАЛИВКИ.
-   * НЕТ BLUR.
-   * НЕТ BACKDROP-FILTER.
+   * ТЁМНЫЙ ПРОЗРАЧНЫЙ ФОН.
+   * ФОТОГРАФИЮ НЕ РАЗМЫВАЕМ.
    */
-  background: transparent;
+  background: rgba(6, 27, 53, 0.86);
 
-  /*
-   * Только тонкий кант.
-   */
-  border: 1px solid rgba(70, 210, 255, 0.55);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  border: 1px solid rgba(70, 210, 255, 0.65);
 
   border-radius: 18px;
 
   box-shadow:
-    0 0 5px rgba(0, 190, 255, 0.16);
+    0 0 5px rgba(0, 190, 255, 0.18);
 
   overflow: hidden;
 
@@ -427,7 +381,6 @@ body {
 
 /* =========================================================
    ЛОГОТИП
-   КРУГ
    ========================================================= */
 
 .logo-hotspot {
@@ -447,7 +400,6 @@ body {
 
 /* =========================================================
    УКРЫТИЯ
-   РОВНО ПО КНОПКЕ НА КАРТИНКЕ
    ========================================================= */
 
 .shelter-hotspot {
@@ -481,6 +433,43 @@ body {
   cursor: pointer;
 
   appearance: none;
+}
+
+
+/* =========================================================
+   НАДПИСЬ "ПОИСК ПО СПРАВОЧНИКУ"
+   ========================================================= */
+
+.search-hotspot::before {
+  content: "Поиск по справочнику";
+
+  position: absolute;
+
+  left: 13.5%;
+  right: 12%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: rgba(255, 255, 255, 0.94);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: clamp(12px, 2.5vw, 18px);
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-align: left;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.65);
+
+  pointer-events: none;
 }
 
 .search-hotspot::after {
@@ -561,8 +550,6 @@ body {
 
 /* =========================================================
    НИЖНЕЕ МЕНЮ
-
-   КАЖДАЯ ЗОНА РОВНО НА СВОЕЙ КНОПКЕ.
    ========================================================= */
 
 .nav-hotspot {
@@ -599,7 +586,7 @@ body {
 
 
 /* =========================================================
-   НЕ ПОКАЗЫВАЕМ СИСТЕМНУЮ РАМКУ FOCUS
+   FOCUS
    ========================================================= */
 
 .hotspot:focus-visible,
