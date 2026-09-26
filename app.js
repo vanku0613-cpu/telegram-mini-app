@@ -4,7 +4,7 @@
 
   /*
    * =========================================================
-   * БЕРЁМ НАСТРОЙКИ ИЗ config.js
+   * НАСТРОЙКИ
    * =========================================================
    */
 
@@ -52,7 +52,7 @@
 
   /*
    * =========================================================
-   * ПОДКЛЮЧАЕМ ССЫЛКИ
+   * ССЫЛКИ
    * =========================================================
    */
 
@@ -79,6 +79,7 @@
 
 
   Object.entries(linkMap).forEach(([id, url]) => {
+
     const element = $(id);
 
     if (!element || !url) {
@@ -91,28 +92,19 @@
       element.target = "_blank";
       element.rel = "noopener noreferrer";
     }
+
   });
 
 
   /*
    * =========================================================
-   * ПУСТЫЕ ССЫЛКИ НЕ ДЕЛАЮТ НИЧЕГО
+   * ПУСТЫЕ ССЫЛКИ
    * =========================================================
    */
 
   document.querySelectorAll(".hotspot").forEach((element) => {
 
     element.addEventListener("click", (event) => {
-
-      /*
-       * Поисковый input должен получать нажатие сам.
-       */
-      if (
-        event.target instanceof HTMLInputElement ||
-        event.target instanceof HTMLButtonElement
-      ) {
-        return;
-      }
 
       const href = element.getAttribute("href");
 
@@ -135,6 +127,7 @@
   const weatherText = $("weatherText");
 
   const weatherNames = {
+
     0: "Ясно",
 
     1: "Преимущественно ясно",
@@ -174,6 +167,7 @@
     95: "Гроза",
     96: "Гроза с градом",
     99: "Гроза с градом"
+
   };
 
 
@@ -312,152 +306,213 @@
 
   /*
    * =========================================================
-   * ПОИСК ПО СПРАВОЧНИКУ
-   * =========================================================
+   * ПОИСК
    *
-   * Декоративная надпись остаётся в CSS.
-   *
-   * Настоящий input создаётся программно
-   * и полностью прозрачный.
-   *
-   * При нажатии:
-   * - input получает фокус;
-   * - декоративная надпись исчезает;
-   * - появляется курсор;
-   * - пользователь может вводить текст.
-   *
-   * При очистке:
-   * - декоративная надпись возвращается.
+   * ВАЖНО:
+   * Настоящее поле создаётся поверх картинки,
+   * но визуально оно полностью прозрачное.
    * =========================================================
    */
 
-  const searchHotspot = $("searchHotspot");
-
-  let searchInput = null;
+  const searchButton = $("searchHotspot");
 
 
-  /*
-   * Данные категорий справочника.
-   */
-
-  const searchCategories = [
-    {
-      selector: ".health-hotspot",
-      title: "Здоровье и уход",
-      text:
-        "медицина аптеки красота врач клиника больница стоматология косметология здоровье"
-    },
-
-    {
-      selector: ".transport-hotspot",
-      title: "Транспорт Такси",
-      text:
-        "такси транспорт автобусы перевозки маршрутка водитель трансфер"
-    },
-
-    {
-      selector: ".services-hotspot",
-      title: "Услуги и мастера",
-      text:
-        "услуги мастера ремонт строительство специалисты сантехник электрик ремонт квартир"
-    },
-
-    {
-      selector: ".food-hotspot",
-      title: "Продукты питания",
-      text:
-        "продукты магазины рынки доставка супермаркет еда продукты питание"
-    },
-
-    {
-      selector: ".utilities-hotspot",
-      title: "Коммунальные службы",
-      text:
-        "коммунальные службы свет вода газ тепло электричество отопление"
-    },
-
-    {
-      selector: ".jobs-hotspot",
-      title: "Работа Вакансии",
-      text:
-        "работа вакансии найти работу резюме трудоустройство работодатель"
-    },
-
-    {
-      selector: ".education-hotspot",
-      title: "Образование и развитие",
-      text:
-        "образование школы курсы репетиторы обучение уроки английский язык развитие"
-    },
-
-    {
-      selector: ".leisure-hotspot",
-      title: "Отдых Жильё Море",
-      text:
-        "отдых жилье море базы отдыха рестораны кафе гостиницы отели туризм"
-    }
-  ];
-
-
-  /*
-   * Нормализация текста.
-   */
-
-  function normalizeSearchText(value) {
-
-    return String(value || "")
-      .toLowerCase()
-      .replace(/ё/g, "е")
-      .trim();
-
-  }
-
-
-  /*
-   * Создаём невидимое поле поиска.
-   */
-
-  if (searchHotspot) {
-
-    searchInput =
-      document.createElement("input");
-
-    searchInput.type = "search";
-
-    searchInput.className =
-      "search-input";
-
-    searchInput.autocomplete = "off";
-
-    searchInput.autocorrect = "off";
-
-    searchInput.autocapitalize = "none";
-
-    searchInput.spellcheck = false;
-
-    searchInput.setAttribute(
-      "aria-label",
-      "Поиск по справочнику Измаил"
-    );
+  if (searchButton) {
 
     /*
-     * Сам input невидимый.
-     * Визуально остаётся только
-     * декоративная надпись из CSS.
+     * ---------------------------------------------------------
+     * Создаём настоящее поле поиска
+     * ---------------------------------------------------------
      */
 
-    searchHotspot.appendChild(searchInput);
+    const searchInput = document.createElement("input");
+
+    searchInput.type = "text";
+    searchInput.id = "directorySearchInput";
+    searchInput.name = "directory-search";
+    searchInput.autocomplete = "off";
+    searchInput.autocorrect = "off";
+    searchInput.autocapitalize = "sentences";
+    searchInput.spellcheck = false;
+    searchInput.inputMode = "search";
+    searchInput.placeholder = "";
 
 
     /*
-     * Нажатие прямо на input.
+     * ---------------------------------------------------------
+     * Стили поля задаём прямо здесь.
+     *
+     * Поэтому ничего дополнительно в CSS менять не надо.
+     * ---------------------------------------------------------
+     */
+
+    searchInput.style.position = "absolute";
+    searchInput.style.left = "0";
+    searchInput.style.top = "0";
+    searchInput.style.width = "100%";
+    searchInput.style.height = "100%";
+
+    searchInput.style.margin = "0";
+    searchInput.style.padding = "0 12% 0 13.5%";
+
+    searchInput.style.border = "0";
+    searchInput.style.outline = "none";
+
+    searchInput.style.background = "transparent";
+
+    searchInput.style.fontFamily =
+      "Arial, Helvetica, sans-serif";
+
+    searchInput.style.fontSize =
+      "clamp(12px, 2.5vw, 18px)";
+
+    searchInput.style.fontWeight = "700";
+
+    searchInput.style.lineHeight = "1";
+
+    searchInput.style.textAlign = "left";
+
+    searchInput.style.caretColor = "#ffffff";
+
+    searchInput.style.color = "transparent";
+
+    searchInput.style.textShadow =
+      "0 1px 3px rgba(0,0,0,0.65)";
+
+    searchInput.style.zIndex = "10";
+
+    searchInput.style.webkitAppearance = "none";
+    searchInput.style.appearance = "none";
+
+    searchInput.style.borderRadius = "inherit";
+
+    searchInput.style.webkitTapHighlightColor =
+      "transparent";
+
+
+    /*
+     * ---------------------------------------------------------
+     * Добавляем поле внутрь области поиска
+     * ---------------------------------------------------------
+     */
+
+    searchButton.appendChild(searchInput);
+
+
+    /*
+     * ---------------------------------------------------------
+     * Красивое отображение введённого текста.
+     *
+     * Пока поле пустое — оно полностью невидимое.
+     * При вводе текст становится белым.
+     * ---------------------------------------------------------
+     */
+
+    const searchStyle = document.createElement("style");
+
+    searchStyle.textContent = `
+
+      #searchHotspot {
+        overflow: hidden;
+      }
+
+      #searchHotspot::before {
+        content: "Поиск по справочнику Измаил";
+        transition: opacity 100ms ease;
+      }
+
+      #searchHotspot.search-focused::before {
+        opacity: 0;
+      }
+
+      #directorySearchInput {
+        -webkit-user-select: text;
+        user-select: text;
+      }
+
+      #directorySearchInput:focus {
+        color: #ffffff !important;
+      }
+
+      #directorySearchInput::placeholder {
+        color: transparent;
+      }
+
+    `;
+
+    document.head.appendChild(searchStyle);
+
+
+    /*
+     * ---------------------------------------------------------
+     * Нажатие на область поиска
+     *
+     * Это главный момент.
+     *
+     * Сначала отменяем действие ссылки,
+     * затем ставим настоящий focus на input.
+     * ---------------------------------------------------------
+     */
+
+    const openKeyboard = (event) => {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      searchInput.focus({
+        preventScroll: true
+      });
+
+    };
+
+
+    searchButton.addEventListener(
+      "click",
+      openKeyboard,
+      true
+    );
+
+
+    /*
+     * ---------------------------------------------------------
+     * На мобильном телефоне дополнительно обрабатываем
+     * pointerdown.
+     *
+     * Это помогает Telegram/WebView открыть клавиатуру
+     * именно после физического нажатия пользователя.
+     * ---------------------------------------------------------
+     */
+
+    searchButton.addEventListener(
+      "pointerdown",
+      (event) => {
+
+        if (event.pointerType === "touch") {
+
+          event.preventDefault();
+
+          searchInput.focus({
+            preventScroll: true
+          });
+
+        }
+
+      },
+      true
+    );
+
+
+    /*
+     * ---------------------------------------------------------
+     * ФОКУС
+     * ---------------------------------------------------------
      */
 
     searchInput.addEventListener(
       "focus",
       () => {
 
-        searchHotspot.classList.add(
+        searchButton.classList.add(
           "search-focused"
         );
 
@@ -466,65 +521,67 @@
 
 
     /*
-     * Когда пользователь печатает.
+     * ---------------------------------------------------------
+     * ВВОД ТЕКСТА
+     * ---------------------------------------------------------
      */
 
     searchInput.addEventListener(
       "input",
       () => {
 
-        performSearch(
+        const query =
           searchInput.value
-        );
+            .trim()
+            .toLowerCase();
+
 
         /*
-         * Если поле снова пустое —
-         * декоративная надпись возвращается.
+         * Если поле очистили —
+         * возвращаем красивую надпись.
          */
 
-        if (
-          normalizeSearchText(
-            searchInput.value
-          ) === ""
-        ) {
+        if (!query) {
 
-          searchHotspot.classList.remove(
+          searchButton.classList.remove(
             "search-focused"
           );
 
-        } else {
+          clearSearchResults();
 
-          searchHotspot.classList.add(
-            "search-focused"
-          );
-
+          return;
         }
+
+
+        searchButton.classList.add(
+          "search-focused"
+        );
+
+
+        performSearch(query);
 
       }
     );
 
 
     /*
-     * Потеря фокуса:
-     *
-     * если ничего не введено —
-     * возвращаем декоративную надпись.
+     * ---------------------------------------------------------
+     * Потеря фокуса
+     * ---------------------------------------------------------
      */
 
     searchInput.addEventListener(
       "blur",
       () => {
 
-        if (
-          normalizeSearchText(
-            searchInput.value
-          ) === ""
-        ) {
+        if (!searchInput.value.trim()) {
 
-          searchHotspot.classList.remove(
+          searchButton.classList.remove(
             "search-focused"
           );
 
+          clearSearchResults();
+
         }
 
       }
@@ -532,36 +589,9 @@
 
 
     /*
-     * Нажатие на всю область поиска.
-     *
-     * Фокусируем невидимый input.
-     */
-
-    searchHotspot.addEventListener(
-      "pointerdown",
-      (event) => {
-
-        /*
-         * Если нажали именно на input,
-         * браузер сам обработает фокус.
-         */
-
-        if (
-          event.target === searchInput
-        ) {
-          return;
-        }
-
-        event.preventDefault();
-
-        searchInput.focus();
-
-      }
-    );
-
-
-    /*
-     * Enter.
+     * ---------------------------------------------------------
+     * ENTER
+     * ---------------------------------------------------------
      */
 
     searchInput.addEventListener(
@@ -574,55 +604,16 @@
 
         event.preventDefault();
 
-        const results =
-          getSearchResults(
-            searchInput.value
-          );
+        const query =
+          searchInput.value
+            .trim()
+            .toLowerCase();
 
-        /*
-         * Если найден один раздел
-         * и у него есть рабочая ссылка —
-         * открываем её.
-         */
-
-        if (results.length === 1) {
-
-          const element =
-            document.querySelector(
-              results[0].selector
-            );
-
-          if (!element) {
-            return;
-          }
-
-          const href =
-            element.getAttribute("href");
-
-          if (
-            href &&
-            href !== "#"
-          ) {
-
-            if (
-              /^https?:\/\//i.test(href)
-            ) {
-
-              window.open(
-                href,
-                "_blank",
-                "noopener,noreferrer"
-              );
-
-            } else {
-
-              window.location.href = href;
-
-            }
-
-          }
-
+        if (!query) {
+          return;
         }
+
+        performSearch(query);
 
       }
     );
@@ -632,144 +623,202 @@
 
   /*
    * =========================================================
-   * ПОЛУЧИТЬ РЕЗУЛЬТАТЫ ПОИСКА
+   * ПОИСК ПО КАТЕГОРИЯМ
    * =========================================================
    */
 
-  function getSearchResults(value) {
+  function performSearch(query) {
 
-    const query =
-      normalizeSearchText(value);
+    const categories = [
 
-    if (!query) {
-      return [];
-    }
+      {
+        id: "healthLink",
+        hotspot: ".health-hotspot",
+        words: [
+          "здоровье",
+          "медицина",
+          "аптеки",
+          "аптека",
+          "красота",
+          "врач",
+          "доктор"
+        ]
+      },
 
-    const words =
-      query
-        .split(/\s+/)
-        .filter(Boolean);
+      {
+        id: "transportLink",
+        hotspot: ".transport-hotspot",
+        words: [
+          "транспорт",
+          "такси",
+          "автобус",
+          "перевозки"
+        ]
+      },
+
+      {
+        id: "servicesLink",
+        hotspot: ".services-hotspot",
+        words: [
+          "услуги",
+          "мастера",
+          "ремонт",
+          "строительство",
+          "специалисты"
+        ]
+      },
+
+      {
+        id: "foodLink",
+        hotspot: ".food-hotspot",
+        words: [
+          "продукты",
+          "магазины",
+          "магазин",
+          "рынки",
+          "рынок",
+          "доставка",
+          "еда"
+        ]
+      },
+
+      {
+        id: "utilitiesLink",
+        hotspot: ".utilities-hotspot",
+        words: [
+          "коммунальные",
+          "свет",
+          "вода",
+          "газ",
+          "тепло"
+        ]
+      },
+
+      {
+        id: "jobsLink",
+        hotspot: ".jobs-hotspot",
+        words: [
+          "работа",
+          "вакансии",
+          "вакансия",
+          "резюме",
+          "работы"
+        ]
+      },
+
+      {
+        id: "educationLink",
+        hotspot: ".education-hotspot",
+        words: [
+          "образование",
+          "школы",
+          "школа",
+          "курсы",
+          "репетиторы",
+          "репетитор"
+        ]
+      },
+
+      {
+        id: "leisureLink",
+        hotspot: ".leisure-hotspot",
+        words: [
+          "отдых",
+          "жильё",
+          "жилье",
+          "море",
+          "базы отдыха",
+          "рестораны",
+          "ресторан",
+          "кафе"
+        ]
+      }
+
+    ];
 
 
-    return searchCategories.filter(
-      (category) => {
+    let found = false;
 
-        const haystack =
-          normalizeSearchText(
-            `${category.title} ${category.text}`
-          );
 
-        return words.every(
+    categories.forEach((category) => {
+
+      const element =
+        document.querySelector(
+          category.hotspot
+        );
+
+      if (!element) {
+        return;
+      }
+
+
+      const matches =
+        category.words.some(
           (word) =>
-            haystack.includes(word)
+            word.includes(query) ||
+            query.includes(word)
+        );
+
+
+      if (matches) {
+
+        found = true;
+
+        element.classList.add(
+          "search-match"
+        );
+
+      } else {
+
+        element.classList.remove(
+          "search-match"
         );
 
       }
-    );
+
+    });
+
+
+    /*
+     * Если ничего не найдено —
+     * просто ничего не ломаем.
+     */
+
+    if (!found) {
+      return;
+    }
 
   }
 
 
   /*
    * =========================================================
-   * ВЫПОЛНИТЬ ПОИСК
+   * ОЧИСТКА РЕЗУЛЬТАТОВ ПОИСКА
    * =========================================================
    */
 
-  function performSearch(value) {
+  function clearSearchResults() {
 
-    const query =
-      normalizeSearchText(value);
+    document
+      .querySelectorAll(".search-match")
+      .forEach((element) => {
 
+        element.classList.remove(
+          "search-match"
+        );
 
-    const categoryElements =
-      searchCategories
-        .map(
-          (category) =>
-            document.querySelector(
-              category.selector
-            )
-        )
-        .filter(Boolean);
+      });
 
 
-    /*
-     * Пустой поиск:
-     * возвращаем всё как было.
-     */
+    document
+      .querySelectorAll(".search-no-match")
+      .forEach((element) => {
 
-    if (!query) {
+        element.classList.remove(
+          "search-no-match"
+        );
 
-      categoryElements.forEach(
-        (element) => {
-
-          element.classList.remove(
-            "search-match"
-          );
-
-          element.classList.remove(
-            "search-no-match"
-          );
-
-        }
-      );
-
-      return;
-
-    }
-
-
-    const results =
-      getSearchResults(query);
-
-    const resultSelectors =
-      new Set(
-        results.map(
-          (item) => item.selector
-        )
-      );
-
-
-    categoryElements.forEach(
-      (element) => {
-
-        const category =
-          searchCategories.find(
-            (item) =>
-              document.querySelector(
-                item.selector
-              ) === element
-          );
-
-        if (
-          category &&
-          resultSelectors.has(
-            category.selector
-          )
-        ) {
-
-          element.classList.add(
-            "search-match"
-          );
-
-          element.classList.remove(
-            "search-no-match"
-          );
-
-        } else {
-
-          element.classList.remove(
-            "search-match"
-          );
-
-          element.classList.add(
-            "search-no-match"
-          );
-
-        }
-
-      }
-    );
+      });
 
   }
 
@@ -789,5 +838,6 @@
     loadCurrency,
     30 * 60 * 1000
   );
+
 
 })();
