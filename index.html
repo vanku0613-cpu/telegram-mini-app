@@ -2,7 +2,12 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+  >
+
   <meta name="theme-color" content="#061b35">
 
   <title>Главный справочник Измаил</title>
@@ -14,63 +19,83 @@
 
   <main class="app">
 
-    <div class="reference">
+    <div class="reference" id="reference">
 
-      <!-- НАША РОДНАЯ КАРТИНКА 709 × 1536 -->
+      <!--
+        ВАЖНО:
+        Этот PNG является основным дизайном.
+        Он должен лежать рядом с index.html.
+      -->
       <img
+        id="referenceImage"
         class="reference-image"
         src="file_000000000628820a991aedd6c0479451.png"
         alt="Главный справочник Измаил"
       >
 
+
       <!-- =====================================================
            ПОГОДА + КУРС ВАЛЮТ
            ===================================================== -->
 
-      <section class="live-widgets">
+      <section
+        class="live-widgets"
+        aria-label="Погода и курс валют"
+      >
 
-        <!-- ПОГОДА -->
+        <!-- ПОГОДА ИЗМАИЛ -->
         <article class="widget weather-widget">
 
           <div class="widget-title">
             🌤️ ПОГОДА
           </div>
 
-          <div id="weatherTemp" class="widget-main">
-            —°
+          <div
+            id="weatherTemp"
+            class="widget-main"
+          >
+            —°C
           </div>
 
-          <div id="weatherText" class="widget-sub">
+          <div
+            id="weatherText"
+            class="widget-sub"
+          >
             Загрузка…
           </div>
 
         </article>
 
 
-        <!-- КУРС ИЗМАИЛ -->
+        <!-- КУРС ВАЛЮТ -->
         <a
+          id="currencyWidget"
           class="widget currency-widget"
           href="https://minfin.com.ua/currency/izmail/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Курс валют в Измаиле"
         >
 
           <div class="widget-title">
-            💱 КУРС ИЗМАИЛ
+            💱 КУРС
           </div>
 
           <div class="currency-line">
             <b>USD</b>
-            <span id="usdRate">открыть</span>
+            <span id="usdRate">—</span>
           </div>
 
           <div class="currency-line">
             <b>EUR</b>
-            <span id="eurRate">открыть</span>
+            <span id="eurRate">—</span>
           </div>
 
-          <div class="widget-source">
-            Minfin · актуальный курс Измаила
+          <div
+            id="currencySource"
+            class="widget-source"
+          >
+            НБУ · нажмите для курса Измаила
           </div>
 
         </a>
@@ -79,10 +104,10 @@
 
 
       <!-- =====================================================
-           ПРОЗРАЧНЫЕ КНОПКИ ПОВЕРХ РОДНОЙ КАРТИНКИ
+           ПРОЗРАЧНЫЕ КНОПКИ ПОВЕРХ ИСХОДНОЙ КАРТИНКИ
            ===================================================== -->
 
-      <!-- Главный круг / основная группа -->
+      <!-- Главный логотип -->
       <a
         id="mainGroup"
         class="hotspot logo-hotspot"
@@ -190,7 +215,9 @@
       ></a>
 
 
-      <!-- Нижнее меню -->
+      <!-- =====================================================
+           НИЖНЕЕ МЕНЮ
+           ===================================================== -->
 
       <a
         id="homeLink"
@@ -199,12 +226,14 @@
         aria-label="Главная"
       ></a>
 
+
       <a
         id="adsLink"
         class="hotspot nav-hotspot ads-hotspot"
         href="#"
         aria-label="Заказать рекламу"
       ></a>
+
 
       <a
         id="favoritesLink"
