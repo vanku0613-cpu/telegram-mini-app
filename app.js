@@ -1,6 +1,7 @@
 (() => {
   "use strict";
 
+
   /*
    * =========================================================
    * НАСТРОЙКИ
@@ -104,7 +105,7 @@
   document.querySelectorAll(".hotspot").forEach((element) => {
 
     /*
-     * Поиск обрабатывается отдельно.
+     * Поиск не является ссылкой.
      */
     if (element.id === "searchHotspot") {
       return;
@@ -132,7 +133,9 @@
   const weatherTemp = $("weatherTemp");
   const weatherText = $("weatherText");
 
+
   const weatherNames = {
+
     0: "Ясно",
 
     1: "Преимущественно ясно",
@@ -172,6 +175,7 @@
     95: "Гроза",
     96: "Гроза с градом",
     99: "Гроза с градом"
+
   };
 
 
@@ -179,11 +183,16 @@
 
     try {
 
-      const latitude = Number(WEATHER.latitude);
-      const longitude = Number(WEATHER.longitude);
+      const latitude =
+        Number(WEATHER.latitude);
+
+      const longitude =
+        Number(WEATHER.longitude);
 
       const timezone =
-        WEATHER.timezone || "Europe/Kyiv";
+        WEATHER.timezone ||
+        "Europe/Kyiv";
+
 
       const url =
         "https://api.open-meteo.com/v1/forecast" +
@@ -192,49 +201,77 @@
         "&current=temperature_2m,weather_code" +
         `&timezone=${encodeURIComponent(timezone)}`;
 
-      const response = await fetch(url, {
-        cache: "no-store"
-      });
+
+      const response =
+        await fetch(url, {
+          cache: "no-store"
+        });
+
 
       if (!response.ok) {
-        throw new Error("Weather request failed");
+        throw new Error(
+          "Weather request failed"
+        );
       }
 
-      const data = await response.json();
+
+      const data =
+        await response.json();
+
 
       if (!data.current) {
-        throw new Error("No current weather");
+        throw new Error(
+          "No current weather"
+        );
       }
+
 
       const temperature =
-        Math.round(Number(data.current.temperature_2m));
+        Math.round(
+          Number(
+            data.current.temperature_2m
+          )
+        );
+
 
       const code =
-        Number(data.current.weather_code);
+        Number(
+          data.current.weather_code
+        );
+
 
       if (weatherTemp) {
+
         weatherTemp.textContent =
           `${temperature}°C`;
+
       }
 
+
       if (weatherText) {
+
         weatherText.textContent =
-          weatherNames[code] || "Погода";
+          weatherNames[code] ||
+          "Погода";
+
       }
 
     } catch (_) {
 
       if (weatherTemp) {
-        weatherTemp.textContent = "—°C";
+        weatherTemp.textContent =
+          "—°C";
       }
 
       if (weatherText) {
-        weatherText.textContent = "Нет данных";
+        weatherText.textContent =
+          "Нет данных";
       }
 
     }
 
   }
+
 
   loadWeather();
 
@@ -256,39 +293,60 @@
       const url =
         "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json";
 
-      const response = await fetch(url, {
-        cache: "no-store"
-      });
+
+      const response =
+        await fetch(url, {
+          cache: "no-store"
+        });
+
 
       if (!response.ok) {
-        throw new Error("Currency request failed");
+        throw new Error(
+          "Currency request failed"
+        );
       }
 
-      const data = await response.json();
+
+      const data =
+        await response.json();
+
 
       if (!Array.isArray(data)) {
-        throw new Error("Invalid currency data");
+        throw new Error(
+          "Invalid currency data"
+        );
       }
 
-      const usd = data.find(
-        (item) =>
-          String(item.cc).toUpperCase() === "USD"
-      );
 
-      const eur = data.find(
-        (item) =>
-          String(item.cc).toUpperCase() === "EUR"
-      );
+      const usd =
+        data.find(
+          (item) =>
+            String(item.cc)
+              .toUpperCase() === "USD"
+        );
+
+
+      const eur =
+        data.find(
+          (item) =>
+            String(item.cc)
+              .toUpperCase() === "EUR"
+        );
 
 
       if (usd && usdRate) {
+
         usdRate.textContent =
           `${Number(usd.rate).toFixed(2)} ₴`;
+
       }
 
+
       if (eur && eurRate) {
+
         eurRate.textContent =
           `${Number(eur.rate).toFixed(2)} ₴`;
+
       }
 
     } catch (_) {
@@ -305,73 +363,43 @@
 
   }
 
+
   loadCurrency();
 
 
   /*
    * =========================================================
    * ПОИСК
-   *
-   * ВАЖНО:
-   * НИКАКИХ preventDefault() НА TOUCH.
-   *
-   * Настоящий input находится непосредственно поверх
-   * существующей надписи поиска.
    * =========================================================
    */
 
-  const searchButton = $("searchHotspot");
+  const searchHotspot =
+    $("searchHotspot");
+
+  const searchInput =
+    $("directorySearchInput");
 
 
-  if (searchButton) {
-
-    const searchInput =
-      document.createElement("input");
+  if (searchHotspot && searchInput) {
 
 
     /*
      * ---------------------------------------------------------
-     * ПАРАМЕТРЫ INPUT
+     * ВАЖНО:
+     *
+     * Никаких preventDefault()
+     * Никаких touchstart
+     * Никаких pointerdown
+     *
+     * Это настоящий HTML input.
+     * Android должен сам открыть клавиатуру.
      * ---------------------------------------------------------
      */
 
-    searchInput.type = "search";
-
-    searchInput.id =
-      "directorySearchInput";
-
-    searchInput.name =
-      "directory-search";
-
-    searchInput.autocomplete =
-      "off";
-
-    searchInput.autocorrect =
-      "off";
-
-    searchInput.autocapitalize =
-      "sentences";
-
-    searchInput.spellcheck =
-      false;
-
-    searchInput.inputMode =
-      "search";
-
-    searchInput.enterKeyHint =
-      "search";
-
-    searchInput.placeholder =
-      "";
-
 
     /*
      * ---------------------------------------------------------
-     * ПОЗИЦИЯ
-     * ---------------------------------------------------------
-     *
-     * Поле занимает ВСЮ существующую область поиска.
-     * Никаких новых кнопок или блоков не появляется.
+     * Стили настоящего input
      * ---------------------------------------------------------
      */
 
@@ -391,17 +419,12 @@
       "100%";
 
 
-    /*
-     * ---------------------------------------------------------
-     * ВНЕШНИЙ ВИД
-     * ---------------------------------------------------------
-     */
-
     searchInput.style.margin =
       "0";
 
     searchInput.style.padding =
       "0 12% 0 13.5%";
+
 
     searchInput.style.border =
       "0";
@@ -428,18 +451,21 @@
     searchInput.style.textAlign =
       "left";
 
+
+    /*
+     * Пока пусто — текст невидимый.
+     */
+
     searchInput.style.color =
       "transparent";
 
     searchInput.style.caretColor =
       "transparent";
 
-    searchInput.style.textShadow =
-      "0 1px 3px rgba(0,0,0,0.65)";
-
 
     searchInput.style.zIndex =
       "10";
+
 
     searchInput.style.webkitAppearance =
       "none";
@@ -447,24 +473,14 @@
     searchInput.style.appearance =
       "none";
 
+
     searchInput.style.borderRadius =
       "inherit";
 
 
     /*
      * ---------------------------------------------------------
-     * ДОБАВЛЯЕМ INPUT
-     * ---------------------------------------------------------
-     */
-
-    searchButton.appendChild(
-      searchInput
-    );
-
-
-    /*
-     * ---------------------------------------------------------
-     * СТИЛЬ НАДПИСИ
+     * Убираем стандартную кнопку X
      * ---------------------------------------------------------
      */
 
@@ -479,7 +495,6 @@
       }
 
       #searchHotspot::before {
-        content: "Поиск по справочнику Измаил";
         transition: opacity 100ms ease;
       }
 
@@ -490,6 +505,7 @@
       #directorySearchInput {
         -webkit-user-select: text;
         user-select: text;
+        -webkit-touch-callout: default;
       }
 
       #directorySearchInput:focus {
@@ -515,13 +531,7 @@
 
     /*
      * ---------------------------------------------------------
-     * FOCUS
-     * ---------------------------------------------------------
-     *
-     * НИЧЕГО НЕ ПЕРЕХВАТЫВАЕМ.
-     *
-     * Android сам видит обычное нажатие по input
-     * и открывает системную клавиатуру.
+     * ФОКУС
      * ---------------------------------------------------------
      */
 
@@ -529,7 +539,7 @@
       "focus",
       () => {
 
-        searchButton.classList.add(
+        searchHotspot.classList.add(
           "search-focused"
         );
 
@@ -560,12 +570,13 @@
 
 
         /*
-         * Поле очищено.
+         * Если поле пустое —
+         * возвращаем надпись.
          */
 
         if (!query) {
 
-          searchButton.classList.remove(
+          searchHotspot.classList.remove(
             "search-focused"
           );
 
@@ -581,7 +592,12 @@
         }
 
 
-        searchButton.classList.add(
+        /*
+         * Есть текст —
+         * надпись скрываем.
+         */
+
+        searchHotspot.classList.add(
           "search-focused"
         );
 
@@ -601,7 +617,7 @@
 
     /*
      * ---------------------------------------------------------
-     * BLUR
+     * ПОТЕРЯ ФОКУСА
      * ---------------------------------------------------------
      */
 
@@ -611,7 +627,7 @@
 
         if (!searchInput.value.trim()) {
 
-          searchButton.classList.remove(
+          searchHotspot.classList.remove(
             "search-focused"
           );
 
@@ -643,14 +659,17 @@
           return;
         }
 
+
         const query =
           searchInput.value
             .trim()
             .toLowerCase();
 
+
         if (!query) {
           return;
         }
+
 
         performSearch(query);
 
@@ -672,19 +691,22 @@
 
       {
         hotspot: ".health-hotspot",
+
         words: [
           "здоровье",
           "медицина",
-          "аптеки",
           "аптека",
+          "аптеки",
           "красота",
           "врач",
           "доктор"
         ]
       },
 
+
       {
         hotspot: ".transport-hotspot",
+
         words: [
           "транспорт",
           "такси",
@@ -694,34 +716,40 @@
         ]
       },
 
+
       {
         hotspot: ".services-hotspot",
+
         words: [
           "услуги",
-          "мастера",
           "мастер",
+          "мастера",
           "ремонт",
           "строительство",
-          "специалисты",
-          "специалист"
+          "специалист",
+          "специалисты"
         ]
       },
+
 
       {
         hotspot: ".food-hotspot",
+
         words: [
           "продукты",
-          "магазины",
+          "еда",
           "магазин",
-          "рынки",
+          "магазины",
           "рынок",
-          "доставка",
-          "еда"
+          "рынки",
+          "доставка"
         ]
       },
 
+
       {
         hotspot: ".utilities-hotspot",
+
         words: [
           "коммунальные",
           "свет",
@@ -731,38 +759,44 @@
         ]
       },
 
+
       {
         hotspot: ".jobs-hotspot",
+
         words: [
           "работа",
-          "вакансии",
+          "работы",
           "вакансия",
-          "резюме",
-          "работы"
+          "вакансии",
+          "резюме"
         ]
       },
+
 
       {
         hotspot: ".education-hotspot",
+
         words: [
           "образование",
-          "школы",
           "школа",
+          "школы",
           "курсы",
-          "репетиторы",
-          "репетитор"
+          "репетитор",
+          "репетиторы"
         ]
       },
 
+
       {
         hotspot: ".leisure-hotspot",
+
         words: [
           "отдых",
           "жильё",
           "жилье",
           "море",
-          "базы",
           "база",
+          "базы",
           "рестораны",
           "ресторан",
           "кафе"
@@ -779,6 +813,7 @@
           document.querySelector(
             category.hotspot
           );
+
 
         if (!element) {
           return;
@@ -806,7 +841,7 @@
 
   /*
    * =========================================================
-   * ОЧИСТКА ПОИСКА
+   * ОЧИСТКА РЕЗУЛЬТАТОВ
    * =========================================================
    */
 
@@ -831,7 +866,7 @@
 
   /*
    * =========================================================
-   * ОБНОВЛЕНИЕ
+   * ОБНОВЛЕНИЕ ПОГОДЫ И КУРСА
    * =========================================================
    */
 
@@ -839,6 +874,7 @@
     loadWeather,
     30 * 60 * 1000
   );
+
 
   setInterval(
     loadCurrency,
