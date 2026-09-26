@@ -31,6 +31,7 @@ body {
   min-width: 0;
   margin: 0;
   padding: 0;
+
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -38,26 +39,36 @@ body {
 
 .reference {
   position: relative;
+
   width: min(100%, 709px);
   max-width: 709px;
   min-width: 0;
+
   margin: 0;
   padding: 0;
+
   overflow: hidden;
+
   line-height: 0;
 }
 
 .reference-image {
   position: relative;
+
   display: block;
+
   width: 100%;
   max-width: 100%;
   height: auto;
+
   margin: 0;
   padding: 0;
+
   border: 0;
+
   object-fit: contain;
   object-position: top left;
+
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
@@ -65,64 +76,82 @@ body {
 
 
 /* =========================================================
-   ПОГОДА / КУРС / УКРЫТИЯ
-   ТРИ ОДИНАКОВЫХ ПО РАЗМЕРУ БЛОКА
+   ПОГОДА + КУРС
    ========================================================= */
 
 .live-widgets {
   position: absolute;
+
   z-index: 20;
 
-  left: 3%;
+  left: 6%;
   top: 27%;
-  width: 94%;
-  height: 6.5%;
+
+  width: 88%;
+  height: 7.5%;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  /*
+    ВАЖНО:
+    справа оставляем место под существующую
+    кнопку "Укрытия Измаил", которая уже есть
+    на самой картинке.
+  */
+  grid-template-columns: 1fr 1fr;
+
   gap: 2%;
 
   margin: 0;
   padding: 0;
 
   line-height: normal;
+
+  pointer-events: none;
 }
 
-.live-widget {
+
+/* =========================================================
+   ВИДЖЕТ ПОГОДЫ И КУРСА
+   ========================================================= */
+
+.widget {
   position: relative;
 
-  width: 100%;
-  height: 100%;
   min-width: 0;
   min-height: 0;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
 
-  margin: 0;
-  padding: 8px 10px;
+  display: block;
 
   color: #fff;
+
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
 
   /*
-     ВАЖНО:
-     Никакого blur.
-     Никакого backdrop-filter.
-     Никакой плотной стеклянной заливки.
-     Фотография под элементами остаётся резкой.
+    САМОЕ ВАЖНОЕ:
+    фон полностью прозрачный.
+    Никакого blur.
+    Никакого backdrop-filter.
   */
   background: transparent;
 
-  border: 1px solid rgba(90, 210, 255, 0.72);
-  border-radius: 14px;
+  /*
+    Только тонкий кант.
+  */
+  border: 1px solid rgba(100, 220, 255, 0.55);
+
+  border-radius: 12px;
 
   box-shadow:
-    0 0 5px rgba(0, 190, 255, 0.30);
+    0 0 5px rgba(0, 190, 255, 0.20);
 
   overflow: hidden;
+
+  pointer-events: auto;
 
   -webkit-tap-highlight-color: transparent;
 
@@ -133,88 +162,97 @@ body {
 }
 
 
-/* Лёгкий кант в обычном состоянии */
-.live-widget::after {
+/* Никакого затемнения внутри */
+.widget::after {
   content: "";
+
   position: absolute;
+
   inset: 0;
 
   border-radius: inherit;
 
+  background: transparent;
+
   pointer-events: none;
 
   box-shadow:
-    inset 0 0 5px rgba(70, 210, 255, 0.16);
-
-  opacity: 0.75;
+    inset 0 0 4px rgba(80, 220, 255, 0.10);
 
   transition:
-    opacity 90ms ease,
     box-shadow 90ms ease;
 }
 
 
 /* Нажатие */
-.live-widget:active {
+.widget:active {
   transform: scale(0.985);
 
-  border-color: rgba(110, 235, 255, 1);
+  border-color: rgba(120, 235, 255, 1);
 
   box-shadow:
-    0 0 5px rgba(0, 200, 255, 0.70),
-    0 0 12px rgba(0, 200, 255, 0.45);
+    0 0 5px rgba(0, 200, 255, 0.75),
+    0 0 11px rgba(0, 200, 255, 0.38);
 }
 
-.live-widget:active::after {
-  opacity: 1;
-
+.widget:active::after {
   box-shadow:
-    inset 0 0 8px rgba(70, 220, 255, 0.35);
+    inset 0 0 7px rgba(80, 220, 255, 0.25);
 }
 
 
-/* Заголовок */
-.widget-title {
-  position: relative;
-  z-index: 2;
+/* =========================================================
+   ПОГОДА
+   ========================================================= */
 
-  margin: 0 0 2px;
+.weather-widget {
+  display: grid;
 
-  font-size: clamp(8px, 1.65vw, 12px);
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+
+  align-content: center;
+
+  padding: 3px 8px;
+
+  pointer-events: none;
+}
+
+.weather-widget .widget-title {
+  font-size: clamp(7px, 1.55vw, 10px);
+
   font-weight: 800;
-  line-height: 1.05;
+
+  line-height: 1;
 
   white-space: nowrap;
 }
 
+.weather-widget .widget-main {
+  margin-top: 2px;
 
-/* Основное значение */
-.widget-main {
-  position: relative;
-  z-index: 2;
+  font-size: clamp(13px, 2.7vw, 19px);
 
-  margin: 0;
-
-  font-size: clamp(13px, 2.8vw, 20px);
   font-weight: 800;
-  line-height: 1.05;
+
+  line-height: 1;
 
   white-space: nowrap;
 }
 
+.weather-widget .widget-sub {
+  margin-top: 2px;
 
-/* Дополнительный текст */
-.widget-sub {
-  position: relative;
-  z-index: 2;
+  min-width: 0;
 
-  margin: 2px 0 0;
+  font-size: clamp(6px, 1.35vw, 9px);
 
-  font-size: clamp(7px, 1.45vw, 10px);
   font-weight: 600;
-  line-height: 1.05;
+
+  line-height: 1;
 
   white-space: nowrap;
+
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -223,35 +261,45 @@ body {
 
 
 /* =========================================================
-   КУРС ВАЛЮТ
+   КУРС
    ========================================================= */
 
 .currency-widget {
-  align-items: flex-start;
-  justify-content: center;
+  display: grid;
 
-  padding-left: 14px;
-  padding-right: 14px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+
+  align-content: center;
+
+  padding: 3px 8px;
 }
 
 .currency-widget .widget-title {
-  width: 100%;
+  font-size: clamp(7px, 1.55vw, 10px);
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  white-space: nowrap;
 }
 
 .currency-line {
-  position: relative;
-  z-index: 2;
-
-  width: 100%;
-
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 
-  gap: 5px;
+  width: 100%;
 
-  font-size: clamp(8px, 1.65vw, 12px);
-  line-height: 1.15;
+  gap: 4px;
+
+  margin-top: 2px;
+
+  font-size: clamp(6px, 1.45vw, 9px);
+
+  line-height: 1;
 
   white-space: nowrap;
 }
@@ -266,26 +314,12 @@ body {
 
 
 /* =========================================================
-   УКРЫТИЯ
-   ========================================================= */
-
-/*
-   Никакой новой иконки здесь нет.
-   Никакого текста здесь нет.
-   Само изображение под зоной остаётся полностью видимым.
-*/
-
-.shelter-widget {
-  cursor: pointer;
-}
-
-
-/* =========================================================
-   ПРОЗРАЧНЫЕ КЛИКАБЕЛЬНЫЕ ЗОНЫ
+   ПРОЗРАЧНЫЕ КНОПКИ
    ========================================================= */
 
 .hotspot {
   position: absolute;
+
   z-index: 30;
 
   display: block;
@@ -294,91 +328,133 @@ body {
   padding: 0;
 
   background: transparent;
+
   border: 0;
 
   text-decoration: none;
 
+  cursor: pointer;
+
   -webkit-tap-highlight-color: transparent;
 
   /*
-     НИКАКОГО BLUR.
-     НИКАКОЙ ЗАЛИВКИ.
+    НИКАКОГО BLUR.
+    НИКАКОГО BACKDROP-FILTER.
+    НИКАКОЙ ЗАЛИВКИ.
   */
-  box-shadow: none;
 
   transition:
-    transform 90ms ease,
-    box-shadow 90ms ease,
-    opacity 90ms ease;
+    transform 90ms ease;
 }
 
 
 /* =========================================================
-   ЛЁГКИЙ КАНТ ПРИ НАЖАТИИ
+   КАНТИК ПО НАЖАТИЮ
    ========================================================= */
 
 .hotspot::after {
   content: "";
 
   position: absolute;
+
   inset: 0;
 
   border: 1px solid transparent;
-  border-radius: 14px;
+
+  border-radius: 12px;
+
+  background: transparent;
+
+  box-shadow: none;
+
+  opacity: 0;
 
   pointer-events: none;
 
   transition:
+    opacity 90ms ease,
     border-color 90ms ease,
-    box-shadow 90ms ease,
-    opacity 90ms ease;
-
-  opacity: 0;
+    box-shadow 90ms ease;
 }
 
 
 /*
-   В обычном состоянии кант почти незаметен.
-   При нажатии появляется.
+  Обычная кнопка вообще не перекрывает картинку.
 */
+
 .hotspot:active {
   transform: scale(0.985);
 }
 
+
+/*
+  Вот здесь появляется только кант.
+*/
+
 .hotspot:active::after {
   opacity: 1;
 
-  border-color: rgba(75, 220, 255, 0.95);
+  border-color: rgba(80, 225, 255, 0.95);
 
   box-shadow:
-    0 0 5px rgba(0, 190, 255, 0.75),
-    0 0 12px rgba(0, 190, 255, 0.38);
+    0 0 4px rgba(0, 200, 255, 0.75),
+    0 0 10px rgba(0, 200, 255, 0.35);
 }
 
 
 /* =========================================================
-   РАЗМЕРЫ КЛИКАБЕЛЬНЫХ ЗОН
+   ЛОГОТИП
    ========================================================= */
 
 .logo-hotspot {
   left: 2%;
   top: 4.2%;
+
   width: 34%;
   height: 24%;
 }
 
+
+/* =========================================================
+   УКРЫТИЯ
+   ========================================================= */
+
+/*
+  Это НЕ новая кнопка.
+
+  Это просто прозрачная зона поверх уже существующей
+  кнопки "Укрытия Измаил" на картинке.
+*/
+
+.shelter-hotspot {
+  left: 61%;
+  top: 27%;
+
+  width: 36%;
+  height: 7.5%;
+}
+
+
+/* =========================================================
+   ПОИСК
+   ========================================================= */
+
 .search-hotspot {
   left: 2.5%;
   top: 34%;
+
   width: 95%;
   height: 6%;
 
   cursor: pointer;
+
   appearance: none;
 }
 
 
-/* Категории */
+/* =========================================================
+   КАТЕГОРИИ
+   ========================================================= */
 
 .category-hotspot {
   width: 45%;
@@ -426,7 +502,9 @@ body {
 }
 
 
-/* Наши группы */
+/* =========================================================
+   НАШИ ГРУППЫ
+   ========================================================= */
 
 .groups-hotspot {
   left: 3%;
@@ -437,25 +515,31 @@ body {
 }
 
 
-/* Нижнее меню */
+/* =========================================================
+   НИЖНЕЕ МЕНЮ
+   ========================================================= */
 
 .nav-hotspot {
   top: 87%;
+
   height: 6%;
 }
 
 .home-hotspot {
   left: 2%;
+
   width: 30%;
 }
 
 .ads-hotspot {
   left: 35%;
+
   width: 30%;
 }
 
 .favorites-hotspot {
   left: 68%;
+
   width: 30%;
 }
 
@@ -465,7 +549,7 @@ body {
    ========================================================= */
 
 .hotspot:focus-visible,
-.live-widget:focus-visible {
+.widget:focus-visible {
   outline: 2px solid rgba(100, 225, 255, 0.9);
   outline-offset: 2px;
 }
@@ -478,20 +562,23 @@ body {
 @media (max-width: 380px) {
 
   .live-widgets {
+    left: 6%;
+
+    width: 88%;
+
     gap: 1.5%;
   }
 
-  .live-widget {
-    border-radius: 11px;
-    padding: 6px 7px;
+  .widget {
+    border-radius: 9px;
   }
 
+  .weather-widget,
   .currency-widget {
-    padding-left: 9px;
-    padding-right: 9px;
+    padding: 2px 5px;
   }
 
   .hotspot::after {
-    border-radius: 11px;
+    border-radius: 9px;
   }
 }
