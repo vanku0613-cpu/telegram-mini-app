@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
+  min-width: 0;
   background: #061a33;
 }
 
@@ -18,58 +18,50 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* =========================================================
-   ОСНОВНОЙ МАКЕТ
-
-   Исходная картинка = 709 × 1536.
-   Она всегда сохраняет исходное соотношение сторон.
-   ========================================================= */
-
 .page {
   width: 100%;
-  min-height: 100vh;
+  min-width: 0;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: #061a33;
 }
 
 .design {
   position: relative;
 
-  /* На телефоне занимает ровно ширину экрана,
-     но никогда не становится шире оригинала */
+  /*
+    КЛЮЧЕВОЙ МОМЕНТ:
+    ширина макета = ширина окна телефона.
+    Никаких 709px на телефоне.
+  */
   width: 100%;
   max-width: 709px;
 
-  /* Высота рассчитывается строго из пропорции 709:1536 */
-  aspect-ratio: 709 / 1536;
-
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 
+  /*
+    Высота определяется самой картинкой.
+    Никакого принудительного растягивания по высоте.
+  */
   overflow: hidden;
-  flex-shrink: 0;
 }
 
-/* Сама оригинальная картинка */
 .design-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-
   display: block;
 
   width: 100%;
-  height: 100%;
+  height: auto;
 
-  /* Не обрезаем и не увеличиваем отдельные части */
-  object-fit: fill;
+  max-width: 100%;
 
   margin: 0;
   padding: 0;
+
+  /*
+    Очень важно:
+    картинка сама сохраняет свои исходные пропорции.
+  */
+  object-fit: contain;
 
   user-select: none;
   -webkit-user-drag: none;
@@ -79,13 +71,11 @@ body {
 /* =========================================================
    КЛИКАБЕЛЬНЫЕ ЗОНЫ
 
-   Все координаты рассчитаны относительно оригинала
-   709 × 1536 и поэтому масштабируются вместе с картинкой.
+   Они привязаны к пропорциям самой картинки.
    ========================================================= */
 
 .hotspot {
   position: absolute;
-
   display: block;
 
   z-index: 30;
@@ -102,7 +92,7 @@ body {
 }
 
 
-/* Логотип / главная группа */
+/* Логотип */
 .logo-hotspot {
   left: 2%;
   top: 4.2%;
@@ -135,53 +125,44 @@ body {
 
 .category {
   position: absolute;
-
   width: 45%;
   height: 8.7%;
 }
-
 
 .health {
   left: 3%;
   top: 40%;
 }
 
-
 .transport {
   left: 51.5%;
   top: 40%;
 }
-
 
 .services {
   left: 3%;
   top: 49.7%;
 }
 
-
 .food {
   left: 51.5%;
   top: 49.7%;
 }
-
 
 .utilities {
   left: 3%;
   top: 59.5%;
 }
 
-
 .jobs {
   left: 51.5%;
   top: 59.5%;
 }
 
-
 .education {
   left: 3%;
   top: 69.2%;
 }
-
 
 .leisure {
   left: 51.5%;
@@ -189,4 +170,127 @@ body {
 }
 
 
-/* Наш
+/* Наши группы */
+.groups-hotspot {
+  left: 3%;
+  top: 79%;
+  width: 94%;
+  height: 6.5%;
+}
+
+
+/* Нижняя навигация */
+.nav-home,
+.nav-ads,
+.nav-favorites {
+  top: 87%;
+  height: 6%;
+}
+
+.nav-home {
+  left: 2%;
+  width: 30%;
+}
+
+.nav-ads {
+  left: 35%;
+  width: 30%;
+}
+
+.nav-favorites {
+  left: 68%;
+  width: 30%;
+}
+
+
+/* =========================================================
+   ПОГОДА / КУРС
+   ========================================================= */
+
+.live-widgets {
+  position: absolute;
+
+  z-index: 20;
+
+  left: 4%;
+  top: 29.7%;
+
+  width: 92%;
+  height: 5%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2%;
+
+  pointer-events: none;
+}
+
+.live-widget {
+  min-width: 0;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 7px;
+
+  padding: 5px 9px;
+
+  border-radius: 12px;
+
+  background: rgba(5, 26, 52, 0.82);
+
+  border: 1px solid rgba(110, 210, 255, 0.65);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+
+  font-family: Arial, sans-serif;
+
+  overflow: hidden;
+
+  pointer-events: auto;
+}
+
+.live-widget span,
+.live-widget strong {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.widget-title {
+  font-size: clamp(8px, 2vw, 12px);
+  opacity: 0.85;
+}
+
+.live-widget strong {
+  font-size: clamp(11px, 2.8vw, 16px);
+}
+
+.live-widget > span:last-child {
+  font-size: clamp(7px, 1.8vw, 10px);
+  opacity: 0.8;
+}
+
+
+/* Маленькие экраны */
+@media (max-width: 380px) {
+  .live-widget {
+    padding: 4px 6px;
+    border-radius: 9px;
+    gap: 4px;
+  }
+}
+
+
+/* Фокус */
+.hotspot:focus-visible,
+.live-widget:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
