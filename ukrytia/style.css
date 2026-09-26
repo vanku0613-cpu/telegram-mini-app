@@ -855,3 +855,69 @@ h1 span{font-weight:650}
   }
 
 }
+  /* КОМПАКТНЫЕ КНОПКИ НА ТЕЛЕФОНЕ */
+@media (max-width:760px){
+
+  .quick-actions{
+    grid-template-columns:1fr 1fr !important;
+    gap:6px !important;
+  }
+
+  .quick{
+    min-height:48px !important;
+    height:48px !important;
+    padding:5px 6px !important;
+    grid-template-columns:23px 1fr 7px !important;
+    border-radius:10px !important;
+  }
+
+  .quick-icon{
+    width:22px !important;
+    height:22px !important;
+    font-size:11px !important;
+  }
+
+  .quick b{
+    font-size:10px !important;
+    line-height:1.1 !important;
+  }
+
+  .quick small{
+    display:none !important;
+  }
+
+  .chevron{
+    font-size:14px !important;
+  }
+
+  .search-panel{
+    padding:8px !important;
+  }
+
+  .search-box{
+    height:40px !important;
+  }
+
+  .filter{
+    padding:5px 9px !important;
+    font-size:11px !important;
+  }
+
+  .card{
+    padding:10px !important;
+    margin-top:9px !important;
+  }
+
+  .section-title h2{
+    font-size:16px !important;
+  }
+
+  .contact{
+    min-height:48px !important;
+    padding:7px 6px !important;
+  }
+
+  .contact strong{
+    font-size:16px !important;
+  }
+}
