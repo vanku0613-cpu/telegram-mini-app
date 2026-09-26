@@ -129,7 +129,7 @@
   // =========================================================
 
   const AGREEMENT_URL =
-    "https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html";
+    "https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html?v=9999";
 
   const agreementLink =
     document.querySelector(".user-agreement");
@@ -692,67 +692,4 @@
     "educationLink",
     "leisureLink"
 
-  ].forEach((id) => {
-
-    const element = $(id);
-
-    if (!element) return;
-
-
-    element.addEventListener(
-      "click",
-      () => {
-
-        const title =
-          element.getAttribute(
-            "aria-label"
-          ) || id;
-
-
-        let saved = [];
-
-        try {
-
-          saved = JSON.parse(
-            localStorage.getItem(
-              "izmail_directory_recent"
-            ) || "[]"
-          );
-
-        } catch (e) {}
-
-
-        saved =
-          saved.filter(
-            (item) => item !== title
-          );
-
-
-        saved.unshift(title);
-
-
-        try {
-
-          localStorage.setItem(
-            "izmail_directory_recent",
-            JSON.stringify(
-              saved.slice(0, 20)
-            )
-          );
-
-        } catch (e) {}
-
-      }
-    );
-
-  });
-
-
-  // =========================================================
-  // ЗАПУСК
-  // =========================================================
-
-  loadWeather();
-  loadCurrency();
-
-})();
+ 
