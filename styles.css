@@ -113,23 +113,24 @@ body {
 
   font-family: Arial, Helvetica, sans-serif;
 
-  text-decoration: none;
-
-  /*
-   * ТЁМНЫЙ ПРОЗРАЧНЫЙ ФОН.
-   * ФОТОГРАФИЮ НЕ РАЗМЫВАЕМ.
-   */
-  background: rgba(6, 27, 53, 0.86);
+  /* Только красивый фон. Без размытия. */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(9, 48, 82, 0.97),
+      rgba(4, 25, 53, 0.96)
+    );
 
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 
-  border: 1px solid rgba(70, 210, 255, 0.65);
+  border: 1px solid rgba(70, 210, 255, 0.72);
 
   border-radius: 18px;
 
   box-shadow:
-    0 0 5px rgba(0, 190, 255, 0.18);
+    inset 0 0 14px rgba(0, 180, 255, 0.08),
+    0 0 7px rgba(0, 190, 255, 0.22);
 
   overflow: hidden;
 
@@ -162,7 +163,7 @@ body {
   pointer-events: none;
 
   box-shadow:
-    inset 0 0 4px rgba(80, 220, 255, 0.08);
+    inset 0 0 7px rgba(80, 220, 255, 0.10);
 
   transition: box-shadow 90ms ease;
 }
@@ -178,13 +179,13 @@ body {
   border-color: rgba(110, 235, 255, 1);
 
   box-shadow:
-    0 0 5px rgba(0, 200, 255, 0.75),
-    0 0 11px rgba(0, 200, 255, 0.38);
+    0 0 6px rgba(0, 200, 255, 0.80),
+    0 0 12px rgba(0, 200, 255, 0.40);
 }
 
 .widget:active::after {
   box-shadow:
-    inset 0 0 8px rgba(80, 220, 255, 0.20);
+    inset 0 0 9px rgba(80, 220, 255, 0.22);
 }
 
 
@@ -430,18 +431,23 @@ body {
 
   border-radius: 18px;
 
-  cursor: pointer;
+  cursor: text;
 
   appearance: none;
+
+  overflow: hidden;
 }
 
 
 /* =========================================================
-   НАДПИСЬ "ПОИСК ПО СПРАВОЧНИКУ"
+   ДЕКОРАТИВНАЯ НАДПИСЬ ПОИСКА
+   =========================================================
+   Она остаётся поверх картинки.
+   При фокусе настоящего input исчезает.
    ========================================================= */
 
 .search-hotspot::before {
-  content: "Поиск по справочнику";
+  content: "Поиск по справочнику Измаил";
 
   position: absolute;
 
@@ -470,10 +476,90 @@ body {
     0 1px 3px rgba(0, 0, 0, 0.65);
 
   pointer-events: none;
+
+  opacity: 1;
+
+  transition:
+    opacity 120ms ease;
 }
+
+
+/*
+ * Когда пользователь нажал на поиск,
+ * декоративная надпись исчезает.
+ */
+.search-hotspot.search-focused::before {
+  opacity: 0;
+}
+
 
 .search-hotspot::after {
   border-radius: 18px;
+}
+
+
+/* =========================================================
+   НЕВИДИМЫЙ НАСТОЯЩИЙ INPUT
+   ========================================================= */
+
+.search-hotspot .search-input {
+  position: absolute;
+
+  left: 9%;
+  top: 0;
+
+  width: 82%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: transparent;
+
+  caret-color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: clamp(12px, 2.5vw, 18px);
+
+  font-weight: 700;
+
+  line-height: normal;
+
+  text-align: left;
+
+  opacity: 1;
+
+  z-index: 2;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/*
+ * Никакого собственного placeholder —
+ * декоративная надпись выше выполняет эту роль.
+ */
+.search-hotspot .search-input::placeholder {
+  color: transparent;
+  opacity: 0;
+}
+
+
+/*
+ * Системная кнопка очистки поиска тоже скрыта,
+ * чтобы внешний вид картинки не менялся.
+ */
+.search-hotspot .search-input::-webkit-search-cancel-button {
+  display: none;
 }
 
 
@@ -486,6 +572,11 @@ body {
   height: 9.10%;
 
   border-radius: 18px;
+
+  transition:
+    transform 90ms ease,
+    opacity 160ms ease,
+    filter 160ms ease;
 }
 
 .health-hotspot {
@@ -526,6 +617,23 @@ body {
 .leisure-hotspot {
   left: 51.2%;
   top: 70.05%;
+}
+
+
+/* =========================================================
+   РЕЗУЛЬТАТЫ ПОИСКА
+   ========================================================= */
+
+.category-hotspot.search-match {
+  filter:
+    drop-shadow(0 0 5px rgba(50, 220, 255, 0.90))
+    drop-shadow(0 0 11px rgba(0, 180, 255, 0.55));
+
+  z-index: 35;
+}
+
+.category-hotspot.search-no-match {
+  opacity: 0.35;
 }
 
 
