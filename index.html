@@ -34,6 +34,7 @@
         class="live-widgets"
         aria-label="Погода и курс валют"
       >
+
         <!-- ПОГОДА -->
         <div
           id="weatherWidget"
@@ -42,12 +43,14 @@
           <div class="widget-title">
             ПОГОДА
           </div>
+
           <div
             id="weatherTemp"
             class="widget-main"
           >
             —°C
           </div>
+
           <div
             id="weatherText"
             class="widget-sub"
@@ -68,15 +71,18 @@
           <div class="widget-title">
             КУРС НБУ
           </div>
+
           <div class="currency-line">
             <b>USD</b>
             <span id="usdRate">—</span>
           </div>
+
           <div class="currency-line">
             <b>EUR</b>
             <span id="eurRate">—</span>
           </div>
         </a>
+
       </section>
 
       <!-- ЛОГОТИП -->
@@ -102,6 +108,7 @@
         role="search"
         aria-label="Поиск по справочнику"
       >
+
         <input
           id="directorySearchInput"
           class="directory-search-input"
@@ -146,32 +153,141 @@
             caret-color: #ffffff !important;
           "
         >
+
       </div>
 
       <!-- КАТЕГОРИИ -->
-      <a id="healthLink" class="hotspot category-hotspot health-hotspot" href="#" aria-label="Здоровье и уход"></a>
-      <a id="transportLink" class="hotspot category-hotspot transport-hotspot" href="#" aria-label="Транспорт и такси"></a>
-      <a id="servicesLink" class="hotspot category-hotspot services-hotspot" href="#" aria-label="Услуги и мастера"></a>
-      <a id="foodLink" class="hotspot category-hotspot food-hotspot" href="#" aria-label="Продукты питания"></a>
-      <a id="utilitiesLink" class="hotspot category-hotspot utilities-hotspot" href="#" aria-label="Коммунальные службы"></a>
-      <a id="jobsLink" class="hotspot category-hotspot jobs-hotspot" href="#" aria-label="Работа и вакансии"></a>
-      <a id="educationLink" class="hotspot category-hotspot education-hotspot" href="#" aria-label="Образование и развитие"></a>
-      <a id="leisureLink" class="hotspot category-hotspot leisure-hotspot" href="#" aria-label="Отдых, жильё и море"></a>
+      <a
+        id="healthLink"
+        class="hotspot category-hotspot health-hotspot"
+        href="#"
+        aria-label="Здоровье и уход"
+      ></a>
+
+      <a
+        id="transportLink"
+        class="hotspot category-hotspot transport-hotspot"
+        href="#"
+        aria-label="Транспорт и такси"
+      ></a>
+
+      <a
+        id="servicesLink"
+        class="hotspot category-hotspot services-hotspot"
+        href="#"
+        aria-label="Услуги и мастера"
+      ></a>
+
+      <a
+        id="foodLink"
+        class="hotspot category-hotspot food-hotspot"
+        href="#"
+        aria-label="Продукты питания"
+      ></a>
+
+      <a
+        id="utilitiesLink"
+        class="hotspot category-hotspot utilities-hotspot"
+        href="#"
+        aria-label="Коммунальные службы"
+      ></a>
+
+      <a
+        id="jobsLink"
+        class="hotspot category-hotspot jobs-hotspot"
+        href="#"
+        aria-label="Работа и вакансии"
+      ></a>
+
+      <a
+        id="educationLink"
+        class="hotspot category-hotspot education-hotspot"
+        href="#"
+        aria-label="Образование и развитие"
+      ></a>
+
+      <a
+        id="leisureLink"
+        class="hotspot category-hotspot leisure-hotspot"
+        href="#"
+        aria-label="Отдых, жильё и море"
+      ></a>
 
       <!-- НАШИ ГРУППЫ -->
-      <a id="groupsLink" class="hotspot groups-hotspot" href="#" aria-label="Наши группы"></a>
+      <a
+        id="groupsLink"
+        class="hotspot groups-hotspot"
+        href="#"
+        aria-label="Наши группы"
+      ></a>
 
       <!-- НИЖНЕЕ МЕНЮ -->
-      <a id="homeLink" class="hotspot nav-hotspot home-hotspot" href="#" aria-label="Главная"></a>
-      <a id="adsLink" class="hotspot nav-hotspot ads-hotspot" href="#" aria-label="Заказать рекламу"></a>
-      <a id="favoritesLink" class="hotspot nav-hotspot favorites-hotspot" href="#" aria-label="Избранное"></a>
+      <a
+        id="homeLink"
+        class="hotspot nav-hotspot home-hotspot"
+        href="#"
+        aria-label="Главная"
+      ></a>
+
+      <a
+        id="adsLink"
+        class="hotspot nav-hotspot ads-hotspot"
+        href="#"
+        aria-label="Заказать рекламу"
+      ></a>
+
+      <a
+        id="favoritesLink"
+        class="hotspot nav-hotspot favorites-hotspot"
+        href="#"
+        aria-label="Избранное"
+      ></a>
+
+
+      <!-- ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ -->
+      <style>
+        .user-agreement {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 94.5%;
+          z-index: 40;
+
+          width: fit-content;
+          margin: 0 auto;
+
+          color: rgba(225, 245, 255, 0.9);
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: clamp(10px, 2vw, 14px);
+          font-weight: 500;
+          line-height: 1;
+
+          text-align: center;
+          white-space: nowrap;
+
+          text-shadow:
+            0 0 5px rgba(0, 180, 255, 0.55),
+            0 1px 3px rgba(0, 0, 0, 0.7);
+
+          border-bottom: 1px solid rgba(80, 210, 255, 0.55);
+          padding-bottom: 3px;
+        }
+      </style>
+
+      <div class="user-agreement">
+        Пользовательское соглашение
+      </div>
+
     </div>
+
   </main>
+
 
   <!-- СНАЧАЛА КОНФИГ -->
   <script src="config.js"></script>
 
   <!-- ПОТОМ ЛОГИКА -->
   <script src="app.js"></script>
+
 </body>
 </html>
