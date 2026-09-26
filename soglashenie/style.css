@@ -137,11 +137,6 @@ body {
   position: absolute;
 
   left: 12px;
-
-  /*
-    Кнопка находится прямо под надписью
-    «ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ»
-  */
   bottom: 29%;
 
   margin: 0;
@@ -153,9 +148,12 @@ body {
    ========================= */
 
 .content {
+  position: relative;
+  z-index: 20;
+
   max-width: 900px;
 
-  margin: 0 auto;
+  margin: -250px auto 0;
 
   padding: 18px 14px 32px;
 }
@@ -174,8 +172,8 @@ body {
   background:
     linear-gradient(
       180deg,
-      rgba(7, 42, 76, .88),
-      rgba(4, 27, 51, .94)
+      rgba(7, 42, 76, .94),
+      rgba(4, 27, 51, .97)
     );
 
   box-shadow:
@@ -268,6 +266,11 @@ ul {
     padding: 8px 12px;
 
     font-size: 12px;
+  }
+
+  .content {
+    margin-top: -250px;
+    padding: 18px 14px 32px;
   }
 
   .agreement {
