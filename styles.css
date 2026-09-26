@@ -1,314 +1,60 @@
-<!-- =========================================
-     ВИДЖЕТ ПОГОДЫ
-     ========================================= -->
-<div class="info-widgets">
-
-  <div class="info-widget weather-widget" id="weatherWidget">
-    <div class="widget-title">
-      <span>ПОГОДА В ИЗМАИЛЕ</span>
-    </div>
-
-    <div class="weather-main">
-      <div class="weather-icon" id="weatherIcon">☀️</div>
-
-      <div class="weather-temperature">
-        <span id="weatherTemp">—</span><span class="degree">°</span>
-      </div>
-
-      <div class="weather-description" id="weatherDescription">
-        Загрузка...
-      </div>
-    </div>
-
-    <div class="weather-details">
-      <div>
-        <span>Ощущается</span>
-        <strong id="weatherFeels">—°</strong>
-      </div>
-
-      <div>
-        <span>Влажность</span>
-        <strong id="weatherHumidity">—%</strong>
-      </div>
-
-      <div>
-        <span>Ветер</span>
-        <strong id="weatherWind">— км/ч</strong>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- =========================================
-       ВИДЖЕТ КУРСА ВАЛЮТ
-       ========================================= -->
-  <div class="info-widget currency-widget" id="currencyWidget">
-
-    <div class="widget-title">
-      <span>КУРС ВАЛЮТ</span>
-      <small>НБУ / EUR • USD</small>
-    </div>
-
-    <div class="currency-row">
-      <div class="currency-name">
-        <b>USD</b>
-        <span>Доллар</span>
-      </div>
-
-      <div class="currency-values">
-        <div>
-          <small>Покупка</small>
-          <strong id="usdBuy">—</strong>
-        </div>
-        <div>
-          <small>Продажа</small>
-          <strong id="usdSell">—</strong>
-        </div>
-      </div>
-    </div>
-
-    <div class="currency-row">
-      <div class="currency-name">
-        <b>EUR</b>
-        <span>Евро</span>
-      </div>
-
-      <div class="currency-values">
-        <div>
-          <small>Покупка</small>
-          <strong id="eurBuy">—</strong>
-        </div>
-        <div>
-          <small>Продажа</small>
-          <strong id="eurSell">—</strong>
-        </div>
-      </div>
-    </div>
-
-    <div class="currency-row">
-      <div class="currency-name">
-        <b>MDL</b>
-        <span>Молдавский лей</span>
-      </div>
-
-      <div class="currency-values">
-        <div>
-          <small>Курс</small>
-          <strong id="mdlRate">—</strong>
-        </div>
-      </div>
-    </div>
-
-    <div class="currency-update" id="currencyUpdate">
-      Обновление курса...
-    </div>
-
-  </div>
-
-</div>
 /* =========================================
-   ВИДЖЕТЫ: ПОГОДА + КУРС ВАЛЮТ
+   ЖИВЫЕ ДАННЫЕ — ПОГОДА И КУРС ВАЛЮТ
+   ВСТРАИВАЕМ В СУЩЕСТВУЮЩИЕ ЯЧЕЙКИ
    ========================================= */
 
-.info-widgets {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+/* Погода */
+.live-weather {
+  position: absolute;
+  z-index: 20;
 
-.info-widget {
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 18px;
-  padding: 13px 14px;
-  background: rgba(6, 26, 51, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.20),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  color: #fff;
-  overflow: hidden;
-}
+  /* та же зона, что и кнопка .weather */
+  left: 3%;
+  top: 28.2%;
+  width: 32.3%;
+  height: 6.9%;
 
-/* Заголовок */
-
-.widget-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 10px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.widget-title small {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: rgba(255, 255, 255, 0.42);
-}
-
-/* =========================================
-   ПОГОДА
-   ========================================= */
-
-.weather-main {
-  display: grid;
-  grid-template-columns: 54px 1fr;
-  column-gap: 9px;
-  align-items: center;
-}
-
-.weather-icon {
-  width: 54px;
-  height: 54px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 38px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.07);
-}
 
-.weather-temperature {
-  font-size: 38px;
-  line-height: 1;
+  box-sizing: border-box;
+  pointer-events: none;
+
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+
+  font-size: clamp(18px, 4.2vw, 32px);
   font-weight: 800;
-  letter-spacing: -1px;
+  line-height: 1;
+
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.65),
+    0 0 12px rgba(255, 255, 255, 0.18);
 }
 
-.weather-temperature .degree {
-  font-size: 20px;
-  vertical-align: top;
-  margin-left: 2px;
-}
-
-.weather-description {
-  grid-column: 2;
-  margin-top: -1px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.weather-details {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  margin-top: 12px;
-}
-
-.weather-details > div {
-  padding: 8px 7px;
-  border-radius: 11px;
-  background: rgba(255, 255, 255, 0.055);
-  text-align: center;
-}
-
-.weather-details span {
-  display: block;
-  font-size: 9px;
-  color: rgba(255, 255, 255, 0.45);
-  margin-bottom: 3px;
-}
-
-.weather-details strong {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  color: #fff;
-}
 
 /* =========================================
-   КУРС ВАЛЮТ
+   КУРС USD
    ========================================= */
 
-.currency-row {
+.live-usd {
+  position: absolute;
+  z-index: 20;
+
+  left: 37.4%;
+  top: 28.2%;
+  width: 25.4%;
+  height: 3.2%;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  min-height: 47px;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-}
+  justify-content: center;
 
-.currency-row:last-of-type {
-  border-bottom: 0;
-}
+  box-sizing: border-box;
+  pointer-events: none;
 
-.currency-name {
-  min-width: 85px;
-}
+  color: #ffffff;
+  font-family: Arial, sans-serif;
 
-.currency-name b {
-  display: block;
-  font-size: 15px;
-  line-height: 1;
-  font-weight: 800;
-}
-
-.currency-name span {
-  display: block;
-  margin-top: 4px;
-  font-size: 9px;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.currency-values {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 18px;
-  flex: 1;
-}
-
-.currency-values > div {
-  text-align: right;
-}
-
-.currency-values small {
-  display: block;
-  font-size: 8px;
-  color: rgba(255, 255, 255, 0.40);
-  margin-bottom: 2px;
-}
-
-.currency-values strong {
-  font-size: 14px;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.currency-update {
-  margin-top: 7px;
-  text-align: right;
-  font-size: 8px;
-  color: rgba(255, 255, 255, 0.32);
-}
-
-/* На очень узких экранах */
-
-@media (max-width: 360px) {
-
-  .info-widget {
-    padding: 11px;
-  }
-
-  .weather-temperature {
-    font-size: 34px;
-  }
-
-  .currency-values {
-    gap: 11px;
-  }
-
-  .currency-name {
-    min-width: 75px;
-  }
-}
+  font-size: clamp(11px, 2.
