@@ -10,7 +10,7 @@ body {
   padding: 0;
   width: 100%;
   min-width: 0;
-  background: #061a33;
+  background: #061b35;
 }
 
 body {
@@ -18,20 +18,24 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-.page {
+/* =========================================================
+   ОСНОВНАЯ СТРАНИЦА
+   ========================================================= */
+
+.app {
   width: 100%;
   min-width: 0;
   margin: 0;
   padding: 0;
 }
 
-.design {
+.reference {
   position: relative;
 
   /*
-    КЛЮЧЕВОЙ МОМЕНТ:
-    ширина макета = ширина окна телефона.
-    Никаких 709px на телефоне.
+    КЛЮЧЕВОЕ:
+    исходная картинка 709×1536.
+    На телефоне она уменьшается до ширины экрана.
   */
   width: 100%;
   max-width: 709px;
@@ -39,14 +43,14 @@ body {
   margin: 0 auto;
   padding: 0;
 
-  /*
-    Высота определяется самой картинкой.
-    Никакого принудительного растягивания по высоте.
-  */
   overflow: hidden;
 }
 
-.design-image {
+/* =========================================================
+   РОДНАЯ КАРТИНКА
+   ========================================================= */
+
+.reference-image {
   display: block;
 
   width: 100%;
@@ -58,8 +62,8 @@ body {
   padding: 0;
 
   /*
-    Очень важно:
-    картинка сама сохраняет свои исходные пропорции.
+    Высота НЕ задаётся.
+    Браузер сам сохраняет оригинальную пропорцию 709×1536.
   */
   object-fit: contain;
 
@@ -69,142 +73,7 @@ body {
 
 
 /* =========================================================
-   КЛИКАБЕЛЬНЫЕ ЗОНЫ
-
-   Они привязаны к пропорциям самой картинки.
-   ========================================================= */
-
-.hotspot {
-  position: absolute;
-  display: block;
-
-  z-index: 30;
-
-  margin: 0;
-  padding: 0;
-
-  background: transparent;
-  border: 0;
-
-  text-decoration: none;
-
-  -webkit-tap-highlight-color: transparent;
-}
-
-
-/* Логотип */
-.logo-hotspot {
-  left: 2%;
-  top: 4.2%;
-  width: 34%;
-  height: 24%;
-}
-
-
-/* Укрытия */
-.shelter-hotspot {
-  left: 61%;
-  top: 27%;
-  width: 36%;
-  height: 7.5%;
-}
-
-
-/* Поиск */
-.search-hotspot {
-  left: 2.5%;
-  top: 34%;
-  width: 95%;
-  height: 6%;
-}
-
-
-/* =========================================================
-   КАТЕГОРИИ
-   ========================================================= */
-
-.category {
-  position: absolute;
-  width: 45%;
-  height: 8.7%;
-}
-
-.health {
-  left: 3%;
-  top: 40%;
-}
-
-.transport {
-  left: 51.5%;
-  top: 40%;
-}
-
-.services {
-  left: 3%;
-  top: 49.7%;
-}
-
-.food {
-  left: 51.5%;
-  top: 49.7%;
-}
-
-.utilities {
-  left: 3%;
-  top: 59.5%;
-}
-
-.jobs {
-  left: 51.5%;
-  top: 59.5%;
-}
-
-.education {
-  left: 3%;
-  top: 69.2%;
-}
-
-.leisure {
-  left: 51.5%;
-  top: 69.2%;
-}
-
-
-/* Наши группы */
-.groups-hotspot {
-  left: 3%;
-  top: 79%;
-  width: 94%;
-  height: 6.5%;
-}
-
-
-/* Нижняя навигация */
-.nav-home,
-.nav-ads,
-.nav-favorites {
-  top: 87%;
-  height: 6%;
-}
-
-.nav-home {
-  left: 2%;
-  width: 30%;
-}
-
-.nav-ads {
-  left: 35%;
-  width: 30%;
-}
-
-.nav-favorites {
-  left: 68%;
-  width: 30%;
-}
-
-
-/* =========================================================
-   ПОГОДА / КУРС
+   ПОГОДА + КУРС
    ========================================================= */
 
 .live-widgets {
@@ -221,19 +90,11 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2%;
-
-  pointer-events: none;
 }
 
-.live-widget {
+.widget {
   min-width: 0;
   height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 7px;
 
   padding: 5px 9px;
 
@@ -245,52 +106,234 @@ body {
 
   color: #fff;
 
-  text-decoration: none;
-
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.25);
 
   font-family: Arial, sans-serif;
 
   overflow: hidden;
 
-  pointer-events: auto;
+  text-decoration: none;
 }
 
-.live-widget span,
-.live-widget strong {
+.weather-widget {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr 1fr;
+
+  column-gap: 7px;
+  align-items: center;
+}
+
+.currency-widget {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+
+  column-gap: 7px;
+  align-items: center;
+}
+
+.widget-title {
+  font-size: clamp(8px, 2vw, 12px);
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+.widget-main {
+  font-size: clamp(11px, 2.8vw, 16px);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.widget-sub {
+  font-size: clamp(7px, 1.8vw, 10px);
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.currency-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+
+  font-size: clamp(7px, 1.8vw, 10px);
+  white-space: nowrap;
+}
+
+.currency-line b {
+  font-weight: 700;
+}
+
+.widget-source {
+  grid-column: 1 / -1;
+
+  font-size: clamp(6px, 1.5vw, 9px);
+
+  opacity: 0.75;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.widget-title {
-  font-size: clamp(8px, 2vw, 12px);
-  opacity: 0.85;
+
+/* =========================================================
+   ОБЩИЕ КЛИКАБЕЛЬНЫЕ ЗОНЫ
+   ========================================================= */
+
+.hotspot {
+  position: absolute;
+
+  display: block;
+
+  z-index: 30;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+
+  border: 0;
+
+  text-decoration: none;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
-.live-widget strong {
-  font-size: clamp(11px, 2.8vw, 16px);
-}
 
-.live-widget > span:last-child {
-  font-size: clamp(7px, 1.8vw, 10px);
-  opacity: 0.8;
-}
+/* =========================================================
+   ГЛАВНЫЙ ЛОГОТИП
+   ========================================================= */
 
+.logo-hotspot {
+  left: 2%;
+  top: 4.2%;
 
-/* Маленькие экраны */
-@media (max-width: 380px) {
-  .live-widget {
-    padding: 4px 6px;
-    border-radius: 9px;
-    gap: 4px;
-  }
+  width: 34%;
+  height: 24%;
 }
 
 
-/* Фокус */
-.hotspot:focus-visible,
-.live-widget:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
+/* =========================================================
+   УКРЫТИЯ
+   ========================================================= */
+
+.shelter-hotspot {
+  left: 61%;
+  top: 27%;
+
+  width: 36%;
+  height: 7.5%;
 }
+
+
+/* =========================================================
+   ПОИСК
+   ========================================================= */
+
+.search-hotspot {
+  left: 2.5%;
+  top: 34%;
+
+  width: 95%;
+  height: 6%;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   КАТЕГОРИИ
+   ========================================================= */
+
+.category-hotspot {
+  width: 45%;
+  height: 8.7%;
+}
+
+
+/* Здоровье */
+.health-hotspot {
+  left: 3%;
+  top: 40%;
+}
+
+
+/* Транспорт */
+.transport-hotspot {
+  left: 51.5%;
+  top: 40%;
+}
+
+
+/* Услуги */
+.services-hotspot {
+  left: 3%;
+  top: 49.7%;
+}
+
+
+/* Продукты */
+.food-hotspot {
+  left: 51.5%;
+  top: 49.7%;
+}
+
+
+/* Коммунальные */
+.utilities-hotspot {
+  left: 3%;
+  top: 59.5%;
+}
+
+
+/* Работа */
+.jobs-hotspot {
+  left: 51.5%;
+  top: 59.5%;
+}
+
+
+/* Образование */
+.education-hotspot {
+  left: 3%;
+  top: 69.2%;
+}
+
+
+/* Отдых */
+.leisure-hotspot {
+  left: 51.5%;
+  top: 69.2%;
+}
+
+
+/* =========================================================
+   НАШИ ГРУППЫ
+   ========================================================= */
+
+.groups-hotspot {
+  left: 3%;
+  top: 79%;
+
+  width: 94%;
+  height: 6.5%;
+}
+
+
+/* =========================================================
+   НИЖНЕЕ МЕНЮ
+   ========================================================= */
+
+.nav-hotspot {
+  top: 87%;
+  height: 6%;
+}
+
+.home-hotspot {
+  left: 2%;
+  width: 30%;
+}
+
+.ads-hot
