@@ -1,9 +1,8 @@
 window.LINKS = {
   MAIN_GROUP: "",
-  SHELTERS: "https://goo.gl/maps/YV6JueF6kXpVtTKy8",
+  SHELTERS: "https://vanku0613-cpu.github.io/telegram-mini-app/ukrytia/",
   OUR_GROUPS: "",
   INSTAGRAM: "",
-
   HEALTH: "",
   TRANSPORT: "",
   SERVICES: "",
