@@ -2,37 +2,153 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+  >
+
   <meta name="theme-color" content="#061b35">
+
   <title>Главный справочник Измаил</title>
+
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <main class="app">
-    <div class="reference" id="reference">
-      <img id="referenceImage" class="reference-image" src="file_000000000628820a991aedd6c0479451.png" alt="Главный справочник Измаил">
 
-      <section class="live-widgets" aria-label="Погода и курс валют">
-        <div id="weatherWidget" class="widget weather-widget">
-          <div class="widget-title">ПОГОДА</div>
-          <div id="weatherTemp" class="widget-main">—°C</div>
-          <div id="weatherText" class="widget-sub">Загрузка…</div>
+<body>
+
+  <main class="app">
+
+    <div class="reference" id="reference">
+
+      <!-- ОСНОВНАЯ КАРТИНКА -->
+      <img
+        id="referenceImage"
+        class="reference-image"
+        src="file_000000000628820a991aedd6c0479451.png"
+        alt="Главный справочник Измаил"
+      >
+
+      <!-- ПОГОДА + КУРС НБУ -->
+      <section
+        class="live-widgets"
+        aria-label="Погода и курс валют"
+      >
+        <!-- ПОГОДА -->
+        <div
+          id="weatherWidget"
+          class="widget weather-widget"
+        >
+          <div class="widget-title">
+            ПОГОДА
+          </div>
+          <div
+            id="weatherTemp"
+            class="widget-main"
+          >
+            —°C
+          </div>
+          <div
+            id="weatherText"
+            class="widget-sub"
+          >
+            Загрузка…
+          </div>
         </div>
 
-        <a id="currencyWidget" class="widget currency-widget" href="https://minfin.com.ua/currency/izmail/" target="_blank" rel="noopener noreferrer" aria-label="Курс валют">
-          <div class="widget-title">КУРС НБУ</div>
-          <div class="currency-line"><b>USD</b><span id="usdRate">—</span></div>
-          <div class="currency-line"><b>EUR</b><span id="eurRate">—</span></div>
+        <!-- КУРС НБУ -->
+        <a
+          id="currencyWidget"
+          class="widget currency-widget"
+          href="https://minfin.com.ua/currency/izmail/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Курс валют"
+        >
+          <div class="widget-title">
+            КУРС НБУ
+          </div>
+          <div class="currency-line">
+            <b>USD</b>
+            <span id="usdRate">—</span>
+          </div>
+          <div class="currency-line">
+            <b>EUR</b>
+            <span id="eurRate">—</span>
+          </div>
         </a>
       </section>
 
-      <a id="mainGroup" class="hotspot logo-hotspot" href="#" aria-label="Главная группа"></a>
-      <a id="shelterLink" class="hotspot shelter-hotspot" href="#" aria-label="Укрытия Измаил"></a>
+      <!-- ЛОГОТИП -->
+      <a
+        id="mainGroup"
+        class="hotspot logo-hotspot"
+        href="#"
+        aria-label="Главная группа"
+      ></a>
 
-      <div id="searchHotspot" class="hotspot search-hotspot" role="search" aria-label="Поиск по справочнику">
-        <input id="directorySearchInput" class="directory-search-input" type="search" name="directory-search" autocomplete="off" autocorrect="off" autocapitalize="sentences" spellcheck="false" inputmode="search" enterkeyhint="search" aria-label="Поиск по справочнику Измаил" style="position:absolute!important;z-index:10!important;left:0!important;top:0!important;width:100%!important;height:100%!important;display:block!important;margin:0!important;padding:0 13.5%!important;background:transparent!important;background-color:transparent!important;background-image:none!important;border:0!important;border-width:0!important;border-style:none!important;outline:0!important;outline-width:0!important;box-shadow:none!important;color:#ffffff!important;font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(12px,2.5vw,18px)!important;font-weight:700!important;line-height:1!important;text-align:left!important;border-radius:18px!important;appearance:none!important;-webkit-appearance:none!important;-webkit-tap-highlight-color:transparent!important;caret-color:#ffffff!important;">
+      <!-- УКРЫТИЯ -->
+      <a
+        id="shelterLink"
+        class="hotspot shelter-hotspot"
+        href="#"
+        aria-label="Укрытия Измаил"
+      ></a>
+
+      <!-- ПОИСК -->
+      <div
+        id="searchHotspot"
+        class="hotspot search-hotspot"
+        role="search"
+        aria-label="Поиск по справочнику"
+      >
+        <input
+          id="directorySearchInput"
+          class="directory-search-input"
+          type="search"
+          name="directory-search"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="sentences"
+          spellcheck="false"
+          inputmode="search"
+          enterkeyhint="search"
+          aria-label="Поиск по справочнику Измаил"
+          style="
+            position: absolute !important;
+            z-index: 10 !important;
+            left: 0 !important;
+            top: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important;
+            margin: 0 !important;
+            padding: 0 13.5% !important;
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            border: 0 !important;
+            border-width: 0 !important;
+            border-style: none !important;
+            outline: 0 !important;
+            outline-width: 0 !important;
+            box-shadow: none !important;
+            color: #ffffff !important;
+            font-family: Arial, Helvetica, sans-serif !important;
+            font-size: clamp(12px, 2.5vw, 18px) !important;
+            font-weight: 700 !important;
+            line-height: 1 !important;
+            text-align: left !important;
+            border-radius: 18px !important;
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+            caret-color: #ffffff !important;
+          "
+        >
       </div>
 
+      <!-- КАТЕГОРИИ -->
       <a id="healthLink" class="hotspot category-hotspot health-hotspot" href="#" aria-label="Здоровье и уход"></a>
       <a id="transportLink" class="hotspot category-hotspot transport-hotspot" href="#" aria-label="Транспорт и такси"></a>
       <a id="servicesLink" class="hotspot category-hotspot services-hotspot" href="#" aria-label="Услуги и мастера"></a>
@@ -42,14 +158,20 @@
       <a id="educationLink" class="hotspot category-hotspot education-hotspot" href="#" aria-label="Образование и развитие"></a>
       <a id="leisureLink" class="hotspot category-hotspot leisure-hotspot" href="#" aria-label="Отдых, жильё и море"></a>
 
+      <!-- НАШИ ГРУППЫ -->
       <a id="groupsLink" class="hotspot groups-hotspot" href="#" aria-label="Наши группы"></a>
+
+      <!-- НИЖНЕЕ МЕНЮ -->
       <a id="homeLink" class="hotspot nav-hotspot home-hotspot" href="#" aria-label="Главная"></a>
       <a id="adsLink" class="hotspot nav-hotspot ads-hotspot" href="#" aria-label="Заказать рекламу"></a>
       <a id="favoritesLink" class="hotspot nav-hotspot favorites-hotspot" href="#" aria-label="Избранное"></a>
     </div>
   </main>
 
+  <!-- СНАЧАЛА КОНФИГ -->
   <script src="config.js"></script>
+
+  <!-- ПОТОМ ЛОГИКА -->
   <script src="app.js"></script>
 </body>
 </html>
