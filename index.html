@@ -21,7 +21,10 @@
 
     <div class="reference" id="reference">
 
-      <!-- ОСНОВНАЯ КАРТИНКА -->
+      <!-- =====================================================
+           ОСНОВНАЯ КАРТИНКА
+           ===================================================== -->
+
       <img
         id="referenceImage"
         class="reference-image"
@@ -31,65 +34,121 @@
 
 
       <!-- =====================================================
-           ПОГОДА И КУРС ВАЛЮТ
+           ВЕРХНИЕ СТЕКЛЯННЫЕ КНОПКИ
+           ПОГОДА / КУРС / УКРЫТИЯ
            ===================================================== -->
 
-      <section class="live-widgets" aria-label="Погода и курс валют">
+      <section
+        class="live-widgets"
+        aria-label="Погода, курс валют и укрытия"
+      >
 
         <!-- ПОГОДА -->
-        <div class="widget weather-widget">
+        <button
+          id="weatherWidget"
+          class="glass-button live-widget weather-widget"
+          type="button"
+          aria-label="Погода в Измаиле"
+        >
 
-          <div class="widget-title">
-            🌤️ ПОГОДА
-          </div>
+          <span
+            class="live-icon"
+            aria-hidden="true"
+          >🌤️</span>
 
-          <div
-            id="weatherTemp"
-            class="widget-main"
-          >
-            —°C
-          </div>
+          <span class="live-content">
 
-          <div
-            id="weatherText"
-            class="widget-sub"
-          >
-            Загрузка…
-          </div>
+            <span class="live-title">
+              ПОГОДА
+            </span>
 
-        </div>
+            <span
+              id="weatherTemp"
+              class="live-main"
+            >
+              —°C
+            </span>
+
+            <span
+              id="weatherText"
+              class="live-sub"
+            >
+              Загрузка…
+            </span>
+
+          </span>
+
+        </button>
 
 
-        <!-- КУРС -->
+        <!-- КУРС ВАЛЮТ -->
         <a
           id="currencyWidget"
-          class="widget currency-widget"
+          class="glass-button live-widget currency-widget"
           href="https://minfin.com.ua/currency/izmail/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Курс валют в Измаиле"
         >
 
-          <div class="widget-title">
-            💱 КУРС
-          </div>
+          <span
+            class="live-icon"
+            aria-hidden="true"
+          >💱</span>
 
-          <div class="currency-line">
-            <b>USD</b>
-            <span id="usdRate">—</span>
-          </div>
+          <span class="live-content">
 
-          <div class="currency-line">
-            <b>EUR</b>
-            <span id="eurRate">—</span>
-          </div>
+            <span class="live-title">
+              КУРС НБУ
+            </span>
 
-          <div
-            id="currencySource"
-            class="widget-source"
-          >
-            НБУ · нажмите для курса Измаила
-          </div>
+            <span class="currency-values">
+
+              <span class="currency-line">
+                <b>USD</b>
+                <span id="usdRate">—</span>
+              </span>
+
+              <span class="currency-line">
+                <b>EUR</b>
+                <span id="eurRate">—</span>
+              </span>
+
+            </span>
+
+          </span>
+
+        </a>
+
+
+        <!-- УКРЫТИЯ -->
+        <a
+          id="shelterWidget"
+          class="glass-button live-widget shelter-widget"
+          href="#"
+          aria-label="Укрытия Измаил"
+        >
+
+          <span
+            class="live-icon"
+            aria-hidden="true"
+          >🛡️</span>
+
+          <span class="live-content">
+
+            <span class="live-title">
+              УКРЫТИЯ
+            </span>
+
+            <span class="live-main shelter-main">
+              Измаил
+            </span>
+
+            <span class="live-sub">
+              Нажмите для карты
+            </span>
+
+          </span>
 
         </a>
 
@@ -97,123 +156,123 @@
 
 
       <!-- =====================================================
-           ПРОЗРАЧНЫЕ КНОПКИ ПОВЕРХ КАРТИНКИ
+           ЛОГОТИП / ГЛАВНАЯ ГРУППА
            ===================================================== -->
 
-      <!-- ЛОГОТИП / ГЛАВНАЯ ГРУППА -->
       <a
         id="mainGroup"
-        class="hotspot logo-hotspot"
+        class="hotspot glass-hotspot logo-hotspot"
         href="#"
         aria-label="Главная группа"
       ></a>
 
 
-      <!-- УКРЫТИЯ -->
-      <a
-        id="shelterLink"
-        class="hotspot shelter-hotspot"
-        href="#"
-        aria-label="Укрытия Измаил"
-      ></a>
+      <!-- =====================================================
+           ПОИСК
+           ===================================================== -->
 
-
-      <!-- ПОИСК -->
       <button
         id="searchHotspot"
-        class="hotspot search-hotspot"
+        class="hotspot glass-hotspot search-hotspot"
         type="button"
         aria-label="Поиск"
       ></button>
 
 
-      <!-- КАТЕГОРИИ -->
+      <!-- =====================================================
+           КАТЕГОРИИ
+           ===================================================== -->
 
       <a
         id="healthLink"
-        class="hotspot category-hotspot health-hotspot"
+        class="hotspot glass-hotspot category-hotspot health-hotspot"
         href="#"
         aria-label="Здоровье и уход"
       ></a>
 
       <a
         id="transportLink"
-        class="hotspot category-hotspot transport-hotspot"
+        class="hotspot glass-hotspot category-hotspot transport-hotspot"
         href="#"
         aria-label="Транспорт и такси"
       ></a>
 
       <a
         id="servicesLink"
-        class="hotspot category-hotspot services-hotspot"
+        class="hotspot glass-hotspot category-hotspot services-hotspot"
         href="#"
         aria-label="Услуги и мастера"
       ></a>
 
       <a
         id="foodLink"
-        class="hotspot category-hotspot food-hotspot"
+        class="hotspot glass-hotspot category-hotspot food-hotspot"
         href="#"
         aria-label="Продукты питания"
       ></a>
 
       <a
         id="utilitiesLink"
-        class="hotspot category-hotspot utilities-hotspot"
+        class="hotspot glass-hotspot category-hotspot utilities-hotspot"
         href="#"
         aria-label="Коммунальные службы"
       ></a>
 
       <a
         id="jobsLink"
-        class="hotspot category-hotspot jobs-hotspot"
+        class="hotspot glass-hotspot category-hotspot jobs-hotspot"
         href="#"
         aria-label="Работа и вакансии"
       ></a>
 
       <a
         id="educationLink"
-        class="hotspot category-hotspot education-hotspot"
+        class="hotspot glass-hotspot category-hotspot education-hotspot"
         href="#"
         aria-label="Образование и развитие"
       ></a>
 
       <a
         id="leisureLink"
-        class="hotspot category-hotspot leisure-hotspot"
+        class="hotspot glass-hotspot category-hotspot leisure-hotspot"
         href="#"
         aria-label="Отдых, жильё и море"
       ></a>
 
 
-      <!-- НАШИ ГРУППЫ -->
+      <!-- =====================================================
+           НАШИ ГРУППЫ
+           ===================================================== -->
+
       <a
         id="groupsLink"
-        class="hotspot groups-hotspot"
+        class="hotspot glass-hotspot groups-hotspot"
         href="#"
         aria-label="Все наши Telegram-группы"
       ></a>
 
 
-      <!-- НИЖНЕЕ МЕНЮ -->
+      <!-- =====================================================
+           НИЖНЕЕ МЕНЮ
+           ===================================================== -->
 
       <a
         id="homeLink"
-        class="hotspot nav-hotspot home-hotspot"
+        class="hotspot glass-hotspot nav-hotspot home-hotspot"
         href="#"
         aria-label="Главная"
       ></a>
 
       <a
         id="adsLink"
-        class="hotspot nav-hotspot ads-hotspot"
+        class="hotspot glass-hotspot nav-hotspot ads-hotspot"
         href="#"
         aria-label="Заказать рекламу"
       ></a>
 
       <a
         id="favoritesLink"
-        class="hotspot nav-hotspot favorites-hotspot"
+        class="hotspot glass-hotspot nav-hotspot favorites-hotspot"
         href="#"
         aria-label="Избранное"
       ></a>
@@ -223,6 +282,9 @@
   </main>
 
 
+  <!-- ВАЖНО:
+       Сначала config.js, потом app.js -->
+  <script src="config.js"></script>
   <script src="app.js"></script>
 
 </body>
