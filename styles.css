@@ -22,27 +22,22 @@ body {
   width: 100%;
   min-width: 0;
   min-height: 100vh;
-
   margin: 0;
   padding: 0;
-
   background: #061b35;
-
   overflow-x: hidden;
-
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
 
-
-/* =========================================================
-   ОСНОВНОЙ КОНТЕЙНЕР
-   ========================================================= */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
 
 .app {
   width: 100%;
   min-width: 0;
-
   margin: 0;
   padding: 0;
 
@@ -51,17 +46,11 @@ body {
   align-items: flex-start;
 }
 
-
-/* =========================================================
-   709 × 1536 ДИЗАЙН
-   ========================================================= */
-
 .reference {
   position: relative;
 
   width: min(100%, 709px);
   max-width: 709px;
-
   min-width: 0;
 
   margin: 0;
@@ -71,11 +60,6 @@ body {
 
   line-height: 0;
 }
-
-
-/* =========================================================
-   ОСНОВНАЯ КАРТИНКА
-   ========================================================= */
 
 .reference-image {
   position: relative;
@@ -96,31 +80,54 @@ body {
 
   user-select: none;
   -webkit-user-select: none;
-
   -webkit-user-drag: none;
 }
 
 
 /* =========================================================
-   ПОГОДА + КУРС
+   ОБЩИЙ GLASS-ЭФФЕКТ
+   ========================================================= */
+
+.glass-button,
+.glass-hotspot {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 67, 105, 0.34),
+      rgba(3, 25, 50, 0.28)
+    );
+
+  border: 1px solid rgba(137, 224, 255, 0.42);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
+    0 3px 12px rgba(0, 0, 0, 0.20),
+    0 0 8px rgba(42, 196, 255, 0.10);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+
+/* =========================================================
+   ВЕРХНИЕ ТРИ КНОПКИ
    ========================================================= */
 
 .live-widgets {
   position: absolute;
+  z-index: 50;
 
-  z-index: 20;
+  left: 3%;
+  top: 27%;
 
-  left: 6%;
-  top: 30.2%;
-
-  width: 88%;
-  height: 3.45%;
+  width: 94%;
+  height: 6.5%;
 
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  grid-template-columns: 1fr 1fr;
-
-  gap: 2%;
+  gap: 1.5%;
 
   margin: 0;
   padding: 0;
@@ -130,10 +137,10 @@ body {
 
 
 /* =========================================================
-   ОБЩИЙ ВИД ВИДЖЕТОВ
+   ОБЩАЯ КНОПКА
    ========================================================= */
 
-.widget {
+.live-widget {
   position: relative;
 
   min-width: 0;
@@ -142,9 +149,12 @@ body {
   width: 100%;
   height: 100%;
 
-  display: block;
+  display: flex;
+  align-items: center;
 
-  color: #ffffff;
+  padding: 4px 7px;
+
+  color: #fff;
 
   font-family:
     Arial,
@@ -153,193 +163,218 @@ body {
 
   text-decoration: none;
 
-  background: rgba(5, 26, 52, 0.90);
-
-  border: 1px solid rgba(130, 220, 255, 0.75);
-
   border-radius: 12px;
 
-  box-shadow:
-    0 3px 12px rgba(0, 0, 0, 0.30);
+  cursor: pointer;
 
   overflow: hidden;
 
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  transition:
+    transform 90ms ease,
+    filter 90ms ease,
+    border-color 90ms ease,
+    box-shadow 90ms ease,
+    background 90ms ease;
 
-  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+
+/* Блик на стекле */
+
+.live-widget::before {
+  content: "";
+
+  position: absolute;
+
+  left: -25%;
+  top: -60%;
+
+  width: 70%;
+  height: 220%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.11),
+      transparent
+    );
+
+  transform: rotate(18deg);
+
+  pointer-events: none;
+}
+
+
+/* Дополнительное внутреннее свечение */
+
+.live-widget::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.07),
+      transparent 42%,
+      rgba(57, 207, 255, 0.06)
+    );
+
+  pointer-events: none;
 }
 
 
 /* =========================================================
-   ПОГОДА
+   ИКОНКА
    ========================================================= */
 
-.weather-widget {
-  display: grid;
+.live-icon {
+  position: relative;
+  z-index: 2;
 
-  grid-template-columns: 24px auto 1fr;
+  flex: 0 0 auto;
 
-  grid-template-rows: 1fr 1fr;
-
-  align-items: center;
-
-  column-gap: 5px;
-
-  padding: 2px 7px;
-}
-
-
-/* Облачко / солнце */
-
-.weather-widget::before {
-  content: "🌤️";
-
-  grid-column: 1;
-  grid-row: 1 / 3;
+  width: clamp(22px, 6vw, 32px);
+  height: clamp(22px, 6vw, 32px);
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  font-size: clamp(15px, 3.8vw, 23px);
+  margin-right: 5px;
+
+  font-size: clamp(15px, 4.4vw, 24px);
 
   line-height: 1;
 
   filter:
-    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 5px rgba(76, 210, 255, 0.18));
 }
 
 
-/* Надпись ПОГОДА */
+/* =========================================================
+   СОДЕРЖИМОЕ
+   ========================================================= */
 
-.weather-widget .widget-title {
-  grid-column: 2 / 4;
-  grid-row: 1;
-
-  align-self: end;
-
-  font-size: clamp(7px, 1.55vw, 10px);
-
-  font-weight: 700;
-
-  line-height: 1;
-
-  white-space: nowrap;
-
-  opacity: 0.95;
-}
-
-
-/* Температура */
-
-.weather-widget .widget-main {
-  grid-column: 2;
-  grid-row: 2;
-
-  align-self: start;
-
-  font-size: clamp(10px, 2.5vw, 15px);
-
-  font-weight: 800;
-
-  line-height: 1;
-
-  white-space: nowrap;
-}
-
-
-/* Состояние погоды */
-
-.weather-widget .widget-sub {
-  grid-column: 3;
-  grid-row: 2;
-
-  align-self: start;
+.live-content {
+  position: relative;
+  z-index: 2;
 
   min-width: 0;
 
-  font-size: clamp(6px, 1.35vw, 9px);
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ЗАГОЛОВОК
+   ========================================================= */
+
+.live-title {
+  min-width: 0;
+
+  font-size: clamp(7px, 1.65vw, 11px);
+  font-weight: 900;
+
+  line-height: 1.05;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: rgba(255, 255, 255, 0.96);
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 0 5px rgba(83, 213, 255, 0.18);
+}
+
+
+/* =========================================================
+   ГЛАВНОЕ ЗНАЧЕНИЕ
+   ========================================================= */
+
+.live-main {
+  min-width: 0;
+
+  margin-top: 2px;
+
+  font-size: clamp(11px, 2.8vw, 17px);
+  font-weight: 900;
+
+  line-height: 1.05;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: #fff;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 0 6px rgba(83, 213, 255, 0.20);
+}
+
+
+/* =========================================================
+   ПОДПИСЬ
+   ========================================================= */
+
+.live-sub {
+  min-width: 0;
+
+  margin-top: 2px;
+
+  font-size: clamp(5.5px, 1.3vw, 8px);
+  font-weight: 600;
 
   line-height: 1;
 
   white-space: nowrap;
 
   overflow: hidden;
-
   text-overflow: ellipsis;
 
-  opacity: 0.80;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 
 /* =========================================================
-   КУРС ВАЛЮТ
+   КУРС
    ========================================================= */
 
-.currency-widget {
-  display: grid;
-
-  grid-template-columns: 42px 1fr;
-
-  grid-template-rows: 1fr 1fr auto;
-
-  align-items: center;
-
-  column-gap: 5px;
-
-  padding: 2px 7px;
-}
-
-
-/* Значки $ € */
-
-.currency-widget::before {
-  content: "$  €";
-
-  grid-column: 1;
-  grid-row: 1 / 3;
+.currency-values {
+  min-width: 0;
 
   display: flex;
+  flex-direction: column;
 
-  align-items: center;
-  justify-content: center;
+  gap: 2px;
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  font-size: clamp(12px, 3vw, 18px);
-
-  font-weight: 800;
-
-  letter-spacing: -2px;
-
-  line-height: 1;
-
-  color: #ffffff;
-
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.35);
+  margin-top: 2px;
 }
-
-
-/* USD / EUR */
 
 .currency-line {
+  min-width: 0;
+
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
-  width: 100%;
-
   gap: 4px;
-
-  min-width: 0;
 
   font-size: clamp(6px, 1.45vw, 9px);
 
@@ -348,45 +383,68 @@ body {
   white-space: nowrap;
 }
 
-
 .currency-line b {
-  font-weight: 800;
-}
+  flex: 0 0 auto;
 
+  font-weight: 900;
+}
 
 .currency-line span {
-  font-weight: 700;
-}
-
-
-/* НБУ */
-
-.widget-source {
-  grid-column: 1 / -1;
-
   min-width: 0;
 
-  font-size: clamp(5px, 1.1vw, 7px);
-
-  line-height: 1;
-
-  white-space: nowrap;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
 
-  opacity: 0.68;
+  font-weight: 800;
+
+  color: rgba(255, 255, 255, 0.95);
 }
 
 
 /* =========================================================
-   ПРОЗРАЧНЫЕ КНОПКИ
+   УКРЫТИЯ
+   ========================================================= */
+
+.shelter-main {
+  font-size: clamp(9px, 2.2vw, 14px);
+}
+
+
+/* =========================================================
+   НАЖАТИЕ НА ВЕРХНИЕ КНОПКИ
+   ========================================================= */
+
+.live-widget:active {
+  transform:
+    translateY(2px)
+    scale(0.965);
+
+  filter: brightness(1.22);
+
+  border-color:
+    rgba(177, 240, 255, 0.95);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(31, 100, 151, 0.52),
+      rgba(5, 34, 66, 0.48)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.20),
+    inset 0 0 12px rgba(105, 226, 255, 0.10),
+    0 1px 5px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(56, 210, 255, 0.58);
+}
+
+
+/* =========================================================
+   ПРОЗРАЧНЫЕ КЛИКАБЕЛЬНЫЕ ЗОНЫ НА КАРТИНКЕ
    ========================================================= */
 
 .hotspot {
   position: absolute;
-
   z-index: 30;
 
   display: block;
@@ -394,13 +452,95 @@ body {
   margin: 0;
   padding: 0;
 
-  background: transparent;
-
-  border: 0;
+  border-radius: 13px;
 
   text-decoration: none;
 
+  cursor: pointer;
+
+  touch-action: manipulation;
+
   -webkit-tap-highlight-color: transparent;
+
+  transition:
+    transform 90ms ease,
+    filter 90ms ease,
+    border-color 90ms ease,
+    box-shadow 90ms ease,
+    background 90ms ease;
+}
+
+
+/* =========================================================
+   GLASS ДЛЯ ВСЕХ КНОПОК КАРТИНКИ
+   ========================================================= */
+
+.glass-hotspot {
+  overflow: hidden;
+
+  border: 1px solid rgba(137, 224, 255, 0.20);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(25, 76, 115, 0.12),
+      rgba(4, 27, 52, 0.10)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 2px 8px rgba(0, 0, 0, 0.10);
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+
+/* При наведении на устройство с мышью */
+
+@media (hover: hover) {
+
+  .glass-hotspot:hover {
+    border-color:
+      rgba(139, 229, 255, 0.48);
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(44, 118, 164, 0.20),
+        rgba(5, 35, 65, 0.18)
+      );
+
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.11),
+      0 0 13px rgba(45, 205, 255, 0.22);
+  }
+
+}
+
+
+/* Реальное визуальное нажатие */
+
+.glass-hotspot:active {
+  transform:
+    translateY(2px)
+    scale(0.975);
+
+  filter: brightness(1.24);
+
+  border-color:
+    rgba(174, 240, 255, 0.90);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(55, 139, 181, 0.28),
+      rgba(7, 42, 73, 0.24)
+    );
+
+  box-shadow:
+    inset 0 0 13px rgba(111, 226, 255, 0.12),
+    0 0 16px rgba(61, 211, 255, 0.48);
 }
 
 
@@ -418,19 +558,6 @@ body {
 
 
 /* =========================================================
-   УКРЫТИЯ
-   ========================================================= */
-
-.shelter-hotspot {
-  left: 61%;
-  top: 27%;
-
-  width: 36%;
-  height: 7.5%;
-}
-
-
-/* =========================================================
    ПОИСК
    ========================================================= */
 
@@ -440,8 +567,6 @@ body {
 
   width: 95%;
   height: 6%;
-
-  cursor: pointer;
 
   appearance: none;
 }
@@ -456,48 +581,40 @@ body {
   height: 8.7%;
 }
 
-
 .health-hotspot {
   left: 3%;
   top: 40%;
 }
-
 
 .transport-hotspot {
   left: 51.5%;
   top: 40%;
 }
 
-
 .services-hotspot {
   left: 3%;
   top: 49.7%;
 }
-
 
 .food-hotspot {
   left: 51.5%;
   top: 49.7%;
 }
 
-
 .utilities-hotspot {
   left: 3%;
   top: 59.5%;
 }
-
 
 .jobs-hotspot {
   left: 51.5%;
   top: 59.5%;
 }
 
-
 .education-hotspot {
   left: 3%;
   top: 69.2%;
 }
-
 
 .leisure-hotspot {
   left: 51.5%;
@@ -524,26 +641,33 @@ body {
 
 .nav-hotspot {
   top: 87%;
-
   height: 6%;
 }
-
 
 .home-hotspot {
   left: 2%;
   width: 30%;
 }
 
-
 .ads-hotspot {
   left: 35%;
   width: 30%;
 }
 
-
 .favorites-hotspot {
   left: 68%;
   width: 30%;
+}
+
+
+/* =========================================================
+   ФОКУС
+   ========================================================= */
+
+.live-widget:focus-visible,
+.glass-hotspot:focus-visible {
+  outline: 2px solid rgba(169, 238, 255, 0.95);
+  outline-offset: 2px;
 }
 
 
@@ -553,52 +677,46 @@ body {
 
 @media (max-width: 380px) {
 
-  .widget {
-    border-radius: 9px;
-
-    box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.27);
-  }
-
-  .weather-widget,
-  .currency-widget {
-    padding: 2px 5px;
-  }
-
   .live-widgets {
-    gap: 1.5%;
+    gap: 1.2%;
   }
 
-  .weather-widget::before {
+  .live-widget {
+    padding: 3px 5px;
+    border-radius: 9px;
+  }
+
+  .live-icon {
+    width: 20px;
+    height: 20px;
+
+    margin-right: 4px;
+
     font-size: 14px;
   }
 
-  .currency-widget::before {
-    font-size: 12px;
+  .live-title {
+    font-size: 6.5px;
   }
-}
 
+  .live-main {
+    font-size: 10px;
+  }
 
-/* =========================================================
-   НАЖАТИЕ
-   ========================================================= */
+  .live-sub {
+    font-size: 5px;
+  }
 
-.hotspot:active {
-  opacity: 0.85;
-}
+  .currency-line {
+    font-size: 5.5px;
+  }
 
+  .shelter-main {
+    font-size: 8px;
+  }
 
-.widget:active {
-  transform: scale(0.99);
-}
+  .hotspot {
+    border-radius: 9px;
+  }
 
-
-/* =========================================================
-   ФОКУС КЛАВИАТУРОЙ
-   ========================================================= */
-
-.hotspot:focus-visible,
-.widget:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
 }
