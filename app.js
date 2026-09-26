@@ -127,8 +127,57 @@
    * =========================================================
    */
 
+  const weatherWidget = $("weatherWidget");
   const weatherTemp = $("weatherTemp");
   const weatherText = $("weatherText");
+
+
+  /*
+   * ПРИНУДИТЕЛЬНО НАСТРАИВАЕМ ВНУТРЕННЕЕ РАСПОЛОЖЕНИЕ
+   * ТЕКСТА ПОГОДЫ.
+   *
+   * Размер и положение самого виджета НЕ меняются.
+   */
+
+  if (weatherWidget) {
+
+    weatherWidget.style.display = "flex";
+    weatherWidget.style.flexDirection = "column";
+    weatherWidget.style.justifyContent = "center";
+    weatherWidget.style.alignItems = "flex-start";
+    weatherWidget.style.overflow = "hidden";
+    weatherWidget.style.padding = "5px 12px";
+    weatherWidget.style.gap = "0";
+
+  }
+
+
+  if (weatherTemp) {
+
+    weatherTemp.style.display = "block";
+    weatherTemp.style.width = "100%";
+    weatherTemp.style.margin = "2px 0 0 0";
+    weatherTemp.style.padding = "0";
+    weatherTemp.style.lineHeight = "1";
+    weatherTemp.style.whiteSpace = "nowrap";
+
+  }
+
+
+  if (weatherText) {
+
+    weatherText.style.display = "block";
+    weatherText.style.width = "100%";
+    weatherText.style.minWidth = "0";
+    weatherText.style.margin = "3px 0 0 0";
+    weatherText.style.padding = "0";
+    weatherText.style.lineHeight = "1";
+    weatherText.style.whiteSpace = "nowrap";
+    weatherText.style.overflow = "hidden";
+    weatherText.style.textOverflow = "ellipsis";
+    weatherText.style.opacity = "0.95";
+
+  }
 
 
   const weatherNames = {
@@ -379,19 +428,6 @@
 
   if (searchHotspot && searchInput) {
 
-
-    /*
-     * =======================================================
-     * СОЗДАЁМ ПРОЗРАЧНЫЙ СЛОЙ ДЛЯ ТЕКСТА
-     * =======================================================
-     *
-     * Настоящий input остаётся рабочим и принимает клавиатуру,
-     * но сам системный внешний вид input полностью скрыт.
-     *
-     * Благодаря этому Android больше не может показать
-     * белую полосу.
-     */
-
     const searchValue =
       document.createElement("div");
 
@@ -483,12 +519,6 @@
     );
 
 
-    /*
-     * =======================================================
-     * ПОЛНОСТЬЮ УБИРАЕМ ВИЗУАЛЬНЫЙ INPUT
-     * =======================================================
-     */
-
     searchInput.style.position =
       "absolute";
 
@@ -532,17 +562,8 @@
       "none";
 
 
-    /*
-     * КЛЮЧЕВОЕ:
-     *
-     * input полностью невидимый,
-     * но продолжает получать фокус
-     * и открывать клавиатуру Android.
-     */
-
     searchInput.style.opacity =
       "0";
-
 
     searchInput.style.color =
       "transparent";
@@ -573,12 +594,6 @@
     searchInput.style.cursor =
       "text";
 
-
-    /*
-     * =======================================================
-     * ДОПОЛНИТЕЛЬНЫЕ СТИЛИ
-     * =======================================================
-     */
 
     const searchStyle =
       document.createElement("style");
@@ -634,12 +649,6 @@
     );
 
 
-    /*
-     * =======================================================
-     * ПОКАЗ / СКРЫТИЕ ТЕКСТА
-     * =======================================================
-     */
-
     function updateSearchVisual() {
 
       const value =
@@ -670,12 +679,6 @@
     }
 
 
-    /*
-     * =======================================================
-     * ФОКУС
-     * =======================================================
-     */
-
     searchInput.addEventListener(
       "focus",
       () => {
@@ -689,12 +692,6 @@
       }
     );
 
-
-    /*
-     * =======================================================
-     * ВВОД
-     * =======================================================
-     */
 
     searchInput.addEventListener(
       "input",
@@ -723,12 +720,6 @@
     );
 
 
-    /*
-     * =======================================================
-     * ПОТЕРЯ ФОКУСА
-     * =======================================================
-     */
-
     searchInput.addEventListener(
       "blur",
       () => {
@@ -749,12 +740,6 @@
       }
     );
 
-
-    /*
-     * =======================================================
-     * ENTER
-     * =======================================================
-     */
 
     searchInput.addEventListener(
       "keydown",
