@@ -1,10 +1,11 @@
 (() => {
   "use strict";
 
-  /*
-   * Ссылки берём из config.js.
-   * config.js загружается перед app.js.
-   */
+
+  /* =========================================================
+     CONFIG
+     ========================================================= */
+
   const LINKS = window.LINKS || {};
 
   const WEATHER = window.WEATHER || {
@@ -37,13 +38,39 @@
 
 
   /* =========================================================
-     ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+     ELEMENT
      ========================================================= */
 
   const $ = (id) => document.getElementById(id);
 
 
-  function applyLink(id, url) {
+  /* =========================================================
+     ПОДКЛЮЧЕНИЕ ССЫЛОК
+     ========================================================= */
+
+  const linkMap = {
+    mainGroup: LINKS.MAIN_GROUP,
+    shelterLink: LINKS.SHELTERS,
+
+    healthLink: LINKS.HEALTH,
+    transportLink: LINKS.TRANSPORT,
+    servicesLink: LINKS.SERVICES,
+    foodLink: LINKS.FOOD,
+    utilitiesLink: LINKS.UTILITIES,
+    jobsLink: LINKS.JOBS,
+    educationLink: LINKS.EDUCATION,
+    leisureLink: LINKS.LEISURE,
+
+    groupsLink: LINKS.OUR_GROUPS,
+
+    homeLink: LINKS.MAIN_GROUP,
+    adsLink: LINKS.INSTAGRAM,
+    favoritesLink: ""
+  };
+
+
+  Object.entries(linkMap).forEach(([id, url]) => {
+
     const element = $(id);
 
     if (!element) return;
@@ -59,44 +86,15 @@
       element.target = "_blank";
       element.rel = "noopener noreferrer";
     }
-  }
+
+  });
 
 
   /* =========================================================
-     ССЫЛКИ
+     ПУСТЫЕ КНОПКИ НЕ ПЕРЕЗАГРУЖАЮТ СТРАНИЦУ
      ========================================================= */
 
-  applyLink("mainGroup", LINKS.MAIN_GROUP);
-  applyLink("shelterLink", LINKS.SHELTERS);
-
-  applyLink("healthLink", LINKS.HEALTH);
-  applyLink("transportLink", LINKS.TRANSPORT);
-  applyLink("servicesLink", LINKS.SERVICES);
-  applyLink("foodLink", LINKS.FOOD);
-  applyLink("utilitiesLink", LINKS.UTILITIES);
-  applyLink("jobsLink", LINKS.JOBS);
-  applyLink("educationLink", LINKS.EDUCATION);
-  applyLink("leisureLink", LINKS.LEISURE);
-
-  /*
-   * В config.js название именно OUR_GROUPS.
-   */
-  applyLink("groupsLink", LINKS.OUR_GROUPS);
-
-  /*
-   * Эти ссылки пока могут быть пустыми.
-   * Никаких всплывающих сообщений при нажатии.
-   */
-  applyLink("homeLink", LINKS.MAIN_GROUP);
-  applyLink("adsLink", LINKS.INSTAGRAM);
-  applyLink("favoritesLink", "");
-
-
-  /* =========================================================
-     НЕ ДАЁМ ПУСТЫМ ССЫЛКАМ ПЕРЕЗАГРУЖАТЬ СТРАНИЦУ
-     ========================================================= */
-
-  document.querySelectorAll(".hotspot, .live-widget").forEach((element) => {
+  document.querySelectorAll(".hotspot").forEach((element) => {
 
     element.addEventListener("click", (event) => {
 
@@ -117,6 +115,7 @@
 
   const weatherTemp = $("weatherTemp");
   const weatherText = $("weatherText");
+
 
   const weatherNames = {
     0: "Ясно",
@@ -167,7 +166,9 @@
 
       const latitude = Number(WEATHER.latitude);
       const longitude = Number(WEATHER.longitude);
-      const timezone = WEATHER.timezone || "Europe/Kyiv";
+      const timezone =
+        WEATHER.timezone || "Europe/Kyiv";
+
 
       const url =
         "https://api.open-meteo.com/v1/forecast" +
@@ -176,29 +177,40 @@
         "&current=temperature_2m,weather_code" +
         `&timezone=${encodeURIComponent(timezone)}`;
 
+
       const response = await fetch(url, {
         cache: "no-store"
       });
+
 
       if (!response.ok) {
         throw new Error("Weather request failed");
       }
 
+
       const data = await response.json();
+
 
       if (!data.current) {
         throw new Error("No current weather");
       }
 
+
       const temperature =
-        Math.round(Number(data.current.temperature_2m));
+        Math.round(
+          Number(data.current.temperature_2m)
+        );
+
 
       const code =
         Number(data.current.weather_code);
 
+
       if (weatherTemp) {
-        weatherTemp.textContent = `${temperature}°C`;
+        weatherTemp.textContent =
+          `${temperature}°C`;
       }
+
 
       if (weatherText) {
         weatherText.textContent =
@@ -238,24 +250,30 @@
       const url =
         "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json";
 
+
       const response = await fetch(url, {
         cache: "no-store"
       });
+
 
       if (!response.ok) {
         throw new Error("Currency request failed");
       }
 
+
       const data = await response.json();
+
 
       if (!Array.isArray(data)) {
         throw new Error("Invalid currency data");
       }
 
+
       const usd = data.find(
         (item) =>
           String(item.cc).toUpperCase() === "USD"
       );
+
 
       const eur = data.find(
         (item) =>
@@ -267,6 +285,7 @@
         usdRate.textContent =
           `${Number(usd.rate).toFixed(2)} ₴`;
       }
+
 
       if (eur && eurRate) {
         eurRate.textContent =
@@ -297,23 +316,24 @@
 
   const searchButton = $("searchHotspot");
 
+
   if (searchButton) {
 
     searchButton.addEventListener("click", () => {
 
       /*
-       * Если позже добавим ссылку на поиск,
-       * она автоматически начнёт работать.
-       *
-       * Пока ничего не всплывает и ничего не ломается.
+       * Пока ссылка поиска не задана,
+       * ничего не открываем и ничего не показываем.
        */
 
       if (LINKS.SEARCH) {
+
         window.open(
           LINKS.SEARCH,
           "_blank",
           "noopener,noreferrer"
         );
+
       }
 
     });
@@ -322,7 +342,7 @@
 
 
   /* =========================================================
-     ОБНОВЛЕНИЕ
+     АВТООБНОВЛЕНИЕ
      ========================================================= */
 
   setInterval(
