@@ -1,58 +1,467 @@
-/* =========================================================
-   ГЛАВНЫЙ СПРАВОЧНИК ИЗМАИЛ
-   НОВЫЙ STYLE.CSS
-   ========================================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-html {
-    width: 100%;
-    min-height: 100%;
-    background: #041426;
-    -webkit-text-size-adjust: 100%;
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  background: #061b35;
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background:
-        radial-gradient(circle at 50% 0%, rgba(0, 164, 255, 0.12), transparent 35%),
-        #041426;
-    color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+  overflow-x: hidden;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
+
 /* =========================================================
-   ОСНОВНОЙ КОНТЕЙНЕР
+   ОСНОВА
    ========================================================= */
 
 .app {
-    width: 100%;
-    max-width: 709px;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 0 14px 90px;
+  width: 100%;
+  max-width: 709px;
+
+  margin: 0 auto;
+  padding: 0;
 }
 
+
+.reference {
+  position: relative;
+
+  width: 100%;
+
+  line-height: 0;
+}
+
+
 /* =========================================================
-   HERO
+   РОДНАЯ КАРТИНКА
    ========================================================= */
 
-.hero {
-    position: relative;
-    width: 100%;
-    min-height: 310px;
-    margin: 0 0 14px;
-    border-radius: 0 0 24px 24px;
-    overflow: hidden;
-    background:
-        linear-gradient(
-            180deg,
-            rgba(2, 18, 38
+.reference-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: 709px;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   ВИДЖЕТЫ ПОГОДЫ И ВАЛЮТЫ
+   ========================================================= */
+
+.live-widgets {
+
+  position: absolute;
+
+  z-index: 20;
+
+  left: 3.5%;
+  right: 3.5%;
+
+  top: 16%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  line-height: normal;
+
+  pointer-events: none;
+}
+
+
+.widget {
+
+  min-width: 0;
+  min-height: 92px;
+
+  padding: 10px 12px;
+
+  border: 1.5px solid #16c9ff;
+
+  border-radius: 16px;
+
+  background:
+    rgba(3, 28, 53, 0.95);
+
+  box-shadow:
+    0 0 10px rgba(0, 191, 255, 0.45),
+    inset 0 0 12px rgba(0, 191, 255, 0.10);
+
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+
+.currency-widget {
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  pointer-events: auto;
+
+  cursor: pointer;
+}
+
+
+.widget-title {
+
+  margin-bottom: 5px;
+
+  color: #55dcff;
+
+  font-size:
+    clamp(10px, 2.2vw, 15px);
+
+  font-weight: 800;
+
+  letter-spacing: .3px;
+}
+
+
+.widget-main {
+
+  font-size:
+    clamp(26px, 6vw, 38px);
+
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+
+.widget-sub {
+
+  margin-top: 5px;
+
+  color:
+    rgba(255,255,255,.78);
+
+  font-size:
+    clamp(10px, 2.4vw, 15px);
+}
+
+
+.currency-line {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  margin-top: 4px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(10px, 2.5vw, 16px);
+
+  line-height: 1.1;
+}
+
+
+.currency-line b {
+
+  color: #55dcff;
+}
+
+
+.currency-line span {
+
+  white-space: nowrap;
+}
+
+
+.widget-source {
+
+  margin-top: 6px;
+
+  color:
+    rgba(255,255,255,.55);
+
+  font-size:
+    clamp(8px, 1.8vw, 11px);
+
+  line-height: 1.15;
+}
+
+
+/* =========================================================
+   ВСЕ ПРОЗРАЧНЫЕ КНОПКИ
+   Координаты рассчитаны под оригинал 709 × 1536.
+   ========================================================= */
+
+.hotspot {
+
+  position: absolute;
+
+  z-index: 10;
+
+  display: block;
+
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  background: transparent;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+  line-height: normal;
+}
+
+
+/* =========================================================
+   ЛОГОТИП
+   ========================================================= */
+
+.logo-hotspot {
+
+  left: 2%;
+
+  top: 4.5%;
+
+  width: 33%;
+
+  height: 24%;
+}
+
+
+/* =========================================================
+   УКРЫТИЯ
+   ========================================================= */
+
+.shelter-hotspot {
+
+  left: 61.5%;
+
+  top: 27%;
+
+  width: 35.5%;
+
+  height: 7%;
+}
+
+
+/* =========================================================
+   ПОИСК
+   ========================================================= */
+
+.search-hotspot {
+
+  left: 3%;
+
+  top: 34%;
+
+  width: 94%;
+
+  height: 5.8%;
+}
+
+
+/* =========================================================
+   КАТЕГОРИИ
+   ========================================================= */
+
+.category-hotspot {
+
+  width: 46%;
+
+  height: 8.4%;
+}
+
+
+/* Здоровье */
+
+.health-hotspot {
+
+  left: 3.2%;
+
+  top: 40.1%;
+}
+
+
+/* Транспорт */
+
+.transport-hotspot {
+
+  left: 50.8%;
+
+  top: 40.1%;
+}
+
+
+/* Услуги */
+
+.services-hotspot {
+
+  left: 3.2%;
+
+  top: 50%;
+}
+
+
+/* Продукты */
+
+.food-hotspot {
+
+  left: 50.8%;
+
+  top: 50%;
+}
+
+
+/* Коммунальные */
+
+.utilities-hotspot {
+
+  left: 3.2%;
+
+  top: 59.8%;
+}
+
+
+/* Работа */
+
+.jobs-hotspot {
+
+  left: 50.8%;
+
+  top: 59.8%;
+}
+
+
+/* Образование */
+
+.education-hotspot {
+
+  left: 3.2%;
+
+  top: 69.6%;
+}
+
+
+/* Отдых */
+
+.leisure-hotspot {
+
+  left: 50.8%;
+
+  top: 69.6%;
+}
+
+
+/* =========================================================
+   НАШИ ГРУППЫ
+   ========================================================= */
+
+.groups-hotspot {
+
+  left: 3.2%;
+
+  top: 79.2%;
+
+  width: 93.6%;
+
+  height: 6.2%;
+}
+
+
+/* =========================================================
+   НИЖНЕЕ МЕНЮ
+   ========================================================= */
+
+.nav-hotspot {
+
+  top: 87.3%;
+
+  height: 5.2%;
+}
+
+
+/* Главная */
+
+.home-hotspot {
+
+  left: 3.2%;
+
+  width: 29%;
+}
+
+
+/* Реклама */
+
+.ads-hotspot {
+
+  left: 35.5%;
+
+  width: 29%;
+}
+
+
+/* Избранное */
+
+.favorites-hotspot {
+
+  left: 67.2%;
+
+  width: 29.2%;
+}
+
+
+/* =========================================================
+   МАЛЕНЬКИЕ ТЕЛЕФОНЫ
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .live-widgets {
+
+    gap: 7px;
+  }
+
+
+  .widget {
+
+    min-height: 76px;
+
+    padding: 8px 9px;
+
+    border-radius: 13px;
+  }
+
+
+  .widget-main {
+
+    font-size: 28px;
+  }
+}
