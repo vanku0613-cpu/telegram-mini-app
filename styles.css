@@ -70,7 +70,6 @@ body {
 
 .live-widgets {
   position: absolute;
-
   z-index: 20;
 
   left: 3.1%;
@@ -80,16 +79,13 @@ body {
   height: 6.25%;
 
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 1.8%;
 
   margin: 0;
   padding: 0;
 
   line-height: normal;
-
   pointer-events: none;
 }
 
@@ -141,7 +137,6 @@ body {
   content: "";
 
   position: absolute;
-
   inset: 0;
 
   border-radius: inherit;
@@ -198,6 +193,7 @@ body {
 
 .weather-widget .widget-main {
   margin-top: 4px;
+
   font-size: clamp(16px, 2.9vw, 21px);
   font-weight: 800;
   line-height: 1;
@@ -206,13 +202,18 @@ body {
 
 .weather-widget .widget-sub {
   margin-top: 4px;
+
   min-width: 0;
+
   font-size: clamp(8px, 1.45vw, 10px);
   font-weight: 600;
   line-height: 1;
+
   white-space: nowrap;
+
   overflow: hidden;
   text-overflow: ellipsis;
+
   opacity: 0.9;
 }
 
@@ -243,13 +244,20 @@ body {
 
 .currency-line {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
+
   width: 100%;
+
   gap: 6px;
+
   margin-top: 4px;
+
   font-size: clamp(8px, 1.5vw, 11px);
+
   line-height: 1;
+
   white-space: nowrap;
 }
 
@@ -263,7 +271,7 @@ body {
 
 
 /* =========================================================
-   ВСЕ ПРОЗРАЧНЫЕ КНОПКИ ПОВЕРХ КАРТИНКИ
+   ВСЕ ПРОЗРАЧНЫЕ КНОПКИ
    ========================================================= */
 
 .hotspot {
@@ -296,7 +304,6 @@ body {
   content: "";
 
   position: absolute;
-
   inset: 0;
 
   background: transparent;
@@ -391,7 +398,7 @@ body {
 
 
 /* =========================================================
-   НАДПИСЬ "ПОИСК ПО СПРАВОЧНИКУ"
+   ДЕКОРАТИВНАЯ НАДПИСЬ ПОИСКА
    ========================================================= */
 
 .search-hotspot::before {
@@ -424,25 +431,35 @@ body {
     0 1px 3px rgba(0, 0, 0, 0.65);
 
   pointer-events: none;
+
+  opacity: 1;
+
+  transition: opacity 100ms ease;
 }
 
-.search-hotspot::after {
-  border-radius: 18px;
+
+/* Когда пользователь начал вводить */
+.search-hotspot.search-focused::before {
+  opacity: 0;
 }
 
 
 /* =========================================================
-   ПРОЗРАЧНОЕ НАСТОЯЩЕЕ ПОЛЕ ПОИСКА
+   НАСТОЯЩЕЕ ПОЛЕ ПОИСКА
    ========================================================= */
 
-.search-input {
+.directory-search-input {
   position: absolute;
+
+  z-index: 10;
 
   left: 0;
   top: 0;
 
   width: 100%;
   height: 100%;
+
+  display: block;
 
   margin: 0;
 
@@ -451,13 +468,14 @@ body {
   background: transparent !important;
   background-color: transparent !important;
 
-  border: 0 !important;
+  border: none !important;
+  border-width: 0 !important;
 
   outline: none !important;
 
   box-shadow: none !important;
 
-  color: #ffffff;
+  color: #ffffff !important;
 
   font-family: Arial, Helvetica, sans-serif;
 
@@ -467,45 +485,92 @@ body {
 
   line-height: 1;
 
+  text-align: left;
+
   border-radius: 18px;
 
-  appearance: none;
-  -webkit-appearance: none;
+  appearance: none !important;
+  -webkit-appearance: none !important;
 
   -webkit-tap-highlight-color: transparent;
+
+  caret-color: #ffffff;
+
+  opacity: 1;
 }
 
-.search-input:focus,
-.search-input:active,
-.search-input:hover {
+
+/* =========================================================
+   СОСТОЯНИЯ ПОЛЯ
+   ========================================================= */
+
+.directory-search-input:focus,
+.directory-search-input:active,
+.directory-search-input:hover {
   background: transparent !important;
   background-color: transparent !important;
 
-  border: 0 !important;
+  border: none !important;
+  border-width: 0 !important;
 
   outline: none !important;
 
   box-shadow: none !important;
 }
 
-.search-input::placeholder {
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.directory-search-input::placeholder {
   color: transparent !important;
   opacity: 0 !important;
 }
 
-.search-input::-webkit-input-placeholder {
+.directory-search-input::-webkit-input-placeholder {
   color: transparent !important;
   opacity: 0 !important;
 }
 
-.search-input::-moz-placeholder {
+.directory-search-input::-moz-placeholder {
   color: transparent !important;
   opacity: 0 !important;
 }
 
-.search-input:-ms-input-placeholder {
+.directory-search-input:-ms-input-placeholder {
   color: transparent !important;
   opacity: 0 !important;
+}
+
+
+/* =========================================================
+   УБИРАЕМ СТАНДАРТНЫЕ ЭЛЕМЕНТЫ INPUT TYPE=SEARCH
+   ========================================================= */
+
+.directory-search-input::-webkit-search-decoration {
+  -webkit-appearance: none !important;
+}
+
+.directory-search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+
+  width: 0 !important;
+  height: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.directory-search-input::-webkit-search-results-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+.directory-search-input::-webkit-search-results-decoration {
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
 
@@ -613,8 +678,9 @@ body {
    ========================================================= */
 
 .hotspot:focus-visible,
-.widget:focus-visible {
-  outline: none;
+.widget:focus-visible,
+.directory-search-input:focus-visible {
+  outline: none !important;
 }
 
 
@@ -640,7 +706,7 @@ body {
     border-radius: 14px;
   }
 
-  .search-input {
+  .directory-search-input {
     border-radius: 14px;
   }
 }
