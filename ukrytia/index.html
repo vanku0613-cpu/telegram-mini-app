@@ -8,84 +8,294 @@
   <title>Укрытия Измаила</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
   <main class="page">
+
+    <!-- =====================================================
+         ШАПКА
+         ===================================================== -->
+
     <header class="hero">
+
       <div class="hero-overlay"></div>
+
       <div class="hero-content">
-        <div class="shield">⌂</div>
-        <div>
-          <div class="eyebrow">Безопасность — рядом</div>
-          <h1>Укрытия<br><span>Измаила</span></h1>
+
+        <div class="shield">
+          ⌂
         </div>
+
+        <div>
+
+          <div class="eyebrow">
+            Безопасность — рядом
+          </div>
+
+          <h1>
+            Укрытия<br>
+            <span>Измаила</span>
+          </h1>
+
+        </div>
+
       </div>
+
     </header>
 
-    <button class="back-btn" type="button" data-back>
-      <span class="arrow">←</span><span>Вернуться в главное меню</span>
+
+    <!-- =====================================================
+         ВОЗВРАТ В ГЛАВНОЕ МЕНЮ
+         ===================================================== -->
+
+    <button
+      class="back-btn"
+      type="button"
+      data-back
+    >
+      <span class="arrow">←</span>
+      <span>Вернуться в главное меню</span>
     </button>
+
+
+    <!-- =====================================================
+         ПОИСК И ФИЛЬТРЫ
+         ===================================================== -->
 
     <section class="search-panel">
+
       <label class="search-box">
-        <span class="search-icon">⌕</span>
-        <input id="search" type="search" autocomplete="off"
-          placeholder="Поиск по адресу, улице или названию укрытия…">
-        <button id="clearSearch" class="clear" type="button" aria-label="Очистить">×</button>
+
+        <span class="search-icon">
+          ⌕
+        </span>
+
+        <input
+          id="search"
+          type="search"
+          autocomplete="off"
+          placeholder="Поиск по адресу, улице или названию укрытия…"
+        >
+
+        <button
+          id="clearSearch"
+          class="clear"
+          type="button"
+          aria-label="Очистить"
+        >
+          ×
+        </button>
+
       </label>
 
+
+      <!-- =================================================
+           БЫСТРЫЕ КНОПКИ
+           ================================================= -->
+
       <div class="quick-actions">
-        <button id="nearbyBtn" class="quick nearby" type="button">
-          <span class="quick-icon">●</span>
-          <span><b>Найти рядом со мной</b><small>Откроем ближайшие варианты на карте</small></span>
-          <span class="chevron">›</span>
+
+        <button
+          id="nearbyBtn"
+          class="quick nearby"
+          type="button"
+        >
+
+          <span class="quick-icon">
+            ●
+          </span>
+
+          <span>
+            <b>Найти рядом со мной</b>
+            <small>
+              Откроем ближайшие варианты на карте
+            </small>
+          </span>
+
+          <span class="chevron">
+            ›
+          </span>
+
         </button>
-        <button id="mapBtn" class="quick map" type="button">
-          <span class="quick-icon">▱</span>
-          <span><b>Открыть карту</b><small>Все укрытия Измаила на карте</small></span>
-          <span class="chevron">›</span>
+
+
+        <button
+          id="mapBtn"
+          class="quick map"
+          type="button"
+        >
+
+          <span class="quick-icon">
+            ▱
+          </span>
+
+          <span>
+            <b>Открыть карту</b>
+            <small>
+              Все укрытия Измаила на карте
+            </small>
+          </span>
+
+          <span class="chevron">
+            ›
+          </span>
+
         </button>
+
       </div>
+
+
+      <!-- =================================================
+           ФИЛЬТРЫ
+           ================================================= -->
 
       <div class="filters">
-        <button class="filter active" data-filter="all">Все</button>
-        <button class="filter" data-filter="Бомбоубежище">Бомбоубежища</button>
-        <button class="filter" data-filter="Подвальное помещение">Подвальные помещения</button>
+
+        <button
+          class="filter active"
+          data-filter="all"
+        >
+          Все
+        </button>
+
+        <button
+          class="filter"
+          data-filter="Бомбоубежище"
+        >
+          Бомбоубежища
+        </button>
+
+        <button
+          class="filter"
+          data-filter="Подвальное помещение"
+        >
+          Подвальные помещения
+        </button>
+
       </div>
+
     </section>
 
-    <section class="contacts card">
-      <div class="section-title">
-        <div class="section-icon phone">☎</div>
-        <div><h2>Полезные номера</h2><p>Нажмите на номер, чтобы позвонить</p></div>
-      </div>
-      <div id="contacts" class="contact-grid"></div>
-    </section>
+
+    <!-- =====================================================
+         АДРЕСА УКРЫТИЙ
+         ===================================================== -->
 
     <section class="shelters card">
+
       <div class="section-title row-title">
-        <div class="section-icon shield-small">✓</div>
-        <div><h2>Адреса укрытий</h2><p id="count"></p></div>
-        <button id="allMapBtn" class="text-map" type="button">Открыть карту <span>›</span></button>
+
+        <div class="section-icon shield-small">
+          ✓
+        </div>
+
+        <div>
+
+          <h2>
+            Адреса укрытий
+          </h2>
+
+          <p id="count"></p>
+
+        </div>
+
+        <button
+          id="allMapBtn"
+          class="text-map"
+          type="button"
+        >
+          Открыть карту
+          <span>›</span>
+        </button>
+
       </div>
-      <div id="list" class="list"></div>
-      <div id="empty" class="empty" hidden>
-        <div class="empty-icon">⌕</div>
-        <b>Ничего не найдено</b>
-        <span>Попробуйте улицу, номер дома или название.</span>
+
+
+      <!-- =================================================
+           СПИСОК УКРЫТИЙ
+           ================================================= -->
+
+      <div
+        id="list"
+        class="list"
+      ></div>
+
+
+      <!-- =================================================
+           ЕСЛИ НИЧЕГО НЕ НАЙДЕНО
+           ================================================= -->
+
+      <div
+        id="empty"
+        class="empty"
+        hidden
+      >
+
+        <div class="empty-icon">
+          ⌕
+        </div>
+
+        <b>
+          Ничего не найдено
+        </b>
+
+        <span>
+          Попробуйте улицу, номер дома или название.
+        </span>
+
       </div>
+
     </section>
+
+
+    <!-- =====================================================
+         ВАЖНАЯ ИНФОРМАЦИЯ
+         ===================================================== -->
 
     <section class="info">
-      <b>Важно</b>
-      <span>Перед использованием уточняйте доступность укрытия. В случае тревоги следуйте официальным сообщениям.</span>
+
+      <b>
+        Важно
+      </b>
+
+      <span>
+        Перед использованием уточняйте доступность укрытия.
+        В случае тревоги следуйте официальным сообщениям.
+      </span>
+
     </section>
 
-    <button class="back-btn bottom-back" type="button" data-back>
-      <span class="arrow">←</span><span>Вернуться в главное меню</span>
+
+    <!-- =====================================================
+         НИЖНЯЯ КНОПКА ВОЗВРАТА
+         ===================================================== -->
+
+    <button
+      class="back-btn bottom-back"
+      type="button"
+      data-back
+    >
+
+      <span class="arrow">
+        ←
+      </span>
+
+      <span>
+        Вернуться в главное меню
+      </span>
+
     </button>
+
   </main>
+
+
+  <!-- =======================================================
+       СКРИПТЫ
+       ======================================================= -->
 
   <script src="data.js"></script>
   <script src="app.js"></script>
+
 </body>
 </html>
