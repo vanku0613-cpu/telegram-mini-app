@@ -3,53 +3,27 @@
 
 
   /* =========================================================
-     ССЫЛКИ
-
-     Пока оставлены пустыми, чтобы не придумывать
-     твои реальные Telegram-ссылки.
-
-     Когда дашь ссылки — просто вставим их сюда.
+     CONFIG
      ========================================================= */
 
-  const LINKS = {
+  const LINKS = window.LINKS || {};
 
-    MAIN_GROUP: "",
-
-    SHELTERS: "",
-
-    SEARCH: "",
-
-    HEALTH: "",
-    TRANSPORT: "",
-    SERVICES: "",
-    FOOD: "",
-
-    UTILITIES: "",
-    JOBS: "",
-    EDUCATION: "",
-    LEISURE: "",
-
-    GROUPS: "",
-
-    HOME: "",
-    ADS: "",
-    FAVORITES: ""
-
+  const WEATHER = window.WEATHER || {
+    latitude: 45.35,
+    longitude: 28.84,
+    timezone: "Europe/Kyiv"
   };
 
 
   /* =========================================================
-     TELEGRAM WEB APP
+     TELEGRAM MINI APP
      ========================================================= */
 
   const tg = window.Telegram?.WebApp;
 
   if (tg) {
-
     try {
-
       tg.ready();
-
       tg.expand();
 
       if (typeof tg.setHeaderColor === "function") {
@@ -59,27 +33,22 @@
       if (typeof tg.setBackgroundColor === "function") {
         tg.setBackgroundColor("#061b35");
       }
-
     } catch (_) {}
-
   }
 
 
   /* =========================================================
-     УДОБНАЯ ФУНКЦИЯ
+     HELPERS
      ========================================================= */
 
-  const $ = (id) => {
-    return document.getElementById(id);
-  };
+  const $ = (id) => document.getElementById(id);
 
 
   /* =========================================================
-     ССЫЛКИ КНОПОК
+     ССЫЛКИ ИЗ CONFIG.JS
      ========================================================= */
 
   const linkMap = {
-
     mainGroup: LINKS.MAIN_GROUP,
 
     shelterLink: LINKS.SHELTERS,
@@ -88,18 +57,18 @@
     transportLink: LINKS.TRANSPORT,
     servicesLink: LINKS.SERVICES,
     foodLink: LINKS.FOOD,
-
     utilitiesLink: LINKS.UTILITIES,
     jobsLink: LINKS.JOBS,
     educationLink: LINKS.EDUCATION,
     leisureLink: LINKS.LEISURE,
 
-    groupsLink: LINKS.GROUPS,
+    groupsLink: LINKS.OUR_GROUPS,
 
-    homeLink: LINKS.HOME,
-    adsLink: LINKS.ADS,
-    favoritesLink: LINKS.FAVORITES
+    homeLink: LINKS.MAIN_GROUP,
 
+    adsLink: LINKS.INSTAGRAM,
+
+    favoritesLink: ""
   };
 
 
@@ -107,68 +76,62 @@
 
     const element = $(id);
 
-    if (!element) {
-      return;
-    }
-
-    if (!url) {
+    if (!element || !url) {
       return;
     }
 
     element.href = url;
 
     if (/^https?:\/\//i.test(url)) {
-
       element.target = "_blank";
-
       element.rel = "noopener noreferrer";
-
     }
 
   });
 
 
   /* =========================================================
-     НЕ ДАЁМ ПУСТЫМ ССЫЛКАМ ПЕРЕЗАГРУЖАТЬ СТРАНИЦУ
+     УКРЫТИЯ
      ========================================================= */
 
-  document
-    .querySelectorAll(".hotspot")
-    .forEach((element) => {
+  const shelterWidget = $("shelterWidget");
 
-      element.addEventListener("click", (event) => {
+  if (shelterWidget && LINKS.SHELTERS) {
 
-        const href =
-          element.getAttribute("href");
+    shelterWidget.href = LINKS.SHELTERS;
 
-        if (!href || href === "#") {
+    shelterWidget.target = "_blank";
+    shelterWidget.rel = "noopener noreferrer";
 
-          event.preventDefault();
+  }
 
-        }
 
-      });
+  /* =========================================================
+     ПУСТЫЕ HOTSPOT НЕ ДОЛЖНЫ КУДА-ТО УВОДИТЬ
+     ========================================================= */
+
+  document.querySelectorAll(".hotspot").forEach((element) => {
+
+    element.addEventListener("click", (event) => {
+
+      const href = element.getAttribute("href");
+
+      if (!href || href === "#") {
+        event.preventDefault();
+      }
 
     });
+
+  });
 
 
   /* =========================================================
      ПОГОДА
-     ИЗМАИЛ
-
-     Координаты:
-     45.3493
-     28.8408
-
-     Источник:
-     Open-Meteo
      ========================================================= */
 
-  const weatherTemp =
-    $("weatherTemp");
-
-  const weatherText =
-    $("weatherText");
+  const weatherTemp = $("weatherTemp");
+  const weatherText = $("weatherText");
+  const weatherWidget = $("weatherWidget");
 
 
   const weatherNames = {
@@ -176,9 +139,7 @@
     0: "Ясно",
 
     1: "Преимущественно ясно",
-
     2: "Переменная облачность",
-
     3: "Пасмурно",
 
     45: "Туман",
@@ -212,7 +173,6 @@
     86: "Сильный снегопад",
 
     95: "Гроза",
-
     96: "Гроза с градом",
     99: "Гроза с градом"
 
@@ -223,86 +183,70 @@
 
     try {
 
+      const latitude = Number(WEATHER.latitude);
+      const longitude = Number(WEATHER.longitude);
+
+      const timezone = encodeURIComponent(
+        WEATHER.timezone || "Europe/Kyiv"
+      );
+
+
       const url =
         "https://api.open-meteo.com/v1/forecast" +
-        "?latitude=45.3493" +
-        "&longitude=28.8408" +
+        `?latitude=${latitude}` +
+        `&longitude=${longitude}` +
         "&current=temperature_2m,weather_code" +
-        "&timezone=Europe%2FKyiv";
+        `&timezone=${timezone}`;
 
 
-      const response =
-        await fetch(url, {
-          cache: "no-store"
-        });
+      const response = await fetch(url, {
+        cache: "no-store"
+      });
 
 
       if (!response.ok) {
-
-        throw new Error(
-          "Weather request failed"
-        );
-
+        throw new Error("Weather request failed");
       }
 
 
-      const data =
-        await response.json();
+      const data = await response.json();
 
 
       if (!data.current) {
-
-        throw new Error(
-          "No current weather"
-        );
-
+        throw new Error("No current weather");
       }
 
 
       const temperature =
         Math.round(
-          Number(
-            data.current.temperature_2m
-          )
+          Number(data.current.temperature_2m)
         );
 
 
       const code =
-        Number(
-          data.current.weather_code
-        );
+        Number(data.current.weather_code);
 
 
       if (weatherTemp) {
-
         weatherTemp.textContent =
           `${temperature}°C`;
-
       }
 
 
       if (weatherText) {
-
         weatherText.textContent =
-          weatherNames[code] ||
-          "Погода";
-
+          weatherNames[code] || "Погода";
       }
+
 
     } catch (_) {
 
       if (weatherTemp) {
-
-        weatherTemp.textContent =
-          "—°C";
-
+        weatherTemp.textContent = "—°C";
       }
 
       if (weatherText) {
-
-        weatherText.textContent =
-          "Нет данных";
-
+        weatherText.textContent = "Нет данных";
       }
 
     }
@@ -310,22 +254,46 @@
   }
 
 
+  /* Загружаем погоду сразу */
+
   loadWeather();
 
 
+  /* Нажатие на погоду = обновить данные */
+
+  if (weatherWidget) {
+
+    weatherWidget.addEventListener("click", () => {
+
+      loadWeather();
+
+    });
+
+
+    weatherWidget.addEventListener("keydown", (event) => {
+
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+
+        event.preventDefault();
+
+        loadWeather();
+
+      }
+
+    });
+
+  }
+
+
   /* =========================================================
-     КУРС ВАЛЮТ
-
-     USD / EUR
-
-     Официальный курс НБУ
+     КУРС НБУ
      ========================================================= */
 
-  const usdRate =
-    $("usdRate");
-
-  const eurRate =
-    $("eurRate");
+  const usdRate = $("usdRate");
+  const eurRate = $("eurRate");
 
 
   async function loadCurrency() {
@@ -336,54 +304,34 @@
         "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json";
 
 
-      const response =
-        await fetch(url, {
-          cache: "no-store"
-        });
+      const response = await fetch(url, {
+        cache: "no-store"
+      });
 
 
       if (!response.ok) {
-
-        throw new Error(
-          "Currency request failed"
-        );
-
+        throw new Error("Currency request failed");
       }
 
 
-      const data =
-        await response.json();
+      const data = await response.json();
 
 
       if (!Array.isArray(data)) {
-
-        throw new Error(
-          "Invalid currency data"
-        );
-
+        throw new Error("Invalid currency data");
       }
 
 
-      const usd =
-        data.find((item) => {
-
-          return (
-            String(item.cc)
-              .toUpperCase() === "USD"
-          );
-
-        });
+      const usd = data.find(
+        (item) =>
+          String(item.cc).toUpperCase() === "USD"
+      );
 
 
-      const eur =
-        data.find((item) => {
-
-          return (
-            String(item.cc)
-              .toUpperCase() === "EUR"
-          );
-
-        });
+      const eur = data.find(
+        (item) =>
+          String(item.cc).toUpperCase() === "EUR"
+      );
 
 
       if (usd && usdRate) {
@@ -401,26 +349,23 @@
 
       }
 
+
     } catch (_) {
 
       if (usdRate) {
-
-        usdRate.textContent =
-          "—";
-
+        usdRate.textContent = "—";
       }
 
       if (eurRate) {
-
-        eurRate.textContent =
-          "—";
-
+        eurRate.textContent = "—";
       }
 
     }
 
   }
 
+
+  /* Загружаем курс сразу */
 
   loadCurrency();
 
@@ -429,78 +374,33 @@
      ПОИСК
      ========================================================= */
 
-  const searchButton =
-    $("searchHotspot");
+  const searchButton = $("searchHotspot");
 
 
   if (searchButton) {
 
-    searchButton.addEventListener(
-      "click",
-      () => {
+    searchButton.addEventListener("click", () => {
 
-        /*
-          Когда появится реальная ссылка поиска,
-          она будет открываться автоматически.
-        */
+      if (LINKS.SEARCH) {
 
-        if (LINKS.SEARCH) {
-
-          window.open(
-            LINKS.SEARCH,
-            "_blank",
-            "noopener,noreferrer"
-          );
-
-          return;
-
-        }
-
-
-        /*
-          Если ссылки пока нет —
-          показываем сообщение.
-        */
-
-        if (
-          tg &&
-          typeof tg.showPopup === "function"
-        ) {
-
-          tg.showPopup({
-
-            title: "Поиск",
-
-            message:
-              "Поиск подключим следующим шагом.",
-
-            buttons: [
-              {
-                id: "ok",
-                type: "ok"
-              }
-            ]
-
-          });
-
-        } else {
-
-          alert(
-            "Поиск подключим следующим шагом."
-          );
-
-        }
+        window.open(
+          LINKS.SEARCH,
+          "_blank",
+          "noopener,noreferrer"
+        );
 
       }
-    );
+
+    });
 
   }
 
 
   /* =========================================================
-     ОБНОВЛЕНИЕ ПОГОДЫ И КУРСА
-
-     Обновляем раз в 30 минут.
+     ОБНОВЛЕНИЕ ДАННЫХ
+     =========================================================
+     
+     Погода и курс обновляются автоматически.
      ========================================================= */
 
   setInterval(
@@ -513,6 +413,5 @@
     loadCurrency,
     30 * 60 * 1000
   );
-
 
 })();
