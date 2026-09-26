@@ -1,58 +1,108 @@
-/* =========================================
-   ВИДЖЕТ ПОГОДЫ
-   ========================================= */
+<!-- =========================================
+     ВИДЖЕТ ПОГОДЫ
+     ========================================= -->
+<div class="info-widgets">
 
-.live-weather {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  font-size: clamp(18px, 4vw, 42px);
-  font-weight: 700;
-}
+  <div class="info-widget weather-widget" id="weatherWidget">
+    <div class="widget-title">
+      <span>ПОГОДА В ИЗМАИЛЕ</span>
+    </div>
 
-.live-weather::before {
-  content: "☀️  Погода";
-  display: block;
-  font-size: clamp(11px, 2.5vw, 22px);
-  font-weight: 600;
-}
+    <div class="weather-main">
+      <div class="weather-icon" id="weatherIcon">☀️</div>
 
-.live-weather::after {
-  content: "Измаил";
-  display: block;
-  font-size: clamp(9px, 2vw, 16px);
-  font-weight: 500;
-}
+      <div class="weather-temperature">
+        <span id="weatherTemp">—</span><span class="degree">°</span>
+      </div>
+
+      <div class="weather-description" id="weatherDescription">
+        Загрузка...
+      </div>
+    </div>
+
+    <div class="weather-details">
+      <div>
+        <span>Ощущается</span>
+        <strong id="weatherFeels">—°</strong>
+      </div>
+
+      <div>
+        <span>Влажность</span>
+        <strong id="weatherHumidity">—%</strong>
+      </div>
+
+      <div>
+        <span>Ветер</span>
+        <strong id="weatherWind">— км/ч</strong>
+      </div>
+    </div>
+  </div>
 
 
-/* =========================================
-   ВИДЖЕТ ОБМЕНА ВАЛЮТ
-   ========================================= */
+  <!-- =========================================
+       ВИДЖЕТ КУРСА ВАЛЮТ
+       ========================================= -->
+  <div class="info-widget currency-widget" id="currencyWidget">
 
-.live-usd,
-.live-eur {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  font-weight: 700;
-  font-size: clamp(9px, 2.2vw, 22px);
-}
+    <div class="widget-title">
+      <span>КУРС ВАЛЮТ</span>
+      <small>НБУ / EUR • USD</small>
+    </div>
 
-.live-usd::before {
-  content: "💱";
-  font-size: 1.2em;
-}
+    <div class="currency-row">
+      <div class="currency-name">
+        <b>USD</b>
+        <span>Доллар</span>
+      </div>
 
-.live-usd::after {
-  content: "Обмен валют";
-  font-size: clamp(9px, 1.8vw, 16px);
-  font-weight: 600;
-}
+      <div class="currency-values">
+        <div>
+          <small>Покупка</small>
+          <strong id="usdBuy">—</strong>
+        </div>
+        <div>
+          <small>Продажа</small>
+          <strong id="usdSell">—</strong>
+        </div>
+      </div>
+    </div>
 
-.live-eur::before {
-  content: "💶";
-  font-size: 1em;
-}
+    <div class="currency-row">
+      <div class="currency-name">
+        <b>EUR</b>
+        <span>Евро</span>
+      </div>
+
+      <div class="currency-values">
+        <div>
+          <small>Покупка</small>
+          <strong id="eurBuy">—</strong>
+        </div>
+        <div>
+          <small>Продажа</small>
+          <strong id="eurSell">—</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="currency-row">
+      <div class="currency-name">
+        <b>MDL</b>
+        <span>Молдавский лей</span>
+      </div>
+
+      <div class="currency-values">
+        <div>
+          <small>Курс</small>
+          <strong id="mdlRate">—</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="currency-update" id="currencyUpdate">
+      Обновление курса...
+    </div>
+
+  </div>
+
+</div>
