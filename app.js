@@ -1,13 +1,14 @@
 (() => {
-
   "use strict";
 
 
   /* =========================================================
      ССЫЛКИ
 
-     Пока реальные ссылки от тебя не получены.
-     Поэтому здесь ничего не выдумываем.
+     Пока оставлены пустыми, чтобы не придумывать
+     твои реальные Telegram-ссылки.
+
+     Когда дашь ссылки — просто вставим их сюда.
      ========================================================= */
 
   const LINKS = {
@@ -16,10 +17,13 @@
 
     SHELTERS: "",
 
+    SEARCH: "",
+
     HEALTH: "",
     TRANSPORT: "",
     SERVICES: "",
     FOOD: "",
+
     UTILITIES: "",
     JOBS: "",
     EDUCATION: "",
@@ -27,39 +31,18 @@
 
     GROUPS: "",
 
+    HOME: "",
     ADS: "",
-
     FAVORITES: ""
 
   };
 
 
   /* =========================================================
-     ИЗМАИЛ — КООРДИНАТЫ ПОГОДЫ
+     TELEGRAM WEB APP
      ========================================================= */
 
-  const WEATHER = {
-
-    latitude: 45.3493,
-
-    longitude: 28.8408,
-
-    timezone: "Europe/Kyiv"
-
-  };
-
-
-  const $ = (id) =>
-    document.getElementById(id);
-
-
-  /* =========================================================
-     TELEGRAM
-     ========================================================= */
-
-  const tg =
-    window.Telegram?.WebApp;
-
+  const tg = window.Telegram?.WebApp;
 
   if (tg) {
 
@@ -69,9 +52,13 @@
 
       tg.expand();
 
-      tg.setHeaderColor("#061b35");
+      if (typeof tg.setHeaderColor === "function") {
+        tg.setHeaderColor("#061b35");
+      }
 
-      tg.setBackgroundColor("#061b35");
+      if (typeof tg.setBackgroundColor === "function") {
+        tg.setBackgroundColor("#061b35");
+      }
 
     } catch (_) {}
 
@@ -79,83 +66,112 @@
 
 
   /* =========================================================
-     ПОДКЛЮЧАЕМ ССЫЛКИ
+     УДОБНАЯ ФУНКЦИЯ
+     ========================================================= */
+
+  const $ = (id) => {
+    return document.getElementById(id);
+  };
+
+
+  /* =========================================================
+     ССЫЛКИ КНОПОК
      ========================================================= */
 
   const linkMap = {
 
-    mainGroup:
-      LINKS.MAIN_GROUP,
+    mainGroup: LINKS.MAIN_GROUP,
 
-    shelterLink:
-      LINKS.SHELTERS,
+    shelterLink: LINKS.SHELTERS,
 
-    healthLink:
-      LINKS.HEALTH,
+    healthLink: LINKS.HEALTH,
+    transportLink: LINKS.TRANSPORT,
+    servicesLink: LINKS.SERVICES,
+    foodLink: LINKS.FOOD,
 
-    transportLink:
-      LINKS.TRANSPORT,
+    utilitiesLink: LINKS.UTILITIES,
+    jobsLink: LINKS.JOBS,
+    educationLink: LINKS.EDUCATION,
+    leisureLink: LINKS.LEISURE,
 
-    servicesLink:
-      LINKS.SERVICES,
+    groupsLink: LINKS.GROUPS,
 
-    foodLink:
-      LINKS.FOOD,
-
-    utilitiesLink:
-      LINKS.UTILITIES,
-
-    jobsLink:
-      LINKS.JOBS,
-
-    educationLink:
-      LINKS.EDUCATION,
-
-    leisureLink:
-      LINKS.LEISURE,
-
-    groupsLink:
-      LINKS.GROUPS,
-
-    adsLink:
-      LINKS.ADS,
-
-    favoritesLink:
-      LINKS.FAVORITES,
-
-    homeLink:
-      ""
+    homeLink: LINKS.HOME,
+    adsLink: LINKS.ADS,
+    favoritesLink: LINKS.FAVORITES
 
   };
 
 
-  Object.entries(linkMap)
-    .forEach(([id, url]) => {
+  Object.entries(linkMap).forEach(([id, url]) => {
 
-      const element =
-        $(id);
+    const element = $(id);
 
-      if (!element || !url)
-        return;
+    if (!element) {
+      return;
+    }
+
+    if (!url) {
+      return;
+    }
+
+    element.href = url;
+
+    if (/^https?:\/\//i.test(url)) {
+
+      element.target = "_blank";
+
+      element.rel = "noopener noreferrer";
+
+    }
+
+  });
 
 
-      element.href =
-        url;
+  /* =========================================================
+     НЕ ДАЁМ ПУСТЫМ ССЫЛКАМ ПЕРЕЗАГРУЖАТЬ СТРАНИЦУ
+     ========================================================= */
 
-      element.target =
-        "_blank";
+  document
+    .querySelectorAll(".hotspot")
+    .forEach((element) => {
 
-      element.rel =
-        "noopener noreferrer";
+      element.addEventListener("click", (event) => {
+
+        const href =
+          element.getAttribute("href");
+
+        if (!href || href === "#") {
+
+          event.preventDefault();
+
+        }
+
+      });
 
     });
 
 
   /* =========================================================
-     ПОГОДА — OPEN-METEO
+     ПОГОДА
+     ИЗМАИЛ
+
+     Координаты:
+     45.3493
+     28.8408
+
+     Источник:
+     Open-Meteo
      ========================================================= */
 
-  const weatherText = {
+  const weatherTemp =
+    $("weatherTemp");
+
+  const weatherText =
+    $("weatherText");
+
+
+  const weatherNames = {
 
     0: "Ясно",
 
@@ -166,189 +182,311 @@
     3: "Пасмурно",
 
     45: "Туман",
-
-    48: "Изморозь / туман",
+    48: "Туман",
 
     51: "Морось",
-
     53: "Морось",
-
-    55: "Сильная морось",
+    55: "Морось",
 
     56: "Ледяная морось",
-
-    57: "Сильная ледяная морось",
+    57: "Ледяная морось",
 
     61: "Небольшой дождь",
-
     63: "Дождь",
-
     65: "Сильный дождь",
 
     66: "Ледяной дождь",
-
-    67: "Сильный ледяной дождь",
+    67: "Ледяной дождь",
 
     71: "Небольшой снег",
-
     73: "Снег",
-
     75: "Сильный снег",
 
     77: "Снежные зёрна",
 
-    80: "Ливни",
-
-    81: "Ливни",
-
-    82: "Сильные ливни",
+    80: "Ливень",
+    81: "Ливень",
+    82: "Сильный ливень",
 
     85: "Снегопад",
-
     86: "Сильный снегопад",
 
     95: "Гроза",
 
     96: "Гроза с градом",
-
-    99: "Сильная гроза с градом"
+    99: "Гроза с градом"
 
   };
 
 
   async function loadWeather() {
 
-    const tempElement =
-      $("weatherTemp");
-
-    const textElement =
-      $("weatherText");
-
-
     try {
 
       const url =
-
         "https://api.open-meteo.com/v1/forecast" +
-
-        `?latitude=${WEATHER.latitude}` +
-
-        `&longitude=${WEATHER.longitude}` +
-
+        "?latitude=45.3493" +
+        "&longitude=28.8408" +
         "&current=temperature_2m,weather_code" +
-
-        "&temperature_unit=celsius" +
-
-        `&timezone=${encodeURIComponent(
-          WEATHER.timezone
-        )}`;
+        "&timezone=Europe%2FKyiv";
 
 
       const response =
         await fetch(url, {
-
-          method: "GET",
-
           cache: "no-store"
-
         });
 
 
-      if (!response.ok)
+      if (!response.ok) {
+
         throw new Error(
           "Weather request failed"
         );
+
+      }
 
 
       const data =
         await response.json();
 
 
+      if (!data.current) {
+
+        throw new Error(
+          "No current weather"
+        );
+
+      }
+
+
       const temperature =
         Math.round(
           Number(
-            data?.current?.temperature_2m
+            data.current.temperature_2m
           )
         );
 
 
       const code =
         Number(
-          data?.current?.weather_code
+          data.current.weather_code
         );
 
 
-      tempElement.textContent =
-        Number.isFinite(temperature)
-          ? `${temperature}°`
-          : "—°";
+      if (weatherTemp) {
+
+        weatherTemp.textContent =
+          `${temperature}°C`;
+
+      }
 
 
-      textElement.textContent =
-        weatherText[code]
-          || "Погода обновляется";
+      if (weatherText) {
 
+        weatherText.textContent =
+          weatherNames[code] ||
+          "Погода";
 
-    } catch (error) {
+      }
 
-      console.error(error);
+    } catch (_) {
 
+      if (weatherTemp) {
 
-      tempElement.textContent =
-        "—°";
+        weatherTemp.textContent =
+          "—°C";
 
+      }
 
-      textElement.textContent =
-        "Не удалось загрузить";
+      if (weatherText) {
+
+        weatherText.textContent =
+          "Нет данных";
+
+      }
 
     }
 
   }
 
 
+  loadWeather();
+
+
   /* =========================================================
      КУРС ВАЛЮТ
 
-     Minfin имеет отдельную страницу именно Измаила.
+     USD / EUR
 
-     Прямой API Minfin требует API-ключ.
-     Поэтому никаких придуманных курсов здесь нет.
-
-     Нажатие на карточку открывает актуальную
-     страницу курса Измаила на Minfin.
+     Официальный курс НБУ
      ========================================================= */
 
-  $("usdRate").textContent =
-    "открыть";
+  const usdRate =
+    $("usdRate");
 
-  $("eurRate").textContent =
-    "открыть";
+  const eurRate =
+    $("eurRate");
+
+
+  async function loadCurrency() {
+
+    try {
+
+      const url =
+        "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json";
+
+
+      const response =
+        await fetch(url, {
+          cache: "no-store"
+        });
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          "Currency request failed"
+        );
+
+      }
+
+
+      const data =
+        await response.json();
+
+
+      if (!Array.isArray(data)) {
+
+        throw new Error(
+          "Invalid currency data"
+        );
+
+      }
+
+
+      const usd =
+        data.find((item) => {
+
+          return (
+            String(item.cc)
+              .toUpperCase() === "USD"
+          );
+
+        });
+
+
+      const eur =
+        data.find((item) => {
+
+          return (
+            String(item.cc)
+              .toUpperCase() === "EUR"
+          );
+
+        });
+
+
+      if (usd && usdRate) {
+
+        usdRate.textContent =
+          `${Number(usd.rate).toFixed(2)} ₴`;
+
+      }
+
+
+      if (eur && eurRate) {
+
+        eurRate.textContent =
+          `${Number(eur.rate).toFixed(2)} ₴`;
+
+      }
+
+    } catch (_) {
+
+      if (usdRate) {
+
+        usdRate.textContent =
+          "—";
+
+      }
+
+      if (eurRate) {
+
+        eurRate.textContent =
+          "—";
+
+      }
+
+    }
+
+  }
+
+
+  loadCurrency();
 
 
   /* =========================================================
      ПОИСК
      ========================================================= */
 
-  $("searchHotspot")
-    ?.addEventListener(
+  const searchButton =
+    $("searchHotspot");
+
+
+  if (searchButton) {
+
+    searchButton.addEventListener(
       "click",
       () => {
 
-        if (tg?.showPopup) {
+        /*
+          Когда появится реальная ссылка поиска,
+          она будет открываться автоматически.
+        */
+
+        if (LINKS.SEARCH) {
+
+          window.open(
+            LINKS.SEARCH,
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+          return;
+
+        }
+
+
+        /*
+          Если ссылки пока нет —
+          показываем сообщение.
+        */
+
+        if (
+          tg &&
+          typeof tg.showPopup === "function"
+        ) {
 
           tg.showPopup({
 
             title: "Поиск",
 
             message:
-              "Поиск по справочнику подключим следующим этапом."
+              "Поиск подключим следующим шагом.",
+
+            buttons: [
+              {
+                id: "ok",
+                type: "ok"
+              }
+            ]
 
           });
 
         } else {
 
           alert(
-            "Поиск по справочнику подключим следующим этапом."
+            "Поиск подключим следующим шагом."
           );
 
         }
@@ -356,11 +494,25 @@
       }
     );
 
+  }
+
 
   /* =========================================================
-     ЗАПУСК
+     ОБНОВЛЕНИЕ ПОГОДЫ И КУРСА
+
+     Обновляем раз в 30 минут.
      ========================================================= */
 
-  loadWeather();
+  setInterval(
+    loadWeather,
+    30 * 60 * 1000
+  );
+
+
+  setInterval(
+    loadCurrency,
+    30 * 60 * 1000
+  );
+
 
 })();
