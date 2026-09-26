@@ -29,8 +29,6 @@
       tg?.HapticFeedback?.impactOccurred?.("light");
     } catch (e) {}
 
-    // Создаём тёмный экран перед переходом,
-    // чтобы не было белой вспышки во время загрузки.
     const overlay = document.createElement("div");
 
     overlay.style.position = "fixed";
@@ -46,7 +44,6 @@
       overlay.style.opacity = "1";
     });
 
-    // Переходим в той же вкладке.
     setTimeout(() => {
       window.location.href = url;
     }, 70);
@@ -67,8 +64,6 @@
 
       el.href = url;
 
-      // По умолчанию открываем ссылки в новой вкладке,
-      // кроме специального перехода на страницу укрытий.
       if (id === "shelterLink") {
 
         el.removeAttribute("target");
@@ -127,6 +122,39 @@
     "https://vanku0613-cpu.github.io/telegram-mini-app/ukrytia/";
 
   setLink("shelterLink", SHELTERS_URL);
+
+
+  // =========================================================
+  // ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
+  // =========================================================
+
+  const AGREEMENT_URL =
+    "https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html";
+
+  const agreementLink =
+    document.querySelector(".user-agreement");
+
+  if (agreementLink) {
+
+    agreementLink.href = AGREEMENT_URL;
+
+    agreementLink.removeAttribute("target");
+    agreementLink.removeAttribute("rel");
+
+    agreementLink.addEventListener("click", (event) => {
+
+      event.preventDefault();
+
+      fastNavigate(AGREEMENT_URL);
+
+    });
+
+  }
+
+
+  // =========================================================
+  // ОСТАЛЬНЫЕ ССЫЛКИ
+  // =========================================================
 
   setLink("groupsLink", links.OUR_GROUPS);
   setLink("healthLink", links.HEALTH);
