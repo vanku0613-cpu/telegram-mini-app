@@ -17,18 +17,31 @@ body {
 .page {
   min-height: 100vh;
   background:
-    linear-gradient(180deg, rgba(3, 20, 42, .20), rgba(3, 18, 35, .94) 55%),
+    linear-gradient(
+      180deg,
+      rgba(3, 20, 42, .20),
+      rgba(3, 18, 35, .94) 55%
+    ),
     #06182d;
 }
 
-/* ИЗОБРАЖЕНИЕ */
+
+/* =========================
+   ИЗОБРАЖЕНИЕ
+   ========================= */
+
 .hero {
   position: relative;
   min-height: 520px;
   overflow: hidden;
   border-radius: 0 0 28px 28px;
+
   background:
-    linear-gradient(180deg, rgba(2, 16, 38, .05), rgba(2, 16, 38, .25)),
+    linear-gradient(
+      180deg,
+      rgba(2, 16, 38, .05),
+      rgba(2, 16, 38, .25)
+    ),
     url("header-bg.png") center top / cover no-repeat;
 }
 
@@ -36,34 +49,40 @@ body {
   content: "";
   position: absolute;
   inset: 0;
+
   background: linear-gradient(
     180deg,
     rgba(2, 16, 38, .04) 0%,
     rgba(2, 16, 38, .02) 35%,
     rgba(2, 16, 38, .58) 100%
   );
+
   pointer-events: none;
 }
 
 
-/* ЗЕЛЁНАЯ КНОПКА */
+/* =========================
+   ЗЕЛЁНЫЕ КНОПКИ
+   ========================= */
+
 .back-btn {
   position: relative;
-  z-index: 3;
+  z-index: 10;
 
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
 
   width: max-content;
 
-  margin: 8px 12px;
-  padding: 8px 13px;
+  padding: 9px 14px;
 
   border: 1px solid #19f0b0;
   border-radius: 18px;
 
-  color: #fff;
+  color: #ffffff;
+
   background: rgba(0, 93, 75, .55);
 
   box-shadow:
@@ -73,14 +92,22 @@ body {
   backdrop-filter: blur(8px);
 
   text-decoration: none;
+
   font-size: 13px;
   font-weight: 750;
 
-  transition: .2s ease;
+  transition:
+    background .2s ease,
+    transform .2s ease,
+    box-shadow .2s ease;
 }
 
 .back-btn:hover {
   background: rgba(11, 150, 112, .65);
+
+  box-shadow:
+    0 0 16px rgba(25, 240, 176, .18),
+    inset 0 0 14px rgba(25, 240, 176, .08);
 }
 
 .back-btn:active {
@@ -88,27 +115,47 @@ body {
 }
 
 
-/* ЗЕЛЁНАЯ СТРЕЛКА */
+/* =========================
+   СТРЕЛКА
+   ========================= */
+
 .arrow {
+  display: inline-block;
+
+  color: #19f0b0;
+
   font-size: 18px;
   line-height: 1;
-  color: #19f0b0;
 }
 
 
-/* КНОПКА СРАЗУ ПОД ИЗОБРАЖЕНИЕМ */
+/* =========================
+   КНОПКА ПОД ИЗОБРАЖЕНИЕМ
+   ========================= */
+
 .agreement-middle {
   display: inline-flex;
+
   margin: 8px 12px 0;
 }
 
 
-/* ОСНОВНОЙ ТЕКСТ */
+/* =========================
+   ОСНОВНОЙ КОНТЕНТ
+   ========================= */
+
 .content {
   max-width: 900px;
+
   margin: 0 auto;
+
   padding: 18px 14px 32px;
 }
+
+
+/* =========================
+   БЛОК СОГЛАШЕНИЯ
+   ========================= */
 
 .agreement {
   padding: 22px 19px 24px;
@@ -131,11 +178,15 @@ body {
 }
 
 
-/* ДАТА */
+/* =========================
+   ДАТА
+   ========================= */
+
 .date {
   margin-bottom: 18px;
 
   color: #80d9ff;
+
   font-size: 14px;
   font-weight: 700;
 
@@ -143,24 +194,33 @@ body {
 }
 
 
-/* ТЕКСТ */
+/* =========================
+   ТЕКСТ
+   ========================= */
+
 p,
 li {
   color: #dcecf7;
+
   font-size: 16px;
   line-height: 1.62;
 }
 
 
-/* ЗАГОЛОВКИ РАЗДЕЛОВ */
+/* =========================
+   ЗАГОЛОВКИ
+   ========================= */
+
 h2 {
   margin: 25px 0 9px;
 
   color: #8cddff;
+
   font-size: 19px;
   line-height: 1.25;
 
-  text-shadow: 0 0 10px rgba(0, 187, 255, .25);
+  text-shadow:
+    0 0 10px rgba(0, 187, 255, .25);
 }
 
 ul {
@@ -168,15 +228,23 @@ ul {
 }
 
 
-/* НИЖНЯЯ КНОПКА */
+/* =========================
+   НИЖНЯЯ КНОПКА
+   ========================= */
+
 .bottom {
   display: flex;
+
   width: max-content;
+
   margin: 18px auto 0;
 }
 
 
-/* ТЕЛЕФОН */
+/* =========================
+   ТЕЛЕФОН
+   ========================= */
+
 @media (max-width: 600px) {
 
   .hero {
@@ -187,20 +255,21 @@ ul {
     margin: 8px 12px 0;
   }
 
+  .back-btn {
+    padding: 8px 12px;
+
+    font-size: 12px;
+  }
+
   .agreement {
     padding: 19px 16px 21px;
+
     border-radius: 19px;
   }
 
   p,
   li {
     font-size: 15px;
-  }
-
-  .back-btn {
-    margin: 8px 12px;
-    padding: 8px 12px;
-    font-size: 12px;
   }
 
   .bottom {
