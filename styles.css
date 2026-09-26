@@ -179,33 +179,33 @@ body {
 
   align-content: center;
 
-  padding: 7px 12px;
+  padding: 5px 12px;
 
   pointer-events: none;
 }
 
 .weather-widget .widget-title {
-  font-size: clamp(9px, 1.65vw, 12px);
+  font-size: clamp(9px, 1.55vw, 11px);
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
 }
 
 .weather-widget .widget-main {
-  margin-top: 4px;
+  margin-top: 2px;
 
-  font-size: clamp(16px, 2.9vw, 21px);
+  font-size: clamp(15px, 2.75vw, 20px);
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
 }
 
 .weather-widget .widget-sub {
-  margin-top: 4px;
+  margin-top: 2px;
 
   min-width: 0;
 
-  font-size: clamp(8px, 1.45vw, 10px);
+  font-size: clamp(8px, 1.35vw, 9px);
   font-weight: 600;
   line-height: 1;
 
