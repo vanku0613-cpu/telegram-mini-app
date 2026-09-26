@@ -1,6 +1,6 @@
 window.LINKS = {
   MAIN_GROUP: "",
-  SHELTERS: "",
+  SHELTERS: "https://goo.gl/maps/YV6JueF6kXpVtTKy8",
   OUR_GROUPS: "",
   INSTAGRAM: "",
 
@@ -9,7 +9,7 @@ window.LINKS = {
   SERVICES: "",
   FOOD: "",
   UTILITIES: "",
-  JOBS: "",
+  JOBS: "https://t.me/rabota_v_izmaile",
   EDUCATION: "",
   LEISURE: ""
 };
