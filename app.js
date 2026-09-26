@@ -965,3 +965,245 @@
   );
 
 })();
+/* =========================================
+   ПОГОДА + КУРС ВАЛЮТ
+   ========================================= */
+
+(() => {
+  "use strict";
+
+  /* -----------------------------------------
+     ИЗМАИЛ
+     ----------------------------------------- */
+
+  const WEATHER = {
+    latitude: 45.35,
+    longitude: 28.84,
+    timezone: "Europe/Kyiv"
+  };
+
+
+  /* =========================================
+     ПОГОДА
+     ========================================= */
+
+  const weatherDescriptions = {
+    0: ["Ясно", "☀️"],
+    1: ["Преимущественно ясно", "🌤️"],
+    2: ["Переменная облачность", "⛅"],
+    3: ["Пасмурно", "☁️"],
+    45: ["Туман", "🌫️"],
+    48: ["Туман", "🌫️"],
+    51: ["Небольшой дождь", "🌦️"],
+    53: ["Дождь", "🌦️"],
+    55: ["Сильный дождь", "🌧️"],
+    61: ["Небольшой дождь", "🌦️"],
+    63: ["Дождь", "🌧️"],
+    65: ["Сильный дождь", "🌧️"],
+    71: ["Небольшой снег", "🌨️"],
+    73: ["Снег", "❄️"],
+    75: ["Сильный снег", "❄️"],
+    80: ["Ливень", "🌦️"],
+    81: ["Ливень", "🌧️"],
+    82: ["Сильный ливень", "⛈️"],
+    95: ["Гроза", "⛈️"],
+    96: ["Гроза", "⛈️"],
+    99: ["Сильная гроза", "⛈️"]
+  };
+
+
+  async function loadWeather() {
+
+    try {
+
+      const url =
+        "https://api.open-meteo.com/v1/forecast" +
+        `?latitude=${WEATHER.latitude}` +
+        `&longitude=${WEATHER.longitude}` +
+        "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m" +
+        "&timezone=Europe%2FKyiv";
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error("Weather API error");
+      }
+
+      const data = await response.json();
+      const current = data.current;
+
+      const code = current.weather_code;
+      const description =
+        weatherDescriptions[code] || ["Погода", "🌤️"];
+
+      const temp = Math.round(current.temperature_2m);
+      const feels = Math.round(current.apparent_temperature);
+      const humidity = Math.round(current.relative_humidity_2m);
+      const wind = Math.round(current.wind_speed_10m);
+
+      const tempElement = document.getElementById("weatherTemp");
+      const feelsElement = document.getElementById("weatherFeels");
+      const humidityElement = document.getElementById("weatherHumidity");
+      const windElement = document.getElementById("weatherWind");
+      const descriptionElement =
+        document.getElementById("weatherDescription");
+      const iconElement =
+        document.getElementById("weatherIcon");
+
+      if (tempElement) tempElement.textContent = temp;
+      if (feelsElement) feelsElement.textContent = `${feels}°`;
+      if (humidityElement) humidityElement.textContent = `${humidity}%`;
+      if (windElement) windElement.textContent = `${wind} км/ч`;
+
+      if (descriptionElement) {
+        descriptionElement.textContent = description[0];
+      }
+
+      if (iconElement) {
+        iconElement.textContent = description[1];
+      }
+
+    } catch (error) {
+
+      console.error("Ошибка загрузки погоды:", error);
+
+      const description =
+        document.getElementById("weatherDescription");
+
+      if (description) {
+        description.textContent = "Не удалось загрузить погоду";
+      }
+    }
+  }
+
+
+  /* =========================================
+     КУРС ВАЛЮТ
+     ========================================= */
+
+  async function loadCurrency() {
+
+    try {
+
+      /*
+       * Frankfurter API
+       * EUR → USD / MDL / UAH
+       */
+
+      const url =
+        "https://api.frankfurter.app/latest?from=EUR&to=USD,UAH,MDL";
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error("Currency API error");
+      }
+
+      const data = await response.json();
+      const rates = data.rates;
+
+      /*
+       * Пересчитываем всё относительно гривны.
+       *
+       * Frankfurter даёт официальный reference rate,
+       * поэтому для покупки/продажи используем один
+       * справочный курс.
+       */
+
+      const eurUah = rates.UAH;
+      const usdUah = eurUah / rates.USD;
+      const mdlUah = eurUah / rates.MDL;
+
+      const usdBuy = (usdUah * 0.995).toFixed(2);
+      const usdSell = (usdUah * 1.005).toFixed(2);
+
+      const eurBuy = (eurUah * 0.995).toFixed(2);
+      const eurSell = (eurUah * 1.005).toFixed(2);
+
+      const mdlRate = mdlUah.toFixed(2);
+
+      const usdBuyElement =
+        document.getElementById("usdBuy");
+
+      const usdSellElement =
+        document.getElementById("usdSell");
+
+      const eurBuyElement =
+        document.getElementById("eurBuy");
+
+      const eurSellElement =
+        document.getElementById("eurSell");
+
+      const mdlRateElement =
+        document.getElementById("mdlRate");
+
+      if (usdBuyElement) {
+        usdBuyElement.textContent = `${usdBuy} ₴`;
+      }
+
+      if (usdSellElement) {
+        usdSellElement.textContent = `${usdSell} ₴`;
+      }
+
+      if (eurBuyElement) {
+        eurBuyElement.textContent = `${eurBuy} ₴`;
+      }
+
+      if (eurSellElement) {
+        eurSellElement.textContent = `${eurSell} ₴`;
+      }
+
+      if (mdlRateElement) {
+        mdlRateElement.textContent = `${mdlRate} ₴`;
+      }
+
+      const updateElement =
+        document.getElementById("currencyUpdate");
+
+      if (updateElement) {
+
+        const date = new Date();
+
+        updateElement.textContent =
+          "Справочный курс • обновлено " +
+          date.toLocaleTimeString("uk-UA", {
+            hour: "2-digit",
+            minute: "2-digit"
+          });
+      }
+
+    } catch (error) {
+
+      console.error("Ошибка загрузки курса:", error);
+
+      const updateElement =
+        document.getElementById("currencyUpdate");
+
+      if (updateElement) {
+        updateElement.textContent =
+          "Курс временно недоступен";
+      }
+    }
+  }
+
+
+  /* =========================================
+     ЗАПУСК
+     ========================================= */
+
+  loadWeather();
+  loadCurrency();
+
+  /*
+   * Обновляем погоду каждые 10 минут.
+   */
+
+  setInterval(loadWeather, 10 * 60 * 1000);
+
+  /*
+   * Обновляем валюту каждый час.
+   */
+
+  setInterval(loadCurrency, 60 * 60 * 1000);
+
+})();
