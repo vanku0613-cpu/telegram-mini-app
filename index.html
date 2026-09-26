@@ -30,19 +30,24 @@
       >
 
       <!-- =====================================================
-           ПОГОДА / КУРС / УКРЫТИЯ
-           ТРИ ОДИНАКОВЫХ ПО РАЗМЕРУ ЗОНЫ
+           ЖИВАЯ ПОГОДА И КУРС ВАЛЮТ
+           БЕЗ РАЗМЫТИЯ ФОНА
            ===================================================== -->
 
-      <section class="live-widgets" aria-label="Погода, курс валют и укрытия">
+      <section
+        class="live-widgets"
+        aria-label="Погода и курс валют"
+      >
 
         <!-- ПОГОДА -->
         <div
           id="weatherWidget"
-          class="live-widget weather-widget"
-          aria-label="Погода"
+          class="widget weather-widget"
         >
-          <div class="widget-title">ПОГОДА</div>
+
+          <div class="widget-title">
+            ПОГОДА
+          </div>
 
           <div
             id="weatherTemp"
@@ -57,18 +62,23 @@
           >
             Загрузка…
           </div>
+
         </div>
+
 
         <!-- КУРС -->
         <a
           id="currencyWidget"
-          class="live-widget currency-widget"
+          class="widget currency-widget"
           href="https://minfin.com.ua/currency/izmail/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Курс валют"
         >
-          <div class="widget-title">КУРС НБУ</div>
+
+          <div class="widget-title">
+            КУРС НБУ
+          </div>
 
           <div class="currency-line">
             <b>USD</b>
@@ -79,34 +89,45 @@
             <b>EUR</b>
             <span id="eurRate">—</span>
           </div>
+
         </a>
 
-        <!-- УКРЫТИЯ -->
-        <a
-          id="shelterLink"
-          class="live-widget shelter-widget"
-          href="#"
-          aria-label="Укрытия Измаил"
-        >
-          <!-- ВАЖНО:
-               Никакой дополнительной иконки здесь нет.
-               Используется только существующее изображение. -->
-        </a>
+
+        <!--
+          ТРЕТЬЯ ЗОНА НЕ СОДЕРЖИТ НИКАКОГО ТЕКСТА,
+          ИКОНКИ ИЛИ НОВОЙ КНОПКИ.
+
+          Здесь будет только прозрачная кликабельная
+          зона поверх уже существующей кнопки
+          "Укрытия Измаил" на картинке.
+        -->
 
       </section>
 
+
       <!-- =====================================================
            ПРОЗРАЧНЫЕ КЛИКАБЕЛЬНЫЕ ЗОНЫ
-           НИКАКОГО BLUR И ЗАЛИВКИ
            ===================================================== -->
 
-      <!-- ЛОГОТИП / ГЛАВНАЯ ГРУППА -->
+      <!-- ЛОГОТИП -->
       <a
         id="mainGroup"
         class="hotspot logo-hotspot"
         href="#"
         aria-label="Главная группа"
       ></a>
+
+
+      <!-- УКРЫТИЯ
+           Только прозрачная зона поверх уже существующей
+           кнопки на изображении. Ничего своего не рисуем. -->
+      <a
+        id="shelterLink"
+        class="hotspot shelter-hotspot"
+        href="#"
+        aria-label="Укрытия Измаил"
+      ></a>
+
 
       <!-- ПОИСК -->
       <button
@@ -116,7 +137,9 @@
         aria-label="Поиск"
       ></button>
 
+
       <!-- КАТЕГОРИИ -->
+
       <a
         id="healthLink"
         class="hotspot category-hotspot health-hotspot"
@@ -173,15 +196,18 @@
         aria-label="Отдых, жильё и море"
       ></a>
 
+
       <!-- НАШИ ГРУППЫ -->
       <a
         id="groupsLink"
         class="hotspot groups-hotspot"
         href="#"
-        aria-label="Все наши Telegram-группы"
+        aria-label="Наши группы"
       ></a>
 
+
       <!-- НИЖНЕЕ МЕНЮ -->
+
       <a
         id="homeLink"
         class="hotspot nav-hotspot home-hotspot"
@@ -204,10 +230,14 @@
       ></a>
 
     </div>
+
   </main>
 
-  <!-- СНАЧАЛА КОНФИГ, ПОТОМ ЛОГИКА -->
+
+  <!-- СНАЧАЛА CONFIG -->
   <script src="config.js"></script>
+
+  <!-- ПОТОМ ЛОГИКА -->
   <script src="app.js"></script>
 
 </body>
