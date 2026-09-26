@@ -243,66 +243,84 @@
         aria-label="Избранное"
       ></a>
 
-
-      <!-- ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ -->
-      <a
-        class="user-agreement"
-        href="https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html"
-        onclick="window.location.href='https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html'; return false;"
-        aria-label="Пользовательское соглашение"
-      >
-        Пользовательское соглашение
-      </a>
-
-      <style>
-        .user-agreement {
-          position: absolute !important;
-          left: 0 !important;
-          right: 0 !important;
-          top: 94.5% !important;
-
-          z-index: 9999 !important;
-
-          display: block !important;
-          width: fit-content !important;
-          margin: 0 auto !important;
-
-          padding-bottom: 3px !important;
-
-          color: rgba(225, 245, 255, 0.9) !important;
-
-          font-family: Arial, Helvetica, sans-serif !important;
-          font-size: clamp(10px, 2vw, 14px) !important;
-          font-weight: 500 !important;
-          line-height: 1 !important;
-
-          text-align: center !important;
-          white-space: nowrap !important;
-
-          text-shadow:
-            0 0 5px rgba(0, 180, 255, 0.55),
-            0 1px 3px rgba(0, 0, 0, 0.7) !important;
-
-          border-bottom: 1px solid rgba(80, 210, 255, 0.55) !important;
-
-          text-decoration: none !important;
-
-          cursor: pointer !important;
-
-          pointer-events: auto !important;
-
-          -webkit-tap-highlight-color: transparent !important;
-        }
-
-        .user-agreement:active {
-          opacity: 0.7 !important;
-          transform: scale(0.98);
-        }
-      </style>
-
     </div>
 
   </main>
+
+
+  <!-- =====================================================
+       ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
+       ВНЕ БЛОКА КАРТИНКИ
+       ===================================================== -->
+
+  <a
+    id="agreementLink"
+    class="user-agreement"
+    href="https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html"
+    aria-label="Пользовательское соглашение"
+  >
+    Пользовательское соглашение
+  </a>
+
+
+  <style>
+
+    .user-agreement {
+      position: fixed !important;
+
+      left: 50% !important;
+      bottom: 3.2vh !important;
+
+      transform: translateX(-50%) !important;
+
+      z-index: 1000000 !important;
+
+      display: block !important;
+
+      width: max-content !important;
+      max-width: 92vw !important;
+
+      margin: 0 !important;
+      padding: 5px 8px 4px !important;
+
+      color: rgba(225, 245, 255, 0.9) !important;
+
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-size: clamp(10px, 2vw, 14px) !important;
+      font-weight: 500 !important;
+
+      line-height: 1 !important;
+
+      text-align: center !important;
+      white-space: nowrap !important;
+
+      text-decoration: none !important;
+
+      text-shadow:
+        0 0 5px rgba(0, 180, 255, 0.55),
+        0 1px 3px rgba(0, 0, 0, 0.7) !important;
+
+      border-bottom: 1px solid rgba(80, 210, 255, 0.55) !important;
+
+      cursor: pointer !important;
+
+      pointer-events: auto !important;
+
+      touch-action: manipulation !important;
+
+      -webkit-tap-highlight-color: transparent !important;
+
+      user-select: none !important;
+      -webkit-user-select: none !important;
+    }
+
+
+    .user-agreement:active {
+      opacity: 0.7 !important;
+      transform: translateX(-50%) scale(0.98) !important;
+    }
+
+  </style>
 
 
   <!-- СНАЧАЛА КОНФИГ -->
