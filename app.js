@@ -104,9 +104,6 @@
 
   document.querySelectorAll(".hotspot").forEach((element) => {
 
-    /*
-     * Поиск не является ссылкой.
-     */
     if (element.id === "searchHotspot") {
       return;
     }
@@ -384,23 +381,112 @@
 
 
     /*
-     * ---------------------------------------------------------
-     * ВАЖНО:
+     * =======================================================
+     * СОЗДАЁМ ПРОЗРАЧНЫЙ СЛОЙ ДЛЯ ТЕКСТА
+     * =======================================================
      *
-     * Никаких preventDefault()
-     * Никаких touchstart
-     * Никаких pointerdown
+     * Настоящий input остаётся рабочим и принимает клавиатуру,
+     * но сам системный внешний вид input полностью скрыт.
      *
-     * Это настоящий HTML input.
-     * Android должен сам открыть клавиатуру.
-     * ---------------------------------------------------------
+     * Благодаря этому Android больше не может показать
+     * белую полосу.
      */
+
+    const searchValue =
+      document.createElement("div");
+
+
+    searchValue.id =
+      "directorySearchValue";
+
+
+    searchValue.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+
+    searchValue.style.position =
+      "absolute";
+
+    searchValue.style.zIndex =
+      "11";
+
+    searchValue.style.left =
+      "13.5%";
+
+    searchValue.style.right =
+      "12%";
+
+    searchValue.style.top =
+      "50%";
+
+    searchValue.style.transform =
+      "translateY(-50%)";
+
+
+    searchValue.style.margin =
+      "0";
+
+    searchValue.style.padding =
+      "0";
+
+
+    searchValue.style.background =
+      "transparent";
+
+    searchValue.style.backgroundColor =
+      "transparent";
+
+
+    searchValue.style.border =
+      "0";
+
+    searchValue.style.boxShadow =
+      "none";
+
+
+    searchValue.style.color =
+      "#ffffff";
+
+    searchValue.style.fontFamily =
+      "Arial, Helvetica, sans-serif";
+
+    searchValue.style.fontSize =
+      "clamp(12px, 2.5vw, 18px)";
+
+    searchValue.style.fontWeight =
+      "700";
+
+    searchValue.style.lineHeight =
+      "1";
+
+    searchValue.style.textAlign =
+      "left";
+
+    searchValue.style.whiteSpace =
+      "nowrap";
+
+    searchValue.style.overflow =
+      "hidden";
+
+    searchValue.style.textOverflow =
+      "ellipsis";
+
+
+    searchValue.style.pointerEvents =
+      "none";
+
+
+    searchHotspot.appendChild(
+      searchValue
+    );
 
 
     /*
-     * ---------------------------------------------------------
-     * Стили настоящего input
-     * ---------------------------------------------------------
+     * =======================================================
+     * ПОЛНОСТЬЮ УБИРАЕМ ВИЗУАЛЬНЫЙ INPUT
+     * =======================================================
      */
 
     searchInput.style.position =
@@ -423,38 +509,40 @@
       "0";
 
     searchInput.style.padding =
-      "0 12% 0 13.5%";
+      "0";
+
+
+    searchInput.style.background =
+      "transparent";
+
+    searchInput.style.backgroundColor =
+      "transparent";
+
+    searchInput.style.backgroundImage =
+      "none";
 
 
     searchInput.style.border =
       "0";
 
     searchInput.style.outline =
+      "0";
+
+    searchInput.style.boxShadow =
       "none";
-
-    searchInput.style.background =
-      "transparent";
-
-
-    searchInput.style.fontFamily =
-      "Arial, Helvetica, sans-serif";
-
-    searchInput.style.fontSize =
-      "clamp(12px, 2.5vw, 18px)";
-
-    searchInput.style.fontWeight =
-      "700";
-
-    searchInput.style.lineHeight =
-      "1";
-
-    searchInput.style.textAlign =
-      "left";
 
 
     /*
-     * Пока пусто — текст невидимый.
+     * КЛЮЧЕВОЕ:
+     *
+     * input полностью невидимый,
+     * но продолжает получать фокус
+     * и открывать клавиатуру Android.
      */
+
+    searchInput.style.opacity =
+      "0";
+
 
     searchInput.style.color =
       "transparent";
@@ -464,7 +552,7 @@
 
 
     searchInput.style.zIndex =
-      "10";
+      "20";
 
 
     searchInput.style.webkitAppearance =
@@ -474,14 +562,22 @@
       "none";
 
 
+    searchInput.style.webkitTextFillColor =
+      "transparent";
+
+
     searchInput.style.borderRadius =
       "inherit";
 
 
+    searchInput.style.cursor =
+      "text";
+
+
     /*
-     * ---------------------------------------------------------
-     * Убираем стандартную кнопку X
-     * ---------------------------------------------------------
+     * =======================================================
+     * ДОПОЛНИТЕЛЬНЫЕ СТИЛИ
+     * =======================================================
      */
 
     const searchStyle =
@@ -503,22 +599,31 @@
       }
 
       #directorySearchInput {
-        -webkit-user-select: text;
-        user-select: text;
-        -webkit-touch-callout: default;
+        opacity: 0 !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        caret-color: transparent !important;
       }
 
-      #directorySearchInput:focus {
-        color: #ffffff !important;
-        caret-color: #ffffff !important;
+      #directorySearchInput::-webkit-search-cancel-button,
+      #directorySearchInput::-webkit-search-decoration,
+      #directorySearchInput::-webkit-search-results-button,
+      #directorySearchInput::-webkit-search-results-decoration {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
       }
 
-      #directorySearchInput::-webkit-search-cancel-button {
-        display: none;
-      }
-
-      #directorySearchInput::-webkit-search-decoration {
-        display: none;
+      #directorySearchValue {
+        pointer-events: none !important;
       }
 
     `;
@@ -530,9 +635,45 @@
 
 
     /*
-     * ---------------------------------------------------------
+     * =======================================================
+     * ПОКАЗ / СКРЫТИЕ ТЕКСТА
+     * =======================================================
+     */
+
+    function updateSearchVisual() {
+
+      const value =
+        searchInput.value.trim();
+
+
+      if (!value) {
+
+        searchValue.textContent =
+          "";
+
+        searchHotspot.classList.remove(
+          "search-focused"
+        );
+
+        return;
+      }
+
+
+      searchValue.textContent =
+        searchInput.value;
+
+
+      searchHotspot.classList.add(
+        "search-focused"
+      );
+
+    }
+
+
+    /*
+     * =======================================================
      * ФОКУС
-     * ---------------------------------------------------------
+     * =======================================================
      */
 
     searchInput.addEventListener(
@@ -543,25 +684,24 @@
           "search-focused"
         );
 
-        searchInput.style.color =
-          "#ffffff";
-
-        searchInput.style.caretColor =
-          "#ffffff";
+        updateSearchVisual();
 
       }
     );
 
 
     /*
-     * ---------------------------------------------------------
+     * =======================================================
      * ВВОД
-     * ---------------------------------------------------------
+     * =======================================================
      */
 
     searchInput.addEventListener(
       "input",
       () => {
+
+        updateSearchVisual();
+
 
         const query =
           searchInput.value
@@ -569,44 +709,12 @@
             .toLowerCase();
 
 
-        /*
-         * Если поле пустое —
-         * возвращаем надпись.
-         */
-
         if (!query) {
-
-          searchHotspot.classList.remove(
-            "search-focused"
-          );
-
-          searchInput.style.color =
-            "transparent";
-
-          searchInput.style.caretColor =
-            "transparent";
 
           clearSearchResults();
 
           return;
         }
-
-
-        /*
-         * Есть текст —
-         * надпись скрываем.
-         */
-
-        searchHotspot.classList.add(
-          "search-focused"
-        );
-
-
-        searchInput.style.color =
-          "#ffffff";
-
-        searchInput.style.caretColor =
-          "#ffffff";
 
 
         performSearch(query);
@@ -616,9 +724,9 @@
 
 
     /*
-     * ---------------------------------------------------------
+     * =======================================================
      * ПОТЕРЯ ФОКУСА
-     * ---------------------------------------------------------
+     * =======================================================
      */
 
     searchInput.addEventListener(
@@ -631,11 +739,8 @@
             "search-focused"
           );
 
-          searchInput.style.color =
-            "transparent";
-
-          searchInput.style.caretColor =
-            "transparent";
+          searchValue.textContent =
+            "";
 
           clearSearchResults();
 
@@ -646,9 +751,9 @@
 
 
     /*
-     * ---------------------------------------------------------
+     * =======================================================
      * ENTER
-     * ---------------------------------------------------------
+     * =======================================================
      */
 
     searchInput.addEventListener(
