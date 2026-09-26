@@ -6,59 +6,70 @@
 
 html,
 body {
-  width: 100%;
-  min-height: 100%;
   margin: 0;
   padding: 0;
-
-  background: #061b35;
+  width: 100%;
+  min-height: 100%;
+  background: #061a33;
 }
 
 body {
   overflow-x: hidden;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
 }
 
-
 /* =========================================================
-   ОСНОВА
+   ОСНОВНОЙ МАКЕТ
+
+   Исходная картинка = 709 × 1536.
+   Она всегда сохраняет исходное соотношение сторон.
    ========================================================= */
 
-.app {
+.page {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #061a33;
+}
+
+.design {
+  position: relative;
+
+  /* На телефоне занимает ровно ширину экрана,
+     но никогда не становится шире оригинала */
   width: 100%;
   max-width: 709px;
 
-  margin: 0 auto;
+  /* Высота рассчитывается строго из пропорции 709:1536 */
+  aspect-ratio: 709 / 1536;
+
+  margin: 0;
   padding: 0;
+
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
+/* Сама оригинальная картинка */
+.design-image {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-.reference {
-  position: relative;
-
-  width: 100%;
-
-  line-height: 0;
-}
-
-
-/* =========================================================
-   РОДНАЯ КАРТИНКА
-   ========================================================= */
-
-.reference-image {
   display: block;
 
   width: 100%;
-  height: auto;
+  height: 100%;
 
-  max-width: 709px;
+  /* Не обрезаем и не увеличиваем отдельные части */
+  object-fit: fill;
+
+  margin: 0;
+  padding: 0;
 
   user-select: none;
   -webkit-user-drag: none;
@@ -66,225 +77,55 @@ body {
 
 
 /* =========================================================
-   ВИДЖЕТЫ ПОГОДЫ И ВАЛЮТЫ
-   ========================================================= */
+   КЛИКАБЕЛЬНЫЕ ЗОНЫ
 
-.live-widgets {
-
-  position: absolute;
-
-  z-index: 20;
-
-  left: 3.5%;
-  right: 3.5%;
-
-  top: 16%;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 10px;
-
-  line-height: normal;
-
-  pointer-events: none;
-}
-
-
-.widget {
-
-  min-width: 0;
-  min-height: 92px;
-
-  padding: 10px 12px;
-
-  border: 1.5px solid #16c9ff;
-
-  border-radius: 16px;
-
-  background:
-    rgba(3, 28, 53, 0.95);
-
-  box-shadow:
-    0 0 10px rgba(0, 191, 255, 0.45),
-    inset 0 0 12px rgba(0, 191, 255, 0.10);
-
-  color: #ffffff;
-
-  overflow: hidden;
-}
-
-
-.currency-widget {
-
-  color: #ffffff;
-
-  text-decoration: none;
-
-  pointer-events: auto;
-
-  cursor: pointer;
-}
-
-
-.widget-title {
-
-  margin-bottom: 5px;
-
-  color: #55dcff;
-
-  font-size:
-    clamp(10px, 2.2vw, 15px);
-
-  font-weight: 800;
-
-  letter-spacing: .3px;
-}
-
-
-.widget-main {
-
-  font-size:
-    clamp(26px, 6vw, 38px);
-
-  font-weight: 900;
-
-  line-height: 1;
-}
-
-
-.widget-sub {
-
-  margin-top: 5px;
-
-  color:
-    rgba(255,255,255,.78);
-
-  font-size:
-    clamp(10px, 2.4vw, 15px);
-}
-
-
-.currency-line {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 8px;
-
-  margin-top: 4px;
-
-  color: #ffffff;
-
-  font-size:
-    clamp(10px, 2.5vw, 16px);
-
-  line-height: 1.1;
-}
-
-
-.currency-line b {
-
-  color: #55dcff;
-}
-
-
-.currency-line span {
-
-  white-space: nowrap;
-}
-
-
-.widget-source {
-
-  margin-top: 6px;
-
-  color:
-    rgba(255,255,255,.55);
-
-  font-size:
-    clamp(8px, 1.8vw, 11px);
-
-  line-height: 1.15;
-}
-
-
-/* =========================================================
-   ВСЕ ПРОЗРАЧНЫЕ КНОПКИ
-   Координаты рассчитаны под оригинал 709 × 1536.
+   Все координаты рассчитаны относительно оригинала
+   709 × 1536 и поэтому масштабируются вместе с картинкой.
    ========================================================= */
 
 .hotspot {
-
   position: absolute;
-
-  z-index: 10;
 
   display: block;
 
-  border: 0;
-  padding: 0;
+  z-index: 30;
+
   margin: 0;
+  padding: 0;
 
   background: transparent;
+  border: 0;
 
   text-decoration: none;
 
-  cursor: pointer;
-
-  touch-action: manipulation;
-
-  line-height: normal;
+  -webkit-tap-highlight-color: transparent;
 }
 
 
-/* =========================================================
-   ЛОГОТИП
-   ========================================================= */
-
+/* Логотип / главная группа */
 .logo-hotspot {
-
   left: 2%;
-
-  top: 4.5%;
-
-  width: 33%;
-
+  top: 4.2%;
+  width: 34%;
   height: 24%;
 }
 
 
-/* =========================================================
-   УКРЫТИЯ
-   ========================================================= */
-
+/* Укрытия */
 .shelter-hotspot {
-
-  left: 61.5%;
-
+  left: 61%;
   top: 27%;
-
-  width: 35.5%;
-
-  height: 7%;
+  width: 36%;
+  height: 7.5%;
 }
 
 
-/* =========================================================
-   ПОИСК
-   ========================================================= */
-
+/* Поиск */
 .search-hotspot {
-
-  left: 3%;
-
+  left: 2.5%;
   top: 34%;
-
-  width: 94%;
-
-  height: 5.8%;
+  width: 95%;
+  height: 6%;
 }
 
 
@@ -292,176 +133,60 @@ body {
    КАТЕГОРИИ
    ========================================================= */
 
-.category-hotspot {
+.category {
+  position: absolute;
 
-  width: 46%;
-
-  height: 8.4%;
+  width: 45%;
+  height: 8.7%;
 }
 
 
-/* Здоровье */
-
-.health-hotspot {
-
-  left: 3.2%;
-
-  top: 40.1%;
+.health {
+  left: 3%;
+  top: 40%;
 }
 
 
-/* Транспорт */
-
-.transport-hotspot {
-
-  left: 50.8%;
-
-  top: 40.1%;
+.transport {
+  left: 51.5%;
+  top: 40%;
 }
 
 
-/* Услуги */
-
-.services-hotspot {
-
-  left: 3.2%;
-
-  top: 50%;
+.services {
+  left: 3%;
+  top: 49.7%;
 }
 
 
-/* Продукты */
-
-.food-hotspot {
-
-  left: 50.8%;
-
-  top: 50%;
+.food {
+  left: 51.5%;
+  top: 49.7%;
 }
 
 
-/* Коммунальные */
-
-.utilities-hotspot {
-
-  left: 3.2%;
-
-  top: 59.8%;
+.utilities {
+  left: 3%;
+  top: 59.5%;
 }
 
 
-/* Работа */
-
-.jobs-hotspot {
-
-  left: 50.8%;
-
-  top: 59.8%;
+.jobs {
+  left: 51.5%;
+  top: 59.5%;
 }
 
 
-/* Образование */
-
-.education-hotspot {
-
-  left: 3.2%;
-
-  top: 69.6%;
+.education {
+  left: 3%;
+  top: 69.2%;
 }
 
 
-/* Отдых */
-
-.leisure-hotspot {
-
-  left: 50.8%;
-
-  top: 69.6%;
+.leisure {
+  left: 51.5%;
+  top: 69.2%;
 }
 
 
-/* =========================================================
-   НАШИ ГРУППЫ
-   ========================================================= */
-
-.groups-hotspot {
-
-  left: 3.2%;
-
-  top: 79.2%;
-
-  width: 93.6%;
-
-  height: 6.2%;
-}
-
-
-/* =========================================================
-   НИЖНЕЕ МЕНЮ
-   ========================================================= */
-
-.nav-hotspot {
-
-  top: 87.3%;
-
-  height: 5.2%;
-}
-
-
-/* Главная */
-
-.home-hotspot {
-
-  left: 3.2%;
-
-  width: 29%;
-}
-
-
-/* Реклама */
-
-.ads-hotspot {
-
-  left: 35.5%;
-
-  width: 29%;
-}
-
-
-/* Избранное */
-
-.favorites-hotspot {
-
-  left: 67.2%;
-
-  width: 29.2%;
-}
-
-
-/* =========================================================
-   МАЛЕНЬКИЕ ТЕЛЕФОНЫ
-   ========================================================= */
-
-@media (max-width: 430px) {
-
-  .live-widgets {
-
-    gap: 7px;
-  }
-
-
-  .widget {
-
-    min-height: 76px;
-
-    padding: 8px 9px;
-
-    border-radius: 13px;
-  }
-
-
-  .widget-main {
-
-    font-size: 28px;
-  }
-}
+/* Наш
