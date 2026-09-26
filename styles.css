@@ -9,8 +9,11 @@ html {
   min-width: 0;
   margin: 0;
   padding: 0;
+
   background: #061b35;
+
   overflow-x: hidden;
+
   -webkit-text-size-adjust: 100%;
 }
 
@@ -81,7 +84,14 @@ body {
 
 
 /* =========================================================
-   ПОГОДА И КУРС
+   ПОГОДА + КУРС НБУ
+
+   ВАЖНО:
+   СПРАВА ОСТАЁТСЯ МЕСТО ПОД СУЩЕСТВУЮЩУЮ
+   КНОПКУ "УКРЫТИЯ ИЗМАИЛ".
+
+   ИТОГО:
+   ПОГОДА | КУРС | УКРЫТИЯ
    ========================================================= */
 
 .live-widgets {
@@ -90,20 +100,35 @@ body {
   z-index: 20;
 
   /*
-   * Высота взята от существующей кнопки "Укрытия".
-   * Верх начинается на том же уровне.
+   * ЛЕВАЯ ГРАНИЦА ПЕРВОГО ВИДЖЕТА
    */
-  left: 3.25%;
-  top: 27.80%;
+  left: 3.1%;
 
-  width: 56.0%;
-  height: 5.34%;
+  /*
+   * ВЕРХ ТОЧНО НА УРОВНЕ КНОПКИ "УКРЫТИЯ"
+   */
+  top: 27.8%;
+
+  /*
+   * ДВА ВИДЖЕТА ЗАНИМАЮТ
+   * ТОЛЬКО СВОЮ ЛЕВУЮ ОБЛАСТЬ.
+   */
+  width: 59.7%;
+
+  /*
+   * ТА ЖЕ ВЫСОТА,
+   * ЧТО И КНОПКА "УКРЫТИЯ".
+   */
+  height: 6.25%;
 
   display: grid;
 
   grid-template-columns: 1fr 1fr;
 
-  gap: 1.2%;
+  /*
+   * Небольшой ровный промежуток.
+   */
+  gap: 1.8%;
 
   margin: 0;
   padding: 0;
@@ -115,7 +140,7 @@ body {
 
 
 /* =========================================================
-   ЖИВЫЕ БЛОКИ
+   ОБЩИЙ ВИДЖЕТ
    ========================================================= */
 
 .widget {
@@ -136,20 +161,21 @@ body {
   text-decoration: none;
 
   /*
-   * ПОЛНОСТЬЮ ПРОЗРАЧНО.
-   * Фотография под ним не размывается.
+   * НЕТ ЗАЛИВКИ.
+   * НЕТ BLUR.
+   * НЕТ BACKDROP-FILTER.
    */
   background: transparent;
 
   /*
    * Только тонкий кант.
    */
-  border: 1px solid rgba(70, 210, 255, 0.60);
+  border: 1px solid rgba(70, 210, 255, 0.55);
 
   border-radius: 18px;
 
   box-shadow:
-    0 0 5px rgba(0, 190, 255, 0.20);
+    0 0 5px rgba(0, 190, 255, 0.16);
 
   overflow: hidden;
 
@@ -165,7 +191,7 @@ body {
 
 
 /* =========================================================
-   ВНУТРИ НЕТ СТЕКЛЯННОЙ ЗАЛИВКИ
+   ВНУТРЕННИЙ КАНТ
    ========================================================= */
 
 .widget::after {
@@ -182,15 +208,14 @@ body {
   pointer-events: none;
 
   box-shadow:
-    inset 0 0 4px rgba(80, 220, 255, 0.10);
+    inset 0 0 4px rgba(80, 220, 255, 0.08);
 
-  transition:
-    box-shadow 90ms ease;
+  transition: box-shadow 90ms ease;
 }
 
 
 /* =========================================================
-   НАЖАТИЕ ЖИВОГО БЛОКА
+   НАЖАТИЕ ВИДЖЕТА
    ========================================================= */
 
 .widget:active {
@@ -200,12 +225,12 @@ body {
 
   box-shadow:
     0 0 5px rgba(0, 200, 255, 0.75),
-    0 0 12px rgba(0, 200, 255, 0.40);
+    0 0 11px rgba(0, 200, 255, 0.38);
 }
 
 .widget:active::after {
   box-shadow:
-    inset 0 0 8px rgba(80, 220, 255, 0.25);
+    inset 0 0 8px rgba(80, 220, 255, 0.20);
 }
 
 
@@ -221,13 +246,13 @@ body {
 
   align-content: center;
 
-  padding: 7px 10px;
+  padding: 7px 12px;
 
   pointer-events: none;
 }
 
 .weather-widget .widget-title {
-  font-size: clamp(8px, 1.55vw, 11px);
+  font-size: clamp(9px, 1.65vw, 12px);
 
   font-weight: 800;
 
@@ -237,9 +262,9 @@ body {
 }
 
 .weather-widget .widget-main {
-  margin-top: 3px;
+  margin-top: 4px;
 
-  font-size: clamp(15px, 2.8vw, 20px);
+  font-size: clamp(16px, 2.9vw, 21px);
 
   font-weight: 800;
 
@@ -249,11 +274,11 @@ body {
 }
 
 .weather-widget .widget-sub {
-  margin-top: 3px;
+  margin-top: 4px;
 
   min-width: 0;
 
-  font-size: clamp(7px, 1.4vw, 10px);
+  font-size: clamp(8px, 1.45vw, 10px);
 
   font-weight: 600;
 
@@ -262,6 +287,7 @@ body {
   white-space: nowrap;
 
   overflow: hidden;
+
   text-overflow: ellipsis;
 
   opacity: 0.9;
@@ -269,7 +295,7 @@ body {
 
 
 /* =========================================================
-   КУРС
+   КУРС НБУ
    ========================================================= */
 
 .currency-widget {
@@ -280,11 +306,13 @@ body {
 
   align-content: center;
 
-  padding: 7px 10px;
+  padding: 7px 12px;
+
+  pointer-events: auto;
 }
 
 .currency-widget .widget-title {
-  font-size: clamp(8px, 1.55vw, 11px);
+  font-size: clamp(9px, 1.65vw, 12px);
 
   font-weight: 800;
 
@@ -297,15 +325,16 @@ body {
   display: flex;
 
   align-items: center;
+
   justify-content: space-between;
 
   width: 100%;
 
-  gap: 5px;
+  gap: 6px;
 
-  margin-top: 3px;
+  margin-top: 4px;
 
-  font-size: clamp(7px, 1.45vw, 10px);
+  font-size: clamp(8px, 1.5vw, 11px);
 
   line-height: 1;
 
@@ -322,7 +351,7 @@ body {
 
 
 /* =========================================================
-   ПРОЗРАЧНЫЕ КЛИКАБЕЛЬНЫЕ ЗОНЫ
+   ВСЕ ПРОЗРАЧНЫЕ КНОПКИ ПОВЕРХ КАРТИНКИ
    ========================================================= */
 
 .hotspot {
@@ -343,13 +372,9 @@ body {
 
   cursor: pointer;
 
-  -webkit-tap-highlight-color: transparent;
-
-  /*
-   * НИКАКОГО blur.
-   * НИКАКОГО backdrop-filter.
-   */
   filter: none;
+
+  -webkit-tap-highlight-color: transparent;
 
   transition:
     transform 90ms ease;
@@ -357,7 +382,7 @@ body {
 
 
 /* =========================================================
-   КАНТИК
+   КАНТ ПОЯВЛЯЕТСЯ ТОЛЬКО ПРИ НАЖАТИИ
    ========================================================= */
 
 .hotspot::after {
@@ -385,15 +410,9 @@ body {
     box-shadow 90ms ease;
 }
 
-
-/* Нажали — зона чуть-чуть "утонула" */
-
 .hotspot:active {
   transform: scale(0.985);
 }
-
-
-/* И появился только кант */
 
 .hotspot:active::after {
   opacity: 1;
@@ -402,12 +421,13 @@ body {
 
   box-shadow:
     0 0 4px rgba(0, 200, 255, 0.80),
-    0 0 10px rgba(0, 200, 255, 0.40);
+    0 0 10px rgba(0, 200, 255, 0.38);
 }
 
 
 /* =========================================================
-   ЛОГОТИП — КРУГ
+   ЛОГОТИП
+   КРУГ
    ========================================================= */
 
 .logo-hotspot {
@@ -417,9 +437,6 @@ body {
   width: 31.8%;
   height: 14.8%;
 
-  /*
-   * Главное — не прямоугольный кант.
-   */
   border-radius: 50%;
 }
 
@@ -430,15 +447,15 @@ body {
 
 /* =========================================================
    УКРЫТИЯ
-   РОВНО ПО СУЩЕСТВУЮЩЕЙ КНОПКЕ
+   РОВНО ПО КНОПКЕ НА КАРТИНКЕ
    ========================================================= */
 
 .shelter-hotspot {
-  left: 59.4%;
-  top: 27.8%;
+  left: 63.0%;
+  top: 27.75%;
 
-  width: 37.5%;
-  height: 6.35%;
+  width: 33.9%;
+  height: 6.30%;
 
   border-radius: 18px;
 }
@@ -453,11 +470,11 @@ body {
    ========================================================= */
 
 .search-hotspot {
-  left: 3.0%;
-  top: 34.75%;
+  left: 3.1%;
+  top: 34.70%;
 
-  width: 94.0%;
-  height: 4.65%;
+  width: 94.1%;
+  height: 4.58%;
 
   border-radius: 18px;
 
@@ -476,24 +493,24 @@ body {
    ========================================================= */
 
 .category-hotspot {
-  width: 46.2%;
-  height: 9.15%;
+  width: 46.0%;
+  height: 9.10%;
 
   border-radius: 18px;
 }
 
 .health-hotspot {
-  left: 3.25%;
-  top: 40.05%;
+  left: 3.2%;
+  top: 40.10%;
 }
 
 .transport-hotspot {
   left: 51.2%;
-  top: 40.05%;
+  top: 40.10%;
 }
 
 .services-hotspot {
-  left: 3.25%;
+  left: 3.2%;
   top: 50.05%;
 }
 
@@ -503,17 +520,17 @@ body {
 }
 
 .utilities-hotspot {
-  left: 3.25%;
-  top: 60.15%;
+  left: 3.2%;
+  top: 60.10%;
 }
 
 .jobs-hotspot {
   left: 51.2%;
-  top: 60.15%;
+  top: 60.10%;
 }
 
 .education-hotspot {
-  left: 3.25%;
+  left: 3.2%;
   top: 70.05%;
 }
 
@@ -528,11 +545,11 @@ body {
    ========================================================= */
 
 .groups-hotspot {
-  left: 3.25%;
-  top: 79.55%;
+  left: 3.1%;
+  top: 79.62%;
 
   width: 94.0%;
-  height: 5.75%;
+  height: 5.55%;
 
   border-radius: 18px;
 }
@@ -543,38 +560,46 @@ body {
 
 
 /* =========================================================
-   НИЖНИЕ КНОПКИ
+   НИЖНЕЕ МЕНЮ
+
+   КАЖДАЯ ЗОНА РОВНО НА СВОЕЙ КНОПКЕ.
    ========================================================= */
 
 .nav-hotspot {
-  top: 85.75%;
+  top: 85.85%;
 
-  height: 4.55%;
+  height: 5.05%;
 
   border-radius: 18px;
 }
 
+
+/* ГЛАВНАЯ */
 .home-hotspot {
-  left: 3.25%;
+  left: 3.1%;
 
-  width: 30.0%;
+  width: 28.65%;
 }
 
+
+/* РЕКЛАМА */
 .ads-hotspot {
-  left: 35.25%;
+  left: 33.25%;
 
-  width: 35.0%;
+  width: 34.45%;
 }
 
-.favorites-hotspot {
-  left: 64.6%;
 
-  width: 30.0%;
+/* ИЗБРАННОЕ */
+.favorites-hotspot {
+  left: 69.25%;
+
+  width: 27.65%;
 }
 
 
 /* =========================================================
-   FOCUS
+   НЕ ПОКАЗЫВАЕМ СИСТЕМНУЮ РАМКУ FOCUS
    ========================================================= */
 
 .hotspot:focus-visible,
@@ -584,7 +609,7 @@ body {
 
 
 /* =========================================================
-   МАЛЕНЬКИЙ ЭКРАН
+   МАЛЕНЬКИЕ ЭКРАНЫ
    ========================================================= */
 
 @media (max-width: 380px) {
