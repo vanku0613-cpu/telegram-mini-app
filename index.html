@@ -12,7 +12,7 @@
 
   <title>Главный справочник Измаил</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -21,11 +21,7 @@
 
     <div class="reference" id="reference">
 
-      <!--
-        ВАЖНО:
-        Этот PNG является основным дизайном.
-        Он должен лежать рядом с index.html.
-      -->
+      <!-- ОСНОВНАЯ КАРТИНКА -->
       <img
         id="referenceImage"
         class="reference-image"
@@ -35,16 +31,13 @@
 
 
       <!-- =====================================================
-           ПОГОДА + КУРС ВАЛЮТ
+           ПОГОДА И КУРС ВАЛЮТ
            ===================================================== -->
 
-      <section
-        class="live-widgets"
-        aria-label="Погода и курс валют"
-      >
+      <section class="live-widgets" aria-label="Погода и курс валют">
 
-        <!-- ПОГОДА ИЗМАИЛ -->
-        <article class="widget weather-widget">
+        <!-- ПОГОДА -->
+        <div class="widget weather-widget">
 
           <div class="widget-title">
             🌤️ ПОГОДА
@@ -64,10 +57,10 @@
             Загрузка…
           </div>
 
-        </article>
+        </div>
 
 
-        <!-- КУРС ВАЛЮТ -->
+        <!-- КУРС -->
         <a
           id="currencyWidget"
           class="widget currency-widget"
@@ -104,10 +97,10 @@
 
 
       <!-- =====================================================
-           ПРОЗРАЧНЫЕ КНОПКИ ПОВЕРХ ИСХОДНОЙ КАРТИНКИ
+           ПРОЗРАЧНЫЕ КНОПКИ ПОВЕРХ КАРТИНКИ
            ===================================================== -->
 
-      <!-- Главный логотип -->
+      <!-- ЛОГОТИП / ГЛАВНАЯ ГРУППА -->
       <a
         id="mainGroup"
         class="hotspot logo-hotspot"
@@ -116,7 +109,7 @@
       ></a>
 
 
-      <!-- Укрытия -->
+      <!-- УКРЫТИЯ -->
       <a
         id="shelterLink"
         class="hotspot shelter-hotspot"
@@ -125,7 +118,7 @@
       ></a>
 
 
-      <!-- Поиск -->
+      <!-- ПОИСК -->
       <button
         id="searchHotspot"
         class="hotspot search-hotspot"
@@ -134,7 +127,8 @@
       ></button>
 
 
-      <!-- Здоровье -->
+      <!-- КАТЕГОРИИ -->
+
       <a
         id="healthLink"
         class="hotspot category-hotspot health-hotspot"
@@ -142,8 +136,6 @@
         aria-label="Здоровье и уход"
       ></a>
 
-
-      <!-- Транспорт -->
       <a
         id="transportLink"
         class="hotspot category-hotspot transport-hotspot"
@@ -151,8 +143,6 @@
         aria-label="Транспорт и такси"
       ></a>
 
-
-      <!-- Услуги -->
       <a
         id="servicesLink"
         class="hotspot category-hotspot services-hotspot"
@@ -160,8 +150,6 @@
         aria-label="Услуги и мастера"
       ></a>
 
-
-      <!-- Продукты -->
       <a
         id="foodLink"
         class="hotspot category-hotspot food-hotspot"
@@ -169,8 +157,6 @@
         aria-label="Продукты питания"
       ></a>
 
-
-      <!-- Коммунальные -->
       <a
         id="utilitiesLink"
         class="hotspot category-hotspot utilities-hotspot"
@@ -178,8 +164,6 @@
         aria-label="Коммунальные службы"
       ></a>
 
-
-      <!-- Работа -->
       <a
         id="jobsLink"
         class="hotspot category-hotspot jobs-hotspot"
@@ -187,8 +171,6 @@
         aria-label="Работа и вакансии"
       ></a>
 
-
-      <!-- Образование -->
       <a
         id="educationLink"
         class="hotspot category-hotspot education-hotspot"
@@ -196,8 +178,6 @@
         aria-label="Образование и развитие"
       ></a>
 
-
-      <!-- Отдых -->
       <a
         id="leisureLink"
         class="hotspot category-hotspot leisure-hotspot"
@@ -206,7 +186,7 @@
       ></a>
 
 
-      <!-- Наши группы -->
+      <!-- НАШИ ГРУППЫ -->
       <a
         id="groupsLink"
         class="hotspot groups-hotspot"
@@ -215,9 +195,7 @@
       ></a>
 
 
-      <!-- =====================================================
-           НИЖНЕЕ МЕНЮ
-           ===================================================== -->
+      <!-- НИЖНЕЕ МЕНЮ -->
 
       <a
         id="homeLink"
@@ -226,14 +204,12 @@
         aria-label="Главная"
       ></a>
 
-
       <a
         id="adsLink"
         class="hotspot nav-hotspot ads-hotspot"
         href="#"
         aria-label="Заказать рекламу"
       ></a>
-
 
       <a
         id="favoritesLink"
@@ -247,7 +223,7 @@
   </main>
 
 
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
