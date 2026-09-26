@@ -1,10 +1,11 @@
 (() => {
   "use strict";
 
-
-  /* =========================================================
-     CONFIG
-     ========================================================= */
+  /*
+   * =========================================================
+   * БЕРЁМ НАСТРОЙКИ ИЗ config.js
+   * =========================================================
+   */
 
   const LINKS = window.LINKS || {};
 
@@ -15,9 +16,11 @@
   };
 
 
-  /* =========================================================
-     TELEGRAM
-     ========================================================= */
+  /*
+   * =========================================================
+   * TELEGRAM
+   * =========================================================
+   */
 
   const tg = window.Telegram?.WebApp;
 
@@ -37,16 +40,20 @@
   }
 
 
-  /* =========================================================
-     ELEMENT
-     ========================================================= */
+  /*
+   * =========================================================
+   * ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ
+   * =========================================================
+   */
 
   const $ = (id) => document.getElementById(id);
 
 
-  /* =========================================================
-     ПОДКЛЮЧЕНИЕ ССЫЛОК
-     ========================================================= */
+  /*
+   * =========================================================
+   * ПОДКЛЮЧАЕМ ССЫЛКИ
+   * =========================================================
+   */
 
   const linkMap = {
     mainGroup: LINKS.MAIN_GROUP,
@@ -64,19 +71,25 @@
     groupsLink: LINKS.OUR_GROUPS,
 
     homeLink: LINKS.MAIN_GROUP,
-    adsLink: LINKS.INSTAGRAM,
+
+    /*
+     * Пока отдельной ссылки на рекламу
+     * в config.js нет.
+     */
+    adsLink: "",
+
+    /*
+     * Пока отдельной ссылки на избранное
+     * в config.js нет.
+     */
     favoritesLink: ""
   };
 
 
   Object.entries(linkMap).forEach(([id, url]) => {
-
     const element = $(id);
 
-    if (!element) return;
-
-    if (!url) {
-      element.removeAttribute("href");
+    if (!element || !url) {
       return;
     }
 
@@ -86,13 +99,15 @@
       element.target = "_blank";
       element.rel = "noopener noreferrer";
     }
-
   });
 
 
-  /* =========================================================
-     ПУСТЫЕ КНОПКИ НЕ ПЕРЕЗАГРУЖАЮТ СТРАНИЦУ
-     ========================================================= */
+  /*
+   * =========================================================
+   * ПУСТЫЕ ССЫЛКИ НЕ ДЕЛАЮТ НИЧЕГО
+   * НИКАКИХ ВСПЛЫВАЮЩИХ ОКОН.
+   * =========================================================
+   */
 
   document.querySelectorAll(".hotspot").forEach((element) => {
 
@@ -109,13 +124,14 @@
   });
 
 
-  /* =========================================================
-     ПОГОДА
-     ========================================================= */
+  /*
+   * =========================================================
+   * ПОГОДА
+   * =========================================================
+   */
 
   const weatherTemp = $("weatherTemp");
   const weatherText = $("weatherText");
-
 
   const weatherNames = {
     0: "Ясно",
@@ -169,7 +185,6 @@
       const timezone =
         WEATHER.timezone || "Europe/Kyiv";
 
-
       const url =
         "https://api.open-meteo.com/v1/forecast" +
         `?latitude=${encodeURIComponent(latitude)}` +
@@ -177,40 +192,30 @@
         "&current=temperature_2m,weather_code" +
         `&timezone=${encodeURIComponent(timezone)}`;
 
-
       const response = await fetch(url, {
         cache: "no-store"
       });
-
 
       if (!response.ok) {
         throw new Error("Weather request failed");
       }
 
-
       const data = await response.json();
-
 
       if (!data.current) {
         throw new Error("No current weather");
       }
 
-
       const temperature =
-        Math.round(
-          Number(data.current.temperature_2m)
-        );
-
+        Math.round(Number(data.current.temperature_2m));
 
       const code =
         Number(data.current.weather_code);
-
 
       if (weatherTemp) {
         weatherTemp.textContent =
           `${temperature}°C`;
       }
-
 
       if (weatherText) {
         weatherText.textContent =
@@ -231,13 +236,14 @@
 
   }
 
-
   loadWeather();
 
 
-  /* =========================================================
-     КУРС ВАЛЮТ
-     ========================================================= */
+  /*
+   * =========================================================
+   * КУРС НБУ
+   * =========================================================
+   */
 
   const usdRate = $("usdRate");
   const eurRate = $("eurRate");
@@ -250,30 +256,24 @@
       const url =
         "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json";
 
-
       const response = await fetch(url, {
         cache: "no-store"
       });
-
 
       if (!response.ok) {
         throw new Error("Currency request failed");
       }
 
-
       const data = await response.json();
-
 
       if (!Array.isArray(data)) {
         throw new Error("Invalid currency data");
       }
 
-
       const usd = data.find(
         (item) =>
           String(item.cc).toUpperCase() === "USD"
       );
-
 
       const eur = data.find(
         (item) =>
@@ -285,7 +285,6 @@
         usdRate.textContent =
           `${Number(usd.rate).toFixed(2)} ₴`;
       }
-
 
       if (eur && eurRate) {
         eurRate.textContent =
@@ -306,25 +305,23 @@
 
   }
 
-
   loadCurrency();
 
 
-  /* =========================================================
-     ПОИСК
-     ========================================================= */
+  /*
+   * =========================================================
+   * ПОИСК
+   *
+   * Пока ссылка поиска не задана,
+   * НИЧЕГО НЕ ВЫСКАКИВАЕТ.
+   * =========================================================
+   */
 
   const searchButton = $("searchHotspot");
-
 
   if (searchButton) {
 
     searchButton.addEventListener("click", () => {
-
-      /*
-       * Пока ссылка поиска не задана,
-       * ничего не открываем и ничего не показываем.
-       */
 
       if (LINKS.SEARCH) {
 
@@ -341,9 +338,11 @@
   }
 
 
-  /* =========================================================
-     АВТООБНОВЛЕНИЕ
-     ========================================================= */
+  /*
+   * =========================================================
+   * ОБНОВЛЕНИЕ ДАННЫХ
+   * =========================================================
+   */
 
   setInterval(
     loadWeather,
