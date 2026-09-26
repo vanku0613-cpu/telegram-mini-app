@@ -553,3 +553,38 @@ body {
   }
 
 }
+/* ===== ПОГОДА: ИКОНКА И ТЕМПЕРАТУРА ===== */
+
+.live-weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 700;
+}
+
+.live-weather::before {
+  content: "☀️";
+  font-size: 1.2em;
+}
+
+/* ===== КУРС ВАЛЮТ ===== */
+
+.live-usd,
+.live-eur {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: 700;
+}
+
+.live-usd::before {
+  content: "💵";
+  font-size: 1em;
+}
+
+.live-eur::before {
+  content: "💶";
+  font-size: 1em;
+}
