@@ -1,18 +1,27 @@
+/* =========================================================
+   БАЗА
+   ========================================================= */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  background: #061b35;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
 
-/* =========================================================
-   ОСНОВА
-   ========================================================= */
-
-html,
 body {
   width: 100%;
   min-width: 0;
+  min-height: 100vh;
 
   margin: 0;
   padding: 0;
@@ -22,16 +31,12 @@ body {
   overflow-x: hidden;
 
   -webkit-text-size-adjust: 100%;
-}
-
-
-body {
-  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
 }
 
 
 /* =========================================================
-   ГЛАВНЫЙ КОНТЕЙНЕР
+   ОСНОВНОЙ КОНТЕЙНЕР
    ========================================================= */
 
 .app {
@@ -40,38 +45,36 @@ body {
 
   margin: 0;
   padding: 0;
-}
 
-
-.reference {
-  position: relative;
-
-  display: block;
-
-  /*
-    НИКОГДА не позволяем макету быть шире экрана.
-    Максимальный размер — оригинальные 709 px.
-  */
-  width: 100%;
-  max-width: 709px;
-
-  min-width: 0;
-
-  margin: 0 auto;
-  padding: 0;
-
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 
 /* =========================================================
-   ОРИГИНАЛЬНАЯ КАРТИНКА
+   709 × 1536 ДИЗАЙН
+   ========================================================= */
 
-   Самое важное:
-   ширина = контейнеру,
-   высота НЕ задаётся.
+.reference {
+  position: relative;
 
-   Поэтому 709×1536 всегда сохраняет пропорцию.
+  width: min(100%, 709px);
+  max-width: 709px;
+
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  line-height: 0;
+}
+
+
+/* =========================================================
+   ОСНОВНАЯ КАРТИНКА
    ========================================================= */
 
 .reference-image {
@@ -81,8 +84,6 @@ body {
 
   width: 100%;
   max-width: 100%;
-  min-width: 0;
-
   height: auto;
 
   margin: 0;
@@ -90,13 +91,12 @@ body {
 
   border: 0;
 
-  /*
-    Не растягиваем изображение по высоте.
-  */
   object-fit: contain;
   object-position: top left;
 
   user-select: none;
+  -webkit-user-select: none;
+
   -webkit-user-drag: none;
 }
 
@@ -110,11 +110,17 @@ body {
 
   z-index: 20;
 
+  /*
+     Небольшая панель располагается
+     поверх дизайна и масштабируется
+     вместе с картинкой.
+  */
+
   left: 4%;
-  top: 29.7%;
+  top: 29.4%;
 
   width: 92%;
-  height: 5%;
+  height: 5.1%;
 
   display: grid;
 
@@ -124,35 +130,48 @@ body {
 
   margin: 0;
   padding: 0;
+
+  line-height: normal;
 }
 
 
-/* Общий виджет */
+/* =========================================================
+   ОБЩИЙ ВИД ВИДЖЕТОВ
+   ========================================================= */
 
 .widget {
+  position: relative;
+
   min-width: 0;
   min-height: 0;
 
+  width: 100%;
   height: 100%;
 
   display: block;
 
   color: #ffffff;
 
-  font-family: Arial, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   text-decoration: none;
 
-  background: rgba(5, 26, 52, 0.86);
+  background: rgba(5, 26, 52, 0.88);
 
-  border: 1px solid rgba(110, 210, 255, 0.75);
+  border: 1px solid rgba(130, 220, 255, 0.72);
 
   border-radius: 12px;
 
   box-shadow:
-    0 3px 12px rgba(0, 0, 0, 0.28);
+    0 3px 12px rgba(0, 0, 0, 0.30);
 
   overflow: hidden;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 
@@ -163,7 +182,7 @@ body {
 .weather-widget {
   display: grid;
 
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 1fr;
 
   grid-template-rows: 1fr 1fr;
 
@@ -171,41 +190,51 @@ body {
 
   column-gap: 7px;
 
-  padding: 5px 9px;
+  padding: 4px 9px;
 }
 
 
 .widget-title {
-  font-size: clamp(8px, 2vw, 12px);
+  font-size: clamp(8px, 1.9vw, 12px);
 
-  font-weight: 600;
+  font-weight: 700;
+
+  line-height: 1;
 
   white-space: nowrap;
 
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 
 .widget-main {
-  font-size: clamp(11px, 2.8vw, 16px);
+  font-size: clamp(11px, 2.8vw, 17px);
 
-  font-weight: 700;
+  font-weight: 800;
+
+  line-height: 1;
 
   white-space: nowrap;
 }
 
 
 .widget-sub {
-  font-size: clamp(7px, 1.8vw, 10px);
+  font-size: clamp(7px, 1.7vw, 10px);
+
+  line-height: 1;
 
   white-space: nowrap;
 
-  opacity: 0.8;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  opacity: 0.82;
 }
 
 
 /* =========================================================
-   ВАЛЮТА
+   КУРС ВАЛЮТ
    ========================================================= */
 
 .currency-widget {
@@ -213,16 +242,13 @@ body {
 
   grid-template-columns: auto 1fr;
 
-  grid-template-rows:
-    auto
-    auto
-    auto;
+  grid-template-rows: auto auto auto;
 
   align-items: center;
 
   column-gap: 7px;
 
-  padding: 5px 9px;
+  padding: 4px 9px;
 }
 
 
@@ -233,9 +259,11 @@ body {
 
   justify-content: space-between;
 
-  gap: 5px;
+  gap: 6px;
 
-  font-size: clamp(7px, 1.8vw, 10px);
+  min-width: 0;
+
+  font-size: clamp(7px, 1.7vw, 10px);
 
   line-height: 1.1;
 
@@ -244,19 +272,21 @@ body {
 
 
 .currency-line b {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 
 .currency-line span {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 
 .widget-source {
   grid-column: 1 / -1;
 
-  font-size: clamp(6px, 1.5vw, 9px);
+  min-width: 0;
+
+  font-size: clamp(6px, 1.35vw, 9px);
 
   line-height: 1;
 
@@ -266,12 +296,12 @@ body {
 
   text-overflow: ellipsis;
 
-  opacity: 0.75;
+  opacity: 0.72;
 }
 
 
 /* =========================================================
-   КЛИКАБЕЛЬНЫЕ ЗОНЫ
+   ПРОЗРАЧНЫЕ КНОПКИ
    ========================================================= */
 
 .hotspot {
@@ -409,7 +439,7 @@ body {
 
 
 /* =========================================================
-   НИЖНЯЯ НАВИГАЦИЯ
+   НИЖНЕЕ МЕНЮ
    ========================================================= */
 
 .nav-hotspot {
@@ -421,21 +451,18 @@ body {
 
 .home-hotspot {
   left: 2%;
-
   width: 30%;
 }
 
 
 .ads-hotspot {
   left: 35%;
-
   width: 30%;
 }
 
 
 .favorites-hotspot {
   left: 68%;
-
   width: 30%;
 }
 
@@ -447,9 +474,15 @@ body {
 @media (max-width: 380px) {
 
   .widget {
-    padding: 4px 6px;
-
     border-radius: 9px;
+
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.28);
+  }
+
+  .weather-widget,
+  .currency-widget {
+    padding: 3px 6px;
   }
 
   .live-widgets {
@@ -459,12 +492,25 @@ body {
 
 
 /* =========================================================
-   ФОКУС
+   НАЖАТИЕ
+   ========================================================= */
+
+.hotspot:active {
+  opacity: 0.85;
+}
+
+
+.widget:active {
+  transform: scale(0.99);
+}
+
+
+/* =========================================================
+   ФОКУС КЛАВИАТУРОЙ
    ========================================================= */
 
 .hotspot:focus-visible,
 .widget:focus-visible {
   outline: 2px solid #ffffff;
-
   outline-offset: 2px;
 }
