@@ -21,6 +21,7 @@ body {
     #06182d;
 }
 
+/* ИЗОБРАЖЕНИЕ */
 .hero {
   position: relative;
   min-height: 520px;
@@ -44,26 +45,37 @@ body {
   pointer-events: none;
 }
 
+
+/* ЗЕЛЁНАЯ КНОПКА */
 .back-btn {
   position: relative;
   z-index: 3;
+
   display: inline-flex;
   align-items: center;
   gap: 6px;
+
   width: max-content;
-  margin: 16px;
-  padding: 9px 14px;
+
+  margin: 8px 12px;
+  padding: 8px 13px;
+
   border: 1px solid #19f0b0;
   border-radius: 18px;
+
   color: #fff;
   background: rgba(0, 93, 75, .55);
+
   box-shadow:
     0 0 12px rgba(25, 240, 176, .10),
     inset 0 0 12px rgba(25, 240, 176, .06);
+
   backdrop-filter: blur(8px);
+
   text-decoration: none;
   font-size: 13px;
   font-weight: 750;
+
   transition: .2s ease;
 }
 
@@ -75,45 +87,23 @@ body {
   transform: scale(.98);
 }
 
+
+/* ЗЕЛЁНАЯ СТРЕЛКА */
 .arrow {
   font-size: 18px;
   line-height: 1;
   color: #19f0b0;
 }
 
-.hero-overlay {
-  position: absolute;
-  z-index: 2;
-  left: 18px;
-  right: 18px;
-  bottom: 34px;
-  text-align: center;
-}
 
-.hero-title {
-  display: inline-block;
-  padding: 18px 18px 20px;
-  border: 1px solid rgba(89, 213, 255, .55);
-  border-radius: 22px;
-  background: rgba(3, 30, 64, .56);
-  box-shadow:
-    0 0 28px rgba(0, 174, 255, .24),
-    inset 0 0 28px rgba(0, 120, 255, .12);
-  backdrop-filter: blur(5px);
-  color: #f5fbff;
-  font-size: clamp(28px, 8vw, 54px);
-  line-height: .98;
-  font-weight: 900;
-  letter-spacing: .015em;
-  text-shadow:
-    0 2px 0 #0a5fa5,
-    0 0 16px rgba(89, 214, 255, .75);
-}
-
+/* КНОПКА СРАЗУ ПОД ИЗОБРАЖЕНИЕМ */
 .agreement-middle {
-  margin: 10px 14px 0;
+  display: inline-flex;
+  margin: 8px 12px 0;
 }
 
+
+/* ОСНОВНОЙ ТЕКСТ */
 .content {
   max-width: 900px;
   margin: 0 auto;
@@ -122,24 +112,38 @@ body {
 
 .agreement {
   padding: 22px 19px 24px;
+
   border: 1px solid rgba(86, 202, 255, .30);
   border-radius: 22px;
+
   background:
-    linear-gradient(180deg, rgba(7, 42, 76, .88), rgba(4, 27, 51, .94));
+    linear-gradient(
+      180deg,
+      rgba(7, 42, 76, .88),
+      rgba(4, 27, 51, .94)
+    );
+
   box-shadow:
     0 15px 45px rgba(0, 0, 0, .30),
     inset 0 0 30px rgba(0, 148, 255, .07);
+
   backdrop-filter: blur(10px);
 }
 
+
+/* ДАТА */
 .date {
   margin-bottom: 18px;
+
   color: #80d9ff;
   font-size: 14px;
   font-weight: 700;
+
   text-align: right;
 }
 
+
+/* ТЕКСТ */
 p,
 li {
   color: #dcecf7;
@@ -147,11 +151,15 @@ li {
   line-height: 1.62;
 }
 
+
+/* ЗАГОЛОВКИ РАЗДЕЛОВ */
 h2 {
   margin: 25px 0 9px;
+
   color: #8cddff;
   font-size: 19px;
   line-height: 1.25;
+
   text-shadow: 0 0 10px rgba(0, 187, 255, .25);
 }
 
@@ -159,28 +167,24 @@ ul {
   padding-left: 22px;
 }
 
+
+/* НИЖНЯЯ КНОПКА */
 .bottom {
+  display: flex;
+  width: max-content;
   margin: 18px auto 0;
 }
 
+
+/* ТЕЛЕФОН */
 @media (max-width: 600px) {
+
   .hero {
     min-height: 455px;
   }
 
-  .back-btn {
-    margin: 12px;
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-
   .agreement-middle {
-    margin: 10px 12px 0;
-  }
-
-  .hero-title {
-    padding: 15px 12px 17px;
-    font-size: clamp(25px, 8.2vw, 42px);
+    margin: 8px 12px 0;
   }
 
   .agreement {
@@ -191,5 +195,15 @@ ul {
   p,
   li {
     font-size: 15px;
+  }
+
+  .back-btn {
+    margin: 8px 12px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .bottom {
+    margin-top: 18px;
   }
 }
