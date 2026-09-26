@@ -111,15 +111,16 @@ body {
   z-index: 20;
 
   /*
-     Виджеры немного уменьшены и опущены,
-     чтобы не перекрывать кнопку «Укрытия».
+     Компактные виджеры.
+     Расположены ниже, чтобы не перекрывать
+     кнопку «Укрытия».
   */
 
-  left: 5%;
-  top: 30.0%;
+  left: 6%;
+  top: 30.2%;
 
-  width: 90%;
-  height: 3.7%;
+  width: 88%;
+  height: 3.45%;
 
   display: grid;
 
@@ -145,4 +146,373 @@ body {
   min-height: 0;
 
   width: 100%;
-  height: 100%
+  height: 100%;
+
+  display: block;
+
+  color: #ffffff;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  text-decoration: none;
+
+  background: rgba(5, 26, 52, 0.88);
+
+  border: 1px solid rgba(130, 220, 255, 0.72);
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.28);
+
+  overflow: hidden;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* =========================================================
+   ПОГОДА
+   ========================================================= */
+
+.weather-widget {
+  display: grid;
+
+  grid-template-columns: auto 1fr;
+
+  grid-template-rows: 1fr 1fr;
+
+  align-items: center;
+
+  column-gap: 5px;
+
+  padding: 2px 7px;
+}
+
+
+.widget-title {
+  font-size: clamp(7px, 1.65vw, 10px);
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  opacity: 0.95;
+}
+
+
+.widget-main {
+  font-size: clamp(9px, 2.3vw, 14px);
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+.widget-sub {
+  font-size: clamp(6px, 1.45vw, 9px);
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  opacity: 0.82;
+}
+
+
+/* =========================================================
+   КУРС ВАЛЮТ
+   ========================================================= */
+
+.currency-widget {
+  display: grid;
+
+  grid-template-columns: 34px 1fr;
+
+  grid-template-rows: 1fr 1fr auto;
+
+  align-items: center;
+
+  column-gap: 5px;
+
+  padding: 2px 7px;
+}
+
+
+.currency-line {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  gap: 4px;
+
+  min-width: 0;
+
+  font-size: clamp(6px, 1.45vw, 9px);
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+.currency-line b {
+  font-weight: 800;
+}
+
+
+.currency-line span {
+  font-weight: 700;
+}
+
+
+.widget-source {
+  grid-column: 1 / -1;
+
+  min-width: 0;
+
+  font-size: clamp(5px, 1.15vw, 7px);
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  opacity: 0.72;
+}
+
+
+/* =========================================================
+   ПРОЗРАЧНЫЕ КНОПКИ
+   ========================================================= */
+
+.hotspot {
+  position: absolute;
+
+  z-index: 30;
+
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+
+  border: 0;
+
+  text-decoration: none;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   ЛОГОТИП
+   ========================================================= */
+
+.logo-hotspot {
+  left: 2%;
+  top: 4.2%;
+
+  width: 34%;
+  height: 24%;
+}
+
+
+/* =========================================================
+   УКРЫТИЯ
+   ========================================================= */
+
+.shelter-hotspot {
+  left: 61%;
+  top: 27%;
+
+  width: 36%;
+  height: 7.5%;
+}
+
+
+/* =========================================================
+   ПОИСК
+   ========================================================= */
+
+.search-hotspot {
+  left: 2.5%;
+  top: 34%;
+
+  width: 95%;
+  height: 6%;
+
+  cursor: pointer;
+
+  appearance: none;
+}
+
+
+/* =========================================================
+   КАТЕГОРИИ
+   ========================================================= */
+
+.category-hotspot {
+  width: 45%;
+  height: 8.7%;
+}
+
+
+.health-hotspot {
+  left: 3%;
+  top: 40%;
+}
+
+
+.transport-hotspot {
+  left: 51.5%;
+  top: 40%;
+}
+
+
+.services-hotspot {
+  left: 3%;
+  top: 49.7%;
+}
+
+
+.food-hotspot {
+  left: 51.5%;
+  top: 49.7%;
+}
+
+
+.utilities-hotspot {
+  left: 3%;
+  top: 59.5%;
+}
+
+
+.jobs-hotspot {
+  left: 51.5%;
+  top: 59.5%;
+}
+
+
+.education-hotspot {
+  left: 3%;
+  top: 69.2%;
+}
+
+
+.leisure-hotspot {
+  left: 51.5%;
+  top: 69.2%;
+}
+
+
+/* =========================================================
+   НАШИ ГРУППЫ
+   ========================================================= */
+
+.groups-hotspot {
+  left: 3%;
+  top: 79%;
+
+  width: 94%;
+  height: 6.5%;
+}
+
+
+/* =========================================================
+   НИЖНЕЕ МЕНЮ
+   ========================================================= */
+
+.nav-hotspot {
+  top: 87%;
+
+  height: 6%;
+}
+
+
+.home-hotspot {
+  left: 2%;
+  width: 30%;
+}
+
+
+.ads-hotspot {
+  left: 35%;
+  width: 30%;
+}
+
+
+.favorites-hotspot {
+  left: 68%;
+  width: 30%;
+}
+
+
+/* =========================================================
+   МАЛЕНЬКИЕ ЭКРАНЫ
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .widget {
+    border-radius: 8px;
+
+    box-shadow:
+      0 2px 7px rgba(0, 0, 0, 0.26);
+  }
+
+  .weather-widget,
+  .currency-widget {
+    padding: 2px 5px;
+  }
+
+  .live-widgets {
+    gap: 1.5%;
+  }
+}
+
+
+/* =========================================================
+   НАЖАТИЕ
+   ========================================================= */
+
+.hotspot:active {
+  opacity: 0.85;
+}
+
+
+.widget:active {
+  transform: scale(0.99);
+}
+
+
+/* =========================================================
+   ФОКУС КЛАВИАТУРОЙ
+   ========================================================= */
+
+.hotspot:focus-visible,
+.widget:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
