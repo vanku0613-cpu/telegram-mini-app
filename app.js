@@ -55,45 +55,34 @@
   // =========================================================
 
   function setLink(id, url) {
-
     const el = $(id);
 
     if (!el) return;
 
     if (url) {
-
       el.href = url;
 
       if (id === "shelterLink") {
-
         el.removeAttribute("target");
         el.removeAttribute("rel");
 
         el.addEventListener("click", (event) => {
-
           event.preventDefault();
-
           fastNavigate(url);
-
         });
 
       } else {
-
         el.target = "_blank";
         el.rel = "noopener noreferrer";
 
         el.addEventListener("click", () => {
-
           try {
             tg?.HapticFeedback?.impactOccurred?.("light");
           } catch (e) {}
-
         });
-
       }
 
     } else {
-
       el.href = "#";
 
       el.removeAttribute("target");
@@ -102,7 +91,6 @@
       el.addEventListener("click", (event) => {
         event.preventDefault();
       });
-
     }
   }
 
@@ -129,26 +117,21 @@
   // =========================================================
 
   const AGREEMENT_URL =
-    "https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html?v=9999";
+    "https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html";
 
   const agreementLink =
     document.querySelector(".user-agreement");
 
   if (agreementLink) {
-
     agreementLink.href = AGREEMENT_URL;
 
     agreementLink.removeAttribute("target");
     agreementLink.removeAttribute("rel");
 
     agreementLink.addEventListener("click", (event) => {
-
       event.preventDefault();
-
       fastNavigate(AGREEMENT_URL);
-
     });
-
   }
 
 
@@ -174,11 +157,9 @@
   const homeLink = $("homeLink");
 
   if (homeLink) {
-
     homeLink.href = "#";
 
     homeLink.addEventListener("click", (event) => {
-
       event.preventDefault();
 
       window.scrollTo({
@@ -189,7 +170,6 @@
       try {
         tg?.HapticFeedback?.impactOccurred?.("light");
       } catch (e) {}
-
     });
   }
 
@@ -201,20 +181,15 @@
   const adsLink = $("adsLink");
 
   if (adsLink) {
-
     adsLink.href = links.MAIN_GROUP || "#";
 
     if (links.MAIN_GROUP) {
-
       adsLink.target = "_blank";
       adsLink.rel = "noopener noreferrer";
-
     } else {
-
       adsLink.addEventListener("click", (event) => {
         event.preventDefault();
       });
-
     }
   }
 
@@ -226,11 +201,9 @@
   const favoritesLink = $("favoritesLink");
 
   if (favoritesLink) {
-
     favoritesLink.href = "#";
 
     favoritesLink.addEventListener("click", (event) => {
-
       event.preventDefault();
 
       try {
@@ -240,13 +213,11 @@
       let saved = [];
 
       try {
-
         saved = JSON.parse(
           localStorage.getItem(
             "izmail_directory_favorites"
           ) || "[]"
         );
-
       } catch (e) {}
 
       alert(
@@ -254,7 +225,6 @@
           ? "В избранном: " + saved.join(", ")
           : "Избранное пока пусто."
       );
-
     });
   }
 
@@ -273,13 +243,11 @@
   if (searchHotspot && searchInput) {
 
     const updateSearchState = () => {
-
       searchHotspot.classList.toggle(
         "search-focused",
         document.activeElement === searchInput ||
         searchInput.value.trim().length > 0
       );
-
     };
 
 
@@ -302,17 +270,13 @@
     searchInput.addEventListener(
       "keydown",
       (event) => {
-
         if (event.key === "Enter") {
-
           event.preventDefault();
 
           performSearch(
             searchInput.value
           );
-
         }
-
       }
     );
 
@@ -320,21 +284,16 @@
     searchHotspot.addEventListener(
       "click",
       (event) => {
-
         if (event.target !== searchInput) {
-
           event.preventDefault();
 
           searchInput.focus();
-
         }
-
       }
     );
 
 
     updateSearchState();
-
   }
 
 
@@ -437,7 +396,6 @@
       );
 
     }
-
   }
 
 
@@ -528,7 +486,6 @@
       textEl.textContent = "Нет данных";
 
     }
-
   }
 
 
@@ -583,7 +540,6 @@
 
 
     return map[code] || "Погода";
-
   }
 
 
@@ -657,7 +613,6 @@
       eurEl.textContent = "—";
 
     }
-
   }
 
 
@@ -674,7 +629,6 @@
     return Number.isFinite(number)
       ? number.toFixed(2)
       : "—";
-
   }
 
 
@@ -692,4 +646,67 @@
     "educationLink",
     "leisureLink"
 
- 
+  ].forEach((id) => {
+
+    const element = $(id);
+
+    if (!element) return;
+
+
+    element.addEventListener(
+      "click",
+      () => {
+
+        const title =
+          element.getAttribute(
+            "aria-label"
+          ) || id;
+
+
+        let saved = [];
+
+        try {
+
+          saved = JSON.parse(
+            localStorage.getItem(
+              "izmail_directory_recent"
+            ) || "[]"
+          );
+
+        } catch (e) {}
+
+
+        saved =
+          saved.filter(
+            (item) => item !== title
+          );
+
+
+        saved.unshift(title);
+
+
+        try {
+
+          localStorage.setItem(
+            "izmail_directory_recent",
+            JSON.stringify(
+              saved.slice(0, 20)
+            )
+          );
+
+        } catch (e) {}
+
+      }
+    );
+
+  });
+
+
+  // =========================================================
+  // ЗАПУСК
+  // =========================================================
+
+  loadWeather();
+  loadCurrency();
+
+})();
