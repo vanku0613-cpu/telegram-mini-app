@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
   <meta charset="utf-8">
 
@@ -12,7 +13,7 @@
 
   <title>Главный справочник Измаил</title>
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 
 <body>
@@ -22,6 +23,7 @@
     <div class="reference" id="reference">
 
       <!-- ОСНОВНАЯ КАРТИНКА -->
+
       <img
         id="referenceImage"
         class="reference-image"
@@ -29,17 +31,23 @@
         alt="Главный справочник Измаил"
       >
 
-      <!-- ПОГОДА + КУРС НБУ -->
+
+      <!-- =====================================================
+           ПОГОДА + КУРС НБУ
+           ===================================================== -->
+
       <section
         class="live-widgets"
         aria-label="Погода и курс валют"
       >
 
         <!-- ПОГОДА -->
+
         <div
           id="weatherWidget"
           class="widget weather-widget"
         >
+
           <div class="widget-title">
             ПОГОДА
           </div>
@@ -57,9 +65,12 @@
           >
             Загрузка…
           </div>
+
         </div>
 
+
         <!-- КУРС НБУ -->
+
         <a
           id="currencyWidget"
           class="widget currency-widget"
@@ -68,6 +79,7 @@
           rel="noopener noreferrer"
           aria-label="Курс валют"
         >
+
           <div class="widget-title">
             КУРС НБУ
           </div>
@@ -81,11 +93,16 @@
             <b>EUR</b>
             <span id="eurRate">—</span>
           </div>
+
         </a>
 
       </section>
 
-      <!-- ЛОГОТИП -->
+
+      <!-- =====================================================
+           ЛОГОТИП
+           ===================================================== -->
+
       <a
         id="mainGroup"
         class="hotspot logo-hotspot"
@@ -93,15 +110,23 @@
         aria-label="Главная группа"
       ></a>
 
-      <!-- УКРЫТИЯ -->
+
+      <!-- =====================================================
+           УКРЫТИЯ
+           ===================================================== -->
+
       <a
         id="shelterLink"
         class="hotspot shelter-hotspot"
-        href="#"
+        href="https://vanku0613-cpu.github.io/telegram-mini-app/ukrytia/"
         aria-label="Укрытия Измаил"
       ></a>
 
-      <!-- ПОИСК -->
+
+      <!-- =====================================================
+           ПОИСК
+           ===================================================== -->
+
       <div
         id="searchHotspot"
         class="hotspot search-hotspot"
@@ -156,7 +181,11 @@
 
       </div>
 
-      <!-- КАТЕГОРИИ -->
+
+      <!-- =====================================================
+           КАТЕГОРИИ
+           ===================================================== -->
+
       <a
         id="healthLink"
         class="hotspot category-hotspot health-hotspot"
@@ -213,7 +242,11 @@
         aria-label="Отдых, жильё и море"
       ></a>
 
-      <!-- НАШИ ГРУППЫ -->
+
+      <!-- =====================================================
+           НАШИ ГРУППЫ
+           ===================================================== -->
+
       <a
         id="groupsLink"
         class="hotspot groups-hotspot"
@@ -221,7 +254,11 @@
         aria-label="Наши группы"
       ></a>
 
-      <!-- НИЖНЕЕ МЕНЮ -->
+
+      <!-- =====================================================
+           НИЖНЕЕ МЕНЮ
+           ===================================================== -->
+
       <a
         id="homeLink"
         class="hotspot nav-hotspot home-hotspot"
@@ -250,7 +287,6 @@
 
   <!-- =====================================================
        ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
-       ВНЕ БЛОКА КАРТИНКИ
        ===================================================== -->
 
   <a
@@ -286,12 +322,15 @@
       color: rgba(225, 245, 255, 0.9) !important;
 
       font-family: Arial, Helvetica, sans-serif !important;
+
       font-size: clamp(10px, 2vw, 14px) !important;
+
       font-weight: 500 !important;
 
       line-height: 1 !important;
 
       text-align: center !important;
+
       white-space: nowrap !important;
 
       text-decoration: none !important;
@@ -317,17 +356,23 @@
 
     .user-agreement:active {
       opacity: 0.7 !important;
-      transform: translateX(-50%) scale(0.98) !important;
+
+      transform:
+        translateX(-50%)
+        scale(0.98) !important;
     }
 
   </style>
 
 
-  <!-- СНАЧАЛА КОНФИГ -->
-  <script src="config.js"></script>
+  <!-- =====================================================
+       СКРИПТЫ
+       ===================================================== -->
 
-  <!-- ПОТОМ ЛОГИКА -->
-  <script src="app.js"></script>
+  <script src="config.js?v=12"></script>
+
+  <script src="app.js?v=12"></script>
 
 </body>
+
 </html>
