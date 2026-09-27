@@ -1,477 +1,265 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+>
+
+<meta name="theme-color" content="#061522">
+
+<title>Мои группы</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+}
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
-  >
+body{
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      #174e68 0,
+      #0b2b3e 30%,
+      #061522 65%,
+      #030b12 100%
+    );
 
-  <meta name="theme-color" content="#06121f">
+  color:#fff;
 
-  <title>Мои группы</title>
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+}
 
-  <link rel="stylesheet" href="./groups.css">
-</head>
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-<body>
+.groups-page{
+  width:100%;
+  max-width:760px;
+  margin:0 auto;
+  padding:16px 12px 35px;
+}
 
-<main class="groups-page">
+.groups-header{
+  margin-bottom:18px;
+}
 
-  <header class="groups-header">
+.back-button{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
 
-    <a class="back-button" href="../">
-      <span>‹</span>
-      Назад
-    </a>
+  padding:9px 15px;
 
-    <div class="title-row">
-      <div>
-        <h1>Мои группы</h1>
-        <p>Полезные сообщества Измаила</p>
-      </div>
+  border:1px solid rgba(130,210,225,.22);
+  border-radius:14px;
 
-      <div class="telegram-mark">
-        <span>✈</span>
-      </div>
-    </div>
+  background:rgba(17,48,64,.85);
 
-  </header>
+  color:#fff;
 
+  font-size:15px;
+  font-weight:700;
+}
 
-  <section class="groups-grid">
+.back-button span{
+  font-size:26px;
+  line-height:14px;
+}
 
+.title-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-    <!-- СПРАВОЧНИК -->
+  margin-top:18px;
+}
 
-    <a
-      class="group-card"
-      href="https://t.me/SPRAVOCHNIK_IZMAIL"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+.groups-header h1{
+  margin:0;
 
-      <div class="card-visual visual-guide">
+  font-size:31px;
+  line-height:1.05;
+  font-weight:800;
 
-        <div class="visual-glow"></div>
+  letter-spacing:-.7px;
+}
 
-        <div class="guide-scene">
+.groups-header p{
+  margin:7px 0 0;
 
-          <div class="guide-building building-left"></div>
-          <div class="guide-building building-center"></div>
-          <div class="guide-building building-right"></div>
+  color:#91aab8;
 
-          <div class="guide-book">
-            <div class="book-page left"></div>
-            <div class="book-page right"></div>
-            <div class="book-line l1"></div>
-            <div class="book-line l2"></div>
-          </div>
+  font-size:14px;
+}
 
-        </div>
+.telegram-mark{
+  width:43px;
+  height:43px;
 
-        <div class="visual-label">CITY GUIDE</div>
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      </div>
+  border:1px solid rgba(130,220,235,.22);
+  border-radius:14px;
 
-      <div class="card-info">
+  background:linear-gradient(145deg,#1e718e,#123f56);
 
-        <div>
-          <h2>Справочник Измаил</h2>
-          <p>Полезная информация о городе</p>
-        </div>
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
 
-        <span class="card-arrow">↗</span>
+.telegram-mark span{
+  font-size:21px;
+  transform:rotate(-12deg);
+}
 
-      </div>
 
-    </a>
+/* КАРТОЧКИ */
 
+.groups-grid{
+  display:grid;
 
-    <!-- ZOO -->
+  grid-template-columns:repeat(2,minmax(0,1fr));
 
-    <a
-      class="group-card"
-      href="https://t.me/Izmail_CHAT_24_7"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+  gap:11px;
+}
 
-      <div class="card-visual visual-zoo">
+.group-card{
+  overflow:hidden;
 
-        <div class="visual-glow"></div>
+  border:1px solid rgba(130,205,220,.17);
+  border-radius:21px;
 
-        <div class="cat-face">
+  background:
+    linear-gradient(
+      145deg,
+      #14384a,
+      #0a2432
+    );
 
-          <div class="cat-ear left"></div>
-          <div class="cat-ear right"></div>
+  box-shadow:
+    0 12px 25px rgba(0,0,0,.30);
 
-          <div class="cat-eye left"></div>
-          <div class="cat-eye right"></div>
+  transition:.15s;
+}
 
-          <div class="cat-nose"></div>
+.group-card:active{
+  transform:scale(.97);
+}
 
-          <div class="cat-mouth"></div>
 
-          <div class="cat-whisker w1"></div>
-          <div class="cat-whisker w2"></div>
-          <div class="cat-whisker w3"></div>
-          <div class="cat-whisker w4"></div>
+/* ВЕРХ КАРТОЧКИ */
 
-        </div>
+.card-visual{
+  position:relative;
 
-        <div class="visual-label">ZOO CHAT</div>
+  height:142px;
 
-      </div>
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      <div class="card-info">
+  overflow:hidden;
+}
 
-        <div>
-          <h2>Зоочат</h2>
-          <p>Животные, помощь и общение</p>
-        </div>
+.card-visual:before{
+  content:"";
 
-        <span class="card-arrow">↗</span>
+  position:absolute;
 
-      </div>
+  width:165px;
+  height:165px;
 
-    </a>
+  border-radius:50%;
 
+  background:rgba(255,255,255,.07);
+}
 
-    <!-- АВТО -->
+.visual-guide{
+  background:linear-gradient(145deg,#14627d,#0b3c53);
+}
 
-    <a
-      class="group-card"
-      href="https://t.me/AVTO_IZMAIL_ODESSA"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+.visual-zoo{
+  background:linear-gradient(145deg,#19634f,#103e35);
+}
 
-      <div class="card-visual visual-auto">
+.visual-auto{
+  background:linear-gradient(145deg,#28658a,#173e5b);
+}
 
-        <div class="visual-glow"></div>
+.visual-home{
+  background:linear-gradient(145deg,#795f43,#4d3a2b);
+}
 
-        <div class="car-scene">
+.visual-work{
+  background:linear-gradient(145deg,#405f85,#293e5d);
+}
 
-          <div class="car-body">
+.visual-market{
+  background:linear-gradient(145deg,#7a632b,#493b1c);
+}
 
-            <div class="car-roof"></div>
+.visual-energy{
+  background:linear-gradient(145deg,#176173,#103e4c);
+}
 
-            <div class="car-glass glass-one"></div>
-            <div class="car-glass glass-two"></div>
+.visual-lost{
+  background:linear-gradient(145deg,#396b70,#25474e);
+}
 
-            <div class="car-light"></div>
+.visual-chat{
+  background:linear-gradient(145deg,#5e5285,#393251);
+}
 
-          </div>
 
-          <div class="car-wheel wheel-one"></div>
-          <div class="car-wheel wheel-two"></div>
+/* ОБЩИЙ ДЕКОР */
 
-        </div>
+.visual-label{
+  position:absolute;
 
-        <div class="visual-label">AUTO</div>
+  left:12px;
+  bottom:9px;
 
-      </div>
+  z-index:10;
 
-      <div class="card-info">
+  padding:4px 7px;
 
-        <div>
-          <h2>Авто Бессарабия</h2>
-          <p>Автомобили, запчасти и общение</p>
-        </div>
+  border-radius:6px;
 
-        <span class="card-arrow">↗</span>
+  background:rgba(0,0,0,.25);
 
-      </div>
+  color:rgba(255,255,255,.65);
 
-    </a>
+  font-size:8px;
+  font-weight:800;
 
+  letter-spacing:1.3px;
+}
 
-    <!-- НЕДВИЖИМОСТЬ -->
 
-    <a
-      class="group-card"
-      href="https://t.me/IZMAIL_NEDVIZHIMOST"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+/* СПРАВОЧНИК */
 
-      <div class="card-visual visual-home">
+.guide-book{
+  position:relative;
+  z-index:5;
 
-        <div class="visual-glow"></div>
-
-        <div class="city-house">
-
-          <div class="house-roof"></div>
-
-          <div class="house-body">
-
-            <div class="house-window window-a"></div>
-            <div class="house-window window-b"></div>
-
-            <div class="house-door"></div>
-
-          </div>
-
-        </div>
-
-        <div class="visual-label">REAL ESTATE</div>
-
-      </div>
-
-      <div class="card-info">
-
-        <div>
-          <h2>Недвижимость</h2>
-          <p>Аренда, покупка и продажа</p>
-        </div>
-
-        <span class="card-arrow">↗</span>
-
-      </div>
-
-    </a>
-
-
-    <!-- РАБОТА -->
-
-    <a
-      class="group-card"
-      href="https://t.me/rabota_v_izmaile"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <div class="card-visual visual-work">
-
-        <div class="visual-glow"></div>
-
-        <div class="work-scene">
-
-          <div class="briefcase">
-
-            <div class="briefcase-handle"></div>
-
-            <div class="briefcase-main">
-
-              <div class="briefcase-lock"></div>
-
-              <div class="briefcase-line"></div>
-
-            </div>
-
-          </div>
-
-          <div class="work-star star-one">✦</div>
-          <div class="work-star star-two">✦</div>
-
-        </div>
-
-        <div class="visual-label">CAREER</div>
-
-      </div>
-
-      <div class="card-info">
-
-        <div>
-          <h2>Работа</h2>
-          <p>Вакансии и поиск сотрудников</p>
-        </div>
-
-        <span class="card-arrow">↗</span>
-
-      </div>
-
-    </a>
-
-
-    <!-- РЫНОК -->
-
-    <a
-      class="group-card"
-      href="https://t.me/Vkusny_Chat_Izmail"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <div class="card-visual visual-market">
-
-        <div class="visual-glow"></div>
-
-        <div class="market-scene">
-
-          <div class="market-bag">
-
-            <div class="bag-handle"></div>
-
-            <div class="bag-logo">M</div>
-
-          </div>
-
-          <div class="market-item item-red"></div>
-          <div class="market-item item-green"></div>
-          <div class="market-item item-yellow"></div>
-
-        </div>
-
-        <div class="visual-label">MARKET</div>
-
-      </div>
-
-      <div class="card-info">
-
-        <div>
-          <h2>Рынок онлайн</h2>
-          <p>Покупай и продавай</p>
-        </div>
-
-        <span class="card-arrow">↗</span>
-
-      </div>
-
-    </a>
-
-
-    <!-- КОММУНАЛЬНЫЕ -->
-
-    <a
-      class="group-card"
-      href="https://t.me/IZMAIL_GAZ_SVET_VODA"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <div class="card-visual visual-energy">
-
-        <div class="visual-glow"></div>
-
-        <div class="energy-scene">
-
-          <div class="energy-bolt">ϟ</div>
-
-          <div class="energy-drop"></div>
-
-          <div class="energy-flame">♨</div>
-
-        </div>
-
-        <div class="visual-label">CITY SERVICE</div>
-
-      </div>
-
-      <div class="card-info">
-
-        <div>
-          <h2>Свет • Вода • Газ</h2>
-          <p>Коммунальные вопросы города</p>
-        </div>
-
-        <span class="card-arrow">↗</span>
-
-      </div>
-
-    </a>
-
-
-    <!-- БЮРО НАХОДОК -->
-
-    <a
-      class="group-card"
-      href="https://t.me/buro_nahodok_izmail"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <div class="card-visual visual-lost">
-
-        <div class="visual-glow"></div>
-
-        <div class="lost-scene">
-
-          <div class="lost-card">
-
-            <div class="lost-pin"></div>
-
-            <div class="lost-line one"></div>
-            <div class="lost-line two"></div>
-            <div class="lost-line three"></div>
-
-          </div>
-
-          <div class="lost-search"></div>
-
-        </div>
-
-        <div class="visual-label">FOUND & LOST</div>
-
-      </div>
-
-      <div class="card-info">
-
-        <div>
-          <h2>Бюро находок</h2>
-          <p>Потерял или нашёл?</p>
-        </div>
-
-        <span class="card-arrow">↗</span>
-
-      </div>
-
-    </a>
-
-
-    <!-- ОБЩЕНИЕ -->
-
-    <a
-      class="group-card"
-      href="https://t.me/+5qLXgy-mFmM5YWNi"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <div class="card-visual visual-chat">
-
-        <div class="visual-glow"></div>
-
-        <div class="chat-scene">
-
-          <div class="chat-bubble bubble-main">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="chat-bubble bubble-small">
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="chat-plus">+</div>
-
-        </div>
-
-        <div class="visual-label">COMMUNITY</div>
-
-      </div>
-
-      <div class="card-info">
-
-        <div>
-          <h2>Свободное общение</h2>
-          <p>Общайся, делись и будь в теме</p>
-        </div>
-
-        <span class="card-arrow">↗</span>
-
-      </div>
-
-    </a>
-
-
-  </section>
-
-</main>
-
-</body>
-</html>
+  width:90px;
+  height:
