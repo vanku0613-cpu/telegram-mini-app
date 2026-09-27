@@ -1,6 +1,6 @@
-*{/* =========================================================
-   ВСЕ НАШИ ГРУППЫ — ИЗМАИЛ
-   Дизайн страницы
+/* =========================================================
+   OUR GROUPS MENU
+   Современный дизайн раздела «Все наши группы»
    ========================================================= */
 
 * {
@@ -8,57 +8,16 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:root {
-  --bg-top: #071d38;
-  --bg-bottom: #020c1b;
-
-  --panel: rgba(10, 35, 66, 0.86);
-  --panel-strong: rgba(12, 42, 78, 0.94);
-
-  --line: rgba(79, 170, 255, 0.38);
-  --line-bright: rgba(92, 190, 255, 0.72);
-
-  --text: #f5f9ff;
-  --muted: #9db8d7;
-
-  --accent: #39d9ff;
-  --accent-soft: rgba(57, 217, 255, 0.16);
-
-  --green: #20e7b0;
-
-  --shadow:
-    0 12px 30px rgba(0, 0, 0, 0.28);
-}
-
-
-/* =========================================================
-   ОСНОВА
-   ========================================================= */
-
 html {
   min-height: 100%;
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(18, 91, 150, 0.34),
-      transparent 45%
-    ),
-    linear-gradient(
-      180deg,
-      var(--bg-top) 0%,
-      var(--bg-bottom) 100%
-    );
+  background: #061321;
 }
 
-
 body {
-  min-height: 100vh;
   margin: 0;
-
-  color: var(--text);
+  min-height: 100vh;
 
   font-family:
-    Inter,
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
@@ -66,32 +25,43 @@ body {
     Arial,
     sans-serif;
 
+  color: #ffffff;
+
   background:
     radial-gradient(
-      circle at 50% 10%,
-      rgba(0, 151, 210, 0.12),
+      circle at 50% -10%,
+      rgba(31, 119, 183, 0.32),
       transparent 42%
+    ),
+    radial-gradient(
+      circle at 100% 40%,
+      rgba(0, 151, 194, 0.10),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      #071a30 0%,
+      #04111f 48%,
+      #020b15 100%
     );
 
   overflow-x: hidden;
 }
-
 
 a {
   color: inherit;
   text-decoration: none;
 }
 
-
 .page {
-  width: min(100%, 900px);
-
+  width: 100%;
+  max-width: 760px;
   margin: 0 auto;
 
   padding:
-    28px
-    18px
-    32px;
+    24px
+    15px
+    calc(30px + env(safe-area-inset-bottom));
 }
 
 
@@ -101,129 +71,93 @@ a {
 
 header {
   text-align: center;
-
-  margin:
-    6px
-    0
-    24px;
+  margin: 5px 0 25px;
 }
-
 
 .logo {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
-  min-width: 86px;
-  height: 34px;
-
+  height: 32px;
   padding: 0 15px;
 
-  border:
-    1px solid
-    rgba(66, 211, 255, 0.45);
-
+  border: 1px solid rgba(91, 202, 255, 0.38);
   border-radius: 12px;
 
   background:
     linear-gradient(
       135deg,
-      rgba(20, 91, 145, 0.62),
-      rgba(5, 39, 76, 0.72)
+      rgba(24, 100, 153, 0.55),
+      rgba(7, 40, 72, 0.7)
     );
 
+  color: #bdeaff;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 3px;
+
   box-shadow:
-    0 0 18px
-    rgba(48, 190, 255, 0.12);
-
-  color: #ccecff;
-
-  font-size: 12px;
-  font-weight: 800;
-
-  letter-spacing: 2.8px;
+    0 0 22px rgba(36, 174, 240, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-
 h1 {
-  margin:
-    14px
-    0
-    8px;
+  margin: 13px 0 7px;
 
-  color: #ffffff;
-
-  font-size: clamp(
-    25px,
-    7vw,
-    38px
-  );
-
+  font-size: clamp(25px, 7vw, 36px);
   line-height: 1;
 
   font-weight: 900;
+  letter-spacing: -0.7px;
 
-  letter-spacing:
-    -0.7px;
+  color: #ffffff;
 
   text-shadow:
-    0 3px 16px
-    rgba(0, 0, 0, 0.35);
+    0 4px 22px rgba(0, 0, 0, 0.4);
 }
-
 
 header p {
   margin: 0;
 
-  color: var(--muted);
+  color: #91abc5;
 
   font-size: 13px;
-
   font-weight: 500;
-
-  letter-spacing: 0.2px;
 }
 
 
 /* =========================================================
-   ОБЩАЯ АНИМАЦИЯ КАРТОЧЕК
+   ОБЩИЙ СТИЛЬ КАРТОЧЕК
    ========================================================= */
 
 .card {
   position: relative;
 
   display: flex;
-
   align-items: center;
 
-  gap: 13px;
-
   width: 100%;
+  min-height: 82px;
 
-  min-height: 76px;
+  padding: 12px 13px;
 
-  padding:
-    12px
-    13px;
+  gap: 12px;
 
-  border:
-    1px solid
-    var(--line);
-
-  border-radius: 19px;
+  border: 1px solid rgba(89, 171, 226, 0.25);
+  border-radius: 21px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(16, 52, 91, 0.95),
-      rgba(5, 25, 50, 0.94)
+      rgba(19, 57, 91, 0.93),
+      rgba(7, 28, 50, 0.96)
     );
 
   box-shadow:
-    var(--shadow),
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.045);
+    0 10px 28px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
 
   overflow: hidden;
 
@@ -235,25 +169,25 @@ header p {
 }
 
 
-/* мягкий свет внутри карточки */
+/* мягкое свечение внутри */
 
 .card::before {
   content: "";
 
   position: absolute;
 
-  top: -70px;
-  left: -70px;
+  width: 170px;
+  height: 170px;
 
-  width: 160px;
-  height: 160px;
+  left: -90px;
+  top: -90px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(46, 199, 255, 0.13),
+      rgba(55, 192, 255, 0.16),
       transparent 68%
     );
 
@@ -261,15 +195,15 @@ header p {
 }
 
 
-/* верхний блик */
+/* тонкий верхний блик */
 
 .card::after {
   content: "";
 
   position: absolute;
 
-  left: 18px;
-  right: 18px;
+  left: 22px;
+  right: 22px;
   top: 0;
 
   height: 1px;
@@ -278,120 +212,67 @@ header p {
     linear-gradient(
       90deg,
       transparent,
-      rgba(122, 218, 255, 0.45),
+      rgba(149, 222, 255, 0.42),
       transparent
     );
-
-  opacity: 0.65;
 
   pointer-events: none;
 }
 
 
-.card:active {
-  transform:
-    scale(0.975);
-
-  border-color:
-    var(--line-bright);
-
-  box-shadow:
-    0 7px 18px
-    rgba(0, 0, 0, 0.34),
-    0 0 22px
-    rgba(48, 191, 255, 0.12);
-}
-
-
-@media (hover: hover) {
-
-  .card:hover {
-    transform:
-      translateY(-2px);
-
-    border-color:
-      var(--line-bright);
-
-    background:
-      linear-gradient(
-        145deg,
-        rgba(19, 65, 108, 0.98),
-        rgba(6, 29, 56, 0.97)
-      );
-
-    box-shadow:
-      0 15px 34px
-      rgba(0, 0, 0, 0.31),
-      0 0 24px
-      rgba(48, 191, 255, 0.09);
-  }
-
-}
-
-
 /* =========================================================
-   ИКОНКИ
+   ИКОНКА
    ========================================================= */
 
 .card > i {
   position: relative;
   z-index: 2;
 
-  display: grid;
+  flex: 0 0 51px;
 
+  width: 51px;
+  height: 51px;
+
+  display: grid;
   place-items: center;
 
-  flex: 0 0 49px;
+  border-radius: 16px;
 
-  width: 49px;
-  height: 49px;
-
-  border:
-    1px solid
-    rgba(100, 205, 255, 0.26);
-
-  border-radius: 15px;
+  border: 1px solid rgba(106, 199, 244, 0.25);
 
   background:
     linear-gradient(
       145deg,
-      rgba(39, 120, 170, 0.34),
-      rgba(6, 48, 83, 0.56)
+      rgba(47, 129, 174, 0.32),
+      rgba(8, 50, 79, 0.62)
     );
 
   box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.08),
-    0 5px 13px
-    rgba(0, 0, 0, 0.2);
-
-  font-size: 25px;
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 6px 15px rgba(0, 0, 0, 0.22);
 
   font-style: normal;
+  font-size: 25px;
 
   line-height: 1;
 }
 
 
 /* =========================================================
-   ТЕКСТ КАРТОЧКИ
+   ТЕКСТ
    ========================================================= */
 
 .card > span {
   position: relative;
   z-index: 2;
 
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
   min-width: 0;
-
   flex: 1;
-}
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .card strong {
   display: block;
@@ -399,25 +280,22 @@ header p {
   color: #ffffff;
 
   font-size: 15px;
-
-  line-height: 1.15;
+  line-height: 1.18;
 
   font-weight: 800;
 
   letter-spacing: -0.15px;
 }
 
-
 .card small {
   display: block;
 
   margin-top: 5px;
 
-  color: var(--muted);
+  color: #8faac4;
 
   font-size: 10.5px;
-
-  line-height: 1.2;
+  line-height: 1.25;
 
   font-weight: 500;
 }
@@ -431,31 +309,25 @@ header p {
   position: relative;
   z-index: 2;
 
+  flex: 0 0 31px;
+
+  width: 31px;
+  height: 31px;
+
   display: grid;
-
   place-items: center;
-
-  flex: 0 0 30px;
-
-  width: 30px;
-  height: 30px;
 
   border-radius: 50%;
 
+  border: 1px solid rgba(91, 190, 244, 0.18);
+
   background:
-    rgba(55, 181, 238, 0.10);
+    rgba(52, 164, 220, 0.09);
 
-  border:
-    1px solid
-    rgba(91, 192, 255, 0.18);
-
-  color:
-    #77dfff;
+  color: #71d8ff;
 
   font-size: 24px;
-
   font-style: normal;
-
   line-height: 1;
 
   padding-bottom: 2px;
@@ -466,43 +338,463 @@ header p {
 }
 
 
-.card:active > em {
-  transform:
-    translateX(3px);
+/* =========================================================
+   КАРТОЧКА «СПРАВОЧНИК»
+   ========================================================= */
+
+.directory {
+  min-height: 94px;
+
+  margin-bottom: 13px;
+
+  border-color:
+    rgba(35, 224, 175, 0.42);
 
   background:
-    rgba(55, 181, 238, 0.2);
+    linear-gradient(
+      135deg,
+      rgba(8, 82, 80, 0.96),
+      rgba(7, 47, 65, 0.97),
+      rgba(5, 28, 48, 0.98)
+    );
+
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(28, 225, 174, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.directory::before {
+  background:
+    radial-gradient(
+      circle,
+      rgba(31, 235, 178, 0.20),
+      transparent 68%
+    );
+}
+
+.directory > i {
+  flex-basis: 57px;
+
+  width: 57px;
+  height: 57px;
+
+  border-color:
+    rgba(38, 229, 178, 0.34);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28, 157, 128, 0.36),
+      rgba(7, 75, 72, 0.62)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 20px rgba(31, 226, 176, 0.08);
+
+  font-size: 27px;
+}
+
+.directory strong {
+  font-size: 17px;
+}
+
+.directory small {
+  color: #9ed8ca;
+}
+
+.directory > em {
+  color: #35e8b5;
+
+  border-color:
+    rgba(38, 229, 178, 0.22);
+
+  background:
+    rgba(35, 224, 175, 0.10);
 }
 
 
+/* =========================================================
+   СЕТКА
+   ========================================================= */
+
+.grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   РАЗНЫЕ АКЦЕНТЫ ИКОНОК
+   ========================================================= */
+
+.grid .card:nth-child(1) > i {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(40, 145, 225, 0.35),
+      rgba(10, 60, 96, 0.62)
+    );
+}
+
+.grid .card:nth-child(2) > i {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(104, 93, 226, 0.35),
+      rgba(44, 46, 101, 0.62)
+    );
+}
+
+.grid .card:nth-child(3) > i {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(220, 158, 61, 0.34),
+      rgba(92, 62, 29, 0.62)
+    );
+}
+
+.grid .card:nth-child(4) > i {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(218, 92, 153, 0.34),
+      rgba(91, 40, 72, 0.62)
+    );
+}
+
+.grid .card:nth-child(5) > i {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(55, 193, 158, 0.34),
+      rgba(21, 79, 72, 0.62)
+    );
+}
+
+.grid .card:nth-child(6) > i {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(226, 187, 67, 0.34),
+      rgba(91, 72, 29, 0.62)
+    );
+}
+
+.grid .card:nth-child(7) > i {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(67, 153, 224, 0.34),
+      rgba(27, 64, 102, 0.62)
+    );
+}
+
+.grid .card:nth-child(8) > i {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(157, 111, 215, 0.34),
+      rgba(64, 46, 91, 0.62)
+    );
+}
+
+
+/* =========================================================
+   НАЖАТИЕ
+   ========================================================= */
+
+.card:active {
+  transform: scale(0.965);
+
+  border-color:
+    rgba(100, 202, 255, 0.65);
+
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.35),
+    0 0 22px rgba(46, 186, 246, 0.10);
+}
+
+.card:active > em {
+  transform: translateX(3px);
+
+  background:
+    rgba(65, 184, 239, 0.18);
+}
+
+
+/* =========================================================
+   HOVER — ДЛЯ ПК
+   ========================================================= */
+
 @media (hover: hover) {
 
-  .card:hover > em {
-    transform:
-      translateX(3px);
+  .card:hover {
+    transform: translateY(-2px);
+
+    border-color:
+      rgba(91, 191, 247, 0.55);
 
     background:
-      rgba(55, 181, 238, 0.18);
+      linear-gradient(
+        145deg,
+        rgba(23, 67, 105, 0.97),
+        rgba(7, 31, 55, 0.98)
+      );
+
+    box-shadow:
+      0 16px 34px rgba(0, 0, 0, 0.31),
+      0 0 24px rgba(48, 190, 255, 0.08);
+  }
+
+  .card:hover > em {
+    transform: translateX(3px);
+
+    background:
+      rgba(65, 184, 239, 0.17);
   }
 
 }
 
 
 /* =========================================================
-   ГЛАВНАЯ КАРТОЧКА — СПРАВОЧНИК
+   НАЗАД В ГЛАВНОЕ МЕНЮ
    ========================================================= */
 
-.directory {
-  min-height: 92px;
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  margin-bottom: 12px;
+  gap: 9px;
+
+  min-height: 47px;
+
+  padding: 10px 17px;
 
   border:
     1px solid
-    rgba(32, 231, 176, 0.48);
+    rgba(77, 174, 229, 0.30);
+
+  border-radius: 16px;
 
   background:
     linear-gradient(
       135deg,
-      rgba(8, 73, 78, 0.94),
-      rgba(5, 37, 61, 0.96)  65%,#041124);color:#f5f9ff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}body{-webkit-tap-highlight-color:transparent}.page{max-width:760px;margin:auto;padding:max(14px,env(safe-area-inset-top)) 14px max(22px,env(safe-area-inset-bottom))}a{color:inherit;text-decoration:none}.back{min-height:52px;margin:4px 0 18px;padding:0 18px;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:15px;background:linear-gradient(180deg,#21df72,#10bd5b);box-shadow:0 8px 22px #0ccf6238,inset 0 1px #ffffff38;font-size:16px;font-weight:800}.back b{font-size:30px;font-weight:300;line-height:1}header{text-align:center;padding:2px 4px 18px}.logo{color:#79caff;font-size:12px;font-weight:900;letter-spacing:4px;margin-bottom:9px}h1{margin:0;font-size:clamp(24px,7vw,34px);line-height:1.05;font-weight:900}header p{margin:9px 0 0;color:#9db4cc;font-size:14px}.hero{min-height:145px;margin-bottom:15px;padding:25px 22px;display:flex;flex-direction:column;justify-content:flex-end;border-radius:20px;overflow:hidden;background:linear-gradient(180deg,#17486d33,#030f1ecc),linear-gradient(135deg,#17486d,#0a2b4b 48%,#06162d);box-shadow:0 12px 30px #0003}.hero strong{font-size:25px}.hero small{margin-top:6px;color:#b9d8ed;font-size:11px;font-weight:700;letter-spacing:1.2px}.card{min-height:106px;padding:13px;display:flex;align-items:flex-start;gap:12px;border-radius:17px;border:1px solid #69b8f01f;background:linear-gradient(145deg,#123a5b,#09233d);box-shadow:0 7px 20px #0000002e;transition:.12s}.card:active{transform:scale(.985);filter:brightness(1.08)}.card i{flex:0 0 40px;width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:#ffffff0d;font-style:normal;font-size:21px}.card span{min-width:0;flex:1;display:flex;flex-direction:column;gap:4px}.card strong{font-size:12.5px;line-height:1.2}.card small{color:#8faac2;font-size:10px;line-height:1.25}.card em{color:#6fc4f7;font-size:25px;font-style:normal;margin-top:5px}.directory{min-height:88px;margin-bottom:13px;background:linear-gradient(145deg,#17476b,#0d2b49);border-color:#69c2ff38}.directory i{width:46px;height:46px;flex-basis:46px;font-size:24px}.directory strong{font-size:14px}.directory small{font-size:11px}.directory em{font-size:29px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.bottom{margin-top:18px;margin-bottom:0}@media(max-width:390px){.page{padding-left:11px;padding-right:11px}.grid{gap:9px}.card{padding:11px}.card strong{font-size:11.5px}.card small{font-size:9.5px}}
+      rgba(16, 56, 89, 0.85),
+      rgba(6, 29, 51, 0.92)
+    );
+
+  color: #c8e7fa;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  transition:
+    transform 0.16s ease,
+    border-color 0.16s ease;
+}
+
+.back b {
+  display: grid;
+  place-items: center;
+
+  width: 26px;
+  height: 26px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(56, 184, 239, 0.11);
+
+  color: #65d6ff;
+
+  font-size: 22px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  padding-bottom: 2px;
+}
+
+.back.bottom {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.back:active {
+  transform: scale(0.97);
+
+  border-color:
+    rgba(83, 201, 255, 0.62);
+}
+
+
+/* =========================================================
+   МОБИЛЬНЫЕ
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .page {
+    padding:
+      22px
+      11px
+      calc(27px + env(safe-area-inset-bottom));
+  }
+
+  header {
+    margin-bottom: 21px;
+  }
+
+  .grid {
+    gap: 8px;
+  }
+
+  .grid .card {
+    min-height: 80px;
+
+    padding:
+      10px;
+    gap: 9px;
+  }
+
+  .grid .card > i {
+    flex-basis: 44px;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 14px;
+
+    font-size: 22px;
+  }
+
+  .grid .card strong {
+    font-size: 12.5px;
+  }
+
+  .grid .card small {
+    font-size: 9px;
+    margin-top: 4px;
+  }
+
+  .grid .card > em {
+    flex-basis: 26px;
+
+    width: 26px;
+    height: 26px;
+
+    font-size: 20px;
+  }
+
+  .directory {
+    min-height: 87px;
+  }
+
+  .directory > i {
+    flex-basis: 51px;
+
+    width: 51px;
+    height: 51px;
+
+    font-size: 24px;
+  }
+
+  .directory strong {
+    font-size: 15px;
+  }
+
+  .directory small {
+    font-size: 9.5px;
+  }
+}
+
+
+/* =========================================================
+   ОЧЕНЬ УЗКИЙ ТЕЛЕФОН
+   ========================================================= */
+
+@media (max-width: 370px) {
+
+  .page {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .grid {
+    gap: 7px;
+  }
+
+  .grid .card {
+    min-height: 76px;
+
+    padding: 9px;
+
+    gap: 7px;
+
+    border-radius: 18px;
+  }
+
+  .grid .card > i {
+    flex-basis: 40px;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    font-size: 20px;
+  }
+
+  .grid .card strong {
+    font-size: 11.5px;
+  }
+
+  .grid .card small {
+    font-size: 8px;
+  }
+
+  .grid .card > em {
+    flex-basis: 23px;
+
+    width: 23px;
+    height: 23px;
+
+    font-size: 18px;
+  }
+}
+
+
+/* =========================================================
+   СОВСЕМ УЗКИЙ ЭКРАН
+   ========================================================= */
+
+@media (max-width: 330px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid .card {
+    min-height: 72px;
+  }
+
+  .grid .card strong {
+    font-size: 13px;
+  }
+
+  .grid .card small {
+    font-size: 9px;
+  }
+}
