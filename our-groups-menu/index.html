@@ -8,14 +8,10 @@
     content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
   >
 
-  <meta name="theme-color" content="#061b35">
+  <meta name="theme-color" content="#06152b">
 
   <title>Наши группы — Измаил</title>
 
-  <link rel="stylesheet" href="./styles.css">
-
-  <!-- Запасной стиль: страница будет выглядеть нормально,
-       даже если styles.css временно не загрузился -->
   <style>
     * {
       box-sizing: border-box;
@@ -27,13 +23,56 @@
       margin: 0;
       padding: 0;
       min-height: 100%;
-      background: #06152b;
       color: #fff;
       font-family: Arial, Helvetica, sans-serif;
+      background: #06152b;
     }
 
     body {
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* =========================
+       ФОН ВСЕЙ СТРАНИЦЫ
+       ========================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+
+      background:
+        linear-gradient(
+          rgba(3, 17, 36, .58),
+          rgba(3, 17, 36, .68)
+        ),
+        url("./a_vertical_cinematic_high_resolution_stylized_n.png")
+        center top / cover no-repeat;
+
+      transform: scale(1.01);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          ellipse at 50% 25%,
+          rgba(0, 180, 210, .08),
+          transparent 48%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(3, 15, 32, .08) 0%,
+          rgba(3, 15, 32, .20) 55%,
+          rgba(3, 15, 32, .48) 100%
+        );
     }
 
     a {
@@ -41,15 +80,20 @@
       text-decoration: none;
     }
 
+    /* =========================
+       ОСНОВНАЯ ОБЛАСТЬ
+       ========================= */
+
     .groups-page {
       width: 100%;
       max-width: 620px;
       min-height: 100vh;
       margin: 0 auto;
+
       padding:
-        max(8px, env(safe-area-inset-top))
+        max(14px, env(safe-area-inset-top))
         10px
-        max(12px, env(safe-area-inset-bottom));
+        max(14px, env(safe-area-inset-bottom));
     }
 
     /* =========================
@@ -58,15 +102,21 @@
 
     .groups-header {
       width: 100%;
-      margin: 0 0 8px;
-      border-radius: 18px;
+
+      /* немного спускаем шапку вниз */
+      margin: 7px 0 10px;
+
+      border-radius: 19px;
       overflow: hidden;
       position: relative;
+
       background: #071b35;
-      border: 1px solid rgba(25, 240, 176, .65);
+
+      border: 1px solid rgba(25, 240, 176, .70);
+
       box-shadow:
-        0 0 16px rgba(25, 240, 176, .16),
-        inset 0 0 18px rgba(0, 110, 255, .12);
+        0 0 18px rgba(25, 240, 176, .17),
+        inset 0 0 20px rgba(0, 110, 255, .12);
     }
 
     .groups-header::after {
@@ -74,12 +124,13 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
+
       background:
         linear-gradient(
           180deg,
-          rgba(255,255,255,.06),
+          rgba(255, 255, 255, .06),
           transparent 35%,
-          rgba(0,0,0,.18)
+          rgba(0, 0, 0, .18)
         );
     }
 
@@ -87,96 +138,85 @@
       display: block;
       width: 100%;
       height: auto;
+
       aspect-ratio: 1080 / 405;
+
       object-fit: cover;
     }
 
     /* =========================
-       ЗАГОЛОВОК
-       ========================= */
-
-    .groups-title {
-      margin: 7px 0 6px;
-      text-align: center;
-      font-size: clamp(21px, 6vw, 30px);
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: .8px;
-      color: #fff;
-      text-shadow:
-        0 0 5px rgba(255,255,255,.25),
-        0 0 14px rgba(25,240,176,.18);
-    }
-
-    .groups-subtitle {
-      margin: 0 0 8px;
-      text-align: center;
-      font-size: 11px;
-      line-height: 1.2;
-      color: rgba(220, 235, 245, .78);
-    }
-
-    /* =========================
-       КНОПКА НАЗАД
+       ЗЕЛЁНАЯ КНОПКА
+       СРАЗУ ПОД ШАПКОЙ
        ========================= */
 
     .back-btn {
       width: 100%;
-      min-height: 34px;
-      margin: 0 0 8px;
+      min-height: 38px;
+
+      margin: 0;
 
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
+      gap: 8px;
 
       border: 1px solid #19f0b0;
-      border-radius: 17px;
+      border-radius: 19px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(13, 119, 94, .72),
-          rgba(4, 75, 61, .72)
+          rgba(13, 119, 94, .78),
+          rgba(4, 75, 61, .78)
         );
 
       color: #fff;
 
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 800;
 
       box-shadow:
-        0 0 12px rgba(25,240,176,.12),
-        inset 0 1px 0 rgba(255,255,255,.13);
+        0 0 13px rgba(25, 240, 176, .13),
+        inset 0 1px 0 rgba(255, 255, 255, .14);
 
       cursor: pointer;
     }
 
     .back-btn:active {
       transform: scale(.985);
-      background: rgba(11, 150, 112, .8);
+
+      background:
+        rgba(11, 150, 112, .82);
     }
 
     .back-arrow {
       color: #19f0b0;
-      font-size: 18px;
+      font-size: 19px;
       line-height: 1;
       font-weight: 900;
     }
 
     /* =========================
-       СЕТКА ГРУПП
+       ГРУППЫ
        ========================= */
 
     .groups-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 7px;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 8px;
+
       width: 100%;
+
+      /* расстояние между кнопкой
+         и группами */
+      margin-top: 15px;
     }
 
     /* =========================
-       СТЕКЛЯННАЯ КНОПКА ГРУППЫ
+       КАРТОЧКА ГРУППЫ
        ========================= */
 
     .group-tile {
@@ -195,19 +235,22 @@
       background:
         linear-gradient(
           135deg,
-          rgba(255,255,255,.105),
-          rgba(255,255,255,.035) 45%,
-          rgba(0,90,100,.13)
+          rgba(8, 31, 53, .82),
+          rgba(8, 28, 49, .62) 48%,
+          rgba(0, 91, 101, .25)
         );
 
-      border: 1px solid rgba(255,255,255,.38);
+      border: 1px solid rgba(255, 255, 255, .38);
 
       box-shadow:
-        0 0 0 1px rgba(25,240,176,.12) inset,
-        0 0 10px rgba(25,240,176,.08),
-        inset 0 1px 0 rgba(255,255,255,.13);
+        0 0 0 1px rgba(25, 240, 176, .13) inset,
+        0 0 11px rgba(25, 240, 176, .09),
+        inset 0 1px 0 rgba(255, 255, 255, .13);
 
       overflow: hidden;
+
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
 
       transition:
         transform .15s ease,
@@ -215,43 +258,51 @@
         box-shadow .15s ease;
     }
 
-    /* тонкий зелёный внутренний кант */
     .group-tile::before {
       content: "";
+
       position: absolute;
       inset: 2px;
+
       border-radius: 13px;
-      border: 1px solid rgba(25,240,176,.16);
+
+      border: 1px solid rgba(25, 240, 176, .17);
+
       pointer-events: none;
     }
 
-    /* стеклянный блик */
     .group-tile::after {
       content: "";
+
       position: absolute;
+
       left: -25%;
       top: -60%;
+
       width: 75%;
       height: 180%;
+
       transform: rotate(22deg);
 
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.07),
-        transparent
-      );
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, .07),
+          transparent
+        );
 
       pointer-events: none;
     }
 
     .group-tile:active {
       transform: scale(.975);
-      border-color: rgba(25,240,176,.8);
+
+      border-color: rgba(25, 240, 176, .80);
 
       box-shadow:
-        0 0 13px rgba(25,240,176,.2),
-        0 0 0 1px rgba(25,240,176,.3) inset;
+        0 0 14px rgba(25, 240, 176, .20),
+        0 0 0 1px rgba(25, 240, 176, .30) inset;
     }
 
     /* =========================
@@ -260,6 +311,7 @@
 
     .group-avatar {
       flex: 0 0 38px;
+
       width: 38px;
       height: 38px;
 
@@ -272,15 +324,15 @@
       background:
         radial-gradient(
           circle at 35% 30%,
-          rgba(255,255,255,.14),
-          rgba(0,70,85,.38)
+          rgba(255, 255, 255, .14),
+          rgba(0, 70, 85, .38)
         );
 
-      border: 1px solid rgba(25,240,176,.48);
+      border: 1px solid rgba(25, 240, 176, .48);
 
       box-shadow:
-        0 0 8px rgba(25,240,176,.12),
-        inset 0 1px 0 rgba(255,255,255,.15);
+        0 0 8px rgba(25, 240, 176, .12),
+        inset 0 1px 0 rgba(255, 255, 255, .15);
 
       position: relative;
       z-index: 2;
@@ -289,8 +341,13 @@
     .group-avatar svg {
       width: 21px;
       height: 21px;
+
       fill: #19f0b0;
-      filter: drop-shadow(0 0 4px rgba(25,240,176,.35));
+
+      filter:
+        drop-shadow(
+          0 0 4px rgba(25, 240, 176, .35)
+        );
     }
 
     /* =========================
@@ -312,11 +369,13 @@
       color: #fff;
 
       overflow: hidden;
+
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
 
-      text-shadow: 0 1px 2px rgba(0,0,0,.45);
+      text-shadow:
+        0 1px 2px rgba(0, 0, 0, .45);
 
       position: relative;
       z-index: 2;
@@ -328,6 +387,7 @@
 
     .group-arrow {
       flex: 0 0 21px;
+
       width: 21px;
       height: 21px;
 
@@ -338,12 +398,16 @@
       border-radius: 50%;
 
       color: #19f0b0;
+
       font-size: 19px;
       font-weight: 900;
       line-height: 1;
 
-      background: rgba(25,240,176,.07);
-      border: 1px solid rgba(25,240,176,.28);
+      background:
+        rgba(25, 240, 176, .07);
+
+      border:
+        1px solid rgba(25, 240, 176, .28);
 
       position: relative;
       z-index: 2;
@@ -354,8 +418,7 @@
        ========================= */
 
     .bottom-back {
-      margin-top: 8px;
-      margin-bottom: 0;
+      margin-top: 12px;
     }
 
     /* =========================
@@ -370,29 +433,20 @@
       }
 
       .groups-header {
-        border-radius: 15px;
-        margin-bottom: 6px;
-      }
+        margin-top: 6px;
+        margin-bottom: 8px;
 
-      .groups-title {
-        margin-top: 5px;
-        margin-bottom: 4px;
-        font-size: 20px;
-      }
-
-      .groups-subtitle {
-        margin-bottom: 6px;
-        font-size: 10px;
+        border-radius: 16px;
       }
 
       .back-btn {
-        min-height: 31px;
-        margin-bottom: 6px;
-        font-size: 11px;
+        min-height: 35px;
+        font-size: 11.5px;
       }
 
       .groups-grid {
-        gap: 5px;
+        gap: 6px;
+        margin-top: 13px;
       }
 
       .group-tile {
@@ -424,6 +478,10 @@
         height: 20px;
         font-size: 17px;
       }
+
+      .bottom-back {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -433,33 +491,22 @@
   <main class="groups-page">
 
     <!-- =========================
-         ШАПКА ИЗМАИЛА
+         ШАПКА
          ========================= -->
 
     <div class="groups-header">
+
       <img
         class="groups-header-image"
         src="./groups-header-izmail.png"
-        alt="Измаил — наши группы"
+        alt="Наши группы Измаила"
       >
+
     </div>
 
 
     <!-- =========================
-         ЗАГОЛОВОК
-         ========================= -->
-
-    <h1 class="groups-title">
-      НАШИ ГРУППЫ
-    </h1>
-
-    <div class="groups-subtitle">
-      Все полезные сообщества Измаила — в одном месте
-    </div>
-
-
-    <!-- =========================
-         ВЕРНУТЬСЯ В ГЛАВНОЕ МЕНЮ
+         КНОПКА СРАЗУ ПОД ШАПКОЙ
          ========================= -->
 
     <button
@@ -467,191 +514,241 @@
       type="button"
       onclick="goHome()"
     >
-      <span class="back-arrow">←</span>
-      <span>Вернуться в главное меню</span>
+
+      <span class="back-arrow">
+        ←
+      </span>
+
+      <span>
+        Вернуться в главное меню
+      </span>
+
     </button>
 
 
     <!-- =========================
-         8 ГРУПП
+         НАШИ 8 ГРУПП
          ========================= -->
 
-    <section class="groups-grid" aria-label="Наши группы">
+    <section
+      class="groups-grid"
+      aria-label="Наши группы"
+    >
 
 
-      <!-- 1. СПРАВОЧНИК -->
+      <!-- 1 -->
       <a
         class="group-tile"
         href="https://t.me/SPRAVOCHNIK_IZMAIL"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Справочник Измаил"
       >
+
         <span class="group-avatar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <svg viewBox="0 0 24 24">
             <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5A2.5 2.5 0 0 0 17.5 16H4V5.5Zm2.5-.5A.5.5 0 0 0 6 5.5V14h11.5c.9 0 1.75.32 2.5.87V5H6.5ZM4 17h13.5a1.5 1.5 0 0 1 1.5 1.5V20H6.5A2.5 2.5 0 0 1 4 17Z"/>
           </svg>
+
         </span>
 
         <span class="group-name">
           Справочник Измаил
         </span>
 
-        <span class="group-arrow">›</span>
+        <span class="group-arrow">
+          ›
+        </span>
+
       </a>
 
 
-      <!-- 2. РЫНОК ОНЛАЙН -->
+      <!-- 2 -->
       <a
         class="group-tile"
         href="https://t.me/Vkusny_Chat_Izmail"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Рынок онлайн"
       >
+
         <span class="group-avatar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <svg viewBox="0 0 24 24">
             <path d="M7 7V5a5 5 0 0 1 10 0v2h3l-1.1 13H5.1L4 7h3Zm2 0h6V5a3 3 0 0 0-6 0v2Zm-2.05 2 .76 9h8.58l.76-9H6.95Z"/>
           </svg>
+
         </span>
 
         <span class="group-name">
           Рынок онлайн
         </span>
 
-        <span class="group-arrow">›</span>
+        <span class="group-arrow">
+          ›
+        </span>
+
       </a>
 
 
-      <!-- 3. СВЕТ ВОДА ГАЗ -->
+      <!-- 3 -->
       <a
         class="group-tile"
         href="https://t.me/IZMAIL_GAZ_SVET_VODA"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Свет Вода Газ"
       >
+
         <span class="group-avatar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <svg viewBox="0 0 24 24">
             <path d="M13 2 5 13h6l-1 9 8-11h-6l1-9Z"/>
           </svg>
+
         </span>
 
         <span class="group-name">
           Свет • Вода • Газ
         </span>
 
-        <span class="group-arrow">›</span>
+        <span class="group-arrow">
+          ›
+        </span>
+
       </a>
 
 
-      <!-- 4. РАБОТА -->
+      <!-- 4 -->
       <a
         class="group-tile"
         href="https://t.me/rabota_v_izmaile"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Работа"
       >
+
         <span class="group-avatar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <svg viewBox="0 0 24 24">
             <path d="M9 4h6a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3V6a2 2 0 0 1 2-2Zm0 3h6V6H9v1Zm-5 2v3h16V9H4Zm0 5v4h16v-4H4Z"/>
           </svg>
+
         </span>
 
         <span class="group-name">
           Работа
         </span>
 
-        <span class="group-arrow">›</span>
+        <span class="group-arrow">
+          ›
+        </span>
+
       </a>
 
 
-      <!-- 5. АВТО -->
+      <!-- 5 -->
       <a
         class="group-tile"
         href="https://t.me/AVTO_IZMAIL_ODESSA"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Авто Бессарабия"
       >
+
         <span class="group-avatar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <svg viewBox="0 0 24 24">
             <path d="m5 11 1.6-4A3 3 0 0 1 9.4 5h5.2a3 3 0 0 1 2.8 2L19 11h1a2 2 0 0 1 2 2v5h-2v1.5h-2V18H6v1.5H4V18H2v-5a2 2 0 0 1 2-2h1Zm2.1-1h9.8l-1.1-2.7a1 1 0 0 0-.93-.63H9.13a1 1 0 0 0-.93.63L7.1 10ZM5 14.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm14 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/>
           </svg>
+
         </span>
 
         <span class="group-name">
           Авто Бессарабия
         </span>
 
-        <span class="group-arrow">›</span>
+        <span class="group-arrow">
+          ›
+        </span>
+
       </a>
 
 
-      <!-- 6. НЕДВИЖИМОСТЬ -->
+      <!-- 6 -->
       <a
         class="group-tile"
         href="https://t.me/IZMAIL_NEDVIZHIMOST"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Недвижимость"
       >
+
         <span class="group-avatar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <svg viewBox="0 0 24 24">
             <path d="M3 20V10l9-7 9 7v10h-6v-6H9v6H3Zm2-2h2v-6h10v6h2v-7.05l-7-5.44-7 5.44V18Z"/>
           </svg>
+
         </span>
 
         <span class="group-name">
           Недвижимость
         </span>
 
-        <span class="group-arrow">›</span>
+        <span class="group-arrow">
+          ›
+        </span>
+
       </a>
 
 
-      <!-- 7. ЗООЧАТ -->
+      <!-- 7 -->
       <a
         class="group-tile"
         href="https://t.me/Izmail_CHAT_24_7"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Зоочат"
       >
+
         <span class="group-avatar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <svg viewBox="0 0 24 24">
             <path d="M7 9.5c-1.66 0-3-1.57-3-3.5s1.34-3.5 3-3.5 3 1.57 3 3.5-1.34 3.5-3 3.5Zm10 0c-1.66 0-3-1.57-3-3.5s1.34-3.5 3-3.5 3 1.57 3 3.5-1.34 3.5-3 3.5ZM5 14.5C5 12.57 6.57 11 8.5 11h7c1.93 0 3.5 1.57 3.5 3.5S17.43 20 15.5 20h-7C6.57 20 5 18.43 5 16.5v-2Z"/>
           </svg>
+
         </span>
 
         <span class="group-name">
           Зоочат
         </span>
 
-        <span class="group-arrow">›</span>
+        <span class="group-arrow">
+          ›
+        </span>
+
       </a>
 
 
-      <!-- 8. БЮРО НАХОДОК -->
+      <!-- 8 -->
       <a
         class="group-tile"
         href="https://t.me/buro_nahodok_izmail"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Бюро находок"
       >
+
         <span class="group-avatar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <svg viewBox="0 0 24 24">
             <path d="M10 4a6 6 0 1 0 3.87 10.58l4.78 4.78 1.42-1.42-4.78-4.78A6 6 0 0 0 10 4Zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/>
           </svg>
+
         </span>
 
         <span class="group-name">
           Бюро находок
         </span>
 
-        <span class="group-arrow">›</span>
+        <span class="group-arrow">
+          ›
+        </span>
+
       </a>
 
     </section>
@@ -666,49 +763,77 @@
       type="button"
       onclick="goHome()"
     >
-      <span class="back-arrow">←</span>
-      <span>Вернуться в главное меню</span>
+
+      <span class="back-arrow">
+        ←
+      </span>
+
+      <span>
+        Вернуться в главное меню
+      </span>
+
     </button>
 
   </main>
 
 
   <script>
+
     function goHome() {
+
       try {
+
         if (
           history.length > 1 &&
           document.referrer &&
           new URL(document.referrer).origin === location.origin
         ) {
+
           history.back();
+
           return;
         }
+
       } catch (_) {}
 
       location.href = "../";
     }
 
 
-    // Лёгкая вибрация Telegram при нажатии
     (() => {
+
       const tg = window.Telegram?.WebApp;
 
       try {
+
         tg?.ready?.();
         tg?.expand?.();
+
         tg?.setHeaderColor?.("#061b35");
         tg?.setBackgroundColor?.("#061b35");
+
       } catch (_) {}
 
-      document.querySelectorAll("a, button").forEach((element) => {
-        element.addEventListener("click", () => {
-          try {
-            tg?.HapticFeedback?.impactOccurred?.("light");
-          } catch (_) {}
+
+      document
+        .querySelectorAll("a,button")
+        .forEach((element) => {
+
+          element.addEventListener("click", () => {
+
+            try {
+
+              tg?.HapticFeedback
+                ?.impactOccurred?.("light");
+
+            } catch (_) {}
+
+          });
+
         });
-      });
+
     })();
+
   </script>
 
 </body>
