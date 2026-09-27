@@ -13,7 +13,7 @@
 
   <title>Главный справочник Измаил</title>
 
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 
 <body>
@@ -269,7 +269,7 @@
       <a
         id="adsLink"
         class="hotspot nav-hotspot ads-hotspot"
-        href="#"
+        href="https://t.me/Vanku13"
         aria-label="Заказать рекламу"
       ></a>
 
@@ -366,12 +366,19 @@
 
 
   <!-- =====================================================
-       СКРИПТЫ
+       TELEGRAM WEB APP
        ===================================================== -->
 
-  <script src="config.js?v=12"></script>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-  <script src="app.js?v=12"></script>
+
+  <!-- =====================================================
+       СКРИПТЫ ПРОЕКТА
+       ===================================================== -->
+
+  <script src="config.js?v=13"></script>
+
+  <script src="app.js?v=13"></script>
 
 
   <!-- =====================================================
@@ -394,7 +401,10 @@
         "https://vanku0613-cpu.github.io/telegram-mini-app/our-groups-menu/";
 
 
-      groupsButton.setAttribute("href", groupsUrl);
+      groupsButton.setAttribute(
+        "href",
+        groupsUrl
+      );
 
 
       groupsButton.addEventListener(
@@ -404,7 +414,8 @@
           event.preventDefault();
           event.stopImmediatePropagation();
 
-          window.location.href = groupsUrl;
+          window.location.href =
+            groupsUrl;
 
         },
         true
