@@ -18,7 +18,7 @@
   const $ = (id) => document.getElementById(id);
 
   // =========================================================
-  // ПЛАВНЫЙ ПЕРЕХОД НА ДРУГУЮ СТРАНИЦУ
+  // ПЛАВНЫЙ ПЕРЕХОД
   // =========================================================
 
   function fastNavigate(url) {
@@ -57,48 +57,55 @@
 
     if (!el) return;
 
-    if (url) {
-      el.href = url;
-
-      // Укрытия и Все наши группы открываем
-      // внутри текущего Telegram Mini App
-      if (id === "shelterLink" || id === "groupsLink") {
-        el.removeAttribute("target");
-        el.removeAttribute("rel");
-
-        el.addEventListener("click", (event) => {
-          event.preventDefault();
-          fastNavigate(url);
-        });
-
-      } else {
-        el.target = "_blank";
-        el.rel = "noopener noreferrer";
-
-        el.addEventListener("click", () => {
-          try {
-            tg?.HapticFeedback?.impactOccurred?.("light");
-          } catch (e) {}
-        });
-      }
-
-    } else {
+    if (!url) {
       el.href = "#";
-
       el.removeAttribute("target");
       el.removeAttribute("rel");
 
       el.addEventListener("click", (event) => {
         event.preventDefault();
       });
+
+      return;
     }
+
+    el.href = url;
+
+    // Эти страницы открываются внутри Mini App
+    if (
+      id === "shelterLink" ||
+      id === "groupsLink"
+    ) {
+      el.removeAttribute("target");
+      el.removeAttribute("rel");
+
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        fastNavigate(url);
+      });
+
+      return;
+    }
+
+    // Обычные Telegram-ссылки
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+
+    el.addEventListener("click", () => {
+      try {
+        tg?.HapticFeedback?.impactOccurred?.("light");
+      } catch (e) {}
+    });
   }
 
   // =========================================================
-  // ОСНОВНЫЕ ССЫЛКИ
+  // ОСНОВНАЯ ГРУППА
   // =========================================================
 
-  setLink("mainGroup", links.MAIN_GROUP);
+  setLink(
+    "mainGroup",
+    links.MAIN_GROUP
+  );
 
   // =========================================================
   // УКРЫТИЯ
@@ -107,7 +114,10 @@
   const SHELTERS_URL =
     "https://vanku0613-cpu.github.io/telegram-mini-app/ukrytia/";
 
-  setLink("shelterLink", SHELTERS_URL);
+  setLink(
+    "shelterLink",
+    SHELTERS_URL
+  );
 
   // =========================================================
   // ВСЕ НАШИ ГРУППЫ
@@ -116,7 +126,10 @@
   const GROUPS_URL =
     "https://vanku0613-cpu.github.io/telegram-mini-app/our-groups-menu/";
 
-  setLink("groupsLink", GROUPS_URL);
+  setLink(
+    "groupsLink",
+    GROUPS_URL
+  );
 
   // =========================================================
   // ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
@@ -141,7 +154,7 @@
   }
 
   // =========================================================
-  // ОСТАЛЬНЫЕ ССЫЛКИ
+  // ОСТАЛЬНЫЕ РАЗДЕЛЫ
   // =========================================================
 
   setLink("healthLink", links.HEALTH);
@@ -160,9 +173,10 @@
   const homeLink = $("homeLink");
 
   if (homeLink) {
-    homeLink.href =
+    const HOME_URL =
       "https://vanku0613-cpu.github.io/telegram-mini-app/";
 
+    homeLink.href = HOME_URL;
     homeLink.removeAttribute("target");
     homeLink.removeAttribute("rel");
 
@@ -173,15 +187,9 @@
         tg?.HapticFeedback?.impactOccurred?.("light");
       } catch (e) {}
 
-      const HOME_URL =
-        "https://vanku0613-cpu.github.io/telegram-mini-app/";
-
-      const reloadUrl =
-        HOME_URL +
-        "?reload=" +
-        Date.now();
-
-      window.location.assign(reloadUrl);
+      window.location.assign(
+        HOME_URL + "?reload=" + Date.now()
+      );
     });
   }
 
@@ -192,17 +200,19 @@
   const adsLink = $("adsLink");
 
   if (adsLink) {
-    adsLink.href =
-      links.MAIN_GROUP || "#";
+    const ADS_URL =
+      links.MAIN_GROUP ||
+      "https://t.me/Vanku13";
 
-    if (links.MAIN_GROUP) {
-      adsLink.target = "_blank";
-      adsLink.rel = "noopener noreferrer";
-    } else {
-      adsLink.addEventListener("click", (event) => {
-        event.preventDefault();
-      });
-    }
+    adsLink.href = ADS_URL;
+
+    adsLink.removeAttribute("target");
+    adsLink.removeAttribute("rel");
+
+    adsLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      fastNavigate(ADS_URL);
+    });
   }
 
   // =========================================================
@@ -243,10 +253,14 @@
   // ПОИСК
   // =========================================================
 
-  const searchHotspot = $("searchHotspot");
-  const searchInput = $("directorySearchInput");
+  const searchHotspot =
+    $("searchHotspot");
+
+  const searchInput =
+    $("directorySearchInput");
 
   if (searchHotspot && searchInput) {
+
     const updateSearchState = () => {
       searchHotspot.classList.toggle(
         "search-focused",
@@ -294,9 +308,10 @@
   }
 
   function performSearch(value) {
-    const query = String(value || "")
-      .trim()
-      .toLowerCase();
+    const query =
+      String(value || "")
+        .trim()
+        .toLowerCase();
 
     if (!query) return;
 
@@ -375,10 +390,15 @@
   // =========================================================
 
   async function loadWeather() {
-    const tempEl = $("weatherTemp");
-    const textEl = $("weatherText");
+    const tempEl =
+      $("weatherTemp");
 
-    if (!tempEl || !textEl) return;
+    const textEl =
+      $("weatherText");
+
+    if (!tempEl || !textEl) {
+      return;
+    }
 
     const latitude =
       Number(weatherConfig.latitude);
@@ -394,6 +414,8 @@
       !Number.isFinite(latitude) ||
       !Number.isFinite(longitude)
     ) {
+      tempEl.textContent = "—°C";
+      textEl.textContent = "Нет данных";
       return;
     }
 
@@ -403,18 +425,22 @@
         `?latitude=${encodeURIComponent(latitude)}` +
         `&longitude=${encodeURIComponent(longitude)}` +
         "&current=temperature_2m,weather_code" +
-        `&timezone=${encodeURIComponent(timezone)}`;
+        `&timezone=${encodeURIComponent(timezone)}` +
+        "&temperature_unit=celsius";
 
-      const response = await fetch(
-        url,
-        {
-          cache: "no-store"
-        }
-      );
+      const response =
+        await fetch(
+          url,
+          {
+            method: "GET",
+            cache: "no-store"
+          }
+        );
 
       if (!response.ok) {
         throw new Error(
-          "Weather request failed"
+          "Weather request failed: " +
+          response.status
         );
       }
 
@@ -427,15 +453,24 @@
       const code =
         data?.current?.weather_code;
 
-      tempEl.textContent =
+      if (
         typeof temperature === "number"
-          ? `${Math.round(temperature)}°C`
-          : "—°C";
+      ) {
+        tempEl.textContent =
+          `${Math.round(temperature)}°C`;
+      } else {
+        tempEl.textContent = "—°C";
+      }
 
       textEl.textContent =
         weatherDescription(code);
 
     } catch (error) {
+      console.error(
+        "Weather error:",
+        error
+      );
+
       tempEl.textContent = "—°C";
       textEl.textContent = "Нет данных";
     }
@@ -477,26 +512,34 @@
   }
 
   // =========================================================
-  // КУРС ВАЛЮТ
+  // КУРС ВАЛЮТ НБУ
   // =========================================================
 
   async function loadCurrency() {
-    const usdEl = $("usdRate");
-    const eurEl = $("eurRate");
+    const usdEl =
+      $("usdRate");
 
-    if (!usdEl || !eurEl) return;
+    const eurEl =
+      $("eurRate");
+
+    if (!usdEl || !eurEl) {
+      return;
+    }
 
     try {
-      const response = await fetch(
-        "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json",
-        {
-          cache: "no-store"
-        }
-      );
+      const response =
+        await fetch(
+          "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangeNew?json",
+          {
+            method: "GET",
+            cache: "no-store"
+          }
+        );
 
       if (!response.ok) {
         throw new Error(
-          "Currency request failed"
+          "Currency request failed: " +
+          response.status
         );
       }
 
@@ -505,12 +548,16 @@
 
       const usd =
         data.find(
-          (item) => item.cc === "USD"
+          (item) =>
+            String(item.cc).toUpperCase() ===
+            "USD"
         );
 
       const eur =
         data.find(
-          (item) => item.cc === "EUR"
+          (item) =>
+            String(item.cc).toUpperCase() ===
+            "EUR"
         );
 
       usdEl.textContent =
@@ -524,13 +571,19 @@
           : "—";
 
     } catch (error) {
+      console.error(
+        "Currency error:",
+        error
+      );
+
       usdEl.textContent = "—";
       eurEl.textContent = "—";
     }
   }
 
   function formatRate(value) {
-    const number = Number(value);
+    const number =
+      Number(value);
 
     return Number.isFinite(number)
       ? number.toFixed(2)
@@ -551,6 +604,7 @@
     "educationLink",
     "leisureLink"
   ].forEach((id) => {
+
     const element = $(id);
 
     if (!element) return;
@@ -558,6 +612,7 @@
     element.addEventListener(
       "click",
       () => {
+
         const title =
           element.getAttribute(
             "aria-label"
@@ -575,7 +630,8 @@
 
         saved =
           saved.filter(
-            (item) => item !== title
+            (item) =>
+              item !== title
           );
 
         saved.unshift(title);
