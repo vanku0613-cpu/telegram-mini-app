@@ -18,7 +18,65 @@
   const $ = (id) => document.getElementById(id);
 
   // =========================================================
-  // ПЛАВНЫЙ ПЕРЕХОД
+  // УДАЛЕНИЕ СЛУЖЕБНОГО ЭКРАНА ПЕРЕХОДА
+  // =========================================================
+
+  function removeNavigationOverlay() {
+    const overlay =
+      document.getElementById("navigationOverlay");
+
+    if (overlay) {
+      overlay.remove();
+    }
+  }
+
+  // Если Telegram восстановил старую страницу из памяти,
+  // удаляем оставшийся после перехода синий экран.
+  window.addEventListener(
+    "pageshow",
+    function () {
+      removeNavigationOverlay();
+
+      setTimeout(() => {
+        removeNavigationOverlay();
+
+        try {
+          tg?.ready?.();
+          tg?.expand?.();
+        } catch (e) {}
+      }, 100);
+    }
+  );
+
+  window.addEventListener(
+    "focus",
+    function () {
+      removeNavigationOverlay();
+    }
+  );
+
+  document.addEventListener(
+    "visibilitychange",
+    function () {
+      if (
+        document.visibilityState === "visible"
+      ) {
+        removeNavigationOverlay();
+
+        setTimeout(() => {
+          removeNavigationOverlay();
+
+          try {
+            tg?.ready?.();
+            tg?.expand?.();
+          } catch (e) {}
+        }, 150);
+      }
+    }
+  );
+
+  // =========================================================
+  // ПЛАВНЫЙ ПЕРЕХОД ВНУТРИ MINI APP
   // =========================================================
 
   function fastNavigate(url) {
@@ -28,16 +86,35 @@
       tg?.HapticFeedback?.impactOccurred?.("light");
     } catch (e) {}
 
-    const overlay = document.createElement("div");
+    removeNavigationOverlay();
 
-    overlay.style.position = "fixed";
-    overlay.style.inset = "0";
-    overlay.style.zIndex = "999999";
-    overlay.style.background = "#06152b";
-    overlay.style.opacity = "0";
-    overlay.style.transition = "opacity .08s ease";
+    const overlay =
+      document.createElement("div");
 
-    document.body.appendChild(overlay);
+    overlay.id =
+      "navigationOverlay";
+
+    overlay.style.position =
+      "fixed";
+
+    overlay.style.inset =
+      "0";
+
+    overlay.style.zIndex =
+      "999999";
+
+    overlay.style.background =
+      "#06152b";
+
+    overlay.style.opacity =
+      "0";
+
+    overlay.style.transition =
+      "opacity .08s ease";
+
+    document.body.appendChild(
+      overlay
+    );
 
     requestAnimationFrame(() => {
       overlay.style.opacity = "1";
@@ -46,6 +123,46 @@
     setTimeout(() => {
       window.location.href = url;
     }, 70);
+  }
+
+  // =========================================================
+  // ОТКРЫТИЕ TELEGRAM-ССЫЛКИ
+  // =========================================================
+
+  function openTelegramLink(url) {
+    if (!url) return;
+
+    try {
+      tg?.HapticFeedback?.impactOccurred?.(
+        "light"
+      );
+    } catch (e) {}
+
+    try {
+
+      if (
+        tg &&
+        typeof tg.openTelegramLink ===
+          "function"
+      ) {
+
+        tg.openTelegramLink(url);
+
+        return;
+      }
+
+    } catch (e) {
+      console.log(
+        "Telegram link error:",
+        e
+      );
+    }
+
+    // Запасной вариант
+    window.open(
+      url,
+      "_blank"
+    );
   }
 
   // =========================================================
@@ -62,9 +179,12 @@
       el.removeAttribute("target");
       el.removeAttribute("rel");
 
-      el.addEventListener("click", (event) => {
-        event.preventDefault();
-      });
+      el.addEventListener(
+        "click",
+        (event) => {
+          event.preventDefault();
+        }
+      );
 
       return;
     }
@@ -79,23 +199,37 @@
       el.removeAttribute("target");
       el.removeAttribute("rel");
 
-      el.addEventListener("click", (event) => {
-        event.preventDefault();
-        fastNavigate(url);
-      });
+      el.addEventListener(
+        "click",
+        (event) => {
+
+          event.preventDefault();
+
+          fastNavigate(url);
+
+        }
+      );
 
       return;
     }
 
     // Обычные Telegram-ссылки
     el.target = "_blank";
-    el.rel = "noopener noreferrer";
+    el.rel =
+      "noopener noreferrer";
 
-    el.addEventListener("click", () => {
-      try {
-        tg?.HapticFeedback?.impactOccurred?.("light");
-      } catch (e) {}
-    });
+    el.addEventListener(
+      "click",
+      () => {
+
+        try {
+          tg?.HapticFeedback?.impactOccurred?.(
+            "light"
+          );
+        } catch (e) {}
+
+      }
+    );
   }
 
   // =========================================================
@@ -139,114 +273,217 @@
     "https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html";
 
   const agreementLink =
-    document.querySelector(".user-agreement");
+    document.querySelector(
+      ".user-agreement"
+    );
 
   if (agreementLink) {
-    agreementLink.href = AGREEMENT_URL;
 
-    agreementLink.removeAttribute("target");
-    agreementLink.removeAttribute("rel");
+    agreementLink.href =
+      AGREEMENT_URL;
 
-    agreementLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      fastNavigate(AGREEMENT_URL);
-    });
+    agreementLink.removeAttribute(
+      "target"
+    );
+
+    agreementLink.removeAttribute(
+      "rel"
+    );
+
+    agreementLink.addEventListener(
+      "click",
+      (event) => {
+
+        event.preventDefault();
+
+        fastNavigate(
+          AGREEMENT_URL
+        );
+
+      }
+    );
   }
 
   // =========================================================
   // ОСТАЛЬНЫЕ РАЗДЕЛЫ
   // =========================================================
 
-  setLink("healthLink", links.HEALTH);
-  setLink("transportLink", links.TRANSPORT);
-  setLink("servicesLink", links.SERVICES);
-  setLink("foodLink", links.FOOD);
-  setLink("utilitiesLink", links.UTILITIES);
-  setLink("jobsLink", links.JOBS);
-  setLink("educationLink", links.EDUCATION);
-  setLink("leisureLink", links.LEISURE);
+  setLink(
+    "healthLink",
+    links.HEALTH
+  );
+
+  setLink(
+    "transportLink",
+    links.TRANSPORT
+  );
+
+  setLink(
+    "servicesLink",
+    links.SERVICES
+  );
+
+  setLink(
+    "foodLink",
+    links.FOOD
+  );
+
+  setLink(
+    "utilitiesLink",
+    links.UTILITIES
+  );
+
+  setLink(
+    "jobsLink",
+    links.JOBS
+  );
+
+  setLink(
+    "educationLink",
+    links.EDUCATION
+  );
+
+  setLink(
+    "leisureLink",
+    links.LEISURE
+  );
 
   // =========================================================
   // ГЛАВНАЯ
   // =========================================================
 
-  const homeLink = $("homeLink");
+  const homeLink =
+    $("homeLink");
 
   if (homeLink) {
+
     const HOME_URL =
       "https://vanku0613-cpu.github.io/telegram-mini-app/";
 
-    homeLink.href = HOME_URL;
-    homeLink.removeAttribute("target");
-    homeLink.removeAttribute("rel");
+    homeLink.href =
+      HOME_URL;
 
-    homeLink.addEventListener("click", (event) => {
-      event.preventDefault();
+    homeLink.removeAttribute(
+      "target"
+    );
 
-      try {
-        tg?.HapticFeedback?.impactOccurred?.("light");
-      } catch (e) {}
+    homeLink.removeAttribute(
+      "rel"
+    );
 
-      window.location.assign(
-        HOME_URL + "?reload=" + Date.now()
-      );
-    });
+    homeLink.addEventListener(
+      "click",
+      (event) => {
+
+        event.preventDefault();
+
+        try {
+          tg?.HapticFeedback?.impactOccurred?.(
+            "light"
+          );
+        } catch (e) {}
+
+        window.location.assign(
+          HOME_URL +
+          "?reload=" +
+          Date.now()
+        );
+
+      }
+    );
   }
 
   // =========================================================
   // ЗАКАЗАТЬ РЕКЛАМУ
   // =========================================================
 
-  const adsLink = $("adsLink");
+  const adsLink =
+    $("adsLink");
 
   if (adsLink) {
+
     const ADS_URL =
-      links.MAIN_GROUP ||
       "https://t.me/Vanku13";
 
-    adsLink.href = ADS_URL;
+    adsLink.href =
+      ADS_URL;
 
-    adsLink.removeAttribute("target");
-    adsLink.removeAttribute("rel");
+    adsLink.removeAttribute(
+      "target"
+    );
 
-    adsLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      fastNavigate(ADS_URL);
-    });
+    adsLink.removeAttribute(
+      "rel"
+    );
+
+    adsLink.addEventListener(
+      "click",
+      (event) => {
+
+        event.preventDefault();
+
+        /*
+         * ВАЖНО:
+         * Не используем fastNavigate()
+         * и window.location.href.
+         *
+         * Telegram открывает чат,
+         * а Mini App остаётся существовать.
+         */
+
+        openTelegramLink(
+          ADS_URL
+        );
+
+      }
+    );
   }
 
   // =========================================================
   // ИЗБРАННОЕ
   // =========================================================
 
-  const favoritesLink = $("favoritesLink");
+  const favoritesLink =
+    $("favoritesLink");
 
   if (favoritesLink) {
+
     favoritesLink.href = "#";
 
-    favoritesLink.addEventListener("click", (event) => {
-      event.preventDefault();
+    favoritesLink.addEventListener(
+      "click",
+      (event) => {
 
-      try {
-        tg?.HapticFeedback?.impactOccurred?.("light");
-      } catch (e) {}
+        event.preventDefault();
 
-      let saved = [];
+        try {
+          tg?.HapticFeedback?.impactOccurred?.(
+            "light"
+          );
+        } catch (e) {}
 
-      try {
-        saved = JSON.parse(
-          localStorage.getItem(
-            "izmail_directory_favorites"
-          ) || "[]"
+        let saved = [];
+
+        try {
+
+          saved =
+            JSON.parse(
+              localStorage.getItem(
+                "izmail_directory_favorites"
+              ) || "[]"
+            );
+
+        } catch (e) {}
+
+        alert(
+          saved.length
+            ? "В избранном: " +
+              saved.join(", ")
+            : "Избранное пока пусто."
         );
-      } catch (e) {}
 
-      alert(
-        saved.length
-          ? "В избранном: " + saved.join(", ")
-          : "Избранное пока пусто."
-      );
-    });
+      }
+    );
   }
 
   // =========================================================
@@ -259,15 +496,24 @@
   const searchInput =
     $("directorySearchInput");
 
-  if (searchHotspot && searchInput) {
+  if (
+    searchHotspot &&
+    searchInput
+  ) {
 
-    const updateSearchState = () => {
-      searchHotspot.classList.toggle(
-        "search-focused",
-        document.activeElement === searchInput ||
-        searchInput.value.trim().length > 0
-      );
-    };
+    const updateSearchState =
+      () => {
+
+        searchHotspot.classList.toggle(
+          "search-focused",
+          document.activeElement ===
+            searchInput ||
+          searchInput.value
+            .trim()
+            .length > 0
+        );
+
+      };
 
     searchInput.addEventListener(
       "focus",
@@ -287,27 +533,46 @@
     searchInput.addEventListener(
       "keydown",
       (event) => {
-        if (event.key === "Enter") {
+
+        if (
+          event.key === "Enter"
+        ) {
+
           event.preventDefault();
-          performSearch(searchInput.value);
+
+          performSearch(
+            searchInput.value
+          );
+
         }
+
       }
     );
 
     searchHotspot.addEventListener(
       "click",
       (event) => {
-        if (event.target !== searchInput) {
+
+        if (
+          event.target !==
+          searchInput
+        ) {
+
           event.preventDefault();
+
           searchInput.focus();
+
         }
+
       }
     );
 
     updateSearchState();
+
   }
 
   function performSearch(value) {
+
     const query =
       String(value || "")
         .trim()
@@ -316,72 +581,89 @@
     if (!query) return;
 
     const items = [
+
       [
         "healthLink",
         "Здоровье и уход",
         "медицина аптеки красота"
       ],
+
       [
         "transportLink",
         "Транспорт / Такси",
         "такси автобусы перевозки транспорт"
       ],
+
       [
         "servicesLink",
         "Услуги и мастера",
         "ремонт строительство специалисты услуги мастера"
       ],
+
       [
         "foodLink",
         "Продукты питания",
         "магазины рынки доставка продукты питание"
       ],
+
       [
         "utilitiesLink",
         "Коммунальные службы",
         "свет вода газ тепло коммунальные"
       ],
+
       [
         "jobsLink",
         "Работа / Вакансии",
         "работа вакансии резюме"
       ],
+
       [
         "educationLink",
         "Образование и развитие",
         "школы курсы репетиторы образование"
       ],
+
       [
         "leisureLink",
         "Отдых • Жильё • Море",
         "отдых жилье море базы рестораны кафе"
       ]
+
     ];
 
-    const found = items.find((item) =>
-      (
-        item[1] +
-        " " +
-        item[2]
-      )
-        .toLowerCase()
-        .includes(query)
-    );
+    const found =
+      items.find(
+        (item) =>
+          (
+            item[1] +
+            " " +
+            item[2]
+          )
+            .toLowerCase()
+            .includes(query)
+      );
 
     if (found) {
-      $(found[0])?.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
+
+      $(found[0])
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
 
       try {
-        tg?.HapticFeedback?.impactOccurred?.("light");
+        tg?.HapticFeedback?.impactOccurred?.(
+          "light"
+        );
       } catch (e) {}
 
     } else {
+
       alert(
         "По вашему запросу ничего не найдено."
       );
+
     }
   }
 
@@ -390,21 +672,29 @@
   // =========================================================
 
   async function loadWeather() {
+
     const tempEl =
       $("weatherTemp");
 
     const textEl =
       $("weatherText");
 
-    if (!tempEl || !textEl) {
+    if (
+      !tempEl ||
+      !textEl
+    ) {
       return;
     }
 
     const latitude =
-      Number(weatherConfig.latitude);
+      Number(
+        weatherConfig.latitude
+      );
 
     const longitude =
-      Number(weatherConfig.longitude);
+      Number(
+        weatherConfig.longitude
+      );
 
     const timezone =
       weatherConfig.timezone ||
@@ -414,12 +704,18 @@
       !Number.isFinite(latitude) ||
       !Number.isFinite(longitude)
     ) {
-      tempEl.textContent = "—°C";
-      textEl.textContent = "Нет данных";
+
+      tempEl.textContent =
+        "—°C";
+
+      textEl.textContent =
+        "Нет данных";
+
       return;
     }
 
     try {
+
       const url =
         "https://api.open-meteo.com/v1/forecast" +
         `?latitude=${encodeURIComponent(latitude)}` +
@@ -438,77 +734,130 @@
         );
 
       if (!response.ok) {
+
         throw new Error(
           "Weather request failed: " +
           response.status
         );
+
       }
 
       const data =
         await response.json();
 
       const temperature =
-        data?.current?.temperature_2m;
+        data?.current
+          ?.temperature_2m;
 
       const code =
-        data?.current?.weather_code;
+        data?.current
+          ?.weather_code;
 
       if (
-        typeof temperature === "number"
+        typeof temperature ===
+        "number"
       ) {
+
         tempEl.textContent =
-          `${Math.round(temperature)}°C`;
+          `${Math.round(
+            temperature
+          )}°C`;
+
       } else {
-        tempEl.textContent = "—°C";
+
+        tempEl.textContent =
+          "—°C";
+
       }
 
       textEl.textContent =
-        weatherDescription(code);
+        weatherDescription(
+          code
+        );
 
     } catch (error) {
+
       console.error(
         "Weather error:",
         error
       );
 
-      tempEl.textContent = "—°C";
-      textEl.textContent = "Нет данных";
+      tempEl.textContent =
+        "—°C";
+
+      textEl.textContent =
+        "Нет данных";
     }
   }
 
-  function weatherDescription(code) {
+  function weatherDescription(
+    code
+  ) {
+
     const map = {
+
       0: "Ясно",
+
       1: "Преимущественно ясно",
+
       2: "Переменная облачность",
+
       3: "Облачно",
+
       45: "Туман",
+
       48: "Туман",
+
       51: "Морось",
+
       53: "Морось",
+
       55: "Морось",
+
       56: "Ледяная морось",
+
       57: "Ледяная морось",
+
       61: "Небольшой дождь",
+
       63: "Дождь",
+
       65: "Сильный дождь",
+
       66: "Ледяной дождь",
+
       67: "Ледяной дождь",
+
       71: "Небольшой снег",
+
       73: "Снег",
+
       75: "Сильный снег",
+
       77: "Снежные зёрна",
+
       80: "Ливень",
+
       81: "Ливень",
+
       82: "Сильный ливень",
+
       85: "Снегопад",
+
       86: "Сильный снегопад",
+
       95: "Гроза",
+
       96: "Гроза с градом",
+
       99: "Гроза с градом"
+
     };
 
-    return map[code] || "Погода";
+    return (
+      map[code] ||
+      "Погода"
+    );
   }
 
   // =========================================================
@@ -516,17 +865,22 @@
   // =========================================================
 
   async function loadCurrency() {
+
     const usdEl =
       $("usdRate");
 
     const eurEl =
       $("eurRate");
 
-    if (!usdEl || !eurEl) {
+    if (
+      !usdEl ||
+      !eurEl
+    ) {
       return;
     }
 
     try {
+
       const response =
         await fetch(
           "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangeNew?json",
@@ -537,10 +891,12 @@
         );
 
       if (!response.ok) {
+
         throw new Error(
           "Currency request failed: " +
           response.status
         );
+
       }
 
       const data =
@@ -549,43 +905,58 @@
       const usd =
         data.find(
           (item) =>
-            String(item.cc).toUpperCase() ===
+            String(item.cc)
+              .toUpperCase() ===
             "USD"
         );
 
       const eur =
         data.find(
           (item) =>
-            String(item.cc).toUpperCase() ===
+            String(item.cc)
+              .toUpperCase() ===
             "EUR"
         );
 
       usdEl.textContent =
         usd
-          ? formatRate(usd.rate)
+          ? formatRate(
+              usd.rate
+            )
           : "—";
 
       eurEl.textContent =
         eur
-          ? formatRate(eur.rate)
+          ? formatRate(
+              eur.rate
+            )
           : "—";
 
     } catch (error) {
+
       console.error(
         "Currency error:",
         error
       );
 
-      usdEl.textContent = "—";
-      eurEl.textContent = "—";
+      usdEl.textContent =
+        "—";
+
+      eurEl.textContent =
+        "—";
     }
   }
 
-  function formatRate(value) {
+  function formatRate(
+    value
+  ) {
+
     const number =
       Number(value);
 
-    return Number.isFinite(number)
+    return Number.isFinite(
+      number
+    )
       ? number.toFixed(2)
       : "—";
   }
@@ -603,50 +974,65 @@
     "jobsLink",
     "educationLink",
     "leisureLink"
-  ].forEach((id) => {
+  ].forEach(
+    (id) => {
 
-    const element = $(id);
+      const element =
+        $(id);
 
-    if (!element) return;
+      if (!element) return;
 
-    element.addEventListener(
-      "click",
-      () => {
+      element.addEventListener(
+        "click",
+        () => {
 
-        const title =
-          element.getAttribute(
-            "aria-label"
-          ) || id;
+          const title =
+            element.getAttribute(
+              "aria-label"
+            ) || id;
 
-        let saved = [];
+          let saved = [];
 
-        try {
-          saved = JSON.parse(
-            localStorage.getItem(
-              "izmail_directory_recent"
-            ) || "[]"
+          try {
+
+            saved =
+              JSON.parse(
+                localStorage.getItem(
+                  "izmail_directory_recent"
+                ) || "[]"
+              );
+
+          } catch (e) {}
+
+          saved =
+            saved.filter(
+              (item) =>
+                item !== title
+            );
+
+          saved.unshift(
+            title
           );
-        } catch (e) {}
 
-        saved =
-          saved.filter(
-            (item) =>
-              item !== title
-          );
+          try {
 
-        saved.unshift(title);
+            localStorage.setItem(
+              "izmail_directory_recent",
+              JSON.stringify(
+                saved.slice(
+                  0,
+                  20
+                )
+              )
+            );
 
-        try {
-          localStorage.setItem(
-            "izmail_directory_recent",
-            JSON.stringify(
-              saved.slice(0, 20)
-            )
-          );
-        } catch (e) {}
-      }
-    );
-  });
+          } catch (e) {}
+
+        }
+      );
+
+    }
+  );
 
   // =========================================================
   // ЗАПУСК
