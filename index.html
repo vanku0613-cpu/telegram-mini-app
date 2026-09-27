@@ -46,7 +46,58 @@
         <div
           id="weatherWidget"
           class="widget weather-widget"
+          style="position: relative;"
         >
+
+          <!-- СЧЁТЧИК ПРОСМОТРОВ -->
+
+          <div
+            id="viewsCounter"
+            aria-label="Количество просмотров"
+            style="
+              position: absolute;
+              left: 50%;
+              top: -34px;
+              transform: translateX(-50%);
+              z-index: 20;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: max-content;
+              max-width: 90%;
+              min-height: 25px;
+              padding: 4px 10px;
+              box-sizing: border-box;
+              border: 1px solid rgba(255,255,255,0.22);
+              border-radius: 999px;
+              background: rgba(255,255,255,0.10);
+              box-shadow:
+                0 4px 15px rgba(0,0,0,0.18),
+                inset 0 1px 0 rgba(255,255,255,0.12);
+              backdrop-filter: blur(10px);
+              -webkit-backdrop-filter: blur(10px);
+              color: rgba(255,255,255,0.92);
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 11px;
+              font-weight: 600;
+              line-height: 1;
+              white-space: nowrap;
+              pointer-events: none;
+              user-select: none;
+              -webkit-user-select: none;
+            "
+          >
+            <span style="margin-right: 4px;">👁</span>
+            <span>Просмотрено</span>
+            <strong
+              id="viewsNumber"
+              style="
+                margin-left: 5px;
+                font-weight: 700;
+              "
+            >5 000</strong>
+          </div>
+
 
           <div class="widget-title">
             ПОГОДА
@@ -516,6 +567,292 @@
 
 
       prepareTelegramApp();
+
+    })();
+
+  </script>
+
+
+  <!-- =====================================================
+       СЧЁТЧИК ПРОСМОТРОВ
+       ОБЩИЙ СЧЁТЧИК + ОГРАНИЧЕНИЕ 2 МИНУТЫ
+       ===================================================== -->
+
+  <script>
+
+    (function () {
+
+      "use strict";
+
+
+      const COUNTER_KEY =
+        "glavny_spravochnik_izmail_views_2026";
+
+      const COUNTER_API =
+        "https://countapi.mileshilliard.com/api/v1";
+
+      const START_NUMBER = 5000;
+
+      const VIEW_INTERVAL =
+        2 * 60 * 1000;
+
+      const LAST_VIEW_KEY =
+        "izmail_last_view_time_v1";
+
+
+      const numberElement =
+        document.getElementById(
+          "viewsNumber"
+        );
+
+
+      if (!numberElement) {
+
+        return;
+
+      }
+
+
+      function showNumber(value) {
+
+        const number =
+          Number(value);
+
+
+        if (
+          Number.isFinite(number)
+        ) {
+
+          numberElement.textContent =
+            number.toLocaleString("ru-RU");
+
+        }
+
+      }
+
+
+      async function getCounter() {
+
+        const response =
+          await fetch(
+            COUNTER_API +
+            "/get/" +
+            COUNTER_KEY +
+            "?t=" +
+            Date.now(),
+            {
+              method: "GET",
+              cache: "no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Counter GET error"
+          );
+
+        }
+
+
+        return await response.json();
+
+      }
+
+
+      async function setCounter(value) {
+
+        const response =
+          await fetch(
+            COUNTER_API +
+            "/set/" +
+            COUNTER_KEY +
+            "?value=" +
+            encodeURIComponent(value) +
+            "&t=" +
+            Date.now(),
+            {
+              method: "GET",
+              cache: "no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Counter SET error"
+          );
+
+        }
+
+
+        return await response.json();
+
+      }
+
+
+      async function hitCounter() {
+
+        const response =
+          await fetch(
+            COUNTER_API +
+            "/hit/" +
+            COUNTER_KEY +
+            "?t=" +
+            Date.now(),
+            {
+              method: "GET",
+              cache: "no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Counter HIT error"
+          );
+
+        }
+
+
+        return await response.json();
+
+      }
+
+
+      async function updateViews() {
+
+        try {
+
+          const now =
+            Date.now();
+
+          const lastView =
+            Number(
+              localStorage.getItem(
+                LAST_VIEW_KEY
+              ) || "0"
+            );
+
+
+          /*
+           * Если пользователь уже засчитывался
+           * менее двух минут назад — просто
+           * показываем текущее общее число.
+           */
+
+          if (
+            lastView &&
+            now - lastView < VIEW_INTERVAL
+          ) {
+
+            const current =
+              await getCounter();
+
+            showNumber(
+              current.value
+            );
+
+            return;
+
+          }
+
+
+          /*
+           * Получаем текущий общий счётчик.
+           */
+
+          let current;
+
+          try {
+
+            current =
+              await getCounter();
+
+          } catch (error) {
+
+            /*
+             * Если счётчика ещё нет,
+             * создаём его с 5000.
+             */
+
+            current =
+              await setCounter(
+                START_NUMBER
+              );
+
+          }
+
+
+          /*
+           * Если значение почему-то меньше
+           * стартового, приводим его к 5000.
+           */
+
+          if (
+            Number(current.value) < START_NUMBER
+          ) {
+
+            current =
+              await setCounter(
+                START_NUMBER
+              );
+
+          }
+
+
+          /*
+           * Добавляем один просмотр.
+           */
+
+          const updated =
+            await hitCounter();
+
+
+          /*
+           * Запоминаем время засчитанного
+           * просмотра на этом устройстве.
+           */
+
+          localStorage.setItem(
+            LAST_VIEW_KEY,
+            String(now)
+          );
+
+
+          showNumber(
+            updated.value
+          );
+
+
+        } catch (error) {
+
+          console.log(
+            "Views counter error:",
+            error
+          );
+
+
+          /*
+           * Если внешний сервис временно
+           * недоступен — оставляем красивое
+           * стартовое значение, ничего
+           * остального на странице не ломаем.
+           */
+
+          showNumber(
+            START_NUMBER
+          );
+
+        }
+
+      }
+
+
+      updateViews();
 
     })();
 
