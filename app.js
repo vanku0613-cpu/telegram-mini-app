@@ -157,26 +157,30 @@
   const homeLink = $("homeLink");
 
   if (homeLink) {
-    homeLink.href = "#";
+
+    homeLink.href =
+      "https://vanku0613-cpu.github.io/telegram-mini-app/";
+
+    homeLink.removeAttribute("target");
+    homeLink.removeAttribute("rel");
 
     homeLink.addEventListener("click", (event) => {
+
       event.preventDefault();
 
       try {
         tg?.HapticFeedback?.impactOccurred?.("light");
       } catch (e) {}
 
-      const currentUrl =
-        window.location.href.split("#")[0];
+      const HOME_URL =
+        "https://vanku0613-cpu.github.io/telegram-mini-app/";
 
-      const separator =
-        currentUrl.includes("?") ? "&" : "?";
-
-      window.location.href =
-        currentUrl +
-        separator +
-        "reload=" +
+      const reloadUrl =
+        HOME_URL +
+        "?reload=" +
         Date.now();
+
+      window.location.assign(reloadUrl);
     });
   }
 
@@ -226,264 +230,4 @@
         saved = JSON.parse(
           localStorage.getItem(
             "izmail_directory_favorites"
-          ) || "[]"
-        );
-      } catch (e) {}
-
-      alert(
-        saved.length
-          ? "В избранном: " + saved.join(", ")
-          : "Избранное пока пусто."
-      );
-    });
-  }
-
-
-  // =========================================================
-  // ПОИСК ГЛАВНОГО МЕНЮ
-  // =========================================================
-
-  const searchHotspot =
-    $("searchHotspot");
-
-  const searchInput =
-    $("directorySearchInput");
-
-
-  if (searchHotspot && searchInput) {
-
-    const updateSearchState = () => {
-      searchHotspot.classList.toggle(
-        "search-focused",
-        document.activeElement === searchInput ||
-        searchInput.value.trim().length > 0
-      );
-    };
-
-
-    searchInput.addEventListener(
-      "focus",
-      updateSearchState
-    );
-
-    searchInput.addEventListener(
-      "blur",
-      updateSearchState
-    );
-
-    searchInput.addEventListener(
-      "input",
-      updateSearchState
-    );
-
-
-    searchInput.addEventListener(
-      "keydown",
-      (event) => {
-        if (event.key === "Enter") {
-          event.preventDefault();
-
-          performSearch(
-            searchInput.value
-          );
-        }
-      }
-    );
-
-
-    searchHotspot.addEventListener(
-      "click",
-      (event) => {
-        if (event.target !== searchInput) {
-          event.preventDefault();
-
-          searchInput.focus();
-        }
-      }
-    );
-
-
-    updateSearchState();
-  }
-
-
-  // =========================================================
-  // ПОИСК
-  // =========================================================
-
-  function performSearch(value) {
-
-    const query =
-      String(value || "")
-        .trim()
-        .toLowerCase();
-
-
-    if (!query) return;
-
-
-    const items = [
-
-      [
-        "healthLink",
-        "Здоровье и уход",
-        "медицина аптеки красота"
-      ],
-
-      [
-        "transportLink",
-        "Транспорт / Такси",
-        "такси автобусы перевозки транспорт"
-      ],
-
-      [
-        "servicesLink",
-        "Услуги и мастера",
-        "ремонт строительство специалисты услуги мастера"
-      ],
-
-      [
-        "foodLink",
-        "Продукты питания",
-        "магазины рынки доставка продукты питание"
-      ],
-
-      [
-        "utilitiesLink",
-        "Коммунальные службы",
-        "свет вода газ тепло коммунальные"
-      ],
-
-      [
-        "jobsLink",
-        "Работа / Вакансии",
-        "работа вакансии резюме"
-      ],
-
-      [
-        "educationLink",
-        "Образование и развитие",
-        "школы курсы репетиторы образование"
-      ],
-
-      [
-        "leisureLink",
-        "Отдых • Жильё • Море",
-        "отдых жилье море базы рестораны кафе"
-      ]
-
-    ];
-
-
-    const found =
-      items.find((item) =>
-        (
-          item[1] +
-          " " +
-          item[2]
-        )
-          .toLowerCase()
-          .includes(query)
-      );
-
-
-    if (found) {
-
-      $(found[0])?.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-
-
-      try {
-        tg?.HapticFeedback?.impactOccurred?.("light");
-      } catch (e) {}
-
-    } else {
-
-      alert(
-        "По вашему запросу ничего не найдено."
-      );
-
-    }
-  }
-
-
-  // =========================================================
-  // ПОГОДА
-  // =========================================================
-
-  async function loadWeather() {
-
-    const tempEl =
-      $("weatherTemp");
-
-    const textEl =
-      $("weatherText");
-
-
-    if (!tempEl || !textEl) {
-      return;
-    }
-
-
-    const latitude =
-      Number(weatherConfig.latitude);
-
-    const longitude =
-      Number(weatherConfig.longitude);
-
-    const timezone =
-      weatherConfig.timezone ||
-      "Europe/Kyiv";
-
-
-    if (
-      !Number.isFinite(latitude) ||
-      !Number.isFinite(longitude)
-    ) {
-      return;
-    }
-
-
-    try {
-
-      const url =
-        "https://api.open-meteo.com/v1/forecast" +
-        `?latitude=${encodeURIComponent(latitude)}` +
-        `&longitude=${encodeURIComponent(longitude)}` +
-        "&current=temperature_2m,weather_code" +
-        `&timezone=${encodeURIComponent(timezone)}`;
-
-
-      const response =
-        await fetch(url, {
-          cache: "no-store"
-        });
-
-
-      if (!response.ok) {
-        throw new Error(
-          "Weather request failed"
-        );
-      }
-
-
-      const data =
-        await response.json();
-
-
-      const temperature =
-        data?.current?.temperature_2m;
-
-      const code =
-        data?.current?.weather_code;
-
-
-      tempEl.textContent =
-        typeof temperature === "number"
-          ? `${Math.round(temperature)}°C`
-          : "—°C";
-
-
-     
+          ) || "
