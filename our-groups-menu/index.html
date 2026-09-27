@@ -1,1012 +1,475 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
+  <meta charset="utf-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+  >
 
-<meta name="theme-color" content="#071522">
+  <meta name="theme-color" content="#06121f">
 
-<title>Мои группы</title>
+  <title>Мои группы</title>
 
-<style>
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  background: #071522;
-}
-
-body {
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-
-/* ===== СТРАНИЦА ===== */
-
-.groups-page {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 15px 13px 35px;
-}
-
-
-/* ===== ШАПКА ===== */
-
-.groups-header {
-  padding-bottom: 18px;
-}
-
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-
-  padding: 9px 15px;
-
-  border: 1px solid rgba(120,200,220,.25);
-  border-radius: 13px;
-
-  background: #102c3c;
-
-  color: #ffffff;
-
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.back-button span {
-  font-size: 27px;
-  line-height: 14px;
-}
-
-.groups-header h1 {
-  margin: 20px 0 5px;
-
-  color: #ffffff;
-
-  font-size: 31px;
-  line-height: 1.05;
-  font-weight: 800;
-}
-
-.groups-header p {
-  margin: 0;
-
-  color: #91a8b7;
-
-  font-size: 14px;
-}
-
-
-/* ===== СЕТКА ===== */
-
-.groups-grid {
-  display: grid;
-
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  gap: 12px;
-}
-
-
-/* ===== КАРТОЧКА ===== */
-
-.group-card {
-  display: block;
-
-  overflow: hidden;
-
-  min-width: 0;
-
-  border: 1px solid rgba(100,180,200,.20);
-  border-radius: 20px;
-
-  background: #102a39;
-
-  box-shadow:
-    0 8px 25px rgba(0,0,0,.32);
-}
-
-.group-card:active {
-  transform: scale(.975);
-}
-
-
-/* ===== КАРТИНКА ===== */
-
-.group-image {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  height: 125px;
-
-  overflow: hidden;
-}
-
-.group-image::before {
-  content: "";
-
-  position: absolute;
-
-  width: 145px;
-  height: 145px;
-
-  border-radius: 50%;
-
-  background: rgba(255,255,255,.055);
-}
-
-
-/* Цвета */
-
-.guide-image {
-  background: #15516a;
-}
-
-.zoo-image {
-  background: #285845;
-}
-
-.auto-image {
-  background: #315878;
-}
-
-.home-image {
-  background: #68513a;
-}
-
-.work-image {
-  background: #3b5473;
-}
-
-.market-image {
-  background: #65562e;
-}
-
-.energy-image {
-  background: #285766;
-}
-
-.lost-image {
-  background: #345963;
-}
-
-.chat-image {
-  background: #504873;
-}
-
-
-/* ===== КНИГА ===== */
-
-.book {
-  position: relative;
-  z-index: 2;
-
-  width: 82px;
-  height: 60px;
-
-  border-radius: 8px;
-
-  background: #e6c778;
-
-  box-shadow: 0 8px 18px rgba(0,0,0,.3);
-}
-
-.book:before {
-  content: "";
-
-  position: absolute;
-
-  left: 40px;
-  top: 5px;
-
-  width: 2px;
-  height: 50px;
-
-  background: rgba(80,60,20,.35);
-}
-
-.book div {
-  position: absolute;
-
-  width: 22px;
-  height: 3px;
-
-  background: rgba(80,60,20,.35);
-}
-
-.book div:first-child {
-  left: 9px;
-  top: 17px;
-}
-
-.book div:last-child {
-  right: 9px;
-  top: 28px;
-}
-
-
-/* ===== ЛАПКА ===== */
-
-.paw {
-  position: relative;
-  z-index: 2;
-
-  width: 62px;
-  height: 55px;
-
-  border-radius: 45%;
-
-  background: #91d4a8;
-}
-
-.paw i,
-.paw b {
-  position: absolute;
-
-  display: block;
-
-  border-radius: 50%;
-
-  background: #91d4a8;
-}
-
-.paw i {
-  width: 17px;
-  height: 22px;
-  top: -15px;
-}
-
-.paw i:nth-child(1) {
-  left: 3px;
-}
-
-.paw i:nth-child(2) {
-  left: 22px;
-}
-
-.paw i:nth-child(3) {
-  right: 3px;
-}
-
-.paw b {
-  width: 28px;
-  height: 25px;
-
-  right: -9px;
-  top: 5px;
-}
-
-.heart {
-  position: absolute;
-
-  right: 22px;
-  top: 16px;
-
-  color: #f18ba1;
-
-  font-size: 23px;
-}
-
-
-/* ===== МАШИНА ===== */
-
-.car {
-  position: relative;
-  z-index: 2;
-
-  width: 105px;
-  height: 42px;
-
-  border-radius: 12px 15px 7px 7px;
-
-  background: #54b89e;
-
-  box-shadow: 0 8px 18px rgba(0,0,0,.3);
-}
-
-.car-top {
-  position: absolute;
-
-  left: 22px;
-  top: -20px;
-
-  width: 61px;
-  height: 27px;
-
-  border-radius: 18px 18px 4px 4px;
-
-  background: #65c7ad;
-}
-
-.car-window {
-  position: absolute;
-
-  left: 29px;
-  top: -15px;
-
-  width: 22px;
-  height: 14px;
-
-  border-radius: 3px;
-
-  background: #17394a;
-}
-
-.car-window.second {
-  left: 54px;
-}
-
-.wheel {
-  position: absolute;
-
-  bottom: -10px;
-
-  width: 23px;
-  height: 23px;
-
-  border: 4px solid #2b4350;
-  border-radius: 50%;
-
-  background: #071018;
-}
-
-.wheel-left {
-  left: 14px;
-}
-
-.wheel-right {
-  right: 14px;
-}
-
-
-/* ===== ДОМ ===== */
-
-.house {
-  position: relative;
-  z-index: 2;
-
-  width: 78px;
-  height: 60px;
-
-  margin-top: 18px;
-
-  background: #d6af78;
-}
-
-.roof {
-  position: absolute;
-
-  left: -10px;
-  top: -37px;
-
-  width: 0;
-  height: 0;
-
-  border-left: 49px solid transparent;
-  border-right: 49px solid transparent;
-  border-bottom: 39px solid #c38d57;
-}
-
-.house .window {
-  position: absolute;
-
-  top: 10px;
-  left: 9px;
-
-  width: 18px;
-  height: 18px;
-
-  border: 2px solid #f0d29e;
-
-  background: #4b8197;
-}
-
-.house .window.second {
-  left: auto;
-  right: 9px;
-}
-
-.door {
-  position: absolute;
-
-  left: 30px;
-  bottom: 0;
-
-  width: 18px;
-  height: 35px;
-
-  background: #704e39;
-}
-
-
-/* ===== РАБОТА ===== */
-
-.briefcase {
-  position: relative;
-  z-index: 2;
-}
-
-.briefcase-body {
-  width: 92px;
-  height: 54px;
-
-  border-radius: 8px;
-
-  background: #77acc5;
-}
-
-.briefcase-handle {
-  width: 31px;
-  height: 18px;
-
-  margin: 0 auto;
-
-  border: 5px solid #77acc5;
-  border-bottom: 0;
-
-  border-radius: 8px 8px 0 0;
-}
-
-
-/* ===== РЫНОК ===== */
-
-.basket {
-  position: relative;
-  z-index: 2;
-}
-
-.basket-handle {
-  width: 68px;
-  height: 30px;
-
-  margin: 0 auto -3px;
-
-  border: 5px solid #d5aa5b;
-  border-bottom: 0;
-
-  border-radius: 40px 40px 0 0;
-}
-
-.basket-body {
-  width: 88px;
-  height: 53px;
-
-  border-radius: 5px 5px 15px 15px;
-
-  background: #c59648;
-}
-
-.fruit {
-  position: absolute;
-
-  width: 22px;
-  height: 22px;
-
-  border-radius: 50%;
-}
-
-.fruit.one {
-  left: 10px;
-  bottom: 16px;
-  background: #df795c;
-}
-
-.fruit.two {
-  left: 34px;
-  bottom: 19px;
-  background: #83bc6e;
-}
-
-.fruit.three {
-  right: 8px;
-  bottom: 15px;
-  background: #e0bc58;
-}
-
-
-/* ===== СВЕТ ВОДА ГАЗ ===== */
-
-.energy-image .bolt {
-  position: relative;
-  z-index: 2;
-
-  color: #e7cd68;
-
-  font-size: 50px;
-}
-
-.energy-image .drop {
-  position: absolute;
-
-  right: 22px;
-  top: 20px;
-
-  font-size: 27px;
-}
-
-.energy-image .flame {
-  position: absolute;
-
-  right: 25px;
-  bottom: 15px;
-
-  color: #df805f;
-
-  font-size: 27px;
-}
-
-
-/* ===== БЮРО НАХОДОК ===== */
-
-.magnifier {
-  position: relative;
-  z-index: 2;
-
-  width: 60px;
-  height: 60px;
-
-  border: 8px solid #8acabd;
-
-  border-radius: 50%;
-}
-
-.magnifier:after {
-  content: "";
-
-  position: absolute;
-
-  right: -28px;
-  bottom: -17px;
-
-  width: 35px;
-  height: 8px;
-
-  border-radius: 5px;
-
-  transform: rotate(45deg);
-
-  background: #8acabd;
-}
-
-.question {
-  position: absolute;
-
-  left: 16px;
-  top: 10px;
-
-  color: #19343d;
-
-  font-size: 25px;
-  font-weight: 900;
-}
-
-
-/* ===== ОБЩЕНИЕ ===== */
-
-.bubble {
-  position: relative;
-  z-index: 2;
-
-  width: 68px;
-  height: 44px;
-
-  margin: 5px;
-
-  border-radius: 18px;
-
-  background: #83c2ba;
-}
-
-.bubble-two {
-  background: #8075a8;
-}
-
-.chat-star {
-  position: absolute;
-
-  right: 23px;
-  top: 17px;
-
-  color: #e4ca7b;
-
-  font-size: 20px;
-}
-
-
-/* ===== ТЕКСТ ===== */
-
-.group-content {
-  padding: 13px 14px 15px;
-}
-
-.group-content h2 {
-  margin: 0;
-
-  color: #ffffff;
-
-  font-size: 18px;
-  line-height: 1.15;
-  font-weight: 800;
-}
-
-.group-content p {
-  margin: 7px 0 11px;
-
-  min-height: 32px;
-
-  color: #91a8b7;
-
-  font-size: 13px;
-  line-height: 1.3;
-}
-
-.group-arrow {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 30px;
-  height: 30px;
-
-  border-radius: 50%;
-
-  background: #17464a;
-
-  color: #78d0bb;
-
-  font-size: 20px;
-}
-
-
-/* ===== МАЛЕНЬКИЙ ЭКРАН ===== */
-
-@media (max-width: 420px) {
-
-  .groups-page {
-    padding: 13px 9px 30px;
-  }
-
-  .groups-grid {
-    gap: 9px;
-  }
-
-  .group-image {
-    height: 116px;
-  }
-
-  .group-content {
-    padding: 11px;
-  }
-
-  .group-content h2 {
-    font-size: 16px;
-  }
-
-  .group-content p {
-    font-size: 12px;
-  }
-
-  .groups-header h1 {
-    font-size: 29px;
-  }
-
-}
-
-</style>
+  <link rel="stylesheet" href="./groups.css">
 </head>
-
 
 <body>
 
 <main class="groups-page">
 
-<header class="groups-header">
+  <header class="groups-header">
 
-<a class="back-button" href="../">
-<span>‹</span>
-Назад
-</a>
+    <a class="back-button" href="../">
+      <span>‹</span>
+      Назад
+    </a>
 
-<h1>Мои группы</h1>
+    <div class="title-row">
+      <div>
+        <h1>Мои группы</h1>
+        <p>Полезные сообщества Измаила</p>
+      </div>
 
-<p>Полезные Telegram-группы Измаила</p>
+      <div class="telegram-mark">
+        <span>✈</span>
+      </div>
+    </div>
 
-</header>
+  </header>
 
 
-<section class="groups-grid">
+  <section class="groups-grid">
 
 
-<a class="group-card"
-href="https://t.me/SPRAVOCHNIK_IZMAIL"
-target="_blank"
-rel="noopener noreferrer">
+    <!-- СПРАВОЧНИК -->
 
-<div class="group-image guide-image">
+    <a
+      class="group-card"
+      href="https://t.me/SPRAVOCHNIK_IZMAIL"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
 
-<div class="book">
-<div></div>
-<div></div>
-</div>
+      <div class="card-visual visual-guide">
 
-</div>
+        <div class="visual-glow"></div>
 
-<div class="group-content">
+        <div class="guide-scene">
 
-<h2>Справочник Измаил</h2>
+          <div class="guide-building building-left"></div>
+          <div class="guide-building building-center"></div>
+          <div class="guide-building building-right"></div>
 
-<p>Полезная информация о городе</p>
+          <div class="guide-book">
+            <div class="book-page left"></div>
+            <div class="book-page right"></div>
+            <div class="book-line l1"></div>
+            <div class="book-line l2"></div>
+          </div>
 
-<div class="group-arrow">›</div>
+        </div>
 
-</div>
+        <div class="visual-label">CITY GUIDE</div>
 
-</a>
+      </div>
 
+      <div class="card-info">
 
-<a class="group-card"
-href="https://t.me/Izmail_CHAT_24_7"
-target="_blank"
-rel="noopener noreferrer">
+        <div>
+          <h2>Справочник Измаил</h2>
+          <p>Полезная информация о городе</p>
+        </div>
 
-<div class="group-image zoo-image">
+        <span class="card-arrow">↗</span>
 
-<div class="paw">
-<i></i>
-<i></i>
-<i></i>
-<b></b>
-</div>
+      </div>
 
-<div class="heart">♥</div>
+    </a>
 
-</div>
 
-<div class="group-content">
+    <!-- ZOO -->
 
-<h2>Зоочат</h2>
+    <a
+      class="group-card"
+      href="https://t.me/Izmail_CHAT_24_7"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
 
-<p>Животные, помощь и общение</p>
+      <div class="card-visual visual-zoo">
 
-<div class="group-arrow">›</div>
+        <div class="visual-glow"></div>
 
-</div>
+        <div class="cat-face">
 
-</a>
+          <div class="cat-ear left"></div>
+          <div class="cat-ear right"></div>
 
+          <div class="cat-eye left"></div>
+          <div class="cat-eye right"></div>
 
-<a class="group-card"
-href="https://t.me/AVTO_IZMAIL_ODESSA"
-target="_blank"
-rel="noopener noreferrer">
+          <div class="cat-nose"></div>
 
-<div class="group-image auto-image">
+          <div class="cat-mouth"></div>
 
-<div class="car">
+          <div class="cat-whisker w1"></div>
+          <div class="cat-whisker w2"></div>
+          <div class="cat-whisker w3"></div>
+          <div class="cat-whisker w4"></div>
 
-<div class="car-top"></div>
+        </div>
 
-<div class="car-window"></div>
-<div class="car-window second"></div>
+        <div class="visual-label">ZOO CHAT</div>
 
-<div class="wheel wheel-left"></div>
-<div class="wheel wheel-right"></div>
+      </div>
 
-</div>
+      <div class="card-info">
 
-</div>
+        <div>
+          <h2>Зоочат</h2>
+          <p>Животные, помощь и общение</p>
+        </div>
 
-<div class="group-content">
+        <span class="card-arrow">↗</span>
 
-<h2>Авто Бессарабия</h2>
+      </div>
 
-<p>Авто, запчасти и общение</p>
+    </a>
 
-<div class="group-arrow">›</div>
 
-</div>
+    <!-- АВТО -->
 
-</a>
+    <a
+      class="group-card"
+      href="https://t.me/AVTO_IZMAIL_ODESSA"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
 
+      <div class="card-visual visual-auto">
 
-<a class="group-card"
-href="https://t.me/IZMAIL_NEDVIZHIMOST"
-target="_blank"
-rel="noopener noreferrer">
+        <div class="visual-glow"></div>
 
-<div class="group-image home-image">
+        <div class="car-scene">
 
-<div class="house">
+          <div class="car-body">
 
-<div class="roof"></div>
+            <div class="car-roof"></div>
 
-<div class="window"></div>
-<div class="window second"></div>
+            <div class="car-glass glass-one"></div>
+            <div class="car-glass glass-two"></div>
 
-<div class="door"></div>
+            <div class="car-light"></div>
 
-</div>
+          </div>
 
-</div>
+          <div class="car-wheel wheel-one"></div>
+          <div class="car-wheel wheel-two"></div>
 
-<div class="group-content">
+        </div>
 
-<h2>Недвижимость</h2>
+        <div class="visual-label">AUTO</div>
 
-<p>Аренда, покупка и продажа</p>
+      </div>
 
-<div class="group-arrow">›</div>
+      <div class="card-info">
 
-</div>
+        <div>
+          <h2>Авто Бессарабия</h2>
+          <p>Автомобили, запчасти и общение</p>
+        </div>
 
-</a>
+        <span class="card-arrow">↗</span>
 
+      </div>
 
-<a class="group-card"
-href="https://t.me/rabota_v_izmaile"
-target="_blank"
-rel="noopener noreferrer">
+    </a>
 
-<div class="group-image work-image">
 
-<div class="briefcase">
+    <!-- НЕДВИЖИМОСТЬ -->
 
-<div class="briefcase-handle"></div>
-<div class="briefcase-body"></div>
+    <a
+      class="group-card"
+      href="https://t.me/IZMAIL_NEDVIZHIMOST"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
 
-</div>
+      <div class="card-visual visual-home">
 
-</div>
+        <div class="visual-glow"></div>
 
-<div class="group-content">
+        <div class="city-house">
 
-<h2>Работа</h2>
+          <div class="house-roof"></div>
 
-<p>Вакансии и поиск сотрудников</p>
+          <div class="house-body">
 
-<div class="group-arrow">›</div>
+            <div class="house-window window-a"></div>
+            <div class="house-window window-b"></div>
 
-</div>
+            <div class="house-door"></div>
 
-</a>
+          </div>
 
+        </div>
 
-<a class="group-card"
-href="https://t.me/Vkusny_Chat_Izmail"
-target="_blank"
-rel="noopener noreferrer">
+        <div class="visual-label">REAL ESTATE</div>
 
-<div class="group-image market-image">
+      </div>
 
-<div class="basket">
+      <div class="card-info">
 
-<div class="basket-handle"></div>
-<div class="basket-body"></div>
+        <div>
+          <h2>Недвижимость</h2>
+          <p>Аренда, покупка и продажа</p>
+        </div>
 
-<div class="fruit one"></div>
-<div class="fruit two"></div>
-<div class="fruit three"></div>
+        <span class="card-arrow">↗</span>
 
-</div>
+      </div>
 
-</div>
+    </a>
 
-<div class="group-content">
 
-<h2>Рынок онлайн</h2>
+    <!-- РАБОТА -->
 
-<p>Покупай и продавай</p>
+    <a
+      class="group-card"
+      href="https://t.me/rabota_v_izmaile"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
 
-<div class="group-arrow">›</div>
+      <div class="card-visual visual-work">
 
-</div>
+        <div class="visual-glow"></div>
 
-</a>
+        <div class="work-scene">
 
+          <div class="briefcase">
 
-<a class="group-card"
-href="https://t.me/IZMAIL_GAZ_SVET_VODA"
-target="_blank"
-rel="noopener noreferrer">
+            <div class="briefcase-handle"></div>
 
-<div class="group-image energy-image">
+            <div class="briefcase-main">
 
-<div class="bolt">ϟ</div>
-<div class="drop">💧</div>
-<div class="flame">♨</div>
+              <div class="briefcase-lock"></div>
 
-</div>
+              <div class="briefcase-line"></div>
 
-<div class="group-content">
+            </div>
 
-<h2>Свет • Вода • Газ</h2>
+          </div>
 
-<p>Коммунальные вопросы города</p>
+          <div class="work-star star-one">✦</div>
+          <div class="work-star star-two">✦</div>
 
-<div class="group-arrow">›</div>
+        </div>
 
-</div>
+        <div class="visual-label">CAREER</div>
 
-</a>
+      </div>
 
+      <div class="card-info">
 
-<a class="group-card"
-href="https://t.me/buro_nahodok_izmail"
-target="_blank"
-rel="noopener noreferrer">
+        <div>
+          <h2>Работа</h2>
+          <p>Вакансии и поиск сотрудников</p>
+        </div>
 
-<div class="group-image lost-image">
+        <span class="card-arrow">↗</span>
 
-<div class="magnifier">
+      </div>
 
-<div class="question">?</div>
+    </a>
 
-</div>
 
-</div>
+    <!-- РЫНОК -->
 
-<div class="group-content">
+    <a
+      class="group-card"
+      href="https://t.me/Vkusny_Chat_Izmail"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
 
-<h2>Бюро находок</h2>
+      <div class="card-visual visual-market">
 
-<p>Потерял или нашёл?</p>
+        <div class="visual-glow"></div>
 
-<div class="group-arrow">›</div>
+        <div class="market-scene">
 
-</div>
+          <div class="market-bag">
 
-</a>
+            <div class="bag-handle"></div>
 
+            <div class="bag-logo">M</div>
 
-<a class="group-card"
-href="https://t.me/+5qLXgy-mFmM5YWNi"
-target="_blank"
-rel="noopener noreferrer">
+          </div>
 
-<div class="group-image chat-image">
+          <div class="market-item item-red"></div>
+          <div class="market-item item-green"></div>
+          <div class="market-item item-yellow"></div>
 
-<div class="bubble"></div>
-<div class="bubble bubble-two"></div>
+        </div>
 
-<div class="chat-star">✦</div>
+        <div class="visual-label">MARKET</div>
 
-</div>
+      </div>
 
-<div class="group-content">
+      <div class="card-info">
 
-<h2>Свободное общение</h2>
+        <div>
+          <h2>Рынок онлайн</h2>
+          <p>Покупай и продавай</p>
+        </div>
 
-<p>Общайся, делись и будь в теме</p>
+        <span class="card-arrow">↗</span>
 
-<div class="group-arrow">›</div>
+      </div>
 
-</div>
+    </a>
 
-</a>
 
+    <!-- КОММУНАЛЬНЫЕ -->
 
-</section>
+    <a
+      class="group-card"
+      href="https://t.me/IZMAIL_GAZ_SVET_VODA"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="card-visual visual-energy">
+
+        <div class="visual-glow"></div>
+
+        <div class="energy-scene">
+
+          <div class="energy-bolt">ϟ</div>
+
+          <div class="energy-drop"></div>
+
+          <div class="energy-flame">♨</div>
+
+        </div>
+
+        <div class="visual-label">CITY SERVICE</div>
+
+      </div>
+
+      <div class="card-info">
+
+        <div>
+          <h2>Свет • Вода • Газ</h2>
+          <p>Коммунальные вопросы города</p>
+        </div>
+
+        <span class="card-arrow">↗</span>
+
+      </div>
+
+    </a>
+
+
+    <!-- БЮРО НАХОДОК -->
+
+    <a
+      class="group-card"
+      href="https://t.me/buro_nahodok_izmail"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="card-visual visual-lost">
+
+        <div class="visual-glow"></div>
+
+        <div class="lost-scene">
+
+          <div class="lost-card">
+
+            <div class="lost-pin"></div>
+
+            <div class="lost-line one"></div>
+            <div class="lost-line two"></div>
+            <div class="lost-line three"></div>
+
+          </div>
+
+          <div class="lost-search"></div>
+
+        </div>
+
+        <div class="visual-label">FOUND & LOST</div>
+
+      </div>
+
+      <div class="card-info">
+
+        <div>
+          <h2>Бюро находок</h2>
+          <p>Потерял или нашёл?</p>
+        </div>
+
+        <span class="card-arrow">↗</span>
+
+      </div>
+
+    </a>
+
+
+    <!-- ОБЩЕНИЕ -->
+
+    <a
+      class="group-card"
+      href="https://t.me/+5qLXgy-mFmM5YWNi"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="card-visual visual-chat">
+
+        <div class="visual-glow"></div>
+
+        <div class="chat-scene">
+
+          <div class="chat-bubble bubble-main">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="chat-bubble bubble-small">
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="chat-plus">+</div>
+
+        </div>
+
+        <div class="visual-label">COMMUNITY</div>
+
+      </div>
+
+      <div class="card-info">
+
+        <div>
+          <h2>Свободное общение</h2>
+          <p>Общайся, делись и будь в теме</p>
+        </div>
+
+        <span class="card-arrow">↗</span>
+
+      </div>
+
+    </a>
+
+
+  </section>
 
 </main>
 
