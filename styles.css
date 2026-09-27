@@ -38,8 +38,8 @@ body {
 
 /* =========================================================
    ОСНОВНАЯ ОБЛАСТЬ
-   УВЕЛИЧЕНИЕ РОВНО НА 2%
-   709px × 1.02 = 723.18px
+   УВЕЛИЧЕНИЕ НА 5%
+   709px × 1.05 = 744.45px
 
    ВСЯ КОМПОЗИЦИЯ ОПУЩЕНА НА 10px
    ========================================================= */
@@ -48,8 +48,8 @@ body {
   position: relative;
   z-index: 0;
 
-  width: min(102%, 723.18px);
-  max-width: 723.18px;
+  width: min(105%, 744.45px);
+  max-width: 744.45px;
   min-width: 0;
 
   margin: 10px 0 0 0;
@@ -637,138 +637,4 @@ body {
   top: 70.05%;
 }
 
-.leisure-hotspot {
-  left: 51.2%;
-  top: 70.05%;
-}
-
-/* =========================================================
-   НАШИ ГРУППЫ
-   ========================================================= */
-
-.groups-hotspot {
-  left: 3.1%;
-  top: 79.62%;
-
-  width: 94.0%;
-  height: 5.55%;
-
-  border-radius: 18px;
-}
-
-.groups-hotspot::after {
-  border-radius: 18px;
-}
-
-/* =========================================================
-   НИЖНЕЕ МЕНЮ
-   ========================================================= */
-
-.nav-hotspot {
-  top: 85.85%;
-
-  height: 5.05%;
-
-  border-radius: 18px;
-}
-
-.home-hotspot {
-  left: 3.1%;
-  width: 28.65%;
-}
-
-.ads-hotspot {
-  left: 33.25%;
-  width: 34.45%;
-}
-
-.favorites-hotspot {
-  left: 69.25%;
-  width: 27.65%;
-}
-
-/* =========================================================
-   FOCUS
-   ========================================================= */
-
-.hotspot:focus-visible,
-.widget:focus-visible,
-.directory-search-input:focus-visible {
-  outline: none !important;
-}
-
-/* =========================================================
-   МАЛЕНЬКИЕ ЭКРАНЫ
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-  .widget {
-    border-radius: 14px;
-  }
-
-  .hotspot::after {
-    border-radius: 14px;
-  }
-
-  .shelter-hotspot::after,
-  .search-hotspot::after,
-  .category-hotspot::after,
-  .groups-hotspot::after,
-  .nav-hotspot::after {
-    border-radius: 14px;
-  }
-
-  .directory-search-input {
-    border-radius: 14px;
-  }
-}
-
-/* =========================================================
-   ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
-   ========================================================= */
-
-.user-agreement {
-  position: absolute !important;
-
-  left: 50% !important;
-  top: 94.5% !important;
-
-  transform: translateX(-50%) !important;
-
-  z-index: 100 !important;
-
-  display: block !important;
-
-  width: max-content !important;
-  max-width: 94% !important;
-
-  margin: 0 !important;
-  padding: 0 0 3px 0 !important;
-
-  color: rgba(225, 245, 255, 0.9) !important;
-
-  font-family: Arial, Helvetica, sans-serif !important;
-
-  font-size: clamp(10px, 2vw, 14px) !important;
-
-  font-weight: 500 !important;
-
-  line-height: 1 !important;
-
-  text-align: center !important;
-
-  white-space: nowrap !important;
-
-  text-decoration: none !important;
-
-  text-shadow:
-    0 0 5px rgba(0, 180, 255, 0.55),
-    0 1px 3px rgba(0, 0, 0, 0.7) !important;
-
-  border-bottom: 1px solid rgba(80, 210, 255, 0.55) !important;
-
-  cursor: pointer !important;
-
-  -webkit-tap-highlight-color: transparent !important;
-}
+.le
