@@ -24,7 +24,6 @@
 
       --text:#ffffff;
 
-      /* ФОН */
       --page-bg-image:none;
     }
 
@@ -77,7 +76,7 @@
 
 
     /* =====================================================
-       ОБЩИЙ ФОН ВСЕГО ЭКРАНА
+       ОБЩИЙ ФОН
        ===================================================== */
 
     body::before{
@@ -151,13 +150,12 @@
 
       z-index:1;
 
-      /* ШАПКА И ВСЁ СОДЕРЖИМОЕ НЕМНОГО НИЖЕ */
       padding-top:28px;
     }
 
 
     /* =====================================================
-       ШАПКА ПРОФИЛЯ
+       ШАПКА
        ===================================================== */
 
     .groups-header{
@@ -211,7 +209,7 @@
 
 
     /* =====================================================
-       ВЕРХНЯЯ КНОПКА НАЗАД
+       КНОПКА НАЗАД
        ===================================================== */
 
     .back-btn{
@@ -308,7 +306,7 @@
 
 
     /* =====================================================
-       СЕТКА 8 ГРУПП
+       8 ГРУПП
        ===================================================== */
 
     .groups-grid{
@@ -330,7 +328,7 @@
 
 
     /* =====================================================
-       СТЕКЛЯННАЯ КНОПКА
+       КАРТОЧКА ГРУППЫ
        ===================================================== */
 
     .group-card{
@@ -339,7 +337,6 @@
 
       min-width:0;
 
-      /* Немного увеличили высоту из-за больших значков */
       min-height:68px;
 
       display:flex;
@@ -488,7 +485,7 @@
 
 
     /* =====================================================
-       ИКОНКА — УВЕЛИЧЕНА ПРИМЕРНО В 2 РАЗА
+       ИКОНКИ
        ===================================================== */
 
     .group-avatar{
@@ -623,13 +620,161 @@
 
 
     /* =====================================================
+       БОЛЬШАЯ КНОПКА АДМИНИСТРАЦИИ
+       ===================================================== */
+
+    .admin-contact{
+
+      display:flex;
+
+      flex-direction:column;
+
+      align-items:center;
+
+      justify-content:center;
+
+      width:100%;
+
+      min-height:76px;
+
+      margin-top:24px;
+
+      padding:11px 16px;
+
+      border:
+        1px solid
+        rgba(25,240,176,.78);
+
+      border-radius:18px;
+
+      text-decoration:none;
+
+      color:#ffffff;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          rgba(25,240,176,.13),
+          rgba(255,255,255,.045)
+        ),
+
+        linear-gradient(
+          135deg,
+          rgba(7,35,55,.74),
+          rgba(5,24,43,.64)
+        );
+
+      box-shadow:
+
+        0 0 0 1px
+        rgba(255,255,255,.06)
+        inset,
+
+        0 0 18px
+        rgba(25,240,176,.16),
+
+        0 10px 25px
+        rgba(0,0,0,.25);
+
+      backdrop-filter:
+        blur(13px)
+        saturate(130%);
+
+      -webkit-backdrop-filter:
+        blur(13px)
+        saturate(130%);
+
+      transition:
+
+        transform .15s ease,
+
+        border-color .15s ease,
+
+        box-shadow .15s ease;
+    }
+
+
+    .admin-contact:active{
+
+      transform:scale(.985);
+
+      border-color:
+        rgba(25,240,176,1);
+
+      box-shadow:
+
+        0 0 0 1px
+        rgba(255,255,255,.08)
+        inset,
+
+        0 0 24px
+        rgba(25,240,176,.28),
+
+        0 8px 20px
+        rgba(0,0,0,.25);
+    }
+
+
+    .admin-title{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:8px;
+
+      font-size:15px;
+
+      line-height:1.2;
+
+      font-weight:800;
+
+      text-align:center;
+
+      text-shadow:
+        0 1px 6px
+        rgba(0,0,0,.55);
+    }
+
+
+    .admin-icon{
+
+      font-size:20px;
+
+      line-height:1;
+    }
+
+
+    .admin-subtitle{
+
+      margin-top:7px;
+
+      font-size:10.5px;
+
+      line-height:1.25;
+
+      font-weight:600;
+
+      color:rgba(255,255,255,.78);
+
+      text-align:center;
+
+      text-shadow:
+        0 1px 4px
+        rgba(0,0,0,.45);
+    }
+
+
+    /* =====================================================
        НИЖНЯЯ КНОПКА
        ===================================================== */
 
     .bottom-back{
 
-      /* Больше расстояние после групп */
-      margin-top:22px;
+      margin-top:18px;
 
       margin-bottom:2px;
     }
@@ -651,7 +796,6 @@
 
       .page{
 
-        /* Тоже немного опускаем содержимое */
         padding-top:24px;
       }
 
@@ -682,7 +826,6 @@
 
       .group-card{
 
-        /* Увеличенная высота на маленьком экране */
         min-height:62px;
 
         padding:6px 6px;
@@ -691,7 +834,6 @@
       }
 
 
-      /* Большие значки */
       .group-avatar{
 
         flex-basis:43px;
@@ -730,10 +872,41 @@
       }
 
 
+      .admin-contact{
+
+        min-height:72px;
+
+        margin-top:20px;
+
+        padding:10px 12px;
+
+        border-radius:16px;
+      }
+
+
+      .admin-title{
+
+        font-size:14px;
+      }
+
+
+      .admin-icon{
+
+        font-size:19px;
+      }
+
+
+      .admin-subtitle{
+
+        font-size:9.5px;
+
+        margin-top:6px;
+      }
+
+
       .bottom-back{
 
-        /* Увеличенное расстояние после групп */
-        margin-top:19px;
+        margin-top:17px;
       }
 
 
@@ -794,7 +967,7 @@
 
 
     <!-- =================================================
-         8 СТЕКЛЯННЫХ КНОПОК
+         8 ГРУПП
          ================================================= -->
 
     <section class="groups-grid">
@@ -827,11 +1000,9 @@
 
         </span>
 
-
         <span class="group-name">
           Справочник Измаил
         </span>
-
 
         <span class="group-arrow">
           ›
@@ -865,11 +1036,9 @@
 
         </span>
 
-
         <span class="group-name">
           Рынок онлайн
         </span>
-
 
         <span class="group-arrow">
           ›
@@ -897,11 +1066,9 @@
 
         </span>
 
-
         <span class="group-name">
           Свет • Вода • Газ
         </span>
-
 
         <span class="group-arrow">
           ›
@@ -941,11 +1108,9 @@
 
         </span>
 
-
         <span class="group-name">
           Работа
         </span>
-
 
         <span class="group-arrow">
           ›
@@ -991,11 +1156,9 @@
 
         </span>
 
-
         <span class="group-name">
           Авто Бессарабия
         </span>
-
 
         <span class="group-arrow">
           ›
@@ -1031,11 +1194,9 @@
 
         </span>
 
-
         <span class="group-name">
           Недвижимость
         </span>
-
 
         <span class="group-arrow">
           ›
@@ -1087,11 +1248,9 @@
 
         </span>
 
-
         <span class="group-name">
           Зоочат
         </span>
-
 
         <span class="group-arrow">
           ›
@@ -1129,11 +1288,9 @@
 
         </span>
 
-
         <span class="group-name">
           Бюро находок
         </span>
-
 
         <span class="group-arrow">
           ›
@@ -1143,6 +1300,37 @@
 
 
     </section>
+
+
+    <!-- =================================================
+         СВЯЗЬ С АДМИНИСТРАЦИЕЙ
+         ================================================= -->
+
+    <a
+      class="admin-contact"
+      href="https://t.me/vanku13"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="admin-title">
+
+        <span class="admin-icon">
+          💬
+        </span>
+
+        <span>
+          Связь с администрацией
+        </span>
+
+      </div>
+
+
+      <div class="admin-subtitle">
+        Вопросы • Реклама • Предложения • Сотрудничество
+      </div>
+
+    </a>
 
 
     <!-- =================================================
