@@ -151,7 +151,8 @@
 
       z-index:1;
 
-      padding-top:18px;
+      /* ШАПКА И ВСЁ СОДЕРЖИМОЕ НЕМНОГО НИЖЕ */
+      padding-top:28px;
     }
 
 
@@ -338,13 +339,14 @@
 
       min-width:0;
 
-      min-height:52px;
+      /* Немного увеличили высоту из-за больших значков */
+      min-height:68px;
 
       display:flex;
 
       align-items:center;
 
-      padding:7px 8px;
+      padding:8px 9px;
 
       border-radius:15px;
 
@@ -486,16 +488,16 @@
 
 
     /* =====================================================
-       ИКОНКА
+       ИКОНКА — УВЕЛИЧЕНА ПРИМЕРНО В 2 РАЗА
        ===================================================== */
 
     .group-avatar{
 
-      flex:0 0 30px;
+      flex:0 0 48px;
 
-      width:30px;
+      width:48px;
 
-      height:30px;
+      height:48px;
 
       display:flex;
 
@@ -503,7 +505,7 @@
 
       justify-content:center;
 
-      border-radius:10px;
+      border-radius:13px;
 
       background:
 
@@ -519,7 +521,7 @@
 
       box-shadow:
 
-        0 0 8px
+        0 0 10px
         rgba(25,240,176,.10),
 
         0 0 0 1px
@@ -536,9 +538,9 @@
 
     .group-avatar svg{
 
-      width:17px;
+      width:30px;
 
-      height:17px;
+      height:30px;
 
       stroke:currentColor;
 
@@ -626,7 +628,8 @@
 
     .bottom-back{
 
-      margin-top:12px;
+      /* Больше расстояние после групп */
+      margin-top:22px;
 
       margin-bottom:2px;
     }
@@ -648,7 +651,8 @@
 
       .page{
 
-        padding-top:14px;
+        /* Тоже немного опускаем содержимое */
+        padding-top:24px;
       }
 
 
@@ -678,7 +682,8 @@
 
       .group-card{
 
-        min-height:48px;
+        /* Увеличенная высота на маленьком экране */
+        min-height:62px;
 
         padding:6px 6px;
 
@@ -686,23 +691,24 @@
       }
 
 
+      /* Большие значки */
       .group-avatar{
 
-        flex-basis:27px;
+        flex-basis:43px;
 
-        width:27px;
+        width:43px;
 
-        height:27px;
+        height:43px;
 
-        border-radius:8px;
+        border-radius:11px;
       }
 
 
       .group-avatar svg{
 
-        width:15px;
+        width:27px;
 
-        height:15px;
+        height:27px;
       }
 
 
@@ -721,6 +727,13 @@
         width:16px;
 
         font-size:15px;
+      }
+
+
+      .bottom-back{
+
+        /* Увеличенное расстояние после групп */
+        margin-top:19px;
       }
 
 
