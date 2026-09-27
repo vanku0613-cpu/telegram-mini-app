@@ -1,16 +1,19 @@
-/* =========================================================
-   OUR GROUPS MENU
-   Современный дизайн раздела «Все наши группы»
-   ========================================================= */
-
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
 
+:root {
+  --bg: #04111f;
+  --text: #f5f9ff;
+  --muted: #91abc4;
+  --blue: #54caff;
+  --green: #28e5b0;
+}
+
 html {
   min-height: 100%;
-  background: #061321;
+  background: var(--bg);
 }
 
 body {
@@ -25,24 +28,24 @@ body {
     Arial,
     sans-serif;
 
-  color: #ffffff;
+  color: var(--text);
 
   background:
     radial-gradient(
       circle at 50% -10%,
-      rgba(31, 119, 183, 0.32),
+      rgba(37, 137, 205, 0.30),
       transparent 42%
     ),
     radial-gradient(
-      circle at 100% 40%,
-      rgba(0, 151, 194, 0.10),
-      transparent 35%
+      circle at 100% 45%,
+      rgba(0, 177, 221, 0.08),
+      transparent 34%
     ),
     linear-gradient(
       180deg,
       #071a30 0%,
-      #04111f 48%,
-      #020b15 100%
+      #04111f 55%,
+      #020a13 100%
     );
 
   overflow-x: hidden;
@@ -56,17 +59,17 @@ a {
 .page {
   width: 100%;
   max-width: 760px;
+
   margin: 0 auto;
 
   padding:
-    24px
-    15px
+    24px 14px
     calc(30px + env(safe-area-inset-bottom));
 }
 
 
 /* =========================================================
-   ЗАГОЛОВОК
+   HEADER
    ========================================================= */
 
 header {
@@ -80,48 +83,53 @@ header {
   justify-content: center;
 
   height: 32px;
-  padding: 0 15px;
 
-  border: 1px solid rgba(91, 202, 255, 0.38);
-  border-radius: 12px;
+  padding: 0 16px;
+
+  border: 1px solid rgba(86, 203, 255, 0.40);
+  border-radius: 11px;
 
   background:
     linear-gradient(
       135deg,
-      rgba(24, 100, 153, 0.55),
-      rgba(7, 40, 72, 0.7)
+      rgba(25, 101, 153, 0.52),
+      rgba(6, 39, 70, 0.72)
     );
 
-  color: #bdeaff;
+  color: #c9efff;
 
   font-size: 11px;
   font-weight: 900;
+
   letter-spacing: 3px;
 
   box-shadow:
-    0 0 22px rgba(36, 174, 240, 0.08),
+    0 0 20px rgba(44, 191, 255, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 h1 {
   margin: 13px 0 7px;
 
-  font-size: clamp(25px, 7vw, 36px);
+  color: #fff;
+
+  font-size:
+    clamp(25px, 7vw, 36px);
+
   line-height: 1;
 
   font-weight: 900;
-  letter-spacing: -0.7px;
 
-  color: #ffffff;
+  letter-spacing: -0.8px;
 
   text-shadow:
-    0 4px 22px rgba(0, 0, 0, 0.4);
+    0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 header p {
   margin: 0;
 
-  color: #91abc5;
+  color: var(--muted);
 
   font-size: 13px;
   font-weight: 500;
@@ -129,7 +137,7 @@ header p {
 
 
 /* =========================================================
-   ОБЩИЙ СТИЛЬ КАРТОЧЕК
+   CARDS
    ========================================================= */
 
 .card {
@@ -141,35 +149,34 @@ header p {
   width: 100%;
   min-height: 82px;
 
-  padding: 12px 13px;
+  padding: 12px;
 
   gap: 12px;
 
-  border: 1px solid rgba(89, 171, 226, 0.25);
-  border-radius: 21px;
+  border:
+    1px solid
+    rgba(91, 175, 226, 0.25);
+
+  border-radius: 20px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(19, 57, 91, 0.93),
-      rgba(7, 28, 50, 0.96)
+      rgba(18, 57, 91, 0.94),
+      rgba(6, 27, 48, 0.97)
     );
 
   box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.28),
+    0 10px 27px rgba(0, 0, 0, 0.27),
     inset 0 1px 0 rgba(255, 255, 255, 0.055);
 
   overflow: hidden;
 
   transition:
-    transform 0.16s ease,
-    border-color 0.16s ease,
-    box-shadow 0.16s ease,
-    background 0.16s ease;
+    transform .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease;
 }
-
-
-/* мягкое свечение внутри */
 
 .card::before {
   content: "";
@@ -187,15 +194,12 @@ header p {
   background:
     radial-gradient(
       circle,
-      rgba(55, 192, 255, 0.16),
+      rgba(58, 195, 255, 0.14),
       transparent 68%
     );
 
   pointer-events: none;
 }
-
-
-/* тонкий верхний блик */
 
 .card::after {
   content: "";
@@ -212,7 +216,7 @@ header p {
     linear-gradient(
       90deg,
       transparent,
-      rgba(149, 222, 255, 0.42),
+      rgba(153, 224, 255, 0.42),
       transparent
     );
 
@@ -221,45 +225,179 @@ header p {
 
 
 /* =========================================================
-   ИКОНКА
+   ICON BOX
    ========================================================= */
 
-.card > i {
+.icon-box {
   position: relative;
   z-index: 2;
 
-  flex: 0 0 51px;
+  flex: 0 0 52px;
 
-  width: 51px;
-  height: 51px;
+  width: 52px;
+  height: 52px;
 
   display: grid;
   place-items: center;
 
   border-radius: 16px;
 
-  border: 1px solid rgba(106, 199, 244, 0.25);
+  border:
+    1px solid
+    rgba(111, 201, 244, 0.28);
 
   background:
     linear-gradient(
       145deg,
-      rgba(47, 129, 174, 0.32),
-      rgba(8, 50, 79, 0.62)
+      rgba(46, 127, 172, 0.30),
+      rgba(7, 47, 76, 0.62)
     );
 
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 6px 15px rgba(0, 0, 0, 0.22);
+}
 
-  font-style: normal;
-  font-size: 25px;
+.icon-box svg {
+  width: 27px;
+  height: 27px;
 
-  line-height: 1;
+  fill: none;
+
+  stroke:
+    #82dcff;
+
+  stroke-width: 1.65;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter:
+    drop-shadow(
+      0 0 5px
+      rgba(74, 204, 255, 0.22)
+    );
 }
 
 
 /* =========================================================
-   ТЕКСТ
+   ЦВЕТА ИКОНОК
+   ========================================================= */
+
+.icon-box.market {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(33, 133, 215, 0.30),
+      rgba(7, 55, 91, 0.64)
+    );
+}
+
+.icon-box.market svg {
+  stroke: #65cfff;
+}
+
+
+.icon-box.auto {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(101, 91, 222, 0.30),
+      rgba(40, 43, 93, 0.64)
+    );
+}
+
+.icon-box.auto svg {
+  stroke: #a7a1ff;
+}
+
+
+.icon-box.home {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(224, 157, 57, 0.28),
+      rgba(91, 60, 27, 0.62)
+    );
+}
+
+.icon-box.home svg {
+  stroke: #ffd27b;
+}
+
+
+.icon-box.work {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(213, 88, 148, 0.28),
+      rgba(88, 37, 70, 0.62)
+    );
+}
+
+.icon-box.work svg {
+  stroke: #ff9ac9;
+}
+
+
+.icon-box.zoo {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(48, 190, 153, 0.28),
+      rgba(18, 75, 68, 0.62)
+    );
+}
+
+.icon-box.zoo svg {
+  stroke: #72e6c1;
+}
+
+
+.icon-box.utilities {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(225, 185, 61, 0.29),
+      rgba(89, 70, 25, 0.62)
+    );
+}
+
+.icon-box.utilities svg {
+  stroke: #ffe27c;
+}
+
+
+.icon-box.chat {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(72, 151, 220, 0.30),
+      rgba(27, 61, 98, 0.62)
+    );
+}
+
+.icon-box.chat svg {
+  stroke: #8bd8ff;
+}
+
+
+.icon-box.search {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(155, 108, 215, 0.30),
+      rgba(61, 44, 89, 0.62)
+    );
+}
+
+.icon-box.search svg {
+  stroke: #d0a6ff;
+}
+
+
+/* =========================================================
+   TEXT
    ========================================================= */
 
 .card > span {
@@ -267,24 +405,23 @@ header p {
   z-index: 2;
 
   min-width: 0;
+
   flex: 1;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .card strong {
   display: block;
 
-  color: #ffffff;
+  color: #fff;
 
-  font-size: 15px;
+  font-size: 14px;
+
   line-height: 1.18;
 
   font-weight: 800;
-
-  letter-spacing: -0.15px;
 }
 
 .card small {
@@ -292,9 +429,10 @@ header p {
 
   margin-top: 5px;
 
-  color: #8faac4;
+  color: #8faac3;
 
-  font-size: 10.5px;
+  font-size: 10px;
+
   line-height: 1.25;
 
   font-weight: 500;
@@ -319,27 +457,34 @@ header p {
 
   border-radius: 50%;
 
-  border: 1px solid rgba(91, 190, 244, 0.18);
+  border:
+    1px solid
+    rgba(95, 192, 244, 0.20);
 
   background:
-    rgba(52, 164, 220, 0.09);
-
-  color: #71d8ff;
-
-  font-size: 24px;
-  font-style: normal;
-  line-height: 1;
-
-  padding-bottom: 2px;
+    rgba(48, 167, 222, 0.08);
 
   transition:
-    transform 0.16s ease,
-    background 0.16s ease;
+    transform .16s ease;
+}
+
+.card > em svg {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+
+  stroke: #71d8ff;
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
 /* =========================================================
-   КАРТОЧКА «СПРАВОЧНИК»
+   СПРАВОЧНИК
    ========================================================= */
 
 .directory {
@@ -348,19 +493,19 @@ header p {
   margin-bottom: 13px;
 
   border-color:
-    rgba(35, 224, 175, 0.42);
+    rgba(36, 225, 174, 0.43);
 
   background:
     linear-gradient(
       135deg,
-      rgba(8, 82, 80, 0.96),
-      rgba(7, 47, 65, 0.97),
-      rgba(5, 28, 48, 0.98)
+      rgba(7, 80, 79, 0.96),
+      rgba(6, 46, 63, 0.97),
+      rgba(4, 27, 47, 0.98)
     );
 
   box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(28, 225, 174, 0.07),
+    0 12px 32px rgba(0, 0, 0, 0.30),
+    0 0 30px rgba(34, 225, 174, 0.07),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
@@ -368,32 +513,33 @@ header p {
   background:
     radial-gradient(
       circle,
-      rgba(31, 235, 178, 0.20),
+      rgba(31, 235, 178, 0.19),
       transparent 68%
     );
 }
 
-.directory > i {
-  flex-basis: 57px;
+.directory .icon-box {
+  flex-basis: 58px;
 
-  width: 57px;
-  height: 57px;
+  width: 58px;
+  height: 58px;
 
   border-color:
-    rgba(38, 229, 178, 0.34);
+    rgba(38, 230, 178, 0.34);
 
   background:
     linear-gradient(
       145deg,
-      rgba(28, 157, 128, 0.36),
-      rgba(7, 75, 72, 0.62)
+      rgba(28, 157, 128, 0.35),
+      rgba(7, 74, 72, 0.62)
     );
+}
 
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 0 20px rgba(31, 226, 176, 0.08);
+.directory .icon-box svg {
+  width: 29px;
+  height: 29px;
 
-  font-size: 27px;
+  stroke: #4ee9bb;
 }
 
 .directory strong {
@@ -401,17 +547,11 @@ header p {
 }
 
 .directory small {
-  color: #9ed8ca;
+  color: #9dd8c9;
 }
 
-.directory > em {
-  color: #35e8b5;
-
-  border-color:
-    rgba(38, 229, 178, 0.22);
-
-  background:
-    rgba(35, 224, 175, 0.10);
+.directory > em svg {
+  stroke: #43e7b6;
 }
 
 
@@ -430,107 +570,27 @@ header p {
 
 
 /* =========================================================
-   РАЗНЫЕ АКЦЕНТЫ ИКОНОК
-   ========================================================= */
-
-.grid .card:nth-child(1) > i {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(40, 145, 225, 0.35),
-      rgba(10, 60, 96, 0.62)
-    );
-}
-
-.grid .card:nth-child(2) > i {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(104, 93, 226, 0.35),
-      rgba(44, 46, 101, 0.62)
-    );
-}
-
-.grid .card:nth-child(3) > i {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(220, 158, 61, 0.34),
-      rgba(92, 62, 29, 0.62)
-    );
-}
-
-.grid .card:nth-child(4) > i {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(218, 92, 153, 0.34),
-      rgba(91, 40, 72, 0.62)
-    );
-}
-
-.grid .card:nth-child(5) > i {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(55, 193, 158, 0.34),
-      rgba(21, 79, 72, 0.62)
-    );
-}
-
-.grid .card:nth-child(6) > i {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(226, 187, 67, 0.34),
-      rgba(91, 72, 29, 0.62)
-    );
-}
-
-.grid .card:nth-child(7) > i {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(67, 153, 224, 0.34),
-      rgba(27, 64, 102, 0.62)
-    );
-}
-
-.grid .card:nth-child(8) > i {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(157, 111, 215, 0.34),
-      rgba(64, 46, 91, 0.62)
-    );
-}
-
-
-/* =========================================================
    НАЖАТИЕ
    ========================================================= */
 
 .card:active {
-  transform: scale(0.965);
+  transform: scale(.965);
 
   border-color:
-    rgba(100, 202, 255, 0.65);
+    rgba(103, 204, 255, 0.66);
 
   box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.35),
-    0 0 22px rgba(46, 186, 246, 0.10);
+    0 6px 16px rgba(0, 0, 0, 0.34),
+    0 0 20px rgba(50, 187, 244, 0.10);
 }
 
 .card:active > em {
   transform: translateX(3px);
-
-  background:
-    rgba(65, 184, 239, 0.18);
 }
 
 
 /* =========================================================
-   HOVER — ДЛЯ ПК
+   ПК
    ========================================================= */
 
 @media (hover: hover) {
@@ -539,36 +599,27 @@ header p {
     transform: translateY(-2px);
 
     border-color:
-      rgba(91, 191, 247, 0.55);
-
-    background:
-      linear-gradient(
-        145deg,
-        rgba(23, 67, 105, 0.97),
-        rgba(7, 31, 55, 0.98)
-      );
+      rgba(93, 192, 247, 0.55);
 
     box-shadow:
-      0 16px 34px rgba(0, 0, 0, 0.31),
-      0 0 24px rgba(48, 190, 255, 0.08);
+      0 15px 34px rgba(0, 0, 0, 0.31),
+      0 0 25px rgba(48, 190, 255, 0.08);
   }
 
   .card:hover > em {
     transform: translateX(3px);
-
-    background:
-      rgba(65, 184, 239, 0.17);
   }
 
 }
 
 
 /* =========================================================
-   НАЗАД В ГЛАВНОЕ МЕНЮ
+   КНОПКА НАЗАД
    ========================================================= */
 
 .back {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -587,8 +638,8 @@ header p {
   background:
     linear-gradient(
       135deg,
-      rgba(16, 56, 89, 0.85),
-      rgba(6, 29, 51, 0.92)
+      rgba(16, 56, 89, 0.86),
+      rgba(6, 29, 51, 0.94)
     );
 
   color: #c8e7fa;
@@ -599,10 +650,6 @@ header p {
   box-shadow:
     0 8px 22px rgba(0, 0, 0, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
-
-  transition:
-    transform 0.16s ease,
-    border-color 0.16s ease;
 }
 
 .back b {
@@ -620,37 +667,33 @@ header p {
   color: #65d6ff;
 
   font-size: 22px;
+
   font-weight: 400;
 
   line-height: 1;
-
-  padding-bottom: 2px;
 }
 
 .back.bottom {
   width: 100%;
+
   margin-top: 18px;
 }
 
 .back:active {
-  transform: scale(0.97);
-
-  border-color:
-    rgba(83, 201, 255, 0.62);
+  transform: scale(.97);
 }
 
 
 /* =========================================================
-   МОБИЛЬНЫЕ
+   МОБИЛЬНАЯ ВЕРСИЯ
    ========================================================= */
 
 @media (max-width: 600px) {
 
   .page {
     padding:
-      22px
-      11px
-      calc(27px + env(safe-area-inset-bottom));
+      22px 10px
+      calc(28px + env(safe-area-inset-bottom));
   }
 
   header {
@@ -664,51 +707,54 @@ header p {
   .grid .card {
     min-height: 80px;
 
-    padding:
-      10px;
-    gap: 9px;
+    padding: 10px;
+
+    gap: 8px;
   }
 
-  .grid .card > i {
-    flex-basis: 44px;
+  .grid .icon-box {
+    flex-basis: 43px;
 
-    width: 44px;
-    height: 44px;
+    width: 43px;
+    height: 43px;
 
-    border-radius: 14px;
+    border-radius: 13px;
+  }
 
-    font-size: 22px;
+  .grid .icon-box svg {
+    width: 23px;
+    height: 23px;
   }
 
   .grid .card strong {
-    font-size: 12.5px;
+    font-size: 12px;
   }
 
   .grid .card small {
-    font-size: 9px;
-    margin-top: 4px;
+    font-size: 8.7px;
   }
 
   .grid .card > em {
-    flex-basis: 26px;
+    flex-basis: 25px;
 
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
+  }
 
-    font-size: 20px;
+  .grid .card > em svg {
+    width: 16px;
+    height: 16px;
   }
 
   .directory {
     min-height: 87px;
   }
 
-  .directory > i {
+  .directory .icon-box {
     flex-basis: 51px;
 
     width: 51px;
     height: 51px;
-
-    font-size: 24px;
   }
 
   .directory strong {
@@ -716,20 +762,20 @@ header p {
   }
 
   .directory small {
-    font-size: 9.5px;
+    font-size: 9px;
   }
 }
 
 
 /* =========================================================
-   ОЧЕНЬ УЗКИЙ ТЕЛЕФОН
+   УЗКИЕ ТЕЛЕФОНЫ
    ========================================================= */
 
-@media (max-width: 370px) {
+@media (max-width: 360px) {
 
   .page {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 7px;
+    padding-right: 7px;
   }
 
   .grid {
@@ -741,24 +787,25 @@ header p {
 
     padding: 9px;
 
-    gap: 7px;
-
     border-radius: 18px;
   }
 
-  .grid .card > i {
-    flex-basis: 40px;
+  .grid .icon-box {
+    flex-basis: 39px;
 
-    width: 40px;
-    height: 40px;
+    width: 39px;
+    height: 39px;
 
     border-radius: 12px;
+  }
 
-    font-size: 20px;
+  .grid .icon-box svg {
+    width: 21px;
+    height: 21px;
   }
 
   .grid .card strong {
-    font-size: 11.5px;
+    font-size: 11px;
   }
 
   .grid .card small {
@@ -766,35 +813,16 @@ header p {
   }
 
   .grid .card > em {
-    flex-basis: 23px;
+    flex-basis: 22px;
 
-    width: 23px;
-    height: 23px;
-
-    font-size: 18px;
-  }
-}
-
-
-/* =========================================================
-   СОВСЕМ УЗКИЙ ЭКРАН
-   ========================================================= */
-
-@media (max-width: 330px) {
-
-  .grid {
-    grid-template-columns: 1fr;
+    width: 22px;
+    height: 22px;
   }
 
-  .grid .card {
-    min-height: 72px;
-  }
+  .directory .icon-box {
+    flex-basis: 47px;
 
-  .grid .card strong {
-    font-size: 13px;
-  }
-
-  .grid .card small {
-    font-size: 9px;
+    width: 47px;
+    height: 47px;
   }
 }
