@@ -50,7 +50,7 @@ body {
   max-width: 744.45px;
   min-width: 0;
 
-  margin: 19px 0 0 0;
+  margin: 9px 0 0 0;
   padding: 0;
 
   overflow: hidden;
@@ -482,4 +482,5 @@ body {
 
   margin: 0;
 
-  padding: 0 
+  padding: 0;
+}
