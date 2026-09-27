@@ -10,7 +10,7 @@
 
   <meta name="theme-color" content="#06152b">
 
-  <title>Все наши группы</title>
+  <title>Наши группы</title>
 
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -19,284 +19,230 @@
 
   <main class="groups-page">
 
-    <!-- ШАПКА -->
+    <!-- ЗАГОЛОВОК -->
     <header class="groups-header">
-
-      <div class="header-line"></div>
+      <div class="header-glow"></div>
 
       <div class="header-label">
-        ИЗМАИЛ • ГОРОДСКИЕ СООБЩЕСТВА
+        ИЗМАИЛ • СООБЩЕСТВА
       </div>
 
-      <h1>ВСЕ НАШИ ГРУППЫ</h1>
-
-      <p class="header-subtitle">
-        Полезные городские сообщества в одном месте
-      </p>
-
+      <h1>НАШИ ГРУППЫ</h1>
     </header>
 
 
-    <!-- ВЕРНУТЬСЯ В ГЛАВНОЕ МЕНЮ -->
+    <!-- КНОПКА НАЗАД -->
     <button
       type="button"
       class="back-button"
       data-back
     >
-      <span class="back-icon">←</span>
+      <span class="back-arrow">←</span>
       <span>Вернуться в главное меню</span>
     </button>
 
 
-    <!-- ВСЕ ГРУППЫ -->
-    <section class="groups-grid" aria-label="Все наши группы">
+    <!-- СЕТКА ГРУПП -->
+    <section class="groups-grid" aria-label="Наши группы">
 
 
-      <!-- 1. СПРАВОЧНИК -->
+      <!-- 1 -->
       <a
-        class="group-card"
+        class="group-tile"
         href="https://t.me/SPRAVOCHNIK_IZMAIL"
         target="_blank"
         rel="noopener noreferrer"
       >
+        <span class="tile-shine"></span>
 
-        <div class="card-top">
+        <span class="avatar">
+          <img
+            src="./avatars/guide.jpg"
+            alt=""
+            loading="lazy"
+          >
+        </span>
 
-          <div class="avatar-frame">
-            <img
-              class="group-avatar"
-              src="./avatars/guide.jpg"
-              alt="Справочник Измаил"
-              loading="lazy"
-            >
-          </div>
+        <span class="group-name">
+          Справочник Измаил
+        </span>
 
-          <span class="card-arrow">↗</span>
-
-        </div>
-
-        <div class="card-content">
-          <h2>Справочник Измаил</h2>
-          <p>Полезная информация о городе</p>
-        </div>
-
+        <span class="group-arrow">↗</span>
       </a>
 
 
-      <!-- 2. РЫНОК ОНЛАЙН -->
+      <!-- 2 -->
       <a
-        class="group-card"
+        class="group-tile"
         href="https://t.me/Vkusny_Chat_Izmail"
         target="_blank"
         rel="noopener noreferrer"
       >
+        <span class="tile-shine"></span>
 
-        <div class="card-top">
+        <span class="avatar">
+          <img
+            src="./avatars/market.jpg"
+            alt=""
+            loading="lazy"
+          >
+        </span>
 
-          <div class="avatar-frame">
-            <img
-              class="group-avatar"
-              src="./avatars/market.jpg"
-              alt="Рынок онлайн"
-              loading="lazy"
-            >
-          </div>
+        <span class="group-name">
+          Рынок онлайн
+        </span>
 
-          <span class="card-arrow">↗</span>
-
-        </div>
-
-        <div class="card-content">
-          <h2>Рынок онлайн</h2>
-          <p>Покупай и продавай</p>
-        </div>
-
+        <span class="group-arrow">↗</span>
       </a>
 
 
-      <!-- 3. СВЕТ ВОДА ГАЗ -->
+      <!-- 3 -->
       <a
-        class="group-card"
+        class="group-tile"
         href="https://t.me/IZMAIL_GAZ_SVET_VODA"
         target="_blank"
         rel="noopener noreferrer"
       >
+        <span class="tile-shine"></span>
 
-        <div class="card-top">
+        <span class="avatar">
+          <img
+            src="./avatars/utilities.jpg"
+            alt=""
+            loading="lazy"
+          >
+        </span>
 
-          <div class="avatar-frame">
-            <img
-              class="group-avatar"
-              src="./avatars/utilities.jpg"
-              alt="Свет Вода Газ"
-              loading="lazy"
-            >
-          </div>
+        <span class="group-name">
+          Свет • Вода • Газ
+        </span>
 
-          <span class="card-arrow">↗</span>
-
-        </div>
-
-        <div class="card-content">
-          <h2>Свет • Вода • Газ</h2>
-          <p>Свет • вода • газ • интернет</p>
-        </div>
-
+        <span class="group-arrow">↗</span>
       </a>
 
 
-      <!-- 4. РАБОТА -->
+      <!-- 4 -->
       <a
-        class="group-card"
+        class="group-tile"
         href="https://t.me/rabota_v_izmaile"
         target="_blank"
         rel="noopener noreferrer"
       >
+        <span class="tile-shine"></span>
 
-        <div class="card-top">
+        <span class="avatar">
+          <img
+            src="./avatars/work.jpg"
+            alt=""
+            loading="lazy"
+          >
+        </span>
 
-          <div class="avatar-frame">
-            <img
-              class="group-avatar"
-              src="./avatars/work.jpg"
-              alt="Работа"
-              loading="lazy"
-            >
-          </div>
+        <span class="group-name">
+          Работа
+        </span>
 
-          <span class="card-arrow">↗</span>
-
-        </div>
-
-        <div class="card-content">
-          <h2>Работа</h2>
-          <p>Вакансии и поиск сотрудников</p>
-        </div>
-
+        <span class="group-arrow">↗</span>
       </a>
 
 
-      <!-- 5. АВТО БЕССАРАБИЯ -->
+      <!-- 5 -->
       <a
-        class="group-card"
+        class="group-tile"
         href="https://t.me/AVTO_IZMAIL_ODESSA"
         target="_blank"
         rel="noopener noreferrer"
       >
+        <span class="tile-shine"></span>
 
-        <div class="card-top">
+        <span class="avatar">
+          <img
+            src="./avatars/auto.jpg"
+            alt=""
+            loading="lazy"
+          >
+        </span>
 
-          <div class="avatar-frame">
-            <img
-              class="group-avatar"
-              src="./avatars/auto.jpg"
-              alt="Авто Бессарабия"
-              loading="lazy"
-            >
-          </div>
+        <span class="group-name">
+          Авто Бессарабия
+        </span>
 
-          <span class="card-arrow">↗</span>
-
-        </div>
-
-        <div class="card-content">
-          <h2>Авто Бессарабия</h2>
-          <p>Авто, запчасти и общение</p>
-        </div>
-
+        <span class="group-arrow">↗</span>
       </a>
 
 
-      <!-- 6. НЕДВИЖИМОСТЬ -->
+      <!-- 6 -->
       <a
-        class="group-card"
+        class="group-tile"
         href="https://t.me/IZMAIL_NEDVIZHIMOST"
         target="_blank"
         rel="noopener noreferrer"
       >
+        <span class="tile-shine"></span>
 
-        <div class="card-top">
+        <span class="avatar">
+          <img
+            src="./avatars/realestate.jpg"
+            alt=""
+            loading="lazy"
+          >
+        </span>
 
-          <div class="avatar-frame">
-            <img
-              class="group-avatar"
-              src="./avatars/realestate.jpg"
-              alt="Недвижимость"
-              loading="lazy"
-            >
-          </div>
+        <span class="group-name">
+          Недвижимость
+        </span>
 
-          <span class="card-arrow">↗</span>
-
-        </div>
-
-        <div class="card-content">
-          <h2>Недвижимость</h2>
-          <p>Аренда, покупка и продажа</p>
-        </div>
-
+        <span class="group-arrow">↗</span>
       </a>
 
 
-      <!-- 7. ЗООЧАТ -->
+      <!-- 7 -->
       <a
-        class="group-card"
+        class="group-tile"
         href="https://t.me/Izmail_CHAT_24_7"
         target="_blank"
         rel="noopener noreferrer"
       >
+        <span class="tile-shine"></span>
 
-        <div class="card-top">
+        <span class="avatar">
+          <img
+            src="./avatars/zoo.jpg"
+            alt=""
+            loading="lazy"
+          >
+        </span>
 
-          <div class="avatar-frame">
-            <img
-              class="group-avatar"
-              src="./avatars/zoo.jpg"
-              alt="Зоочат"
-              loading="lazy"
-            >
-          </div>
+        <span class="group-name">
+          Зоочат
+        </span>
 
-          <span class="card-arrow">↗</span>
-
-        </div>
-
-        <div class="card-content">
-          <h2>Зоочат</h2>
-          <p>Животные, помощь и общение</p>
-        </div>
-
+        <span class="group-arrow">↗</span>
       </a>
 
 
-      <!-- 8. БЮРО НАХОДОК -->
+      <!-- 8 -->
       <a
-        class="group-card"
+        class="group-tile"
         href="https://t.me/buro_nahodok_izmail"
         target="_blank"
         rel="noopener noreferrer"
       >
+        <span class="tile-shine"></span>
 
-        <div class="card-top">
+        <span class="avatar">
+          <img
+            src="./avatars/lost.jpg"
+            alt=""
+            loading="lazy"
+          >
+        </span>
 
-          <div class="avatar-frame">
-            <img
-              class="group-avatar"
-              src="./avatars/lost.jpg"
-              alt="Бюро находок"
-              loading="lazy"
-            >
-          </div>
+        <span class="group-name">
+          Бюро находок
+        </span>
 
-          <span class="card-arrow">↗</span>
-
-        </div>
-
-        <div class="card-content">
-          <h2>Бюро находок</h2>
-          <p>Нашёл / потерял — напиши</p>
-        </div>
-
+        <span class="group-arrow">↗</span>
       </a>
 
     </section>
@@ -308,18 +254,18 @@
       class="back-button bottom-back"
       data-back
     >
-      <span class="back-icon">←</span>
+      <span class="back-arrow">←</span>
       <span>Вернуться в главное меню</span>
     </button>
-
-
-    <div class="page-footer">
-      ИЗМАИЛ • НАШ ГОРОД • НАШИ ЛЮДИ
-    </div>
 
   </main>
 
 
+  <!-- TELEGRAM / APP -->
+  <script src="./app.js"></script>
+
+
+  <!-- ВОЗВРАТ В ГЛАВНОЕ МЕНЮ -->
   <script>
     "use strict";
 
@@ -338,9 +284,11 @@
       location.href = "../";
     }
 
-    document.querySelectorAll("[data-back]").forEach(function(button) {
-      button.addEventListener("click", goHome);
-    });
+    document
+      .querySelectorAll("[data-back]")
+      .forEach(function(button) {
+        button.addEventListener("click", goHome);
+      });
   </script>
 
 </body>
