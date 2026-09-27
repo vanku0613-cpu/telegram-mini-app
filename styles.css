@@ -697,43 +697,46 @@ border-radius: 14px;
 ========================================================= */
 
 .user-agreement {
-position: absolute;
+position: absolute !important;
 
-left: 0;
-right: 0;
-top: 94.5%;
+left: 50% !important;
+top: 94.5% !important;
 
-z-index: 40;
+transform: translateX(-50%) !important;
 
-width: fit-content;
+z-index: 100 !important;
 
-margin: 0 auto;
+display: block !important;
 
-color: rgba(225, 245, 255, 0.9);
+width: max-content !important;
+max-width: 94% !important;
 
-font-family: Arial, Helvetica, sans-serif;
+margin: 0 !important;
+padding: 0 0 3px 0 !important;
 
-font-size: clamp(10px, 2vw, 14px);
+color: rgba(225, 245, 255, 0.9) !important;
 
-font-weight: 500;
+font-family: Arial, Helvetica, sans-serif !important;
 
-line-height: 1;
+font-size: clamp(10px, 2vw, 14px) !important;
 
-text-align: center;
+font-weight: 500 !important;
 
-white-space: nowrap;
+line-height: 1 !important;
 
-text-decoration: none;
+text-align: center !important;
+
+white-space: nowrap !important;
+
+text-decoration: none !important;
 
 text-shadow:
 0 0 5px rgba(0, 180, 255, 0.55),
-0 1px 3px rgba(0, 0, 0, 0.7);
+0 1px 3px rgba(0, 0, 0, 0.7) !important;
 
-border-bottom: 1px solid rgba(80, 210, 255, 0.55);
+border-bottom: 1px solid rgba(80, 210, 255, 0.55) !important;
 
-padding-bottom: 3px;
+cursor: pointer !important;
 
-cursor: pointer;
-
--webkit-tap-highlight-color: transparent;
+-webkit-tap-highlight-color: transparent !important;
 }
