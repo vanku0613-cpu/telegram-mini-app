@@ -272,29 +272,60 @@
     </div>
   </main>
 
-  <!-- Локальный счётчик открытий -->
+  <!-- Локальный счётчик.
+       Новое посещение засчитывается максимум один раз в 2 минуты. -->
   <script>
     (() => {
-      const KEY = "izmail_local_visit_counter";
+      const COUNT_KEY = "izmail_local_visit_counter";
+      const TIME_KEY = "izmail_local_visit_time";
+
+      const VISIT_INTERVAL = 2 * 60 * 1000;
 
       try {
-        let count = parseInt(localStorage.getItem(KEY) || "0", 10);
+        let count = parseInt(
+          localStorage.getItem(COUNT_KEY) || "0",
+          10
+        );
 
         if (!Number.isFinite(count) || count < 0) {
           count = 0;
         }
 
-        count += 1;
+        const now = Date.now();
 
-        localStorage.setItem(KEY, String(count));
+        const lastVisit = parseInt(
+          localStorage.getItem(TIME_KEY) || "0",
+          10
+        );
 
-        const counter = document.getElementById("visitCounterNumber");
+        if (
+          !lastVisit ||
+          (now - lastVisit) >= VISIT_INTERVAL
+        ) {
+          count += 1;
+
+          localStorage.setItem(
+            COUNT_KEY,
+            String(count)
+          );
+
+          localStorage.setItem(
+            TIME_KEY,
+            String(now)
+          );
+        }
+
+        const counter =
+          document.getElementById("visitCounterNumber");
 
         if (counter) {
-          counter.textContent = count.toLocaleString("ru-RU");
+          counter.textContent =
+            count.toLocaleString("ru-RU");
         }
+
       } catch (error) {
-        const counter = document.getElementById("visitCounterNumber");
+        const counter =
+          document.getElementById("visitCounterNumber");
 
         if (counter) {
           counter.textContent = "1";
@@ -305,5 +336,6 @@
 
   <script src="config.js"></script>
   <script src="app.js"></script>
+
 </body>
 </html>
