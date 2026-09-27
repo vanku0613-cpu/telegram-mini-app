@@ -373,6 +373,182 @@
 
 
   <!-- =====================================================
+       ВОССТАНОВЛЕНИЕ MINI APP ПОСЛЕ ВОЗВРАТА ИЗ TELEGRAM
+       ===================================================== -->
+
+  <script>
+
+    (function () {
+
+      "use strict";
+
+
+      function prepareTelegramApp() {
+
+        try {
+
+          if (
+            window.Telegram &&
+            window.Telegram.WebApp
+          ) {
+
+            Telegram.WebApp.ready();
+
+            Telegram.WebApp.expand();
+
+          }
+
+        } catch (error) {
+
+          console.log(
+            "Telegram WebApp restore error:",
+            error
+          );
+
+        }
+
+      }
+
+
+      /*
+       * Telegram может оставить Mini App открытым,
+       * но после перехода в чат/бота вернуть его
+       * в некорректном состоянии.
+       *
+       * При возвращении проверяем состояние страницы.
+       */
+
+      let wasHidden = false;
+
+
+      document.addEventListener(
+        "visibilitychange",
+        function () {
+
+          if (
+            document.visibilityState === "hidden"
+          ) {
+
+            wasHidden = true;
+
+            return;
+
+          }
+
+
+          if (
+            document.visibilityState === "visible" &&
+            wasHidden
+          ) {
+
+            wasHidden = false;
+
+
+            setTimeout(
+              function () {
+
+                prepareTelegramApp();
+
+
+                /*
+                 * Даём странице немного времени
+                 * восстановиться самостоятельно.
+                 */
+
+                setTimeout(
+                  function () {
+
+                    /*
+                     * Если основной интерфейс отсутствует,
+                     * перезагружаем Mini App.
+                     */
+
+                    const reference =
+                      document.getElementById(
+                        "reference"
+                      );
+
+
+                    const image =
+                      document.getElementById(
+                        "referenceImage"
+                      );
+
+
+                    if (
+                      !reference ||
+                      !image ||
+                      !image.complete ||
+                      image.naturalWidth === 0
+                    ) {
+
+                      window.location.reload();
+
+                    }
+
+                  },
+                  700
+                );
+
+              },
+              300
+            );
+
+          }
+
+        }
+      );
+
+
+      /*
+       * Дополнительное восстановление,
+       * если Telegram показывает страницу
+       * после возврата из внешнего приложения.
+       */
+
+      window.addEventListener(
+        "pageshow",
+        function () {
+
+          setTimeout(
+            prepareTelegramApp,
+            300
+          );
+
+        }
+      );
+
+
+      /*
+       * Когда пользователь возвращается
+       * в окно Mini App.
+       */
+
+      window.addEventListener(
+        "focus",
+        function () {
+
+          setTimeout(
+            prepareTelegramApp,
+            300
+          );
+
+        }
+      );
+
+
+      /*
+       * Первоначальная инициализация.
+       */
+
+      prepareTelegramApp();
+
+    })();
+
+  </script>
+
+
+  <!-- =====================================================
        СКРИПТЫ ПРОЕКТА
        ===================================================== -->
 
@@ -388,40 +564,51 @@
 
   <script>
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
 
-      const groupsButton =
-        document.getElementById("groupsLink");
+        const groupsButton =
+          document.getElementById(
+            "groupsLink"
+          );
 
-      if (!groupsButton) {
-        return;
+
+        if (!groupsButton) {
+
+          return;
+
+        }
+
+
+        const groupsUrl =
+          "https://vanku0613-cpu.github.io/telegram-mini-app/our-groups-menu/";
+
+
+        groupsButton.setAttribute(
+          "href",
+          groupsUrl
+        );
+
+
+        groupsButton.addEventListener(
+          "click",
+          function (event) {
+
+            event.preventDefault();
+
+            event.stopImmediatePropagation();
+
+
+            window.location.href =
+              groupsUrl;
+
+          },
+          true
+        );
+
       }
-
-      const groupsUrl =
-        "https://vanku0613-cpu.github.io/telegram-mini-app/our-groups-menu/";
-
-
-      groupsButton.setAttribute(
-        "href",
-        groupsUrl
-      );
-
-
-      groupsButton.addEventListener(
-        "click",
-        function (event) {
-
-          event.preventDefault();
-          event.stopImmediatePropagation();
-
-          window.location.href =
-            groupsUrl;
-
-        },
-        true
-      );
-
-    });
+    );
 
   </script>
 
