@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* ===== ЛОКАЛЬНЫЙ СЧЁТЧИК НАД ПОГОДОЙ ===== */
+    /* ===== СЧЁТЧИК ПРОСМОТРОВ НАД НАЧАЛОМ ПОГОДЫ ===== */
 
     #weatherWidget {
       position: relative !important;
@@ -19,18 +19,19 @@
       position: absolute !important;
       z-index: 9999 !important;
 
-      left: 50% !important;
+      /* У левого края кнопки */
+      left: 8px !important;
       top: -27px !important;
-      transform: translateX(-50%) !important;
+
+      transform: none !important;
 
       display: flex !important;
       align-items: center !important;
-      justify-content: center !important;
+      justify-content: flex-start !important;
       gap: 4px !important;
 
       height: 21px !important;
-      min-width: 42px !important;
-      padding: 0 7px !important;
+      padding: 0 8px !important;
 
       border-radius: 11px !important;
 
@@ -44,7 +45,7 @@
       color: rgba(255,255,255,0.95) !important;
 
       font-family: Arial, Helvetica, sans-serif !important;
-      font-size: 10px !important;
+      font-size: 9px !important;
       font-weight: 700 !important;
       line-height: 21px !important;
 
@@ -57,10 +58,11 @@
       font-size: 11px !important;
       line-height: 1 !important;
       opacity: .95 !important;
+      flex-shrink: 0 !important;
     }
 
     #visitCounterNumber {
-      font-size: 10px !important;
+      font-size: 9px !important;
       line-height: 1 !important;
       font-variant-numeric: tabular-nums !important;
     }
@@ -83,9 +85,10 @@
         <!-- ПОГОДА -->
         <div id="weatherWidget" class="widget weather-widget">
 
-          <!-- СЧЁТЧИК -->
-          <div id="visitCounter" aria-label="Количество открытий">
+          <!-- СЧЁТЧИК ПРОСМОТРОВ -->
+          <div id="visitCounter" aria-label="Количество просмотров">
             <span id="visitCounterIcon">👁</span>
+            <span>просмотрено</span>
             <span id="visitCounterNumber">1</span>
           </div>
 
@@ -272,8 +275,9 @@
     </div>
   </main>
 
-  <!-- Локальный счётчик.
-       Новое посещение засчитывается максимум один раз в 2 минуты. -->
+  <!-- ===== ЛОКАЛЬНЫЙ СЧЁТЧИК ===== -->
+  <!-- Новое посещение засчитывается не чаще одного раза в 2 минуты -->
+
   <script>
     (() => {
       const COUNT_KEY = "izmail_local_visit_counter";
@@ -324,6 +328,7 @@
         }
 
       } catch (error) {
+
         const counter =
           document.getElementById("visitCounterNumber");
 
