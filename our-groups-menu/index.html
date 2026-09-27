@@ -8,7 +8,9 @@
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   >
 
-  <title>Наши группы</title>
+  <meta name="theme-color" content="#06152b">
+
+  <title>Все наши группы</title>
 
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -20,661 +22,326 @@
     <!-- ШАПКА -->
     <header class="groups-header">
 
-      <a class="back-button" href="../index.html">
-        <span class="back-icon">‹</span>
-        <span>Вернуться в меню</span>
-      </a>
+      <div class="header-line"></div>
 
-      <div class="header-text">
-        <div class="eyebrow">
-          TELEGRAM • ИЗМАИЛ
-        </div>
-
-        <h1>Наши группы</h1>
-
-        <p>
-          Полезные сообщества города
-        </p>
+      <div class="header-label">
+        ИЗМАИЛ • ГОРОДСКИЕ СООБЩЕСТВА
       </div>
+
+      <h1>ВСЕ НАШИ ГРУППЫ</h1>
+
+      <p class="header-subtitle">
+        Полезные городские сообщества в одном месте
+      </p>
 
     </header>
 
 
-    <!-- КАРТОЧКИ -->
-    <section class="groups-grid">
+    <!-- ВЕРНУТЬСЯ В ГЛАВНОЕ МЕНЮ -->
+    <button
+      type="button"
+      class="back-button"
+      data-back
+    >
+      <span class="back-icon">←</span>
+      <span>Вернуться в главное меню</span>
+    </button>
 
 
-      <!-- СПРАВОЧНИК -->
+    <!-- ВСЕ ГРУППЫ -->
+    <section class="groups-grid" aria-label="Все наши группы">
+
+
+      <!-- 1. СПРАВОЧНИК -->
       <a
         class="group-card"
         href="https://t.me/SPRAVOCHNIK_IZMAIL"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
 
-        <div class="card-glow"></div>
+        <div class="card-top">
 
-        <div class="card-top guide">
+          <div class="avatar-frame">
+            <img
+              class="group-avatar"
+              src="./avatars/guide.jpg"
+              alt="Справочник Измаил"
+              loading="lazy"
+            >
+          </div>
 
-          <svg viewBox="0 0 120 120" class="group-icon">
-            <rect
-              x="18"
-              y="25"
-              width="84"
-              height="68"
-              rx="12"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-            />
-
-            <path
-              d="M60 26v66"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="5"
-            />
-
-            <path
-              d="M32 47h17M32 60h20M70 51h18M70 64h14"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="5"
-              stroke-linecap="round"
-            />
-          </svg>
-
-          <span class="open-mark">↗</span>
+          <span class="card-arrow">↗</span>
 
         </div>
 
         <div class="card-content">
-
           <h2>Справочник Измаил</h2>
-
-          <p>
-            Полезная информация о городе
-          </p>
-
-          <div class="card-bottom">
-            <span>Открыть группу</span>
-            <span class="arrow">→</span>
-          </div>
-
+          <p>Полезная информация о городе</p>
         </div>
 
       </a>
 
 
-      <!-- ЗООЧАТ -->
-      <a
-        class="group-card"
-        href="https://t.me/Izmail_CHAT_24_7"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <div class="card-glow"></div>
-
-        <div class="card-top zoo">
-
-          <svg viewBox="0 0 120 120" class="group-icon">
-
-            <circle cx="34" cy="38" r="12" fill="currentColor"/>
-            <circle cx="60" cy="29" r="12" fill="currentColor"/>
-            <circle cx="86" cy="38" r="12" fill="currentColor"/>
-
-            <circle cx="28" cy="67" r="13" fill="currentColor"/>
-
-            <path
-              d="M60 47
-                 C38 47 30 63 34 82
-                 C38 101 51 106 60 106
-                 C69 106 82 101 86 82
-                 C90 63 82 47 60 47Z"
-              fill="currentColor"
-            />
-
-            <circle cx="92" cy="67" r="13" fill="currentColor"/>
-
-          </svg>
-
-          <span class="open-mark">↗</span>
-
-        </div>
-
-        <div class="card-content">
-
-          <h2>Зоочат</h2>
-
-          <p>
-            Животные, помощь и общение
-          </p>
-
-          <div class="card-bottom">
-            <span>Открыть группу</span>
-            <span class="arrow">→</span>
-          </div>
-
-        </div>
-
-      </a>
-
-
-      <!-- АВТО -->
-      <a
-        class="group-card"
-        href="https://t.me/AVTO_IZMAIL_ODESSA"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <div class="card-glow"></div>
-
-        <div class="card-top auto">
-
-          <svg viewBox="0 0 120 120" class="group-icon">
-
-            <path
-              d="M22 69
-                 L30 48
-                 C32 43 37 40 43 40
-                 H77
-                 C83 40 88 43 90 48
-                 L98 69
-                 V82
-                 H22Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-              stroke-linejoin="round"
-            />
-
-            <path
-              d="M35 55h50"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="5"
-              stroke-linecap="round"
-            />
-
-            <circle
-              cx="37"
-              cy="82"
-              r="10"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-            />
-
-            <circle
-              cx="83"
-              cy="82"
-              r="10"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-            />
-
-          </svg>
-
-          <span class="open-mark">↗</span>
-
-        </div>
-
-        <div class="card-content">
-
-          <h2>Авто Бессарабия</h2>
-
-          <p>
-            Автомобили, запчасти и общение
-          </p>
-
-          <div class="card-bottom">
-            <span>Открыть группу</span>
-            <span class="arrow">→</span>
-          </div>
-
-        </div>
-
-      </a>
-
-
-      <!-- НЕДВИЖИМОСТЬ -->
-      <a
-        class="group-card"
-        href="https://t.me/IZMAIL_NEDVIZHIMOST"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <div class="card-glow"></div>
-
-        <div class="card-top realty">
-
-          <svg viewBox="0 0 120 120" class="group-icon">
-
-            <path
-              d="M18 58 L60 22 L102 58"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-
-            <path
-              d="M28 53v48h64V53"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-            />
-
-            <rect
-              x="39"
-              y="64"
-              width="16"
-              height="16"
-              rx="2"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="5"
-            />
-
-            <rect
-              x="65"
-              y="64"
-              width="16"
-              height="16"
-              rx="2"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="5"
-            />
-
-            <path
-              d="M52 101V82h16v19"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="5"
-            />
-
-          </svg>
-
-          <span class="open-mark">↗</span>
-
-        </div>
-
-        <div class="card-content">
-
-          <h2>Недвижимость</h2>
-
-          <p>
-            Аренда, покупка и продажа
-          </p>
-
-          <div class="card-bottom">
-            <span>Открыть группу</span>
-            <span class="arrow">→</span>
-          </div>
-
-        </div>
-
-      </a>
-
-
-      <!-- РАБОТА -->
-      <a
-        class="group-card"
-        href="https://t.me/rabota_v_izmaile"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <div class="card-glow"></div>
-
-        <div class="card-top work">
-
-          <svg viewBox="0 0 120 120" class="group-icon">
-
-            <rect
-              x="20"
-              y="45"
-              width="80"
-              height="52"
-              rx="10"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-            />
-
-            <path
-              d="M43 45V35
-                 C43 30 47 27 52 27
-                 H68
-                 C73 27 77 30 77 35
-                 V45"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-            />
-
-            <path
-              d="M20 65h80"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="6"
-            />
-
-            <path
-              d="M50 65v10h20V65"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="6"
-            />
-
-          </svg>
-
-          <span class="open-mark">↗</span>
-
-        </div>
-
-        <div class="card-content">
-
-          <h2>Работа</h2>
-
-          <p>
-            Вакансии и поиск сотрудников
-          </p>
-
-          <div class="card-bottom">
-            <span>Открыть группу</span>
-            <span class="arrow">→</span>
-          </div>
-
-        </div>
-
-      </a>
-
-
-      <!-- РЫНОК -->
+      <!-- 2. РЫНОК ОНЛАЙН -->
       <a
         class="group-card"
         href="https://t.me/Vkusny_Chat_Izmail"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
 
-        <div class="card-glow"></div>
+        <div class="card-top">
 
-        <div class="card-top market">
+          <div class="avatar-frame">
+            <img
+              class="group-avatar"
+              src="./avatars/market.jpg"
+              alt="Рынок онлайн"
+              loading="lazy"
+            >
+          </div>
 
-          <svg viewBox="0 0 120 120" class="group-icon">
-
-            <path
-              d="M28 48h64l-5 55H33Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-              stroke-linejoin="round"
-            />
-
-            <path
-              d="M23 48
-                 L29 29
-                 H91
-                 L97 48
-                 C94 57 82 58 78 49
-                 C74 58 62 58 60 49
-                 C56 58 44 58 41 49
-                 C37 58 26 57 23 48Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="6"
-              stroke-linejoin="round"
-            />
-
-            <circle cx="46" cy="77" r="7" fill="currentColor"/>
-            <circle cx="61" cy="71" r="7" fill="currentColor"/>
-            <circle cx="76" cy="79" r="7" fill="currentColor"/>
-
-          </svg>
-
-          <span class="open-mark">↗</span>
+          <span class="card-arrow">↗</span>
 
         </div>
 
         <div class="card-content">
-
           <h2>Рынок онлайн</h2>
-
-          <p>
-            Покупай и продавай
-          </p>
-
-          <div class="card-bottom">
-            <span>Открыть группу</span>
-            <span class="arrow">→</span>
-          </div>
-
+          <p>Покупай и продавай</p>
         </div>
 
       </a>
 
 
-      <!-- СВЕТ ВОДА ГАЗ -->
+      <!-- 3. СВЕТ ВОДА ГАЗ -->
       <a
         class="group-card"
         href="https://t.me/IZMAIL_GAZ_SVET_VODA"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
 
-        <div class="card-glow"></div>
+        <div class="card-top">
 
-        <div class="card-top energy">
+          <div class="avatar-frame">
+            <img
+              class="group-avatar"
+              src="./avatars/utilities.jpg"
+              alt="Свет Вода Газ"
+              loading="lazy"
+            >
+          </div>
 
-          <svg viewBox="0 0 120 120" class="group-icon">
-
-            <path
-              d="M66 14
-                 L36 62
-                 H57
-                 L50 106
-                 L84 53
-                 H63Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-              stroke-linejoin="round"
-            />
-
-            <path
-              d="M91 70
-                 C91 70 78 85 78 94
-                 C78 103 84 108 91 108
-                 C98 108 104 103 104 94
-                 C104 85 91 70 91 70Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="5"
-            />
-
-          </svg>
-
-          <span class="open-mark">↗</span>
+          <span class="card-arrow">↗</span>
 
         </div>
 
         <div class="card-content">
-
           <h2>Свет • Вода • Газ</h2>
-
-          <p>
-            Важная информация и помощь
-          </p>
-
-          <div class="card-bottom">
-            <span>Открыть группу</span>
-            <span class="arrow">→</span>
-          </div>
-
+          <p>Свет • вода • газ • интернет</p>
         </div>
 
       </a>
 
 
-      <!-- БЮРО НАХОДОК -->
+      <!-- 4. РАБОТА -->
+      <a
+        class="group-card"
+        href="https://t.me/rabota_v_izmaile"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="card-top">
+
+          <div class="avatar-frame">
+            <img
+              class="group-avatar"
+              src="./avatars/work.jpg"
+              alt="Работа"
+              loading="lazy"
+            >
+          </div>
+
+          <span class="card-arrow">↗</span>
+
+        </div>
+
+        <div class="card-content">
+          <h2>Работа</h2>
+          <p>Вакансии и поиск сотрудников</p>
+        </div>
+
+      </a>
+
+
+      <!-- 5. АВТО БЕССАРАБИЯ -->
+      <a
+        class="group-card"
+        href="https://t.me/AVTO_IZMAIL_ODESSA"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="card-top">
+
+          <div class="avatar-frame">
+            <img
+              class="group-avatar"
+              src="./avatars/auto.jpg"
+              alt="Авто Бессарабия"
+              loading="lazy"
+            >
+          </div>
+
+          <span class="card-arrow">↗</span>
+
+        </div>
+
+        <div class="card-content">
+          <h2>Авто Бессарабия</h2>
+          <p>Авто, запчасти и общение</p>
+        </div>
+
+      </a>
+
+
+      <!-- 6. НЕДВИЖИМОСТЬ -->
+      <a
+        class="group-card"
+        href="https://t.me/IZMAIL_NEDVIZHIMOST"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="card-top">
+
+          <div class="avatar-frame">
+            <img
+              class="group-avatar"
+              src="./avatars/realestate.jpg"
+              alt="Недвижимость"
+              loading="lazy"
+            >
+          </div>
+
+          <span class="card-arrow">↗</span>
+
+        </div>
+
+        <div class="card-content">
+          <h2>Недвижимость</h2>
+          <p>Аренда, покупка и продажа</p>
+        </div>
+
+      </a>
+
+
+      <!-- 7. ЗООЧАТ -->
+      <a
+        class="group-card"
+        href="https://t.me/Izmail_CHAT_24_7"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="card-top">
+
+          <div class="avatar-frame">
+            <img
+              class="group-avatar"
+              src="./avatars/zoo.jpg"
+              alt="Зоочат"
+              loading="lazy"
+            >
+          </div>
+
+          <span class="card-arrow">↗</span>
+
+        </div>
+
+        <div class="card-content">
+          <h2>Зоочат</h2>
+          <p>Животные, помощь и общение</p>
+        </div>
+
+      </a>
+
+
+      <!-- 8. БЮРО НАХОДОК -->
       <a
         class="group-card"
         href="https://t.me/buro_nahodok_izmail"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
 
-        <div class="card-glow"></div>
+        <div class="card-top">
 
-        <div class="card-top lost">
+          <div class="avatar-frame">
+            <img
+              class="group-avatar"
+              src="./avatars/lost.jpg"
+              alt="Бюро находок"
+              loading="lazy"
+            >
+          </div>
 
-          <svg viewBox="0 0 120 120" class="group-icon">
-
-            <circle
-              cx="50"
-              cy="50"
-              r="27"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-            />
-
-            <path
-              d="M70 70 L99 99"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="8"
-              stroke-linecap="round"
-            />
-
-            <path
-              d="M50 35v20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="6"
-              stroke-linecap="round"
-            />
-
-            <circle
-              cx="50"
-              cy="65"
-              r="3"
-              fill="currentColor"
-            />
-
-          </svg>
-
-          <span class="open-mark">↗</span>
+          <span class="card-arrow">↗</span>
 
         </div>
 
         <div class="card-content">
-
           <h2>Бюро находок</h2>
-
-          <p>
-            Нашёл или потерял — напиши
-          </p>
-
-          <div class="card-bottom">
-            <span>Открыть группу</span>
-            <span class="arrow">→</span>
-          </div>
-
+          <p>Нашёл / потерял — напиши</p>
         </div>
 
       </a>
-
-
-      <!-- СВОБОДНОЕ ОБЩЕНИЕ -->
-      <a
-        class="group-card"
-        href="https://t.me/+5qLXgy-mFmM5YWNi"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <div class="card-glow"></div>
-
-        <div class="card-top chat">
-
-          <svg viewBox="0 0 120 120" class="group-icon">
-
-            <path
-              d="M20 29
-                 C20 21 27 16 36 16
-                 H75
-                 C84 16 91 21 91 29
-                 V58
-                 C91 66 84 72 75 72
-                 H51
-                 L34 87
-                 V72
-                 H36
-                 C27 72 20 66 20 58Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-              stroke-linejoin="round"
-            />
-
-            <path
-              d="M44 92
-                 H84
-                 C93 92 100 86 100 78
-                 V57"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-              stroke-linecap="round"
-            />
-
-            <circle cx="40" cy="43" r="4" fill="currentColor"/>
-            <circle cx="56" cy="43" r="4" fill="currentColor"/>
-            <circle cx="72" cy="43" r="4" fill="currentColor"/>
-
-          </svg>
-
-          <span class="open-mark">↗</span>
-
-        </div>
-
-        <div class="card-content">
-
-          <h2>Свободное общение</h2>
-
-          <p>
-            Общение жителей Измаила
-          </p>
-
-          <div class="card-bottom">
-            <span>Открыть группу</span>
-            <span class="arrow">→</span>
-          </div>
-
-        </div>
-
-      </a>
-
 
     </section>
 
 
-    <footer class="groups-footer">
-      <span></span>
-      <b>IZMAIL</b>
-      <span></span>
-    </footer>
+    <!-- НИЖНЯЯ КНОПКА -->
+    <button
+      type="button"
+      class="back-button bottom-back"
+      data-back
+    >
+      <span class="back-icon">←</span>
+      <span>Вернуться в главное меню</span>
+    </button>
+
+
+    <div class="page-footer">
+      ИЗМАИЛ • НАШ ГОРОД • НАШИ ЛЮДИ
+    </div>
 
   </main>
+
+
+  <script>
+    "use strict";
+
+    function goHome() {
+      try {
+        if (
+          history.length > 1 &&
+          document.referrer &&
+          new URL(document.referrer).origin === location.origin
+        ) {
+          history.back();
+          return;
+        }
+      } catch (_) {}
+
+      location.href = "../";
+    }
+
+    document.querySelectorAll("[data-back]").forEach(function(button) {
+      button.addEventListener("click", goHome);
+    });
+  </script>
 
 </body>
 </html>
