@@ -244,14 +244,14 @@
 
 
       <!-- =====================================================
-           НАШИ ГРУППЫ
+           ВСЕ НАШИ ГРУППЫ
            ===================================================== -->
 
       <a
         id="groupsLink"
         class="hotspot groups-hotspot"
-        href="#"
-        aria-label="Наши группы"
+        href="https://vanku0613-cpu.github.io/telegram-mini-app/our-groups-menu/"
+        aria-label="Все наши группы"
       ></a>
 
 
@@ -372,6 +372,48 @@
   <script src="config.js?v=12"></script>
 
   <script src="app.js?v=12"></script>
+
+
+  <!-- =====================================================
+       ПРИНУДИТЕЛЬНЫЙ ПЕРЕХОД
+       «ВСЕ НАШИ ГРУППЫ»
+       ===================================================== -->
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const groupsButton =
+        document.getElementById("groupsLink");
+
+      if (!groupsButton) {
+        return;
+      }
+
+      const groupsUrl =
+        "https://vanku0613-cpu.github.io/telegram-mini-app/our-groups-menu/";
+
+
+      groupsButton.setAttribute("href", groupsUrl);
+
+
+      groupsButton.addEventListener(
+        "click",
+        function (event) {
+
+          event.preventDefault();
+          event.stopImmediatePropagation();
+
+          window.location.href = groupsUrl;
+
+        },
+        true
+      );
+
+    });
+
+  </script>
+
 
 </body>
 
