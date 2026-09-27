@@ -1,28 +1,72 @@
 <!doctype html>
 <html lang="ru">
-
 <head>
   <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#061b35">
-
   <title>Главный справочник Измаил</title>
+  <link rel="stylesheet" href="styles.css">
 
-  <link rel="stylesheet" href="styles.css?v=13">
+  <style>
+    /* Небольшой локальный счётчик над погодой */
+    .visit-counter {
+      position: absolute;
+      z-index: 20;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+
+      padding: 4px 9px;
+      min-height: 24px;
+
+      border-radius: 12px;
+      background: rgba(4, 18, 38, 0.62);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.18);
+
+      color: rgba(255,255,255,0.92);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+
+      /* Расположение над погодой */
+      left: 7%;
+      top: 18.5%;
+    }
+
+    .visit-counter-icon {
+      font-size: 12px;
+      line-height: 1;
+      opacity: 0.9;
+    }
+
+    .visit-counter-number {
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (max-width: 500px) {
+      .visit-counter {
+        left: 7%;
+        top: 18.5%;
+        padding: 3px 8px;
+        min-height: 22px;
+        font-size: 10px;
+      }
+
+      .visit-counter-icon {
+        font-size: 11px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
   <main class="app">
-
     <div class="reference" id="reference">
-
-      <!-- ОСНОВНАЯ КАРТИНКА -->
 
       <img
         id="referenceImage"
@@ -31,96 +75,19 @@
         alt="Главный справочник Измаил"
       >
 
+      <!-- Локальный счётчик открытий -->
+      <div id="visitCounter" class="visit-counter" aria-label="Количество открытий">
+        <span class="visit-counter-icon">👁</span>
+        <span id="visitCounterNumber" class="visit-counter-number">1</span>
+      </div>
 
-      <!-- =====================================================
-           ПОГОДА + КУРС НБУ
-           ===================================================== -->
+      <section class="live-widgets" aria-label="Погода и курс валют">
 
-      <section
-        class="live-widgets"
-        aria-label="Погода и курс валют"
-      >
-
-        <!-- ПОГОДА -->
-
-        <div
-          id="weatherWidget"
-          class="widget weather-widget"
-          style="position: relative;"
-        >
-
-          <!-- СЧЁТЧИК ПРОСМОТРОВ -->
-
-          <div
-            id="viewsCounter"
-            aria-label="Количество просмотров"
-            style="
-              position: absolute;
-              left: 50%;
-              top: -34px;
-              transform: translateX(-50%);
-              z-index: 20;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              width: max-content;
-              max-width: 90%;
-              min-height: 25px;
-              padding: 4px 10px;
-              box-sizing: border-box;
-              border: 1px solid rgba(255,255,255,0.22);
-              border-radius: 999px;
-              background: rgba(255,255,255,0.10);
-              box-shadow:
-                0 4px 15px rgba(0,0,0,0.18),
-                inset 0 1px 0 rgba(255,255,255,0.12);
-              backdrop-filter: blur(10px);
-              -webkit-backdrop-filter: blur(10px);
-              color: rgba(255,255,255,0.92);
-              font-family: Arial, Helvetica, sans-serif;
-              font-size: 11px;
-              font-weight: 600;
-              line-height: 1;
-              white-space: nowrap;
-              pointer-events: none;
-              user-select: none;
-              -webkit-user-select: none;
-            "
-          >
-            <span style="margin-right: 4px;">👁</span>
-            <span>Просмотрено</span>
-            <strong
-              id="viewsNumber"
-              style="
-                margin-left: 5px;
-                font-weight: 700;
-              "
-            >5 000</strong>
-          </div>
-
-
-          <div class="widget-title">
-            ПОГОДА
-          </div>
-
-          <div
-            id="weatherTemp"
-            class="widget-main"
-          >
-            —°C
-          </div>
-
-          <div
-            id="weatherText"
-            class="widget-sub"
-          >
-            Загрузка…
-          </div>
-
+        <div id="weatherWidget" class="widget weather-widget">
+          <div class="widget-title">ПОГОДА</div>
+          <div id="weatherTemp" class="widget-main">—°C</div>
+          <div id="weatherText" class="widget-sub">Загрузка…</div>
         </div>
-
-
-        <!-- КУРС НБУ -->
 
         <a
           id="currencyWidget"
@@ -130,53 +97,22 @@
           rel="noopener noreferrer"
           aria-label="Курс валют"
         >
-
-          <div class="widget-title">
-            КУРС НБУ
-          </div>
-
+          <div class="widget-title">КУРС НБУ</div>
           <div class="currency-line">
             <b>USD</b>
             <span id="usdRate">—</span>
           </div>
-
           <div class="currency-line">
             <b>EUR</b>
             <span id="eurRate">—</span>
           </div>
-
         </a>
 
       </section>
 
+      <a id="mainGroup" class="hotspot logo-hotspot" href="#" aria-label="Главная группа"></a>
 
-      <!-- =====================================================
-           ЛОГОТИП
-           ===================================================== -->
-
-      <a
-        id="mainGroup"
-        class="hotspot logo-hotspot"
-        href="#"
-        aria-label="Главная группа"
-      ></a>
-
-
-      <!-- =====================================================
-           УКРЫТИЯ
-           ===================================================== -->
-
-      <a
-        id="shelterLink"
-        class="hotspot shelter-hotspot"
-        href="https://vanku0613-cpu.github.io/telegram-mini-app/ukrytia/"
-        aria-label="Укрытия Измаил"
-      ></a>
-
-
-      <!-- =====================================================
-           ПОИСК
-           ===================================================== -->
+      <a id="shelterLink" class="hotspot shelter-hotspot" href="#" aria-label="Укрытия Измаил"></a>
 
       <div
         id="searchHotspot"
@@ -184,7 +120,6 @@
         role="search"
         aria-label="Поиск по справочнику"
       >
-
         <input
           id="directorySearchInput"
           class="directory-search-input"
@@ -198,732 +133,98 @@
           enterkeyhint="search"
           aria-label="Поиск по справочнику Измаил"
           style="
-            position: absolute !important;
-            z-index: 10 !important;
-            left: 0 !important;
-            top: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            display: block !important;
-            margin: 0 !important;
-            padding: 0 13.5% !important;
-            background: transparent !important;
-            background-color: transparent !important;
-            background-image: none !important;
-            border: 0 !important;
-            border-width: 0 !important;
-            border-style: none !important;
-            outline: 0 !important;
-            outline-width: 0 !important;
-            box-shadow: none !important;
-            color: #ffffff !important;
-            font-family: Arial, Helvetica, sans-serif !important;
-            font-size: clamp(12px, 2.5vw, 18px) !important;
-            font-weight: 700 !important;
-            line-height: 1 !important;
-            text-align: left !important;
-            border-radius: 18px !important;
-            appearance: none !important;
-            -webkit-appearance: none !important;
-            -webkit-tap-highlight-color: transparent !important;
-            caret-color: #ffffff !important;
+            position:absolute!important;
+            z-index:10!important;
+            left:0!important;
+            top:0!important;
+            width:100%!important;
+            height:100%!important;
+            display:block!important;
+            margin:0!important;
+            padding:0 13.5%!important;
+            background:transparent!important;
+            background-color:transparent!important;
+            background-image:none!important;
+            border:0!important;
+            border-width:0!important;
+            border-style:none!important;
+            outline:0!important;
+            outline-width:0!important;
+            box-shadow:none!important;
+            color:#ffffff!important;
+            font-family:Arial,Helvetica,sans-serif!important;
+            font-size:clamp(12px,2.5vw,18px)!important;
+            font-weight:700!important;
+            line-height:1!important;
+            text-align:left!important;
+            border-radius:18px!important;
+            appearance:none!important;
+            -webkit-appearance:none!important;
+            -webkit-tap-highlight-color:transparent!important;
+            caret-color:#ffffff!important;
           "
         >
-
       </div>
 
+      <a id="healthLink" class="hotspot category-hotspot health-hotspot" href="#" aria-label="Здоровье и уход"></a>
 
-      <!-- =====================================================
-           КАТЕГОРИИ
-           ===================================================== -->
+      <a id="transportLink" class="hotspot category-hotspot transport-hotspot" href="#" aria-label="Транспорт и такси"></a>
 
-      <a
-        id="healthLink"
-        class="hotspot category-hotspot health-hotspot"
-        href="#"
-        aria-label="Здоровье и уход"
-      ></a>
+      <a id="servicesLink" class="hotspot category-hotspot services-hotspot" href="#" aria-label="Услуги и мастера"></a>
 
-      <a
-        id="transportLink"
-        class="hotspot category-hotspot transport-hotspot"
-        href="#"
-        aria-label="Транспорт и такси"
-      ></a>
+      <a id="foodLink" class="hotspot category-hotspot food-hotspot" href="#" aria-label="Продукты питания"></a>
 
-      <a
-        id="servicesLink"
-        class="hotspot category-hotspot services-hotspot"
-        href="#"
-        aria-label="Услуги и мастера"
-      ></a>
+      <a id="utilitiesLink" class="hotspot category-hotspot utilities-hotspot" href="#" aria-label="Коммунальные службы"></a>
 
-      <a
-        id="foodLink"
-        class="hotspot category-hotspot food-hotspot"
-        href="#"
-        aria-label="Продукты питания"
-      ></a>
+      <a id="jobsLink" class="hotspot category-hotspot jobs-hotspot" href="#" aria-label="Работа и вакансии"></a>
 
-      <a
-        id="utilitiesLink"
-        class="hotspot category-hotspot utilities-hotspot"
-        href="#"
-        aria-label="Коммунальные службы"
-      ></a>
+      <a id="educationLink" class="hotspot category-hotspot education-hotspot" href="#" aria-label="Образование и развитие"></a>
 
-      <a
-        id="jobsLink"
-        class="hotspot category-hotspot jobs-hotspot"
-        href="#"
-        aria-label="Работа и вакансии"
-      ></a>
+      <a id="leisureLink" class="hotspot category-hotspot leisure-hotspot" href="#" aria-label="Отдых, жильё и море"></a>
 
-      <a
-        id="educationLink"
-        class="hotspot category-hotspot education-hotspot"
-        href="#"
-        aria-label="Образование и развитие"
-      ></a>
+      <a id="groupsLink" class="hotspot groups-hotspot" href="#" aria-label="Наши группы"></a>
 
-      <a
-        id="leisureLink"
-        class="hotspot category-hotspot leisure-hotspot"
-        href="#"
-        aria-label="Отдых, жильё и море"
-      ></a>
+      <a id="homeLink" class="hotspot nav-hotspot home-hotspot" href="#" aria-label="Главная"></a>
 
+      <a id="adsLink" class="hotspot nav-hotspot ads-hotspot" href="#" aria-label="Заказать рекламу"></a>
 
-      <!-- =====================================================
-           ВСЕ НАШИ ГРУППЫ
-           ===================================================== -->
-
-      <a
-        id="groupsLink"
-        class="hotspot groups-hotspot"
-        href="https://vanku0613-cpu.github.io/telegram-mini-app/our-groups-menu/"
-        aria-label="Все наши группы"
-      ></a>
-
-
-      <!-- =====================================================
-           НИЖНЕЕ МЕНЮ
-           ===================================================== -->
-
-      <a
-        id="homeLink"
-        class="hotspot nav-hotspot home-hotspot"
-        href="#"
-        aria-label="Главная"
-      ></a>
-
-      <!-- =====================================================
-           ЗАКАЗАТЬ РЕКЛАМУ
-           ОБЫЧНАЯ TELEGRAM-ССЫЛКА
-           ===================================================== -->
-
-      <a
-        id="adsLink"
-        class="hotspot nav-hotspot ads-hotspot"
-        href="https://t.me/Vanku13"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Заказать рекламу"
-      ></a>
-
-      <a
-        id="favoritesLink"
-        class="hotspot nav-hotspot favorites-hotspot"
-        href="#"
-        aria-label="Избранное"
-      ></a>
+      <a id="favoritesLink" class="hotspot nav-hotspot favorites-hotspot" href="#" aria-label="Избранное"></a>
 
     </div>
-
   </main>
 
-
-  <!-- =====================================================
-       ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
-       ===================================================== -->
-
-  <a
-    id="agreementLink"
-    class="user-agreement"
-    href="https://vanku0613-cpu.github.io/telegram-mini-app/soglashenie/index.html"
-    aria-label="Пользовательское соглашение"
-  >
-    Пользовательское соглашение
-  </a>
-
-
-  <style>
-
-    .user-agreement {
-      position: fixed !important;
-
-      left: 50% !important;
-      bottom: 3.2vh !important;
-
-      transform: translateX(-50%) !important;
-
-      z-index: 1000000 !important;
-
-      display: block !important;
-
-      width: max-content !important;
-      max-width: 92vw !important;
-
-      margin: 0 !important;
-      padding: 5px 8px 4px !important;
-
-      color: rgba(225, 245, 255, 0.9) !important;
-
-      font-family: Arial, Helvetica, sans-serif !important;
-
-      font-size: clamp(10px, 2vw, 14px) !important;
-
-      font-weight: 500 !important;
-
-      line-height: 1 !important;
-
-      text-align: center !important;
-
-      white-space: nowrap !important;
-
-      text-decoration: none !important;
-
-      text-shadow:
-        0 0 5px rgba(0, 180, 255, 0.55),
-        0 1px 3px rgba(0, 0, 0, 0.7) !important;
-
-      border-bottom: 1px solid rgba(80, 210, 255, 0.55) !important;
-
-      cursor: pointer !important;
-
-      pointer-events: auto !important;
-
-      touch-action: manipulation !important;
-
-      -webkit-tap-highlight-color: transparent !important;
-
-      user-select: none !important;
-      -webkit-user-select: none !important;
-    }
-
-
-    .user-agreement:active {
-      opacity: 0.7 !important;
-
-      transform:
-        translateX(-50%)
-        scale(0.98) !important;
-    }
-
-  </style>
-
-
-  <!-- =====================================================
-       TELEGRAM WEB APP
-       ===================================================== -->
-
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-
-  <!-- =====================================================
-       ВОССТАНОВЛЕНИЕ MINI APP ПОСЛЕ ВОЗВРАТА ИЗ TELEGRAM
-       ===================================================== -->
-
   <script>
+    /* Локальный счётчик открытий главного меню */
+    (() => {
+      const STORAGE_KEY = "izmail_local_visit_counter";
 
-    (function () {
+      try {
+        let count = Number(localStorage.getItem(STORAGE_KEY) || "0");
 
-      "use strict";
-
-
-      function prepareTelegramApp() {
-
-        try {
-
-          if (
-            window.Telegram &&
-            window.Telegram.WebApp
-          ) {
-
-            Telegram.WebApp.ready();
-
-            Telegram.WebApp.expand();
-
-          }
-
-        } catch (error) {
-
-          console.log(
-            "Telegram WebApp restore error:",
-            error
-          );
-
+        if (!Number.isFinite(count) || count < 0) {
+          count = 0;
         }
 
+        count += 1;
+
+        localStorage.setItem(STORAGE_KEY, String(count));
+
+        const counter = document.getElementById("visitCounterNumber");
+
+        if (counter) {
+          counter.textContent = count.toLocaleString("ru-RU");
+        }
+      } catch (e) {
+        const counter = document.getElementById("visitCounterNumber");
+
+        if (counter) {
+          counter.textContent = "1";
+        }
       }
-
-
-      let wasHidden = false;
-
-
-      document.addEventListener(
-        "visibilitychange",
-        function () {
-
-          if (
-            document.visibilityState === "hidden"
-          ) {
-
-            wasHidden = true;
-
-            return;
-
-          }
-
-
-          if (
-            document.visibilityState === "visible" &&
-            wasHidden
-          ) {
-
-            wasHidden = false;
-
-
-            setTimeout(
-              function () {
-
-                prepareTelegramApp();
-
-
-                setTimeout(
-                  function () {
-
-                    const reference =
-                      document.getElementById(
-                        "reference"
-                      );
-
-
-                    const image =
-                      document.getElementById(
-                        "referenceImage"
-                      );
-
-
-                    if (
-                      !reference ||
-                      !image ||
-                      !image.complete ||
-                      image.naturalWidth === 0
-                    ) {
-
-                      window.location.reload();
-
-                    }
-
-                  },
-                  700
-                );
-
-              },
-              300
-            );
-
-          }
-
-        }
-      );
-
-
-      window.addEventListener(
-        "pageshow",
-        function () {
-
-          setTimeout(
-            prepareTelegramApp,
-            300
-          );
-
-        }
-      );
-
-
-      window.addEventListener(
-        "focus",
-        function () {
-
-          setTimeout(
-            prepareTelegramApp,
-            300
-          );
-
-        }
-      );
-
-
-      prepareTelegramApp();
-
     })();
-
   </script>
 
-
-  <!-- =====================================================
-       СЧЁТЧИК ПРОСМОТРОВ
-       ОБЩИЙ СЧЁТЧИК + ОГРАНИЧЕНИЕ 2 МИНУТЫ
-       ===================================================== -->
-
-  <script>
-
-    (function () {
-
-      "use strict";
-
-
-      const COUNTER_KEY =
-        "glavny_spravochnik_izmail_views_2026";
-
-      const COUNTER_API =
-        "https://countapi.mileshilliard.com/api/v1";
-
-      const START_NUMBER = 5000;
-
-      const VIEW_INTERVAL =
-        2 * 60 * 1000;
-
-      const LAST_VIEW_KEY =
-        "izmail_last_view_time_v1";
-
-
-      const numberElement =
-        document.getElementById(
-          "viewsNumber"
-        );
-
-
-      if (!numberElement) {
-
-        return;
-
-      }
-
-
-      function showNumber(value) {
-
-        const number =
-          Number(value);
-
-
-        if (
-          Number.isFinite(number)
-        ) {
-
-          numberElement.textContent =
-            number.toLocaleString("ru-RU");
-
-        }
-
-      }
-
-
-      async function getCounter() {
-
-        const response =
-          await fetch(
-            COUNTER_API +
-            "/get/" +
-            COUNTER_KEY +
-            "?t=" +
-            Date.now(),
-            {
-              method: "GET",
-              cache: "no-store"
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Counter GET error"
-          );
-
-        }
-
-
-        return await response.json();
-
-      }
-
-
-      async function setCounter(value) {
-
-        const response =
-          await fetch(
-            COUNTER_API +
-            "/set/" +
-            COUNTER_KEY +
-            "?value=" +
-            encodeURIComponent(value) +
-            "&t=" +
-            Date.now(),
-            {
-              method: "GET",
-              cache: "no-store"
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Counter SET error"
-          );
-
-        }
-
-
-        return await response.json();
-
-      }
-
-
-      async function hitCounter() {
-
-        const response =
-          await fetch(
-            COUNTER_API +
-            "/hit/" +
-            COUNTER_KEY +
-            "?t=" +
-            Date.now(),
-            {
-              method: "GET",
-              cache: "no-store"
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Counter HIT error"
-          );
-
-        }
-
-
-        return await response.json();
-
-      }
-
-
-      async function updateViews() {
-
-        try {
-
-          const now =
-            Date.now();
-
-          const lastView =
-            Number(
-              localStorage.getItem(
-                LAST_VIEW_KEY
-              ) || "0"
-            );
-
-
-          /*
-           * Если пользователь уже засчитывался
-           * менее двух минут назад — просто
-           * показываем текущее общее число.
-           */
-
-          if (
-            lastView &&
-            now - lastView < VIEW_INTERVAL
-          ) {
-
-            const current =
-              await getCounter();
-
-            showNumber(
-              current.value
-            );
-
-            return;
-
-          }
-
-
-          /*
-           * Получаем текущий общий счётчик.
-           */
-
-          let current;
-
-          try {
-
-            current =
-              await getCounter();
-
-          } catch (error) {
-
-            /*
-             * Если счётчика ещё нет,
-             * создаём его с 5000.
-             */
-
-            current =
-              await setCounter(
-                START_NUMBER
-              );
-
-          }
-
-
-          /*
-           * Если значение почему-то меньше
-           * стартового, приводим его к 5000.
-           */
-
-          if (
-            Number(current.value) < START_NUMBER
-          ) {
-
-            current =
-              await setCounter(
-                START_NUMBER
-              );
-
-          }
-
-
-          /*
-           * Добавляем один просмотр.
-           */
-
-          const updated =
-            await hitCounter();
-
-
-          /*
-           * Запоминаем время засчитанного
-           * просмотра на этом устройстве.
-           */
-
-          localStorage.setItem(
-            LAST_VIEW_KEY,
-            String(now)
-          );
-
-
-          showNumber(
-            updated.value
-          );
-
-
-        } catch (error) {
-
-          console.log(
-            "Views counter error:",
-            error
-          );
-
-
-          /*
-           * Если внешний сервис временно
-           * недоступен — оставляем красивое
-           * стартовое значение, ничего
-           * остального на странице не ломаем.
-           */
-
-          showNumber(
-            START_NUMBER
-          );
-
-        }
-
-      }
-
-
-      updateViews();
-
-    })();
-
-  </script>
-
-
-  <!-- =====================================================
-       СКРИПТЫ ПРОЕКТА
-       ===================================================== -->
-
-  <script src="config.js?v=14"></script>
-
-  <script src="app.js?v=14"></script>
-
-
-  <!-- =====================================================
-       ПРИНУДИТЕЛЬНЫЙ ПЕРЕХОД
-       «ВСЕ НАШИ ГРУППЫ»
-       ===================================================== -->
-
-  <script>
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
-
-        const groupsButton =
-          document.getElementById(
-            "groupsLink"
-          );
-
-
-        if (!groupsButton) {
-
-          return;
-
-        }
-
-
-        const groupsUrl =
-          "https://vanku0613-cpu.github.io/telegram-mini-app/our-groups-menu/";
-
-
-        groupsButton.setAttribute(
-          "href",
-          groupsUrl
-        );
-
-
-        groupsButton.addEventListener(
-          "click",
-          function (event) {
-
-            event.preventDefault();
-
-            event.stopImmediatePropagation();
-
-
-            window.location.href =
-              groupsUrl;
-
-          },
-          true
-        );
-
-      }
-    );
-
-  </script>
-
-
+  <script src="config.js"></script>
+  <script src="app.js"></script>
 </body>
-
 </html>
