@@ -8,58 +8,61 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* Небольшой локальный счётчик над погодой */
-    .visit-counter {
-      position: absolute;
-      z-index: 20;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
+    /* ===== ЛОКАЛЬНЫЙ СЧЁТЧИК НАД ПОГОДОЙ ===== */
 
-      padding: 4px 9px;
-      min-height: 24px;
-
-      border-radius: 12px;
-      background: rgba(4, 18, 38, 0.62);
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: 0 3px 12px rgba(0,0,0,0.18);
-
-      color: rgba(255,255,255,0.92);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      line-height: 1;
-      white-space: nowrap;
-
-      /* Расположение над погодой */
-      left: 7%;
-      top: 18.5%;
+    #weatherWidget {
+      position: relative !important;
+      overflow: visible !important;
     }
 
-    .visit-counter-icon {
-      font-size: 12px;
-      line-height: 1;
-      opacity: 0.9;
+    #visitCounter {
+      position: absolute !important;
+      z-index: 9999 !important;
+
+      left: 50% !important;
+      top: -27px !important;
+      transform: translateX(-50%) !important;
+
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 4px !important;
+
+      height: 21px !important;
+      min-width: 42px !important;
+      padding: 0 7px !important;
+
+      border-radius: 11px !important;
+
+      background: rgba(5, 20, 42, 0.72) !important;
+      border: 1px solid rgba(255,255,255,0.18) !important;
+
+      box-shadow:
+        0 3px 10px rgba(0,0,0,0.22),
+        inset 0 0 8px rgba(255,255,255,0.04) !important;
+
+      color: rgba(255,255,255,0.95) !important;
+
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      line-height: 21px !important;
+
+      white-space: nowrap !important;
+      pointer-events: none !important;
+      box-sizing: border-box !important;
     }
 
-    .visit-counter-number {
-      font-variant-numeric: tabular-nums;
+    #visitCounterIcon {
+      font-size: 11px !important;
+      line-height: 1 !important;
+      opacity: .95 !important;
     }
 
-    @media (max-width: 500px) {
-      .visit-counter {
-        left: 7%;
-        top: 18.5%;
-        padding: 3px 8px;
-        min-height: 22px;
-        font-size: 10px;
-      }
-
-      .visit-counter-icon {
-        font-size: 11px;
-      }
+    #visitCounterNumber {
+      font-size: 10px !important;
+      line-height: 1 !important;
+      font-variant-numeric: tabular-nums !important;
     }
   </style>
 </head>
@@ -75,20 +78,24 @@
         alt="Главный справочник Измаил"
       >
 
-      <!-- Локальный счётчик открытий -->
-      <div id="visitCounter" class="visit-counter" aria-label="Количество открытий">
-        <span class="visit-counter-icon">👁</span>
-        <span id="visitCounterNumber" class="visit-counter-number">1</span>
-      </div>
-
       <section class="live-widgets" aria-label="Погода и курс валют">
 
+        <!-- ПОГОДА -->
         <div id="weatherWidget" class="widget weather-widget">
+
+          <!-- СЧЁТЧИК -->
+          <div id="visitCounter" aria-label="Количество открытий">
+            <span id="visitCounterIcon">👁</span>
+            <span id="visitCounterNumber">1</span>
+          </div>
+
           <div class="widget-title">ПОГОДА</div>
           <div id="weatherTemp" class="widget-main">—°C</div>
           <div id="weatherText" class="widget-sub">Загрузка…</div>
+
         </div>
 
+        <!-- КУРС ВАЛЮТ -->
         <a
           id="currencyWidget"
           class="widget currency-widget"
@@ -98,10 +105,12 @@
           aria-label="Курс валют"
         >
           <div class="widget-title">КУРС НБУ</div>
+
           <div class="currency-line">
             <b>USD</b>
             <span id="usdRate">—</span>
           </div>
+
           <div class="currency-line">
             <b>EUR</b>
             <span id="eurRate">—</span>
@@ -110,9 +119,19 @@
 
       </section>
 
-      <a id="mainGroup" class="hotspot logo-hotspot" href="#" aria-label="Главная группа"></a>
+      <a
+        id="mainGroup"
+        class="hotspot logo-hotspot"
+        href="#"
+        aria-label="Главная группа"
+      ></a>
 
-      <a id="shelterLink" class="hotspot shelter-hotspot" href="#" aria-label="Укрытия Измаил"></a>
+      <a
+        id="shelterLink"
+        class="hotspot shelter-hotspot"
+        href="#"
+        aria-label="Укрытия Измаил"
+      ></a>
 
       <div
         id="searchHotspot"
@@ -166,40 +185,100 @@
         >
       </div>
 
-      <a id="healthLink" class="hotspot category-hotspot health-hotspot" href="#" aria-label="Здоровье и уход"></a>
+      <a
+        id="healthLink"
+        class="hotspot category-hotspot health-hotspot"
+        href="#"
+        aria-label="Здоровье и уход"
+      ></a>
 
-      <a id="transportLink" class="hotspot category-hotspot transport-hotspot" href="#" aria-label="Транспорт и такси"></a>
+      <a
+        id="transportLink"
+        class="hotspot category-hotspot transport-hotspot"
+        href="#"
+        aria-label="Транспорт и такси"
+      ></a>
 
-      <a id="servicesLink" class="hotspot category-hotspot services-hotspot" href="#" aria-label="Услуги и мастера"></a>
+      <a
+        id="servicesLink"
+        class="hotspot category-hotspot services-hotspot"
+        href="#"
+        aria-label="Услуги и мастера"
+      ></a>
 
-      <a id="foodLink" class="hotspot category-hotspot food-hotspot" href="#" aria-label="Продукты питания"></a>
+      <a
+        id="foodLink"
+        class="hotspot category-hotspot food-hotspot"
+        href="#"
+        aria-label="Продукты питания"
+      ></a>
 
-      <a id="utilitiesLink" class="hotspot category-hotspot utilities-hotspot" href="#" aria-label="Коммунальные службы"></a>
+      <a
+        id="utilitiesLink"
+        class="hotspot category-hotspot utilities-hotspot"
+        href="#"
+        aria-label="Коммунальные службы"
+      ></a>
 
-      <a id="jobsLink" class="hotspot category-hotspot jobs-hotspot" href="#" aria-label="Работа и вакансии"></a>
+      <a
+        id="jobsLink"
+        class="hotspot category-hotspot jobs-hotspot"
+        href="#"
+        aria-label="Работа и вакансии"
+      ></a>
 
-      <a id="educationLink" class="hotspot category-hotspot education-hotspot" href="#" aria-label="Образование и развитие"></a>
+      <a
+        id="educationLink"
+        class="hotspot category-hotspot education-hotspot"
+        href="#"
+        aria-label="Образование и развитие"
+      ></a>
 
-      <a id="leisureLink" class="hotspot category-hotspot leisure-hotspot" href="#" aria-label="Отдых, жильё и море"></a>
+      <a
+        id="leisureLink"
+        class="hotspot category-hotspot leisure-hotspot"
+        href="#"
+        aria-label="Отдых, жильё и море"
+      ></a>
 
-      <a id="groupsLink" class="hotspot groups-hotspot" href="#" aria-label="Наши группы"></a>
+      <a
+        id="groupsLink"
+        class="hotspot groups-hotspot"
+        href="#"
+        aria-label="Наши группы"
+      ></a>
 
-      <a id="homeLink" class="hotspot nav-hotspot home-hotspot" href="#" aria-label="Главная"></a>
+      <a
+        id="homeLink"
+        class="hotspot nav-hotspot home-hotspot"
+        href="#"
+        aria-label="Главная"
+      ></a>
 
-      <a id="adsLink" class="hotspot nav-hotspot ads-hotspot" href="#" aria-label="Заказать рекламу"></a>
+      <a
+        id="adsLink"
+        class="hotspot nav-hotspot ads-hotspot"
+        href="#"
+        aria-label="Заказать рекламу"
+      ></a>
 
-      <a id="favoritesLink" class="hotspot nav-hotspot favorites-hotspot" href="#" aria-label="Избранное"></a>
+      <a
+        id="favoritesLink"
+        class="hotspot nav-hotspot favorites-hotspot"
+        href="#"
+        aria-label="Избранное"
+      ></a>
 
     </div>
   </main>
 
+  <!-- Локальный счётчик открытий -->
   <script>
-    /* Локальный счётчик открытий главного меню */
     (() => {
-      const STORAGE_KEY = "izmail_local_visit_counter";
+      const KEY = "izmail_local_visit_counter";
 
       try {
-        let count = Number(localStorage.getItem(STORAGE_KEY) || "0");
+        let count = parseInt(localStorage.getItem(KEY) || "0", 10);
 
         if (!Number.isFinite(count) || count < 0) {
           count = 0;
@@ -207,14 +286,14 @@
 
         count += 1;
 
-        localStorage.setItem(STORAGE_KEY, String(count));
+        localStorage.setItem(KEY, String(count));
 
         const counter = document.getElementById("visitCounterNumber");
 
         if (counter) {
           counter.textContent = count.toLocaleString("ru-RU");
         }
-      } catch (e) {
+      } catch (error) {
         const counter = document.getElementById("visitCounterNumber");
 
         if (counter) {
