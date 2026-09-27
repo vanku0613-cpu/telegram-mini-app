@@ -10,7 +10,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+
   color: #fff;
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -19,18 +21,20 @@ body {
     Arial,
     sans-serif;
 
+  /* ФОНОВАЯ КАРТИНКА */
   background:
-    radial-gradient(
-      circle at 50% -5%,
-      rgba(25, 240, 176, 0.12),
-      transparent 34%
-    ),
     linear-gradient(
       180deg,
-      #071b32 0%,
-      #06152b 65%,
-      #051326 100%
-    );
+      rgba(3, 13, 27, 0.45) 0%,
+      rgba(3, 13, 27, 0.62) 55%,
+      rgba(3, 13, 27, 0.82) 100%
+    ),
+    url("file_000000000a4c8210a764c747055f86c5.png");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   overflow-x: hidden;
 }
@@ -45,7 +49,9 @@ button {
 }
 
 
+/* ============================= */
 /* СТРАНИЦА */
+/* ============================= */
 
 .groups-page {
   width: 100%;
@@ -58,7 +64,9 @@ button {
 }
 
 
+/* ============================= */
 /* ЗАГОЛОВОК */
+/* ============================= */
 
 .groups-header {
   text-align: center;
@@ -68,12 +76,15 @@ button {
 .header-label {
   margin-bottom: 2px;
 
-  color: rgba(255,255,255,.42);
+  color: rgba(255,255,255,.55);
 
   font-size: 8px;
   font-weight: 800;
 
   letter-spacing: 1.7px;
+
+  text-shadow:
+    0 1px 5px rgba(0,0,0,.65);
 }
 
 .groups-header h1 {
@@ -88,11 +99,13 @@ button {
   letter-spacing: .7px;
 
   text-shadow:
-    0 2px 12px rgba(0,0,0,.45);
+    0 2px 12px rgba(0,0,0,.75);
 }
 
 
-/* ВОЗВРАТ */
+/* ============================= */
+/* КНОПКА НАЗАД */
+/* ============================= */
 
 .back-button {
   position: relative;
@@ -111,20 +124,20 @@ button {
 
   color: #fff;
 
-  border: 1px solid rgba(25,240,176,.45);
+  border: 1px solid rgba(25,240,176,.48);
   border-radius: 15px;
 
   background:
     linear-gradient(
       135deg,
       rgba(19,153,119,.72),
-      rgba(5,91,75,.70)
+      rgba(5,91,75,.72)
     );
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.14),
-    0 5px 16px rgba(0,0,0,.20),
-    0 0 15px rgba(25,240,176,.07);
+    inset 0 1px 0 rgba(255,255,255,.16),
+    0 5px 16px rgba(0,0,0,.32),
+    0 0 15px rgba(25,240,176,.08);
 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -133,16 +146,25 @@ button {
   font-weight: 800;
 
   cursor: pointer;
+
+  text-shadow:
+    0 1px 4px rgba(0,0,0,.55);
 }
 
 .back-arrow {
   color: #19f0b0;
+
   font-size: 17px;
   line-height: 1;
+
+  text-shadow:
+    0 0 8px rgba(25,240,176,.45);
 }
 
 
+/* ============================= */
 /* СЕТКА */
+/* ============================= */
 
 .groups-grid {
   display: grid;
@@ -154,7 +176,9 @@ button {
 }
 
 
+/* ============================= */
 /* КНОПКА ГРУППЫ */
+/* ============================= */
 
 .group-tile {
   position: relative;
@@ -172,23 +196,24 @@ button {
   color: #fff;
   text-decoration: none;
 
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.20);
   border-radius: 16px;
 
+  /* СТЕКЛО */
   background:
     linear-gradient(
       145deg,
-      rgba(45,88,117,.53),
-      rgba(7,30,54,.76)
+      rgba(43,91,122,.58),
+      rgba(6,29,53,.76)
     );
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.13),
-    inset 0 -1px 0 rgba(0,0,0,.25),
-    0 6px 16px rgba(0,0,0,.22);
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -1px 0 rgba(0,0,0,.30),
+    0 6px 16px rgba(0,0,0,.32);
 
-  backdrop-filter: blur(17px);
-  -webkit-backdrop-filter: blur(17px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   overflow: hidden;
 
@@ -208,7 +233,7 @@ button {
 
   inset: 0;
 
-  border: 1px solid rgba(25,240,176,.17);
+  border: 1px solid rgba(25,240,176,.18);
 
   border-radius: inherit;
 
@@ -229,7 +254,7 @@ button {
 
   transform: rotate(22deg);
 
-  background: rgba(255,255,255,.055);
+  background: rgba(255,255,255,.065);
 
   pointer-events: none;
 }
@@ -252,18 +277,20 @@ button {
     linear-gradient(
       90deg,
       transparent,
-      rgba(25,240,176,.45),
+      rgba(25,240,176,.52),
       transparent
     );
 
   box-shadow:
-    0 0 7px rgba(25,240,176,.18);
+    0 0 8px rgba(25,240,176,.22);
 
   pointer-events: none;
 }
 
 
+/* ============================= */
 /* АВАТАР */
+/* ============================= */
 
 .avatar {
   position: relative;
@@ -280,19 +307,19 @@ button {
 
   border-radius: 12px;
 
-  border: 1px solid rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.20);
 
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,.15),
-      rgba(255,255,255,.035)
+      rgba(255,255,255,.17),
+      rgba(255,255,255,.045)
     );
 
   color: #19f0b0;
 
   box-shadow:
-    0 4px 12px rgba(0,0,0,.28);
+    0 4px 12px rgba(0,0,0,.34);
 
   overflow: hidden;
 }
@@ -302,10 +329,15 @@ button {
   height: 20px;
 
   fill: currentColor;
+
+  filter:
+    drop-shadow(0 0 4px rgba(25,240,176,.25));
 }
 
 
-/* НАЗВАНИЕ */
+/* ============================= */
+/* НАЗВАНИЕ ГРУППЫ */
+/* ============================= */
 
 .group-name {
   position: relative;
@@ -323,7 +355,7 @@ button {
   font-weight: 800;
 
   text-shadow:
-    0 1px 6px rgba(0,0,0,.65);
+    0 1px 6px rgba(0,0,0,.75);
 
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -333,7 +365,9 @@ button {
 }
 
 
+/* ============================= */
 /* СТРЕЛКА */
+/* ============================= */
 
 .group-arrow {
   position: relative;
@@ -352,27 +386,33 @@ button {
 
   color: #19f0b0;
 
-  border: 1px solid rgba(25,240,176,.22);
+  border: 1px solid rgba(25,240,176,.25);
 
-  background: rgba(25,240,176,.07);
+  background: rgba(25,240,176,.09);
 
   font-size: 12px;
   font-weight: 900;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 0 8px rgba(25,240,176,.06);
 }
 
 
+/* ============================= */
 /* НАЖАТИЕ */
+/* ============================= */
 
 .group-tile:active {
   transform: scale(.975);
 
   border-color:
-    rgba(25,240,176,.48);
+    rgba(25,240,176,.52);
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.15),
-    0 3px 10px rgba(0,0,0,.28),
-    0 0 15px rgba(25,240,176,.12);
+    inset 0 1px 0 rgba(255,255,255,.17),
+    0 3px 10px rgba(0,0,0,.35),
+    0 0 16px rgba(25,240,176,.14);
 }
 
 .back-button:active {
@@ -380,7 +420,9 @@ button {
 }
 
 
+/* ============================= */
 /* НИЖНЯЯ КНОПКА */
+/* ============================= */
 
 .bottom-back {
   margin-top: 9px;
@@ -388,7 +430,9 @@ button {
 }
 
 
+/* ============================= */
 /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
+/* ============================= */
 
 @media (max-width: 380px) {
 
