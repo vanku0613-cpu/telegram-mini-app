@@ -1,19 +1,41 @@
+/* =========================================================
+   ГЛАВНЫЙ СПРАВОЧНИК ИЗМАИЛ
+   Страница: Все наши группы
+   ========================================================= */
+
+:root {
+  --bg-top: #062d4d;
+  --bg-mid: #073a61;
+  --bg-bottom: #031d35;
+
+  --card: rgba(9, 54, 88, 0.82);
+  --card-border: rgba(93, 190, 255, 0.34);
+
+  --white: #ffffff;
+  --text: #f7fbff;
+  --muted: #a9c1d4;
+
+  --blue: #29b9ff;
+  --blue-light: #78d9ff;
+
+  --green: #16d66a;
+
+  --radius: 22px;
+}
+
+
+/* =========================================================
+   ОСНОВА
+   ========================================================= */
+
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
 
-:root {
-  --bg: #04111f;
-  --text: #f5f9ff;
-  --muted: #91abc4;
-  --blue: #54caff;
-  --green: #28e5b0;
-}
-
 html {
   min-height: 100%;
-  background: var(--bg);
+  background: var(--bg-bottom);
 }
 
 body {
@@ -33,525 +55,250 @@ body {
   background:
     radial-gradient(
       circle at 50% -10%,
-      rgba(37, 137, 205, 0.30),
-      transparent 42%
-    ),
-    radial-gradient(
-      circle at 100% 45%,
-      rgba(0, 177, 221, 0.08),
-      transparent 34%
+      rgba(41, 185, 255, 0.28),
+      transparent 35%
     ),
     linear-gradient(
       180deg,
-      #071a30 0%,
-      #04111f 55%,
-      #020a13 100%
+      var(--bg-top) 0%,
+      var(--bg-mid) 45%,
+      var(--bg-bottom) 100%
     );
 
   overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+
+/* =========================================================
+   ДЕКОРАТИВНЫЕ СВЕТЯЩИЕСЯ ПЯТНА
+   ========================================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  width: 260px;
+  height: 260px;
+
+  left: -150px;
+  top: 230px;
+
+  background: rgba(0, 183, 255, 0.16);
+
+  filter: blur(70px);
+
+  pointer-events: none;
 }
 
+body::after {
+  content: "";
+
+  position: fixed;
+
+  width: 300px;
+  height: 300px;
+
+  right: -190px;
+  bottom: 160px;
+
+  background: rgba(0, 116, 255, 0.13);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   СТРАНИЦА
+   ========================================================= */
+
 .page {
-  width: 100%;
-  max-width: 760px;
+  width: min(100%, 760px);
 
   margin: 0 auto;
 
   padding:
-    24px 14px
-    calc(30px + env(safe-area-inset-bottom));
+    calc(28px + env(safe-area-inset-top))
+    20px
+    calc(28px + env(safe-area-inset-bottom));
+
+  position: relative;
 }
 
 
 /* =========================================================
-   HEADER
+   ШАПКА
    ========================================================= */
 
-header {
+.header {
   text-align: center;
-  margin: 5px 0 25px;
+
+  padding-top: 12px;
+  padding-bottom: 28px;
 }
 
 .logo {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
-  height: 32px;
+  min-width: 170px;
+  height: 54px;
 
-  padding: 0 16px;
+  padding: 0 24px;
 
-  border: 1px solid rgba(86, 203, 255, 0.40);
-  border-radius: 11px;
+  border-radius: 28px;
+
+  color: #8ddcff;
+
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 7px;
 
   background:
     linear-gradient(
-      135deg,
-      rgba(25, 101, 153, 0.52),
-      rgba(6, 39, 70, 0.72)
+      180deg,
+      rgba(16, 91, 137, 0.72),
+      rgba(4, 48, 79, 0.72)
     );
 
-  color: #c9efff;
-
-  font-size: 11px;
-  font-weight: 900;
-
-  letter-spacing: 3px;
+  border: 1px solid rgba(61, 193, 255, 0.48);
 
   box-shadow:
-    0 0 20px rgba(44, 191, 255, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 0 22px rgba(28, 182, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-h1 {
-  margin: 13px 0 7px;
+.header h1 {
+  margin: 18px 0 8px;
 
-  color: #fff;
+  font-size: clamp(30px, 7vw, 48px);
 
-  font-size:
-    clamp(25px, 7vw, 36px);
-
-  line-height: 1;
+  line-height: 1.05;
 
   font-weight: 900;
 
-  letter-spacing: -0.8px;
+  letter-spacing: -1px;
 
   text-shadow:
-    0 4px 20px rgba(0, 0, 0, 0.4);
+    0 3px 12px rgba(0, 0, 0, 0.35);
 }
 
-header p {
+.header p {
   margin: 0;
 
-  color: var(--muted);
+  color: #a9c5d9;
 
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 
 /* =========================================================
-   CARDS
+   КАРТОЧКИ
    ========================================================= */
 
-.card {
+.group-card {
+  display: block;
+
   position: relative;
 
-  display: flex;
-  align-items: center;
+  overflow: hidden;
 
-  width: 100%;
-  min-height: 82px;
+  text-decoration: none;
 
-  padding: 12px;
+  color: var(--white);
 
-  gap: 12px;
+  border-radius: var(--radius);
 
-  border:
-    1px solid
-    rgba(91, 175, 226, 0.25);
-
-  border-radius: 20px;
+  border: 1px solid var(--card-border);
 
   background:
     linear-gradient(
       145deg,
-      rgba(18, 57, 91, 0.94),
-      rgba(6, 27, 48, 0.97)
+      rgba(22, 87, 130, 0.88),
+      rgba(4, 38, 66, 0.94)
     );
 
   box-shadow:
-    0 10px 27px rgba(0, 0, 0, 0.27),
-    inset 0 1px 0 rgba(255, 255, 255, 0.055);
-
-  overflow: hidden;
+    0 10px 26px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
   transition:
-    transform .16s ease,
-    border-color .16s ease,
-    box-shadow .16s ease;
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
-.card::before {
-  content: "";
+.group-card:active {
+  transform: scale(0.985);
+}
 
-  position: absolute;
+@media (hover: hover) {
+  .group-card:hover {
+    transform: translateY(-2px);
 
-  width: 170px;
-  height: 170px;
+    border-color: rgba(101, 208, 255, 0.62);
 
-  left: -90px;
-  top: -90px;
+    box-shadow:
+      0 14px 30px rgba(0, 0, 0, 0.25),
+      0 0 18px rgba(35, 180, 255, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
 
-  border-radius: 50%;
+
+/* =========================================================
+   ГЛАВНАЯ КАРТОЧКА
+   ========================================================= */
+
+.main-card {
+  min-height: 174px;
+
+  margin-bottom: 22px;
 
   background:
-    radial-gradient(
-      circle,
-      rgba(58, 195, 255, 0.14),
-      transparent 68%
+    linear-gradient(
+      120deg,
+      rgba(17, 104, 153, 0.96),
+      rgba(5, 51, 84, 0.96)
     );
-
-  pointer-events: none;
 }
 
-.card::after {
-  content: "";
-
+.main-card .card-visual {
   position: absolute;
 
-  left: 22px;
-  right: 22px;
-  top: 0;
+  right: -5px;
+  bottom: -18px;
 
-  height: 1px;
+  width: 210px;
+  height: 160px;
+
+  opacity: 0.22;
+}
+
+.main-card .card-visual svg {
+  width: 100%;
+  height: 100%;
+}
+
+.city-lines {
+  position: absolute;
+
+  inset: 0;
 
   background:
     linear-gradient(
       90deg,
-      transparent,
-      rgba(153, 224, 255, 0.42),
-      transparent
+      transparent 0 48%,
+      rgba(90, 210, 255, 0.15) 49%,
+      transparent 50%
     );
 
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   ICON BOX
-   ========================================================= */
-
-.icon-box {
-  position: relative;
-  z-index: 2;
-
-  flex: 0 0 52px;
-
-  width: 52px;
-  height: 52px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 16px;
-
-  border:
-    1px solid
-    rgba(111, 201, 244, 0.28);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(46, 127, 172, 0.30),
-      rgba(7, 47, 76, 0.62)
-    );
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 6px 15px rgba(0, 0, 0, 0.22);
-}
-
-.icon-box svg {
-  width: 27px;
-  height: 27px;
-
-  fill: none;
-
-  stroke:
-    #82dcff;
-
-  stroke-width: 1.65;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-
-  filter:
-    drop-shadow(
-      0 0 5px
-      rgba(74, 204, 255, 0.22)
-    );
-}
-
-
-/* =========================================================
-   ЦВЕТА ИКОНОК
-   ========================================================= */
-
-.icon-box.market {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(33, 133, 215, 0.30),
-      rgba(7, 55, 91, 0.64)
-    );
-}
-
-.icon-box.market svg {
-  stroke: #65cfff;
-}
-
-
-.icon-box.auto {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(101, 91, 222, 0.30),
-      rgba(40, 43, 93, 0.64)
-    );
-}
-
-.icon-box.auto svg {
-  stroke: #a7a1ff;
-}
-
-
-.icon-box.home {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(224, 157, 57, 0.28),
-      rgba(91, 60, 27, 0.62)
-    );
-}
-
-.icon-box.home svg {
-  stroke: #ffd27b;
-}
-
-
-.icon-box.work {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(213, 88, 148, 0.28),
-      rgba(88, 37, 70, 0.62)
-    );
-}
-
-.icon-box.work svg {
-  stroke: #ff9ac9;
-}
-
-
-.icon-box.zoo {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(48, 190, 153, 0.28),
-      rgba(18, 75, 68, 0.62)
-    );
-}
-
-.icon-box.zoo svg {
-  stroke: #72e6c1;
-}
-
-
-.icon-box.utilities {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(225, 185, 61, 0.29),
-      rgba(89, 70, 25, 0.62)
-    );
-}
-
-.icon-box.utilities svg {
-  stroke: #ffe27c;
-}
-
-
-.icon-box.chat {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(72, 151, 220, 0.30),
-      rgba(27, 61, 98, 0.62)
-    );
-}
-
-.icon-box.chat svg {
-  stroke: #8bd8ff;
-}
-
-
-.icon-box.search {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(155, 108, 215, 0.30),
-      rgba(61, 44, 89, 0.62)
-    );
-}
-
-.icon-box.search svg {
-  stroke: #d0a6ff;
-}
-
-
-/* =========================================================
-   TEXT
-   ========================================================= */
-
-.card > span {
-  position: relative;
-  z-index: 2;
-
-  min-width: 0;
-
-  flex: 1;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.card strong {
-  display: block;
-
-  color: #fff;
-
-  font-size: 14px;
-
-  line-height: 1.18;
-
-  font-weight: 800;
-}
-
-.card small {
-  display: block;
-
-  margin-top: 5px;
-
-  color: #8faac3;
-
-  font-size: 10px;
-
-  line-height: 1.25;
-
-  font-weight: 500;
-}
-
-
-/* =========================================================
-   СТРЕЛКА
-   ========================================================= */
-
-.card > em {
-  position: relative;
-  z-index: 2;
-
-  flex: 0 0 31px;
-
-  width: 31px;
-  height: 31px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-
-  border:
-    1px solid
-    rgba(95, 192, 244, 0.20);
-
-  background:
-    rgba(48, 167, 222, 0.08);
-
-  transition:
-    transform .16s ease;
-}
-
-.card > em svg {
-  width: 18px;
-  height: 18px;
-
-  fill: none;
-
-  stroke: #71d8ff;
-
-  stroke-width: 2;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-
-/* =========================================================
-   СПРАВОЧНИК
-   ========================================================= */
-
-.directory {
-  min-height: 94px;
-
-  margin-bottom: 13px;
-
-  border-color:
-    rgba(36, 225, 174, 0.43);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(7, 80, 79, 0.96),
-      rgba(6, 46, 63, 0.97),
-      rgba(4, 27, 47, 0.98)
-    );
-
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.30),
-    0 0 30px rgba(34, 225, 174, 0.07),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-}
-
-.directory::before {
-  background:
-    radial-gradient(
-      circle,
-      rgba(31, 235, 178, 0.19),
-      transparent 68%
-    );
-}
-
-.directory .icon-box {
-  flex-basis: 58px;
-
-  width: 58px;
-  height: 58px;
-
-  border-color:
-    rgba(38, 230, 178, 0.34);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(28, 157, 128, 0.35),
-      rgba(7, 74, 72, 0.62)
-    );
-}
-
-.directory .icon-box svg {
-  width: 29px;
-  height: 29px;
-
-  stroke: #4ee9bb;
-}
-
-.directory strong {
-  font-size: 17px;
-}
-
-.directory small {
-  color: #9dd8c9;
-}
-
-.directory > em svg {
-  stroke: #43e7b6;
+  opacity: 0.4;
 }
 
 
@@ -559,57 +306,360 @@ header p {
    СЕТКА
    ========================================================= */
 
-.grid {
+.groups-grid {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   ОБЫЧНАЯ КАРТОЧКА
+   ========================================================= */
+
+.groups-grid .group-card {
+  min-height: 205px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+}
+
+
+/* =========================================================
+   ВИЗУАЛЬНАЯ ОБЛАСТЬ
+   ========================================================= */
+
+.card-visual {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 112px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  color: rgba(109, 214, 255, 0.72);
+
+  opacity: 0.82;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 122, 174, 0.38),
+      transparent
+    );
+}
+
+.card-visual::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 55px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(5, 38, 64, 0.95)
+    );
+}
+
+.card-visual svg {
+  width: 125px;
+  height: 85px;
+
+  position: relative;
+
+  z-index: 1;
+
+  filter:
+    drop-shadow(
+      0 0 10px rgba(44, 195, 255, 0.20)
+    );
+}
+
+
+/* =========================================================
+   РАЗНЫЕ ТЕМАТИЧЕСКИЕ ФОНЫ
+   ========================================================= */
+
+.theme-market .card-visual {
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(60, 195, 255, 0.30),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #145b78,
+      #082f50
+    );
+}
+
+.theme-auto .card-visual {
+  background:
+    radial-gradient(
+      circle at 70% 30%,
+      rgba(0, 181, 255, 0.30),
+      transparent 58%
+    ),
+    linear-gradient(
+      135deg,
+      #104c70,
+      #092b49
+    );
+}
+
+.theme-home .card-visual {
+  background:
+    radial-gradient(
+      circle at 45% 25%,
+      rgba(65, 201, 255, 0.26),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #165775,
+      #0a304f
+    );
+}
+
+.theme-work .card-visual {
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(56, 179, 255, 0.28),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #174f70,
+      #092d4b
+    );
+}
+
+.theme-zoo .card-visual {
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(69, 213, 181, 0.20),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #135c65,
+      #092f49
+    );
+}
+
+.theme-city .card-visual {
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(75, 191, 255, 0.28),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #155a78,
+      #082e4b
+    );
+}
+
+.theme-chat .card-visual {
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(87, 184, 255, 0.25),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #174e78,
+      #092d4c
+    );
+}
+
+.theme-found .card-visual {
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(80, 203, 255, 0.26),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #145675,
+      #092d4b
+    );
+}
+
+
+/* =========================================================
+   СОДЕРЖИМОЕ КАРТОЧКИ
+   ========================================================= */
+
+.card-content {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  align-items: flex-end;
 
   gap: 10px;
+
+  min-height: 98px;
+
+  padding: 18px;
 }
 
 
 /* =========================================================
-   НАЖАТИЕ
+   ИКОНКА
    ========================================================= */
 
-.card:active {
-  transform: scale(.965);
+.card-icon {
+  flex: 0 0 42px;
 
-  border-color:
-    rgba(103, 204, 255, 0.66);
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 2px;
+
+  border-radius: 13px;
+
+  color: #8de0ff;
+
+  background:
+    rgba(12, 116, 167, 0.42);
+
+  border: 1px solid rgba(103, 211, 255, 0.30);
 
   box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.34),
-    0 0 20px rgba(50, 187, 244, 0.10);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.card:active > em {
-  transform: translateX(3px);
+.card-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 
 /* =========================================================
-   ПК
+   ТЕКСТ
    ========================================================= */
 
-@media (hover: hover) {
+.card-text {
+  min-width: 0;
 
-  .card:hover {
-    transform: translateY(-2px);
+  flex: 1;
+}
 
-    border-color:
-      rgba(93, 192, 247, 0.55);
+.card-text h2 {
+  margin: 0 0 6px;
 
-    box-shadow:
-      0 15px 34px rgba(0, 0, 0, 0.31),
-      0 0 25px rgba(48, 190, 255, 0.08);
-  }
+  font-size: 17px;
 
-  .card:hover > em {
-    transform: translateX(3px);
-  }
+  line-height: 1.15;
 
+  font-weight: 850;
+
+  letter-spacing: -0.2px;
+
+  color: #ffffff;
+}
+
+.card-text p {
+  margin: 0;
+
+  color: #a7c0d4;
+
+  font-size: 13px;
+
+  line-height: 1.25;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   СТРЕЛКА
+   ========================================================= */
+
+.arrow {
+  flex: 0 0 auto;
+
+  align-self: center;
+
+  color: #9bdfff;
+
+  font-size: 32px;
+
+  line-height: 1;
+
+  font-weight: 300;
+
+  margin-left: 2px;
+
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   ОСНОВНАЯ КАРТОЧКА — ТЕКСТ
+   ========================================================= */
+
+.main-card .card-content {
+  min-height: 174px;
+
+  padding: 24px;
+}
+
+.main-card .card-icon {
+  width: 50px;
+  height: 50px;
+
+  flex-basis: 50px;
+
+  border-radius: 15px;
+}
+
+.main-card .card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.main-card .card-text h2 {
+  font-size: 22px;
+}
+
+.main-card .card-text p {
+  font-size: 15px;
 }
 
 
@@ -617,7 +667,7 @@ header p {
    КНОПКА НАЗАД
    ========================================================= */
 
-.back {
+.back-button {
   display: flex;
 
   align-items: center;
@@ -625,204 +675,203 @@ header p {
 
   gap: 9px;
 
-  min-height: 47px;
+  width: 100%;
 
-  padding: 10px 17px;
+  min-height: 70px;
 
-  border:
-    1px solid
-    rgba(77, 174, 229, 0.30);
+  margin-top: 24px;
 
-  border-radius: 16px;
+  padding: 15px 20px;
+
+  border-radius: 22px;
+
+  text-decoration: none;
+
+  color: #06291a;
+
+  font-size: 20px;
+
+  font-weight: 850;
 
   background:
     linear-gradient(
-      135deg,
-      rgba(16, 56, 89, 0.86),
-      rgba(6, 29, 51, 0.94)
+      180deg,
+      #28df78 0%,
+      #10c960 100%
     );
 
-  color: #c8e7fa;
-
-  font-size: 12px;
-  font-weight: 750;
-
   box-shadow:
-    0 8px 22px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 10px 24px rgba(0, 0, 0, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30);
+
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
 }
 
-.back b {
-  display: grid;
-  place-items: center;
-
-  width: 26px;
-  height: 26px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(56, 184, 239, 0.11);
-
-  color: #65d6ff;
-
-  font-size: 22px;
-
-  font-weight: 400;
-
-  line-height: 1;
+.back-button:active {
+  transform: scale(0.985);
 }
 
-.back.bottom {
-  width: 100%;
-
-  margin-top: 18px;
+@media (hover: hover) {
+  .back-button:hover {
+    filter: brightness(1.05);
+  }
 }
 
-.back:active {
-  transform: scale(.97);
+.back-arrow {
+  font-size: 32px;
+
+  line-height: 0;
+
+  font-weight: 300;
 }
 
 
 /* =========================================================
-   МОБИЛЬНАЯ ВЕРСИЯ
+   МОБИЛЬНЫЕ
    ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 520px) {
 
   .page {
-    padding:
-      22px 10px
-      calc(28px + env(safe-area-inset-bottom));
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  header {
-    margin-bottom: 21px;
+  .header {
+    padding-top: 6px;
+    padding-bottom: 24px;
   }
 
-  .grid {
+  .logo {
+    height: 50px;
+
+    min-width: 155px;
+
+    font-size: 18px;
+
+    letter-spacing: 6px;
+  }
+
+  .header h1 {
+    margin-top: 17px;
+
+    font-size: 30px;
+  }
+
+  .header p {
+    font-size: 16px;
+  }
+
+  .groups-grid {
+    gap: 14px;
+  }
+
+  .groups-grid .group-card {
+    min-height: 190px;
+  }
+
+  .card-content {
+    padding: 15px;
     gap: 8px;
   }
 
-  .grid .card {
-    min-height: 80px;
+  .card-icon {
+    flex-basis: 38px;
 
-    padding: 10px;
+    width: 38px;
+    height: 38px;
 
-    gap: 8px;
+    border-radius: 11px;
   }
 
-  .grid .icon-box {
-    flex-basis: 43px;
-
-    width: 43px;
-    height: 43px;
-
-    border-radius: 13px;
-  }
-
-  .grid .icon-box svg {
-    width: 23px;
-    height: 23px;
-  }
-
-  .grid .card strong {
-    font-size: 12px;
-  }
-
-  .grid .card small {
-    font-size: 8.7px;
-  }
-
-  .grid .card > em {
-    flex-basis: 25px;
-
-    width: 25px;
-    height: 25px;
-  }
-
-  .grid .card > em svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .directory {
-    min-height: 87px;
-  }
-
-  .directory .icon-box {
-    flex-basis: 51px;
-
-    width: 51px;
-    height: 51px;
-  }
-
-  .directory strong {
-    font-size: 15px;
-  }
-
-  .directory small {
-    font-size: 9px;
-  }
-}
-
-
-/* =========================================================
-   УЗКИЕ ТЕЛЕФОНЫ
-   ========================================================= */
-
-@media (max-width: 360px) {
-
-  .page {
-    padding-left: 7px;
-    padding-right: 7px;
-  }
-
-  .grid {
-    gap: 7px;
-  }
-
-  .grid .card {
-    min-height: 76px;
-
-    padding: 9px;
-
-    border-radius: 18px;
-  }
-
-  .grid .icon-box {
-    flex-basis: 39px;
-
-    width: 39px;
-    height: 39px;
-
-    border-radius: 12px;
-  }
-
-  .grid .icon-box svg {
-    width: 21px;
-    height: 21px;
-  }
-
-  .grid .card strong {
-    font-size: 11px;
-  }
-
-  .grid .card small {
-    font-size: 8px;
-  }
-
-  .grid .card > em {
-    flex-basis: 22px;
-
+  .card-icon svg {
     width: 22px;
     height: 22px;
   }
 
-  .directory .icon-box {
-    flex-basis: 47px;
+  .card-text h2 {
+    font-size: 16px;
+  }
 
-    width: 47px;
-    height: 47px;
+  .card-text p {
+    font-size: 12px;
+  }
+
+  .arrow {
+    font-size: 28px;
+  }
+
+  .main-card {
+    min-height: 160px;
+  }
+
+  .main-card .card-content {
+    min-height: 160px;
+
+    padding: 18px;
+  }
+
+  .main-card .card-text h2 {
+    font-size: 20px;
+  }
+
+  .main-card .card-text p {
+    font-size: 14px;
+  }
+
+  .main-card .card-visual {
+    width: 175px;
+    height: 145px;
+  }
+
+  .back-button {
+    min-height: 64px;
+
+    font-size: 18px;
+
+    border-radius: 20px;
+  }
+}
+
+
+/* =========================================================
+   ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .groups-grid {
+    gap: 10px;
+  }
+
+  .groups-grid .group-card {
+    min-height: 180px;
+  }
+
+  .card-content {
+    padding: 12px;
+  }
+
+  .card-icon {
+    display: none;
+  }
+
+  .card-text h2 {
+    font-size: 15px;
+  }
+
+  .card-text p {
+    font-size: 11px;
+  }
+
+  .arrow {
+    font-size: 25px;
   }
 }
