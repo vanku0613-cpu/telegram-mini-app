@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -19,19 +18,14 @@
 
   <main class="page">
 
-    <!-- =====================================================
-         ЗАГОЛОВОК
-         ===================================================== -->
-
-    <header>
+    <!-- ШАПКА -->
+    <header class="header">
 
       <div class="logo">
-        ИЗМАИЛ
+        И З М А И Л
       </div>
 
-      <h1>
-        ВСЕ НАШИ ГРУППЫ
-      </h1>
+      <h1>ВСЕ НАШИ ГРУППЫ</h1>
 
       <p>
         Сообщества города в одном месте
@@ -40,386 +34,701 @@
     </header>
 
 
-    <!-- =====================================================
-         СПРАВОЧНИК
-         ===================================================== -->
-
+    <!-- ГЛАВНАЯ ГРУППА -->
     <a
-      class="card directory"
+      class="group-card main-card"
       href="https://t.me/SPRAVOCHNIK_IZMAIL"
       target="_blank"
       rel="noopener noreferrer"
     >
 
-      <div class="icon-box">
+      <div class="card-visual main-visual">
+        <div class="city-lines"></div>
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/>
-          <path d="M5 4.5v17"/>
-          <path d="M9 6h7"/>
-          <path d="M9 10h7"/>
-          <path d="M9 14h4"/>
+        <svg viewBox="0 0 120 80" aria-hidden="true">
+          <path
+            d="M8 65h104"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            opacity=".8"
+          />
+
+          <path
+            d="M15 65V43l12-10 12 10v22M45 65V27l15-14 15 14v38M82 65V38l11-9 12 9v27"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M51 65V42h18v23"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+          />
+
+          <path
+            d="M57 27v-9M63 27v-9"
+            stroke="currentColor"
+            stroke-width="3"
+          />
         </svg>
-
       </div>
 
-      <span>
-        <strong>
-          Справочник Измаил
-        </strong>
+      <div class="card-content">
 
-        <small>
-          Главная группа города
-        </small>
-      </span>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5V5.5Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+            <path
+              d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20M8 7h8M8 10h8M8 13h5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
 
-      <em>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9 5l7 7-7 7"/>
-        </svg>
-      </em>
+        <div class="card-text">
+          <h2>Справочник Измаил</h2>
+          <p>Главная группа города</p>
+        </div>
+
+        <span class="arrow">›</span>
+
+      </div>
 
     </a>
 
 
-    <!-- =====================================================
-         ГРУППЫ
-         ===================================================== -->
-
-    <section class="grid">
+    <!-- ГРУППЫ -->
+    <section class="groups-grid">
 
 
       <!-- РЫНОК -->
-
       <a
-        class="card"
+        class="group-card theme-market"
         href="https://t.me/Vkusny_Chat_Izmail"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <div class="icon-box market">
+        <div class="card-visual">
+          <svg viewBox="0 0 120 80" aria-hidden="true">
 
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 9h16"/>
-            <path d="M5 9l1-5h12l1 5"/>
-            <path d="M6 9v10h12V9"/>
-            <path d="M9 19v-6h6v6"/>
-            <path d="M4 9c0 1.7 1.2 3 3 3s3-1.3 3-3c0 1.7 1.2 3 3 3s3-1.3 3-3c0 1.7 1.2 3 3-3"/>
+            <path
+              d="M22 31h76l-5 39H27L22 31Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M18 31h84l-8-15H26l-8 15Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M38 16v15M58 16v15M78 16v15"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <circle cx="42" cy="46" r="5" fill="currentColor"/>
+            <circle cx="60" cy="46" r="5" fill="currentColor"/>
+            <circle cx="78" cy="46" r="5" fill="currentColor"/>
+
           </svg>
-
         </div>
 
-        <span>
-          <strong>
-            Рынок онлайн Измаил
-          </strong>
+        <div class="card-content">
 
-          <small>
-            Покупки • продажи • объявления
-          </small>
-        </span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M3 5h2l2.2 10.2A2 2 0 0 0 9.15 17H18a2 2 0 0 0 1.95-1.55L21 10H6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle cx="10" cy="20" r="1.3" fill="currentColor"/>
+              <circle cx="18" cy="20" r="1.3" fill="currentColor"/>
+            </svg>
+          </div>
 
-        <em>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
-        </em>
+          <div class="card-text">
+            <h2>Рынок онлайн Измаил</h2>
+            <p>Покупки • продажи • объявления</p>
+          </div>
+
+          <span class="arrow">›</span>
+
+        </div>
 
       </a>
 
 
       <!-- АВТО -->
-
       <a
-        class="card"
+        class="group-card theme-auto"
         href="https://t.me/AVTO_IZMAIL_ODESSA"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <div class="icon-box auto">
+        <div class="card-visual">
+          <svg viewBox="0 0 120 80" aria-hidden="true">
 
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 16l1.5-6h11L19 16"/>
-            <path d="M4 16h16v4H4z"/>
-            <path d="M7 10l1.5-3h7L17 10"/>
-            <circle cx="7.5" cy="17.5" r="1.5"/>
-            <circle cx="16.5" cy="17.5" r="1.5"/>
+            <path
+              d="M22 50l8-20h60l9 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linejoin="round"
+            />
+
+            <rect
+              x="18"
+              y="47"
+              width="84"
+              height="18"
+              rx="7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <circle
+              cx="35"
+              cy="66"
+              r="7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <circle
+              cx="85"
+              cy="66"
+              r="7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <path
+              d="M38 31h40l10 16H30l8-16Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
           </svg>
-
         </div>
 
-        <span>
-          <strong>
-            Авто Бессарабия
-          </strong>
+        <div class="card-content">
 
-          <small>
-            Авто • запчасти • услуги
-          </small>
-        </span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M5 16l1.5-6h11L19 16M7 16v2M17 16v2M4 16h16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 10l1.5-4h5L16 10"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+              <circle cx="7" cy="15" r="1.2" fill="currentColor"/>
+              <circle cx="17" cy="15" r="1.2" fill="currentColor"/>
+            </svg>
+          </div>
 
-        <em>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
-        </em>
+          <div class="card-text">
+            <h2>Авто Бессарабия</h2>
+            <p>Авто • запчасти • услуги</p>
+          </div>
+
+          <span class="arrow">›</span>
+
+        </div>
 
       </a>
 
 
       <!-- НЕДВИЖИМОСТЬ -->
-
       <a
-        class="card"
+        class="group-card theme-home"
         href="https://t.me/IZMAIL_NEDVIZHIMOST"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <div class="icon-box home">
+        <div class="card-visual">
+          <svg viewBox="0 0 120 80" aria-hidden="true">
 
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 11l9-8 9 8"/>
-            <path d="M5 10v10h14V10"/>
-            <path d="M9 20v-6h6v6"/>
+            <path
+              d="M18 42l42-30 42 30"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M28 37v34h64V37"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <path
+              d="M52 71V51h16v20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <rect
+              x="38"
+              y="46"
+              width="10"
+              height="10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <rect
+              x="72"
+              y="46"
+              width="10"
+              height="10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
           </svg>
-
         </div>
 
-        <span>
-          <strong>
-            Недвижимость Измаил
-          </strong>
+        <div class="card-content">
 
-          <small>
-            Продажа • аренда • жильё
-          </small>
-        </span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M3 11.5 12 4l9 7.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M5 10.5V20h14v-9.5M9 20v-5h6v5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+            </svg>
+          </div>
 
-        <em>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
-        </em>
+          <div class="card-text">
+            <h2>Недвижимость Измаил</h2>
+            <p>Продажа • аренда • жильё</p>
+          </div>
+
+          <span class="arrow">›</span>
+
+        </div>
 
       </a>
 
 
       <!-- РАБОТА -->
-
       <a
-        class="card"
+        class="group-card theme-work"
         href="https://t.me/rabota_v_izmaile"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <div class="icon-box work">
+        <div class="card-visual">
+          <svg viewBox="0 0 120 80" aria-hidden="true">
 
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="4" y="7" width="16" height="12" rx="2"/>
-            <path d="M9 7V5h6v2"/>
-            <path d="M4 12h16"/>
-            <path d="M10 12v2h4v-2"/>
+            <rect
+              x="22"
+              y="27"
+              width="76"
+              height="43"
+              rx="5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <path
+              d="M45 27v-8h30v8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <path
+              d="M22 44h76"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <path
+              d="M52 44v8h16v-8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
           </svg>
-
         </div>
 
-        <span>
-          <strong>
-            Работа / вакансии Измаил
-          </strong>
+        <div class="card-content">
 
-          <small>
-            Работа • вакансии • резюме
-          </small>
-        </span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <rect
+                x="4"
+                y="7"
+                width="16"
+                height="13"
+                rx="2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <path
+                d="M9 7V5h6v2M4 12h16M10 12v3h4v-3"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
 
-        <em>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
-        </em>
+          <div class="card-text">
+            <h2>Работа / вакансии Измаил</h2>
+            <p>Работа • вакансии • резюме</p>
+          </div>
+
+          <span class="arrow">›</span>
+
+        </div>
 
       </a>
 
 
       <!-- ZOO -->
-
       <a
-        class="card"
+        class="group-card theme-zoo"
         href="https://t.me/Izmail_CHAT_24_7"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <div class="icon-box zoo">
+        <div class="card-visual">
+          <svg viewBox="0 0 120 80" aria-hidden="true">
 
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M8 11c-2-1-4 .2-4 2.5S6 17 8 16"/>
-            <path d="M16 11c2-1 4 .2 4 2.5S18 17 16 16"/>
-            <path d="M8 9c-1-2 .3-4 2-3"/>
-            <path d="M16 9c1-2-.3-4-2-3"/>
-            <path d="M12 10c-3 0-5 2-5 5 0 3 2.2 5 5 5s5-2 5-5c0-3-2-5-5-5z"/>
-            <path d="M10 15h.01"/>
-            <path d="M14 15h.01"/>
-            <path d="M11 17h2"/>
+            <circle
+              cx="60"
+              cy="43"
+              r="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <circle
+              cx="38"
+              cy="25"
+              r="10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <circle
+              cx="82"
+              cy="25"
+              r="10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <circle cx="51" cy="41" r="3" fill="currentColor"/>
+            <circle cx="69" cy="41" r="3" fill="currentColor"/>
+
+            <path
+              d="M53 54q7 7 14 0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
           </svg>
-
         </div>
 
-        <span>
-          <strong>
-            ZOO-ЧАТ Измаил
-          </strong>
+        <div class="card-content">
 
-          <small>
-            Животные • помощь • общение
-          </small>
-        </span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 5.65-7 10-7 10Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
 
-        <em>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
-        </em>
+          <div class="card-text">
+            <h2>ZOO-ЧАТ Измаил</h2>
+            <p>Животные • помощь • общение</p>
+          </div>
+
+          <span class="arrow">›</span>
+
+        </div>
 
       </a>
 
 
-      <!-- СВЕТ ВОДА ГАЗ -->
-
+      <!-- КОММУНАЛЬНЫЕ -->
       <a
-        class="card"
+        class="group-card theme-city"
         href="https://t.me/IZMAIL_GAZ_SVET_VODA"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <div class="icon-box utilities">
+        <div class="card-visual">
+          <svg viewBox="0 0 120 80" aria-hidden="true">
 
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M13 2L5 13h6l-1 9 8-11h-6z"/>
+            <path
+              d="M15 45h90"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M25 45V25h25v20M70 45V20h25v25"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+            />
+
+            <circle
+              cx="58"
+              cy="45"
+              r="15"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <path
+              d="M58 45l8-7"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
           </svg>
-
         </div>
 
-        <span>
-          <strong>
-            Свет • Вода • Газ • Интернет
-          </strong>
+        <div class="card-content">
 
-          <small>
-            Городские вопросы и информация
-          </small>
-        </span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M13 2 5 13h6l-1 9 8-11h-6l1-9Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
 
-        <em>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
-        </em>
+          <div class="card-text">
+            <h2>Свет • Вода • Газ • Интернет</h2>
+            <p>Городские вопросы и информация</p>
+          </div>
+
+          <span class="arrow">›</span>
+
+        </div>
 
       </a>
 
 
-      <!-- СВОБОДНОЕ ОБЩЕНИЕ -->
-
+      <!-- ОБЩЕНИЕ -->
       <a
-        class="card"
+        class="group-card theme-chat"
         href="https://t.me/+5qLXgy-mFmM5YWNi"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <div class="icon-box chat">
+        <div class="card-visual">
+          <svg viewBox="0 0 120 80" aria-hidden="true">
 
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H11l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>
-            <path d="M8 10h8"/>
-            <path d="M8 13h5"/>
+            <path
+              d="M25 22h70a10 10 0 0 1 10 10v25a10 10 0 0 1-10 10H58L40 77v-10H25a10 10 0 0 1-10-10V32a10 10 0 0 1 10-10Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+
+            <circle cx="42" cy="45" r="4" fill="currentColor"/>
+            <circle cx="60" cy="45" r="4" fill="currentColor"/>
+            <circle cx="78" cy="45" r="4" fill="currentColor"/>
+
           </svg>
-
         </div>
 
-        <span>
-          <strong>
-            Свободное общение
-          </strong>
+        <div class="card-content">
 
-          <small>
-            Общение жителей Измаила
-          </small>
-        </span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M4 5h16v11H8l-4 4V5Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 9h8M8 12h5"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
 
-        <em>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
-        </em>
+          <div class="card-text">
+            <h2>Свободное общение</h2>
+            <p>Общение жителей Измаила</p>
+          </div>
+
+          <span class="arrow">›</span>
+
+        </div>
 
       </a>
 
 
       <!-- БЮРО НАХОДОК -->
-
       <a
-        class="card"
+        class="group-card theme-found"
         href="https://t.me/buro_nahodok_izmail"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <div class="icon-box search">
+        <div class="card-visual">
+          <svg viewBox="0 0 120 80" aria-hidden="true">
 
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="10.5" cy="10.5" r="6.5"/>
-            <path d="M16 16l5 5"/>
+            <circle
+              cx="53"
+              cy="38"
+              r="23"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+            />
+
+            <path
+              d="M70 55l25 20"
+              stroke="currentColor"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M43 38h20M53 28v20"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
           </svg>
-
         </div>
 
-        <span>
-          <strong>
-            Бюро находок Измаил
-          </strong>
+        <div class="card-content">
 
-          <small>
-            Нашли • потеряли • ищете
-          </small>
-        </span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <circle
+                cx="10.5"
+                cy="10.5"
+                r="6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <path
+                d="m15 15 5 5"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
 
-        <em>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
-        </em>
+          <div class="card-text">
+            <h2>Бюро находок Измаил</h2>
+            <p>Нашли • потеряли • ищете</p>
+          </div>
+
+          <span class="arrow">›</span>
+
+        </div>
 
       </a>
 
     </section>
 
 
-    <!-- =====================================================
-         НАЗАД
-         ===================================================== -->
-
+    <!-- ВОЗВРАТ -->
     <a
-      class="back bottom"
+      class="back-button"
       href="https://vanku0613-cpu.github.io/telegram-mini-app/"
     >
-
-      <b>‹</b>
-
-      <span>
-        Вернуться в главное меню
-      </span>
-
+      <span class="back-arrow">‹</span>
+      <span>Вернуться в главное меню</span>
     </a>
 
   </main>
