@@ -519,4 +519,118 @@ body {
 }
 
 /* =========================================================
-  
+   СОСТОЯНИЯ ПОЛЯ
+   ========================================================= */
+
+.directory-search-input:focus,
+.directory-search-input:active,
+.directory-search-input:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+
+  border: none !important;
+  border-width: 0 !important;
+
+  outline: none !important;
+
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.directory-search-input::placeholder {
+  color: transparent !important;
+  opacity: 0 !important;
+}
+
+.directory-search-input::-webkit-input-placeholder {
+  color: transparent !important;
+  opacity: 0 !important;
+}
+
+.directory-search-input::-moz-placeholder {
+  color: transparent !important;
+  opacity: 0 !important;
+}
+
+.directory-search-input:-ms-input-placeholder {
+  color: transparent !important;
+  opacity: 0 !important;
+}
+
+/* =========================================================
+   УБИРАЕМ СТАНДАРТНЫЕ ЭЛЕМЕНТЫ INPUT TYPE=SEARCH
+   ========================================================= */
+
+.directory-search-input::-webkit-search-decoration {
+  -webkit-appearance: none !important;
+}
+
+.directory-search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+
+  width: 0 !important;
+  height: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.directory-search-input::-webkit-search-results-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+.directory-search-input::-webkit-search-results-decoration {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+/* =========================================================
+   КАТЕГОРИИ
+   ========================================================= */
+
+.category-hotspot {
+  width: 46.0%;
+  height: 9.10%;
+
+  border-radius: 18px;
+}
+
+.health-hotspot {
+  left: 3.2%;
+  top: 40.10%;
+}
+
+.transport-hotspot {
+  left: 51.2%;
+  top: 40.10%;
+}
+
+.services-hotspot {
+  left: 3.2%;
+  top: 50.05%;
+}
+
+.food-hotspot {
+  left: 51.2%;
+  top: 50.05%;
+}
+
+.utilities-hotspot {
+  left: 3.2%;
+  top: 60.10%;
+}
+
+.jobs-hotspot {
+  left: 51.2%;
+  top: 60.10%;
+}
+
+.education-hotspot {
+  left: 3.2%;
+  top: 70.05%;
+}
