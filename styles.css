@@ -40,6 +40,8 @@ body {
    ОСНОВНАЯ ОБЛАСТЬ
    УВЕЛИЧЕНИЕ РОВНО НА 2%
    709px × 1.02 = 723.18px
+
+   ВСЯ КОМПОЗИЦИЯ ОПУЩЕНА НА 10px
    ========================================================= */
 
 .reference {
@@ -50,7 +52,7 @@ body {
   max-width: 723.18px;
   min-width: 0;
 
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 0;
 
   overflow: hidden;
@@ -70,7 +72,7 @@ body {
   display: block !important;
 
   width: 100% !important;
-  max-width: 709px !important;
+  max-width: 100% !important;
   min-width: 0;
 
   height: auto !important;
