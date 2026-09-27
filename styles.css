@@ -1,742 +1,770 @@
 *,
 *::before,
 *::after {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-width: 100%;
-min-width: 0;
-margin: 0;
-padding: 0;
-background: #061b35;
-overflow-x: hidden;
--webkit-text-size-adjust: 100%;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  background: #061b35;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-width: 100%;
-min-width: 0;
-min-height: 100vh;
-margin: 0;
-padding: 0;
-background: #061b35;
-overflow-x: hidden;
--webkit-text-size-adjust: 100%;
--webkit-tap-highlight-color: transparent;
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #061b35;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .app {
-width: 100%;
-min-width: 0;
-margin: 0;
-padding: 0;
-display: flex;
-justify-content: center;
-align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
+
+/* =========================================================
+   ОСНОВНАЯ ОБЛАСТЬ
+   ========================================================= */
 
 .reference {
-position: relative;
-width: min(100%, 709px);
-max-width: 709px;
-min-width: 0;
-margin: 0;
-padding: 0;
-overflow: hidden;
-line-height: 0;
+  position: relative;
+  z-index: 0;
+
+  width: min(100%, 709px);
+  max-width: 709px;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  line-height: 0;
+
+  background: #061b35;
 }
+
+/* =========================================================
+   ОСНОВНАЯ КАРТИНКА
+   ========================================================= */
 
 .reference-image {
-position: relative;
-display: block;
-width: 100%;
-max-width: 100%;
-height: auto;
-margin: 0;
-padding: 0;
-border: 0;
-object-fit: contain;
-object-position: top left;
-user-select: none;
--webkit-user-select: none;
--webkit-user-drag: none;
+  position: relative;
+  z-index: 1;
+
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 709px !important;
+  min-width: 0;
+
+  height: auto !important;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  object-fit: contain;
+  object-position: top left;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+
+  pointer-events: none;
 }
 
 /* =========================================================
-ПОГОДА + КУРС НБУ
-========================================================= */
+   ПОГОДА + КУРС НБУ
+   ========================================================= */
 
 .live-widgets {
-position: absolute;
-z-index: 20;
+  position: absolute;
+  z-index: 20;
 
-left: 3.1%;
-top: 27.8%;
+  left: 3.1%;
+  top: 27.8%;
 
-width: 59.7%;
-height: 6.25%;
+  width: 59.7%;
+  height: 6.25%;
 
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 1.8%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8%;
 
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
 
-line-height: normal;
-pointer-events: none;
+  line-height: normal;
+  pointer-events: none;
 }
 
 /* =========================================================
-ОБЩИЙ ВИДЖЕТ
-========================================================= */
+   ОБЩИЙ ВИДЖЕТ
+   ========================================================= */
 
 .widget {
-position: relative;
+  position: relative;
 
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
 
-min-width: 0;
-min-height: 0;
+  min-width: 0;
+  min-height: 0;
 
-display: block;
+  display: block;
 
-color: #fff;
+  color: #fff;
 
-font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
-background: rgba(6, 27, 53, 0.86);
+  background: rgba(6, 27, 53, 0.86);
 
-backdrop-filter: none;
--webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 
-border: 1px solid rgba(70, 210, 255, 0.65);
+  border: 1px solid rgba(70, 210, 255, 0.65);
 
-border-radius: 18px;
+  border-radius: 18px;
 
-box-shadow:
-0 0 5px rgba(0, 190, 255, 0.18);
+  box-shadow:
+    0 0 5px rgba(0, 190, 255, 0.18);
 
-overflow: hidden;
+  overflow: hidden;
 
-pointer-events: auto;
+  pointer-events: auto;
 
--webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 
-transition:
-transform 90ms ease,
-border-color 90ms ease,
-box-shadow 90ms ease;
+  transition:
+    transform 90ms ease,
+    border-color 90ms ease,
+    box-shadow 90ms ease;
 }
 
 .widget::after {
-content: "";
+  content: "";
 
-position: absolute;
-inset: 0;
+  position: absolute;
+  inset: 0;
 
-border-radius: inherit;
+  border-radius: inherit;
 
-background: transparent;
+  background: transparent;
 
-pointer-events: none;
+  pointer-events: none;
 
-box-shadow:
-inset 0 0 4px rgba(80, 220, 255, 0.08);
+  box-shadow:
+    inset 0 0 4px rgba(80, 220, 255, 0.08);
 
-transition: box-shadow 90ms ease;
+  transition: box-shadow 90ms ease;
 }
 
 .widget:active {
-transform: scale(0.985);
+  transform: scale(0.985);
 
-border-color: rgba(110, 235, 255, 1);
+  border-color: rgba(110, 235, 255, 1);
 
-box-shadow:
-0 0 5px rgba(0, 200, 255, 0.75),
-0 0 11px rgba(0, 200, 255, 0.38);
+  box-shadow:
+    0 0 5px rgba(0, 200, 255, 0.75),
+    0 0 11px rgba(0, 200, 255, 0.38);
 }
 
 .widget:active::after {
-box-shadow:
-inset 0 0 8px rgba(80, 220, 255, 0.20);
+  box-shadow:
+    inset 0 0 8px rgba(80, 220, 255, 0.20);
 }
 
 /* =========================================================
-ПОГОДА
-========================================================= */
+   ПОГОДА
+   ========================================================= */
 
 .weather-widget {
-display: grid;
+  display: grid;
 
-grid-template-columns: 1fr;
-grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
 
-align-content: center;
+  align-content: center;
 
-padding: 5px 12px;
+  padding: 5px 12px;
 
-pointer-events: none;
+  pointer-events: none;
 }
 
 .weather-widget .widget-title {
-font-size: clamp(9px, 1.55vw, 11px);
-font-weight: 800;
-line-height: 1;
-white-space: nowrap;
+  font-size: clamp(9px, 1.55vw, 11px);
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .weather-widget .widget-main {
-margin-top: 2px;
+  margin-top: 2px;
 
-font-size: clamp(15px, 2.75vw, 20px);
-font-weight: 800;
-line-height: 1;
-white-space: nowrap;
+  font-size: clamp(15px, 2.75vw, 20px);
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .weather-widget .widget-sub {
-margin-top: 2px;
+  margin-top: 2px;
 
-min-width: 0;
+  min-width: 0;
 
-font-size: clamp(8px, 1.35vw, 9px);
-font-weight: 600;
-line-height: 1;
+  font-size: clamp(8px, 1.35vw, 9px);
+  font-weight: 600;
+  line-height: 1;
 
-white-space: nowrap;
+  white-space: nowrap;
 
-overflow: hidden;
-text-overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-opacity: 0.9;
+  opacity: 0.9;
 }
 
 /* =========================================================
-КУРС НБУ
-========================================================= */
+   КУРС НБУ
+   ========================================================= */
 
 .currency-widget {
-display: grid;
+  display: grid;
 
-grid-template-columns: 1fr;
-grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
 
-align-content: center;
+  align-content: center;
 
-padding: 7px 12px;
+  padding: 7px 12px;
 
-pointer-events: auto;
+  pointer-events: auto;
 }
 
 .currency-widget .widget-title {
-font-size: clamp(9px, 1.65vw, 12px);
-font-weight: 800;
-line-height: 1;
-white-space: nowrap;
+  font-size: clamp(9px, 1.65vw, 12px);
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .currency-line {
-display: flex;
+  display: flex;
 
-align-items: center;
-justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 
-width: 100%;
+  width: 100%;
 
-gap: 6px;
+  gap: 6px;
 
-margin-top: 4px;
+  margin-top: 4px;
 
-font-size: clamp(8px, 1.5vw, 11px);
+  font-size: clamp(8px, 1.5vw, 11px);
 
-line-height: 1;
+  line-height: 1;
 
-white-space: nowrap;
+  white-space: nowrap;
 }
 
 .currency-line b {
-font-weight: 800;
+  font-weight: 800;
 }
 
 .currency-line span {
-font-weight: 800;
+  font-weight: 800;
 }
 
 /* =========================================================
-ВСЕ ПРОЗРАЧНЫЕ КНОПКИ
-========================================================= */
+   ВСЕ ПРОЗРАЧНЫЕ КНОПКИ
+   ========================================================= */
 
 .hotspot {
-position: absolute;
+  position: absolute;
 
-z-index: 30;
+  z-index: 30;
 
-display: block;
+  display: block;
 
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
 
-background: transparent;
+  background: transparent;
 
-border: 0;
+  border: 0;
 
-text-decoration: none;
+  text-decoration: none;
 
-cursor: pointer;
+  cursor: pointer;
 
-filter: none;
+  filter: none;
 
--webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 
-transition:
-transform 90ms ease;
+  transition:
+    transform 90ms ease;
 }
 
 .hotspot::after {
-content: "";
+  content: "";
 
-position: absolute;
-inset: 0;
+  position: absolute;
+  inset: 0;
 
-background: transparent;
+  background: transparent;
 
-border: 1px solid transparent;
+  border: 1px solid transparent;
 
-border-radius: inherit;
+  border-radius: inherit;
 
-box-shadow: none;
+  box-shadow: none;
 
-opacity: 0;
+  opacity: 0;
 
-pointer-events: none;
+  pointer-events: none;
 
-transition:
-opacity 90ms ease,
-border-color 90ms ease,
-box-shadow 90ms ease;
+  transition:
+    opacity 90ms ease,
+    border-color 90ms ease,
+    box-shadow 90ms ease;
 }
 
 .hotspot:active {
-transform: scale(0.985);
+  transform: scale(0.985);
 }
 
 .hotspot:active::after {
-opacity: 1;
+  opacity: 1;
 
-border-color: rgba(70, 225, 255, 0.98);
+  border-color: rgba(70, 225, 255, 0.98);
 
-box-shadow:
-0 0 4px rgba(0, 200, 255, 0.80),
-0 0 10px rgba(0, 200, 255, 0.38);
+  box-shadow:
+    0 0 4px rgba(0, 200, 255, 0.80),
+    0 0 10px rgba(0, 200, 255, 0.38);
 }
 
 /* =========================================================
-ЛОГОТИП
-========================================================= */
+   ЛОГОТИП
+   ========================================================= */
 
 .logo-hotspot {
-left: 3.8%;
-top: 5.1%;
+  left: 3.8%;
+  top: 5.1%;
 
-width: 31.8%;
-height: 14.8%;
+  width: 31.8%;
+  height: 14.8%;
 
-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .logo-hotspot::after {
-border-radius: 50%;
+  border-radius: 50%;
 }
 
 /* =========================================================
-УКРЫТИЯ
-========================================================= */
+   УКРЫТИЯ
+   ========================================================= */
 
 .shelter-hotspot {
-left: 63.0%;
-top: 27.75%;
+  left: 63.0%;
+  top: 27.75%;
 
-width: 33.9%;
-height: 6.30%;
+  width: 33.9%;
+  height: 6.30%;
 
-border-radius: 18px;
+  border-radius: 18px;
 }
 
 .shelter-hotspot::after {
-border-radius: 18px;
+  border-radius: 18px;
 }
 
 /* =========================================================
-ПОИСК
-========================================================= */
+   ПОИСК
+   ========================================================= */
 
 .search-hotspot {
-left: 3.1%;
-top: 34.70%;
+  left: 3.1%;
+  top: 34.70%;
 
-width: 94.1%;
-height: 4.58%;
+  width: 94.1%;
+  height: 4.58%;
 
-border-radius: 18px;
+  border-radius: 18px;
 
-cursor: pointer;
+  cursor: pointer;
 
-appearance: none;
--webkit-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 /* =========================================================
-ДЕКОРАТИВНАЯ НАДПИСЬ ПОИСКА
-========================================================= */
+   ДЕКОРАТИВНАЯ НАДПИСЬ ПОИСКА
+   ========================================================= */
 
 .search-hotspot::before {
-content: "Поиск по справочнику Измаил";
+  content: "Поиск по справочнику Измаил";
 
-position: absolute;
+  position: absolute;
 
-left: 13.5%;
-right: 12%;
+  left: 13.5%;
+  right: 12%;
 
-top: 50%;
+  top: 50%;
 
-transform: translateY(-50%);
+  transform: translateY(-50%);
 
-color: rgba(255, 255, 255, 0.94);
+  color: rgba(255, 255, 255, 0.94);
 
-font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
-font-size: clamp(12px, 2.5vw, 18px);
+  font-size: clamp(12px, 2.5vw, 18px);
 
-font-weight: 700;
+  font-weight: 700;
 
-line-height: 1;
+  line-height: 1;
 
-text-align: left;
+  text-align: left;
 
-white-space: nowrap;
+  white-space: nowrap;
 
-text-shadow:
-0 1px 3px rgba(0, 0, 0, 0.65);
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.65);
 
-pointer-events: none;
+  pointer-events: none;
 
-opacity: 1;
+  opacity: 1;
 
-transition: opacity 100ms ease;
+  transition: opacity 100ms ease;
 }
 
-/* Когда пользователь начал вводить */
 .search-hotspot.search-focused::before {
-opacity: 0;
+  opacity: 0;
 }
 
 /* =========================================================
-НАСТОЯЩЕЕ ПОЛЕ ПОИСКА
-========================================================= */
+   НАСТОЯЩЕЕ ПОЛЕ ПОИСКА
+   ========================================================= */
 
 .directory-search-input {
-position: absolute;
+  position: absolute;
 
-z-index: 10;
+  z-index: 10;
 
-left: 0;
-top: 0;
+  left: 0;
+  top: 0;
 
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
 
-display: block;
+  display: block;
 
-margin: 0;
+  margin: 0;
 
-padding: 0 13.5%;
+  padding: 0 13.5%;
 
-background: transparent !important;
-background-color: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
 
-border: none !important;
-border-width: 0 !important;
+  border: none !important;
+  border-width: 0 !important;
 
-outline: none !important;
+  outline: none !important;
 
-box-shadow: none !important;
+  box-shadow: none !important;
 
-color: #ffffff !important;
+  color: #ffffff !important;
 
-font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
-font-size: clamp(12px, 2.5vw, 18px);
+  font-size: clamp(12px, 2.5vw, 18px);
 
-font-weight: 700;
+  font-weight: 700;
 
-line-height: 1;
+  line-height: 1;
 
-text-align: left;
+  text-align: left;
 
-border-radius: 18px;
+  border-radius: 18px;
 
-appearance: none !important;
--webkit-appearance: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
 
--webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 
-caret-color: #ffffff;
+  caret-color: #ffffff;
 
-opacity: 1;
+  opacity: 1;
 }
 
 /* =========================================================
-СОСТОЯНИЯ ПОЛЯ
-========================================================= */
+   СОСТОЯНИЯ ПОЛЯ
+   ========================================================= */
 
 .directory-search-input:focus,
 .directory-search-input:active,
 .directory-search-input:hover {
-background: transparent !important;
-background-color: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
 
-border: none !important;
-border-width: 0 !important;
+  border: none !important;
+  border-width: 0 !important;
 
-outline: none !important;
+  outline: none !important;
 
-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 /* =========================================================
-PLACEHOLDER
-========================================================= */
+   PLACEHOLDER
+   ========================================================= */
 
 .directory-search-input::placeholder {
-color: transparent !important;
-opacity: 0 !important;
+  color: transparent !important;
+  opacity: 0 !important;
 }
 
 .directory-search-input::-webkit-input-placeholder {
-color: transparent !important;
-opacity: 0 !important;
+  color: transparent !important;
+  opacity: 0 !important;
 }
 
 .directory-search-input::-moz-placeholder {
-color: transparent !important;
-opacity: 0 !important;
+  color: transparent !important;
+  opacity: 0 !important;
 }
 
 .directory-search-input:-ms-input-placeholder {
-color: transparent !important;
-opacity: 0 !important;
+  color: transparent !important;
+  opacity: 0 !important;
 }
 
 /* =========================================================
-УБИРАЕМ СТАНДАРТНЫЕ ЭЛЕМЕНТЫ INPUT TYPE=SEARCH
-========================================================= */
+   УБИРАЕМ СТАНДАРТНЫЕ ЭЛЕМЕНТЫ INPUT TYPE=SEARCH
+   ========================================================= */
 
 .directory-search-input::-webkit-search-decoration {
--webkit-appearance: none !important;
+  -webkit-appearance: none !important;
 }
 
 .directory-search-input::-webkit-search-cancel-button {
--webkit-appearance: none !important;
-appearance: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 
-width: 0 !important;
-height: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
 
-margin: 0 !important;
-padding: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .directory-search-input::-webkit-search-results-button {
--webkit-appearance: none !important;
-appearance: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
 .directory-search-input::-webkit-search-results-decoration {
--webkit-appearance: none !important;
-appearance: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
 /* =========================================================
-КАТЕГОРИИ
-========================================================= */
+   КАТЕГОРИИ
+   ========================================================= */
 
 .category-hotspot {
-width: 46.0%;
-height: 9.10%;
+  width: 46.0%;
+  height: 9.10%;
 
-border-radius: 18px;
+  border-radius: 18px;
 }
 
 .health-hotspot {
-left: 3.2%;
-top: 40.10%;
+  left: 3.2%;
+  top: 40.10%;
 }
 
 .transport-hotspot {
-left: 51.2%;
-top: 40.10%;
+  left: 51.2%;
+  top: 40.10%;
 }
 
 .services-hotspot {
-left: 3.2%;
-top: 50.05%;
+  left: 3.2%;
+  top: 50.05%;
 }
 
 .food-hotspot {
-left: 51.2%;
-top: 50.05%;
+  left: 51.2%;
+  top: 50.05%;
 }
 
 .utilities-hotspot {
-left: 3.2%;
-top: 60.10%;
+  left: 3.2%;
+  top: 60.10%;
 }
 
 .jobs-hotspot {
-left: 51.2%;
-top: 60.10%;
+  left: 51.2%;
+  top: 60.10%;
 }
 
 .education-hotspot {
-left: 3.2%;
-top: 70.05%;
+  left: 3.2%;
+  top: 70.05%;
 }
 
 .leisure-hotspot {
-left: 51.2%;
-top: 70.05%;
+  left: 51.2%;
+  top: 70.05%;
 }
 
 /* =========================================================
-НАШИ ГРУППЫ
-========================================================= */
+   НАШИ ГРУППЫ
+   ========================================================= */
 
 .groups-hotspot {
-left: 3.1%;
-top: 79.62%;
+  left: 3.1%;
+  top: 79.62%;
 
-width: 94.0%;
-height: 5.55%;
+  width: 94.0%;
+  height: 5.55%;
 
-border-radius: 18px;
+  border-radius: 18px;
 }
 
 .groups-hotspot::after {
-border-radius: 18px;
+  border-radius: 18px;
 }
 
 /* =========================================================
-НИЖНЕЕ МЕНЮ
-========================================================= */
+   НИЖНЕЕ МЕНЮ
+   ========================================================= */
 
 .nav-hotspot {
-top: 85.85%;
+  top: 85.85%;
 
-height: 5.05%;
+  height: 5.05%;
 
-border-radius: 18px;
+  border-radius: 18px;
 }
 
 .home-hotspot {
-left: 3.1%;
-width: 28.65%;
+  left: 3.1%;
+  width: 28.65%;
 }
 
 .ads-hotspot {
-left: 33.25%;
-width: 34.45%;
+  left: 33.25%;
+  width: 34.45%;
 }
 
 .favorites-hotspot {
-left: 69.25%;
-width: 27.65%;
+  left: 69.25%;
+  width: 27.65%;
 }
 
 /* =========================================================
-FOCUS
-========================================================= */
+   FOCUS
+   ========================================================= */
 
 .hotspot:focus-visible,
 .widget:focus-visible,
 .directory-search-input:focus-visible {
-outline: none !important;
+  outline: none !important;
 }
 
 /* =========================================================
-МАЛЕНЬКИЕ ЭКРАНЫ
-========================================================= */
+   МАЛЕНЬКИЕ ЭКРАНЫ
+   ========================================================= */
 
 @media (max-width: 380px) {
 
-.widget {
-border-radius: 14px;
-}
+  .widget {
+    border-radius: 14px;
+  }
 
-.hotspot::after {
-border-radius: 14px;
-}
+  .hotspot::after {
+    border-radius: 14px;
+  }
 
-.shelter-hotspot::after,
-.search-hotspot::after,
-.category-hotspot::after,
-.groups-hotspot::after,
-.nav-hotspot::after {
-border-radius: 14px;
-}
+  .shelter-hotspot::after,
+  .search-hotspot::after,
+  .category-hotspot::after,
+  .groups-hotspot::after,
+  .nav-hotspot::after {
+    border-radius: 14px;
+  }
 
-.directory-search-input {
-border-radius: 14px;
-}
+  .directory-search-input {
+    border-radius: 14px;
+  }
 }
 
 /* =========================================================
-ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
-========================================================= */
+   ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
+   ========================================================= */
 
 .user-agreement {
-position: absolute !important;
+  position: absolute !important;
 
-left: 50% !important;
-top: 94.5% !important;
+  left: 50% !important;
+  top: 94.5% !important;
 
-transform: translateX(-50%) !important;
+  transform: translateX(-50%) !important;
 
-z-index: 100 !important;
+  z-index: 100 !important;
 
-display: block !important;
+  display: block !important;
 
-width: max-content !important;
-max-width: 94% !important;
+  width: max-content !important;
+  max-width: 94% !important;
 
-margin: 0 !important;
-padding: 0 0 3px 0 !important;
+  margin: 0 !important;
+  padding: 0 0 3px 0 !important;
 
-color: rgba(225, 245, 255, 0.9) !important;
+  color: rgba(225, 245, 255, 0.9) !important;
 
-font-family: Arial, Helvetica, sans-serif !important;
+  font-family: Arial, Helvetica, sans-serif !important;
 
-font-size: clamp(10px, 2vw, 14px) !important;
+  font-size: clamp(10px, 2vw, 14px) !important;
 
-font-weight: 500 !important;
+  font-weight: 500 !important;
 
-line-height: 1 !important;
+  line-height: 1 !important;
 
-text-align: center !important;
+  text-align: center !important;
 
-white-space: nowrap !important;
+  white-space: nowrap !important;
 
-text-decoration: none !important;
+  text-decoration: none !important;
 
-text-shadow:
-0 0 5px rgba(0, 180, 255, 0.55),
-0 1px 3px rgba(0, 0, 0, 0.7) !important;
+  text-shadow:
+    0 0 5px rgba(0, 180, 255, 0.55),
+    0 1px 3px rgba(0, 0, 0, 0.7) !important;
 
-border-bottom: 1px solid rgba(80, 210, 255, 0.55) !important;
+  border-bottom: 1px solid rgba(80, 210, 255, 0.55) !important;
 
-cursor: pointer !important;
+  cursor: pointer !important;
 
--webkit-tap-highlight-color: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
