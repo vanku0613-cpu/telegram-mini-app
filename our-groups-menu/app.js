@@ -1,0 +1,1 @@
+(()=>{"use strict";const tg=window.Telegram?.WebApp;if(tg){try{tg.ready();tg.expand();tg.setHeaderColor?.("#061b35");tg.setBackgroundColor?.("#061b35")}catch(e){}}document.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{try{tg?.HapticFeedback?.impactOccurred?.("light")}catch(e){}}));})();
