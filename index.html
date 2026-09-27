@@ -1,12 +1,16 @@
-
 <!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+  >
   <meta name="theme-color" content="#061b35">
   <title>Главный справочник Измаил</title>
-  <link rel="stylesheet" href="styles.css">
+
+  <link rel="stylesheet" href="./styles.css">
+
   <style>
     /* ===== СЧЁТЧИК ПРОСМОТРОВ НАД НАЧАЛОМ ПОГОДЫ ===== */
 
@@ -57,34 +61,69 @@
     }
   </style>
 </head>
+
 <body>
+
   <main class="app">
+
     <div class="reference" id="reference">
+
+      <!-- =====================================================
+           ОСНОВНАЯ КАРТИНКА ИНТЕРФЕЙСА
+           Файл должен лежать В ОДНОЙ ПАПКЕ с index.html
+           ===================================================== -->
 
       <img
         id="referenceImage"
         class="reference-image"
-        src="file_000000000628820a991aedd6c0479451-1.png"
+        src="./file_000000000628820a991aedd6c0479451-1.png?v=2"
         alt="Главный справочник Измаил"
+        loading="eager"
+        decoding="sync"
+        draggable="false"
       >
 
-      <section class="live-widgets" aria-label="Погода и курс валют">
+      <section
+        class="live-widgets"
+        aria-label="Погода и курс валют"
+      >
 
         <!-- ПОГОДА -->
-        <div id="weatherWidget" class="widget weather-widget">
+        <div
+          id="weatherWidget"
+          class="widget weather-widget"
+        >
 
           <!-- СЧЁТЧИК ПРОСМОТРОВ -->
-          <div id="visitCounter" aria-label="Количество просмотров">
+          <div
+            id="visitCounter"
+            aria-label="Количество просмотров"
+          >
             <span id="visitCounterIcon">👁</span>
             <span>просмотрено</span>
             <span id="visitCounterNumber">1</span>
           </div>
 
-          <div class="widget-title">ПОГОДА</div>
-          <div id="weatherTemp" class="widget-main">—°C</div>
-          <div id="weatherText" class="widget-sub">Загрузка…</div>
+          <div class="widget-title">
+            ПОГОДА
+          </div>
+
+          <div
+            id="weatherTemp"
+            class="widget-main"
+          >
+            —°C
+          </div>
+
+          <div
+            id="weatherText"
+            class="widget-sub"
+          >
+            Загрузка…
+          </div>
 
         </div>
+
 
         <!-- КУРС ВАЛЮТ -->
         <a
@@ -95,7 +134,10 @@
           rel="noopener noreferrer"
           aria-label="Курс валют"
         >
-          <div class="widget-title">КУРС НБУ</div>
+
+          <div class="widget-title">
+            КУРС НБУ
+          </div>
 
           <div class="currency-line">
             <b>USD</b>
@@ -106,10 +148,13 @@
             <b>EUR</b>
             <span id="eurRate">—</span>
           </div>
+
         </a>
 
       </section>
 
+
+      <!-- ГЛАВНАЯ ГРУППА -->
       <a
         id="mainGroup"
         class="hotspot logo-hotspot"
@@ -117,6 +162,8 @@
         aria-label="Главная группа"
       ></a>
 
+
+      <!-- УКРЫТИЯ -->
       <a
         id="shelterLink"
         class="hotspot shelter-hotspot"
@@ -124,12 +171,15 @@
         aria-label="Укрытия Измаил"
       ></a>
 
+
+      <!-- ПОИСК -->
       <div
         id="searchHotspot"
         class="hotspot search-hotspot"
         role="search"
         aria-label="Поиск по справочнику"
       >
+
         <input
           id="directorySearchInput"
           class="directory-search-input"
@@ -174,7 +224,11 @@
             caret-color:#ffffff!important;
           "
         >
+
       </div>
+
+
+      <!-- КАТЕГОРИИ -->
 
       <a
         id="healthLink"
@@ -232,12 +286,17 @@
         aria-label="Отдых, жильё и море"
       ></a>
 
+
+      <!-- НАШИ ГРУППЫ -->
       <a
         id="groupsLink"
         class="hotspot groups-hotspot"
         href="#"
         aria-label="Наши группы"
       ></a>
+
+
+      <!-- НИЖНЯЯ НАВИГАЦИЯ -->
 
       <a
         id="homeLink"
@@ -262,7 +321,9 @@
         aria-label="Избранное"
       ></a>
 
+
       <!-- ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ -->
+
       <a
         class="user-agreement"
         href="#"
@@ -274,22 +335,36 @@
     </div>
   </main>
 
-  <!-- ===== ЛОКАЛЬНЫЙ СЧЁТЧИК ===== -->
-  <!-- Новое посещение засчитывается не чаще одного раза в 2 минуты -->
+
+  <!-- =====================================================
+       ЛОКАЛЬНЫЙ СЧЁТЧИК
+       Новое посещение засчитывается не чаще одного раза
+       в 2 минуты
+       ===================================================== -->
+
   <script>
     (() => {
-      const COUNT_KEY = "izmail_local_visit_counter";
-      const TIME_KEY = "izmail_local_visit_time";
 
-      const VISIT_INTERVAL = 2 * 60 * 1000;
+      const COUNT_KEY =
+        "izmail_local_visit_counter";
+
+      const TIME_KEY =
+        "izmail_local_visit_time";
+
+      const VISIT_INTERVAL =
+        2 * 60 * 1000;
 
       try {
+
         let count = parseInt(
           localStorage.getItem(COUNT_KEY) || "0",
           10
         );
 
-        if (!Number.isFinite(count) || count < 0) {
+        if (
+          !Number.isFinite(count) ||
+          count < 0
+        ) {
           count = 0;
         }
 
@@ -304,6 +379,7 @@
           !lastVisit ||
           (now - lastVisit) >= VISIT_INTERVAL
         ) {
+
           count += 1;
 
           localStorage.setItem(
@@ -318,25 +394,38 @@
         }
 
         const counter =
-          document.getElementById("visitCounterNumber");
+          document.getElementById(
+            "visitCounterNumber"
+          );
 
         if (counter) {
+
           counter.textContent =
             count.toLocaleString("ru-RU");
+
         }
 
       } catch (error) {
+
         const counter =
-          document.getElementById("visitCounterNumber");
+          document.getElementById(
+            "visitCounterNumber"
+          );
 
         if (counter) {
           counter.textContent = "1";
         }
+
       }
+
     })();
   </script>
 
-  <script src="config.js"></script>
-  <script src="app.js"></script>
+
+  <!-- ОСНОВНЫЕ СКРИПТЫ -->
+
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+
 </body>
 </html>
