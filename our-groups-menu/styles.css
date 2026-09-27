@@ -24,18 +24,13 @@ body {
 
   background:
     radial-gradient(
-      circle at 15% 5%,
-      rgba(25, 240, 176, 0.09),
-      transparent 30%
+      circle at 50% -10%,
+      rgba(25, 240, 176, 0.12),
+      transparent 38%
     ),
     radial-gradient(
-      circle at 90% 20%,
-      rgba(20, 120, 190, 0.14),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(25, 240, 176, 0.06),
+      circle at 0% 55%,
+      rgba(20, 100, 170, 0.10),
       transparent 35%
     ),
     #06152b;
@@ -45,169 +40,193 @@ body {
 
 
 /* =========================
-   ОСНОВНАЯ СТРАНИЦА
+   СТРАНИЦА
 ========================= */
 
 .groups-page {
-  width: min(100%, 920px);
+  width: min(100%, 760px);
+
+  min-height: 100vh;
+
   margin: 0 auto;
 
   padding:
-    22px
-    18px
-    30px;
-
-  position: relative;
+    15px
+    14px
+    18px;
 }
 
 
 /* =========================
-   ШАПКА
+   ЗАГОЛОВОК
 ========================= */
 
 .groups-header {
+  position: relative;
+
   text-align: center;
-  margin-bottom: 16px;
+
+  padding-top: 2px;
+
+  margin-bottom: 10px;
 }
 
-.header-line {
-  width: 54px;
-  height: 3px;
+.header-glow {
+  position: absolute;
 
-  margin: 0 auto 12px;
+  left: 50%;
+  top: -20px;
 
-  border-radius: 99px;
+  width: 100px;
+  height: 45px;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #19f0b0,
-      transparent
-    );
+  transform: translateX(-50%);
 
-  box-shadow:
-    0 0 14px rgba(25, 240, 176, 0.35);
+  background: rgba(25, 240, 176, 0.10);
+
+  filter: blur(25px);
+
+  pointer-events: none;
 }
 
 .header-label {
-  color: rgba(255, 255, 255, 0.52);
+  position: relative;
 
-  font-size: 9px;
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 8px;
   font-weight: 800;
 
   letter-spacing: 1.8px;
 
-  margin-bottom: 7px;
+  margin-bottom: 3px;
 }
 
 .groups-header h1 {
+  position: relative;
+
   margin: 0;
-
-  font-size: clamp(22px, 6vw, 32px);
-
-  line-height: 1.08;
-
-  font-weight: 900;
-
-  letter-spacing: 0.8px;
 
   color: #ffffff;
 
+  font-size: 23px;
+
+  line-height: 1;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
   text-shadow:
-    0 2px 18px rgba(0, 0, 0, 0.35);
-}
-
-.header-subtitle {
-  margin: 8px 0 0;
-
-  color: rgba(255, 255, 255, 0.56);
-
-  font-size: 12px;
-
-  line-height: 1.35;
+    0 2px 14px rgba(0, 0, 0, 0.45);
 }
 
 
 /* =========================
-   ЗЕЛЁНАЯ КНОПКА НАЗАД
+   КНОПКА НАЗАД
 ========================= */
 
 .back-button {
+  position: relative;
+
   width: 100%;
-  min-height: 50px;
 
-  margin: 0 0 15px;
+  height: 43px;
 
-  border: 1px solid rgba(25, 240, 176, 0.72);
-
-  border-radius: 17px;
+  margin: 0 0 10px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 9px;
+  gap: 8px;
 
   color: #ffffff;
+
+  border-radius: 15px;
+
+  border: 1px solid rgba(25, 240, 176, 0.45);
 
   background:
     linear-gradient(
       135deg,
-      rgba(11, 151, 113, 0.88),
-      rgba(6, 102, 82, 0.88)
+      rgba(16, 124, 101, 0.72),
+      rgba(5, 71, 68, 0.68)
     );
 
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.20),
-    0 0 18px rgba(25, 240, 176, 0.09);
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+    0 7px 20px rgba(0, 0, 0, 0.20),
+    0 0 16px rgba(25, 240, 176, 0.07);
 
-  font-size: 13px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  font-size: 11px;
   font-weight: 800;
-
-  letter-spacing: 0.1px;
 
   cursor: pointer;
 
+  overflow: hidden;
+
   transition:
-    transform 0.18s ease,
-    filter 0.18s ease,
-    box-shadow 0.18s ease;
+    transform 0.15s ease,
+    filter 0.15s ease;
 }
 
-.back-button:hover {
-  filter: brightness(1.08);
+.back-button::before {
+  content: "";
 
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.24),
-    0 0 22px rgba(25, 240, 176, 0.15);
+  position: absolute;
+
+  left: -40%;
+  top: 0;
+
+  width: 35%;
+  height: 100%;
+
+  transform: skewX(-20deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.12),
+      transparent
+    );
 }
 
 .back-button:active {
   transform: scale(0.985);
+
+  filter: brightness(1.08);
 }
 
-.back-icon {
-  width: 27px;
-  height: 27px;
+.back-arrow {
+  width: 23px;
+  height: 23px;
 
-  border-radius: 50%;
-
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
 
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.09);
 
-  font-size: 17px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  color: #19f0b0;
+
+  font-size: 15px;
+
   line-height: 1;
 }
 
 
 /* =========================
-   СЕТКА
+   СЕТКА 2 × 4
 ========================= */
 
 .groups-grid {
@@ -216,45 +235,51 @@ body {
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
-  gap: 12px;
+  gap: 8px;
 }
 
 
 /* =========================
-   СТЕКЛЯННАЯ КАРТОЧКА
+   ЗЕРКАЛЬНАЯ ПЛИТКА
 ========================= */
 
-.group-card {
-  min-width: 0;
-
-  min-height: 158px;
-
-  padding: 13px;
-
+.group-tile {
   position: relative;
 
+  min-width: 0;
+
+  height: 72px;
+
+  padding:
+    8px
+    8px
+    8px
+    9px;
+
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+
+  gap: 8px;
 
   text-decoration: none;
 
   color: #ffffff;
 
-  border-radius: 20px;
+  border-radius: 17px;
 
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
   background:
     linear-gradient(
       145deg,
-      rgba(30, 72, 105, 0.50),
-      rgba(6, 27, 51, 0.68)
+      rgba(44, 88, 117, 0.50),
+      rgba(7, 30, 54, 0.72)
     );
 
   box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    0 7px 18px rgba(0, 0, 0, 0.22);
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -262,46 +287,82 @@ body {
   overflow: hidden;
 
   transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    background 0.18s ease,
-    box-shadow 0.18s ease;
+    transform 0.16s ease,
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease;
 }
 
 
-/* мягкий свет внутри карточки */
+/* внешний светящийся кант */
 
-.group-card::before {
+.group-tile::before {
   content: "";
 
   position: absolute;
 
-  width: 100px;
-  height: 100px;
+  inset: 0;
 
-  top: -55px;
-  right: -45px;
+  border-radius: 17px;
 
-  border-radius: 50%;
+  padding: 1px;
 
-  background: rgba(25, 240, 176, 0.08);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18),
+      rgba(25, 240, 176, 0.18),
+      rgba(255, 255, 255, 0.04),
+      rgba(25, 240, 176, 0.12)
+    );
 
-  filter: blur(5px);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
 
   pointer-events: none;
 }
 
 
-/* нижнее стеклянное свечение */
+/* стеклянный блик */
 
-.group-card::after {
+.tile-shine {
+  position: absolute;
+
+  left: -35%;
+  top: -70%;
+
+  width: 55%;
+  height: 230%;
+
+  transform: rotate(20deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.055),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* нижнее зелёное свечение */
+
+.group-tile::after {
   content: "";
 
   position: absolute;
 
-  left: 15px;
-  right: 15px;
-  bottom: 0;
+  left: 18%;
+  right: 18%;
+  bottom: -1px;
 
   height: 1px;
 
@@ -309,46 +370,14 @@ body {
     linear-gradient(
       90deg,
       transparent,
-      rgba(25, 240, 176, 0.25),
+      rgba(25, 240, 176, 0.35),
       transparent
     );
 
-  pointer-events: none;
-}
-
-.group-card:hover {
-  transform: translateY(-2px);
-
-  border-color:
-    rgba(25, 240, 176, 0.28);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(35, 83, 112, 0.56),
-      rgba(7, 31, 57, 0.72)
-    );
-
   box-shadow:
-    0 14px 32px rgba(0, 0, 0, 0.27),
-    0 0 18px rgba(25, 240, 176, 0.05);
-}
+    0 0 8px rgba(25, 240, 176, 0.16);
 
-.group-card:active {
-  transform: scale(0.985);
-}
-
-
-/* =========================
-   ВЕРХ КАРТОЧКИ
-========================= */
-
-.card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 8px;
+  pointer-events: none;
 }
 
 
@@ -356,32 +385,36 @@ body {
    АВАТАР
 ========================= */
 
-.avatar-frame {
-  width: 64px;
-  height: 64px;
+.avatar {
+  position: relative;
 
-  flex: 0 0 64px;
+  width: 43px;
+  height: 43px;
 
-  padding: 3px;
+  flex: 0 0 43px;
 
-  border-radius: 18px;
+  padding: 2px;
+
+  border-radius: 14px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.20),
       rgba(255, 255, 255, 0.045)
     );
 
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.24);
+    0 5px 14px rgba(0, 0, 0, 0.28);
 
   overflow: hidden;
+
+  z-index: 2;
 }
 
-.group-avatar {
+.avatar img {
   display: block;
 
   width: 100%;
@@ -389,9 +422,43 @@ body {
 
   object-fit: cover;
 
-  border-radius: 14px;
+  border-radius: 11px;
 
   background: rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================
+   НАЗВАНИЕ
+========================= */
+
+.group-name {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 0;
+
+  flex: 1;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  letter-spacing: 0;
+
+  text-shadow:
+    0 1px 7px rgba(0, 0, 0, 0.55);
+
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 
@@ -399,11 +466,15 @@ body {
    СТРЕЛКА
 ========================= */
 
-.card-arrow {
-  width: 30px;
-  height: 30px;
+.group-arrow {
+  position: relative;
 
-  flex: 0 0 30px;
+  z-index: 2;
+
+  width: 25px;
+  height: 25px;
+
+  flex: 0 0 25px;
 
   display: flex;
   align-items: center;
@@ -413,63 +484,39 @@ body {
 
   color: #19f0b0;
 
-  background: rgba(25, 240, 176, 0.07);
+  background: rgba(25, 240, 176, 0.075);
 
-  border: 1px solid rgba(25, 240, 176, 0.16);
+  border: 1px solid rgba(25, 240, 176, 0.18);
 
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 900;
 
-  transition:
-    background 0.18s ease,
-    transform 0.18s ease;
-}
-
-.group-card:hover .card-arrow {
-  background: rgba(25, 240, 176, 0.13);
-
-  transform: translate(1px, -1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 
 /* =========================
-   ТЕКСТ КАРТОЧКИ
+   НАЖАТИЕ
 ========================= */
 
-.card-content {
-  position: relative;
+.group-tile:active {
+  transform: scale(0.975);
 
-  z-index: 1;
+  border-color:
+    rgba(25, 240, 176, 0.48);
 
-  margin-top: 11px;
-}
+  background:
+    linear-gradient(
+      145deg,
+      rgba(38, 102, 112, 0.62),
+      rgba(6, 40, 57, 0.78)
+    );
 
-.card-content h2 {
-  margin: 0 0 5px;
-
-  font-size: 15px;
-
-  line-height: 1.15;
-
-  font-weight: 850;
-
-  letter-spacing: 0.05px;
-
-  color: #ffffff;
-}
-
-.card-content p {
-  margin: 0;
-
-  max-width: 96%;
-
-  color: rgba(255, 255, 255, 0.54);
-
-  font-size: 11px;
-
-  line-height: 1.35;
-
-  font-weight: 500;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 3px 10px rgba(0, 0, 0, 0.28),
+    0 0 16px rgba(25, 240, 176, 0.12);
 }
 
 
@@ -478,150 +525,140 @@ body {
 ========================= */
 
 .bottom-back {
-  margin-top: 16px;
+  margin-top: 10px;
   margin-bottom: 0;
 }
 
 
 /* =========================
-   ПОДВАЛ
+   МАЛЕНЬКИЙ ТЕЛЕФОН
 ========================= */
 
-.page-footer {
-  padding-top: 18px;
-
-  text-align: center;
-
-  color: rgba(255, 255, 255, 0.22);
-
-  font-size: 8px;
-
-  font-weight: 800;
-
-  letter-spacing: 1.4px;
-}
-
-
-/* =========================
-   ТЕЛЕФОНЫ
-========================= */
-
-@media (max-width: 430px) {
+@media (max-width: 380px) {
 
   .groups-page {
     padding:
-      18px
       12px
-      26px;
+      10px
+      14px;
   }
 
   .groups-header {
-    margin-bottom: 13px;
-  }
-
-  .header-label {
-    font-size: 8px;
-    letter-spacing: 1.4px;
+    margin-bottom: 8px;
   }
 
   .groups-header h1 {
-    font-size: 23px;
+    font-size: 21px;
   }
 
-  .header-subtitle {
-    font-size: 11px;
+  .header-label {
+    font-size: 7px;
+    letter-spacing: 1.4px;
   }
 
   .back-button {
-    min-height: 47px;
+    height: 40px;
 
-    border-radius: 16px;
+    margin-bottom: 8px;
 
-    font-size: 12px;
-  }
-
-  .groups-grid {
-    gap: 9px;
-  }
-
-  .group-card {
-    min-height: 148px;
-
-    padding: 11px;
-
-    border-radius: 18px;
-  }
-
-  .avatar-frame {
-    width: 56px;
-    height: 56px;
-
-    flex-basis: 56px;
-
-    border-radius: 16px;
-  }
-
-  .group-avatar {
-    border-radius: 12px;
-  }
-
-  .card-arrow {
-    width: 27px;
-    height: 27px;
-
-    flex-basis: 27px;
-
-    font-size: 14px;
-  }
-
-  .card-content {
-    margin-top: 9px;
-  }
-
-  .card-content h2 {
-    font-size: 13px;
-  }
-
-  .card-content p {
     font-size: 10px;
   }
 
-}
+  .back-arrow {
+    width: 21px;
+    height: 21px;
 
-
-/* =========================
-   ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ
-========================= */
-
-@media (max-width: 350px) {
-
-  .groups-page {
-    padding-left: 9px;
-    padding-right: 9px;
+    font-size: 14px;
   }
 
   .groups-grid {
     gap: 7px;
   }
 
-  .group-card {
-    min-height: 143px;
-    padding: 9px;
+  .group-tile {
+    height: 67px;
+
+    padding:
+      7px
+      7px
+      7px
+      8px;
+
+    gap: 6px;
+
+    border-radius: 15px;
   }
 
-  .avatar-frame {
-    width: 52px;
-    height: 52px;
-
-    flex-basis: 52px;
+  .group-tile::before {
+    border-radius: 15px;
   }
 
-  .card-content h2 {
-    font-size: 12px;
+  .avatar {
+    width: 38px;
+    height: 38px;
+
+    flex-basis: 38px;
+
+    border-radius: 12px;
   }
 
-  .card-content p {
-    font-size: 9px;
+  .avatar img {
+    border-radius: 9px;
   }
 
+  .group-name {
+    font-size: 10.5px;
+  }
+
+  .group-arrow {
+    width: 22px;
+    height: 22px;
+
+    flex-basis: 22px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =========================
+   ОЧЕНЬ МАЛЕНЬКИЙ ЭКРАН
+========================= */
+
+@media (max-width: 340px) {
+
+  .groups-page {
+    padding:
+      9px
+      8px
+      10px;
+  }
+
+  .groups-header h1 {
+    font-size: 19px;
+  }
+
+  .group-tile {
+    height: 62px;
+
+    padding: 6px;
+  }
+
+  .avatar {
+    width: 35px;
+    height: 35px;
+
+    flex-basis: 35px;
+  }
+
+  .group-name {
+    font-size: 9.5px;
+  }
+
+  .group-arrow {
+    width: 20px;
+    height: 20px;
+
+    flex-basis: 20px;
+  }
 }
