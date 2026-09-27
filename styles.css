@@ -6,10 +6,10 @@
   max-width: 744.45px;
   min-width: 0;
 
-  margin: 0;
+  margin: -20px 0 0 0;
   padding: 0;
 
-  transform: translateY(0);
+  transform: none;
 
   overflow: hidden;
   line-height: 0;
