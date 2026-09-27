@@ -4,16 +4,13 @@
 }
 
 html {
-  min-height: 100%;
   background: #06152b;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-
-  color: #ffffff;
-
+  color: #fff;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -24,116 +21,87 @@ body {
 
   background:
     radial-gradient(
-      circle at 50% -10%,
+      circle at 50% -5%,
       rgba(25, 240, 176, 0.12),
-      transparent 38%
+      transparent 34%
     ),
-    radial-gradient(
-      circle at 0% 55%,
-      rgba(20, 100, 170, 0.10),
-      transparent 35%
-    ),
-    #06152b;
+    linear-gradient(
+      180deg,
+      #071b32 0%,
+      #06152b 65%,
+      #051326 100%
+    );
 
   overflow-x: hidden;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-/* =========================
-   СТРАНИЦА
-========================= */
+button {
+  font: inherit;
+}
+
+
+/* СТРАНИЦА */
 
 .groups-page {
-  width: min(100%, 760px);
-
+  width: 100%;
+  max-width: 760px;
   min-height: 100vh;
 
   margin: 0 auto;
 
-  padding:
-    15px
-    14px
-    18px;
+  padding: 10px 12px 12px;
 }
 
 
-/* =========================
-   ЗАГОЛОВОК
-========================= */
+/* ЗАГОЛОВОК */
 
 .groups-header {
-  position: relative;
-
   text-align: center;
-
-  padding-top: 2px;
-
-  margin-bottom: 10px;
-}
-
-.header-glow {
-  position: absolute;
-
-  left: 50%;
-  top: -20px;
-
-  width: 100px;
-  height: 45px;
-
-  transform: translateX(-50%);
-
-  background: rgba(25, 240, 176, 0.10);
-
-  filter: blur(25px);
-
-  pointer-events: none;
+  margin-bottom: 8px;
 }
 
 .header-label {
-  position: relative;
+  margin-bottom: 2px;
 
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255,255,255,.42);
 
   font-size: 8px;
   font-weight: 800;
 
-  letter-spacing: 1.8px;
-
-  margin-bottom: 3px;
+  letter-spacing: 1.7px;
 }
 
 .groups-header h1 {
-  position: relative;
-
   margin: 0;
 
-  color: #ffffff;
+  color: #fff;
 
-  font-size: 23px;
-
+  font-size: 24px;
   line-height: 1;
 
   font-weight: 900;
-
-  letter-spacing: 1px;
+  letter-spacing: .7px;
 
   text-shadow:
-    0 2px 14px rgba(0, 0, 0, 0.45);
+    0 2px 12px rgba(0,0,0,.45);
 }
 
 
-/* =========================
-   КНОПКА НАЗАД
-========================= */
+/* ВОЗВРАТ */
 
 .back-button {
   position: relative;
 
   width: 100%;
+  height: 40px;
 
-  height: 43px;
-
-  margin: 0 0 10px;
+  margin: 0 0 9px;
+  padding: 0 12px;
 
   display: flex;
   align-items: center;
@@ -141,93 +109,40 @@ body {
 
   gap: 8px;
 
-  color: #ffffff;
+  color: #fff;
 
+  border: 1px solid rgba(25,240,176,.45);
   border-radius: 15px;
-
-  border: 1px solid rgba(25, 240, 176, 0.45);
 
   background:
     linear-gradient(
       135deg,
-      rgba(16, 124, 101, 0.72),
-      rgba(5, 71, 68, 0.68)
+      rgba(19,153,119,.72),
+      rgba(5,91,75,.70)
     );
 
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.11),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
-    0 7px 20px rgba(0, 0, 0, 0.20),
-    0 0 16px rgba(25, 240, 176, 0.07);
+    inset 0 1px 0 rgba(255,255,255,.14),
+    0 5px 16px rgba(0,0,0,.20),
+    0 0 15px rgba(25,240,176,.07);
 
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
   font-size: 11px;
   font-weight: 800;
 
   cursor: pointer;
-
-  overflow: hidden;
-
-  transition:
-    transform 0.15s ease,
-    filter 0.15s ease;
-}
-
-.back-button::before {
-  content: "";
-
-  position: absolute;
-
-  left: -40%;
-  top: 0;
-
-  width: 35%;
-  height: 100%;
-
-  transform: skewX(-20deg);
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.12),
-      transparent
-    );
-}
-
-.back-button:active {
-  transform: scale(0.985);
-
-  filter: brightness(1.08);
 }
 
 .back-arrow {
-  width: 23px;
-  height: 23px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.09);
-
-  border: 1px solid rgba(255, 255, 255, 0.10);
-
   color: #19f0b0;
-
-  font-size: 15px;
-
+  font-size: 17px;
   line-height: 1;
 }
 
 
-/* =========================
-   СЕТКА 2 × 4
-========================= */
+/* СЕТКА */
 
 .groups-grid {
   display: grid;
@@ -239,62 +154,52 @@ body {
 }
 
 
-/* =========================
-   ЗЕРКАЛЬНАЯ ПЛИТКА
-========================= */
+/* КНОПКА ГРУППЫ */
 
 .group-tile {
   position: relative;
 
+  height: 62px;
   min-width: 0;
 
-  height: 72px;
-
-  padding:
-    8px
-    8px
-    8px
-    9px;
+  padding: 7px 7px 7px 8px;
 
   display: flex;
   align-items: center;
 
-  gap: 8px;
+  gap: 7px;
 
+  color: #fff;
   text-decoration: none;
 
-  color: #ffffff;
-
-  border-radius: 17px;
-
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 16px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(44, 88, 117, 0.50),
-      rgba(7, 30, 54, 0.72)
+      rgba(45,88,117,.53),
+      rgba(7,30,54,.76)
     );
 
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
-    0 7px 18px rgba(0, 0, 0, 0.22);
+    inset 0 1px 0 rgba(255,255,255,.13),
+    inset 0 -1px 0 rgba(0,0,0,.25),
+    0 6px 16px rgba(0,0,0,.22);
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(17px);
+  -webkit-backdrop-filter: blur(17px);
 
   overflow: hidden;
 
   transition:
-    transform 0.16s ease,
-    border-color 0.16s ease,
-    box-shadow 0.16s ease,
-    background 0.16s ease;
+    transform .12s ease,
+    border-color .12s ease,
+    box-shadow .12s ease;
 }
 
 
-/* внешний светящийся кант */
+/* ВНУТРЕННИЙ КАНТ */
 
 .group-tile::before {
   content: "";
@@ -303,57 +208,34 @@ body {
 
   inset: 0;
 
-  border-radius: 17px;
+  border: 1px solid rgba(25,240,176,.17);
 
-  padding: 1px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.18),
-      rgba(25, 240, 176, 0.18),
-      rgba(255, 255, 255, 0.04),
-      rgba(25, 240, 176, 0.12)
-    );
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-
-  -webkit-mask-composite: xor;
-
-  mask-composite: exclude;
+  border-radius: inherit;
 
   pointer-events: none;
 }
 
 
-/* стеклянный блик */
+/* БЛИК */
 
 .tile-shine {
   position: absolute;
 
-  left: -35%;
-  top: -70%;
+  top: -100%;
+  left: -30%;
 
-  width: 55%;
-  height: 230%;
+  width: 35%;
+  height: 300%;
 
-  transform: rotate(20deg);
+  transform: rotate(22deg);
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.055),
-      transparent
-    );
+  background: rgba(255,255,255,.055);
 
   pointer-events: none;
 }
 
 
-/* нижнее зелёное свечение */
+/* НИЖНИЙ СВЕТ */
 
 .group-tile::after {
   content: "";
@@ -362,7 +244,7 @@ body {
 
   left: 18%;
   right: 18%;
-  bottom: -1px;
+  bottom: 0;
 
   height: 1px;
 
@@ -370,111 +252,97 @@ body {
     linear-gradient(
       90deg,
       transparent,
-      rgba(25, 240, 176, 0.35),
+      rgba(25,240,176,.45),
       transparent
     );
 
   box-shadow:
-    0 0 8px rgba(25, 240, 176, 0.16);
+    0 0 7px rgba(25,240,176,.18);
 
   pointer-events: none;
 }
 
 
-/* =========================
-   АВАТАР
-========================= */
+/* АВАТАР */
 
 .avatar {
   position: relative;
+  z-index: 2;
 
-  width: 43px;
-  height: 43px;
+  width: 38px;
+  height: 38px;
 
-  flex: 0 0 43px;
+  flex: 0 0 38px;
 
-  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  border-radius: 14px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,.18);
 
   background:
     linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.20),
-      rgba(255, 255, 255, 0.045)
+      rgba(255,255,255,.15),
+      rgba(255,255,255,.035)
     );
 
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #19f0b0;
 
   box-shadow:
-    0 5px 14px rgba(0, 0, 0, 0.28);
+    0 4px 12px rgba(0,0,0,.28);
 
   overflow: hidden;
-
-  z-index: 2;
 }
 
-.avatar img {
-  display: block;
+.avatar svg {
+  width: 20px;
+  height: 20px;
 
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  border-radius: 11px;
-
-  background: rgba(255, 255, 255, 0.06);
+  fill: currentColor;
 }
 
 
-/* =========================
-   НАЗВАНИЕ
-========================= */
+/* НАЗВАНИЕ */
 
 .group-name {
   position: relative;
-
   z-index: 2;
 
   min-width: 0;
 
   flex: 1;
 
-  color: #ffffff;
+  color: #fff;
 
-  font-size: 12px;
-
-  line-height: 1.15;
+  font-size: 11.5px;
+  line-height: 1.12;
 
   font-weight: 800;
 
-  letter-spacing: 0;
-
   text-shadow:
-    0 1px 7px rgba(0, 0, 0, 0.55);
-
-  overflow: hidden;
+    0 1px 6px rgba(0,0,0,.65);
 
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+
+  overflow: hidden;
 }
 
 
-/* =========================
-   СТРЕЛКА
-========================= */
+/* СТРЕЛКА */
 
 .group-arrow {
   position: relative;
-
   z-index: 2;
 
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
 
-  flex: 0 0 25px;
+  flex: 0 0 23px;
 
   display: flex;
   align-items: center;
@@ -484,91 +352,62 @@ body {
 
   color: #19f0b0;
 
-  background: rgba(25, 240, 176, 0.075);
+  border: 1px solid rgba(25,240,176,.22);
 
-  border: 1px solid rgba(25, 240, 176, 0.18);
+  background: rgba(25,240,176,.07);
 
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 900;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 
-/* =========================
-   НАЖАТИЕ
-========================= */
+/* НАЖАТИЕ */
 
 .group-tile:active {
-  transform: scale(0.975);
+  transform: scale(.975);
 
   border-color:
-    rgba(25, 240, 176, 0.48);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(38, 102, 112, 0.62),
-      rgba(6, 40, 57, 0.78)
-    );
+    rgba(25,240,176,.48);
 
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 3px 10px rgba(0, 0, 0, 0.28),
-    0 0 16px rgba(25, 240, 176, 0.12);
+    inset 0 1px 0 rgba(255,255,255,.15),
+    0 3px 10px rgba(0,0,0,.28),
+    0 0 15px rgba(25,240,176,.12);
+}
+
+.back-button:active {
+  transform: scale(.985);
 }
 
 
-/* =========================
-   НИЖНЯЯ КНОПКА
-========================= */
+/* НИЖНЯЯ КНОПКА */
 
 .bottom-back {
-  margin-top: 10px;
+  margin-top: 9px;
   margin-bottom: 0;
 }
 
 
-/* =========================
-   МАЛЕНЬКИЙ ТЕЛЕФОН
-========================= */
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
 
 @media (max-width: 380px) {
 
   .groups-page {
-    padding:
-      12px
-      10px
-      14px;
-  }
-
-  .groups-header {
-    margin-bottom: 8px;
+    padding: 8px 9px 10px;
   }
 
   .groups-header h1 {
-    font-size: 21px;
+    font-size: 22px;
   }
 
   .header-label {
     font-size: 7px;
-    letter-spacing: 1.4px;
   }
 
   .back-button {
-    height: 40px;
-
-    margin-bottom: 8px;
-
-    font-size: 10px;
-  }
-
-  .back-arrow {
-    width: 21px;
-    height: 21px;
-
-    font-size: 14px;
+    height: 38px;
+    margin-bottom: 7px;
+    font-size: 10.5px;
   }
 
   .groups-grid {
@@ -576,34 +415,16 @@ body {
   }
 
   .group-tile {
-    height: 67px;
-
-    padding:
-      7px
-      7px
-      7px
-      8px;
-
+    height: 58px;
+    padding: 6px;
     gap: 6px;
-
-    border-radius: 15px;
-  }
-
-  .group-tile::before {
-    border-radius: 15px;
   }
 
   .avatar {
-    width: 38px;
-    height: 38px;
-
-    flex-basis: 38px;
-
-    border-radius: 12px;
-  }
-
-  .avatar img {
-    border-radius: 9px;
+    width: 35px;
+    height: 35px;
+    flex-basis: 35px;
+    border-radius: 11px;
   }
 
   .group-name {
@@ -611,54 +432,8 @@ body {
   }
 
   .group-arrow {
-    width: 22px;
-    height: 22px;
-
-    flex-basis: 22px;
-
-    font-size: 11px;
-  }
-}
-
-
-/* =========================
-   ОЧЕНЬ МАЛЕНЬКИЙ ЭКРАН
-========================= */
-
-@media (max-width: 340px) {
-
-  .groups-page {
-    padding:
-      9px
-      8px
-      10px;
-  }
-
-  .groups-header h1 {
-    font-size: 19px;
-  }
-
-  .group-tile {
-    height: 62px;
-
-    padding: 6px;
-  }
-
-  .avatar {
-    width: 35px;
-    height: 35px;
-
-    flex-basis: 35px;
-  }
-
-  .group-name {
-    font-size: 9.5px;
-  }
-
-  .group-arrow {
-    width: 20px;
-    height: 20px;
-
-    flex-basis: 20px;
+    width: 21px;
+    height: 21px;
+    flex-basis: 21px;
   }
 }
