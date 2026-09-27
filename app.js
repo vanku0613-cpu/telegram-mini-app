@@ -162,14 +162,11 @@
     homeLink.addEventListener("click", (event) => {
       event.preventDefault();
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
       try {
         tg?.HapticFeedback?.impactOccurred?.("light");
       } catch (e) {}
+
+      window.location.reload();
     });
   }
 
@@ -542,4 +539,133 @@
     };
 
 
-   
+    return map[code] || "Погода";
+  }
+
+
+  // =========================================================
+  // КУРС ВАЛЮТ
+  // =========================================================
+
+  async function loadCurrency() {
+
+    const usdEl =
+      $("usdRate");
+
+    const eurEl =
+      $("eurRate");
+
+
+    if (!usdEl || !eurEl) {
+      return;
+    }
+
+
+    try {
+
+      const response =
+        await fetch(
+          "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json",
+          {
+            cache: "no-store"
+          }
+        );
+
+
+      if (!response.ok) {
+        throw new Error(
+          "Currency request failed"
+        );
+      }
+
+
+      const data =
+        await response.json();
+
+
+      const usd =
+        data.find(
+          (item) => item.cc === "USD"
+        );
+
+
+      const eur =
+        data.find(
+          (item) => item.cc === "EUR"
+        );
+
+
+      usdEl.textContent =
+        usd
+          ? formatRate(usd.rate)
+          : "—";
+
+
+      eurEl.textContent =
+        eur
+          ? formatRate(eur.rate)
+          : "—";
+
+
+    } catch (error) {
+
+      usdEl.textContent = "—";
+      eurEl.textContent = "—";
+
+    }
+  }
+
+
+  // =========================================================
+  // ФОРМАТ КУРСА
+  // =========================================================
+
+  function formatRate(value) {
+
+    const number =
+      Number(value);
+
+
+    return Number.isFinite(number)
+      ? number.toFixed(2)
+      : "—";
+  }
+
+
+  // =========================================================
+  // ПОСЛЕДНИЕ ОТКРЫТЫЕ РАЗДЕЛЫ
+  // =========================================================
+
+  [
+    "healthLink",
+    "transportLink",
+    "servicesLink",
+    "foodLink",
+    "utilitiesLink",
+    "jobsLink",
+    "educationLink",
+    "leisureLink"
+
+  ].forEach((id) => {
+
+    const element = $(id);
+
+    if (!element) return;
+
+
+    element.addEventListener(
+      "click",
+      () => {
+
+        const title =
+          element.getAttribute(
+            "aria-label"
+          ) || id;
+
+
+        let saved = [];
+
+        try {
+
+          saved = JSON.parse(
+            localStorage
