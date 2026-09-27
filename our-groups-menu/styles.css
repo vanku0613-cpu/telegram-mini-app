@@ -4,12 +4,20 @@
 }
 
 html {
+  width: 100%;
+  min-height: 100%;
+
   background: #06152b;
 }
 
 body {
-  margin: 0;
+  position: relative;
+
+  width: 100%;
   min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
 
   color: #fff;
 
@@ -21,199 +29,330 @@ body {
     Arial,
     sans-serif;
 
-  /* ФОНОВАЯ КАРТИНКА */
-  background:
+  overflow-x: hidden;
+
+  background: #06152b;
+}
+
+
+/* =====================================================
+   ФОТО-ФОН
+   ===================================================== */
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background-image:
     linear-gradient(
       180deg,
-      rgba(3, 13, 27, 0.45) 0%,
-      rgba(3, 13, 27, 0.62) 55%,
-      rgba(3, 13, 27, 0.82) 100%
+      rgba(2, 13, 27, .30) 0%,
+      rgba(2, 13, 27, .48) 50%,
+      rgba(2, 13, 27, .72) 100%
     ),
-    url("file_000000000a4c8210a764c747055f86c5.png");
+    url("./file_000000000a4c8210a764c747055f86c5.png");
+
+  background-position: center center;
 
   background-size: cover;
-  background-position: center center;
+
   background-repeat: no-repeat;
-  background-attachment: fixed;
 
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
+  transform: scale(1.02);
 }
 
 
-/* ============================= */
-/* СТРАНИЦА */
-/* ============================= */
+/* =====================================================
+   ЛЁГКОЕ ЗАТЕМНЕНИЕ И СВЕЧЕНИЕ
+   ===================================================== */
+
+body::after {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 8%,
+      rgba(25, 240, 176, .10),
+      transparent 32%
+    ),
+
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(1, 10, 22, .12) 100%
+    );
+}
+
+
+/* =====================================================
+   СТРАНИЦА
+   ===================================================== */
 
 .groups-page {
+
+  position: relative;
+
   width: 100%;
+
   max-width: 760px;
+
   min-height: 100vh;
 
   margin: 0 auto;
 
-  padding: 10px 12px 12px;
+  padding:
+    14px
+    12px
+    14px;
 }
 
 
-/* ============================= */
-/* ЗАГОЛОВОК */
-/* ============================= */
+/* =====================================================
+   ЗАГОЛОВОК
+   ===================================================== */
 
 .groups-header {
+
   text-align: center;
-  margin-bottom: 8px;
+
+  margin:
+    4px
+    0
+    10px;
 }
 
 .header-label {
-  margin-bottom: 2px;
 
-  color: rgba(255,255,255,.55);
+  margin-bottom: 3px;
+
+  color:
+    rgba(255,255,255,.68);
 
   font-size: 8px;
+
   font-weight: 800;
 
-  letter-spacing: 1.7px;
+  letter-spacing: 2px;
 
   text-shadow:
-    0 1px 5px rgba(0,0,0,.65);
+    0 1px 6px rgba(0,0,0,.8);
 }
 
 .groups-header h1 {
+
   margin: 0;
 
   color: #fff;
 
-  font-size: 24px;
+  font-size: 25px;
+
   line-height: 1;
 
   font-weight: 900;
+
   letter-spacing: .7px;
 
   text-shadow:
-    0 2px 12px rgba(0,0,0,.75);
+    0 2px 12px rgba(0,0,0,.8),
+    0 0 20px rgba(25,240,176,.08);
 }
 
 
-/* ============================= */
-/* КНОПКА НАЗАД */
-/* ============================= */
+/* =====================================================
+   КНОПКА НАЗАД
+   ===================================================== */
 
 .back-button {
+
   position: relative;
 
   width: 100%;
+
   height: 40px;
 
-  margin: 0 0 9px;
-  padding: 0 12px;
+  margin:
+    0
+    0
+    10px;
+
+  padding:
+    0
+    12px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 8px;
 
   color: #fff;
 
-  border: 1px solid rgba(25,240,176,.48);
+  border:
+    1px solid
+    rgba(25,240,176,.58);
+
   border-radius: 15px;
 
   background:
+
     linear-gradient(
       135deg,
-      rgba(19,153,119,.72),
-      rgba(5,91,75,.72)
-    );
+      rgba(16,132,105,.74),
+      rgba(3,63,55,.70)
+    ),
+
+    rgba(4,25,39,.55);
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.16),
-    0 5px 16px rgba(0,0,0,.32),
-    0 0 15px rgba(25,240,176,.08);
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+    inset
+    0 1px 0
+    rgba(255,255,255,.16),
+
+    0 6px 18px
+    rgba(0,0,0,.34),
+
+    0 0 16px
+    rgba(25,240,176,.10);
+
+  backdrop-filter:
+    blur(16px)
+    saturate(130%);
+
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(130%);
 
   font-size: 11px;
+
   font-weight: 800;
 
   cursor: pointer;
 
   text-shadow:
-    0 1px 4px rgba(0,0,0,.55);
+    0 1px 5px rgba(0,0,0,.65);
+
+  transition:
+    transform .12s ease,
+    box-shadow .12s ease,
+    border-color .12s ease;
 }
 
+
 .back-arrow {
+
   color: #19f0b0;
 
-  font-size: 17px;
+  font-size: 18px;
+
   line-height: 1;
 
   text-shadow:
-    0 0 8px rgba(25,240,176,.45);
+    0 0 9px
+    rgba(25,240,176,.55);
 }
 
 
-/* ============================= */
-/* СЕТКА */
-/* ============================= */
+/* =====================================================
+   СЕТКА
+   ===================================================== */
 
 .groups-grid {
+
   display: grid;
 
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
-  gap: 8px;
+  gap: 9px;
 }
 
 
-/* ============================= */
-/* КНОПКА ГРУППЫ */
-/* ============================= */
+/* =====================================================
+   СТЕКЛЯННАЯ КНОПКА
+   ===================================================== */
 
 .group-tile {
+
   position: relative;
 
   height: 62px;
+
   min-width: 0;
 
-  padding: 7px 7px 7px 8px;
+  padding:
+    7px
+    7px
+    7px
+    8px;
 
   display: flex;
+
   align-items: center;
 
   gap: 7px;
 
   color: #fff;
+
   text-decoration: none;
 
-  border: 1px solid rgba(255,255,255,.20);
+  border:
+    1px solid
+    rgba(25,240,176,.42);
+
   border-radius: 16px;
 
-  /* СТЕКЛО */
   background:
+
     linear-gradient(
       145deg,
-      rgba(43,91,122,.58),
-      rgba(6,29,53,.76)
-    );
+      rgba(53,104,132,.50),
+      rgba(5,29,51,.73)
+    ),
+
+    rgba(5,24,43,.40);
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.16),
-    inset 0 -1px 0 rgba(0,0,0,.30),
-    0 6px 16px rgba(0,0,0,.32);
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+    inset
+    0 1px 0
+    rgba(255,255,255,.17),
+
+    inset
+    0 -1px 0
+    rgba(0,0,0,.28),
+
+    0 7px 18px
+    rgba(0,0,0,.34),
+
+    0 0 12px
+    rgba(25,240,176,.07);
+
+  backdrop-filter:
+    blur(18px)
+    saturate(135%);
+
+  -webkit-backdrop-filter:
+    blur(18px)
+    saturate(135%);
 
   overflow: hidden;
 
@@ -224,16 +363,21 @@ button {
 }
 
 
-/* ВНУТРЕННИЙ КАНТ */
+/* =====================================================
+   ВНУТРЕННИЙ КАНТ
+   ===================================================== */
 
 .group-tile::before {
+
   content: "";
 
   position: absolute;
 
   inset: 0;
 
-  border: 1px solid rgba(25,240,176,.18);
+  border:
+    1px solid
+    rgba(255,255,255,.09);
 
   border-radius: inherit;
 
@@ -241,34 +385,50 @@ button {
 }
 
 
-/* БЛИК */
+/* =====================================================
+   БЛИК
+   ===================================================== */
 
 .tile-shine {
+
   position: absolute;
 
   top: -100%;
-  left: -30%;
 
-  width: 35%;
+  left: -35%;
+
+  width: 34%;
+
   height: 300%;
 
   transform: rotate(22deg);
 
-  background: rgba(255,255,255,.065);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.09),
+      transparent
+    );
 
   pointer-events: none;
 }
 
 
-/* НИЖНИЙ СВЕТ */
+/* =====================================================
+   НИЖНЕЕ СВЕЧЕНИЕ
+   ===================================================== */
 
 .group-tile::after {
+
   content: "";
 
   position: absolute;
 
-  left: 18%;
-  right: 18%;
+  left: 16%;
+
+  right: 16%;
+
   bottom: 0;
 
   height: 1px;
@@ -277,70 +437,99 @@ button {
     linear-gradient(
       90deg,
       transparent,
-      rgba(25,240,176,.52),
+      rgba(25,240,176,.65),
       transparent
     );
 
   box-shadow:
-    0 0 8px rgba(25,240,176,.22);
+    0 0 9px
+    rgba(25,240,176,.25);
 
   pointer-events: none;
 }
 
 
-/* ============================= */
-/* АВАТАР */
-/* ============================= */
+/* =====================================================
+   АВАТАР
+   ===================================================== */
 
 .avatar {
+
   position: relative;
+
   z-index: 2;
 
   width: 38px;
+
   height: 38px;
 
-  flex: 0 0 38px;
+  flex:
+    0 0 38px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 12px;
 
-  border: 1px solid rgba(255,255,255,.20);
+  border:
+    1px solid
+    rgba(25,240,176,.38);
 
   background:
+
     linear-gradient(
       145deg,
-      rgba(255,255,255,.17),
+      rgba(255,255,255,.16),
       rgba(255,255,255,.045)
-    );
+    ),
+
+    rgba(3,30,47,.40);
 
   color: #19f0b0;
 
   box-shadow:
-    0 4px 12px rgba(0,0,0,.34);
+
+    inset
+    0 1px 0
+    rgba(255,255,255,.10),
+
+    0 4px 12px
+    rgba(0,0,0,.34),
+
+    0 0 8px
+    rgba(25,240,176,.08);
 
   overflow: hidden;
 }
 
+
 .avatar svg {
+
   width: 20px;
+
   height: 20px;
 
   fill: currentColor;
 
   filter:
-    drop-shadow(0 0 4px rgba(25,240,176,.25));
+    drop-shadow(
+      0 0 4px
+      rgba(25,240,176,.25)
+    );
 }
 
 
-/* ============================= */
-/* НАЗВАНИЕ ГРУППЫ */
-/* ============================= */
+/* =====================================================
+   НАЗВАНИЕ
+   ===================================================== */
 
 .group-name {
+
   position: relative;
+
   z-index: 2;
 
   min-width: 0;
@@ -350,134 +539,219 @@ button {
   color: #fff;
 
   font-size: 11.5px;
+
   line-height: 1.12;
 
   font-weight: 800;
 
   text-shadow:
-    0 1px 6px rgba(0,0,0,.75);
+    0 1px 6px
+    rgba(0,0,0,.78);
 
   display: -webkit-box;
+
   -webkit-box-orient: vertical;
+
   -webkit-line-clamp: 2;
 
   overflow: hidden;
 }
 
 
-/* ============================= */
-/* СТРЕЛКА */
-/* ============================= */
+/* =====================================================
+   СТРЕЛКА
+   ===================================================== */
 
 .group-arrow {
+
   position: relative;
+
   z-index: 2;
 
   width: 23px;
+
   height: 23px;
 
-  flex: 0 0 23px;
+  flex:
+    0 0 23px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 50%;
 
   color: #19f0b0;
 
-  border: 1px solid rgba(25,240,176,.25);
+  border:
+    1px solid
+    rgba(25,240,176,.28);
 
-  background: rgba(25,240,176,.09);
+  background:
+    rgba(25,240,176,.10);
 
-  font-size: 12px;
+  font-size: 16px;
+
   font-weight: 900;
 
+  line-height: 1;
+
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.08),
-    0 0 8px rgba(25,240,176,.06);
+
+    inset
+    0 1px 0
+    rgba(255,255,255,.08),
+
+    0 0 8px
+    rgba(25,240,176,.07);
 }
 
 
-/* ============================= */
-/* НАЖАТИЕ */
-/* ============================= */
+/* =====================================================
+   НАЖАТИЕ
+   ===================================================== */
 
 .group-tile:active {
+
   transform: scale(.975);
 
   border-color:
-    rgba(25,240,176,.52);
+    rgba(25,240,176,.88);
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.17),
-    0 3px 10px rgba(0,0,0,.35),
-    0 0 16px rgba(25,240,176,.14);
+
+    inset
+    0 1px 0
+    rgba(255,255,255,.18),
+
+    0 3px 10px
+    rgba(0,0,0,.38),
+
+    0 0 18px
+    rgba(25,240,176,.20);
 }
+
 
 .back-button:active {
+
   transform: scale(.985);
+
+  border-color:
+    rgba(25,240,176,.90);
+
+  box-shadow:
+
+    0 3px 12px
+    rgba(0,0,0,.35),
+
+    0 0 18px
+    rgba(25,240,176,.18);
 }
 
 
-/* ============================= */
-/* НИЖНЯЯ КНОПКА */
-/* ============================= */
+/* =====================================================
+   НИЖНЯЯ КНОПКА
+   ===================================================== */
 
 .bottom-back {
-  margin-top: 9px;
+
+  margin-top: 10px;
+
   margin-bottom: 0;
 }
 
 
-/* ============================= */
-/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
-/* ============================= */
+/* =====================================================
+   МАЛЕНЬКИЕ ТЕЛЕФОНЫ
+   ===================================================== */
 
 @media (max-width: 380px) {
 
   .groups-page {
-    padding: 8px 9px 10px;
+
+    padding:
+      10px
+      9px
+      11px;
+  }
+
+  .groups-header {
+
+    margin-top: 2px;
+
+    margin-bottom: 8px;
   }
 
   .groups-header h1 {
+
     font-size: 22px;
   }
 
   .header-label {
+
     font-size: 7px;
+
+    letter-spacing: 1.6px;
   }
 
   .back-button {
+
     height: 38px;
-    margin-bottom: 7px;
+
+    margin-bottom: 8px;
+
     font-size: 10.5px;
   }
 
   .groups-grid {
+
     gap: 7px;
   }
 
   .group-tile {
+
     height: 58px;
+
     padding: 6px;
+
     gap: 6px;
+
+    border-radius: 14px;
   }
 
   .avatar {
+
     width: 35px;
+
     height: 35px;
+
     flex-basis: 35px;
+
     border-radius: 11px;
   }
 
+  .avatar svg {
+
+    width: 18px;
+
+    height: 18px;
+  }
+
   .group-name {
+
     font-size: 10.5px;
   }
 
   .group-arrow {
+
     width: 21px;
+
     height: 21px;
+
     flex-basis: 21px;
+
+    font-size: 14px;
   }
 }
