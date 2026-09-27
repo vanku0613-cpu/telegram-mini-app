@@ -2,7 +2,7 @@
   position: relative;
   z-index: 0;
 
-  width: min(105%, 744.45px);
+  width: 100%;
   max-width: 744.45px;
   min-width: 0;
 
@@ -15,4 +15,14 @@
   line-height: 0;
 
   background: #061b35;
+}
+
+.reference img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  object-fit: contain;
+  object-position: center;
 }
