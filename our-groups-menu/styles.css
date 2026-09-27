@@ -1,50 +1,52 @@
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-html {
-  background: #06121f;
+html{
+  min-height:100%;
+  background:#04121d;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-
-  background:
-    radial-gradient(
-      circle at 50% -15%,
-      #123c52 0,
-      #092333 30%,
-      #06121f 65%,
-      #040b12 100%
-    );
-
-  color: #fff;
+body{
+  margin:0;
+  min-height:100vh;
 
   font-family:
+    Inter,
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     Roboto,
     Arial,
     sans-serif;
+
+  color:#fff;
+
+  background:
+    radial-gradient(
+      circle at 50% -15%,
+      #17465d 0%,
+      #0b2939 28%,
+      #061824 60%,
+      #030c13 100%
+    );
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
 
-/* =========================
-   PAGE
-========================= */
+/* ========================================
+   ОСНОВНАЯ ОБЛАСТЬ
+======================================== */
 
-.groups-page {
-  width: 100%;
-  max-width: 760px;
+.groups-page{
+  width:100%;
+  max-width:760px;
 
-  margin: 0 auto;
+  margin:0 auto;
 
   padding:
     16px
@@ -53,787 +55,705 @@ a {
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* ========================================
+   ШАПКА
+======================================== */
 
-.groups-header {
-  margin-bottom: 19px;
+.groups-header{
+  margin-bottom:20px;
 }
 
-.back-button {
-  display: inline-flex;
+.back-button{
+  display:inline-flex;
 
-  align-items: center;
-  gap: 7px;
+  align-items:center;
 
-  padding:
-    8px
-    14px;
+  gap:7px;
+
+  padding:9px 15px;
 
   border:
     1px solid
-    rgba(116, 211, 226, .22);
+    rgba(123,205,220,.25);
 
-  border-radius: 14px;
-
-  background:
-    rgba(20, 49, 64, .72);
-
-  backdrop-filter: blur(14px);
-
-  color: #dcecf2;
-
-  font-size: 14px;
-  font-weight: 700;
-
-  box-shadow:
-    0 8px 22px
-    rgba(0,0,0,.16);
-}
-
-.back-button span {
-  font-size: 26px;
-  line-height: 13px;
-}
-
-.title-row {
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 15px;
-
-  margin-top: 17px;
-}
-
-.groups-header h1 {
-  margin: 0;
-
-  color: #f7fbfd;
-
-  font-size: 31px;
-  line-height: 1.05;
-
-  font-weight: 800;
-
-  letter-spacing: -.8px;
-}
-
-.groups-header p {
-  margin:
-    7px
-    0
-    0;
-
-  color: #8da7b5;
-
-  font-size: 14px;
-}
-
-.telegram-mark {
-  flex: 0 0 auto;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 45px;
-  height: 45px;
-
-  border:
-    1px solid
-    rgba(112, 210, 231, .24);
-
-  border-radius: 15px;
+  border-radius:14px;
 
   background:
     linear-gradient(
       145deg,
-      #1d708d,
-      #12455e
+      rgba(25,66,83,.95),
+      rgba(10,38,51,.95)
+    );
+
+  color:#fff;
+
+  box-shadow:
+    0 7px 18px
+    rgba(0,0,0,.22);
+
+  font-size:15px;
+
+  transition:
+    transform .15s ease,
+    background .15s ease;
+}
+
+.back-button span{
+  font-size:28px;
+  line-height:14px;
+  font-weight:300;
+}
+
+.back-button:active{
+  transform:scale(.96);
+}
+
+.header-main{
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
+
+  margin-top:19px;
+}
+
+.groups-header h1{
+  margin:0;
+
+  color:#fff;
+
+  font-size:32px;
+
+  line-height:1.05;
+
+  letter-spacing:-.8px;
+
+  font-weight:850;
+}
+
+.groups-header p{
+  margin:7px 0 0;
+
+  color:#8fa9b8;
+
+  font-size:14px;
+
+  line-height:1.25;
+}
+
+.telegram-logo{
+  flex:none;
+
+  width:45px;
+  height:45px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border:
+    1px solid
+    rgba(126,207,222,.22);
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #236c88,
+      #103c51
     );
 
   box-shadow:
-    0 8px 22px
+    0 9px 20px
     rgba(0,0,0,.25);
 }
 
-.telegram-mark span {
-  display: block;
+.telegram-logo svg{
+  width:23px;
+  height:23px;
 
-  transform:
-    rotate(-12deg)
-    translateX(-1px);
-
-  color: #e9fbff;
-
-  font-size: 22px;
+  fill:#fff;
 }
 
 
-/* =========================
-   GRID
-========================= */
+/* ========================================
+   СЕТКА
+======================================== */
 
-.groups-grid {
-  display: grid;
+.groups-grid{
+  display:grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(2,minmax(0,1fr));
 
-  gap: 12px;
+  gap:12px;
 }
 
 
-/* =========================
-   CARD
-========================= */
+/* ========================================
+   КАРТОЧКА
+======================================== */
 
-.group-card {
-  min-width: 0;
+.group-card{
+  overflow:hidden;
 
-  overflow: hidden;
+  min-width:0;
 
   border:
     1px solid
-    rgba(119, 202, 220, .16);
+    rgba(112,193,211,.18);
 
-  border-radius: 22px;
+  border-radius:21px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(19, 50, 66, .98),
-      rgba(9, 27, 39, .98)
+      #123344,
+      #0a2330
     );
 
   box-shadow:
     0 12px 28px
-    rgba(0,0,0,.30);
+    rgba(0,0,0,.34);
 
   transition:
-    transform .16s ease,
-    border-color .16s ease;
+    transform .15s ease,
+    border-color .15s ease;
 }
 
-.group-card:active {
-  transform: scale(.975);
+.group-card:active{
+  transform:scale(.975);
+}
+
+.group-card:hover{
+  border-color:
+    rgba(117,211,220,.35);
 }
 
 
-/* =========================
-   VISUAL
-========================= */
+/* ========================================
+   ВЕРХ КАРТОЧКИ
+======================================== */
 
-.card-visual {
-  position: relative;
+.card-image{
+  position:relative;
 
-  height: 144px;
+  height:143px;
 
-  overflow: hidden;
+  display:flex;
 
-  display: flex;
+  align-items:center;
+  justify-content:center;
 
-  align-items: center;
-  justify-content: center;
+  overflow:hidden;
 }
 
-.card-visual::after {
-  content: "";
+.card-image::before{
+  content:"";
 
-  position: absolute;
+  position:absolute;
 
-  inset: 0;
+  width:190px;
+  height:190px;
+
+  border-radius:50%;
+
+  background:
+    rgba(255,255,255,.065);
+
+  transform:
+    translateY(-2px);
+}
+
+.card-image::after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
 
   background:
     linear-gradient(
       180deg,
       rgba(255,255,255,.035),
       transparent 55%,
-      rgba(0,0,0,.10)
+      rgba(0,0,0,.08)
     );
 
-  pointer-events: none;
-}
-
-.visual-glow {
-  position: absolute;
-
-  width: 175px;
-  height: 175px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(255,255,255,.075);
-
-  filter: blur(.2px);
+  pointer-events:none;
 }
 
 
-/* =========================
-   VISUAL COLORS
-========================= */
+/* ФОНЫ */
 
-.visual-guide {
+.guide{
   background:
     linear-gradient(
       145deg,
-      #17627c,
-      #0d3d53
+      #17677f,
+      #0d4055
     );
 }
 
-.visual-zoo {
+.zoo{
   background:
     linear-gradient(
       145deg,
-      #17604e,
-      #103d35
+      #21634f,
+      #123d35
     );
 }
 
-.visual-auto {
+.auto{
   background:
     linear-gradient(
       145deg,
-      #27658b,
-      #173d5b
+      #2c688d,
+      #183f5c
     );
 }
 
-.visual-home {
+.realestate{
   background:
     linear-gradient(
       145deg,
-      #7b6348,
-      #4b392b
+      #765d43,
+      #4c392a
     );
 }
 
-.visual-work {
+.work{
   background:
     linear-gradient(
       145deg,
-      #405f86,
-      #283e5d
+      #466486,
+      #2a405c
     );
 }
 
-.visual-market {
+.market{
   background:
     linear-gradient(
       145deg,
-      #796127,
-      #493a1c
+      #776127,
+      #49391a
     );
 }
 
-.visual-energy {
+.utilities{
   background:
     linear-gradient(
       145deg,
-      #176174,
-      #103d4b
+      #176475,
+      #103e4d
     );
 }
 
-.visual-lost {
+.lost{
   background:
     linear-gradient(
       145deg,
-      #386a70,
-      #24464e
+      #3b6d73,
+      #26494f
     );
 }
 
-.visual-chat {
+.chat{
   background:
     linear-gradient(
       145deg,
-      #5d5285,
-      #393252
+      #5e5485,
+      #393251
     );
 }
 
 
-/* =========================
-   LABEL
-========================= */
+/* ========================================
+   ПОДПИСЬ НА ИЛЛЮСТРАЦИИ
+======================================== */
 
-.visual-label {
-  position: absolute;
+.image-caption{
+  position:absolute;
 
-  left: 13px;
-  bottom: 10px;
+  left:11px;
+  bottom:9px;
 
-  z-index: 5;
+  z-index:20;
 
-  padding:
-    4px
-    7px;
+  padding:4px 7px;
 
-  border-radius: 6px;
+  border-radius:6px;
 
   background:
-    rgba(3,14,23,.38);
+    rgba(0,0,0,.23);
 
   color:
-    rgba(232,248,252,.72);
+    rgba(255,255,255,.62);
 
-  font-size: 8px;
+  font-size:7px;
 
-  font-weight: 800;
+  font-weight:800;
 
-  letter-spacing: 1.4px;
+  letter-spacing:1.3px;
 }
 
 
-/* =========================
-   GUIDE
-========================= */
+/* ========================================
+   СПРАВОЧНИК
+======================================== */
 
-.guide-scene {
-  position: relative;
+.book-icon{
+  position:relative;
 
-  z-index: 3;
+  z-index:5;
 
-  width: 145px;
-  height: 105px;
-}
-
-.guide-building {
-  position: absolute;
-
-  bottom: 17px;
-
-  width: 26px;
-
-  border-radius: 4px 4px 0 0;
-
-  background:
-    rgba(174,221,228,.35);
-}
-
-.building-left {
-  left: 6px;
-  height: 42px;
-}
-
-.building-center {
-  left: 38px;
-  height: 57px;
-}
-
-.building-right {
-  left: 70px;
-  height: 35px;
-}
-
-.guide-book {
-  position: absolute;
-
-  z-index: 4;
-
-  left: 45px;
-  top: 27px;
-
-  width: 75px;
-  height: 53px;
-
-  transform:
-    perspective(120px)
-    rotateX(7deg);
+  width:96px;
+  height:66px;
 
   filter:
-    drop-shadow(0 9px 10px rgba(0,0,0,.28));
+    drop-shadow(
+      0 12px 10px
+      rgba(0,0,0,.28)
+    );
 }
 
-.book-page {
-  position: absolute;
+.book-left,
+.book-right{
+  position:absolute;
 
-  top: 0;
+  top:0;
 
-  width: 37px;
-  height: 51px;
+  width:48px;
+  height:63px;
 
   background:
     linear-gradient(
       145deg,
-      #f3df9c,
-      #d3b761
+      #f1d98c,
+      #c8a95a
     );
 }
 
-.book-page.left {
-  left: 0;
+.book-left{
+  left:0;
 
   border-radius:
-    8px
+    10px
     2px
     2px
-    8px;
-
-  transform:
-    skewY(3deg);
+    10px;
 }
 
-.book-page.right {
-  right: 0;
+.book-right{
+  right:0;
 
   border-radius:
     2px
-    8px
-    8px
+    10px
+    10px
     2px;
-
-  transform:
-    skewY(-3deg);
 }
 
-.book-line {
-  position: absolute;
+.book-left::after{
+  content:"";
 
-  z-index: 2;
+  position:absolute;
 
-  height: 3px;
+  right:-1px;
+  top:4px;
 
-  border-radius: 4px;
+  width:2px;
+  height:54px;
 
   background:
-    rgba(95,77,34,.28);
+    rgba(85,63,24,.3);
 }
 
-.book-line.l1 {
-  left: 8px;
-  top: 18px;
-  width: 19px;
+.book-line{
+  position:absolute;
+
+  z-index:10;
+
+  height:3px;
+
+  border-radius:3px;
+
+  background:
+    rgba(91,68,28,.3);
 }
 
-.book-line.l2 {
-  right: 8px;
-  top: 29px;
-  width: 18px;
+.line-1{
+  left:11px;
+  top:21px;
+  width:24px;
+}
+
+.line-2{
+  right:11px;
+  top:31px;
+  width:24px;
 }
 
 
-/* =========================
-   CAT
-========================= */
+/* ========================================
+   ЗООЧАТ — ЛАПКА
+======================================== */
 
-.cat-face {
-  position: relative;
+.paw-icon{
+  position:relative;
 
-  z-index: 3;
+  z-index:5;
 
-  width: 110px;
-  height: 93px;
+  width:88px;
+  height:73px;
+}
+
+.paw-main{
+  position:absolute;
+
+  left:17px;
+  top:20px;
+
+  width:55px;
+  height:51px;
 
   border-radius:
-    47%
-    47%
-    43%
-    43%;
+    48%
+    48%
+    45%
+    45%;
 
   background:
     linear-gradient(
       145deg,
-      #e5b37a,
-      #bd7c4d
+      #9bdfb2,
+      #6fbe91
     );
 
-  box-shadow:
-    0 15px 25px
-    rgba(0,0,0,.28);
+  filter:
+    drop-shadow(
+      0 10px 9px
+      rgba(0,0,0,.22)
+    );
 }
 
-.cat-ear {
-  position: absolute;
+.toe{
+  position:absolute;
 
-  top: -17px;
+  width:20px;
+  height:27px;
 
-  width: 44px;
-  height: 42px;
+  border-radius:50%;
 
-  background:
-    #d69a65;
-
-  clip-path:
-    polygon(50% 0, 100% 100%, 0 100%);
+  background:#91d5a8;
 }
 
-.cat-ear.left {
-  left: 1px;
+.toe-1{
+  left:8px;
+  top:3px;
 
-  transform:
-    rotate(-16deg);
+  transform:rotate(-20deg);
 }
 
-.cat-ear.right {
-  right: 1px;
-
-  transform:
-    rotate(16deg);
+.toe-2{
+  left:28px;
+  top:-8px;
 }
 
-.cat-eye {
-  position: absolute;
+.toe-3{
+  left:49px;
+  top:0;
 
-  top: 39px;
-
-  width: 11px;
-  height: 13px;
-
-  border-radius: 50%;
-
-  background: #14252a;
-
-  box-shadow:
-    0 0 0 3px
-    rgba(255,255,255,.12);
+  transform:rotate(20deg);
 }
 
-.cat-eye.left {
-  left: 28px;
+.toe-4{
+  right:1px;
+  top:20px;
+
+  width:19px;
+  height:25px;
+
+  transform:rotate(45deg);
 }
 
-.cat-eye.right {
-  right: 28px;
+.heart{
+  position:absolute;
+
+  z-index:8;
+
+  right:24px;
+  top:26px;
+
+  color:#f28da4;
+
+  font-size:22px;
 }
 
-.cat-nose {
-  position: absolute;
 
-  left: 50%;
-  top: 53px;
+/* ========================================
+   АВТО
+======================================== */
 
-  width: 9px;
-  height: 7px;
+.car-icon{
+  position:relative;
 
-  transform:
-    translateX(-50%);
+  z-index:5;
+
+  width:155px;
+  height:92px;
+
+  filter:
+    drop-shadow(
+      0 12px 10px
+      rgba(0,0,0,.25)
+    );
+}
+
+.car-body{
+  position:absolute;
+
+  left:10px;
+  bottom:18px;
+
+  width:135px;
+  height:42px;
 
   border-radius:
-    50% 50% 60% 60%;
-
-  background: #6f3d3d;
-}
-
-.cat-mouth {
-  position: absolute;
-
-  left: 50%;
-  top: 59px;
-
-  width: 22px;
-  height: 10px;
-
-  transform:
-    translateX(-50%);
-
-  border-bottom:
-    2px solid
-    rgba(73,38,37,.65);
-
-  border-radius: 50%;
-}
-
-.cat-whisker {
-  position: absolute;
-
-  width: 30px;
-  height: 1px;
-
-  background:
-    rgba(255,241,222,.52);
-}
-
-.w1 {
-  left: -21px;
-  top: 55px;
-
-  transform: rotate(-9deg);
-}
-
-.w2 {
-  left: -21px;
-  top: 65px;
-
-  transform: rotate(7deg);
-}
-
-.w3 {
-  right: -21px;
-  top: 55px;
-
-  transform: rotate(9deg);
-}
-
-.w4 {
-  right: -21px;
-  top: 65px;
-
-  transform: rotate(-7deg);
-}
-
-
-/* =========================
-   AUTO
-========================= */
-
-.car-scene {
-  position: relative;
-
-  z-index: 3;
-
-  width: 160px;
-  height: 90px;
-}
-
-.car-body {
-  position: absolute;
-
-  left: 12px;
-  bottom: 21px;
-
-  width: 138px;
-  height: 45px;
-
-  border-radius:
-    16px
-    20px
+    14px
+    18px
     8px
     8px;
 
   background:
     linear-gradient(
-      150deg,
-      #66d0b6,
-      #369b87
+      145deg,
+      #68d1b7,
+      #3b9c89
     );
-
-  box-shadow:
-    0 12px 20px
-    rgba(0,0,0,.28);
 }
 
-.car-roof {
-  position: absolute;
+.car-roof{
+  position:absolute;
 
-  left: 30px;
-  top: -30px;
+  left:34px;
+  top:16px;
 
-  width: 78px;
-  height: 35px;
+  width:76px;
+  height:33px;
 
   border-radius:
-    30px
-    30px
-    4px
-    4px;
+    27px
+    27px
+    5px
+    5px;
 
-  background:
-    #5ac5ae;
+  background:#59c3ab;
 }
 
-.car-glass {
-  position: absolute;
+.car-roof span{
+  position:absolute;
 
-  top: -24px;
+  top:5px;
 
-  width: 29px;
-  height: 19px;
+  width:28px;
+  height:17px;
 
-  border-radius: 7px 7px 2px 2px;
+  border-radius:5px 5px 2px 2px;
 
-  background:
-    #173a4e;
+  background:#173b4e;
 }
 
-.glass-one {
-  left: 39px;
+.car-roof span:first-child{
+  left:7px;
 }
 
-.glass-two {
-  left: 73px;
+.car-roof span:last-child{
+  right:7px;
 }
 
-.car-light {
-  position: absolute;
+.car-light{
+  position:absolute;
 
-  right: 7px;
-  top: 15px;
+  right:12px;
+  bottom:35px;
 
-  width: 9px;
-  height: 10px;
+  width:8px;
+  height:10px;
 
-  border-radius: 5px;
+  border-radius:4px;
 
-  background: #f0d27a;
+  background:#f1d878;
 
   box-shadow:
     0 0 12px
-    rgba(240,210,122,.65);
+    rgba(241,216,120,.75);
 }
 
-.car-wheel {
-  position: absolute;
+.wheel{
+  position:absolute;
 
-  bottom: 5px;
+  z-index:10;
 
-  width: 31px;
-  height: 31px;
+  bottom:3px;
+
+  width:29px;
+  height:29px;
 
   border:
     6px solid
-    #19303d;
+    #1a3443;
 
-  border-radius: 50%;
+  border-radius:50%;
 
-  background:
-    #07121b;
-
-  z-index: 5;
+  background:#06121b;
 }
 
-.wheel-one {
-  left: 27px;
+.wheel-left{
+  left:23px;
 }
 
-.wheel-two {
-  right: 23px;
+.wheel-right{
+  right:22px;
 }
 
 
-/* =========================
-   HOUSE
-========================= */
+/* ========================================
+   НЕДВИЖИМОСТЬ
+======================================== */
 
-.city-house {
-  position: relative;
+.house-icon{
+  position:relative;
 
-  z-index: 3;
+  z-index:5;
 
-  width: 130px;
-  height: 105px;
+  width:130px;
+  height:105px;
+
+  filter:
+    drop-shadow(
+      0 11px 10px
+      rgba(0,0,0,.25)
+    );
 }
 
-.house-roof {
-  position: absolute;
+.house-roof{
+  position:absolute;
 
-  left: 5px;
-  top: 4px;
+  left:4px;
+  top:2px;
 
-  width: 120px;
-  height: 58px;
+  width:122px;
+  height:60px;
 
   background:
     linear-gradient(
       145deg,
-      #dca66a,
+      #dca66c,
       #a96f45
     );
 
@@ -843,99 +763,115 @@ a {
       100% 100%,
       0 100%
     );
-
-  filter:
-    drop-shadow(0 9px 8px rgba(0,0,0,.22));
 }
 
-.house-body {
-  position: absolute;
+.house-body{
+  position:absolute;
 
-  left: 23px;
-  top: 51px;
+  left:23px;
+  top:51px;
 
-  width: 84px;
-  height: 52px;
+  width:84px;
+  height:53px;
 
   background:
-    #d5ad78;
+    linear-gradient(
+      145deg,
+      #dcb47d,
+      #c69a62
+    );
 }
 
-.house-window {
-  position: absolute;
+.house-window{
+  position:absolute;
 
-  top: 11px;
+  top:11px;
 
-  width: 19px;
-  height: 18px;
+  width:19px;
+  height:18px;
 
   border:
     3px solid
-    #f1d7a3;
+    #efd19b;
+
+  background:#478293;
+}
+
+.window-left{
+  left:11px;
+}
+
+.window-right{
+  right:11px;
+}
+
+.house-door{
+  position:absolute;
+
+  left:34px;
+  bottom:0;
+
+  width:17px;
+  height:35px;
+
+  background:#704b38;
+}
+
+
+/* ========================================
+   РАБОТА
+======================================== */
+
+.briefcase-icon{
+  position:relative;
+
+  z-index:5;
+
+  width:115px;
+  height:91px;
+
+  filter:
+    drop-shadow(
+      0 12px 10px
+      rgba(0,0,0,.25)
+    );
+}
+
+.briefcase-body{
+  position:absolute;
+
+  left:10px;
+  top:29px;
+
+  width:95px;
+  height:59px;
+
+  border-radius:10px;
 
   background:
-    #39778b;
+    linear-gradient(
+      145deg,
+      #91c9de,
+      #6096b4
+    );
 }
 
-.window-a {
-  left: 12px;
-}
+.briefcase-handle{
+  position:absolute;
 
-.window-b {
-  right: 12px;
-}
+  z-index:3;
 
-.house-door {
-  position: absolute;
+  left:42px;
+  top:11px;
 
-  left: 34px;
-  bottom: 0;
-
-  width: 17px;
-  height: 35px;
-
-  background:
-    #704b39;
-}
-
-
-/* =========================
-   WORK
-========================= */
-
-.work-scene {
-  position: relative;
-
-  z-index: 3;
-
-  width: 135px;
-  height: 100px;
-}
-
-.briefcase {
-  position: absolute;
-
-  left: 20px;
-  top: 28px;
-
-  width: 96px;
-  height: 62px;
-}
-
-.briefcase-handle {
-  position: absolute;
-
-  left: 33px;
-  top: -18px;
-
-  width: 30px;
-  height: 22px;
+  width:31px;
+  height:25px;
 
   border:
     6px solid
-    #8ec6df;
+    #86bfd6;
 
-  border-bottom: 0;
+  border-bottom:0;
 
   border-radius:
     9px
@@ -944,97 +880,47 @@ a {
     0;
 }
 
-.briefcase-main {
-  position: absolute;
+.briefcase-lock{
+  position:absolute;
 
-  inset: 0;
+  left:50%;
+  top:18px;
 
-  border-radius: 10px;
+  width:11px;
+  height:11px;
+
+  transform:translateX(-50%);
+
+  border-radius:3px;
+
+  background:#315a70;
+}
+
+.briefcase-line{
+  position:absolute;
+
+  left:0;
+  right:0;
+  top:42px;
+
+  height:2px;
 
   background:
-    linear-gradient(
-      145deg,
-      #8fc7de,
-      #5f96b4
-    );
-
-  box-shadow:
-    0 12px 20px
-    rgba(0,0,0,.28);
-}
-
-.briefcase-lock {
-  position: absolute;
-
-  left: 50%;
-  top: 18px;
-
-  width: 12px;
-  height: 12px;
-
-  transform:
-    translateX(-50%);
-
-  border-radius: 3px;
-
-  background:
-    #2e596e;
-}
-
-.briefcase-line {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  top: 42px;
-
-  height: 2px;
-
-  background:
-    rgba(30,65,81,.25);
-}
-
-.work-star {
-  position: absolute;
-
-  color:
-    rgba(226,211,133,.9);
-
-  font-size: 17px;
-}
-
-.star-one {
-  left: 2px;
-  top: 17px;
-}
-
-.star-two {
-  right: 3px;
-  top: 4px;
+    rgba(28,67,84,.25);
 }
 
 
-/* =========================
-   MARKET
-========================= */
+/* ========================================
+   РЫНОК
+======================================== */
 
-.market-scene {
-  position: relative;
+.shopping-bag{
+  position:relative;
 
-  z-index: 3;
+  z-index:5;
 
-  width: 135px;
-  height: 100px;
-}
-
-.market-bag {
-  position: absolute;
-
-  left: 30px;
-  top: 28px;
-
-  width: 76px;
-  height: 59px;
+  width:84px;
+  height:65px;
 
   border-radius:
     6px
@@ -1045,29 +931,31 @@ a {
   background:
     linear-gradient(
       145deg,
-      #d7a34f,
-      #a8752f
+      #dbaa57,
+      #a97631
     );
 
-  box-shadow:
-    0 12px 20px
-    rgba(0,0,0,.27);
+  filter:
+    drop-shadow(
+      0 12px 10px
+      rgba(0,0,0,.25)
+    );
 }
 
-.bag-handle {
-  position: absolute;
+.bag-handle{
+  position:absolute;
 
-  left: 18px;
-  top: -23px;
+  left:20px;
+  top:-25px;
 
-  width: 40px;
-  height: 29px;
+  width:44px;
+  height:31px;
 
   border:
     6px solid
-    #d3a14e;
+    #d4a34f;
 
-  border-bottom: 0;
+  border-bottom:0;
 
   border-radius:
     30px
@@ -1076,99 +964,80 @@ a {
     0;
 }
 
-.bag-logo {
-  position: absolute;
+.bag-symbol{
+  position:absolute;
 
-  left: 50%;
-  top: 17px;
+  left:50%;
+  top:22px;
+
+  display:flex;
+
+  gap:5px;
 
   transform:
     translateX(-50%);
-
-  color:
-    rgba(255,239,190,.72);
-
-  font-size: 20px;
-
-  font-weight: 900;
 }
 
-.market-item {
-  position: absolute;
+.bag-symbol i{
+  display:block;
 
-  width: 23px;
-  height: 23px;
+  width:18px;
+  height:18px;
 
-  border-radius: 50%;
-
-  box-shadow:
-    0 5px 10px
-    rgba(0,0,0,.18);
+  border-radius:50%;
 }
 
-.item-red {
-  left: 11px;
-  bottom: 16px;
-
-  background: #df7861;
+.bag-symbol i:nth-child(1){
+  background:#e47d67;
 }
 
-.item-green {
-  right: 5px;
-  top: 30px;
-
-  background: #80b86e;
+.bag-symbol i:nth-child(2){
+  background:#85bd70;
 }
 
-.item-yellow {
-  right: 7px;
-  bottom: 13px;
-
-  background: #e1be61;
+.bag-symbol i:nth-child(3){
+  background:#e3bd59;
 }
 
 
-/* =========================
-   ENERGY
-========================= */
+/* ========================================
+   СВЕТ / ВОДА / ГАЗ
+======================================== */
 
-.energy-scene {
-  position: relative;
+.utilities-icon{
+  position:relative;
 
-  z-index: 3;
+  z-index:5;
 
-  width: 130px;
-  height: 105px;
+  width:125px;
+  height:100px;
 }
 
-.energy-bolt {
-  position: absolute;
+.bolt{
+  position:absolute;
 
-  left: 36px;
-  top: 10px;
+  left:28px;
+  top:0;
 
-  color:
-    #f1d46c;
+  color:#f0d46b;
 
-  font-size: 76px;
+  font-size:76px;
 
-  line-height: 1;
+  line-height:1;
 
-  filter:
-    drop-shadow(
-      0 0 12px
-      rgba(241,212,108,.22)
-    );
+  text-shadow:
+    0 5px 14px
+    rgba(0,0,0,.25);
 }
 
-.energy-drop {
-  position: absolute;
+.water-drop{
+  position:absolute;
 
-  right: 8px;
-  top: 15px;
+  right:10px;
+  top:18px;
 
-  width: 31px;
-  height: 42px;
+  width:28px;
+  height:38px;
 
   border-radius:
     55%
@@ -1176,77 +1045,94 @@ a {
     55%
     5%;
 
-  transform:
-    rotate(45deg);
+  transform:rotate(45deg);
 
   background:
     linear-gradient(
       145deg,
-      #75c7d4,
-      #3c91a2
+      #79ccd6,
+      #3f91a2
     );
 }
 
-.energy-flame {
-  position: absolute;
+.flame{
+  position:absolute;
 
-  right: 7px;
-  bottom: 5px;
+  right:3px;
+  bottom:4px;
 
-  color:
-    #e48a63;
+  color:#e58a62;
 
-  font-size: 31px;
+  font-size:28px;
 }
 
 
-/* =========================
-   LOST
-========================= */
+/* ========================================
+   БЮРО НАХОДОК
+======================================== */
 
-.lost-scene {
-  position: relative;
+.lost-card{
+  position:absolute;
 
-  z-index: 3;
+  z-index:6;
 
-  width: 140px;
-  height: 105px;
-}
-
-.lost-card {
-  position: absolute;
-
-  left: 17px;
-  top: 22px;
-
-  width: 87px;
-  height: 66px;
+  width:89px;
+  height:67px;
 
   transform:
+    translate(-8px,-3px)
     rotate(-7deg);
 
-  border-radius: 9px;
+  border-radius:9px;
 
   background:
     linear-gradient(
       145deg,
-      #e2c57e,
-      #b89550
+      #e4c77e,
+      #b79350
     );
 
   box-shadow:
-    0 13px 20px
-    rgba(0,0,0,.28);
+    0 12px 18px
+    rgba(0,0,0,.25);
 }
 
-.lost-pin {
-  position: absolute;
+.lost-card i{
+  position:absolute;
 
-  right: 13px;
-  top: 10px;
+  left:14px;
 
-  width: 13px;
-  height: 17px;
+  height:4px;
+
+  border-radius:4px;
+
+  background:
+    rgba(74,64,37,.28);
+}
+
+.lost-card i:nth-of-type(1){
+  top:18px;
+  width:28px;
+}
+
+.lost-card i:nth-of-type(2){
+  top:32px;
+  width:49px;
+}
+
+.lost-card i:nth-of-type(3){
+  top:46px;
+  width:35px;
+}
+
+.lost-pin{
+  position:absolute;
+
+  right:11px;
+  top:9px;
+
+  width:14px;
+  height:18px;
 
   border-radius:
     50%
@@ -1254,343 +1140,300 @@ a {
     50%
     0;
 
-  transform:
-    rotate(-45deg);
+  transform:rotate(-45deg);
 
-  background:
-    #d66f63;
+  background:#d66e62;
 }
 
-.lost-line {
-  position: absolute;
+.magnifier{
+  position:absolute;
 
-  left: 14px;
+  z-index:8;
 
-  height: 4px;
+  right:13px;
+  bottom:12px;
 
-  border-radius: 4px;
-
-  background:
-    rgba(77,67,40,.3);
-}
-
-.lost-line.one {
-  top: 18px;
-  width: 28px;
-}
-
-.lost-line.two {
-  top: 32px;
-  width: 45px;
-}
-
-.lost-line.three {
-  top: 46px;
-  width: 34px;
-}
-
-.lost-search {
-  position: absolute;
-
-  right: 10px;
-  bottom: 11px;
-
-  width: 40px;
-  height: 40px;
+  width:47px;
+  height:47px;
 
   border:
-    6px solid
-    #8fd0ca;
+    7px solid
+    #8ccbd0;
 
-  border-radius: 50%;
-}
-
-.lost-search::after {
-  content: "";
-
-  position: absolute;
-
-  right: -19px;
-  bottom: -12px;
-
-  width: 23px;
-  height: 6px;
-
-  transform:
-    rotate(45deg);
-
-  border-radius: 5px;
+  border-radius:50%;
 
   background:
-    #8fd0ca;
+    rgba(20,65,72,.35);
+}
+
+.magnifier::after{
+  content:"";
+
+  position:absolute;
+
+  right:-27px;
+  bottom:-15px;
+
+  width:31px;
+  height:8px;
+
+  border-radius:5px;
+
+  transform:rotate(45deg);
+
+  background:#8ccbd0;
+}
+
+.magnifier span{
+  display:block;
+
+  text-align:center;
+
+  color:#193c43;
+
+  font-size:22px;
+
+  line-height:34px;
+
+  font-weight:900;
 }
 
 
-/* =========================
-   CHAT
-========================= */
+/* ========================================
+   ОБЩЕНИЕ
+======================================== */
 
-.chat-scene {
-  position: relative;
+.chat-icon{
+  position:relative;
 
-  z-index: 3;
+  z-index:5;
 
-  width: 145px;
-  height: 105px;
+  width:140px;
+  height:100px;
 }
 
-.chat-bubble {
-  position: absolute;
+.bubble{
+  position:absolute;
 
-  border-radius: 18px;
+  border-radius:19px;
 
   box-shadow:
-    0 12px 20px
-    rgba(0,0,0,.23);
+    0 10px 16px
+    rgba(0,0,0,.24);
 }
 
-.bubble-main {
-  left: 16px;
-  top: 19px;
+.bubble-one{
+  left:12px;
+  top:17px;
 
-  width: 89px;
-  height: 60px;
+  width:91px;
+  height:62px;
 
   background:
     linear-gradient(
       145deg,
-      #92d2c8,
-      #579d99
+      #94d4ca,
+      #579e99
     );
 }
 
-.bubble-main::after {
-  content: "";
+.bubble-one::after{
+  content:"";
 
-  position: absolute;
+  position:absolute;
 
-  left: 17px;
-  bottom: -11px;
+  left:17px;
+  bottom:-10px;
 
-  width: 22px;
-  height: 22px;
+  width:22px;
+  height:20px;
 
-  transform:
-    rotate(25deg);
+  transform:rotate(24deg);
 
-  background:
-    #579d99;
+  background:#579e99;
 }
 
-.bubble-main span {
-  position: absolute;
+.bubble-one i{
+  position:absolute;
 
-  top: 27px;
+  top:27px;
 
-  width: 7px;
-  height: 7px;
+  width:7px;
+  height:7px;
 
-  border-radius: 50%;
+  border-radius:50%;
 
-  background:
-    rgba(24,65,70,.65);
+  background:#245e61;
 }
 
-.bubble-main span:nth-child(1) {
-  left: 25px;
+.bubble-one i:nth-child(1){
+  left:26px;
 }
 
-.bubble-main span:nth-child(2) {
-  left: 41px;
+.bubble-one i:nth-child(2){
+  left:42px;
 }
 
-.bubble-main span:nth-child(3) {
-  left: 57px;
+.bubble-one i:nth-child(3){
+  left:58px;
 }
 
-.bubble-small {
-  right: 4px;
-  top: 43px;
+.bubble-two{
+  right:10px;
+  bottom:15px;
 
-  width: 54px;
-  height: 39px;
+  width:51px;
+  height:42px;
 
   background:
     linear-gradient(
       145deg,
-      #8c80b8,
-      #62578d
+      #8b80b3,
+      #655d88
     );
 }
 
-.bubble-small span {
-  position: absolute;
 
-  top: 17px;
+/* ========================================
+   ТЕКСТ КАРТОЧКИ
+======================================== */
 
-  width: 6px;
-  height: 6px;
+.card-info{
+  min-height:99px;
 
-  border-radius: 50%;
+  display:flex;
 
-  background:
-    rgba(38,30,68,.55);
-}
+  align-items:flex-end;
+  justify-content:space-between;
 
-.bubble-small span:nth-child(1) {
-  left: 16px;
-}
-
-.bubble-small span:nth-child(2) {
-  left: 30px;
-}
-
-.chat-plus {
-  position: absolute;
-
-  right: 13px;
-  top: 8px;
-
-  color:
-    #ead383;
-
-  font-size: 25px;
-
-  font-weight: 300;
-}
-
-
-/* =========================
-   CARD INFO
-========================= */
-
-.card-info {
-  display: flex;
-
-  align-items: flex-end;
-  justify-content: space-between;
-
-  gap: 8px;
-
-  min-height: 99px;
+  gap:8px;
 
   padding:
-    13px
     13px
     13px
     14px;
 }
 
-.card-info h2 {
-  margin: 0;
-
-  color:
-    #f5f9fb;
-
-  font-size: 17px;
-
-  line-height: 1.15;
-
-  font-weight: 800;
-
-  letter-spacing: -.2px;
+.card-info > div{
+  min-width:0;
 }
 
-.card-info p {
-  margin:
-    6px
-    0
-    0;
+.card-info h2{
+  margin:0;
 
-  max-width: 175px;
+  color:#f6fbfd;
 
-  color:
-    #8fa9b7;
+  font-size:17px;
 
-  font-size: 12.5px;
+  line-height:1.14;
 
-  line-height: 1.35;
+  font-weight:800;
+
+  letter-spacing:-.2px;
 }
 
-.card-arrow {
-  flex: 0 0 auto;
+.card-info p{
+  margin:7px 0 0;
 
-  display: flex;
+  color:#91aab8;
 
-  align-items: center;
-  justify-content: center;
+  font-size:12px;
 
-  width: 32px;
-  height: 32px;
+  line-height:1.35;
+}
+
+.arrow{
+  flex:none;
+
+  width:32px;
+  height:32px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
 
   border:
     1px solid
-    rgba(104,208,193,.18);
+    rgba(92,209,193,.2);
 
-  border-radius: 50%;
+  border-radius:50%;
 
   background:
-    rgba(32,94,93,.42);
+    rgba(22,91,89,.48);
 
-  color:
-    #76d1c1;
+  color:#79d4c1;
 
-  font-size: 17px;
+  font-size:17px;
 
-  font-weight: 700;
+  font-weight:700;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* ========================================
+   МОБИЛЬНЫЙ ЭКРАН
+======================================== */
 
-@media (max-width: 430px) {
+@media(max-width:430px){
 
-  .groups-page {
+  .groups-page{
     padding:
       13px
-      10px
+      9px
       30px;
   }
 
-  .groups-grid {
-    gap: 9px;
+  .groups-grid{
+    gap:9px;
   }
 
-  .card-visual {
-    height: 137px;
+  .card-image{
+    height:132px;
   }
 
-  .card-info {
-    min-height: 96px;
+  .card-info{
+    min-height:94px;
 
     padding:
-      12px
       11px
-      12px
+      10px
       12px;
   }
 
-  .card-info h2 {
-    font-size: 15.5px;
+  .card-info h2{
+    font-size:15.5px;
   }
 
-  .card-info p {
-    font-size: 11.8px;
+  .card-info p{
+    margin-top:6px;
+
+    font-size:11.5px;
   }
 
-  .card-arrow {
-    width: 29px;
-    height: 29px;
+  .arrow{
+    width:29px;
+    height:29px;
+
+    font-size:15px;
   }
 
-  .groups-header h1 {
-    font-size: 29px;
+  .groups-header h1{
+    font-size:29px;
   }
 
-  .telegram-mark {
-    width: 41px;
-    height: 41px;
+  .groups-header p{
+    font-size:13px;
+  }
+
+  .telegram-logo{
+    width:41px;
+    height:41px;
+
+    border-radius:13px;
+  }
+
+  .card-image::before{
+    width:175px;
+    height:175px;
   }
 }
