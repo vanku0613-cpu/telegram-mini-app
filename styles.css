@@ -105,11 +105,6 @@ body {
 
   z-index: 20;
 
-  /*
-    ВАЖНО:
-    Единственное место,
-    где задаётся вертикальное положение.
-  */
   left: 3%;
   top: 30.2%;
 
@@ -172,7 +167,7 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
-  padding: 3px 7px;
+  padding: 5px 9px;
 
   cursor: pointer;
 
@@ -189,14 +184,14 @@ body {
    ========================================================= */
 
 .weather-widget {
-  gap: 6px;
+  gap: 8px;
   text-align: left;
 }
 
 .weather-icon {
   flex: 0 0 auto;
 
-  width: 25px;
+  width: 28px;
 
   display: flex;
 
@@ -204,7 +199,7 @@ body {
   justify-content: center;
 
   font-size:
-    clamp(15px, 3.8vw, 23px);
+    clamp(16px, 4vw, 24px);
 
   line-height: 1;
 
@@ -223,7 +218,7 @@ body {
 
   justify-content: center;
 
-  gap: 2px;
+  gap: 3px;
 
   overflow: hidden;
 }
@@ -232,7 +227,7 @@ body {
   display: block;
 
   font-size:
-    clamp(7px, 1.55vw, 10px);
+    clamp(8px, 1.7vw, 11px);
 
   font-weight: 700;
 
@@ -247,7 +242,7 @@ body {
   display: inline-block;
 
   font-size:
-    clamp(10px, 2.5vw, 15px);
+    clamp(11px, 2.7vw, 16px);
 
   font-weight: 800;
 
@@ -262,7 +257,7 @@ body {
   max-width: 100%;
 
   font-size:
-    clamp(6px, 1.35vw, 9px);
+    clamp(7px, 1.45vw, 9px);
 
   line-height: 1;
 
@@ -281,14 +276,14 @@ body {
    ========================================================= */
 
 .currency-widget {
-  gap: 7px;
+  gap: 8px;
   text-align: left;
 }
 
 .currency-icons {
   flex: 0 0 auto;
 
-  width: 32px;
+  width: 34px;
 
   display: flex;
 
@@ -297,10 +292,10 @@ body {
   align-items: center;
   justify-content: center;
 
-  gap: 2px;
+  gap: 3px;
 
   font-size:
-    clamp(11px, 2.7vw, 17px);
+    clamp(12px, 2.9vw, 18px);
 
   line-height: 0.85;
 
@@ -322,7 +317,7 @@ body {
 
   justify-content: center;
 
-  gap: 3px;
+  gap: 4px;
 }
 
 .currency-line {
@@ -339,7 +334,7 @@ body {
   min-width: 0;
 
   font-size:
-    clamp(6px, 1.45vw, 9px);
+    clamp(7px, 1.55vw, 10px);
 
   line-height: 1;
 
@@ -360,7 +355,7 @@ body {
   min-width: 0;
 
   font-size:
-    clamp(5px, 1.05vw, 7px);
+    clamp(6px, 1.1vw, 7px);
 
   line-height: 1;
 
@@ -417,11 +412,6 @@ body {
    ========================================================= */
 
 .shelter-hotspot {
-  /*
-    ВАЖНО:
-    Та же вертикальная позиция,
-    что и у погоды и курса.
-  */
   left: 61%;
   top: 30.2%;
 
@@ -437,9 +427,6 @@ body {
 .search-hotspot {
   left: 2.5%;
 
-  /*
-    Поиск начинается ниже виджетов.
-  */
   top: 34%;
 
   width: 95%;
@@ -546,7 +533,7 @@ body {
 @media (max-width: 380px) {
 
   .widget {
-    padding: 2px 5px;
+    padding: 4px 7px;
 
     border-radius: 9px;
 
@@ -559,13 +546,13 @@ body {
   }
 
   .weather-icon {
-    width: 20px;
-    font-size: 14px;
+    width: 23px;
+    font-size: 15px;
   }
 
   .currency-icons {
-    width: 27px;
-    font-size: 12px;
+    width: 29px;
+    font-size: 13px;
   }
 }
 
