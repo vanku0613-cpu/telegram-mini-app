@@ -53,8 +53,7 @@ body {
 
 
 /* =========================================================
-   ОСНОВНОЙ ЭКРАН
-   БАЗОВЫЙ РАЗМЕР: 709 × 1536
+   709 × 1536 ДИЗАЙН
    ========================================================= */
 
 .reference {
@@ -75,7 +74,7 @@ body {
 
 
 /* =========================================================
-   ГЛАВНОЕ ИЗОБРАЖЕНИЕ
+   ОСНОВНАЯ КАРТИНКА
    ========================================================= */
 
 .reference-image {
@@ -85,7 +84,6 @@ body {
 
   width: 100%;
   max-width: 100%;
-
   height: auto;
 
   margin: 0;
@@ -98,12 +96,13 @@ body {
 
   user-select: none;
   -webkit-user-select: none;
+
   -webkit-user-drag: none;
 }
 
 
 /* =========================================================
-   ПОГОДА + КУРС ВАЛЮТ
+   ВИДЖЕТЫ ПОГОДЫ И КУРСА
    ========================================================= */
 
 .live-widgets {
@@ -131,7 +130,7 @@ body {
 
 
 /* =========================================================
-   ОБЩИЙ ВИД ВИДЖЕТОВ
+   ОБЩИЙ ВИД КНОПОК-ВИДЖЕТОВ
    ========================================================= */
 
 .widget {
@@ -144,6 +143,7 @@ body {
   min-height: 0;
 
   display: flex;
+
   align-items: center;
 
   color: #ffffff;
@@ -191,75 +191,49 @@ body {
 
 .weather-icon {
   flex: 0 0 auto;
-
   width: 25px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: clamp(15px, 3.8vw, 23px);
-
   line-height: 1;
-
-  filter:
-    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
 }
 
 .widget-content {
   min-width: 0;
-
   display: flex;
   flex-direction: column;
-
   justify-content: center;
-
   gap: 2px;
-
   overflow: hidden;
 }
 
 .weather-widget .widget-title {
   display: block;
-
   font-size: clamp(7px, 1.55vw, 10px);
-
   font-weight: 700;
-
   line-height: 1;
-
   white-space: nowrap;
-
   opacity: 0.95;
 }
 
 .weather-widget .widget-main {
   display: inline-block;
-
   font-size: clamp(10px, 2.5vw, 15px);
-
   font-weight: 800;
-
   line-height: 1;
-
   white-space: nowrap;
 }
 
 .weather-widget .widget-sub {
   display: block;
-
   max-width: 100%;
-
   font-size: clamp(6px, 1.35vw, 9px);
-
   line-height: 1;
-
   white-space: nowrap;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
-
   opacity: 0.80;
 }
 
@@ -275,22 +249,14 @@ body {
 
 .currency-icons {
   flex: 0 0 auto;
-
   width: 32px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
-
   gap: 2px;
-
   font-size: clamp(11px, 2.7vw, 17px);
-
   line-height: 0.85;
-
   font-weight: 800;
 }
 
@@ -300,35 +266,22 @@ body {
 
 .currency-content {
   min-width: 0;
-
   width: 100%;
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
-
   gap: 3px;
 }
 
 .currency-line {
   width: 100%;
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
   gap: 4px;
-
   min-width: 0;
-
   font-size: clamp(6px, 1.45vw, 9px);
-
   line-height: 1;
-
   white-space: nowrap;
 }
 
@@ -342,43 +295,29 @@ body {
 
 .widget-source {
   display: block;
-
   min-width: 0;
-
   font-size: clamp(5px, 1.05vw, 7px);
-
   line-height: 1;
-
   white-space: nowrap;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
-
   opacity: 0.65;
 }
 
 
 /* =========================================================
-   ПРОЗРАЧНЫЕ ЗОНЫ НАЖАТИЯ
+   ПРОЗРАЧНЫЕ КНОПКИ
    ========================================================= */
 
 .hotspot {
   position: absolute;
-
   z-index: 30;
-
   display: block;
-
   margin: 0;
   padding: 0;
-
   background: transparent;
-
   border: 0;
-
   text-decoration: none;
-
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -390,20 +329,18 @@ body {
 .logo-hotspot {
   left: 2%;
   top: 4.2%;
-
   width: 34%;
   height: 24%;
 }
 
 
 /* =========================================================
-   УКРЫТИЕ
+   УКРЫТИЯ
    ========================================================= */
 
 .shelter-hotspot {
   left: 61%;
   top: 27%;
-
   width: 36%;
   height: 7.5%;
 }
@@ -416,12 +353,9 @@ body {
 .search-hotspot {
   left: 2.5%;
   top: 34%;
-
   width: 95%;
   height: 6%;
-
   cursor: pointer;
-
   appearance: none;
 }
 
@@ -483,7 +417,6 @@ body {
 .groups-hotspot {
   left: 3%;
   top: 79%;
-
   width: 94%;
   height: 6.5%;
 }
@@ -495,7 +428,6 @@ body {
 
 .nav-hotspot {
   top: 87%;
-
   height: 6%;
 }
 
@@ -520,14 +452,10 @@ body {
    ========================================================= */
 
 @media (max-width: 380px) {
-
   .widget {
     padding: 2px 5px;
-
     border-radius: 9px;
-
-    box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.27);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.27);
   }
 
   .live-widgets {
@@ -556,7 +484,6 @@ body {
 
 .widget:active {
   transform: scale(0.98);
-
   background: rgba(10, 40, 70, 0.98);
 }
 
