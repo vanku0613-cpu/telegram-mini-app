@@ -92,7 +92,7 @@ body {
 
 
 /* =========================================================
-   ТРИ ОСНОВНЫХ ОКНА
+   НИЖНИЙ РЯД
    ПОГОДА / КУРС / УКРЫТИЕ
    ========================================================= */
 
@@ -124,7 +124,7 @@ body {
 
 
 /* =========================================================
-   ОБЩАЯ ОСНОВА ВСЕХ ТРЁХ ОКОН
+   ОБЩАЯ ОСНОВА ТРЁХ КНОПОК
    ========================================================= */
 
 .live-widgets .widget {
@@ -150,6 +150,11 @@ body {
   cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -158,8 +163,6 @@ body {
    ========================================================= */
 
 .weather-widget {
-  display: flex;
-
   flex-direction: row;
 
   align-items: center;
@@ -167,18 +170,23 @@ body {
 
   gap: 7px;
 
-  padding: 5px 8px;
+  padding: 4px 7px;
 
   color: #ffffff;
 
   background:
-    rgba(5, 26, 52, 0.94);
+    linear-gradient(
+      180deg,
+      rgba(8, 34, 65, 0.96),
+      rgba(4, 23, 48, 0.96)
+    );
 
   border:
-    1px solid rgba(130, 220, 255, 0.75);
+    1px solid rgba(130, 220, 255, 0.78);
 
   box-shadow:
-    0 3px 12px rgba(0, 0, 0, 0.30);
+    0 3px 12px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255,255,255,0.08);
 
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -202,7 +210,7 @@ body {
   justify-content: center;
 
   font-size:
-    clamp(25px, 5.8vw, 38px);
+    clamp(23px, 5.3vw, 35px);
 
   line-height: 1;
 
@@ -227,7 +235,7 @@ body {
   align-items: flex-start;
   justify-content: center;
 
-  gap: 4px;
+  gap: 3px;
 
   overflow: hidden;
 }
@@ -241,7 +249,7 @@ body {
   display: block;
 
   font-size:
-    clamp(10px, 2.2vw, 15px);
+    clamp(9px, 2vw, 14px);
 
   font-weight: 900;
 
@@ -261,7 +269,7 @@ body {
   display: block;
 
   font-size:
-    clamp(18px, 4.2vw, 28px);
+    clamp(17px, 3.9vw, 26px);
 
   font-weight: 900;
 
@@ -281,7 +289,7 @@ body {
   max-width: 100%;
 
   font-size:
-    clamp(8px, 1.7vw, 12px);
+    clamp(7px, 1.55vw, 11px);
 
   font-weight: 700;
 
@@ -304,7 +312,6 @@ body {
 #weatherWidget {
   overflow: visible;
 }
-
 
 #visitCounter {
   position: absolute;
@@ -355,7 +362,6 @@ body {
   pointer-events: none;
 }
 
-
 #visitCounterIcon {
   font-size: 11px;
   line-height: 1;
@@ -364,7 +370,6 @@ body {
 
   flex-shrink: 0;
 }
-
 
 #visitCounterNumber {
   font-size: 9px;
@@ -380,27 +385,30 @@ body {
    ========================================================= */
 
 .currency-widget {
-  display: flex;
-
   flex-direction: column;
 
   align-items: center;
   justify-content: center;
 
-  gap: 5px;
+  gap: 4px;
 
-  padding: 5px 8px;
+  padding: 4px 7px;
 
   color: #ffffff;
 
   background:
-    rgba(5, 26, 52, 0.94);
+    linear-gradient(
+      180deg,
+      rgba(8, 34, 65, 0.96),
+      rgba(4, 23, 48, 0.96)
+    );
 
   border:
-    1px solid rgba(130, 220, 255, 0.75);
+    1px solid rgba(130, 220, 255, 0.78);
 
   box-shadow:
-    0 3px 12px rgba(0, 0, 0, 0.30);
+    0 3px 12px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255,255,255,0.08);
 
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -417,7 +425,7 @@ body {
   display: block;
 
   font-size:
-    clamp(10px, 2.2vw, 15px);
+    clamp(9px, 2vw, 14px);
 
   font-weight: 900;
 
@@ -444,12 +452,12 @@ body {
 
   align-items: center;
 
-  gap: 4px;
+  gap: 3px;
 }
 
 
 /* =========================================================
-   СТРОКА USD / EUR
+   USD / EUR
    ========================================================= */
 
 .currency-line {
@@ -461,12 +469,12 @@ body {
 
   justify-content: center;
 
-  gap: 7px;
+  gap: 6px;
 
   min-width: 0;
 
   font-size:
-    clamp(11px, 2.35vw, 16px);
+    clamp(10px, 2.2vw, 15px);
 
   font-weight: 900;
 
@@ -475,18 +483,16 @@ body {
   white-space: nowrap;
 }
 
-
 .currency-line b {
   font-size:
-    clamp(13px, 2.7vw, 18px);
+    clamp(12px, 2.5vw, 17px);
 
   font-weight: 900;
 }
 
-
 .currency-line span {
   font-size:
-    clamp(12px, 2.5vw, 17px);
+    clamp(11px, 2.35vw, 16px);
 
   font-weight: 900;
 }
@@ -511,11 +517,17 @@ body {
   align-items: center;
   justify-content: center;
 
-  padding: 5px 7px;
+  padding: 0;
 
   color: #ffffff;
 
-  /* ПОЛНОСТЬЮ ПРОЗРАЧНАЯ КНОПКА */
+  /*
+   * ВАЖНО:
+   * Никакого собственного фона.
+   * Красная кнопка остаётся той,
+   * которая уже нарисована на основном изображении.
+   */
+
   background: transparent !important;
 
   border: 0 !important;
@@ -555,7 +567,7 @@ body {
   height: 100%;
 
   margin: 0;
-  padding: 0 5px;
+  padding: 0 4px;
 
   color: #ffffff;
 
@@ -565,7 +577,7 @@ body {
     sans-serif;
 
   font-size:
-    clamp(10px, 2.2vw, 15px);
+    clamp(9px, 2vw, 14px);
 
   font-weight: 900;
 
@@ -575,15 +587,21 @@ body {
 
   text-align: center;
 
+  /*
+   * Текст хорошо читается
+   * поверх красной кнопки.
+   */
+
   text-shadow:
-    0 2px 3px rgba(0,0,0,0.65);
+    0 2px 3px rgba(0,0,0,0.70),
+    0 0 2px rgba(0,0,0,0.45);
 
   pointer-events: none;
 }
 
 
 /* =========================================================
-   СКРЫВАЕМ ЩИТ
+   ЩИТ НЕ ПОКАЗЫВАЕМ
    ========================================================= */
 
 .shelter-title-icon {
@@ -592,16 +610,10 @@ body {
 
 
 /* =========================================================
-   УБИРАЕМ ВСЕ ЭФФЕКТЫ КРАСНОЙ ПРОГРАММНОЙ КНОПКИ
+   НИКАКИХ ПСЕВДОЭЛЕМЕНТОВ У УКРЫТИЯ
    ========================================================= */
 
-.shelter-widget::before {
-  display: none !important;
-
-  content: none !important;
-}
-
-
+.shelter-widget::before,
 .shelter-widget::after {
   display: none !important;
 
@@ -610,7 +622,7 @@ body {
 
 
 /* =========================================================
-   ПРОЗРАЧНЫЕ КНОПКИ
+   ПРОЗРАЧНЫЕ HOTSPOT-КНОПКИ
    ========================================================= */
 
 .hotspot {
@@ -673,48 +685,40 @@ body {
   height: 8.7%;
 }
 
-
 .health-hotspot {
   left: 3%;
   top: 40%;
 }
-
 
 .transport-hotspot {
   left: 51.5%;
   top: 40%;
 }
 
-
 .services-hotspot {
   left: 3%;
   top: 49.7%;
 }
-
 
 .food-hotspot {
   left: 51.5%;
   top: 49.7%;
 }
 
-
 .utilities-hotspot {
   left: 3%;
   top: 59.5%;
 }
-
 
 .jobs-hotspot {
   left: 51.5%;
   top: 59.5%;
 }
 
-
 .education-hotspot {
   left: 3%;
   top: 69.2%;
 }
-
 
 .leisure-hotspot {
   left: 51.5%;
@@ -744,18 +748,15 @@ body {
   height: 6%;
 }
 
-
 .home-hotspot {
   left: 2%;
   width: 30%;
 }
 
-
 .ads-hotspot {
   left: 35%;
   width: 30%;
 }
-
 
 .favorites-hotspot {
   left: 68%;
@@ -770,7 +771,6 @@ body {
 .hotspot:active {
   opacity: 0.85;
 }
-
 
 .widget:active {
   transform: scale(0.98);
@@ -804,20 +804,24 @@ body {
     column-gap: 1%;
   }
 
+
   .live-widgets .widget {
     border-radius: 9px;
   }
 
 
-  /* ===== ПОГОДА ===== */
+  /* =======================================================
+     ПОГОДА — МАЛЕНЬКИЙ ЭКРАН
+     ======================================================= */
 
   .weather-widget {
     padding: 4px 5px;
+
     gap: 4px;
   }
 
   .weather-icon {
-    font-size: 23px;
+    font-size: 22px;
   }
 
   .weather-widget .widget-title {
@@ -825,7 +829,7 @@ body {
   }
 
   .weather-widget .widget-main {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .weather-widget .widget-sub {
@@ -833,11 +837,14 @@ body {
   }
 
 
-  /* ===== ВАЛЮТА ===== */
+  /* =======================================================
+     ВАЛЮТА — МАЛЕНЬКИЙ ЭКРАН
+     ======================================================= */
 
   .currency-widget {
     padding: 4px 5px;
-    gap: 4px;
+
+    gap: 3px;
   }
 
   .currency-widget .widget-title {
@@ -846,22 +853,25 @@ body {
 
   .currency-line {
     font-size: 10px;
-    gap: 5px;
+
+    gap: 4px;
   }
 
   .currency-line b {
-    font-size: 12px;
-  }
-
-  .currency-line span {
     font-size: 11px;
   }
 
+  .currency-line span {
+    font-size: 10px;
+  }
 
-  /* ===== УКРЫТИЕ ===== */
+
+  /* =======================================================
+     УКРЫТИЕ — МАЛЕНЬКИЙ ЭКРАН
+     ======================================================= */
 
   .shelter-widget {
-    padding: 4px 5px;
+    padding: 0;
 
     background: transparent !important;
 
@@ -872,6 +882,11 @@ body {
 
   .shelter-title {
     font-size: 9px;
+
+    padding: 0 3px;
+
+    text-shadow:
+      0 2px 3px rgba(0,0,0,0.70);
   }
 
   .shelter-title-icon {
