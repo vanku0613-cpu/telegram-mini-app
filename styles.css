@@ -109,10 +109,6 @@ body {
 
   display: grid;
 
-  /*
-    Три одинаковых по высоте окна.
-    Между ними небольшой равномерный промежуток.
-  */
   grid-template-columns:
     1fr
     1fr
@@ -167,11 +163,11 @@ body {
   flex-direction: row;
 
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
-  gap: 6px;
+  gap: 7px;
 
-  padding: 5px 7px;
+  padding: 5px 8px;
 
   color: #ffffff;
 
@@ -187,14 +183,16 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
-  text-align: left;
+  text-align: center;
 }
 
+
+/* КРУПНЫЙ ЗНАЧОК ПОГОДЫ */
 
 .weather-icon {
   flex: 0 0 auto;
 
-  width: 25px;
+  width: auto;
 
   display: flex;
 
@@ -202,16 +200,18 @@ body {
   justify-content: center;
 
   font-size:
-    clamp(15px, 3.7vw, 23px);
+    clamp(25px, 5.8vw, 38px);
 
   line-height: 1;
 
   filter:
     drop-shadow(
-      0 1px 2px rgba(0, 0, 0, 0.35)
+      0 2px 3px rgba(0, 0, 0, 0.40)
     );
 }
 
+
+/* СОДЕРЖИМОЕ ПОГОДЫ */
 
 .widget-content {
   min-width: 0;
@@ -220,35 +220,40 @@ body {
 
   flex-direction: column;
 
+  align-items: flex-start;
   justify-content: center;
 
-  gap: 3px;
+  gap: 4px;
 
   overflow: hidden;
 }
 
 
+/* ЗАГОЛОВОК ПОГОДЫ */
+
 .weather-widget .widget-title {
   display: block;
 
   font-size:
-    clamp(7px, 1.55vw, 11px);
+    clamp(10px, 2.2vw, 15px);
 
-  font-weight: 800;
+  font-weight: 900;
 
   line-height: 1;
 
   white-space: nowrap;
 
-  opacity: 0.95;
+  opacity: 1;
 }
 
+
+/* ТЕМПЕРАТУРА */
 
 .weather-widget .widget-main {
   display: block;
 
   font-size:
-    clamp(11px, 2.55vw, 16px);
+    clamp(18px, 4.2vw, 28px);
 
   font-weight: 900;
 
@@ -258,15 +263,17 @@ body {
 }
 
 
+/* ОПИСАНИЕ ПОГОДЫ */
+
 .weather-widget .widget-sub {
   display: block;
 
   max-width: 100%;
 
   font-size:
-    clamp(6px, 1.25vw, 9px);
+    clamp(8px, 1.7vw, 12px);
 
-  font-weight: 600;
+  font-weight: 700;
 
   line-height: 1;
 
@@ -276,7 +283,7 @@ body {
 
   text-overflow: ellipsis;
 
-  opacity: 0.80;
+  opacity: 0.90;
 }
 
 
@@ -367,12 +374,12 @@ body {
 
   flex-direction: column;
 
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 
-  gap: 4px;
+  gap: 5px;
 
-  padding: 5px 7px;
+  padding: 5px 8px;
 
   color: #ffffff;
 
@@ -388,23 +395,27 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
-  text-align: left;
+  text-align: center;
 }
 
+
+/* ЗАГОЛОВОК ВАЛЮТЫ */
 
 .currency-widget .widget-title {
   display: block;
 
   font-size:
-    clamp(7px, 1.55vw, 11px);
+    clamp(10px, 2.2vw, 15px);
 
-  font-weight: 800;
+  font-weight: 900;
 
   line-height: 1;
 
   white-space: nowrap;
 }
 
+
+/* КОНТЕНТ ВАЛЮТЫ */
 
 .currency-content {
   width: 100%;
@@ -417,9 +428,13 @@ body {
 
   justify-content: center;
 
-  gap: 3px;
+  align-items: center;
+
+  gap: 4px;
 }
 
+
+/* СТРОКА USD / EUR */
 
 .currency-line {
   width: 100%;
@@ -428,14 +443,16 @@ body {
 
   align-items: center;
 
-  justify-content: space-between;
+  justify-content: center;
 
-  gap: 3px;
+  gap: 7px;
 
   min-width: 0;
 
   font-size:
-    clamp(6px, 1.35vw, 9px);
+    clamp(11px, 2.35vw, 16px);
+
+  font-weight: 900;
 
   line-height: 1;
 
@@ -444,32 +461,25 @@ body {
 
 
 .currency-line b {
-  font-weight: 800;
+  font-size:
+    clamp(13px, 2.7vw, 18px);
+
+  font-weight: 900;
 }
 
 
 .currency-line span {
-  font-weight: 800;
+  font-size:
+    clamp(12px, 2.5vw, 17px);
+
+  font-weight: 900;
 }
 
 
+/* ИСТОЧНИК */
+
 .widget-source {
-  display: block;
-
-  min-width: 0;
-
-  font-size:
-    clamp(5px, 0.95vw, 7px);
-
-  line-height: 1;
-
-  white-space: nowrap;
-
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-
-  opacity: 0.65;
+  display: none;
 }
 
 
@@ -518,7 +528,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  gap: 4px;
+  gap: 5px;
 
   width: 100%;
 
@@ -530,7 +540,7 @@ body {
     sans-serif;
 
   font-size:
-    clamp(7px, 1.55vw, 11px);
+    clamp(10px, 2.2vw, 15px);
 
   font-weight: 900;
 
@@ -546,7 +556,7 @@ body {
 
 .shelter-title-icon {
   font-size:
-    clamp(10px, 2.2vw, 16px);
+    clamp(18px, 3.8vw, 26px);
 
   line-height: 1;
 }
@@ -806,51 +816,65 @@ body {
     border-radius: 9px;
   }
 
+  /* ===== ПОГОДА ===== */
+
   .weather-widget {
     padding: 4px 5px;
     gap: 4px;
   }
 
   .weather-icon {
-    width: 20px;
-    font-size: 14px;
+    font-size: 23px;
   }
 
   .weather-widget .widget-title {
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .weather-widget .widget-main {
-    font-size: 11px;
+    font-size: 17px;
   }
 
   .weather-widget .widget-sub {
-    font-size: 6px;
-  }
-
-  .currency-widget {
-    padding: 4px 5px;
-    gap: 3px;
-  }
-
-  .currency-widget .widget-title {
     font-size: 7px;
   }
 
-  .currency-line {
-    font-size: 6px;
+  /* ===== ВАЛЮТА ===== */
+
+  .currency-widget {
+    padding: 4px 5px;
+    gap: 4px;
   }
+
+  .currency-widget .widget-title {
+    font-size: 9px;
+  }
+
+  .currency-line {
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  .currency-line b {
+    font-size: 12px;
+  }
+
+  .currency-line span {
+    font-size: 11px;
+  }
+
+  /* ===== УКРЫТИЕ ===== */
 
   .shelter-widget {
     padding: 4px 5px;
   }
 
   .shelter-title {
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .shelter-title-icon {
-    font-size: 10px;
+    font-size: 16px;
   }
 }
 
