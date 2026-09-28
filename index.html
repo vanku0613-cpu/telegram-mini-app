@@ -100,6 +100,7 @@
 
     /* =====================================================
        ПОГОДА + КУРС ВАЛЮТ
+       РЯДОМ С КРАСНОЙ КНОПКОЙ
        ===================================================== */
 
     .live-widgets {
@@ -107,12 +108,24 @@
 
       z-index: 20 !important;
 
-      left: 6% !important;
+      /*
+        Левая часть экрана.
+        Красная кнопка начинается с 61%.
+      */
+      left: 3% !important;
 
-      /* ПОСТАВЛЕНО НА УРОВЕНЬ КРАСНОЙ КНОПКИ */
+      /*
+        Та же высота, что и красная кнопка.
+      */
       top: 27% !important;
 
-      width: 88% !important;
+      /*
+        До красной кнопки оставляем небольшой промежуток.
+        3% + 56% = 59%.
+        Красная кнопка начинается с 61%.
+      */
+      width: 56% !important;
+
       height: 7.5% !important;
 
       display: grid !important;
@@ -128,6 +141,11 @@
       line-height: normal !important;
     }
 
+
+    /* =====================================================
+       ОБЩИЙ ВИД ПОГОДЫ И КУРСА
+       ===================================================== */
+
     .live-widgets .widget {
       width: 100% !important;
       height: 100% !important;
@@ -139,7 +157,7 @@
 
       border-radius: 12px !important;
 
-      padding: 8px 12px !important;
+      padding: 8px 10px !important;
 
       overflow: hidden !important;
     }
@@ -162,7 +180,7 @@
 
     .weather-widget .widget-title {
       font-size:
-        clamp(11px, 2.3vw, 16px) !important;
+        clamp(9px, 2vw, 14px) !important;
 
       font-weight: 800 !important;
 
@@ -172,10 +190,10 @@
     }
 
     .weather-widget .widget-main {
-      margin-top: 5px !important;
+      margin-top: 4px !important;
 
       font-size:
-        clamp(18px, 4vw, 28px) !important;
+        clamp(15px, 3.4vw, 24px) !important;
 
       font-weight: 900 !important;
 
@@ -185,10 +203,10 @@
     }
 
     .weather-widget .widget-sub {
-      margin-top: 4px !important;
+      margin-top: 3px !important;
 
       font-size:
-        clamp(8px, 1.7vw, 12px) !important;
+        clamp(7px, 1.45vw, 10px) !important;
 
       font-weight: 600 !important;
 
@@ -221,13 +239,27 @@
 
     .currency-widget .widget-title {
       font-size:
-        clamp(11px, 2.3vw, 16px) !important;
+        clamp(9px, 2vw, 14px) !important;
 
       font-weight: 800 !important;
 
       line-height: 1.1 !important;
 
       white-space: nowrap !important;
+
+      margin-bottom: 3px !important;
+    }
+
+    .currency-widget .currency-content {
+      width: 100% !important;
+
+      min-width: 0 !important;
+
+      display: flex !important;
+
+      flex-direction: column !important;
+
+      gap: 3px !important;
     }
 
     .currency-widget .currency-line {
@@ -239,24 +271,14 @@
 
       justify-content: space-between !important;
 
-      gap: 6px !important;
+      gap: 4px !important;
 
       font-size:
-        clamp(10px, 2vw, 14px) !important;
+        clamp(8px, 1.7vw, 12px) !important;
 
-      line-height: 1.15 !important;
+      line-height: 1.1 !important;
 
       white-space: nowrap !important;
-    }
-
-    .currency-widget .currency-content {
-      width: 100% !important;
-
-      display: flex !important;
-
-      flex-direction: column !important;
-
-      gap: 4px !important;
     }
 
     .currency-widget .currency-line b {
@@ -269,7 +291,9 @@
 
     .currency-widget .widget-source {
       font-size:
-        clamp(7px, 1.3vw, 9px) !important;
+        clamp(6px, 1.1vw, 8px) !important;
+
+      line-height: 1 !important;
 
       opacity: .65 !important;
     }
@@ -280,10 +304,19 @@
        ===================================================== */
 
     .shelter-hotspot {
+      /*
+        Красная кнопка справа.
+        Начинается сразу после блока погоды/курса.
+      */
       left: 61% !important;
+
+      /*
+        Точная высота линии погоды и курса.
+      */
       top: 27% !important;
 
       width: 36% !important;
+
       height: 7.5% !important;
 
       display: flex !important;
@@ -463,6 +496,8 @@
 
       <div class="live-widgets">
 
+        <!-- ПОГОДА -->
+
         <a
           id="weatherWidget"
           class="widget weather-widget"
@@ -514,6 +549,8 @@
         </a>
 
 
+        <!-- КУРС ВАЛЮТ -->
+
         <div
           id="currencyWidget"
           class="widget currency-widget"
@@ -526,13 +563,27 @@
           <span class="currency-content">
 
             <span class="currency-line">
-              <b>💵 USD</b>
-              <span id="usdRate">—</span>
+
+              <b>
+                💵 USD
+              </b>
+
+              <span id="usdRate">
+                —
+              </span>
+
             </span>
 
             <span class="currency-line">
-              <b>💶 EUR</b>
-              <span id="eurRate">—</span>
+
+              <b>
+                💶 EUR
+              </b>
+
+              <span id="eurRate">
+                —
+              </span>
+
             </span>
 
             <span class="widget-source">
