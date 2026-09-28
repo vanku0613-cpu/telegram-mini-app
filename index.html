@@ -35,14 +35,12 @@
 
     #visitCounter {
       position: absolute !important;
-
       z-index: 9999 !important;
 
       left: 8px !important;
       top: -25px !important;
 
       display: flex !important;
-
       align-items: center !important;
       justify-content: flex-start !important;
 
@@ -73,7 +71,6 @@
         sans-serif !important;
 
       font-size: 9px !important;
-
       font-weight: 700 !important;
 
       line-height: 20px !important;
@@ -85,21 +82,15 @@
       box-sizing: border-box !important;
     }
 
-
     #visitCounterIcon {
       font-size: 11px !important;
-
       line-height: 1 !important;
-
       opacity: .95 !important;
-
       flex-shrink: 0 !important;
     }
 
-
     #visitCounterNumber {
       font-size: 9px !important;
-
       line-height: 1 !important;
 
       font-variant-numeric:
@@ -112,17 +103,14 @@
        ===================================================== */
 
     .live-widgets {
-
       position: absolute !important;
 
       z-index: 20 !important;
 
       left: 6% !important;
-
       top: 30.5% !important;
 
       width: 88% !important;
-
       height: 7.5% !important;
 
       display: grid !important;
@@ -133,21 +121,16 @@
       gap: 2% !important;
 
       margin: 0 !important;
-
       padding: 0 !important;
 
       line-height: normal !important;
     }
 
-
     .live-widgets .widget {
-
       width: 100% !important;
-
       height: 100% !important;
 
       min-width: 0 !important;
-
       min-height: 0 !important;
 
       box-sizing: border-box !important;
@@ -165,21 +148,17 @@
        ===================================================== */
 
     .weather-widget {
-
       display: flex !important;
 
       flex-direction: column !important;
 
       align-items: flex-start !important;
-
       justify-content: center !important;
 
       text-align: left !important;
     }
 
-
     .weather-widget .widget-title {
-
       font-size:
         clamp(11px, 2.3vw, 16px) !important;
 
@@ -190,9 +169,7 @@
       white-space: nowrap !important;
     }
 
-
     .weather-widget .widget-main {
-
       margin-top: 5px !important;
 
       font-size:
@@ -205,9 +182,7 @@
       white-space: nowrap !important;
     }
 
-
     .weather-widget .widget-sub {
-
       margin-top: 4px !important;
 
       font-size:
@@ -232,21 +207,17 @@
        ===================================================== */
 
     .currency-widget {
-
       display: flex !important;
 
       flex-direction: column !important;
 
       align-items: flex-start !important;
-
       justify-content: center !important;
 
       text-align: left !important;
     }
 
-
     .currency-widget .widget-title {
-
       font-size:
         clamp(11px, 2.3vw, 16px) !important;
 
@@ -257,9 +228,7 @@
       white-space: nowrap !important;
     }
 
-
     .currency-widget .currency-line {
-
       width: 100% !important;
 
       display: flex !important;
@@ -268,4 +237,582 @@
 
       justify-content: space-between !important;
 
-     
+      gap: 6px !important;
+
+      font-size:
+        clamp(10px, 2vw, 14px) !important;
+
+      line-height: 1.15 !important;
+
+      white-space: nowrap !important;
+    }
+
+    .currency-widget .currency-content {
+      width: 100% !important;
+
+      display: flex !important;
+
+      flex-direction: column !important;
+
+      gap: 4px !important;
+    }
+
+    .currency-widget .currency-line b {
+      font-weight: 800 !important;
+    }
+
+    .currency-widget .currency-line span {
+      font-weight: 800 !important;
+    }
+
+    .currency-widget .widget-source {
+      font-size:
+        clamp(7px, 1.3vw, 9px) !important;
+
+      opacity: .65 !important;
+    }
+
+
+    /* =====================================================
+       УКРЫТИЕ
+       ===================================================== */
+
+    .shelter-hotspot {
+      left: 61% !important;
+      top: 27% !important;
+
+      width: 36% !important;
+      height: 7.5% !important;
+
+      display: flex !important;
+
+      align-items: center !important;
+      justify-content: center !important;
+
+      text-decoration: none !important;
+
+      z-index: 30 !important;
+
+      overflow: hidden !important;
+
+      border-radius: 12px !important;
+
+      -webkit-tap-highlight-color:
+        transparent !important;
+
+      transition:
+        transform 0.12s ease,
+        filter 0.12s ease !important;
+    }
+
+    .shelter-title {
+      position: relative !important;
+
+      z-index: 5 !important;
+
+      display: flex !important;
+
+      align-items: center !important;
+      justify-content: center !important;
+
+      gap: 6px !important;
+
+      width: 100% !important;
+
+      color: #ffffff !important;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+      font-size:
+        clamp(9px, 2vw, 14px) !important;
+
+      font-weight: 900 !important;
+
+      line-height: 1 !important;
+
+      white-space: nowrap !important;
+
+      text-align: center !important;
+
+      pointer-events: none !important;
+    }
+
+    .shelter-title-icon {
+      font-size:
+        clamp(12px, 2.6vw, 18px) !important;
+
+      line-height: 1 !important;
+    }
+
+
+    /* =====================================================
+       ЭФФЕКТ НАЖАТИЯ УКРЫТИЯ
+       ===================================================== */
+
+    .shelter-hotspot::after {
+      content: "";
+
+      position: absolute;
+
+      left: -120%;
+      top: 0;
+
+      width: 70%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          105deg,
+          transparent 0%,
+          rgba(255,255,255,0.08) 35%,
+          rgba(255,255,255,0.45) 50%,
+          rgba(255,255,255,0.08) 65%,
+          transparent 100%
+        );
+
+      transform: skewX(-18deg);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      z-index: 4;
+
+      transition:
+        left 0.35s ease,
+        opacity 0.12s ease;
+    }
+
+    .shelter-hotspot::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 1px;
+
+      border-radius: 11px;
+
+      border:
+        1px solid rgba(255,255,255,0.18);
+
+      box-shadow:
+        inset 0 1px 3px rgba(255,255,255,0.22),
+        inset 0 -2px 5px rgba(0,0,0,0.12);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      z-index: 2;
+
+      transition:
+        opacity 0.12s ease;
+    }
+
+    .shelter-hotspot:active {
+      transform: scale(0.975) !important;
+
+      filter:
+        brightness(1.18)
+        saturate(1.08) !important;
+    }
+
+    .shelter-hotspot:active::after {
+      left: 140%;
+      opacity: 1;
+    }
+
+    .shelter-hotspot:active::before {
+      opacity: 1;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <main class="app">
+
+    <section class="reference">
+
+      <!-- =================================================
+           ГЛАВНОЕ ИЗОБРАЖЕНИЕ
+           ================================================= -->
+
+      <img
+        id="referenceImage"
+        class="reference-image"
+        src="./file_00000000535c820a8555793262fd3bdf.png"
+        alt="Главный справочник Измаил"
+        loading="eager"
+        decoding="sync"
+        draggable="false"
+      >
+
+
+      <!-- =================================================
+           ПОГОДА + КУРС ВАЛЮТ
+           ================================================= -->
+
+      <div class="live-widgets">
+
+        <a
+          id="weatherWidget"
+          class="widget weather-widget"
+          href="#"
+          aria-label="Погода Измаил"
+        >
+
+          <span class="weather-icon">
+            ☀️
+          </span>
+
+          <span class="widget-content">
+
+            <span class="widget-title">
+              ПОГОДА ИЗМАИЛА
+            </span>
+
+            <span
+              id="weatherTemp"
+              class="widget-main"
+            >
+              —°C
+            </span>
+
+            <span
+              id="weatherText"
+              class="widget-sub"
+            >
+              Загрузка...
+            </span>
+
+          </span>
+
+          <span
+            id="visitCounter"
+            aria-hidden="true"
+          >
+
+            <span id="visitCounterIcon">
+              👁
+            </span>
+
+            <span id="visitCounterNumber">
+              0
+            </span>
+
+          </span>
+
+        </a>
+
+
+        <div
+          id="currencyWidget"
+          class="widget currency-widget"
+        >
+
+          <span class="widget-title">
+            КУРС ВАЛЮТ
+          </span>
+
+          <span class="currency-content">
+
+            <span class="currency-line">
+              <b>💵 USD</b>
+              <span id="usdRate">—</span>
+            </span>
+
+            <span class="currency-line">
+              <b>💶 EUR</b>
+              <span id="eurRate">—</span>
+            </span>
+
+            <span class="widget-source">
+              НБУ
+            </span>
+
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           ЛОГОТИП / ГЛАВНАЯ ГРУППА
+           ================================================= -->
+
+      <a
+        id="mainGroup"
+        class="hotspot logo-hotspot"
+        href="#"
+        aria-label="Главный справочник Измаил"
+      ></a>
+
+
+      <!-- =================================================
+           УКРЫТИЕ
+           ================================================= -->
+
+      <a
+        id="shelterLink"
+        class="hotspot shelter-hotspot"
+        href="#"
+        aria-label="Укрытие Измаил"
+      >
+
+        <span class="shelter-title">
+
+          <span class="shelter-title-icon">
+            🛡️
+          </span>
+
+          <span>
+            УКРЫТИЕ ИЗМАИЛ
+          </span>
+
+        </span>
+
+      </a>
+
+
+      <!-- =================================================
+           ПОИСК
+           ================================================= -->
+
+      <div
+        id="searchHotspot"
+        class="hotspot search-hotspot"
+        role="button"
+        tabindex="0"
+        aria-label="Поиск по справочнику"
+      >
+
+        <input
+          id="directorySearchInput"
+          type="search"
+          autocomplete="off"
+          inputmode="search"
+          aria-label="Поиск по справочнику"
+          tabindex="-1"
+        >
+
+      </div>
+
+
+      <!-- =================================================
+           КАТЕГОРИИ
+           ================================================= -->
+
+      <a
+        id="healthLink"
+        class="hotspot category-hotspot health-hotspot"
+        href="#"
+        aria-label="Здоровье и уход"
+      ></a>
+
+      <a
+        id="transportLink"
+        class="hotspot category-hotspot transport-hotspot"
+        href="#"
+        aria-label="Транспорт / Такси"
+      ></a>
+
+      <a
+        id="servicesLink"
+        class="hotspot category-hotspot services-hotspot"
+        href="#"
+        aria-label="Услуги и мастера"
+      ></a>
+
+      <a
+        id="foodLink"
+        class="hotspot category-hotspot food-hotspot"
+        href="#"
+        aria-label="Продукты питания"
+      ></a>
+
+      <a
+        id="utilitiesLink"
+        class="hotspot category-hotspot utilities-hotspot"
+        href="#"
+        aria-label="Коммунальные службы"
+      ></a>
+
+      <a
+        id="jobsLink"
+        class="hotspot category-hotspot jobs-hotspot"
+        href="#"
+        aria-label="Работа / Вакансии"
+      ></a>
+
+      <a
+        id="educationLink"
+        class="hotspot category-hotspot education-hotspot"
+        href="#"
+        aria-label="Образование и развитие"
+      ></a>
+
+      <a
+        id="leisureLink"
+        class="hotspot category-hotspot leisure-hotspot"
+        href="#"
+        aria-label="Отдых • Жильё • Море"
+      ></a>
+
+
+      <!-- =================================================
+           НАШИ ГРУППЫ
+           ================================================= -->
+
+      <a
+        id="groupsLink"
+        class="hotspot groups-hotspot"
+        href="#"
+        aria-label="Наши группы"
+      ></a>
+
+
+      <!-- =================================================
+           НИЖНЕЕ МЕНЮ
+           ================================================= -->
+
+      <a
+        id="homeLink"
+        class="hotspot nav-hotspot home-hotspot"
+        href="#"
+        aria-label="Главная"
+      ></a>
+
+      <a
+        id="adsLink"
+        class="hotspot nav-hotspot ads-hotspot"
+        href="#"
+        aria-label="Реклама"
+      ></a>
+
+      <a
+        id="favoritesLink"
+        class="hotspot nav-hotspot favorites-hotspot"
+        href="#"
+        aria-label="Избранное"
+      ></a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script src="./config.js"></script>
+
+  <script src="./app.js"></script>
+
+
+  <!-- =====================================================
+       ЛОКАЛЬНЫЙ СЧЁТЧИК ПОСЕЩЕНИЙ
+       ===================================================== -->
+
+  <script>
+
+    (function () {
+
+      "use strict";
+
+      const counterKey =
+        "izmail_local_visit_counter";
+
+      const intervalKey =
+        "izmail_local_visit_last";
+
+      const INTERVAL =
+        2 * 60 * 1000;
+
+      const numberElement =
+        document.getElementById(
+          "visitCounterNumber"
+        );
+
+      if (!numberElement) {
+        return;
+      }
+
+      let count = 0;
+      let lastVisit = 0;
+
+      try {
+
+        count =
+          Number(
+            localStorage.getItem(
+              counterKey
+            ) || "0"
+          );
+
+        lastVisit =
+          Number(
+            localStorage.getItem(
+              intervalKey
+            ) || "0"
+          );
+
+      } catch (e) {}
+
+      const now =
+        Date.now();
+
+      if (
+        !Number.isFinite(count) ||
+        count < 0
+      ) {
+        count = 0;
+      }
+
+      if (
+        !Number.isFinite(lastVisit)
+      ) {
+        lastVisit = 0;
+      }
+
+      if (
+        now - lastVisit >=
+        INTERVAL
+      ) {
+
+        count += 1;
+
+        try {
+
+          localStorage.setItem(
+            counterKey,
+            String(count)
+          );
+
+          localStorage.setItem(
+            intervalKey,
+            String(now)
+          );
+
+        } catch (e) {}
+
+      }
+
+      numberElement.textContent =
+        String(count);
+
+    })();
+
+  </script>
+
+</body>
+
+</html>
