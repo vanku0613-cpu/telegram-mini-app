@@ -2,71 +2,366 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
   >
-  <meta name="theme-color" content="#061b35">
+
+  <meta
+    name="theme-color"
+    content="#061b35"
+  >
+
   <title>Главный справочник Измаил</title>
 
-  <link rel="stylesheet" href="./styles.css">
+  <link
+    rel="stylesheet"
+    href="./styles.css"
+  >
 
   <style>
-    /* ===== СЧЁТЧИК ПРОСМОТРОВ НАД НАЧАЛОМ ПОГОДЫ ===== */
+
+    /* =====================================================
+       СЧЁТЧИК ПРОСМОТРОВ
+       ===================================================== */
 
     #weatherWidget {
       position: relative !important;
+
       overflow: visible !important;
+
+      /*
+        ФОТО ИЗМАИЛА / ДУНАЯ
+        Фотография используется как фон карточки.
+      */
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(3, 18, 38, 0.84),
+          rgba(3, 18, 38, 0.48),
+          rgba(3, 18, 38, 0.25)
+        ),
+        url("https://upload.wikimedia.org/wikipedia/commons/d/db/City-beach-Izmail-a-1.jpg") !important;
+
+      background-position:
+        center center !important;
+
+      background-size:
+        cover !important;
+
+      background-repeat:
+        no-repeat !important;
+
+      border:
+        1px solid rgba(255,255,255,0.25) !important;
+
+      box-shadow:
+        0 4px 14px rgba(0,0,0,0.35),
+        inset 0 0 18px rgba(255,255,255,0.05) !important;
+
+      padding:
+        0 !important;
+
+      color:
+        #ffffff !important;
     }
+
+
+    /* =====================================================
+       ВНУТРЕННИЙ СЛОЙ КАРТОЧКИ ПОГОДЫ
+       ===================================================== */
+
+    #weatherWidget::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,0.12),
+          rgba(0,0,0,0.02)
+        );
+
+      border-radius:
+        inherit;
+    }
+
+
+    /* =====================================================
+       ЗАГОЛОВОК ПОГОДЫ
+       ===================================================== */
+
+    #weatherWidget .widget-title {
+      position: relative;
+
+      z-index: 2;
+
+      margin:
+        0 0 2px 0 !important;
+
+      padding:
+        0 !important;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+      font-size:
+        clamp(8px, 1.8vw, 12px) !important;
+
+      font-weight:
+        900 !important;
+
+      line-height:
+        1 !important;
+
+      letter-spacing:
+        0.35px !important;
+
+      color:
+        #ffffff !important;
+
+      text-shadow:
+        0 1px 4px rgba(0,0,0,0.75) !important;
+
+      white-space:
+        nowrap !important;
+    }
+
+
+    /* =====================================================
+       ТЕМПЕРАТУРА
+       ===================================================== */
+
+    #weatherWidget .widget-main {
+      position: relative;
+
+      z-index: 2;
+
+      margin:
+        0 !important;
+
+      padding:
+        0 !important;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+      font-size:
+        clamp(13px, 3vw, 19px) !important;
+
+      font-weight:
+        900 !important;
+
+      line-height:
+        1 !important;
+
+      color:
+        #ffffff !important;
+
+      text-shadow:
+        0 1px 5px rgba(0,0,0,0.8) !important;
+    }
+
+
+    /* =====================================================
+       СОСТОЯНИЕ ПОГОДЫ
+       ===================================================== */
+
+    #weatherWidget .widget-sub {
+      position: relative;
+
+      z-index: 2;
+
+      margin:
+        3px 0 0 0 !important;
+
+      padding:
+        0 !important;
+
+      max-width:
+        92% !important;
+
+      overflow:
+        hidden !important;
+
+      text-overflow:
+        ellipsis !important;
+
+      white-space:
+        nowrap !important;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+      font-size:
+        clamp(6px, 1.35vw, 9px) !important;
+
+      font-weight:
+        600 !important;
+
+      line-height:
+        1 !important;
+
+      color:
+        rgba(255,255,255,0.9) !important;
+
+      text-shadow:
+        0 1px 4px rgba(0,0,0,0.75) !important;
+    }
+
+
+    /* =====================================================
+       СОДЕРЖИМОЕ КАРТОЧКИ
+       ===================================================== */
+
+    #weatherWidget .widget-title,
+    #weatherWidget .widget-main,
+    #weatherWidget .widget-sub {
+      text-align:
+        left !important;
+    }
+
+
+    #weatherWidget .widget-title,
+    #weatherWidget .widget-main,
+    #weatherWidget .widget-sub {
+      margin-left:
+        11px !important;
+    }
+
+
+    /* =====================================================
+       СЧЁТЧИК ПРОСМОТРОВ
+       ===================================================== */
 
     #visitCounter {
       position: absolute !important;
+
       z-index: 9999 !important;
+
       left: 8px !important;
+
       top: -27px !important;
+
       transform: none !important;
+
       display: flex !important;
+
       align-items: center !important;
+
       justify-content: flex-start !important;
+
       gap: 4px !important;
+
       height: 21px !important;
-      padding: 0 8px !important;
-      border-radius: 11px !important;
-      background: rgba(5, 20, 42, 0.72) !important;
-      border: 1px solid rgba(255,255,255,0.18) !important;
+
+      padding:
+        0 8px !important;
+
+      border-radius:
+        11px !important;
+
+      background:
+        rgba(5, 20, 42, 0.72) !important;
+
+      border:
+        1px solid rgba(255,255,255,0.18) !important;
+
       box-shadow:
         0 3px 10px rgba(0,0,0,0.22),
         inset 0 0 8px rgba(255,255,255,0.04) !important;
-      color: rgba(255,255,255,0.95) !important;
-      font-family: Arial, Helvetica, sans-serif !important;
-      font-size: 9px !important;
-      font-weight: 700 !important;
-      line-height: 21px !important;
-      white-space: nowrap !important;
-      pointer-events: none !important;
-      box-sizing: border-box !important;
+
+      color:
+        rgba(255,255,255,0.95) !important;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+      font-size:
+        9px !important;
+
+      font-weight:
+        700 !important;
+
+      line-height:
+        21px !important;
+
+      white-space:
+        nowrap !important;
+
+      pointer-events:
+        none !important;
+
+      box-sizing:
+        border-box !important;
     }
+
 
     #visitCounterIcon {
-      font-size: 11px !important;
-      line-height: 1 !important;
-      opacity: .95 !important;
-      flex-shrink: 0 !important;
+      font-size:
+        11px !important;
+
+      line-height:
+        1 !important;
+
+      opacity:
+        .95 !important;
+
+      flex-shrink:
+        0 !important;
     }
 
+
     #visitCounterNumber {
-      font-size: 9px !important;
-      line-height: 1 !important;
-      font-variant-numeric: tabular-nums !important;
+      font-size:
+        9px !important;
+
+      line-height:
+        1 !important;
+
+      font-variant-numeric:
+        tabular-nums !important;
     }
+
+
+    /* =====================================================
+       ЛЁГКИЙ ЭФФЕКТ ПРИ НАЖАТИИ
+       ===================================================== */
+
+    #weatherWidget:active {
+      filter:
+        brightness(0.92) !important;
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
   <main class="app">
 
-    <div class="reference" id="reference">
+    <div
+      class="reference"
+      id="reference"
+    >
 
       <!-- =====================================================
            ОСНОВНАЯ КАРТИНКА ИНТЕРФЕЙСА
@@ -82,30 +377,60 @@
         draggable="false"
       >
 
+
+      <!-- =====================================================
+           ПОГОДА И КУРС ВАЛЮТ
+           ===================================================== -->
+
       <section
         class="live-widgets"
         aria-label="Погода и курс валют"
       >
 
-        <!-- ПОГОДА -->
+
+        <!-- =================================================
+             ПОГОДА
+             ================================================= -->
+
         <div
           id="weatherWidget"
           class="widget weather-widget"
         >
 
           <!-- СЧЁТЧИК ПРОСМОТРОВ -->
+
           <div
             id="visitCounter"
             aria-label="Количество просмотров"
           >
-            <span id="visitCounterIcon">👁</span>
-            <span>просмотрено</span>
-            <span id="visitCounterNumber">1</span>
+
+            <span
+              id="visitCounterIcon"
+            >
+              👁
+            </span>
+
+            <span>
+              просмотрено
+            </span>
+
+            <span
+              id="visitCounterNumber"
+            >
+              1
+            </span>
+
           </div>
 
+
+          <!-- НАЗВАНИЕ -->
+
           <div class="widget-title">
-            ПОГОДА
+            ПОГОДА ИЗМАИЛА
           </div>
+
+
+          <!-- ТЕМПЕРАТУРА -->
 
           <div
             id="weatherTemp"
@@ -113,6 +438,9 @@
           >
             —°C
           </div>
+
+
+          <!-- СОСТОЯНИЕ -->
 
           <div
             id="weatherText"
@@ -123,7 +451,11 @@
 
         </div>
 
-        <!-- КУРС ВАЛЮТ -->
+
+        <!-- =================================================
+             КУРС ВАЛЮТ
+             ================================================= -->
+
         <a
           id="currencyWidget"
           class="widget currency-widget"
@@ -137,14 +469,30 @@
             КУРС НБУ
           </div>
 
-          <div class="currency-line">
-            <b>USD</b>
-            <span id="usdRate">—</span>
-          </div>
 
           <div class="currency-line">
-            <b>EUR</b>
-            <span id="eurRate">—</span>
+
+            <b>
+              USD
+            </b>
+
+            <span id="usdRate">
+              —
+            </span>
+
+          </div>
+
+
+          <div class="currency-line">
+
+            <b>
+              EUR
+            </b>
+
+            <span id="eurRate">
+              —
+            </span>
+
           </div>
 
         </a>
@@ -152,7 +500,10 @@
       </section>
 
 
-      <!-- ГЛАВНАЯ ГРУППА -->
+      <!-- =====================================================
+           ГЛАВНАЯ ГРУППА
+           ===================================================== -->
+
       <a
         id="mainGroup"
         class="hotspot logo-hotspot"
@@ -161,7 +512,10 @@
       ></a>
 
 
-      <!-- УКРЫТИЯ -->
+      <!-- =====================================================
+           УКРЫТИЯ
+           ===================================================== -->
+
       <a
         id="shelterLink"
         class="hotspot shelter-hotspot"
@@ -170,7 +524,10 @@
       ></a>
 
 
-      <!-- ПОИСК -->
+      <!-- =====================================================
+           ПОИСК
+           ===================================================== -->
+
       <div
         id="searchHotspot"
         class="hotspot search-hotspot"
@@ -190,6 +547,7 @@
           inputmode="search"
           enterkeyhint="search"
           aria-label="Поиск по справочнику Измаил"
+
           style="
             position:absolute!important;
             z-index:10!important;
@@ -226,7 +584,9 @@
       </div>
 
 
-      <!-- КАТЕГОРИИ -->
+      <!-- =====================================================
+           КАТЕГОРИИ
+           ===================================================== -->
 
       <a
         id="healthLink"
@@ -235,12 +595,14 @@
         aria-label="Здоровье и уход"
       ></a>
 
+
       <a
         id="transportLink"
         class="hotspot category-hotspot transport-hotspot"
         href="#"
         aria-label="Транспорт и такси"
       ></a>
+
 
       <a
         id="servicesLink"
@@ -249,12 +611,14 @@
         aria-label="Услуги и мастера"
       ></a>
 
+
       <a
         id="foodLink"
         class="hotspot category-hotspot food-hotspot"
         href="#"
         aria-label="Продукты питания"
       ></a>
+
 
       <a
         id="utilitiesLink"
@@ -263,6 +627,7 @@
         aria-label="Коммунальные службы"
       ></a>
 
+
       <a
         id="jobsLink"
         class="hotspot category-hotspot jobs-hotspot"
@@ -270,12 +635,14 @@
         aria-label="Работа и вакансии"
       ></a>
 
+
       <a
         id="educationLink"
         class="hotspot category-hotspot education-hotspot"
         href="#"
         aria-label="Образование и развитие"
       ></a>
+
 
       <a
         id="leisureLink"
@@ -285,7 +652,10 @@
       ></a>
 
 
-      <!-- НАШИ ГРУППЫ -->
+      <!-- =====================================================
+           НАШИ ГРУППЫ
+           ===================================================== -->
+
       <a
         id="groupsLink"
         class="hotspot groups-hotspot"
@@ -294,7 +664,9 @@
       ></a>
 
 
-      <!-- НИЖНЯЯ НАВИГАЦИЯ -->
+      <!-- =====================================================
+           НИЖНЯЯ НАВИГАЦИЯ
+           ===================================================== -->
 
       <a
         id="homeLink"
@@ -302,6 +674,7 @@
         href="#"
         aria-label="Главная"
       ></a>
+
 
       <a
         id="adsLink"
@@ -312,6 +685,7 @@
         aria-label="Заказать рекламу"
       ></a>
 
+
       <a
         id="favoritesLink"
         class="hotspot nav-hotspot favorites-hotspot"
@@ -320,7 +694,9 @@
       ></a>
 
 
-      <!-- ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ -->
+      <!-- =====================================================
+           ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
+           ===================================================== -->
 
       <a
         class="user-agreement"
@@ -331,6 +707,7 @@
       </a>
 
     </div>
+
   </main>
 
 
@@ -352,12 +729,16 @@
       const VISIT_INTERVAL =
         2 * 60 * 1000;
 
+
       try {
 
         let count = parseInt(
-          localStorage.getItem(COUNT_KEY) || "0",
+          localStorage.getItem(
+            COUNT_KEY
+          ) || "0",
           10
         );
+
 
         if (
           !Number.isFinite(count) ||
@@ -366,42 +747,58 @@
           count = 0;
         }
 
-        const now = Date.now();
 
-        const lastVisit = parseInt(
-          localStorage.getItem(TIME_KEY) || "0",
-          10
-        );
+        const now =
+          Date.now();
+
+
+        const lastVisit =
+          parseInt(
+            localStorage.getItem(
+              TIME_KEY
+            ) || "0",
+            10
+          );
+
 
         if (
           !lastVisit ||
-          (now - lastVisit) >= VISIT_INTERVAL
+          (now - lastVisit) >=
+            VISIT_INTERVAL
         ) {
 
           count += 1;
+
 
           localStorage.setItem(
             COUNT_KEY,
             String(count)
           );
 
+
           localStorage.setItem(
             TIME_KEY,
             String(now)
           );
+
         }
+
 
         const counter =
           document.getElementById(
             "visitCounterNumber"
           );
 
+
         if (counter) {
 
           counter.textContent =
-            count.toLocaleString("ru-RU");
+            count.toLocaleString(
+              "ru-RU"
+            );
 
         }
+
 
       } catch (error) {
 
@@ -410,8 +807,12 @@
             "visitCounterNumber"
           );
 
+
         if (counter) {
-          counter.textContent = "1";
+
+          counter.textContent =
+            "1";
+
         }
 
       }
@@ -420,7 +821,9 @@
   </script>
 
 
-  <!-- ОСНОВНЫЕ СКРИПТЫ -->
+  <!-- =====================================================
+       ОСНОВНЫЕ СКРИПТЫ
+       ===================================================== -->
 
   <script src="./config.js"></script>
   <script src="./app.js"></script>
