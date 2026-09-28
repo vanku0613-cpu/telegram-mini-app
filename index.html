@@ -1,492 +1,271 @@
-<div class="reference" id="reference">
+<!doctype html>
+<html lang="ru">
 
-  <!-- =====================================================
-       ОСНОВНАЯ КАРТИНКА
-       ===================================================== -->
+<head>
 
-  <img
-    id="referenceImage"
-    class="reference-image"
-    src="./file_00000000535c820a8555793262fd3bdf.png"
-    alt="Главный справочник Измаил"
-    loading="eager"
-    decoding="sync"
-    draggable="false"
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
   >
 
+  <meta
+    name="theme-color"
+    content="#061b35"
+  >
 
-  <!-- =====================================================
+  <title>Главный справочник Измаил</title>
+
+  <link
+    rel="stylesheet"
+    href="./styles.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       СЧЁТЧИК ПРОСМОТРОВ
+       ===================================================== */
+
+    #weatherWidget {
+      position: relative !important;
+      overflow: visible !important;
+    }
+
+    #visitCounter {
+      position: absolute !important;
+
+      z-index: 9999 !important;
+
+      left: 8px !important;
+      top: -25px !important;
+
+      display: flex !important;
+
+      align-items: center !important;
+      justify-content: flex-start !important;
+
+      gap: 4px !important;
+
+      height: 20px !important;
+
+      padding: 0 8px !important;
+
+      border-radius: 10px !important;
+
+      background:
+        rgba(5, 20, 42, 0.78) !important;
+
+      border:
+        1px solid rgba(255,255,255,0.18) !important;
+
+      box-shadow:
+        0 3px 10px rgba(0,0,0,0.22),
+        inset 0 0 8px rgba(255,255,255,0.04) !important;
+
+      color:
+        rgba(255,255,255,0.95) !important;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+      font-size: 9px !important;
+
+      font-weight: 700 !important;
+
+      line-height: 20px !important;
+
+      white-space: nowrap !important;
+
+      pointer-events: none !important;
+
+      box-sizing: border-box !important;
+    }
+
+
+    #visitCounterIcon {
+      font-size: 11px !important;
+
+      line-height: 1 !important;
+
+      opacity: .95 !important;
+
+      flex-shrink: 0 !important;
+    }
+
+
+    #visitCounterNumber {
+      font-size: 9px !important;
+
+      line-height: 1 !important;
+
+      font-variant-numeric:
+        tabular-nums !important;
+    }
+
+
+    /* =====================================================
        ПОГОДА + КУРС ВАЛЮТ
-       ===================================================== -->
-
-  <section
-    class="live-widgets"
-    aria-label="Погода и курс валют"
-    style="
-      position:absolute;
-      z-index:20;
-      left:6%;
-      top:30.5%;
-      width:88%;
-      height:7.5%;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:2%;
-      margin:0;
-      padding:0;
-    "
-  >
-
-    <!-- ПОГОДА -->
-
-    <div
-      id="weatherWidget"
-      class="widget weather-widget"
-      style="
-        position:relative;
-        width:100%;
-        height:100%;
-        min-width:0;
-        min-height:0;
-        display:flex;
-        flex-direction:column;
-        align-items:flex-start;
-        justify-content:center;
-        padding:8px 12px;
-        border-radius:12px;
-        overflow:visible;
-        box-sizing:border-box;
-      "
-    >
-
-      <!-- СЧЁТЧИК ПРОСМОТРОВ -->
-
-      <div
-        id="visitCounter"
-        aria-label="Количество просмотров"
-        style="
-          position:absolute;
-          z-index:9999;
-          left:8px;
-          top:-25px;
-          display:flex;
-          align-items:center;
-          gap:4px;
-          height:20px;
-          padding:0 8px;
-          border-radius:10px;
-          background:rgba(5,20,42,.78);
-          border:1px solid rgba(255,255,255,.18);
-          color:#fff;
-          font-family:Arial,Helvetica,sans-serif;
-          font-size:9px;
-          font-weight:700;
-          line-height:20px;
-          white-space:nowrap;
-          pointer-events:none;
-          box-sizing:border-box;
-        "
-      >
-        <span
-          id="visitCounterIcon"
-          style="
-            font-size:11px;
-            line-height:1;
-          "
-        >👁</span>
-
-        <span>просмотрено</span>
-
-        <span
-          id="visitCounterNumber"
-          style="
-            font-size:9px;
-            line-height:1;
-          "
-        >1</span>
-      </div>
-
-
-      <!-- НАЗВАНИЕ -->
-
-      <div
-        class="widget-title"
-        style="
-          font-size:clamp(11px,2.3vw,16px);
-          font-weight:800;
-          line-height:1.1;
-          white-space:nowrap;
-        "
-      >
-        ПОГОДА ИЗМАИЛА
-      </div>
-
-
-      <!-- ТЕМПЕРАТУРА -->
-
-      <div
-        id="weatherTemp"
-        class="widget-main"
-        style="
-          margin-top:5px;
-          font-size:clamp(18px,4vw,28px);
-          font-weight:900;
-          line-height:1;
-          white-space:nowrap;
-        "
-      >
-        —°C
-      </div>
-
-
-      <!-- ОПИСАНИЕ -->
-
-      <div
-        id="weatherText"
-        class="widget-sub"
-        style="
-          margin-top:4px;
-          font-size:clamp(8px,1.7vw,12px);
-          font-weight:600;
-          line-height:1;
-          white-space:nowrap;
-        "
-      >
-        Загрузка…
-      </div>
-
-    </div>
-
-
-    <!-- ===================================================
-         КУРС ВАЛЮТ
-         =================================================== -->
-
-    <a
-      id="currencyWidget"
-      class="widget currency-widget"
-      href="https://minfin.com.ua/currency/izmail/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Курс валют"
-      style="
-        position:relative;
-        width:100%;
-        height:100%;
-        min-width:0;
-        min-height:0;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:flex-start;
-        padding:8px 12px;
-        border-radius:12px;
-        box-sizing:border-box;
-        text-decoration:none;
-      "
-    >
-
-      <div
-        class="widget-title"
-        style="
-          font-size:clamp(11px,2.3vw,16px);
-          font-weight:800;
-          line-height:1.1;
-          white-space:nowrap;
-        "
-      >
-        КУРС ВАЛЮТ
-      </div>
-
-
-      <div
-        class="currency-line"
-        style="
-          width:100%;
-          margin-top:7px;
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
-          font-size:clamp(10px,2vw,14px);
-          line-height:1;
-        "
-      >
-        <b>💵 USD</b>
-
-        <span
-          id="usdRate"
-          style="font-weight:800;"
-        >
-          —
-        </span>
-      </div>
-
-
-      <div
-        class="currency-line"
-        style="
-          width:100%;
-          margin-top:6px;
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
-          font-size:clamp(10px,2vw,14px);
-          line-height:1;
-        "
-      >
-        <b>💶 EUR</b>
-
-        <span
-          id="eurRate"
-          style="font-weight:800;"
-        >
-          —
-        </span>
-      </div>
-
-    </a>
-
-  </section>
-
-
-  <!-- =====================================================
-       ГЛАВНАЯ ГРУППА
-       ===================================================== -->
-
-  <a
-    id="mainGroup"
-    class="hotspot logo-hotspot"
-    href="#"
-    aria-label="Главная группа"
-  ></a>
-
-
-  <!-- =====================================================
-       УКРЫТИЕ ИЗМАИЛ
-       КРАСНАЯ КНОПКА
-       ===================================================== -->
-
-  <a
-    id="shelterLink"
-    class="hotspot shelter-hotspot"
-    href="#"
-    aria-label="Укрытие Измаил"
-    style="
-      left:61%;
-      top:27%;
-      width:36%;
-      height:7.5%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-    "
-  >
-
-    <span
-      style="
-        position:absolute;
-        left:50%;
-        top:50%;
-        transform:translate(-50%,-50%);
-        width:90%;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap:7px;
-        color:#ffffff;
-        font-family:Arial,Helvetica,sans-serif;
-        font-size:clamp(11px,2.4vw,17px);
-        font-weight:900;
-        line-height:1.1;
-        text-align:center;
-        text-shadow:
-          0 1px 2px rgba(0,0,0,.7),
-          0 2px 5px rgba(0,0,0,.5);
-        pointer-events:none;
-        white-space:nowrap;
-      "
-    >
-      <span
-        style="
-          font-size:clamp(15px,3.2vw,22px);
-          line-height:1;
-        "
-      >🛡️</span>
-
-      <span>
-        УКРЫТИЕ, ИЗМАИЛ
-      </span>
-    </span>
-
-  </a>
-
-
-  <!-- =====================================================
-       ПОИСК
-       ===================================================== -->
-
-  <div
-    id="searchHotspot"
-    class="hotspot search-hotspot"
-    role="search"
-    aria-label="Поиск по справочнику"
-  >
-
-    <input
-      id="directorySearchInput"
-      class="directory-search-input"
-      type="search"
-      name="directory-search"
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="sentences"
-      spellcheck="false"
-      inputmode="search"
-      enterkeyhint="search"
-      aria-label="Поиск по справочнику Измаил"
-      style="
-        position:absolute!important;
-        z-index:10!important;
-        left:0!important;
-        top:0!important;
-        width:100%!important;
-        height:100%!important;
-        display:block!important;
-        margin:0!important;
-        padding:0 13.5%!important;
-        background:transparent!important;
-        border:0!important;
-        outline:0!important;
-        box-shadow:none!important;
-        color:#ffffff!important;
-        font-family:Arial,Helvetica,sans-serif!important;
-        font-size:clamp(12px,2.5vw,18px)!important;
-        font-weight:700!important;
-        line-height:1!important;
-        text-align:left!important;
-        border-radius:18px!important;
-        appearance:none!important;
-        -webkit-appearance:none!important;
-        -webkit-tap-highlight-color:transparent!important;
-        caret-color:#ffffff!important;
-      "
-    >
-
-  </div>
-
-
-  <!-- =====================================================
-       КАТЕГОРИИ
-       ===================================================== -->
-
-  <a
-    id="healthLink"
-    class="hotspot category-hotspot health-hotspot"
-    href="#"
-    aria-label="Здоровье и уход"
-  ></a>
-
-  <a
-    id="transportLink"
-    class="hotspot category-hotspot transport-hotspot"
-    href="#"
-    aria-label="Транспорт и такси"
-  ></a>
-
-  <a
-    id="servicesLink"
-    class="hotspot category-hotspot services-hotspot"
-    href="#"
-    aria-label="Услуги и мастера"
-  ></a>
-
-  <a
-    id="foodLink"
-    class="hotspot category-hotspot food-hotspot"
-    href="#"
-    aria-label="Продукты питания"
-  ></a>
-
-  <a
-    id="utilitiesLink"
-    class="hotspot category-hotspot utilities-hotspot"
-    href="#"
-    aria-label="Коммунальные службы"
-  ></a>
-
-  <a
-    id="jobsLink"
-    class="hotspot category-hotspot jobs-hotspot"
-    href="#"
-    aria-label="Работа и вакансии"
-  ></a>
-
-  <a
-    id="educationLink"
-    class="hotspot category-hotspot education-hotspot"
-    href="#"
-    aria-label="Образование и развитие"
-  ></a>
-
-  <a
-    id="leisureLink"
-    class="hotspot category-hotspot leisure-hotspot"
-    href="#"
-    aria-label="Отдых, жильё и море"
-  ></a>
-
-
-  <!-- =====================================================
-       НАШИ ГРУППЫ
-       ===================================================== -->
-
-  <a
-    id="groupsLink"
-    class="hotspot groups-hotspot"
-    href="#"
-    aria-label="Наши группы"
-  ></a>
-
-
-  <!-- =====================================================
-       НИЖНЯЯ НАВИГАЦИЯ
-       ===================================================== -->
-
-  <a
-    id="homeLink"
-    class="hotspot nav-hotspot home-hotspot"
-    href="#"
-    aria-label="Главная"
-  ></a>
-
-  <a
-    id="adsLink"
-    class="hotspot nav-hotspot ads-hotspot"
-    href="https://t.me/Vanku13"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Заказать рекламу"
-  ></a>
-
-  <a
-    id="favoritesLink"
-    class="hotspot nav-hotspot favorites-hotspot"
-    href="#"
-    aria-label="Избранное"
-  ></a>
-
-
-  <!-- =====================================================
-       ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
-       ===================================================== -->
-
-  <a
-    class="user-agreement"
-    href="#"
-    aria-label="Пользовательское соглашение"
-  >
-    Пользовательское соглашение
-  </a>
-
-</div>
+       ===================================================== */
+
+    .live-widgets {
+
+      position: absolute !important;
+
+      z-index: 20 !important;
+
+      left: 6% !important;
+
+      top: 30.5% !important;
+
+      width: 88% !important;
+
+      height: 7.5% !important;
+
+      display: grid !important;
+
+      grid-template-columns:
+        1fr 1fr !important;
+
+      gap: 2% !important;
+
+      margin: 0 !important;
+
+      padding: 0 !important;
+
+      line-height: normal !important;
+    }
+
+
+    .live-widgets .widget {
+
+      width: 100% !important;
+
+      height: 100% !important;
+
+      min-width: 0 !important;
+
+      min-height: 0 !important;
+
+      box-sizing: border-box !important;
+
+      border-radius: 12px !important;
+
+      padding: 8px 12px !important;
+
+      overflow: hidden !important;
+    }
+
+
+    /* =====================================================
+       ПОГОДА
+       ===================================================== */
+
+    .weather-widget {
+
+      display: flex !important;
+
+      flex-direction: column !important;
+
+      align-items: flex-start !important;
+
+      justify-content: center !important;
+
+      text-align: left !important;
+    }
+
+
+    .weather-widget .widget-title {
+
+      font-size:
+        clamp(11px, 2.3vw, 16px) !important;
+
+      font-weight: 800 !important;
+
+      line-height: 1.1 !important;
+
+      white-space: nowrap !important;
+    }
+
+
+    .weather-widget .widget-main {
+
+      margin-top: 5px !important;
+
+      font-size:
+        clamp(18px, 4vw, 28px) !important;
+
+      font-weight: 900 !important;
+
+      line-height: 1 !important;
+
+      white-space: nowrap !important;
+    }
+
+
+    .weather-widget .widget-sub {
+
+      margin-top: 4px !important;
+
+      font-size:
+        clamp(8px, 1.7vw, 12px) !important;
+
+      font-weight: 600 !important;
+
+      line-height: 1 !important;
+
+      white-space: nowrap !important;
+
+      overflow: hidden !important;
+
+      text-overflow: ellipsis !important;
+
+      max-width: 100% !important;
+    }
+
+
+    /* =====================================================
+       КУРС ВАЛЮТ
+       ===================================================== */
+
+    .currency-widget {
+
+      display: flex !important;
+
+      flex-direction: column !important;
+
+      align-items: flex-start !important;
+
+      justify-content: center !important;
+
+      text-align: left !important;
+    }
+
+
+    .currency-widget .widget-title {
+
+      font-size:
+        clamp(11px, 2.3vw, 16px) !important;
+
+      font-weight: 800 !important;
+
+      line-height: 1.1 !important;
+
+      white-space: nowrap !important;
+    }
+
+
+    .currency-widget .currency-line {
+
+      width: 100% !important;
+
+      display: flex !important;
+
+      align-items: center !important;
+
+      justify-content: space-between !important;
+
+     
