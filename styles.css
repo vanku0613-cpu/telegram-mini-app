@@ -53,7 +53,8 @@ body {
 
 
 /* =========================================================
-   709 × 1536 ДИЗАЙН
+   ОСНОВНОЙ ЭКРАН
+   БАЗОВЫЙ РАЗМЕР: 709 × 1536
    ========================================================= */
 
 .reference {
@@ -74,7 +75,7 @@ body {
 
 
 /* =========================================================
-   ОСНОВНАЯ КАРТИНКА
+   ГЛАВНОЕ ИЗОБРАЖЕНИЕ
    ========================================================= */
 
 .reference-image {
@@ -84,6 +85,7 @@ body {
 
   width: 100%;
   max-width: 100%;
+
   height: auto;
 
   margin: 0;
@@ -96,24 +98,18 @@ body {
 
   user-select: none;
   -webkit-user-select: none;
-
   -webkit-user-drag: none;
 }
 
 
 /* =========================================================
-   ВИДЖЕТЫ ПОГОДЫ И КУРСА
+   ПОГОДА + КУРС ВАЛЮТ
    ========================================================= */
 
 .live-widgets {
   position: absolute;
 
   z-index: 20;
-
-  /*
-     Виджеты находятся над поиском.
-     Не заходят на кнопку "Укрытия Измаила".
-  */
 
   left: 6%;
   top: 30.2%;
@@ -135,7 +131,7 @@ body {
 
 
 /* =========================================================
-   ОБЩИЙ ВИД КНОПОК-ВИДЖЕТОВ
+   ОБЩИЙ ВИД ВИДЖЕТОВ
    ========================================================= */
 
 .widget {
@@ -148,7 +144,6 @@ body {
   min-height: 0;
 
   display: flex;
-
   align-items: center;
 
   color: #ffffff;
@@ -191,12 +186,8 @@ body {
 
 .weather-widget {
   gap: 6px;
-
   text-align: left;
 }
-
-
-/* Иконка погоды */
 
 .weather-icon {
   flex: 0 0 auto;
@@ -204,7 +195,6 @@ body {
   width: 25px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -216,14 +206,10 @@ body {
     drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
 }
 
-
-/* Контент погоды */
-
 .widget-content {
   min-width: 0;
 
   display: flex;
-
   flex-direction: column;
 
   justify-content: center;
@@ -232,9 +218,6 @@ body {
 
   overflow: hidden;
 }
-
-
-/* Измаил — Погода */
 
 .weather-widget .widget-title {
   display: block;
@@ -250,9 +233,6 @@ body {
   opacity: 0.95;
 }
 
-
-/* Температура */
-
 .weather-widget .widget-main {
   display: inline-block;
 
@@ -264,9 +244,6 @@ body {
 
   white-space: nowrap;
 }
-
-
-/* Облачно / дождь / ясно */
 
 .weather-widget .widget-sub {
   display: block;
@@ -293,12 +270,8 @@ body {
 
 .currency-widget {
   gap: 7px;
-
   text-align: left;
 }
-
-
-/* Значки $ и € */
 
 .currency-icons {
   flex: 0 0 auto;
@@ -321,13 +294,9 @@ body {
   font-weight: 800;
 }
 
-
 .currency-icons b {
   font-weight: 800;
 }
-
-
-/* Контент курса */
 
 .currency-content {
   min-width: 0;
@@ -342,9 +311,6 @@ body {
 
   gap: 3px;
 }
-
-
-/* USD / EUR */
 
 .currency-line {
   width: 100%;
@@ -366,18 +332,13 @@ body {
   white-space: nowrap;
 }
 
-
 .currency-line b {
   font-weight: 800;
 }
 
-
 .currency-line span {
   font-weight: 700;
 }
-
-
-/* НБУ */
 
 .widget-source {
   display: block;
@@ -399,7 +360,7 @@ body {
 
 
 /* =========================================================
-   ПРОЗРАЧНЫЕ КНОПКИ
+   ПРОЗРАЧНЫЕ ЗОНЫ НАЖАТИЯ
    ========================================================= */
 
 .hotspot {
@@ -436,7 +397,7 @@ body {
 
 
 /* =========================================================
-   УКРЫТИЯ
+   УКРЫТИЕ
    ========================================================= */
 
 .shelter-hotspot {
@@ -474,48 +435,40 @@ body {
   height: 8.7%;
 }
 
-
 .health-hotspot {
   left: 3%;
   top: 40%;
 }
-
 
 .transport-hotspot {
   left: 51.5%;
   top: 40%;
 }
 
-
 .services-hotspot {
   left: 3%;
   top: 49.7%;
 }
-
 
 .food-hotspot {
   left: 51.5%;
   top: 49.7%;
 }
 
-
 .utilities-hotspot {
   left: 3%;
   top: 59.5%;
 }
-
 
 .jobs-hotspot {
   left: 51.5%;
   top: 59.5%;
 }
 
-
 .education-hotspot {
   left: 3%;
   top: 69.2%;
 }
-
 
 .leisure-hotspot {
   left: 51.5%;
@@ -546,18 +499,15 @@ body {
   height: 6%;
 }
 
-
 .home-hotspot {
   left: 2%;
   width: 30%;
 }
 
-
 .ads-hotspot {
   left: 35%;
   width: 30%;
 }
-
 
 .favorites-hotspot {
   left: 68%;
@@ -586,13 +536,11 @@ body {
 
   .weather-icon {
     width: 20px;
-
     font-size: 14px;
   }
 
   .currency-icons {
     width: 27px;
-
     font-size: 12px;
   }
 }
@@ -606,7 +554,6 @@ body {
   opacity: 0.85;
 }
 
-
 .widget:active {
   transform: scale(0.98);
 
@@ -615,7 +562,7 @@ body {
 
 
 /* =========================================================
-   ФОКУС КЛАВИАТУРОЙ
+   ФОКУС
    ========================================================= */
 
 .hotspot:focus-visible,
