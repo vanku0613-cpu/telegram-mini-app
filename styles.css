@@ -9,8 +9,11 @@ html {
   min-width: 0;
   margin: 0;
   padding: 0;
+
   background: #061b35;
+
   overflow-x: hidden;
+
   -webkit-text-size-adjust: 100%;
 }
 
@@ -43,6 +46,7 @@ body {
   padding: 0;
 
   display: flex;
+
   justify-content: center;
   align-items: flex-start;
 }
@@ -97,26 +101,30 @@ body {
 
 
 /* =========================================================
-   ПОГОДА + КУРС
+   ПОГОДА + КУРС + УКРЫТИЕ
    ========================================================= */
 
 .live-widgets {
   position: absolute;
 
-  z-index: 20;
+  z-index: 40;
 
   left: 3%;
+
   top: 30.2%;
 
-  width: 56%;
+  width: 94%;
+
   height: 7.5%;
 
   display: grid;
 
   grid-template-columns:
-    1fr 1fr;
+    31.5%
+    31.5%
+    35%;
 
-  gap: 2%;
+  column-gap: 1%;
 
   margin: 0;
   padding: 0;
@@ -126,7 +134,7 @@ body {
 
 
 /* =========================================================
-   ОБЩИЙ ВИД ВИДЖЕТА
+   ОБЩИЙ ВИД ТРЁХ БЛОКОВ
    ========================================================= */
 
 .widget {
@@ -151,23 +159,9 @@ body {
 
   text-decoration: none;
 
-  background:
-    rgba(5, 26, 52, 0.92);
-
-  border:
-    1px solid rgba(130, 220, 255, 0.75);
-
   border-radius: 12px;
 
-  box-shadow:
-    0 3px 12px rgba(0, 0, 0, 0.30);
-
   overflow: hidden;
-
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-
-  padding: 5px 9px;
 
   cursor: pointer;
 
@@ -184,14 +178,33 @@ body {
    ========================================================= */
 
 .weather-widget {
-  gap: 8px;
+  flex-direction: row;
+
+  justify-content: flex-start;
+
+  gap: 7px;
+
+  padding: 5px 8px;
+
   text-align: left;
+
+  background:
+    rgba(5, 26, 52, 0.92);
+
+  border:
+    1px solid rgba(130, 220, 255, 0.75);
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.30);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .weather-icon {
   flex: 0 0 auto;
 
-  width: 28px;
+  width: 27px;
 
   display: flex;
 
@@ -199,7 +212,7 @@ body {
   justify-content: center;
 
   font-size:
-    clamp(16px, 4vw, 24px);
+    clamp(16px, 3.8vw, 23px);
 
   line-height: 1;
 
@@ -227,9 +240,9 @@ body {
   display: block;
 
   font-size:
-    clamp(8px, 1.7vw, 11px);
+    clamp(8px, 1.65vw, 12px);
 
-  font-weight: 700;
+  font-weight: 800;
 
   line-height: 1;
 
@@ -242,9 +255,9 @@ body {
   display: inline-block;
 
   font-size:
-    clamp(11px, 2.7vw, 16px);
+    clamp(12px, 2.8vw, 17px);
 
-  font-weight: 800;
+  font-weight: 900;
 
   line-height: 1;
 
@@ -257,7 +270,9 @@ body {
   max-width: 100%;
 
   font-size:
-    clamp(7px, 1.45vw, 9px);
+    clamp(6px, 1.3vw, 9px);
+
+  font-weight: 600;
 
   line-height: 1;
 
@@ -272,44 +287,129 @@ body {
 
 
 /* =========================================================
+   СЧЁТЧИК ПРОСМОТРОВ
+   ========================================================= */
+
+#weatherWidget {
+  overflow: visible;
+}
+
+#visitCounter {
+  position: absolute;
+
+  z-index: 9999;
+
+  left: 8px;
+  top: -25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 4px;
+
+  height: 20px;
+
+  padding: 0 8px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(5, 20, 42, 0.78);
+
+  border:
+    1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 3px 10px rgba(0,0,0,0.22),
+    inset 0 0 8px rgba(255,255,255,0.04);
+
+  color:
+    rgba(255,255,255,0.95);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  line-height: 20px;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+}
+
+#visitCounterIcon {
+  font-size: 11px;
+
+  line-height: 1;
+
+  opacity: .95;
+
+  flex-shrink: 0;
+}
+
+#visitCounterNumber {
+  font-size: 9px;
+
+  line-height: 1;
+
+  font-variant-numeric:
+    tabular-nums;
+}
+
+
+/* =========================================================
    КУРС ВАЛЮТ
    ========================================================= */
 
 .currency-widget {
-  gap: 8px;
-  text-align: left;
-}
-
-.currency-icons {
-  flex: 0 0 auto;
-
-  width: 34px;
-
-  display: flex;
-
   flex-direction: column;
 
-  align-items: center;
+  align-items: flex-start;
+
   justify-content: center;
 
   gap: 3px;
 
-  font-size:
-    clamp(12px, 2.9vw, 18px);
+  padding: 5px 8px;
 
-  line-height: 0.85;
+  text-align: left;
 
-  font-weight: 800;
+  background:
+    rgba(5, 26, 52, 0.92);
+
+  border:
+    1px solid rgba(130, 220, 255, 0.75);
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.30);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
-.currency-icons b {
+.currency-widget .widget-title {
+  display: block;
+
+  font-size:
+    clamp(8px, 1.65vw, 12px);
+
   font-weight: 800;
+
+  line-height: 1;
+
+  white-space: nowrap;
 }
 
 .currency-content {
-  min-width: 0;
-
   width: 100%;
+
+  min-width: 0;
 
   display: flex;
 
@@ -317,7 +417,7 @@ body {
 
   justify-content: center;
 
-  gap: 4px;
+  gap: 3px;
 }
 
 .currency-line {
@@ -334,7 +434,7 @@ body {
   min-width: 0;
 
   font-size:
-    clamp(7px, 1.55vw, 10px);
+    clamp(7px, 1.45vw, 10px);
 
   line-height: 1;
 
@@ -346,7 +446,7 @@ body {
 }
 
 .currency-line span {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .widget-source {
@@ -355,7 +455,7 @@ body {
   min-width: 0;
 
   font-size:
-    clamp(6px, 1.1vw, 7px);
+    clamp(5px, 1vw, 7px);
 
   line-height: 1;
 
@@ -366,6 +466,155 @@ body {
   text-overflow: ellipsis;
 
   opacity: 0.65;
+}
+
+
+/* =========================================================
+   УКРЫТИЕ
+   ========================================================= */
+
+.shelter-widget {
+  justify-content: center;
+
+  padding: 5px 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e3262e,
+      #b90f18
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.30);
+}
+
+.shelter-title {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  width: 100%;
+
+  color: #ffffff;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(8px, 1.8vw, 13px);
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  text-align: center;
+
+  pointer-events: none;
+}
+
+.shelter-title-icon {
+  font-size:
+    clamp(11px, 2.4vw, 17px);
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   ЭФФЕКТ НАЖАТИЯ УКРЫТИЯ
+   ========================================================= */
+
+.shelter-widget::after {
+  content: "";
+
+  position: absolute;
+
+  left: -120%;
+  top: 0;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      105deg,
+      transparent 0%,
+      rgba(255,255,255,0.08) 35%,
+      rgba(255,255,255,0.45) 50%,
+      rgba(255,255,255,0.08) 65%,
+      transparent 100%
+    );
+
+  transform: skewX(-18deg);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 4;
+
+  transition:
+    left 0.35s ease,
+    opacity 0.12s ease;
+}
+
+.shelter-widget::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 1px;
+
+  border-radius: 11px;
+
+  border:
+    1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    inset 0 1px 3px rgba(255,255,255,0.22),
+    inset 0 -2px 5px rgba(0,0,0,0.12);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 2;
+
+  transition:
+    opacity 0.12s ease;
+}
+
+.shelter-widget:active {
+  transform: scale(0.975);
+
+  filter:
+    brightness(1.18)
+    saturate(1.08);
+}
+
+.shelter-widget:active::after {
+  left: 140%;
+
+  opacity: 1;
+}
+
+.shelter-widget:active::before {
+  opacity: 1;
 }
 
 
@@ -404,19 +653,6 @@ body {
 
   width: 34%;
   height: 24%;
-}
-
-
-/* =========================================================
-   УКРЫТИЕ
-   ========================================================= */
-
-.shelter-hotspot {
-  left: 61%;
-  top: 30.2%;
-
-  width: 36%;
-  height: 7.5%;
 }
 
 
@@ -507,21 +743,25 @@ body {
 
 .nav-hotspot {
   top: 87%;
+
   height: 6%;
 }
 
 .home-hotspot {
   left: 2%;
+
   width: 30%;
 }
 
 .ads-hotspot {
   left: 35%;
+
   width: 30%;
 }
 
 .favorites-hotspot {
   left: 68%;
+
   width: 30%;
 }
 
@@ -532,27 +772,56 @@ body {
 
 @media (max-width: 380px) {
 
-  .widget {
-    padding: 4px 7px;
-
-    border-radius: 9px;
-
-    box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.27);
+  .live-widgets {
+    column-gap: 1%;
   }
 
-  .live-widgets {
-    gap: 1.5%;
+  .widget {
+    border-radius: 9px;
+  }
+
+  .weather-widget {
+    padding: 4px 6px;
+
+    gap: 5px;
   }
 
   .weather-icon {
-    width: 23px;
-    font-size: 15px;
+    width: 21px;
+
+    font-size: 14px;
   }
 
-  .currency-icons {
-    width: 29px;
-    font-size: 13px;
+  .weather-widget .widget-title {
+    font-size: 8px;
+  }
+
+  .weather-widget .widget-main {
+    font-size: 12px;
+  }
+
+  .weather-widget .widget-sub {
+    font-size: 6px;
+  }
+
+  .currency-widget {
+    padding: 4px 6px;
+  }
+
+  .currency-widget .widget-title {
+    font-size: 8px;
+  }
+
+  .currency-line {
+    font-size: 7px;
+  }
+
+  .shelter-title {
+    font-size: 8px;
+  }
+
+  .shelter-title-icon {
+    font-size: 11px;
   }
 }
 
@@ -567,9 +836,6 @@ body {
 
 .widget:active {
   transform: scale(0.98);
-
-  background:
-    rgba(10, 40, 70, 0.98);
 }
 
 
@@ -580,5 +846,6 @@ body {
 .hotspot:focus-visible,
 .widget:focus-visible {
   outline: 2px solid #ffffff;
+
   outline-offset: 2px;
 }
