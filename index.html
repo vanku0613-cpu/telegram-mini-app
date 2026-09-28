@@ -22,387 +22,6 @@
     href="./styles.css"
   >
 
-  <style>
-
-    /* =====================================================
-       СЧЁТЧИК ПРОСМОТРОВ
-       ===================================================== */
-
-    #weatherWidget {
-      position: relative;
-      overflow: visible;
-    }
-
-    #visitCounter {
-      position: absolute;
-
-      z-index: 9999;
-
-      left: 8px;
-      top: -25px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: flex-start;
-
-      gap: 4px;
-
-      height: 20px;
-
-      padding: 0 8px;
-
-      border-radius: 10px;
-
-      background:
-        rgba(5, 20, 42, 0.78);
-
-      border:
-        1px solid rgba(255,255,255,0.18);
-
-      box-shadow:
-        0 3px 10px rgba(0,0,0,0.22),
-        inset 0 0 8px rgba(255,255,255,0.04);
-
-      color:
-        rgba(255,255,255,0.95);
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size: 9px;
-      font-weight: 700;
-
-      line-height: 20px;
-
-      white-space: nowrap;
-
-      pointer-events: none;
-
-      box-sizing: border-box;
-    }
-
-    #visitCounterIcon {
-      font-size: 11px;
-      line-height: 1;
-
-      opacity: .95;
-
-      flex-shrink: 0;
-    }
-
-    #visitCounterNumber {
-      font-size: 9px;
-      line-height: 1;
-
-      font-variant-numeric:
-        tabular-nums;
-    }
-
-
-    /* =====================================================
-       ВИДЖЕТЫ
-       ===================================================== */
-
-    .live-widgets .widget {
-      box-sizing: border-box;
-
-      border-radius: 12px;
-
-      padding: 8px 10px;
-
-      overflow: hidden;
-    }
-
-
-    /* =====================================================
-       ПОГОДА
-       ===================================================== */
-
-    .weather-widget {
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: flex-start;
-      justify-content: center;
-
-      text-align: left;
-    }
-
-    .weather-widget .widget-title {
-      font-size:
-        clamp(9px, 2vw, 14px);
-
-      font-weight: 800;
-
-      line-height: 1.1;
-
-      white-space: nowrap;
-    }
-
-    .weather-widget .widget-main {
-      margin-top: 4px;
-
-      font-size:
-        clamp(15px, 3.4vw, 24px);
-
-      font-weight: 900;
-
-      line-height: 1;
-
-      white-space: nowrap;
-    }
-
-    .weather-widget .widget-sub {
-      margin-top: 3px;
-
-      font-size:
-        clamp(7px, 1.45vw, 10px);
-
-      font-weight: 600;
-
-      line-height: 1;
-
-      white-space: nowrap;
-
-      overflow: hidden;
-
-      text-overflow: ellipsis;
-
-      max-width: 100%;
-    }
-
-
-    /* =====================================================
-       КУРС ВАЛЮТ
-       ===================================================== */
-
-    .currency-widget {
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: flex-start;
-      justify-content: center;
-
-      text-align: left;
-    }
-
-    .currency-widget .widget-title {
-      font-size:
-        clamp(9px, 2vw, 14px);
-
-      font-weight: 800;
-
-      line-height: 1.1;
-
-      white-space: nowrap;
-
-      margin-bottom: 3px;
-    }
-
-    .currency-widget .currency-content {
-      width: 100%;
-
-      min-width: 0;
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 3px;
-    }
-
-    .currency-widget .currency-line {
-      width: 100%;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 4px;
-
-      font-size:
-        clamp(8px, 1.7vw, 12px);
-
-      line-height: 1.1;
-
-      white-space: nowrap;
-    }
-
-    .currency-widget .currency-line b {
-      font-weight: 800;
-    }
-
-    .currency-widget .currency-line span {
-      font-weight: 800;
-    }
-
-    .currency-widget .widget-source {
-      font-size:
-        clamp(6px, 1.1vw, 8px);
-
-      line-height: 1;
-
-      opacity: .65;
-    }
-
-
-    /* =====================================================
-       УКРЫТИЕ
-       ===================================================== */
-
-    .shelter-hotspot {
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      text-decoration: none;
-
-      overflow: hidden;
-
-      border-radius: 12px;
-
-      -webkit-tap-highlight-color:
-        transparent;
-
-      transition:
-        transform 0.12s ease,
-        filter 0.12s ease;
-    }
-
-    .shelter-title {
-      position: relative;
-
-      z-index: 5;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      gap: 6px;
-
-      width: 100%;
-
-      color: #ffffff;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size:
-        clamp(9px, 2vw, 14px);
-
-      font-weight: 900;
-
-      line-height: 1;
-
-      white-space: nowrap;
-
-      text-align: center;
-
-      pointer-events: none;
-    }
-
-    .shelter-title-icon {
-      font-size:
-        clamp(12px, 2.6vw, 18px);
-
-      line-height: 1;
-    }
-
-
-    /* =====================================================
-       ЭФФЕКТ НАЖАТИЯ УКРЫТИЯ
-       ===================================================== */
-
-    .shelter-hotspot::after {
-      content: "";
-
-      position: absolute;
-
-      left: -120%;
-      top: 0;
-
-      width: 70%;
-      height: 100%;
-
-      background:
-        linear-gradient(
-          105deg,
-          transparent 0%,
-          rgba(255,255,255,0.08) 35%,
-          rgba(255,255,255,0.45) 50%,
-          rgba(255,255,255,0.08) 65%,
-          transparent 100%
-        );
-
-      transform: skewX(-18deg);
-
-      opacity: 0;
-
-      pointer-events: none;
-
-      z-index: 4;
-
-      transition:
-        left 0.35s ease,
-        opacity 0.12s ease;
-    }
-
-    .shelter-hotspot::before {
-      content: "";
-
-      position: absolute;
-
-      inset: 1px;
-
-      border-radius: 11px;
-
-      border:
-        1px solid rgba(255,255,255,0.18);
-
-      box-shadow:
-        inset 0 1px 3px rgba(255,255,255,0.22),
-        inset 0 -2px 5px rgba(0,0,0,0.12);
-
-      opacity: 0;
-
-      pointer-events: none;
-
-      z-index: 2;
-
-      transition:
-        opacity 0.12s ease;
-    }
-
-    .shelter-hotspot:active {
-      transform: scale(0.975);
-
-      filter:
-        brightness(1.18)
-        saturate(1.08);
-    }
-
-    .shelter-hotspot:active::after {
-      left: 140%;
-      opacity: 1;
-    }
-
-    .shelter-hotspot:active::before {
-      opacity: 1;
-    }
-
-  </style>
-
 </head>
 
 
@@ -428,7 +47,7 @@
 
 
       <!-- =================================================
-           ПОГОДА + КУРС ВАЛЮТ
+           ПОГОДА + КУРС ВАЛЮТ + УКРЫТИЕ
            ================================================= -->
 
       <div class="live-widgets">
@@ -531,6 +150,30 @@
 
         </div>
 
+
+        <!-- УКРЫТИЕ -->
+
+        <a
+          id="shelterLink"
+          class="widget shelter-widget"
+          href="#"
+          aria-label="Укрытие Измаил"
+        >
+
+          <span class="shelter-title">
+
+            <span class="shelter-title-icon">
+              🛡️
+            </span>
+
+            <span>
+              УКРЫТИЕ ИЗМАИЛ
+            </span>
+
+          </span>
+
+        </a>
+
       </div>
 
 
@@ -544,32 +187,6 @@
         href="#"
         aria-label="Главный справочник Измаил"
       ></a>
-
-
-      <!-- =================================================
-           УКРЫТИЕ
-           ================================================= -->
-
-      <a
-        id="shelterLink"
-        class="hotspot shelter-hotspot"
-        href="#"
-        aria-label="Укрытие Измаил"
-      >
-
-        <span class="shelter-title">
-
-          <span class="shelter-title-icon">
-            🛡️
-          </span>
-
-          <span>
-            УКРЫТИЕ ИЗМАИЛ
-          </span>
-
-        </span>
-
-      </a>
 
 
       <!-- =================================================
