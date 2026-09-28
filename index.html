@@ -1,902 +1,407 @@
 <!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
-  >
-
-  <meta
-    name="theme-color"
-    content="#061b35"
-  >
-
-  <title>Главный справочник Измаил</title>
-
-  <link
-    rel="stylesheet"
-    href="./styles.css"
-  >
-
-  <style>
-
-    /* =====================================================
-       БЛОКИ ПОГОДЫ И КУРСА ВАЛЮТ
-       ===================================================== */
-
-    .live-widgets {
-      position: absolute;
-
-      z-index: 20;
-
-      left: 6%;
-
-      /* Блоки опущены ниже */
-      top: 31.8%;
-
-      width: 88%;
-
-      /* Увеличенная высота */
-      height: 7.5%;
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 2%;
-    }
-
-
-    /* =====================================================
-       ПОГОДА
-       ===================================================== */
-
-    #weatherWidget {
-      position: relative !important;
-
-      min-height: 100%;
-
-      height: 100%;
-
-      box-sizing: border-box;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
-
-      align-items: flex-start;
-
-      padding: 7px 10px !important;
-
-      overflow: visible !important;
-
-      border-radius: 12px;
-
-      background-image:
-        linear-gradient(
-          90deg,
-          rgba(3,18,38,0.84),
-          rgba(3,18,38,0.48),
-          rgba(3,18,38,0.25)
-        ),
-        url("https://upload.wikimedia.org/wikipedia/commons/d/db/City-beach-Izmail-a-1.jpg") !important;
-
-      background-position:
-        center center !important;
-
-      background-size:
-        cover !important;
-
-      background-repeat:
-        no-repeat !important;
-
-      border:
-        1px solid rgba(255,255,255,0.25) !important;
-
-      box-shadow:
-        0 4px 14px rgba(0,0,0,0.35),
-        inset 0 0 18px rgba(255,255,255,0.05) !important;
-
-      color:
-        #ffffff !important;
-    }
-
-
-    /* Затемнение */
-
-    #weatherWidget::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      z-index: 0;
-
-      pointer-events: none;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(0,0,0,0.12),
-          rgba(0,0,0,0.02)
-        );
-
-      border-radius:
-        inherit;
-    }
-
-
-    /* =====================================================
-       ЗАГОЛОВОК ПОГОДЫ
-       ===================================================== */
-
-    #weatherWidget .widget-title {
-      position: relative;
-
-      z-index: 2;
-
-      margin:
-        0 0 4px 11px !important;
-
-      padding: 0 !important;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif !important;
-
-      font-size:
-        clamp(9px, 1.9vw, 12px) !important;
-
-      font-weight:
-        900 !important;
-
-      line-height:
-        1.05 !important;
-
-      letter-spacing:
-        0.35px !important;
-
-      color:
-        #ffffff !important;
-
-      text-shadow:
-        0 1px 4px rgba(0,0,0,0.75) !important;
-
-      white-space:
-        nowrap !important;
-    }
-
-
-    /* =====================================================
-       ТЕМПЕРАТУРА
-       ===================================================== */
-
-    #weatherWidget .widget-main {
-      position: relative;
-
-      z-index: 2;
-
-      margin:
-        0 0 0 11px !important;
-
-      padding: 0 !important;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif !important;
-
-      font-size:
-        clamp(15px, 3.2vw, 21px) !important;
-
-      font-weight:
-        900 !important;
-
-      line-height:
-        1 !important;
-
-      color:
-        #ffffff !important;
-
-      text-shadow:
-        0 1px 5px rgba(0,0,0,0.8) !important;
-    }
-
-
-    /* =====================================================
-       СОСТОЯНИЕ ПОГОДЫ
-       ===================================================== */
-
-    #weatherWidget .widget-sub {
-      position: relative;
-
-      z-index: 2;
-
-      margin:
-        4px 0 0 11px !important;
-
-      padding: 0 !important;
-
-      max-width:
-        92% !important;
-
-      overflow:
-        hidden !important;
-
-      text-overflow:
-        ellipsis !important;
-
-      white-space:
-        nowrap !important;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif !important;
-
-      font-size:
-        clamp(7px, 1.5vw, 10px) !important;
-
-      font-weight:
-        600 !important;
-
-      line-height:
-        1.1 !important;
-
-      color:
-        rgba(255,255,255,0.9) !important;
-
-      text-shadow:
-        0 1px 4px rgba(0,0,0,0.75) !important;
-    }
-
-
-    /* =====================================================
-       КУРС ВАЛЮТ
-       ===================================================== */
-
-    #currencyWidget {
-      min-height: 100%;
-
-      height: 100%;
-
-      box-sizing: border-box;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
-
-      align-items: flex-start;
-
-      padding:
-        7px 10px !important;
-
-      border-radius:
-        12px;
-
-      overflow:
-        hidden;
-
-      text-decoration:
-        none;
-    }
-
-
-    #currencyWidget .widget-title {
-      margin:
-        0 0 4px 0 !important;
-
-      padding: 0 !important;
-
-      font-size:
-        clamp(9px, 1.9vw, 12px) !important;
-
-      line-height:
-        1.05 !important;
-
-      font-weight:
-        900 !important;
-    }
-
-
-    #currencyWidget .currency-line {
-      width: 100%;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      font-size:
-        clamp(9px, 1.8vw, 12px) !important;
-
-      line-height:
-        1.15 !important;
-
-      margin-top:
-        3px !important;
-    }
-
-
-    /* =====================================================
-       СЧЁТЧИК ПРОСМОТРОВ
-       ===================================================== */
-
-    #visitCounter {
-      position: absolute !important;
-
-      z-index: 9999 !important;
-
-      left: 8px !important;
-
-      top: -27px !important;
-
-      transform: none !important;
-
-      display: flex !important;
-
-      align-items: center !important;
-
-      justify-content: flex-start !important;
-
-      gap: 4px !important;
-
-      height: 21px !important;
-
-      padding:
-        0 8px !important;
-
-      border-radius:
-        11px !important;
-
-      background:
-        rgba(5,20,42,0.72) !important;
-
-      border:
-        1px solid rgba(255,255,255,0.18) !important;
-
-      box-shadow:
-        0 3px 10px rgba(0,0,0,0.22),
-        inset 0 0 8px rgba(255,255,255,0.04) !important;
-
-      color:
-        rgba(255,255,255,0.95) !important;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif !important;
-
-      font-size:
-        9px !important;
-
-      font-weight:
-        700 !important;
-
-      line-height:
-        21px !important;
-
-      white-space:
-        nowrap !important;
-
-      pointer-events:
-        none !important;
-
-      box-sizing:
-        border-box !important;
-    }
-
-
-    #visitCounterIcon {
-      font-size:
-        11px !important;
-
-      line-height:
-        1 !important;
-
-      opacity:
-        .95 !important;
-
-      flex-shrink:
-        0 !important;
-    }
-
-
-    #visitCounterNumber {
-      font-size:
-        9px !important;
-
-      line-height:
-        1 !important;
-
-      font-variant-numeric:
-        tabular-nums !important;
-    }
-
-
-    /* =====================================================
-       ПОИСК
-       ===================================================== */
-
-    #directorySearchInput {
-      color:
-        #ffffff !important;
-
-      caret-color:
-        #ffffff !important;
-    }
-
-  </style>
-
-</head>
-
-
-<body>
-
-  <main class="app">
-
-    <div
-      class="reference"
-      id="reference"
-    >
-
-      <!-- =====================================================
-           ОСНОВНАЯ КАРТИНКА
-           ===================================================== -->
-
-      <img
-        id="referenceImage"
-        class="reference-image"
-        src="./file_00000000535c820a8555793262fd3bdf.png"
-        alt="Главный справочник Измаил"
-        loading="eager"
-        decoding="sync"
-        draggable="false"
-      >
-
-
-      <!-- =====================================================
-           ПОГОДА И КУРС ВАЛЮТ
-           ===================================================== -->
-
-      <section
-        class="live-widgets"
-        aria-label="Погода и курс валют"
-      >
-
-        <!-- ПОГОДА -->
-
-        <div
-          id="weatherWidget"
-          class="widget weather-widget"
-        >
-
-          <div
-            id="visitCounter"
-            aria-label="Количество просмотров"
-          >
-
-            <span id="visitCounterIcon">
-              👁
-            </span>
-
-            <span>
-              просмотрено
-            </span>
-
-            <span id="visitCounterNumber">
-              1
-            </span>
-
-          </div>
-
-
-          <div class="widget-title">
-            ПОГОДА ИЗМАИЛА
-          </div>
-
-
-          <div
-            id="weatherTemp"
-            class="widget-main"
-          >
-            —°C
-          </div>
-
-
-          <div
-            id="weatherText"
-            class="widget-sub"
-          >
-            Загрузка…
-          </div>
-
-        </div>
-
-
-        <!-- КУРС ВАЛЮТ -->
-
-        <a
-          id="currencyWidget"
-          class="widget currency-widget"
-          href="https://minfin.com.ua/currency/izmail/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Курс валют"
-        >
-
-          <div class="widget-title">
-            КУРС НБУ
-          </div>
-
-
-          <div class="currency-line">
-
-            <b>
-              USD
-            </b>
-
-            <span id="usdRate">
-              —
-            </span>
-
-          </div>
-
-
-          <div class="currency-line">
-
-            <b>
-              EUR
-            </b>
-
-            <span id="eurRate">
-              —
-            </span>
-
-          </div>
-
-        </a>
-
-      </section>
-
-
-      <!-- =====================================================
-           ГЛАВНАЯ ГРУППА
-           ===================================================== -->
-
-      <a
-        id="mainGroup"
-        class="hotspot logo-hotspot"
-        href="#"
-        aria-label="Главная группа"
-      ></a>
-
-
-      <!-- УКРЫТИЯ -->
-
-      <a
-        id="shelterLink"
-        class="hotspot shelter-hotspot"
-        href="#"
-        aria-label="Укрытия Измаил"
-      ></a>
-
-
-      <!-- =====================================================
-           ПОИСК
-           ===================================================== -->
-
-      <div
-        id="searchHotspot"
-        class="hotspot search-hotspot"
-        role="search"
-        aria-label="Поиск по справочнику"
-      >
-
-        <input
-          id="directorySearchInput"
-          class="directory-search-input"
-          type="search"
-          name="directory-search"
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="sentences"
-          spellcheck="false"
-          inputmode="search"
-          enterkeyhint="search"
-          aria-label="Поиск по справочнику Измаил"
-
-          style="
-            position:absolute!important;
-            z-index:10!important;
-            left:0!important;
-            top:0!important;
-            width:100%!important;
-            height:100%!important;
-            display:block!important;
-            margin:0!important;
-            padding:0 13.5%!important;
-            background:transparent!important;
-            background-color:transparent!important;
-            background-image:none!important;
-            border:0!important;
-            border-width:0!important;
-            border-style:none!important;
-            outline:0!important;
-            outline-width:0!important;
-            box-shadow:none!important;
-            color:#ffffff!important;
-            font-family:Arial,Helvetica,sans-serif!important;
-            font-size:clamp(12px,2.5vw,18px)!important;
-            font-weight:700!important;
-            line-height:1!important;
-            text-align:left!important;
-            border-radius:18px!important;
-            appearance:none!important;
-            -webkit-appearance:none!important;
-            -webkit-tap-highlight-color:transparent!important;
-            caret-color:#ffffff!important;
-          "
-        >
-
-      </div>
-
-
-      <!-- =====================================================
-           КАТЕГОРИИ
-           ===================================================== -->
-
-      <a
-        id="healthLink"
-        class="hotspot category-hotspot health-hotspot"
-        href="#"
-        aria-label="Здоровье и уход"
-      ></a>
-
-
-      <a
-        id="transportLink"
-        class="hotspot category-hotspot transport-hotspot"
-        href="#"
-        aria-label="Транспорт и такси"
-      ></a>
-
-
-      <a
-        id="servicesLink"
-        class="hotspot category-hotspot services-hotspot"
-        href="#"
-        aria-label="Услуги и мастера"
-      ></a>
-
-
-      <a
-        id="foodLink"
-        class="hotspot category-hotspot food-hotspot"
-        href="#"
-        aria-label="Продукты питания"
-      ></a>
-
-
-      <a
-        id="utilitiesLink"
-        class="hotspot category-hotspot utilities-hotspot"
-        href="#"
-        aria-label="Коммунальные службы"
-      ></a>
-
-
-      <a
-        id="jobsLink"
-        class="hotspot category-hotspot jobs-hotspot"
-        href="#"
-        aria-label="Работа и вакансии"
-      ></a>
-
-
-      <a
-        id="educationLink"
-        class="hotspot category-hotspot education-hotspot"
-        href="#"
-        aria-label="Образование и развитие"
-      ></a>
-
-
-      <a
-        id="leisureLink"
-        class="hotspot category-hotspot leisure-hotspot"
-        href="#"
-        aria-label="Отдых, жильё и море"
-      ></a>
-
-
-      <!-- =====================================================
-           НАШИ ГРУППЫ
-           ===================================================== -->
-
-      <a
-        id="groupsLink"
-        class="hotspot groups-hotspot"
-        href="#"
-        aria-label="Наши группы"
-      ></a>
-
-
-      <!-- =====================================================
-           НИЖНЯЯ НАВИГАЦИЯ
-           ===================================================== -->
-
-      <a
-        id="homeLink"
-        class="hotspot nav-hotspot home-hotspot"
-        href="#"
-        aria-label="Главная"
-      ></a>
-
-
-      <a
-        id="adsLink"
-        class="hotspot nav-hotspot ads-hotspot"
-        href="https://t.me/Vanku13"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Заказать рекламу"
-      ></a>
-
-
-      <a
-        id="favoritesLink"
-        class="hotspot nav-hotspot favorites-hotspot"
-        href="#"
-        aria-label="Избранное"
-      ></a>
-
-
-      <!-- =====================================================
-           ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
-           ===================================================== -->
-
-      <a
-        class="user-agreement"
-        href="#"
-        aria-label="Пользовательское соглашение"
-      >
-        Пользовательское соглашение
-      </a>
-
-    </div>
-
-  </main>
-
-
-  <!-- =====================================================
-       ЛОКАЛЬНЫЙ СЧЁТЧИК
-       ===================================================== -->
-
-  <script>
-
-    (() => {
-
-      const COUNT_KEY =
-        "izmail_local_visit_counter";
-
-      const TIME_KEY =
-        "izmail_local_visit_time";
-
-      const VISIT_INTERVAL =
-        2 * 60 * 1000;
-
-
-      try {
-
-        let count =
-          parseInt(
-            localStorage.getItem(
-              COUNT_KEY
-            ) || "0",
-            10
-          );
-
-
-        if (
-          !Number.isFinite(count) ||
-          count < 0
-        ) {
-
-          count = 0;
-
-        }
-
-
-        const now =
-          Date.now();
-
-
-        const lastVisit =
-          parseInt(
-            localStorage.getItem(
-              TIME_KEY
-            ) || "0",
-            10
-          );
-
-
-        if (
-          !lastVisit ||
-          (now - lastVisit) >=
-            VISIT_INTERVAL
-        ) {
-
-          count += 1;
-
-
-          localStorage.setItem(
-            COUNT_KEY,
-            String(count)
-          );
-
-
-          localStorage.setItem(
-            TIME_KEY,
-            String(now)
-          );
-
-        }
-
-
-        const counter =
-          document.getElementById(
-            "visitCounterNumber"
-          );
-
-
-        if (counter) {
-
-          counter.textContent =
-            count.toLocaleString(
-              "ru-RU"
-            );
-
-        }
-
-
-      } catch (error) {
-
-        const counter =
-          document.getElementById(
-            "visitCounterNumber"
-          );
-
-
-        if (counter) {
-
-          counter.textContent =
-            "1";
-
-        }
-
-      }
-
-    })();
-
-  </script>
-
-
-  <!-- =====================================================
-       ОСНОВНЫЕ СКРИПТЫ
-       ===================================================== -->
-
-  <script src="./config.js"></script>
-  <script src="./app.js"></script>
-
-</body>
+<html lang="ru">  
+<head>  
+  <meta charset="utf-8">  
+  <meta  
+    name="viewport"  
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"  
+  >  
+  <meta name="theme-color" content="#061b35">  
+  <title>Главный справочник Измаил</title>    <link rel="stylesheet" href="./styles.css">    <style>  
+    /* ===== СЧЁТЧИК ПРОСМОТРОВ НАД НАЧАЛОМ ПОГОДЫ ===== */  
+  
+    #weatherWidget {  
+      position: relative !important;  
+      overflow: visible !important;  
+    }  
+  
+    #visitCounter {  
+      position: absolute !important;  
+      z-index: 9999 !important;  
+      left: 8px !important;  
+      top: -27px !important;  
+      transform: none !important;  
+      display: flex !important;  
+      align-items: center !important;  
+      justify-content: flex-start !important;  
+      gap: 4px !important;  
+      height: 21px !important;  
+      padding: 0 8px !important;  
+      border-radius: 11px !important;  
+      background: rgba(5, 20, 42, 0.72) !important;  
+      border: 1px solid rgba(255,255,255,0.18) !important;  
+      box-shadow:  
+        0 3px 10px rgba(0,0,0,0.22),  
+        inset 0 0 8px rgba(255,255,255,0.04) !important;  
+      color: rgba(255,255,255,0.95) !important;  
+      font-family: Arial, Helvetica, sans-serif !important;  
+      font-size: 9px !important;  
+      font-weight: 700 !important;  
+      line-height: 21px !important;  
+      white-space: nowrap !important;  
+      pointer-events: none !important;  
+      box-sizing: border-box !important;  
+    }  
+  
+    #visitCounterIcon {  
+      font-size: 11px !important;  
+      line-height: 1 !important;  
+      opacity: .95 !important;  
+      flex-shrink: 0 !important;  
+    }  
+  
+    #visitCounterNumber {  
+      font-size: 9px !important;  
+      line-height: 1 !important;  
+      font-variant-numeric: tabular-nums !important;  
+    }  
+  </style>  </head>  <body>    <main class="app">  <div class="reference" id="reference">  
+
+  <!-- =====================================================  
+       ОСНОВНАЯ КАРТИНКА ИНТЕРФЕЙСА  
+       ===================================================== -->  
+
+  <img  
+    id="referenceImage"  
+    class="reference-image"  
+    src="./file_00000000535c820a8555793262fd3bdf.png"  
+    alt="Главный справочник Измаил"  
+    loading="eager"  
+    decoding="sync"  
+    draggable="false"  
+  >  
+
+  <section  
+    class="live-widgets"  
+    aria-label="Погода и курс валют"  
+  >  
+
+    <!-- ПОГОДА -->  
+    <div  
+      id="weatherWidget"  
+      class="widget weather-widget"  
+    >  
+
+      <!-- СЧЁТЧИК ПРОСМОТРОВ -->  
+      <div  
+        id="visitCounter"  
+        aria-label="Количество просмотров"  
+      >  
+        <span id="visitCounterIcon">👁</span>  
+        <span>просмотрено</span>  
+        <span id="visitCounterNumber">1</span>  
+      </div>  
+
+      <div class="widget-title">  
+        ПОГОДА  
+      </div>  
+
+      <div  
+        id="weatherTemp"  
+        class="widget-main"  
+      >  
+        —°C  
+      </div>  
+
+      <div  
+        id="weatherText"  
+        class="widget-sub"  
+      >  
+        Загрузка…  
+      </div>  
+
+    </div>  
+
+    <!-- КУРС ВАЛЮТ -->  
+    <a  
+      id="currencyWidget"  
+      class="widget currency-widget"  
+      href="https://minfin.com.ua/currency/izmail/"  
+      target="_blank"  
+      rel="noopener noreferrer"  
+      aria-label="Курс валют"  
+    >  
+
+      <div class="widget-title">  
+        КУРС НБУ  
+      </div>  
+
+      <div class="currency-line">  
+        <b>USD</b>  
+        <span id="usdRate">—</span>  
+      </div>  
+
+      <div class="currency-line">  
+        <b>EUR</b>  
+        <span id="eurRate">—</span>  
+      </div>  
+
+    </a>  
+
+  </section>  
+
+
+  <!-- ГЛАВНАЯ ГРУППА -->  
+  <a  
+    id="mainGroup"  
+    class="hotspot logo-hotspot"  
+    href="#"  
+    aria-label="Главная группа"  
+  ></a>  
+
+
+  <!-- УКРЫТИЯ -->  
+  <a  
+    id="shelterLink"  
+    class="hotspot shelter-hotspot"  
+    href="#"  
+    aria-label="Укрытия Измаил"  
+  ></a>  
+
+
+  <!-- ПОИСК -->  
+  <div  
+    id="searchHotspot"  
+    class="hotspot search-hotspot"  
+    role="search"  
+    aria-label="Поиск по справочнику"  
+  >  
+
+    <input  
+      id="directorySearchInput"  
+      class="directory-search-input"  
+      type="search"  
+      name="directory-search"  
+      autocomplete="off"  
+      autocorrect="off"  
+      autocapitalize="sentences"  
+      spellcheck="false"  
+      inputmode="search"  
+      enterkeyhint="search"  
+      aria-label="Поиск по справочнику Измаил"  
+      style="  
+        position:absolute!important;  
+        z-index:10!important;  
+        left:0!important;  
+        top:0!important;  
+        width:100%!important;  
+        height:100%!important;  
+        display:block!important;  
+        margin:0!important;  
+        padding:0 13.5%!important;  
+        background:transparent!important;  
+        background-color:transparent!important;  
+        background-image:none!important;  
+        border:0!important;  
+        border-width:0!important;  
+        border-style:none!important;  
+        outline:0!important;  
+        outline-width:0!important;  
+        box-shadow:none!important;  
+        color:#ffffff!important;  
+        font-family:Arial,Helvetica,sans-serif!important;  
+        font-size:clamp(12px,2.5vw,18px)!important;  
+        font-weight:700!important;  
+        line-height:1!important;  
+        text-align:left!important;  
+        border-radius:18px!important;  
+        appearance:none!important;  
+        -webkit-appearance:none!important;  
+        -webkit-tap-highlight-color:transparent!important;  
+        caret-color:#ffffff!important;  
+      "  
+    >  
+
+  </div>  
+
+
+  <!-- КАТЕГОРИИ -->  
+
+  <a  
+    id="healthLink"  
+    class="hotspot category-hotspot health-hotspot"  
+    href="#"  
+    aria-label="Здоровье и уход"  
+  ></a>  
+
+  <a  
+    id="transportLink"  
+    class="hotspot category-hotspot transport-hotspot"  
+    href="#"  
+    aria-label="Транспорт и такси"  
+  ></a>  
+
+  <a  
+    id="servicesLink"  
+    class="hotspot category-hotspot services-hotspot"  
+    href="#"  
+    aria-label="Услуги и мастера"  
+  ></a>  
+
+  <a  
+    id="foodLink"  
+    class="hotspot category-hotspot food-hotspot"  
+    href="#"  
+    aria-label="Продукты питания"  
+  ></a>  
+
+  <a  
+    id="utilitiesLink"  
+    class="hotspot category-hotspot utilities-hotspot"  
+    href="#"  
+    aria-label="Коммунальные службы"  
+  ></a>  
+
+  <a  
+    id="jobsLink"  
+    class="hotspot category-hotspot jobs-hotspot"  
+    href="#"  
+    aria-label="Работа и вакансии"  
+  ></a>  
+
+  <a  
+    id="educationLink"  
+    class="hotspot category-hotspot education-hotspot"  
+    href="#"  
+    aria-label="Образование и развитие"  
+  ></a>  
+
+  <a  
+    id="leisureLink"  
+    class="hotspot category-hotspot leisure-hotspot"  
+    href="#"  
+    aria-label="Отдых, жильё и море"  
+  ></a>  
+
+
+  <!-- НАШИ ГРУППЫ -->  
+  <a  
+    id="groupsLink"  
+    class="hotspot groups-hotspot"  
+    href="#"  
+    aria-label="Наши группы"  
+  ></a>  
+
+
+  <!-- НИЖНЯЯ НАВИГАЦИЯ -->  
+
+  <a  
+    id="homeLink"  
+    class="hotspot nav-hotspot home-hotspot"  
+    href="#"  
+    aria-label="Главная"  
+  ></a>  
+
+  <a  
+    id="adsLink"  
+    class="hotspot nav-hotspot ads-hotspot"  
+    href="https://t.me/Vanku13"  
+    target="_blank"  
+    rel="noopener noreferrer"  
+    aria-label="Заказать рекламу"  
+  ></a>  
+
+  <a  
+    id="favoritesLink"  
+    class="hotspot nav-hotspot favorites-hotspot"  
+    href="#"  
+    aria-label="Избранное"  
+  ></a>  
+
+
+  <!-- ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ -->  
+
+  <a  
+    class="user-agreement"  
+    href="#"  
+    aria-label="Пользовательское соглашение"  
+  >  
+    Пользовательское соглашение  
+  </a>  
+
+</div>
+
+  </main>    <!-- =====================================================  
+       ЛОКАЛЬНЫЙ СЧЁТЧИК  
+       Новое посещение засчитывается не чаще одного раза  
+       в 2 минуты  
+       ===================================================== -->    <script>  
+    (() => {  
+  
+      const COUNT_KEY =  
+        "izmail_local_visit_counter";  
+  
+      const TIME_KEY =  
+        "izmail_local_visit_time";  
+  
+      const VISIT_INTERVAL =  
+        2 * 60 * 1000;  
+  
+      try {  
+  
+        let count = parseInt(  
+          localStorage.getItem(COUNT_KEY) || "0",  
+          10  
+        );  
+  
+        if (  
+          !Number.isFinite(count) ||  
+          count < 0  
+        ) {  
+          count = 0;  
+        }  
+  
+        const now = Date.now();  
+  
+        const lastVisit = parseInt(  
+          localStorage.getItem(TIME_KEY) || "0",  
+          10  
+        );  
+  
+        if (  
+          !lastVisit ||  
+          (now - lastVisit) >= VISIT_INTERVAL  
+        ) {  
+  
+          count += 1;  
+  
+          localStorage.setItem(  
+            COUNT_KEY,  
+            String(count)  
+          );  
+  
+          localStorage.setItem(  
+            TIME_KEY,  
+            String(now)  
+          );  
+        }  
+  
+        const counter =  
+          document.getElementById(  
+            "visitCounterNumber"  
+          );  
+  
+        if (counter) {  
+  
+          counter.textContent =  
+            count.toLocaleString("ru-RU");  
+  
+        }  
+  
+      } catch (error) {  
+  
+        const counter =  
+          document.getElementById(  
+            "visitCounterNumber"  
+          );  
+  
+        if (counter) {  
+          counter.textContent = "1";  
+        }  
+  
+      }  
+  
+    })();  
+  </script>    <!-- ОСНОВНЫЕ СКРИПТЫ -->    <script src="./config.js"></script>    <script src="./app.js"></script>  </body>  
 </html>
