@@ -9,11 +9,8 @@ html {
   min-width: 0;
   margin: 0;
   padding: 0;
-
   background: #061b35;
-
   overflow-x: hidden;
-
   -webkit-text-size-adjust: 100%;
 }
 
@@ -21,14 +18,10 @@ body {
   width: 100%;
   min-width: 0;
   min-height: 100vh;
-
   margin: 0;
   padding: 0;
-
   background: #061b35;
-
   overflow-x: hidden;
-
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
@@ -41,12 +34,10 @@ body {
 .app {
   width: 100%;
   min-width: 0;
-
   margin: 0;
   padding: 0;
 
   display: flex;
-
   justify-content: center;
   align-items: flex-start;
 }
@@ -101,7 +92,8 @@ body {
 
 
 /* =========================================================
-   ПОГОДА + КУРС + УКРЫТИЕ
+   ТРИ ОСНОВНЫХ ОКНА
+   ПОГОДА / КУРС / УКРЫТИЕ
    ========================================================= */
 
 .live-widgets {
@@ -110,21 +102,23 @@ body {
   z-index: 40;
 
   left: 3%;
-
   top: 30.2%;
 
   width: 94%;
-
   height: 7.5%;
 
   display: grid;
 
+  /*
+    Три одинаковых по высоте окна.
+    Между ними небольшой равномерный промежуток.
+  */
   grid-template-columns:
-    31.5%
-    31.5%
-    35%;
+    1fr
+    1fr
+    1fr;
 
-  column-gap: 1%;
+  column-gap: 1.2%;
 
   margin: 0;
   padding: 0;
@@ -134,10 +128,10 @@ body {
 
 
 /* =========================================================
-   ОБЩИЙ ВИД ТРЁХ БЛОКОВ
+   ОБЩАЯ ОСНОВА ВСЕХ ТРЁХ ОКОН
    ========================================================= */
 
-.widget {
+.live-widgets .widget {
   position: relative;
 
   width: 100%;
@@ -146,11 +140,9 @@ body {
   min-width: 0;
   min-height: 0;
 
-  display: flex;
+  overflow: hidden;
 
-  align-items: center;
-
-  color: #ffffff;
+  border-radius: 12px;
 
   font-family:
     Arial,
@@ -159,17 +151,9 @@ body {
 
   text-decoration: none;
 
-  border-radius: 12px;
-
-  overflow: hidden;
-
   cursor: pointer;
 
-  appearance: none;
-  -webkit-appearance: none;
-
-  -webkit-tap-highlight-color:
-    transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -178,18 +162,21 @@ body {
    ========================================================= */
 
 .weather-widget {
+  display: flex;
+
   flex-direction: row;
 
+  align-items: center;
   justify-content: flex-start;
 
-  gap: 7px;
+  gap: 6px;
 
-  padding: 5px 8px;
+  padding: 5px 7px;
 
-  text-align: left;
+  color: #ffffff;
 
   background:
-    rgba(5, 26, 52, 0.92);
+    rgba(5, 26, 52, 0.94);
 
   border:
     1px solid rgba(130, 220, 255, 0.75);
@@ -199,12 +186,15 @@ body {
 
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+
+  text-align: left;
 }
+
 
 .weather-icon {
   flex: 0 0 auto;
 
-  width: 27px;
+  width: 25px;
 
   display: flex;
 
@@ -212,7 +202,7 @@ body {
   justify-content: center;
 
   font-size:
-    clamp(16px, 3.8vw, 23px);
+    clamp(15px, 3.7vw, 23px);
 
   line-height: 1;
 
@@ -221,6 +211,7 @@ body {
       0 1px 2px rgba(0, 0, 0, 0.35)
     );
 }
+
 
 .widget-content {
   min-width: 0;
@@ -236,11 +227,12 @@ body {
   overflow: hidden;
 }
 
+
 .weather-widget .widget-title {
   display: block;
 
   font-size:
-    clamp(8px, 1.65vw, 12px);
+    clamp(7px, 1.55vw, 11px);
 
   font-weight: 800;
 
@@ -251,11 +243,12 @@ body {
   opacity: 0.95;
 }
 
+
 .weather-widget .widget-main {
-  display: inline-block;
+  display: block;
 
   font-size:
-    clamp(12px, 2.8vw, 17px);
+    clamp(11px, 2.55vw, 16px);
 
   font-weight: 900;
 
@@ -264,13 +257,14 @@ body {
   white-space: nowrap;
 }
 
+
 .weather-widget .widget-sub {
   display: block;
 
   max-width: 100%;
 
   font-size:
-    clamp(6px, 1.3vw, 9px);
+    clamp(6px, 1.25vw, 9px);
 
   font-weight: 600;
 
@@ -287,12 +281,13 @@ body {
 
 
 /* =========================================================
-   СЧЁТЧИК ПРОСМОТРОВ
+   СЧЁТЧИК
    ========================================================= */
 
 #weatherWidget {
   overflow: visible;
 }
+
 
 #visitCounter {
   position: absolute;
@@ -343,9 +338,9 @@ body {
   pointer-events: none;
 }
 
+
 #visitCounterIcon {
   font-size: 11px;
-
   line-height: 1;
 
   opacity: .95;
@@ -353,9 +348,9 @@ body {
   flex-shrink: 0;
 }
 
+
 #visitCounterNumber {
   font-size: 9px;
-
   line-height: 1;
 
   font-variant-numeric:
@@ -368,20 +363,21 @@ body {
    ========================================================= */
 
 .currency-widget {
+  display: flex;
+
   flex-direction: column;
 
   align-items: flex-start;
-
   justify-content: center;
 
-  gap: 3px;
+  gap: 4px;
 
-  padding: 5px 8px;
+  padding: 5px 7px;
 
-  text-align: left;
+  color: #ffffff;
 
   background:
-    rgba(5, 26, 52, 0.92);
+    rgba(5, 26, 52, 0.94);
 
   border:
     1px solid rgba(130, 220, 255, 0.75);
@@ -391,13 +387,16 @@ body {
 
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+
+  text-align: left;
 }
+
 
 .currency-widget .widget-title {
   display: block;
 
   font-size:
-    clamp(8px, 1.65vw, 12px);
+    clamp(7px, 1.55vw, 11px);
 
   font-weight: 800;
 
@@ -405,6 +404,7 @@ body {
 
   white-space: nowrap;
 }
+
 
 .currency-content {
   width: 100%;
@@ -420,6 +420,7 @@ body {
   gap: 3px;
 }
 
+
 .currency-line {
   width: 100%;
 
@@ -429,25 +430,28 @@ body {
 
   justify-content: space-between;
 
-  gap: 4px;
+  gap: 3px;
 
   min-width: 0;
 
   font-size:
-    clamp(7px, 1.45vw, 10px);
+    clamp(6px, 1.35vw, 9px);
 
   line-height: 1;
 
   white-space: nowrap;
 }
 
+
 .currency-line b {
   font-weight: 800;
 }
 
+
 .currency-line span {
   font-weight: 800;
 }
+
 
 .widget-source {
   display: block;
@@ -455,7 +459,7 @@ body {
   min-width: 0;
 
   font-size:
-    clamp(5px, 1vw, 7px);
+    clamp(5px, 0.95vw, 7px);
 
   line-height: 1;
 
@@ -474,9 +478,14 @@ body {
    ========================================================= */
 
 .shelter-widget {
+  display: flex;
+
+  align-items: center;
   justify-content: center;
 
-  padding: 5px 8px;
+  padding: 5px 7px;
+
+  color: #ffffff;
 
   background:
     linear-gradient(
@@ -490,7 +499,14 @@ body {
 
   box-shadow:
     0 3px 12px rgba(0, 0, 0, 0.30);
+
+  text-decoration: none;
+
+  transition:
+    transform 0.12s ease,
+    filter 0.12s ease;
 }
+
 
 .shelter-title {
   position: relative;
@@ -502,7 +518,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  gap: 5px;
+  gap: 4px;
 
   width: 100%;
 
@@ -514,7 +530,7 @@ body {
     sans-serif;
 
   font-size:
-    clamp(8px, 1.8vw, 13px);
+    clamp(7px, 1.55vw, 11px);
 
   font-weight: 900;
 
@@ -527,16 +543,17 @@ body {
   pointer-events: none;
 }
 
+
 .shelter-title-icon {
   font-size:
-    clamp(11px, 2.4vw, 17px);
+    clamp(10px, 2.2vw, 16px);
 
   line-height: 1;
 }
 
 
 /* =========================================================
-   ЭФФЕКТ НАЖАТИЯ УКРЫТИЯ
+   ЭФФЕКТ УКРЫТИЯ
    ========================================================= */
 
 .shelter-widget::after {
@@ -573,6 +590,7 @@ body {
     opacity 0.12s ease;
 }
 
+
 .shelter-widget::before {
   content: "";
 
@@ -599,6 +617,7 @@ body {
     opacity 0.12s ease;
 }
 
+
 .shelter-widget:active {
   transform: scale(0.975);
 
@@ -607,11 +626,12 @@ body {
     saturate(1.08);
 }
 
+
 .shelter-widget:active::after {
   left: 140%;
-
   opacity: 1;
 }
+
 
 .shelter-widget:active::before {
   opacity: 1;
@@ -662,7 +682,6 @@ body {
 
 .search-hotspot {
   left: 2.5%;
-
   top: 34%;
 
   width: 95%;
@@ -683,40 +702,48 @@ body {
   height: 8.7%;
 }
 
+
 .health-hotspot {
   left: 3%;
   top: 40%;
 }
+
 
 .transport-hotspot {
   left: 51.5%;
   top: 40%;
 }
 
+
 .services-hotspot {
   left: 3%;
   top: 49.7%;
 }
+
 
 .food-hotspot {
   left: 51.5%;
   top: 49.7%;
 }
 
+
 .utilities-hotspot {
   left: 3%;
   top: 59.5%;
 }
+
 
 .jobs-hotspot {
   left: 51.5%;
   top: 59.5%;
 }
 
+
 .education-hotspot {
   left: 3%;
   top: 69.2%;
 }
+
 
 .leisure-hotspot {
   left: 51.5%;
@@ -743,25 +770,24 @@ body {
 
 .nav-hotspot {
   top: 87%;
-
   height: 6%;
 }
 
+
 .home-hotspot {
   left: 2%;
-
   width: 30%;
 }
+
 
 .ads-hotspot {
   left: 35%;
-
   width: 30%;
 }
 
+
 .favorites-hotspot {
   left: 68%;
-
   width: 30%;
 }
 
@@ -776,28 +802,26 @@ body {
     column-gap: 1%;
   }
 
-  .widget {
+  .live-widgets .widget {
     border-radius: 9px;
   }
 
   .weather-widget {
-    padding: 4px 6px;
-
-    gap: 5px;
+    padding: 4px 5px;
+    gap: 4px;
   }
 
   .weather-icon {
-    width: 21px;
-
+    width: 20px;
     font-size: 14px;
   }
 
   .weather-widget .widget-title {
-    font-size: 8px;
+    font-size: 7px;
   }
 
   .weather-widget .widget-main {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .weather-widget .widget-sub {
@@ -805,23 +829,28 @@ body {
   }
 
   .currency-widget {
-    padding: 4px 6px;
+    padding: 4px 5px;
+    gap: 3px;
   }
 
   .currency-widget .widget-title {
-    font-size: 8px;
-  }
-
-  .currency-line {
     font-size: 7px;
   }
 
+  .currency-line {
+    font-size: 6px;
+  }
+
+  .shelter-widget {
+    padding: 4px 5px;
+  }
+
   .shelter-title {
-    font-size: 8px;
+    font-size: 7px;
   }
 
   .shelter-title-icon {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
 
@@ -833,6 +862,7 @@ body {
 .hotspot:active {
   opacity: 0.85;
 }
+
 
 .widget:active {
   transform: scale(0.98);
@@ -846,6 +876,5 @@ body {
 .hotspot:focus-visible,
 .widget:focus-visible {
   outline: 2px solid #ffffff;
-
   outline-offset: 2px;
 }
