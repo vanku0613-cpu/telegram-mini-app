@@ -1278,6 +1278,339 @@ function izmailSearchIsActive() {
           cache: "force-cache",
           credentials: "same-origin"
         }
+
+      /* =========================================================
+   ПЛАВНОЕ ОБНОВЛЕНИЕ КНОПКИ «ГЛАВНАЯ»
+   Без рывка и белой вспышки
+   ========================================================= */
+
+(function () {
+
+  const STORAGE_KEY = "izmail_smooth_home_reload";
+  const COVER_ID = "izmailSmoothReloadCover";
+
+
+  /* ---------------------------------------------------------
+     Создаём тёмную шторку
+     --------------------------------------------------------- */
+
+  function createCover() {
+
+    let cover =
+      document.getElementById(COVER_ID);
+
+    if (cover) {
+      return cover;
+    }
+
+
+    const style =
+      document.createElement("style");
+
+    style.textContent = `
+
+      #${COVER_ID} {
+        position: fixed;
+        inset: 0;
+
+        z-index: 2147483647;
+
+        background: #061a33;
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        transition:
+          opacity 140ms ease-out;
+      }
+
+      #${COVER_ID}.show {
+        opacity: 1;
+      }
+
+    `;
+
+    document.head.appendChild(style);
+
+
+    cover =
+      document.createElement("div");
+
+    cover.id =
+      COVER_ID;
+
+    document.body.appendChild(cover);
+
+
+    return cover;
+
+  }
+
+
+  /* ---------------------------------------------------------
+     После обновления плавно открываем страницу
+     --------------------------------------------------------- */
+
+  function revealPage() {
+
+    if (
+      sessionStorage.getItem(STORAGE_KEY)
+      !== "1"
+    ) {
+      return;
+    }
+
+
+    sessionStorage.removeItem(
+      STORAGE_KEY
+    );
+
+
+    const cover =
+      createCover();
+
+
+    cover.classList.add("show");
+
+
+    requestAnimationFrame(
+      function () {
+
+        requestAnimationFrame(
+          function () {
+
+            setTimeout(
+              function () {
+
+                cover.classList.remove(
+                  "show"
+                );
+
+              },
+              80
+            );
+
+          }
+        );
+
+      }
+    );
+
+  }
+
+
+  if (
+    document.readyState === "complete"
+  ) {
+
+    revealPage();
+
+  } else {
+
+    window.addEventListener(
+      "load",
+      revealPage,
+      {
+        once: true
+      }
+    );
+
+  }
+
+
+  /* ---------------------------------------------------------
+     Определяем кнопку «Главная»
+     --------------------------------------------------------- */
+
+  function isHomeButton(element) {
+
+    if (!element) {
+      return false;
+    }
+
+
+    const action =
+      (
+        element.dataset.action || ""
+      ).toLowerCase();
+
+
+    if (
+      action === "home" ||
+      action === "homepage" ||
+      action === "main-page"
+    ) {
+
+      return true;
+
+    }
+
+
+    const id =
+      (
+        element.id || ""
+      ).toLowerCase();
+
+
+    if (
+      id === "home" ||
+      id === "homebutton" ||
+      id === "homebtn"
+    ) {
+
+      return true;
+
+    }
+
+
+    const text =
+      (
+        element.textContent || ""
+      )
+        .trim()
+        .toLowerCase();
+
+
+    if (
+      text === "главная" ||
+      text === "главное"
+    ) {
+
+      return true;
+
+    }
+
+
+    return false;
+
+  }
+
+
+  /* ---------------------------------------------------------
+     Перехватываем нажатие ДО старого обработчика
+     --------------------------------------------------------- */
+
+  document.addEventListener(
+    "click",
+    function (event) {
+
+      const element =
+        event.target.closest(
+          "a, button, [role='button'], [data-action]"
+        );
+
+
+      if (
+        !isHomeButton(element)
+      ) {
+        return;
+      }
+
+
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+
+      const cover =
+        createCover();
+
+
+      sessionStorage.setItem(
+        STORAGE_KEY,
+        "1"
+      );
+
+
+      cover.classList.add(
+        "show"
+      );
+
+
+      setTimeout(
+        function () {
+
+          let target =
+            null;
+
+
+          /*
+             Если у кнопки есть ссылка —
+             используем её.
+          */
+
+          if (
+            element.tagName === "A" &&
+            element.href
+          ) {
+
+            try {
+
+              target =
+                new URL(
+                  element.href,
+                  location.href
+                );
+
+
+              /*
+                 Убираем старый ?reload=...
+                 если он присутствует.
+              */
+
+              target.searchParams.delete(
+                "reload"
+              );
+
+
+            } catch (e) {
+
+              target =
+                null;
+
+            }
+
+          }
+
+
+          /*
+             Если мы уже на главной —
+             просто обновляем её.
+          */
+
+          if (
+            !target ||
+            (
+              target.origin === location.origin &&
+              target.pathname === location.pathname
+            )
+          ) {
+
+            location.reload();
+
+            return;
+
+          }
+
+
+          /*
+             Если ссылка ведёт на главную —
+             переходим плавно.
+          */
+
+          location.href =
+            target.href;
+
+        },
+        145
+      );
+
+    },
+    true
+  );
+
+})();
       ).catch(function () {});
 
     },
