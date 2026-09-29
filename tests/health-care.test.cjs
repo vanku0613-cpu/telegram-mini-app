@@ -46,7 +46,22 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     assert.equal(await page.locator('.city-heading').innerText(),'Выберите город');
     assert.equal(await page.evaluate(()=>document.querySelector('#cityNavigation').getBoundingClientRect().top>=document.querySelector('.finder').getBoundingClientRect().bottom),true);
     await page.locator('#search').fill('Килия');assert.equal(await page.locator('.city-tab').count(),1);await page.locator('#clear').click();
+    await page.evaluate(()=>window.scrollTo(0,100));
+    const initialScroll=await page.evaluate(()=>scrollY);
+    assert.ok(initialScroll>0);
     await page.locator('.city-tab').filter({hasText:/^Измаил$/}).click();await page.locator('.category-tile').first().waitFor();
+    assert.equal(await page.evaluate(()=>scrollY),initialScroll);
+    // Short/empty city lists must not move the city controls or clamp scroll to the top.
+    await page.evaluate(()=>window.scrollTo(0,440));
+    for(const city of [...data.cityOrder.slice(1),'Измаил']){
+      const before=await page.locator('#cityNavigation').boundingBox();
+      const scroll=await page.evaluate(()=>scrollY);
+      await page.getByRole('link',{name:city,exact:true}).click();
+      await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+      assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),city);
+      assert.ok(Math.abs((await page.locator('#cityNavigation').boundingBox()).y-before.y)<=1,city+' moved city controls');
+      assert.ok(Math.abs((await page.evaluate(()=>scrollY))-scroll)<=1,city+' changed scroll');
+    }
     assert.equal(await page.locator('.city-tab').first().innerText(),'Измаил');
     assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),'Измаил');
     assert.equal(await page.locator('.city-vet').count(),1);

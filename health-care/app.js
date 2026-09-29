@@ -122,6 +122,21 @@
   $('search').addEventListener('input',render);
   $('clear').addEventListener('click',()=>{$('search').value='';render();$('search').focus()});
   document.addEventListener('click',event=>{
+    const city=event.target.closest('a.city-tab');
+    if(city&&event.button===0&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&!event.altKey){
+      event.preventDefault();
+      const navigation=$('cityNavigation'),page=document.querySelector('.page');
+      const top=navigation.getBoundingClientRect().top;
+      // Keep short city lists from clamping scroll while the content is replaced.
+      page.style.minHeight=document.documentElement.scrollHeight+'px';
+      if(location.hash!==city.hash)history.pushState(null,'',city.getAttribute('href'));
+      $('search').value='';render();
+      const position=Math.max(0,window.scrollY+navigation.getBoundingClientRect().top-top);
+      page.style.minHeight=(position+window.innerHeight)+'px';
+      window.scrollTo({top:position,left:0,behavior:'instant'});
+      navigation.querySelector('[aria-current="true"]')?.focus({preventScroll:true});
+      return;
+    }
     const button=event.target.closest('[data-favorite]');if(!button)return;
     const key=button.dataset.favorite,next=readSaved();const removing=next.has(key);
     if(removing)next.delete(key);else next.add(key);
@@ -131,7 +146,7 @@
   });
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null){saved=readSaved();if(data&&route().favorites)render();else syncFavorites()}});
   document.addEventListener('pointerdown',event=>{const el=event.target.closest('a,button');if(el){el.classList.add('tap-lit');setTimeout(()=>el.classList.remove('tap-lit'),680)}},{passive:true});
-  window.addEventListener('hashchange',()=>{$('search').value='';render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
-  try{const response=await fetch('data.json?v=20260930-4',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
+  window.addEventListener('hashchange',()=>{document.querySelector('.page').style.minHeight='';$('search').value='';render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
+  try{const response=await fetch('data.json?v=20260930-5',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
   catch{$('content').innerHTML='<p class="empty error">Не удалось загрузить контакты. Проверьте соединение и обновите страницу.</p>'; $('topNav').innerHTML=homeLink;$('bottomNav').innerHTML=homeLink;}
 })();
