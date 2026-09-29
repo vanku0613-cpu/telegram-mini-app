@@ -246,10 +246,6 @@ window.IZMAIL_SETTINGS = {
 
   /* =========================================================
      ОСНОВНЫЕ ССЫЛКИ MAIN-V2
-
-     ВАЖНО:
-     Страница теперь находится внутри папки main-v2,
-     поэтому локальные ссылки идут через ../
      ========================================================= */
 
   links: {
@@ -258,13 +254,13 @@ window.IZMAIL_SETTINGS = {
       "https://t.me/SPRAVOCHNIK_IZMAIL",
 
 
-    /* Укрытия находятся уровнем выше */
+    /* Укрытия */
 
     shelter:
       "../ukrytia/",
 
 
-    /* Соглашение находится уровнем выше */
+    /* Соглашение */
 
     agreement:
       "../soglashenie/",
@@ -282,16 +278,21 @@ window.IZMAIL_SETTINGS = {
       "https://minfin.com.ua/currency/izmail/",
 
 
-    /* Наши группы находятся уровнем выше */
+    /* Наши группы */
 
     groups:
       "../our-groups-menu/",
 
 
-    /* Главная замороженная версия */
+    /*
+      ГЛАВНАЯ
+
+      Теперь это именно текущая версия MAIN-V2.
+      В старую корневую версию ../ больше не уходим.
+    */
 
     home:
-      "../"
+      "./"
 
   },
 
@@ -1165,6 +1166,8 @@ function izmailSearchIsActive() {
 
 
 })();
+
+
 /* =========================================================
    УСКОРЕНИЕ MAIN-V2
    SERVICE WORKER + ПРЕДЗАГРУЗКА СТРАНИЦ
@@ -1172,81 +1175,121 @@ function izmailSearchIsActive() {
 
 (function () {
 
-  /* Регистрация Service Worker */
+
+  /* ---------------------------------------------------------
+     SERVICE WORKER
+     --------------------------------------------------------- */
 
   if ("serviceWorker" in navigator) {
 
-    window.addEventListener("load", function () {
 
-      navigator.serviceWorker
-        .register("./sw.js")
-        .then(function (registration) {
+    window.addEventListener(
+      "load",
+      function () {
 
-          registration.update();
 
-        })
-        .catch(function (error) {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .then(
+            function (registration) {
 
-          console.log(
-            "Service Worker:",
-            error
+
+              registration.update();
+
+
+            }
+          )
+          .catch(
+            function (error) {
+
+
+              console.log(
+                "Service Worker:",
+                error
+              );
+
+
+            }
           );
 
-        });
 
-    });
+      }
+    );
+
 
   }
 
 
   /* ---------------------------------------------------------
-     Заранее подготавливаем страницы,
-     на которые пользователь может перейти
+     ПРЕДЗАГРУЗКА ВНУТРЕННИХ СТРАНИЦ
      --------------------------------------------------------- */
 
   var pages = [
+
     "../soglashenie/",
+
     "../ukrytia/",
+
     "../our-groups-menu/"
+
   ];
 
 
-  pages.forEach(function (url) {
+  pages.forEach(
+    function (url) {
 
-    var link =
-      document.createElement("link");
 
-    link.rel =
-      "prefetch";
+      var link =
+        document.createElement(
+          "link"
+        );
 
-    link.href =
-      url;
 
-    document.head.appendChild(link);
+      link.rel =
+        "prefetch";
 
-  });
+
+      link.href =
+        url;
+
+
+      document.head.appendChild(
+        link
+      );
+
+
+    }
+  );
 
 
   /* ---------------------------------------------------------
-     Как только пользователь касается внутренней кнопки,
-     начинаем загрузку страницы заранее
+     ПРИ КАСАНИИ ВНУТРЕННЕЙ ССЫЛКИ
+     НАЧИНАЕМ ЗАГРУЗКУ ЗАРАНЕЕ
      --------------------------------------------------------- */
 
   document.addEventListener(
     "pointerdown",
     function (event) {
 
+
       var link =
-        event.target.closest("a[href]");
+        event.target.closest(
+          "a[href]"
+        );
+
 
       if (!link) {
+
         return;
+
       }
 
 
       var url;
 
+
       try {
+
 
         url =
           new URL(
@@ -1254,9 +1297,12 @@ function izmailSearchIsActive() {
             location.href
           );
 
+
       } catch (e) {
 
+
         return;
+
 
       }
 
@@ -1267,356 +1313,180 @@ function izmailSearchIsActive() {
         url.origin !==
         location.origin
       ) {
+
+
         return;
+
+
       }
 
 
       fetch(
         url.href,
         {
-          method: "GET",
-          cache: "force-cache",
-          credentials: "same-origin"
-        }
 
-      /* =========================================================
-   ПЛАВНОЕ ОБНОВЛЕНИЕ КНОПКИ «ГЛАВНАЯ»
-   Без рывка и белой вспышки
+          method:
+            "GET",
+
+          cache:
+            "force-cache",
+
+          credentials:
+            "same-origin"
+
+        }
+      )
+      .catch(
+        function () {}
+      );
+
+
+    },
+    {
+
+      passive:
+        true
+
+    }
+  );
+
+
+})();
+
+
+/* =========================================================
+   КНОПКА «ГЛАВНАЯ»
+
+   БЕЗ ПЕРЕХОДА В СТАРУЮ КОРНЕВУЮ ВЕРСИЮ.
+   БЕЗ ?reload=...
+
+   Обновляем именно текущий MAIN-V2
+   по тому же адресу.
    ========================================================= */
 
 (function () {
 
-  const STORAGE_KEY = "izmail_smooth_home_reload";
-  const COVER_ID = "izmailSmoothReloadCover";
 
-
-  /* ---------------------------------------------------------
-     Создаём тёмную шторку
-     --------------------------------------------------------- */
-
-  function createCover() {
-
-    let cover =
-      document.getElementById(COVER_ID);
-
-    if (cover) {
-      return cover;
-    }
-
-
-    const style =
-      document.createElement("style");
-
-    style.textContent = `
-
-      #${COVER_ID} {
-        position: fixed;
-        inset: 0;
-
-        z-index: 2147483647;
-
-        background: #061a33;
-
-        opacity: 0;
-
-        pointer-events: none;
-
-        transition:
-          opacity 140ms ease-out;
-      }
-
-      #${COVER_ID}.show {
-        opacity: 1;
-      }
-
-    `;
-
-    document.head.appendChild(style);
-
-
-    cover =
-      document.createElement("div");
-
-    cover.id =
-      COVER_ID;
-
-    document.body.appendChild(cover);
-
-
-    return cover;
-
-  }
-
-
-  /* ---------------------------------------------------------
-     После обновления плавно открываем страницу
-     --------------------------------------------------------- */
-
-  function revealPage() {
-
-    if (
-      sessionStorage.getItem(STORAGE_KEY)
-      !== "1"
-    ) {
-      return;
-    }
-
-
-    sessionStorage.removeItem(
-      STORAGE_KEY
-    );
-
-
-    const cover =
-      createCover();
-
-
-    cover.classList.add("show");
-
-
-    requestAnimationFrame(
-      function () {
-
-        requestAnimationFrame(
-          function () {
-
-            setTimeout(
-              function () {
-
-                cover.classList.remove(
-                  "show"
-                );
-
-              },
-              80
-            );
-
-          }
-        );
-
-      }
-    );
-
-  }
-
-
-  if (
-    document.readyState === "complete"
+  function findHomeButton(
+    target
   ) {
 
-    revealPage();
 
-  } else {
+    var element =
+      target.closest(
+        "a, button, [role='button'], [data-action], [data-link]"
+      );
 
-    window.addEventListener(
-      "load",
-      revealPage,
-      {
-        once: true
-      }
-    );
-
-  }
-
-
-  /* ---------------------------------------------------------
-     Определяем кнопку «Главная»
-     --------------------------------------------------------- */
-
-  function isHomeButton(element) {
 
     if (!element) {
-      return false;
+
+      return null;
+
     }
 
 
-    const action =
+    var action =
       (
-        element.dataset.action || ""
+        element.dataset.action ||
+        ""
       ).toLowerCase();
 
 
-    if (
-      action === "home" ||
-      action === "homepage" ||
-      action === "main-page"
-    ) {
-
-      return true;
-
-    }
-
-
-    const id =
+    var dataLink =
       (
-        element.id || ""
+        element.dataset.link ||
+        ""
       ).toLowerCase();
 
 
-    if (
-      id === "home" ||
-      id === "homebutton" ||
-      id === "homebtn"
-    ) {
-
-      return true;
-
-    }
-
-
-    const text =
+    var id =
       (
-        element.textContent || ""
+        element.id ||
+        ""
+      ).toLowerCase();
+
+
+    var text =
+      (
+        element.textContent ||
+        ""
       )
-        .trim()
-        .toLowerCase();
+      .trim()
+      .toLowerCase();
 
 
     if (
-      text === "главная" ||
-      text === "главное"
+
+      action === "home" ||
+
+      dataLink === "home" ||
+
+      id === "home" ||
+
+      id === "homebutton" ||
+
+      id === "homebtn" ||
+
+      text === "главная"
+
     ) {
 
-      return true;
+
+      return element;
+
 
     }
 
 
-    return false;
+    return null;
 
   }
 
-
-  /* ---------------------------------------------------------
-     Перехватываем нажатие ДО старого обработчика
-     --------------------------------------------------------- */
 
   document.addEventListener(
     "click",
     function (event) {
 
-      const element =
-        event.target.closest(
-          "a, button, [role='button'], [data-action]"
+
+      var button =
+        findHomeButton(
+          event.target
         );
 
 
-      if (
-        !isHomeButton(element)
-      ) {
+      if (!button) {
+
         return;
+
       }
 
 
+      /*
+        Останавливаем старую логику кнопки,
+        если она есть в index.html.
+      */
+
       event.preventDefault();
+
       event.stopPropagation();
+
       event.stopImmediatePropagation();
 
 
-      const cover =
-        createCover();
+      /*
+        Не меняем адрес.
+        Не переходим в ../.
+        Не добавляем ?reload=...
 
+        Просто обновляем текущий MAIN-V2.
+      */
 
-      sessionStorage.setItem(
-        STORAGE_KEY,
-        "1"
-      );
+      window.location.reload();
 
-
-      cover.classList.add(
-        "show"
-      );
-
-
-      setTimeout(
-        function () {
-
-          let target =
-            null;
-
-
-          /*
-             Если у кнопки есть ссылка —
-             используем её.
-          */
-
-          if (
-            element.tagName === "A" &&
-            element.href
-          ) {
-
-            try {
-
-              target =
-                new URL(
-                  element.href,
-                  location.href
-                );
-
-
-              /*
-                 Убираем старый ?reload=...
-                 если он присутствует.
-              */
-
-              target.searchParams.delete(
-                "reload"
-              );
-
-
-            } catch (e) {
-
-              target =
-                null;
-
-            }
-
-          }
-
-
-          /*
-             Если мы уже на главной —
-             просто обновляем её.
-          */
-
-          if (
-            !target ||
-            (
-              target.origin === location.origin &&
-              target.pathname === location.pathname
-            )
-          ) {
-
-            location.reload();
-
-            return;
-
-          }
-
-
-          /*
-             Если ссылка ведёт на главную —
-             переходим плавно.
-          */
-
-          location.href =
-            target.href;
-
-        },
-        145
-      );
 
     },
     true
   );
 
-})();
-      ).catch(function () {});
-
-    },
-    {
-      passive: true
-    }
-  );
 
 })();
