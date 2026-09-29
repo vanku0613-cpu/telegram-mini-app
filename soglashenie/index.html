@@ -480,85 +480,11 @@ body{
 
 </main>
 
-<script>
-(function () {
-
-  var buttons =
-    document.querySelectorAll(
-      "[data-main-back]"
-    );
-
-  buttons.forEach(
-    function (button) {
-
-      button.addEventListener(
-        "click",
-        function (event) {
-
-          event.preventDefault();
-
-          var cameFromMainV2 =
-            false;
-
-          try {
-
-            if (document.referrer) {
-
-              var ref =
-                new URL(
-                  document.referrer
-                );
-
-              if (
-                ref.origin === location.origin &&
-                ref.pathname.indexOf("/main-v2/") !== -1
-              ) {
-
-                cameFromMainV2 =
-                  true;
-
-              }
-
-            }
-
-          } catch (e) {}
-
-
-          /*
-            Если соглашение открыли из MAIN-V2,
-            возвращаем уже открытую страницу
-            из истории браузера.
-          */
-
-          if (
-            cameFromMainV2 &&
-            history.length > 1
-          ) {
-
-            history.back();
-
-            return;
-
-          }
-
-
-          /*
-            Если соглашение открыли напрямую,
-            возвращаем в MAIN-V2 обычным способом.
-          */
-
-          location.replace(
-            "../main-v2/"
-          );
-
-        }
-      );
-
-    }
-  );
-
-})();
-</script>
+<!--
+  ЕДИНЫЙ ОБЩИЙ СКРИПТ НАВИГАЦИИ.
+  Теперь отдельной логики возврата на этой странице нет.
+-->
+<script src="../navigation.js?v=1"></script>
 
 </body>
 </html>
