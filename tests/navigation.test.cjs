@@ -41,7 +41,24 @@ test('home, current buttons, nested returns and future delegated buttons', async
       page.on('pageerror', error => errors.push(error.message));
       await page.goto(origin + home);
       await page.waitForFunction(() => window.IZMAIL_NAV_READY && document.getElementById('weatherTemp').textContent === '22°C');
-      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      await page.waitForFunction(() => {
+        const search = document.querySelector('.search-wrap').getBoundingClientRect();
+        const cards = document.querySelector('.cards').getBoundingClientRect();
+        const groups = document.querySelector('.groups').getBoundingClientRect();
+        return Math.abs((groups.top - cards.bottom) - (cards.top - search.bottom)) < .5;
+      });
+      for (const selector of ['#weatherPanel', '#currencyPanel', '#homeBtn', '#adsBtn', '#favBtn', '.search-wrap', '.card']) {
+        const control = page.locator(selector).first();
+        const before = await control.boundingBox();
+        await control.dispatchEvent('pointerdown', { button: 0 });
+        assert.equal(await control.evaluate(el => el.classList.contains('tap-lit')), true);
+        assert.match(await control.evaluate(el => getComputedStyle(el).boxShadow), /63, 148, 197/);
+        assert.deepEqual(await control.boundingBox(), before, 'glowing borders do not move controls');
+      }
+      assert.match(await page.locator('#weatherPanel').getAttribute('href'), /meteoblue.*707308$/);
+      await page.locator('#directorySearch').focus();
+      assert.match(await page.locator('.search-wrap').evaluate(el => getComputedStyle(el).boxShadow), /63, 148, 197/);
+      await page.locator('#directorySearch').blur();
       const getGeometry = () => page.evaluate(() => Object.fromEntries(['#bgMain', '.cards', '.groups', '.bottom', '.viewer'].map(selector => {
         const r = document.querySelector(selector).getBoundingClientRect();
         return [selector, [r.x, r.y, r.width, r.height]];
