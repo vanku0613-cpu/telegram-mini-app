@@ -13,7 +13,7 @@ window.IZMAIL_SETTINGS = {
 
   design: {
 
-    /* Идеальный текущий размер */
+    /* Текущий идеальный размер */
     masterScale: 1.09
 
   },
@@ -26,17 +26,13 @@ window.IZMAIL_SETTINGS = {
   layout: {
 
     /*
-      ВЕСЬ ИНТЕРФЕЙС СПУСКАЕМ ЕЩЁ НИЖЕ.
-
-      Было: 1.80%
-      Теперь: 3.60%
-
-      Фон и круглая аватарка НЕ двигаются.
+      Весь интерфейс опущен вниз.
+      Фон и круглая аватарка остаются на месте.
     */
     menuDown: "3.60%",
 
 
-    /* Счётчик просмотров */
+    /* Просмотры */
     viewerTop: "32.90%",
 
 
@@ -64,13 +60,13 @@ window.IZMAIL_SETTINGS = {
     agreementTop: "105.00%",
 
 
-    /* Одинаковый боковой отступ */
+    /* Одинаковые боковые поля */
     menuLeft: "4.88%",
 
     menuWidth: "90.24%",
 
 
-    /* Одинаковое расстояние между большими кнопками */
+    /* Расстояние между большими кнопками */
     cardsGap: "0.75vw",
 
 
@@ -366,8 +362,6 @@ window.IZMAIL_SETTINGS = {
 
     /* =====================================================
        ПОГОДНЫЕ ЭФФЕКТЫ
-
-       Остаются на фоне.
        ===================================================== */
 
     ".scene-layer{" +
@@ -387,9 +381,6 @@ window.IZMAIL_SETTINGS = {
 
     /* =====================================================
        ПРОСМОТРЫ
-
-       По горизонтали позиция будет рассчитана
-       автоматически точно по центру кнопки Погода.
        ===================================================== */
 
     ".viewer{" +
@@ -470,7 +461,7 @@ window.IZMAIL_SETTINGS = {
 
 
     /* =====================================================
-       8 БОЛЬШИХ КНОПОК
+       БОЛЬШИЕ КНОПКИ
        ===================================================== */
 
     ".cards{" +
@@ -567,7 +558,7 @@ window.IZMAIL_SETTINGS = {
 
 
     /* =====================================================
-       СОГЛАШЕНИЕ
+       ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
        ===================================================== */
 
     ".agreement{" +
@@ -585,9 +576,6 @@ window.IZMAIL_SETTINGS = {
 
     /* =====================================================
        КРУГЛАЯ АВАТАРКА
-
-       НЕ ДВИГАЕМ.
-       НЕ УВЕЛИЧИВАЕМ.
        ===================================================== */
 
     "#mainLogoHotspot{" +
@@ -627,17 +615,53 @@ window.IZMAIL_SETTINGS = {
 
 
 /* =========================================================
-   ВЫРАВНИВАЕМ БЛОК "ПРОСМОТРЕНО"
+   ПРОВЕРКА:
+   НАХОДИТСЯ ЛИ ПОЛЬЗОВАТЕЛЬ СЕЙЧАС В ПОИСКЕ
 
-   Он автоматически становится ровно
-   по центру кнопки "Погода".
+   Пока клавиатура открыта,
+   геометрию страницы НЕ пересчитываем.
+   ========================================================= */
 
-   Это работает на разных размерах телефона.
+function izmailSearchIsActive() {
+
+  var active =
+    document.activeElement;
+
+
+  if (!active) {
+    return false;
+  }
+
+
+  return !!(
+    active.matches &&
+    active.matches(
+      "#directorySearch, .search-real, input[type='search']"
+    )
+  );
+
+}
+
+
+/* =========================================================
+   ВЫРАВНИВАНИЕ "ПРОСМОТРЕНО"
+
+   Блок ставится ровно по центру кнопки Погода.
    ========================================================= */
 
 (function() {
 
   function alignViewerWithWeather() {
+
+    /*
+      Если сейчас открыт поиск —
+      вообще ничего не трогаем.
+    */
+
+    if (izmailSearchIsActive()) {
+      return;
+    }
+
 
     var viewer =
       document.querySelector(
@@ -648,6 +672,18 @@ window.IZMAIL_SETTINGS = {
     var weather =
       document.querySelector(
         ".weather-panel"
+      ) ||
+
+      document.querySelector(
+        "#weatherWidget"
+      ) ||
+
+      document.querySelector(
+        ".weather"
+      ) ||
+
+      document.querySelector(
+        ".top-row > *"
       );
 
 
@@ -676,26 +712,22 @@ window.IZMAIL_SETTINGS = {
       app.getBoundingClientRect();
 
 
-    /*
-      Находим точный центр кнопки Погода.
-    */
-
     var centerX =
       weatherRect.left -
       appRect.left +
       weatherRect.width / 2;
 
 
-    /*
-      Ставим блок Просмотрено
-      строго по этому центру.
-    */
-
     viewer.style.left =
       centerX.toFixed(2) + "px";
 
   }
 
+
+  /*
+    Первый расчёт —
+    только после загрузки страницы.
+  */
 
   window.addEventListener(
     "DOMContentLoaded",
@@ -715,9 +747,67 @@ window.IZMAIL_SETTINGS = {
   );
 
 
+  /*
+    При возвращении в приложение.
+    Но НЕ когда активен поиск.
+  */
+
+  document.addEventListener(
+    "visibilitychange",
+    function() {
+
+      if (
+        document.visibilityState === "visible" &&
+        !izmailSearchIsActive()
+      ) {
+
+        requestAnimationFrame(
+          alignViewerWithWeather
+        );
+
+      }
+
+    }
+  );
+
+
+  /*
+    Клавиатура Android меняет ВЫСОТУ окна.
+    Мы на это больше НЕ реагируем.
+
+    Пересчитываем только тогда,
+    когда реально изменилась ШИРИНА экрана.
+  */
+
+  var lastWidth =
+    window.innerWidth;
+
+
   window.addEventListener(
     "resize",
     function() {
+
+      var newWidth =
+        window.innerWidth;
+
+
+      var widthChanged =
+        Math.abs(
+          newWidth - lastWidth
+        ) > 4;
+
+
+      if (!widthChanged) {
+
+        /* Это почти наверняка клавиатура */
+        return;
+
+      }
+
+
+      lastWidth =
+        newWidth;
+
 
       requestAnimationFrame(
         alignViewerWithWeather
@@ -727,12 +817,24 @@ window.IZMAIL_SETTINGS = {
   );
 
 
+  /*
+    При настоящем повороте телефона.
+  */
+
   window.addEventListener(
-    "focus",
+    "orientationchange",
     function() {
 
-      requestAnimationFrame(
-        alignViewerWithWeather
+      setTimeout(
+        function() {
+
+          lastWidth =
+            window.innerWidth;
+
+          alignViewerWithWeather();
+
+        },
+        250
       );
 
     }
@@ -742,7 +844,7 @@ window.IZMAIL_SETTINGS = {
 
 
 /* =========================================================
-   ОДИНАКОВЫЕ ВЕРХНИЙ И НИЖНИЙ ОТСТУПЫ
+   ОДИНАКОВЫЕ ОТСТУПЫ
 
    ПОИСК
       ↓
@@ -753,12 +855,48 @@ window.IZMAIL_SETTINGS = {
    ОТСТУП
       ↓
    НАШИ ГРУППЫ
+
+   ВАЖНО:
+   больше НЕТ промежуточного сброса в 0px.
+   Поэтому карточки не должны дёргаться.
    ========================================================= */
 
 (function() {
 
+  function getCurrentShift() {
+
+    var raw =
+      getComputedStyle(
+        document.documentElement
+      ).getPropertyValue(
+        "--cards-section-shift"
+      );
+
+
+    var value =
+      parseFloat(raw);
+
+
+    if (isNaN(value)) {
+      return 0;
+    }
+
+
+    return value;
+
+  }
+
 
   function equalizeOuterGaps() {
+
+    /*
+      Если пользователь нажал поиск —
+      ничего вообще не пересчитываем.
+    */
+
+    if (izmailSearchIsActive()) {
+      return;
+    }
 
 
     var search =
@@ -790,14 +928,19 @@ window.IZMAIL_SETTINGS = {
     }
 
 
-    document.documentElement.style.setProperty(
-      "--cards-section-shift",
-      "0px"
-    );
-
-
     requestAnimationFrame(
       function() {
+
+
+        /*
+          Ещё раз проверяем:
+          за один кадр пользователь уже мог
+          нажать на строку поиска.
+        */
+
+        if (izmailSearchIsActive()) {
+          return;
+        }
 
 
         var searchRect =
@@ -812,24 +955,67 @@ window.IZMAIL_SETTINGS = {
           groups.getBoundingClientRect();
 
 
+        /*
+          Текущий верхний отступ.
+        */
+
         var topGap =
           cardsRect.top -
           searchRect.bottom;
 
+
+        /*
+          Нижний отступ.
+          Он не зависит от общего сдвига,
+          потому что cards и groups
+          двигаются вместе.
+        */
 
         var bottomGap =
           groupsRect.top -
           cardsRect.bottom;
 
 
-        var shift =
-          bottomGap -
-          topGap;
+        /*
+          Текущий уже применённый сдвиг.
+        */
+
+        var currentShift =
+          getCurrentShift();
 
 
-        if (shift < 0) {
+        /*
+          Рассчитываем новое положение
+          СРАЗУ, без предварительного
+          прыжка в 0px.
+        */
 
-          shift = 0;
+        var newShift =
+          currentShift +
+          (
+            bottomGap -
+            topGap
+          );
+
+
+        if (newShift < 0) {
+          newShift = 0;
+        }
+
+
+        /*
+          Если разница меньше половины пикселя,
+          вообще ничего не меняем.
+        */
+
+        if (
+          Math.abs(
+            newShift -
+            currentShift
+          ) < 0.5
+        ) {
+
+          return;
 
         }
 
@@ -838,7 +1024,7 @@ window.IZMAIL_SETTINGS = {
 
           "--cards-section-shift",
 
-          shift.toFixed(2) + "px"
+          newShift.toFixed(2) + "px"
 
         );
 
@@ -849,54 +1035,117 @@ window.IZMAIL_SETTINGS = {
   }
 
 
+  /*
+    Первый расчёт после загрузки.
+  */
+
   window.addEventListener(
     "DOMContentLoaded",
     function() {
 
-
       requestAnimationFrame(
         function() {
-
 
           requestAnimationFrame(
             equalizeOuterGaps
           );
 
-
         }
       );
 
+    }
+  );
+
+
+  /*
+    Возврат в Telegram.
+  */
+
+  document.addEventListener(
+    "visibilitychange",
+    function() {
+
+      if (
+        document.visibilityState === "visible" &&
+        !izmailSearchIsActive()
+      ) {
+
+        requestAnimationFrame(
+          equalizeOuterGaps
+        );
+
+      }
 
     }
   );
+
+
+  /*
+    КЛАВИАТУРУ ИГНОРИРУЕМ.
+
+    Если изменилась только высота,
+    карточки остаются абсолютно
+    на своих местах.
+  */
+
+  var lastWidth =
+    window.innerWidth;
 
 
   window.addEventListener(
     "resize",
     function() {
 
+      var newWidth =
+        window.innerWidth;
+
+
+      var widthChanged =
+        Math.abs(
+          newWidth - lastWidth
+        ) > 4;
+
+
+      if (!widthChanged) {
+
+        return;
+
+      }
+
+
+      lastWidth =
+        newWidth;
+
 
       requestAnimationFrame(
         equalizeOuterGaps
       );
 
-
     }
   );
 
+
+  /*
+    Настоящий поворот телефона.
+  */
 
   window.addEventListener(
-    "focus",
+    "orientationchange",
     function() {
 
+      setTimeout(
+        function() {
 
-      requestAnimationFrame(
-        equalizeOuterGaps
+          lastWidth =
+            window.innerWidth;
+
+          equalizeOuterGaps();
+
+        },
+        250
       );
-
 
     }
   );
-
 
 })();
