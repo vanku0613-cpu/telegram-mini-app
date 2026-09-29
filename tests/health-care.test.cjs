@@ -9,7 +9,7 @@ const data=require('../health-care/data.json');
 
 test('all source categories, phone numbers and media are transferred with provenance',()=>{
   assert.equal(data.cityOrder[0],'Измаил');
-  for(const city of ['Винница','Вилково','Шевченково'])assert.ok(!data.cityOrder.includes(city));
+  for(const city of ['Винница','Вилково','Шевченково','Львов'])assert.ok(!data.cityOrder.includes(city));
   const original=require('../health-care/research/telegram.json');
   assert.equal(new Set(data.records.map(r=>r.id)).size,data.records.length);
   for(const c of original){
@@ -37,10 +37,16 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.url().includes('.mp4'))videos.push(r.url())});page.on('response',r=>{if(r.status()>=400)failed.push(r.url())});
     const origin='http://127.0.0.1:'+server.address().port+'/health-care/';
     let navigation=0;
-    async function open(hash){await page.goto(origin+'?test='+(++navigation)+hash);await page.waitForFunction(()=>document.querySelector('#content .empty strong, .branch-card, .category-tile, .contact'));}
+    async function open(hash){await page.goto(origin+'?test='+(++navigation)+hash);await page.waitForFunction(()=>document.querySelector('#content .empty strong, .branch-card, .category-tile, .contact, .city-tab'));}
     await open('');assert.equal(await page.locator('.branch-card').count(),2);
     assert.deepEqual(await page.locator('.cover-title').allTextContents(),['Врачи и здоровье','Красота и уход']);
-    await page.locator('.branch-card.doctors').click();await page.locator('.city-tab[aria-current=true]').waitFor();
+    await page.locator('.branch-card.doctors').click();await page.locator('.city-tab').first().waitFor();
+    assert.equal(await page.locator('.city-tab[aria-current=true]').count(),0);
+    assert.equal(await page.locator('.category-tile, .contact').count(),0);
+    assert.equal(await page.locator('.city-heading').innerText(),'Выберите город');
+    assert.equal(await page.evaluate(()=>document.querySelector('#cityNavigation').getBoundingClientRect().top>=document.querySelector('.finder').getBoundingClientRect().bottom),true);
+    await page.locator('#search').fill('Килия');assert.equal(await page.locator('.city-tab').count(),1);await page.locator('#clear').click();
+    await page.locator('.city-tab').filter({hasText:/^Измаил$/}).click();await page.locator('.category-tile').first().waitFor();
     assert.equal(await page.locator('.city-tab').first().innerText(),'Измаил');
     assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),'Измаил');
     assert.equal(await page.locator('.city-vet').count(),1);
@@ -89,7 +95,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     await page.locator('#search').fill('099 533 83 11');assert.equal(await page.locator('.contact').count(),1);assert.match(await page.locator('.contact h2').innerText(),/Виктория/);
     await page.locator('#search').fill('несуществующийконтакт');assert.equal(await page.locator('.contact').count(),0);
     await open('#category/96292');await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),1);await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),0);
-    for(const hash of ['#doctors','#city/'+encodeURIComponent('Татарбунары'),'#beauty']){
+    for(const hash of ['#city/'+encodeURIComponent('Измаил'),'#city/'+encodeURIComponent('Татарбунары'),'#beauty']){
       await open(hash);
       for(const img of await page.locator('.category-tile img:not(.visual-backdrop)').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0));}
       assert.equal(await page.locator('video').count(),0);

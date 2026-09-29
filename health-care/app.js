@@ -28,7 +28,7 @@
     if(category?.id==='96323'){category=data.categories.find(c=>c.id==='20125');cityName='Татарбунары'}
     if(category?.id==='96319'){category=null;cityName=cityName||'Килия'}
     const branch=category?.branch || (cityName?'doctors':branches[parts[0]]?parts[0]:null);
-    if(branch==='doctors'&&!cityName)cityName='Измаил';
+    if(category?.branch==='doctors'&&!cityName)cityName='Измаил';
     return {category,cityName,branch,favorites:parts[0]==='favorites'};
   };
   const homeLink = '<a class="back-btn" href="../main-v2/">⌂ Вернуться в главное меню</a>';
@@ -47,7 +47,7 @@
     ['Ветеринарная помощь',['20125']]
   ];
   function branchCover(id){return '<div class="branch-visual"><span class="cover-brand">СПРАВОЧНИК ИЗМАИЛ</span><strong class="cover-title">'+branches[id]+'</strong><img src="media/'+(id==='doctors'?'doctor':'beauty')+'-photo.jpg" alt="" width="320" height="216"></div>'}
-  function cityTabs(city){return '<nav class="city-tabs" aria-label="Город приёма">'+cities().map(c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'>'+escape(c)+'</a>').join('')+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
+  function cityTabs(city,q=''){const options=cities().filter(c=>city||norm(c).includes(norm(q)));return '<h2 class="city-heading">Выберите город</h2><nav class="city-tabs" aria-label="Город приёма">'+options.map(c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'>'+escape(c)+'</a>').join('')+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
   function reviewPanel(r){if(!r.review)return '';const v=r.review;return '<details class="reviews"><summary>Отзывы <span class="review-hide">· скрыть</span></summary><p>'+escape(v.summary)+'</p><small>'+escape(v.label)+' · '+escape(v.checked)+'</small><a href="'+escape(v.url)+'" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a></details>'}
   function thumb(c,city) {
     const cover=c.id==='20125'&&city==='Татарбунары'?data.categories.find(x=>x.id==='96323'):c;
@@ -84,13 +84,19 @@
       $('title').textContent=title;document.title=title+(cityName?' · '+cityName:' · Измаил');
       const back=category?'<a class="back-btn secondary" href="'+(branch==='doctors'?cityHref(cityName):'#beauty')+'">← Назад к категориям</a>':branch||favorites?'<a class="back-btn secondary" href="#">← Назад в раздел</a>':'';
       $('topNav').innerHTML=homeLink+back;$('bottomNav').innerHTML=homeLink+back;
-      $('cityNavigation').innerHTML=branch==='doctors'?cityTabs(cityName):'';
+      $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';
       $('profileMedia').innerHTML=category?media(category,cityName):branch?'<section class="profile-banner">'+branchCover(branch)+'</section>':'';
       document.querySelector('.finder').hidden=!branch&&!favorites;
-      $('search').placeholder=branch==='doctors'?'Поиск: '+cityName:'Специальность, имя или телефон';
+      $('search').placeholder=branch==='doctors'?(cityName?'Поиск: '+cityName:'Поиск города'):'Специальность, имя или телефон';
     }
     $('clear').hidden=!q;
+    if(branch==='doctors')$('cityNavigation').innerHTML=cityTabs(cityName,q);
+    if(branch==='doctors'&&!cityName){
+      $('resultStatus').textContent='';
+      $('content').innerHTML=cities().some(c=>norm(c).includes(norm(q)))?'':'<p class="empty"><strong>Город не найден</strong>Выберите город из списка или измените запрос.</p>';
+      return;
+    }
     let scope=data.records.filter(r=>(!branch||data.categories.find(c=>c.id===r.category).branch===branch)&&(!category||categoryFor(r)===category.id)&&(!cityName||isInCity(r,cityName)));
     if(favorites){const seen=new Set();scope=scope.map(r=>({...r,phones:r.phones.filter(p=>{const k=favoriteKey(r,p);if(!saved.has(k)||seen.has(k))return false;seen.add(k);return true})})).filter(r=>r.phones.length)}
     if(q){
@@ -126,6 +132,6 @@
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null){saved=readSaved();if(data&&route().favorites)render();else syncFavorites()}});
   document.addEventListener('pointerdown',event=>{const el=event.target.closest('a,button');if(el){el.classList.add('tap-lit');setTimeout(()=>el.classList.remove('tap-lit'),680)}},{passive:true});
   window.addEventListener('hashchange',()=>{$('search').value='';render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
-  try{const response=await fetch('data.json?v=20260930-3',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
+  try{const response=await fetch('data.json?v=20260930-4',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
   catch{$('content').innerHTML='<p class="empty error">Не удалось загрузить контакты. Проверьте соединение и обновите страницу.</p>'; $('topNav').innerHTML=homeLink;$('bottomNav').innerHTML=homeLink;}
 })();
