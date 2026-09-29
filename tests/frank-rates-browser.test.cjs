@@ -19,7 +19,7 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
     if (name.endsWith('/')) name += 'index.html';
     const file = path.join(root, name);
     if (!fs.existsSync(file)) { res.writeHead(404); return res.end(); }
-    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : 'text/html');
+    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : 'text/html');
     res.end(fs.readFileSync(file));
   });
   const browser = await chromium.launch({ headless: true, channel: process.env.BROWSER_CHANNEL || undefined });
@@ -52,11 +52,15 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       releaseFirst();
       await page.waitForFunction(() => document.getElementById('usdRate').textContent === '44.70 / 45.20');
       assert.equal(await page.locator('#eurRate').textContent(), '51.00 / 51.70');
+      assert.equal(await page.locator('#ratesUpdated').getAttribute('datetime'), new Date(data.fetchedAt).toISOString());
+      assert.equal(await page.locator('#ratesUpdated span').textContent(), new Intl.DateTimeFormat('ru-RU', {
+        timeZone: 'Europe/Kyiv', day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+      }).format(new Date(data.fetchedAt)));
       assert.equal(await page.locator('#currencyPanel a').getAttribute('href'), 'https://t.me/frankexange');
       const box = await page.locator('#currencyPanel').boundingBox();
       const fits = await page.locator('#currencyPanel').evaluate(el => {
         const panel = el.getBoundingClientRect();
-        return [...el.querySelectorAll('.rate span, .info-title a')].every(item => {
+        return [...el.querySelectorAll('.rate span, .info-title a, #ratesUpdated')].every(item => {
           const rect = item.getBoundingClientRect();
           return rect.left >= panel.left && rect.right <= panel.right && rect.bottom <= panel.bottom;
         });
@@ -69,9 +73,12 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       assert.equal(requests, before);
       await page.clock.fastForward(10000);
       await page.waitForFunction(() => document.getElementById('usdRate').textContent === '44.80 / 45.20');
+      const updatedStamp = await page.locator('#ratesUpdated').getAttribute('datetime');
+      assert.equal(updatedStamp, data.fetchedAt);
       fail = true;
       await page.reload();
       await page.waitForFunction(() => document.getElementById('usdRate').textContent === '44.80 / 45.20');
+      assert.equal(await page.locator('#ratesUpdated').getAttribute('datetime'), updatedStamp, 'offline rates retain their original update time');
       fail = false;
       data.usd = { buy: 100, sell: 1 };
       await page.evaluate(() => window.dispatchEvent(new Event('online')));

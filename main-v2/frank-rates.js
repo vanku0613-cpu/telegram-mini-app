@@ -28,6 +28,19 @@
     var panel = document.getElementById("currencyPanel");
     panel.title = "Frank Exchange · покупка / продажа" + (data.date ? " · " + data.date : "");
     panel.setAttribute("aria-label", panel.title);
+    var updated = document.getElementById("ratesUpdated");
+    if (updated) {
+      // fetchedAt is when the shared data was refreshed, not the channel post time.
+      var date = new Date(data.fetchedAt);
+      var stamp = new Intl.DateTimeFormat("ru-RU", {
+        timeZone: "Europe/Kyiv", day: "2-digit", month: "2-digit", year: "2-digit",
+        hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+      }).format(date);
+      updated.dateTime = date.toISOString();
+      updated.querySelector("span").textContent = stamp;
+      updated.title = "Данные обновлены " + stamp + " (киевское время)";
+      panel.setAttribute("aria-label", panel.title + ". " + updated.title);
+    }
     last = data;
     try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch (_) {}
   }

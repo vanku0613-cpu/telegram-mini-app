@@ -881,6 +881,7 @@ a.nav{ text-decoration:none; }
 
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 <link rel="stylesheet" href="../home-weather.css?v=2">
+<link rel="stylesheet" href="../home-info.css?v=1">
 <script src="../weather-profile.js?v=2"></script>
 </head>
 <body>
@@ -916,6 +917,7 @@ a.nav{ text-decoration:none; }
         <div class="info-title"><a href="https://t.me/frankexange" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline" title="Frank Exchange — покупка / продажа">FRANK EXCHANGE</a></div>
         <div class="rate"><span>USD</span><span id="usdRate">— / —</span></div>
         <div class="rate"><span>EUR</span><span id="eurRate">— / —</span></div>
+        <time class="rates-updated" id="ratesUpdated">Обновлено · Киев<span>—</span></time>
       </div>
       <a class="shelter pressable" id="shelterBtn"
       href="./ukrytia/" aria-label="Укрытия Измаила"><span class="shield">⌂</span><span class="shelter-label">Укрытие<br>Измаил</span><span class="chev">›</span><span class="press-glow"></span></a>
@@ -1525,7 +1527,7 @@ a.nav{ text-decoration:none; }
 
   /* Frank Exchange rates from the shared, periodically updated JSON. */
   var frankRatesScript=document.createElement("script");
-  frankRatesScript.src="./frank-rates.js?v=4";
+  frankRatesScript.src="./frank-rates.js?v=5";
   document.head.appendChild(frankRatesScript);
 
   loadWeather();

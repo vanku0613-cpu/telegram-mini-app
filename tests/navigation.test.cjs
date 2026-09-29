@@ -12,7 +12,7 @@ test('home, current buttons, nested returns and future delegated buttons', async
     if (name.endsWith('/')) name += 'index.html';
     const file = path.join(root, name);
     if (!fs.existsSync(file)) { res.writeHead(404); return res.end(); }
-    res.setHeader('Content-Type', name.endsWith('.js') ? 'text/javascript' : name.endsWith('.json') ? 'application/json' : 'text/html');
+    res.setHeader('Content-Type', name.endsWith('.js') ? 'text/javascript' : name.endsWith('.css') ? 'text/css' : name.endsWith('.json') ? 'application/json' : 'text/html');
     res.end(fs.readFileSync(file));
   });
   const browser = await chromium.launch({
