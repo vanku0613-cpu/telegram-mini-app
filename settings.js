@@ -13,7 +13,7 @@ window.IZMAIL_SETTINGS = {
 
   design: {
 
-    /* Уже подобранный идеальный размер */
+    /* Идеальный текущий размер */
     masterScale: 1.09
 
   },
@@ -26,47 +26,55 @@ window.IZMAIL_SETTINGS = {
   layout: {
 
     /*
-      ВЕСЬ ИНТЕРФЕЙС ОПУСКАЕМ НИЖЕ.
+      ВЕСЬ ИНТЕРФЕЙС СПУСКАЕМ ЕЩЁ НИЖЕ.
 
-      Было: 0.90%
-      Теперь: 1.80%
+      Было: 1.80%
+      Теперь: 3.60%
 
       Фон и круглая аватарка НЕ двигаются.
     */
-    menuDown: "1.80%",
+    menuDown: "3.60%",
 
 
-    /* Базовые положения */
-
+    /* Счётчик просмотров */
     viewerTop: "32.90%",
 
+
+    /* Погода / Курс / Укрытие */
     topRowTop: "36.60%",
 
+
+    /* Поиск */
     searchTop: "43.50%",
 
+
+    /* 8 больших кнопок */
     cardsTop: "51.00%",
 
+
+    /* Наши группы */
     groupsTop: "91.20%",
 
+
+    /* Главная / Реклама / Избранное */
     bottomTop: "98.20%",
 
+
+    /* Пользовательское соглашение */
     agreementTop: "105.00%",
 
 
     /* Одинаковый боковой отступ */
-
     menuLeft: "4.88%",
 
     menuWidth: "90.24%",
 
 
     /* Одинаковое расстояние между большими кнопками */
-
     cardsGap: "0.75vw",
 
 
     /* Погодная зона */
-
     weatherStageHeight: "41.5%"
 
   },
@@ -294,7 +302,7 @@ window.IZMAIL_SETTINGS = {
 
 
 /* =========================================================
-   ПРИМЕНЕНИЕ НАСТРОЕК
+   ПРИМЕНЕНИЕ ОСНОВНЫХ НАСТРОЕК
    ========================================================= */
 
 (function(cfg) {
@@ -378,7 +386,10 @@ window.IZMAIL_SETTINGS = {
 
 
     /* =====================================================
-       СЧЁТЧИК
+       ПРОСМОТРЫ
+
+       По горизонтали позиция будет рассчитана
+       автоматически точно по центру кнопки Погода.
        ===================================================== */
 
     ".viewer{" +
@@ -392,6 +403,8 @@ window.IZMAIL_SETTINGS = {
       "scale:" +
       scale +
       ";" +
+
+      "transform:translateX(-50%);" +
 
       "transform-origin:center center;" +
 
@@ -611,6 +624,121 @@ window.IZMAIL_SETTINGS = {
   );
 
 })(window.IZMAIL_SETTINGS);
+
+
+/* =========================================================
+   ВЫРАВНИВАЕМ БЛОК "ПРОСМОТРЕНО"
+
+   Он автоматически становится ровно
+   по центру кнопки "Погода".
+
+   Это работает на разных размерах телефона.
+   ========================================================= */
+
+(function() {
+
+  function alignViewerWithWeather() {
+
+    var viewer =
+      document.querySelector(
+        ".viewer"
+      );
+
+
+    var weather =
+      document.querySelector(
+        ".weather-panel"
+      );
+
+
+    var app =
+      document.getElementById(
+        "app"
+      );
+
+
+    if (
+      !viewer ||
+      !weather ||
+      !app
+    ) {
+
+      return;
+
+    }
+
+
+    var weatherRect =
+      weather.getBoundingClientRect();
+
+
+    var appRect =
+      app.getBoundingClientRect();
+
+
+    /*
+      Находим точный центр кнопки Погода.
+    */
+
+    var centerX =
+      weatherRect.left -
+      appRect.left +
+      weatherRect.width / 2;
+
+
+    /*
+      Ставим блок Просмотрено
+      строго по этому центру.
+    */
+
+    viewer.style.left =
+      centerX.toFixed(2) + "px";
+
+  }
+
+
+  window.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+      requestAnimationFrame(
+        function() {
+
+          requestAnimationFrame(
+            alignViewerWithWeather
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  window.addEventListener(
+    "resize",
+    function() {
+
+      requestAnimationFrame(
+        alignViewerWithWeather
+      );
+
+    }
+  );
+
+
+  window.addEventListener(
+    "focus",
+    function() {
+
+      requestAnimationFrame(
+        alignViewerWithWeather
+      );
+
+    }
+  );
+
+})();
 
 
 /* =========================================================
