@@ -58,10 +58,13 @@ jobs:
       # Bot commits do not trigger the legacy Pages build. Publish explicitly.
       - uses: actions/configure-pages@v5
         if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+      - name: Prepare public site
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+        run: rsync -a --exclude='.git' --exclude='_site' --exclude='health-care/research' --exclude='__pycache__' ./ _site/
       - uses: actions/upload-pages-artifact@v4
         if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
         with:
-          path: '.'
+          path: '_site'
       - uses: actions/deploy-pages@v4
         if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
         id: deployment

@@ -245,7 +245,7 @@ window.IZMAIL_SETTINGS = {
   categoryLinks: {
 
     "Здоровье и уход":
-      "",
+      "../health-care/",
 
     "Транспорт / Такси":
       "",

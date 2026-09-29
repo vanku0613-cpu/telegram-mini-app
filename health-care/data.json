@@ -1,0 +1,3691 @@
+{
+  "updated": "2026-09-30",
+  "sources": {
+    "telegram": {
+      "label": "Подборка справочника",
+      "checked": "2026-09-30",
+      "kind": "community"
+    },
+    "hospital": {
+      "label": "Сайт городской центральной больницы",
+      "url": "https://izmailcml.org.ua/контакты/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "doctors": {
+      "label": "Сайт МЦЛ · список специалистов",
+      "url": "https://izmailcml.org.ua/безкоштовні-послуги/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "primary": {
+      "label": "Сайт городского центра ПМСП",
+      "url": "https://izm.pmsd.org.ua/kontaktna-informatsiya/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "eurotom": {
+      "label": "Сайт «ЄвроТом»",
+      "url": "https://www.eurotom.in/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "ukrmedtrans": {
+      "label": "Сайт «Укрмедтранс»",
+      "url": "https://ukrmedtrans.com/contacts",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "lileya": {
+      "label": "Сайт «Лілея»",
+      "url": "https://lileyamed.com.ua/contact/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "healthhub": {
+      "label": "Каталог UZDInfo",
+      "url": "https://uzdinfo.com.ua/ru/health-hub-izmail-uzd-clinic-1301",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "nszu": {
+      "label": "Кабмин · информация МОЗ, 22.05.2026",
+      "url": "https://www.kmu.gov.ua/news/tsentry-mentalnoho-zdorovia-psykholohichna-dopomoha-dlia-ponad-120-tysiach-ukraintsiv-na-rik",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "laserhouse": {
+      "label": "Сайт «Лазерхауз» · Измаил",
+      "url": "https://www.laserhouse.com.ua/ua/trix_ism",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "mental": {
+      "label": "Центр ПМСП · городской путеводитель, 02.09.2026",
+      "url": "https://izm.pmsd.org.ua/novyny/putivnyk-marshruty-posluh-z-mentalnoho-zdorov-ia-v-izmailskij-miskij-terytorialnij-hromadi/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "smartlab": {
+      "label": "Смартлаб · отделение в Измаиле",
+      "url": "https://smartlab.ua/address/izmayil/izmayil-vul-verhnotorgova-56-primishennya-3",
+      "checked": "2026-09-30",
+      "kind": "official"
+    }
+  },
+  "categories": [
+    {
+      "id": "96228",
+      "branch": "doctors",
+      "name": "Поликлиники и больницы",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96228-0.mp4",
+          "poster": "media/96228-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96228",
+      "order": 0,
+      "count": 14,
+      "note": ""
+    },
+    {
+      "id": "96229",
+      "branch": "doctors",
+      "name": "Семейный врач/терапевт",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96229-0.mp4",
+          "poster": "media/96229-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96229",
+      "order": 1,
+      "count": 7,
+      "note": ""
+    },
+    {
+      "id": "96230",
+      "branch": "doctors",
+      "name": "Педиатр",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96230-0.mp4",
+          "poster": "media/96230-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96230",
+      "order": 2,
+      "count": 15,
+      "note": ""
+    },
+    {
+      "id": "96231",
+      "branch": "doctors",
+      "name": "Стоматологи · взрослые и детские",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96231-0.mp4",
+          "poster": "media/96231-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96231",
+      "order": 3,
+      "count": 12,
+      "note": ""
+    },
+    {
+      "id": "96246",
+      "branch": "doctors",
+      "name": "УЗИ / УЗД",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96246-0.mp4",
+          "poster": "media/96246-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96246",
+      "order": 4,
+      "count": 10,
+      "note": ""
+    },
+    {
+      "id": "96248",
+      "branch": "doctors",
+      "name": "МРТ",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96248-0.mp4",
+          "poster": "media/96248-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96248",
+      "order": 5,
+      "count": 2,
+      "note": ""
+    },
+    {
+      "id": "96259",
+      "branch": "doctors",
+      "name": "Хирург",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96259-0.mp4",
+          "poster": "media/96259-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96259",
+      "order": 6,
+      "count": 14,
+      "note": ""
+    },
+    {
+      "id": "96260",
+      "branch": "doctors",
+      "name": "Травматологи и ортопеды",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96260-0.mp4",
+          "poster": "media/96260-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96260",
+      "order": 7,
+      "count": 10,
+      "note": ""
+    },
+    {
+      "id": "96261",
+      "branch": "doctors",
+      "name": "Нейрохирург",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96261-0.mp4",
+          "poster": "media/96261-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96261",
+      "order": 8,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96262",
+      "branch": "doctors",
+      "name": "Уролог-хирург",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96262-0.mp4",
+          "poster": "media/96262-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96262",
+      "order": 9,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96263",
+      "branch": "doctors",
+      "name": "Анестезиолог-реаниматолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96263-0.mp4",
+          "poster": "media/96263-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96263",
+      "order": 10,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96264",
+      "branch": "doctors",
+      "name": "Кардиолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96264-0.mp4",
+          "poster": "media/96264-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96264",
+      "order": 11,
+      "count": 7,
+      "note": ""
+    },
+    {
+      "id": "96269",
+      "branch": "doctors",
+      "name": "Флеболог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96269-0.mp4",
+          "poster": "media/96269-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96269",
+      "order": 12,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96274",
+      "branch": "doctors",
+      "name": "Ревматолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96274-0.mp4",
+          "poster": "media/96274-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96274",
+      "order": 13,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96275",
+      "branch": "doctors",
+      "name": "Невропатолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96275-0.mp4",
+          "poster": "media/96275-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96275",
+      "order": 14,
+      "count": 4,
+      "note": ""
+    },
+    {
+      "id": "96282",
+      "branch": "doctors",
+      "name": "Психиатр",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96282-0.mp4",
+          "poster": "media/96282-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96282",
+      "order": 15,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96283",
+      "branch": "doctors",
+      "name": "Психолог",
+      "media": [],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96283",
+      "order": 16,
+      "count": 4,
+      "note": ""
+    },
+    {
+      "id": "96284",
+      "branch": "doctors",
+      "name": "Психотерапевт",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96284-0.mp4",
+          "poster": "media/96284-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96284",
+      "order": 17,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96285",
+      "branch": "doctors",
+      "name": "Офтальмолог (окулист)",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96285-0.mp4",
+          "poster": "media/96285-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96285",
+      "order": 18,
+      "count": 7,
+      "note": ""
+    },
+    {
+      "id": "96288",
+      "branch": "doctors",
+      "name": "ЛОР",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96288-0.mp4",
+          "poster": "media/96288-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96288",
+      "order": 19,
+      "count": 4,
+      "note": ""
+    },
+    {
+      "id": "96289",
+      "branch": "doctors",
+      "name": "Фониатр",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96289-0.mp4",
+          "poster": "media/96289-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96289",
+      "order": 20,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96291",
+      "branch": "doctors",
+      "name": "Логопед",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96291-0.mp4",
+          "poster": "media/96291-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96291",
+      "order": 21,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96292",
+      "branch": "doctors",
+      "name": "Гинеколог/акушер",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96292-0.mp4",
+          "poster": "media/96292-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96292",
+      "order": 22,
+      "count": 14,
+      "note": ""
+    },
+    {
+      "id": "96293",
+      "branch": "doctors",
+      "name": "Репродуктолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96293-0.mp4",
+          "poster": "media/96293-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96293",
+      "order": 23,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96294",
+      "branch": "doctors",
+      "name": "Маммолог/Онколог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96294-0.mp4",
+          "poster": "media/96294-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96294",
+      "order": 24,
+      "count": 3,
+      "note": ""
+    },
+    {
+      "id": "96295",
+      "branch": "doctors",
+      "name": "Уролог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96295-0.mp4",
+          "poster": "media/96295-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96295",
+      "order": 25,
+      "count": 2,
+      "note": ""
+    },
+    {
+      "id": "96296",
+      "branch": "doctors",
+      "name": "Андролог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96296-0.mp4",
+          "poster": "media/96296-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96296",
+      "order": 26,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96297",
+      "branch": "doctors",
+      "name": "Дерматолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96297-0.mp4",
+          "poster": "media/96297-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96297",
+      "order": 27,
+      "count": 4,
+      "note": ""
+    },
+    {
+      "id": "96299",
+      "branch": "doctors",
+      "name": "Дерматовенеролог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96299-0.mp4",
+          "poster": "media/96299-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96299",
+      "order": 28,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96300",
+      "branch": "doctors",
+      "name": "Трихолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96300-0.mp4",
+          "poster": "media/96300-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96300",
+      "order": 29,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96301",
+      "branch": "doctors",
+      "name": "Косметолог-врач",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96301-0.mp4",
+          "poster": "media/96301-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96301",
+      "order": 30,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96304",
+      "branch": "doctors",
+      "name": "Эндокринолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96304-0.mp4",
+          "poster": "media/96304-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96304",
+      "order": 31,
+      "count": 6,
+      "note": ""
+    },
+    {
+      "id": "96305",
+      "branch": "doctors",
+      "name": "Гастроэнтеролог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96305-0.mp4",
+          "poster": "media/96305-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96305",
+      "order": 32,
+      "count": 7,
+      "note": ""
+    },
+    {
+      "id": "96306",
+      "branch": "doctors",
+      "name": "Пульмонолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96306-0.mp4",
+          "poster": "media/96306-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96306",
+      "order": 33,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96307",
+      "branch": "doctors",
+      "name": "Нефролог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96307-0.mp4",
+          "poster": "media/96307-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96307",
+      "order": 34,
+      "count": 3,
+      "note": ""
+    },
+    {
+      "id": "96309",
+      "branch": "doctors",
+      "name": "Гепатолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96309-0.mp4",
+          "poster": "media/96309-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96309",
+      "order": 35,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96310",
+      "branch": "doctors",
+      "name": "Инфекционист",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96310-0.mp4",
+          "poster": "media/96310-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96310",
+      "order": 36,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96311",
+      "branch": "doctors",
+      "name": "Аллерголог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96311-0.mp4",
+          "poster": "media/96311-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96311",
+      "order": 37,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96312",
+      "branch": "doctors",
+      "name": "Иммунолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96312-0.mp4",
+          "poster": "media/96312-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96312",
+      "order": 38,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96313",
+      "branch": "doctors",
+      "name": "Гематолог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96313-0.mp4",
+          "poster": "media/96313-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96313",
+      "order": 39,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96314",
+      "branch": "doctors",
+      "name": "Онкохирург",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96314-0.mp4",
+          "poster": "media/96314-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96314",
+      "order": 40,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96315",
+      "branch": "doctors",
+      "name": "Нарколог",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96315-0.mp4",
+          "poster": "media/96315-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96315",
+      "order": 41,
+      "count": 3,
+      "note": ""
+    },
+    {
+      "id": "96318",
+      "branch": "doctors",
+      "name": "Генетик",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96318-0.mp4",
+          "poster": "media/96318-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96318",
+      "order": 42,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96319",
+      "branch": "doctors",
+      "name": "Врачи Килия, Шевченково, Вилково",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96319-0.mp4",
+          "poster": "media/96319-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96319",
+      "order": 43,
+      "count": 21,
+      "note": ""
+    },
+    {
+      "id": "20125",
+      "branch": "doctors",
+      "name": "Ветеринары Измаила",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/20125-0.mp4",
+          "poster": "media/20125-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/Izmail_CHAT_24_7/20125",
+      "order": 44,
+      "count": 12,
+      "note": ""
+    },
+    {
+      "id": "96323",
+      "branch": "doctors",
+      "name": "Ветврачи Татарбунары",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96323-0.mp4",
+          "poster": "media/96323-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96323",
+      "order": 45,
+      "count": 3,
+      "note": ""
+    },
+    {
+      "id": "96045",
+      "branch": "beauty",
+      "name": "Парикмахеры",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96045-0.mp4",
+          "poster": "media/96045-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96045",
+      "order": 46,
+      "count": 2,
+      "note": ""
+    },
+    {
+      "id": "96046",
+      "branch": "beauty",
+      "name": "Маникюр и педикюр",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96046-0.mp4",
+          "poster": "media/96046-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96046",
+      "order": 47,
+      "count": 2,
+      "note": ""
+    },
+    {
+      "id": "96047",
+      "branch": "beauty",
+      "name": "Брови / ресницы",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96047-0.mp4",
+          "poster": "media/96047-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96047",
+      "order": 48,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96048",
+      "branch": "beauty",
+      "name": "Косметологи",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96048-0.mp4",
+          "poster": "media/96048-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96048",
+      "order": 49,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96049",
+      "branch": "beauty",
+      "name": "Массаж",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96049-0.mp4",
+          "poster": "media/96049-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96049",
+      "order": 50,
+      "count": 3,
+      "note": ""
+    },
+    {
+      "id": "96052",
+      "branch": "beauty",
+      "name": "Уход за кожей",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96052-0.mp4",
+          "poster": "media/96052-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96052",
+      "order": 51,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96053",
+      "branch": "beauty",
+      "name": "Диетологи/фитнес-тренеры",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96053-0.mp4",
+          "poster": "media/96053-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96053",
+      "order": 52,
+      "count": 0,
+      "note": ""
+    },
+    {
+      "id": "96054",
+      "branch": "beauty",
+      "name": "Энергопрактика",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/96054-0.mp4",
+          "poster": "media/96054-0-poster.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96054",
+      "order": 53,
+      "count": 1,
+      "note": "Дополнительные немедицинские практики; не замена медицинской помощи."
+    },
+    {
+      "id": "ct",
+      "name": "КТ-диагностика",
+      "branch": "doctors",
+      "media": [],
+      "order": 54,
+      "count": 2,
+      "note": ""
+    },
+    {
+      "id": "lab",
+      "name": "Анализы и лаборатории",
+      "branch": "doctors",
+      "media": [],
+      "order": 55,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "palliative",
+      "name": "Паллиативная помощь",
+      "branch": "doctors",
+      "media": [],
+      "order": 56,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "phthis",
+      "name": "Фтизиатр",
+      "branch": "doctors",
+      "media": [],
+      "order": 57,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "functional",
+      "name": "Функциональная диагностика",
+      "branch": "doctors",
+      "media": [],
+      "order": 58,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "trust",
+      "name": "Кабинет «Довіра»",
+      "branch": "doctors",
+      "media": [],
+      "order": 59,
+      "count": 1,
+      "note": ""
+    },
+    {
+      "id": "xray",
+      "name": "Рентгенологи",
+      "branch": "doctors",
+      "media": [],
+      "order": 60,
+      "count": 2,
+      "note": ""
+    },
+    {
+      "id": "sports",
+      "name": "Спортивная медицина",
+      "branch": "doctors",
+      "media": [],
+      "order": 61,
+      "count": 1,
+      "note": ""
+    }
+  ],
+  "records": [
+    {
+      "id": "r1",
+      "category": "96228",
+      "name": "Областная регистратура",
+      "phones": [
+        "0666100003"
+      ],
+      "city": "Одесса",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r2",
+      "category": "96228",
+      "name": "Стоматологическая поликлиника · регистратура",
+      "phones": [
+        "0970087736",
+        "0949565015"
+      ],
+      "city": "Измаил",
+      "note": "ул. Греческая, 7 (бывш. Кирова)",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r3",
+      "category": "96228",
+      "name": "Городская поликлиника · регистратура",
+      "phones": [
+        "0672984090",
+        "0484163540"
+      ],
+      "city": "Измаил",
+      "note": "ул. Клушина, 6",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r4",
+      "category": "96228",
+      "name": "Детская поликлиника · регистратура",
+      "phones": [
+        "0484151066"
+      ],
+      "city": "Измаил",
+      "note": "ул. Шевченко, 8",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r5",
+      "category": "96228",
+      "name": "Поликлиника Водников",
+      "phones": [
+        "0686170893"
+      ],
+      "city": "Измаил",
+      "note": "ул. Адмирала Холостякова",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r6",
+      "category": "96228",
+      "name": "Клиника «Ваш доктор» · запись",
+      "phones": [
+        "0673030099"
+      ],
+      "city": "Измаил",
+      "note": "ул. Адмирала Холостякова, 44",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r7",
+      "category": "96228",
+      "name": "Районная поликлиника · регистратура",
+      "phones": [
+        "0683068847"
+      ],
+      "city": "Измаил",
+      "note": "пр. Незалежності, 141, угол ул. Репина",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r8",
+      "category": "96229",
+      "name": "Алферова",
+      "phones": [
+        "0962988744"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r9",
+      "category": "96229",
+      "name": "Унгурян Татьяна Олеговна",
+      "phones": [
+        "0966914895"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r10",
+      "category": "96229",
+      "name": "Вербицкоя (как в подборке)",
+      "phones": [
+        "0975147125"
+      ],
+      "city": "Измаил",
+      "note": "Приём на Клушина; написание фамилии уточнить",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r11",
+      "category": "96229",
+      "name": "Матвеева Лучия Николаевна",
+      "phones": [
+        "0682586301"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r12",
+      "category": "96229",
+      "name": "Корнейчук Мария Геннадиевна",
+      "phones": [
+        "0671354177"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r13",
+      "category": "96230",
+      "name": "Бєліченко Максим Олександрович",
+      "phones": [
+        "0980402790"
+      ],
+      "city": "Измаил",
+      "note": "Выезд на дом — уточнить при записи",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r14",
+      "category": "96230",
+      "name": "Бєліченко Тетяна Павлівна",
+      "phones": [
+        "0978373235"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r15",
+      "category": "96230",
+      "name": "Бойка Людмила Михайлівна",
+      "phones": [
+        "0673057652"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r16",
+      "category": "96230",
+      "name": "Бойкова Ірина Василівна",
+      "phones": [
+        "0978015342"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r17",
+      "category": "96230",
+      "name": "Ганжа Анастасія",
+      "phones": [
+        "0984903133"
+      ],
+      "city": "Измаил",
+      "note": "Клиника «Ваш доктор»",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r18",
+      "category": "96230",
+      "name": "Карайван Олена Георгіївна",
+      "phones": [
+        "0631513443"
+      ],
+      "city": "Измаил",
+      "note": "Выезд на дом — уточнить при записи",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r19",
+      "category": "96230",
+      "name": "Клименко Олена Валеріївна",
+      "phones": [
+        "0971173126"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r20",
+      "category": "96230",
+      "name": "Проценко Аурелія Павлівна",
+      "phones": [
+        "0679472132"
+      ],
+      "city": "Измаил",
+      "note": "Клиника «Ваш доктор»",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r21",
+      "category": "96230",
+      "name": "Маламед Геннадий Моисеевич",
+      "phones": [
+        "0679141148"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r22",
+      "category": "96230",
+      "name": "Светлана Николаевна",
+      "phones": [
+        "0973508427"
+      ],
+      "city": "Измаил",
+      "note": "Фамилия в подборке не указана",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r23",
+      "category": "96230",
+      "name": "Черная Ольга",
+      "phones": [
+        "0956837862",
+        "0660981561"
+      ],
+      "city": "Измаил",
+      "note": "В подборке аллергологов указан другой номер; требуется уточнение",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r24",
+      "category": "96230",
+      "name": "Тангер В. Д.",
+      "phones": [
+        "0969148897"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r25",
+      "category": "96230",
+      "name": "Завалішина",
+      "phones": [
+        "0975378198"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r27",
+      "category": "96231",
+      "name": "Городская стоматологическая поликлиника",
+      "phones": [
+        "0949565015",
+        "0484163015"
+      ],
+      "city": "Измаил",
+      "note": "ул. Греческая, 7 (бывш. Кирова)",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r28",
+      "category": "96231",
+      "name": "Кожухар Маріанна",
+      "phones": [
+        "0637016455"
+      ],
+      "city": "Измаил",
+      "note": "Детский стоматолог. «Аліна», ул. Кишинёвская, напротив «Диагност»",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r29",
+      "category": "96231",
+      "name": "Федченко Владислав Петрович",
+      "phones": [
+        "0981103103"
+      ],
+      "city": "Измаил",
+      "note": "Городская стоматология и кабинет на ул. Кишинёвской",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r30",
+      "category": "96231",
+      "name": "Сарабейский Сергей Владимирович",
+      "phones": [
+        "0968329632"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r31",
+      "category": "96231",
+      "name": "Параскива Юрий Дмитриевич",
+      "phones": [
+        "0635359009"
+      ],
+      "city": "Измаил",
+      "note": "Хирург-стоматолог",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r32",
+      "category": "96246",
+      "name": "Альфа Мед Сервіс",
+      "phones": [
+        "0984418280"
+      ],
+      "city": "Измаил",
+      "note": "ул. Перекопской Дивизии, угол ул. Клушина",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r33",
+      "category": "96246",
+      "name": "Ізмаїл-Діагност · кабинет УЗИ",
+      "phones": [
+        "0660036895",
+        "0966350362"
+      ],
+      "city": "Измаил",
+      "note": "пр. Мира, 50; адрес уточнить при записи",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r34",
+      "category": "96246",
+      "name": "УЗИ · Глушко",
+      "phones": [
+        "0951357006"
+      ],
+      "city": "Измаил",
+      "note": "пр. Незалежності (бывш. Суворова)",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r35",
+      "category": "96246",
+      "name": "УЗИ · Летинська",
+      "phones": [
+        "0979129037"
+      ],
+      "city": "Измаил",
+      "note": "ул. Кутузова / пр. Незалежності — уточнить кабинет",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r36",
+      "category": "96246",
+      "name": "Консультативно-диагностический центр",
+      "phones": [
+        "0979985108",
+        "0683068847"
+      ],
+      "city": "Измаил",
+      "note": "пр. Незалежності, 141",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r37",
+      "category": "96248",
+      "name": "МРТ Водников",
+      "phones": [
+        "0935963165"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r39",
+      "category": "96259",
+      "name": "Кышлалы Сергей Ильич",
+      "phones": [
+        "0665741611"
+      ],
+      "city": "Измаил",
+      "note": "Детский хирург",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r40",
+      "category": "96259",
+      "name": "Адубецкая Альбина Юрьевна",
+      "phones": [
+        "0984406321"
+      ],
+      "city": "Одесса",
+      "note": "Хирург-стоматолог. Институт стоматологии, ул. Ришельевская, 11",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r41",
+      "category": "96259",
+      "name": "Заволока Владислав Анатольевич",
+      "phones": [
+        "0931216980"
+      ],
+      "city": "Измаил",
+      "note": "Флеболог, сосудистый хирург",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r42",
+      "category": "96259",
+      "name": "Товмасян",
+      "phones": [
+        "0979349988"
+      ],
+      "city": "Измаил",
+      "note": "Хирургия районной больницы",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r43",
+      "category": "96259",
+      "name": "Александров Дмитрий Николаевич",
+      "phones": [
+        "0973867769"
+      ],
+      "city": "Измаил",
+      "note": "Хирург городской больницы",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r44",
+      "category": "96259",
+      "name": "Томев Иван Иванович",
+      "phones": [
+        "0672929451"
+      ],
+      "city": "Измаил",
+      "note": "Хирург-онколог",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r45",
+      "category": "96259",
+      "name": "Шатилов",
+      "phones": [
+        "0672943179"
+      ],
+      "city": "Измаил",
+      "note": "Районная больница, ул. Белгород-Днестровская",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r46",
+      "category": "96259",
+      "name": "Баталов Максім Володимирович",
+      "phones": [
+        "0966154215"
+      ],
+      "city": "Измаил",
+      "note": "Хирург-гинеколог, Da Vinci Clinic возле горисполкома",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r47",
+      "category": "96259",
+      "name": "Мазур Олег Васильович",
+      "phones": [
+        "0681313068"
+      ],
+      "city": "Киев",
+      "note": "Хирург-эндокринолог, ул. Рейтарская",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r48",
+      "category": "96259",
+      "name": "Заин Артур Игоревич",
+      "phones": [
+        "0955002034"
+      ],
+      "city": "Одесса",
+      "note": "Травматолог-ортопед, хирург. Клиника Св. Екатерины",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r49",
+      "category": "96260",
+      "name": "Дерменджі",
+      "phones": [
+        "0673685885"
+      ],
+      "city": "Измаил",
+      "note": "Детский ортопед. Детская поликлиника, частный приём",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r50",
+      "category": "96260",
+      "name": "Филипчук Виктор Васильевич",
+      "phones": [
+        "0672324813"
+      ],
+      "city": "Киев",
+      "note": "Институт травматологии и ортопедии",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r51",
+      "category": "96260",
+      "name": "Баламаджи Геннадий Иванович",
+      "phones": [
+        "0975495683"
+      ],
+      "city": "Измаил",
+      "note": "Травматолог",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r52",
+      "category": "96260",
+      "name": "Физор Василий Дмитриевич",
+      "phones": [
+        "0502626666"
+      ],
+      "city": "Одесса",
+      "note": "Детский ортопед-травматолог",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r53",
+      "category": "96260",
+      "name": "Генадий Ильич",
+      "phones": [
+        "0965844794"
+      ],
+      "city": "Измаил",
+      "note": "В подборке указан как «костоправ»; медицинская квалификация не подтверждена",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r54",
+      "category": "96260",
+      "name": "Заин Артур Игоревич",
+      "phones": [
+        "0955002034"
+      ],
+      "city": "Одесса",
+      "note": "Травматолог-ортопед, хирург. Клиника Св. Екатерины",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r55",
+      "category": "96261",
+      "name": "Ігор Курілець",
+      "phones": [
+        "0631331836"
+      ],
+      "city": "Киев / Львов",
+      "note": "Город приёма уточнить",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r56",
+      "category": "96264",
+      "name": "Висоцька",
+      "phones": [
+        "0973012409"
+      ],
+      "city": "Измаил",
+      "note": "Детский кардиолог",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r57",
+      "category": "96264",
+      "name": "Почтаренко Ігор В'ячеславович · запись",
+      "phones": [
+        "0800750070"
+      ],
+      "city": "Измаил",
+      "note": "Смартлаб, ул. Верхнеторговая, 56. Общая линия лаборатории",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r58",
+      "category": "96264",
+      "name": "Садковская Виктория Сергеевна · запись",
+      "phones": [
+        "0683068847"
+      ],
+      "city": "Измаил",
+      "note": "Районная поликлиника, пр. Незалежності, 141",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r59",
+      "category": "96269",
+      "name": "Заволока Владислав Анатольевич",
+      "phones": [
+        "0931216980"
+      ],
+      "city": "Измаил",
+      "note": "Флеболог, сосудистый хирург. Районная поликлиника",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r60",
+      "category": "96274",
+      "name": "Шереметьева Наталья Юрьевна",
+      "phones": [
+        "0679575950"
+      ],
+      "city": "Измаил",
+      "note": "В подборке: ревматолог. На сайте МЦЛ указана кардиология; уточнить специализацию при записи",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r61",
+      "category": "96283",
+      "name": "Данилова Анастасія Вікторівна",
+      "phones": [
+        "0676014576"
+      ],
+      "city": "Измаил",
+      "note": "Психолог, консультации по грудному вскармливанию и уходу",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r62",
+      "category": "96283",
+      "name": "Марина Дудник",
+      "phones": [
+        "0679254850"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r63",
+      "category": "96285",
+      "name": "Проданов Олександр Валентинович",
+      "phones": [
+        "0677293626"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r64",
+      "category": "96285",
+      "name": "Касаткіна Євгенія Олександрівна",
+      "phones": [
+        "0930199161"
+      ],
+      "city": "Измаил",
+      "note": "Взрослый приём, клиника на ул. Хотинской",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r65",
+      "category": "96285",
+      "name": "Назарук Сергій Валентинович",
+      "phones": [
+        "0671325073"
+      ],
+      "city": "Измаил",
+      "note": "Взрослые и дети от 3 лет — уточнить при записи",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r66",
+      "category": "96285",
+      "name": "Ион Руслан Николаевич",
+      "phones": [
+        "0973577099"
+      ],
+      "city": "Измаил",
+      "note": "Городская поликлиника, ул. Клушина",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r67",
+      "category": "96285",
+      "name": "Клиника Куликова",
+      "phones": [
+        "0674802675"
+      ],
+      "city": "Одесса",
+      "note": "Офтальмология",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r68",
+      "category": "96291",
+      "name": "Логопед «Зайці-LAND»",
+      "phones": [
+        "0964353909"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r70",
+      "category": "96292",
+      "name": "Баталов Максім Володимирович",
+      "phones": [
+        "0966154215"
+      ],
+      "city": "Измаил",
+      "note": "Хирург-гинеколог. Da Vinci Clinic возле горисполкома",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r71",
+      "category": "96292",
+      "name": "Сергиенко Валентина Ивановна",
+      "phones": [
+        "0983004002",
+        "0984377237"
+      ],
+      "city": "Измаил",
+      "note": "Кабинет «Женское здоровье», пр. Мира",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r72",
+      "category": "96292",
+      "name": "Данукалова Наталья Анатольевна · запись",
+      "phones": [
+        "0683068847"
+      ],
+      "city": "Измаил",
+      "note": "Районная поликлиника, пр. Незалежності, 141",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r73",
+      "category": "96294",
+      "name": "Томєв Іван Іванович",
+      "phones": [
+        "0672929451"
+      ],
+      "city": "Измаил",
+      "note": "Онколог-маммолог",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r74",
+      "category": "96294",
+      "name": "Маммологический кабинет",
+      "phones": [
+        "0687751565"
+      ],
+      "city": "Измаил",
+      "note": "ул. Клушина",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r75",
+      "category": "96295",
+      "name": "Філіппов Олександр",
+      "phones": [
+        "0679459028"
+      ],
+      "city": "Измаил",
+      "note": "Поликлиника Водников",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r76",
+      "category": "96297",
+      "name": "Басов",
+      "phones": [
+        "0506723689"
+      ],
+      "city": "Измаил",
+      "note": "Дерматолог; детский приём уточнить",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r77",
+      "category": "96297",
+      "name": "Дерматология на Хотинской",
+      "phones": [
+        "0965462904"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r78",
+      "category": "96297",
+      "name": "La Vita · Надежда",
+      "phones": [
+        "0989717877"
+      ],
+      "city": "Измаил",
+      "note": "пр. Мира; косметолог-дерматолог из Харькова по подборке",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r79",
+      "category": "96297",
+      "name": "Билич Светлана Петровна",
+      "phones": [
+        "0982644240"
+      ],
+      "city": "Измаил",
+      "note": "Дерматолог; детский приём уточнить",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r80",
+      "category": "96301",
+      "name": "La Vita · врач-косметолог",
+      "phones": [
+        "0989717877"
+      ],
+      "city": "Измаил",
+      "note": "пр. Мира; специальность указана в подборке",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r81",
+      "category": "96304",
+      "name": "Эндокринолог · запись в диагностический центр",
+      "phones": [
+        "0683068847"
+      ],
+      "city": "Измаил",
+      "note": "пр. Незалежності, угол ул. Репина",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r82",
+      "category": "96304",
+      "name": "Денис Васильевич · запись",
+      "phones": [
+        "0673030099"
+      ],
+      "city": "Измаил",
+      "note": "Клиника «Ваш доктор»",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r83",
+      "category": "96304",
+      "name": "Тропанец Мария Ивановна · запись",
+      "phones": [
+        "0979129037"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r84",
+      "category": "96304",
+      "name": "Лиля Анатольевна",
+      "phones": [
+        "0682924268"
+      ],
+      "city": "Измаил",
+      "note": "Районная поликлиника",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r85",
+      "category": "96304",
+      "name": "Мазур Олег Васильович",
+      "phones": [
+        "0681313068"
+      ],
+      "city": "Киев",
+      "note": "Хирург-эндокринолог, ул. Рейтарская",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r86",
+      "category": "96305",
+      "name": "Стоянов Евгений Васильевич",
+      "phones": [
+        "0962309866"
+      ],
+      "city": "Измаил",
+      "note": "пр. Незалежності, 141А (бывш. Суворова), угол ул. Репина",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r87",
+      "category": "96305",
+      "name": "Бушуева Ольга Дмитриевна",
+      "phones": [
+        "0977632445"
+      ],
+      "city": "Измаил",
+      "note": "Районная больница",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r88",
+      "category": "96305",
+      "name": "Ирина Алексеевна",
+      "phones": [
+        "0962226464"
+      ],
+      "city": "Измаил",
+      "note": "Фамилия в подборке не указана",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r89",
+      "category": "96305",
+      "name": "Иманова Елена Юрьевна",
+      "phones": [
+        "0968793411"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r90",
+      "category": "96305",
+      "name": "Детский гастроэнтеролог · запись",
+      "phones": [
+        "0673030099"
+      ],
+      "city": "Измаил",
+      "note": "Клиника «Ваш доктор»",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r91",
+      "category": "96305",
+      "name": "Гонта Ирина",
+      "phones": [
+        "0677472375"
+      ],
+      "city": "Одесса",
+      "note": "Областная больница",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r92",
+      "category": "96306",
+      "name": "Шамрай Н. В.",
+      "phones": [
+        "0983756567"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r93",
+      "category": "96307",
+      "name": "Филипов Александр Иванович",
+      "phones": [
+        "0679459028"
+      ],
+      "city": "Измаил",
+      "note": "В подборке также указан в урологии; специализацию уточнить",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r94",
+      "category": "96307",
+      "name": "Старова Евгения",
+      "phones": [
+        "0939917385"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r95",
+      "category": "96307",
+      "name": "Рыкова Елена Владимировна",
+      "phones": [
+        "0974399012"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r96",
+      "category": "96310",
+      "name": "Заворотнюк Павло Федорович",
+      "phones": [
+        "0671616169"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r97",
+      "category": "96311",
+      "name": "Чорна Ольга Олексіївна",
+      "phones": [
+        "0680981561"
+      ],
+      "city": "Измаил",
+      "note": "Альфа Мед Сервіс. В подборке педиатров другой номер; требуется уточнение",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r98",
+      "category": "96315",
+      "name": "Любовь Васильевна",
+      "phones": [
+        "0989277518"
+      ],
+      "city": "Измаил",
+      "note": "Нарколог",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r99",
+      "category": "96319",
+      "name": "Поликлиника · регистратура",
+      "phones": [
+        "0689549674"
+      ],
+      "city": "Килия",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r100",
+      "category": "96319",
+      "name": "Поликлиника · приёмная",
+      "phones": [
+        "0676070215"
+      ],
+      "city": "Килия",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r101",
+      "category": "96319",
+      "name": "Степаненко Л. І.",
+      "phones": [
+        "0975767128"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r102",
+      "category": "96319",
+      "name": "Зиневич Р. А.",
+      "phones": [
+        "0677282682"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r103",
+      "category": "96319",
+      "name": "Влаєв Д. Д.",
+      "phones": [
+        "0968444035"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r104",
+      "category": "96319",
+      "name": "Семенова В. П.",
+      "phones": [
+        "0638962052"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r105",
+      "category": "96319",
+      "name": "Ставська І. А.",
+      "phones": [
+        "0678705446"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r106",
+      "category": "96319",
+      "name": "Гуцулюк Л. П.",
+      "phones": [
+        "0680646187"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r107",
+      "category": "96319",
+      "name": "Солойденко А. К.",
+      "phones": [
+        "0966842838"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r108",
+      "category": "96319",
+      "name": "Корнієнко С. П.",
+      "phones": [
+        "0671317675"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r109",
+      "category": "96319",
+      "name": "Присеченко Л. І.",
+      "phones": [
+        "0965818584"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r110",
+      "category": "96319",
+      "name": "Барба К. О.",
+      "phones": [
+        "0731306475"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r111",
+      "category": "96319",
+      "name": "Приліпова В. П.",
+      "phones": [
+        "0961747387"
+      ],
+      "city": "Килия",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r112",
+      "category": "96319",
+      "name": "Станєва Н. О.",
+      "phones": [
+        "0973193057"
+      ],
+      "city": "Шевченково",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r113",
+      "category": "96319",
+      "name": "Городніченко Т. В.",
+      "phones": [
+        "0975111381"
+      ],
+      "city": "Шевченково",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r114",
+      "category": "96319",
+      "name": "Шкурина Т. В.",
+      "phones": [
+        "0974030735"
+      ],
+      "city": "Шевченково",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r115",
+      "category": "96319",
+      "name": "Порхун Н. І.",
+      "phones": [
+        "0965380390"
+      ],
+      "city": "Вилково",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r116",
+      "category": "96319",
+      "name": "Ткаченко Л. В.",
+      "phones": [
+        "0970456061"
+      ],
+      "city": "Вилково",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r117",
+      "category": "96319",
+      "name": "Сухова-Волкова Г. Я.",
+      "phones": [
+        "0631834237"
+      ],
+      "city": "Вилково",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r118",
+      "category": "96319",
+      "name": "Монастирська В. Д.",
+      "phones": [
+        "0677683656"
+      ],
+      "city": "Вилково",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r119",
+      "category": "96319",
+      "name": "Гнатюк Л. Д.",
+      "phones": [
+        "0986235755"
+      ],
+      "city": "Вилково",
+      "note": "Семейный врач",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r120",
+      "category": "20125",
+      "name": "Маслєніков Даніїл Олександрович",
+      "phones": [
+        "0968079605"
+      ],
+      "city": "Измаил",
+      "note": "ул. Молодёжная, 106; выезд на дом уточнить",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r121",
+      "category": "20125",
+      "name": "Дєчєва Валентина Василівна",
+      "phones": [
+        "0984258160"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r122",
+      "category": "20125",
+      "name": "Мельников Михаил Вячеславович",
+      "phones": [
+        "0967638730"
+      ],
+      "city": "Измаил",
+      "note": "Приём по записи",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r123",
+      "category": "20125",
+      "name": "Стойков Стоян Геннадиевич",
+      "phones": [
+        "0959385725"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r124",
+      "category": "20125",
+      "name": "Ольга Гыска",
+      "phones": [
+        "0984133965"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r125",
+      "category": "20125",
+      "name": "Акт Василий Васильевич",
+      "phones": [
+        "0971169271"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r126",
+      "category": "20125",
+      "name": "«Ушки на макушке» · Кудинов Евгений",
+      "phones": [
+        "0971248971"
+      ],
+      "city": "Измаил",
+      "note": "Общий номер кабинета из подборки",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r127",
+      "category": "20125",
+      "name": "Кудинова Екатерина",
+      "phones": [
+        "0971248961"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r128",
+      "category": "20125",
+      "name": "VetAleX · ветклиника и лаборатория",
+      "phones": [
+        "0971787928"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r129",
+      "category": "20125",
+      "name": "Zooline · ветклиника",
+      "phones": [
+        "0736607682"
+      ],
+      "city": "Измаил",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r130",
+      "category": "20125",
+      "name": "Андрей · ветеринар",
+      "phones": [
+        "0676607682"
+      ],
+      "city": "Измаил",
+      "note": "Фамилия в подборке не указана",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r131",
+      "category": "20125",
+      "name": "Бажанов Андрей Владимирович",
+      "phones": [
+        "0681991391"
+      ],
+      "city": "Измаил",
+      "note": "Выезд на дом — уточнить при записи",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r132",
+      "category": "96323",
+      "name": "Антон · ветеринар",
+      "phones": [
+        "0968701211"
+      ],
+      "city": "Татарбунары",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r133",
+      "category": "96323",
+      "name": "Анатолий · ветеринар",
+      "phones": [
+        "0982677515"
+      ],
+      "city": "Татарбунары",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r134",
+      "category": "96323",
+      "name": "Виталик · ветеринар",
+      "phones": [
+        "0987970812"
+      ],
+      "city": "Татарбунары",
+      "note": "",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r135",
+      "category": "96045",
+      "name": "Парикмахер-колорист",
+      "phones": [
+        "0636686064"
+      ],
+      "city": "Измаил",
+      "note": "Имя в подборке не указано",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r136",
+      "category": "96045",
+      "name": "Мастер брейдов",
+      "phones": [
+        "0982644343"
+      ],
+      "city": "Измаил",
+      "note": "Цвета и стоимость уточнить при записи",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r137",
+      "category": "96046",
+      "name": "Юля · мастер маникюра",
+      "phones": [
+        "0635575126"
+      ],
+      "city": "Измаил",
+      "note": "Укрепление гелем, гель-лак, коррекция",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r138",
+      "category": "96046",
+      "name": "Виктория · мастер маникюра",
+      "phones": [
+        "0995338311"
+      ],
+      "city": "Измаил",
+      "note": "Наращивание, покрытие, коррекция, дизайн",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r139",
+      "category": "96049",
+      "name": "Грекова Валентина Іванівна",
+      "phones": [
+        "0986598329"
+      ],
+      "city": "Измаил",
+      "note": "Детский массаж",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r140",
+      "category": "96049",
+      "name": "Смирнова Алла Володимирівна",
+      "phones": [
+        "0671779058",
+        "0686873319"
+      ],
+      "city": "Измаил",
+      "note": "Детский массаж",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r141",
+      "category": "96049",
+      "name": "Анастасия · «Дельта»",
+      "phones": [
+        "0966367170"
+      ],
+      "city": "Измаил",
+      "note": "Массаж. пр. Мира, 25-Б",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r142",
+      "category": "96054",
+      "name": "Access Bars / Facelift",
+      "phones": [
+        "0680542166"
+      ],
+      "city": "Измаил",
+      "note": "Немедицинская практика. Имя в подборке не указано",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r143",
+      "category": "96228",
+      "name": "НСЗУ · помощь с поиском медицинских услуг",
+      "phones": [
+        "1677"
+      ],
+      "city": "Украина",
+      "note": "Общая справочная линия; не номер врача",
+      "source": "nszu",
+      "phoneLabel": "Контакт-центр"
+    },
+    {
+      "id": "r144",
+      "category": "96300",
+      "name": "Лазерхауз · запись",
+      "phones": [
+        "0731771631"
+      ],
+      "city": "Измаил",
+      "note": "Консультация трихолога. ул. Гетмана Мазепы (Чернышевского), 24",
+      "source": "laserhouse",
+      "phoneLabel": "Запись в центр"
+    },
+    {
+      "id": "r145",
+      "category": "96048",
+      "name": "Лазерхауз · запись",
+      "phones": [
+        "0731771631"
+      ],
+      "city": "Измаил",
+      "note": "Консультация косметолога. ул. Гетмана Мазепы (Чернышевского), 24",
+      "source": "laserhouse",
+      "phoneLabel": "Запись в центр"
+    },
+    {
+      "id": "r146",
+      "category": "96052",
+      "name": "Лазерхауз · запись",
+      "phones": [
+        "0731771631"
+      ],
+      "city": "Измаил",
+      "note": "Уходовые процедуры. ул. Гетмана Мазепы (Чернышевского), 24",
+      "source": "laserhouse",
+      "phoneLabel": "Запись в центр"
+    },
+    {
+      "id": "r147",
+      "category": "96314",
+      "name": "Томев Иван Иванович",
+      "phones": [
+        "0672929451"
+      ],
+      "city": "Измаил",
+      "note": "Хирург-онколог. Перенесён также из категории «Хирург»",
+      "source": "telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "r148",
+      "category": "96228",
+      "name": "МЦЛ · приёмное отделение",
+      "phones": [
+        "0688827845"
+      ],
+      "city": "Измаил",
+      "note": "пр. Незалежності, 68",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r149",
+      "category": "96228",
+      "name": "МЦЛ · канцелярия",
+      "phones": [
+        "0965934789"
+      ],
+      "city": "Измаил",
+      "note": "пр. Незалежності, 68",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r150",
+      "category": "96228",
+      "name": "МЦЛ · администратор экспертной команды",
+      "phones": [
+        "0688568446"
+      ],
+      "city": "Измаил",
+      "note": "Вопросы оценивания повседневного функционирования",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r151",
+      "category": "96228",
+      "name": "МЦЛ · взрослая поликлиника",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "ул. Клушина, 6",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r152",
+      "category": "96230",
+      "name": "МЦЛ · детская поликлиника",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Регистратура; адрес кабинета уточнить при записи",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r153",
+      "category": "ct",
+      "name": "МЦЛ · запись на КТ",
+      "phones": [
+        "0964077471"
+      ],
+      "city": "Измаил",
+      "note": "Адрес кабинета уточнить при записи",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r154",
+      "category": "96275",
+      "name": "МЦЛ · неврологическое отделение",
+      "phones": [
+        "0979875325"
+      ],
+      "city": "Измаил",
+      "note": "Контакт отделения",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r155",
+      "category": "96259",
+      "name": "МЦЛ · хирургическое отделение",
+      "phones": [
+        "0689796356"
+      ],
+      "city": "Измаил",
+      "note": "Контакт отделения",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r156",
+      "category": "96260",
+      "name": "МЦЛ · травматологическое отделение",
+      "phones": [
+        "0973726491"
+      ],
+      "city": "Измаил",
+      "note": "Контакт отделения",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r157",
+      "category": "96263",
+      "name": "МЦЛ · реанимация и интенсивная терапия",
+      "phones": [
+        "0686532573"
+      ],
+      "city": "Измаил",
+      "note": "Контакт отделения",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r158",
+      "category": "palliative",
+      "name": "МЦЛ · паллиативное отделение",
+      "phones": [
+        "0679467052"
+      ],
+      "city": "Измаил",
+      "note": "Контакт отделения",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r159",
+      "category": "96292",
+      "name": "МЦЛ · женская консультация",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Регистратура. В подборке указан адрес: ул. Коммерческая, 111; уточните при записи.",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r160",
+      "category": "lab",
+      "name": "МЦЛ · биохимическая лаборатория",
+      "phones": [
+        "0975175351"
+      ],
+      "city": "Измаил",
+      "note": "Поликлиника",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r161",
+      "category": "96231",
+      "name": "МЦЛ · стоматологическая поликлиника",
+      "phones": [
+        "0970087736"
+      ],
+      "city": "Измаил",
+      "note": "Регистратура",
+      "source": "hospital",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r162",
+      "category": "96229",
+      "name": "Центр ПМСП · регистратура на Клушина",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "note": "ул. Клушина, 6",
+      "source": "primary",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r163",
+      "category": "96230",
+      "name": "Центр ПМСП · регистратура на Шевченко",
+      "phones": [
+        "0672984060"
+      ],
+      "city": "Измаил",
+      "note": "ул. Шевченко, 8",
+      "source": "primary",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r164",
+      "category": "96229",
+      "name": "Центр ПМСП · Придунайская",
+      "phones": [
+        "0672984014"
+      ],
+      "city": "Измаил",
+      "note": "ул. Придунайская, 212 и 435",
+      "source": "primary",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r165",
+      "category": "96228",
+      "name": "Центр ПМСП · приёмная",
+      "phones": [
+        "0484164564"
+      ],
+      "city": "Измаил",
+      "note": "ул. Шевченко, 8",
+      "source": "primary",
+      "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "r166",
+      "category": "96248",
+      "name": "ЄвроТом · МРТ",
+      "phones": [
+        "0970676991",
+        "0994959919"
+      ],
+      "city": "Измаил",
+      "note": "ул. Белгород-Днестровская, 31, территория районной больницы",
+      "source": "eurotom",
+      "phoneLabel": "Запись в учреждение"
+    },
+    {
+      "id": "r167",
+      "category": "ct",
+      "name": "ЄвроТом · КТ",
+      "phones": [
+        "0983313686",
+        "0950719523"
+      ],
+      "city": "Измаил",
+      "note": "ул. Мистецька (Осипенко), 59а",
+      "source": "eurotom",
+      "phoneLabel": "Запись в учреждение"
+    },
+    {
+      "id": "r168",
+      "category": "96228",
+      "name": "Укрмедтранс · медицинский центр",
+      "phones": [
+        "0636564746",
+        "0689708503"
+      ],
+      "city": "Измаил",
+      "note": "ул. Национальной гвардии Украины, 48",
+      "source": "ukrmedtrans",
+      "phoneLabel": "Запись в учреждение"
+    },
+    {
+      "id": "r169",
+      "category": "96292",
+      "name": "Лілея · медицинский центр",
+      "phones": [
+        "0637468376",
+        "0967145622"
+      ],
+      "city": "Измаил",
+      "note": "ул. Ильи Репина, 14-а, 2 этаж",
+      "source": "lileya",
+      "phoneLabel": "Запись в учреждение"
+    },
+    {
+      "id": "r170",
+      "category": "96246",
+      "name": "Health Hub · УЗИ",
+      "phones": [
+        "0979389970"
+      ],
+      "city": "Измаил",
+      "note": "пр. Мира, 52. Данные открытого каталога; уточнить при записи",
+      "source": "healthhub",
+      "phoneLabel": "Запись в учреждение"
+    },
+    {
+      "id": "r171",
+      "category": "96315",
+      "name": "Анікіна Любов Василівна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-нарколог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r172",
+      "category": "96315",
+      "name": "Кочурська Віра Миколаївна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-нарколог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r173",
+      "category": "96246",
+      "name": "Дубенкова Ольга Володимирівна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар з ультразвукової діагностики. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r174",
+      "category": "trust",
+      "name": "Ткаченко Надія Кирилівна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар кабінету «Довіра». Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r175",
+      "category": "96305",
+      "name": "Степаненко Лілія Олександрівна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар гастроентеролог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r176",
+      "category": "96260",
+      "name": "Комашка Іван Трохимович",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-травматолог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r177",
+      "category": "96260",
+      "name": "Павлик Юрій Михайлович",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-травматолог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r178",
+      "category": "96259",
+      "name": "Богацький Володимир Вікторович",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-хірург. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r179",
+      "category": "96259",
+      "name": "Малик Микола Миколайович",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-хірург. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r180",
+      "category": "96295",
+      "name": "Берестецький Олександр Маркович",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-уролог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r181",
+      "category": "96294",
+      "name": "Островицький Віктор Олексійович",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-онколог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r182",
+      "category": "96313",
+      "name": "Пундєва Марія Миколаївна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-гематолог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r183",
+      "category": "96264",
+      "name": "Петрук Галина Миколаївна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-кардіолог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r184",
+      "category": "96264",
+      "name": "Шереметьєва Наталія Юріївна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-кардіолог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r185",
+      "category": "96275",
+      "name": "Волкова Олександра Валеріївна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-невролог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r186",
+      "category": "xray",
+      "name": "Іванов Володимир Васильович",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар- рентгенолог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r187",
+      "category": "xray",
+      "name": "Баламаджи Тетяна Вікторівна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар- рентгенолог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r188",
+      "category": "96288",
+      "name": "Скічко Наталія Іванівна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар отоларинголог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r189",
+      "category": "96288",
+      "name": "Маринова Ірина Олексіївна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-отоларинголог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r190",
+      "category": "96288",
+      "name": "Купчик Олександр Ігорович",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-отоларинголог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r191",
+      "category": "sports",
+      "name": "Жилінська Ірина Федорівна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар спорт контролю. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r192",
+      "category": "96299",
+      "name": "Скляр Олександра Олегівна",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-дерматовенеролог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r193",
+      "category": "96285",
+      "name": "Іон Руслан Миколайович",
+      "phones": [
+        "0965892698"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-офтальмолог. Взрослая поликлиника, ул. Клушина, 6. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r194",
+      "category": "96259",
+      "name": "Лавинюков Анатолій Стефанович",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-хірург дитячий. Детская поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r195",
+      "category": "96260",
+      "name": "Рабаджи Надія Миколаївна",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-ортопед-травматолог дитячий. Детская поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r196",
+      "category": "96285",
+      "name": "Гержова Ганна Іванівна",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-офтальмолог дитячий. Детская поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r197",
+      "category": "96275",
+      "name": "Гержик Тетяна Василівна",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Лікар – невролог дитячий. Детская поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r198",
+      "category": "96275",
+      "name": "Питомець Олена Дмитриївна",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Лікар – невролог дитячий. Детская поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r199",
+      "category": "functional",
+      "name": "Петренко Ірина Миколаївна",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Лікар -ФД. Детская поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r200",
+      "category": "96264",
+      "name": "Висоцька Віра Вікторівна",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-кардіоревматолог дитячий. Детская поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r201",
+      "category": "phthis",
+      "name": "Бельська Ніна Тимофіївна",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-фтизіатр дитячий. Детская поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r202",
+      "category": "96288",
+      "name": "Христенко Віталіна Олександрівна",
+      "phones": [
+        "0989434806"
+      ],
+      "city": "Измаил",
+      "note": "Лікар-отоларинголог дитячий. Детская поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r203",
+      "category": "96231",
+      "name": "Федченко Владислав Петрович",
+      "phones": [
+        "0970087736"
+      ],
+      "city": "Измаил",
+      "note": "Лікар стоматолог хірург. Стоматологическая поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r204",
+      "category": "96231",
+      "name": "Костов Олег Васильович",
+      "phones": [
+        "0970087736"
+      ],
+      "city": "Измаил",
+      "note": "Лікар стоматолог хірург. Стоматологическая поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r205",
+      "category": "96231",
+      "name": "Мітіна Ірина Юріївна",
+      "phones": [
+        "0970087736"
+      ],
+      "city": "Измаил",
+      "note": "Лікар стоматолог терапевт. Стоматологическая поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r206",
+      "category": "96231",
+      "name": "Баратинська Ірина Василівна",
+      "phones": [
+        "0970087736"
+      ],
+      "city": "Измаил",
+      "note": "Лікар стоматолог терапевт. Стоматологическая поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r207",
+      "category": "96231",
+      "name": "Мокану Мар’яна Вікторовна",
+      "phones": [
+        "0970087736"
+      ],
+      "city": "Измаил",
+      "note": "Лікар стоматолог дитячий. Стоматологическая поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r208",
+      "category": "96231",
+      "name": "Гуцага Інесса Володимирівна",
+      "phones": [
+        "0970087736"
+      ],
+      "city": "Измаил",
+      "note": "Лікар стоматолог дитячий. Стоматологическая поликлиника. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r209",
+      "category": "96292",
+      "name": "Щербатюк Тетяна Михайлівна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r210",
+      "category": "96292",
+      "name": "Іванова Тамара Василівна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r211",
+      "category": "96292",
+      "name": "Недова Марина Степанівна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r212",
+      "category": "96292",
+      "name": "Смокова Полина Петрівна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r213",
+      "category": "96292",
+      "name": "Чебанова Олена Олександрівна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r214",
+      "category": "96292",
+      "name": "Коренюк Олексій Микитович",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r215",
+      "category": "96292",
+      "name": "Заржицький Богдан Олегович",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар гінеколог онколог. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r216",
+      "category": "96292",
+      "name": "Маріогло Вікторія Георгіївна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r217",
+      "category": "96318",
+      "name": "Маріогло Вікторія Георгіївна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар генетик. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r218",
+      "category": "96292",
+      "name": "Бондаренко Оксана Федорівна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Ліка ак.-гін. дитячого та підліткового віку. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r219",
+      "category": "96246",
+      "name": "Ковальва Тетяна Дмитрівна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар УЗД. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r220",
+      "category": "96246",
+      "name": "Пальченко Ольга Іллівна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар УЗД. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r221",
+      "category": "96246",
+      "name": "Паршутіна Тетяна Федорівна",
+      "phones": [
+        "0962359085"
+      ],
+      "city": "Измаил",
+      "note": "Лікар УЗД. Женская консультация. Уточните текущий приём через регистратуру.",
+      "source": "doctors",
+      "phoneLabel": "Регистратура, не личный номер"
+    },
+    {
+      "id": "r222",
+      "category": "96283",
+      "name": "Центр життєстійкості",
+      "phones": [
+        "0679558976",
+        "0675260747",
+        "0961085329"
+      ],
+      "city": "Измаил",
+      "note": "ул. Национальной гвардии Украины, 79. Психосоциальная поддержка; доступного специалиста уточните в центре.",
+      "source": "mental",
+      "phoneLabel": "Контакты центра"
+    },
+    {
+      "id": "r223",
+      "category": "96283",
+      "name": "Городской центр социальных служб",
+      "phones": [
+        "0484172407"
+      ],
+      "city": "Измаил",
+      "note": "пр. Незалежності, 62. Помощь с обращением за поддержкой; не личный номер психолога.",
+      "source": "mental",
+      "phoneLabel": "Контакт учреждения"
+    },
+    {
+      "id": "r224",
+      "category": "96304",
+      "name": "Мойсеєнко Альона Леонідівна · эндокринолог",
+      "phones": [
+        "0800750070",
+        "0733750070"
+      ],
+      "city": "Измаил",
+      "note": "Смартлаб, ул. Верхнеторговая, 56, помещение 3. Наличие приёма уточните при записи.",
+      "source": "smartlab",
+      "phoneLabel": "Контакт-центр, не личный номер"
+    },
+    {
+      "id": "r225",
+      "category": "96264",
+      "name": "Почтаренко Ігор В’ячеславович · кардиолог",
+      "phones": [
+        "0800750070",
+        "0733750070"
+      ],
+      "city": "Измаил",
+      "note": "Смартлаб, ул. Верхнеторговая, 56, помещение 3. Наличие приёма уточните при записи.",
+      "source": "smartlab",
+      "phoneLabel": "Контакт-центр, не личный номер"
+    }
+  ]
+}

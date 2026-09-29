@@ -1575,12 +1575,7 @@ a.nav{ text-decoration:none; }
 
   var fav=document.getElementById("favBtn");
   if(fav) fav.addEventListener("click",function(){
-    var toast=document.getElementById("toast");
-    if(toast){
-      toast.textContent="Избранное пока пусто";
-      toast.classList.add("show");
-      setTimeout(function(){toast.classList.remove("show");},1500);
-    }
+    window.location.href="./health-care/#favorites";
   });
 
   for(var ci=0;ci<cards.length;ci++){
