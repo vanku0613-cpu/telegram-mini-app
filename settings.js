@@ -1,75 +1,84 @@
 /* =========================================================
    СПРАВОЧНИК ИЗМАИЛ — ЕДИНЫЙ ФАЙЛ НАСТРОЕК
 
-   index.html НЕ ТРОГАЕМ.
-   Все дальнейшие изменения делаем только здесь.
+   index.html больше НЕ ТРОГАЕМ.
+   Все изменения делаем только здесь.
    ========================================================= */
 
 window.IZMAIL_SETTINGS = {
 
   /* =========================================================
-     РАЗМЕР
+     ОБЩИЙ РАЗМЕР
      ========================================================= */
 
   design: {
 
-    /* Текущий идеальный размер */
-    masterScale: 1.08
+    /* Уже подобранный идеальный размер */
+    masterScale: 1.09
 
   },
 
 
   /* =========================================================
-     ПОЛОЖЕНИЕ
+     ПОЛОЖЕНИЕ ИНТЕРФЕЙСА
      ========================================================= */
 
   layout: {
 
     /*
-      Фон и круглая аватарка остаются
-      ТОЧНО НА СВОЁМ МЕСТЕ.
-    */
-    headerMoveDown: "0%",
+      Дополнительно опускаем ВСЁ меню ниже.
 
-    /*
-      Очень небольшая коррекция влево,
-      чтобы визуально выровнять меню.
+      Фон, круглая аватарка, название
+      и верхняя картинка НЕ двигаются.
     */
-    menuShiftX: "-0.40vw",
+    menuDown: "0.90%",
 
 
     /* ---------------------------------------------------------
-       ВСЁ МЕНЮ НЕМНОГО СПУЩЕНО НИЖЕ
+       БАЗОВЫЕ ПОЛОЖЕНИЯ
        --------------------------------------------------------- */
 
-    /* Счётчик */
     viewerTop: "32.90%",
 
-    /* Погода / Курс / Укрытие */
     topRowTop: "36.60%",
 
-    /* Поиск */
     searchTop: "43.50%",
 
-    /* 8 больших кнопок */
     cardsTop: "51.00%",
 
-    /* Наши группы */
     groupsTop: "91.20%",
 
-    /* Главная / Реклама / Избранное */
     bottomTop: "98.20%",
 
-    /* Пользовательское соглашение */
     agreementTop: "105.00%",
 
 
+    /* ---------------------------------------------------------
+       БОКОВОЙ ОТСТУП
+
+       После увеличения 1.09 визуальный отступ
+       слева и справа получится примерно таким же,
+       как расстояние между большими карточками.
+       --------------------------------------------------------- */
+
+    menuLeft: "4.88%",
+
+    menuWidth: "90.24%",
+
+
+    /* ---------------------------------------------------------
+       РАССТОЯНИЕ МЕЖДУ БОЛЬШИМИ КНОПКАМИ
+
+       Одно и то же:
+       - слева / справа
+       - сверху / снизу
+       --------------------------------------------------------- */
+
+    cardsGap: "0.75vw",
+
+
     /* Погодная зона */
-    weatherStageHeight: "41.5%",
-
-
-    /* Одинаковое расстояние между большими кнопками */
-    cardsGap: "0.75vw"
+    weatherStageHeight: "41.5%"
 
   },
 
@@ -312,14 +321,20 @@ window.IZMAIL_SETTINGS = {
       design.masterScale || 1
     );
 
-  var shiftX =
-    layout.menuShiftX || "0vw";
+  var down =
+    layout.menuDown || "0%";
+
+  var menuLeft =
+    layout.menuLeft || "4.88%";
+
+  var menuWidth =
+    layout.menuWidth || "90.24%";
 
 
   var css = [
 
     /* =====================================================
-       НЕ ОБРЕЗАЕМ НИЖНЮЮ ЧАСТЬ
+       НИЖНЯЯ ЧАСТЬ НЕ ОБРЕЗАЕТСЯ
        ===================================================== */
 
     "html{" +
@@ -338,8 +353,8 @@ window.IZMAIL_SETTINGS = {
     /* =====================================================
        ФОН
 
-       ВАЖНО:
-       вниз его больше НЕ двигаем.
+       ФОН НЕ ДВИГАЕМ.
+       КРУГЛУЮ АВАТАРКУ НЕ ДВИГАЕМ.
        ===================================================== */
 
     ".bg-main{" +
@@ -356,7 +371,7 @@ window.IZMAIL_SETTINGS = {
     /* =====================================================
        ПОГОДНЫЕ ЭФФЕКТЫ
 
-       Остаются точно на фоне.
+       Остаются точно вместе с фоном.
        ===================================================== */
 
     ".scene-layer{" +
@@ -376,46 +391,55 @@ window.IZMAIL_SETTINGS = {
 
     /* =====================================================
        СЧЁТЧИК
+
+       Только спускаем ниже.
        ===================================================== */
 
     ".viewer{" +
 
-      "top:" +
+      "top:calc(" +
       (layout.viewerTop || "32.90%") +
-      " !important;" +
+      " + " +
+      down +
+      ") !important;" +
 
       "scale:" +
       scale +
       ";" +
 
       "transform-origin:center center;" +
-
-      "translate:" +
-      shiftX +
-      " 0;" +
 
     "}",
 
 
     /* =====================================================
        ПОГОДА / КУРС / УКРЫТИЕ
+
+       Центрируем.
+       Делаем одинаковое поле слева и справа.
        ===================================================== */
 
     ".top-row{" +
 
-      "top:" +
-      (layout.topRowTop || "36.60%") +
+      "left:" +
+      menuLeft +
       " !important;" +
+
+      "width:" +
+      menuWidth +
+      " !important;" +
+
+      "top:calc(" +
+      (layout.topRowTop || "36.60%") +
+      " + " +
+      down +
+      ") !important;" +
 
       "scale:" +
       scale +
       ";" +
 
       "transform-origin:center center;" +
-
-      "translate:" +
-      shiftX +
-      " 0;" +
 
     "}",
 
@@ -426,9 +450,19 @@ window.IZMAIL_SETTINGS = {
 
     ".search-wrap{" +
 
-      "top:" +
-      (layout.searchTop || "43.50%") +
+      "left:" +
+      menuLeft +
       " !important;" +
+
+      "width:" +
+      menuWidth +
+      " !important;" +
+
+      "top:calc(" +
+      (layout.searchTop || "43.50%") +
+      " + " +
+      down +
+      ") !important;" +
 
       "scale:" +
       scale +
@@ -436,22 +470,34 @@ window.IZMAIL_SETTINGS = {
 
       "transform-origin:center center;" +
 
-      "translate:" +
-      shiftX +
-      " 0;" +
-
     "}",
 
 
     /* =====================================================
        8 БОЛЬШИХ КНОПОК
+
+       ВАЖНО:
+       по бокам теперь есть небольшой одинаковый отступ.
+
+       Визуально он примерно равен расстоянию
+       между самими карточками.
        ===================================================== */
 
     ".cards{" +
 
-      "top:" +
-      (layout.cardsTop || "51.00%") +
+      "left:" +
+      menuLeft +
       " !important;" +
+
+      "width:" +
+      menuWidth +
+      " !important;" +
+
+      "top:calc(" +
+      (layout.cardsTop || "51.00%") +
+      " + " +
+      down +
+      ") !important;" +
 
       "gap:" +
       (layout.cardsGap || "0.75vw") +
@@ -463,9 +509,7 @@ window.IZMAIL_SETTINGS = {
 
       "transform-origin:center center;" +
 
-      "translate:" +
-      shiftX +
-      " var(--cards-section-shift, 0px);" +
+      "translate:0 var(--cards-section-shift, 0px);" +
 
     "}",
 
@@ -476,9 +520,19 @@ window.IZMAIL_SETTINGS = {
 
     ".groups{" +
 
-      "top:" +
-      (layout.groupsTop || "91.20%") +
+      "left:" +
+      menuLeft +
       " !important;" +
+
+      "width:" +
+      menuWidth +
+      " !important;" +
+
+      "top:calc(" +
+      (layout.groupsTop || "91.20%") +
+      " + " +
+      down +
+      ") !important;" +
 
       "scale:" +
       scale +
@@ -486,9 +540,7 @@ window.IZMAIL_SETTINGS = {
 
       "transform-origin:center center;" +
 
-      "translate:" +
-      shiftX +
-      " var(--cards-section-shift, 0px);" +
+      "translate:0 var(--cards-section-shift, 0px);" +
 
     "}",
 
@@ -499,9 +551,19 @@ window.IZMAIL_SETTINGS = {
 
     ".bottom{" +
 
-      "top:" +
-      (layout.bottomTop || "98.20%") +
+      "left:" +
+      menuLeft +
       " !important;" +
+
+      "width:" +
+      menuWidth +
+      " !important;" +
+
+      "top:calc(" +
+      (layout.bottomTop || "98.20%") +
+      " + " +
+      down +
+      ") !important;" +
 
       "scale:" +
       scale +
@@ -509,34 +571,34 @@ window.IZMAIL_SETTINGS = {
 
       "transform-origin:center center;" +
 
-      "translate:" +
-      shiftX +
-      " var(--cards-section-shift, 0px);" +
+      "translate:0 var(--cards-section-shift, 0px);" +
 
     "}",
 
 
     /* =====================================================
-       ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
+       СОГЛАШЕНИЕ
        ===================================================== */
 
     ".agreement{" +
 
-      "top:" +
+      "top:calc(" +
       (layout.agreementTop || "105.00%") +
-      " !important;" +
+      " + " +
+      down +
+      ") !important;" +
 
-      "translate:" +
-      shiftX +
-      " var(--cards-section-shift, 0px);" +
+      "translate:0 var(--cards-section-shift, 0px);" +
 
     "}",
 
 
     /* =====================================================
-       НЕВИДИМАЯ КНОПКА КРУГЛОГО ЛОГОТИПА
+       КРУГЛАЯ АВАТАРКА
 
-       Саму картинку НЕ двигаем.
+       НЕ ПЕРЕРИСОВЫВАЕМ.
+       НЕ УВЕЛИЧИВАЕМ.
+       НЕ ДВИГАЕМ.
        ===================================================== */
 
     "#mainLogoHotspot{" +
@@ -588,7 +650,8 @@ window.IZMAIL_SETTINGS = {
       ↓
    НАШИ ГРУППЫ
 
-   Нижний отступ остаётся образцом.
+   Нижний промежуток используем как образец
+   и автоматически повторяем его сверху.
    ========================================================= */
 
 (function() {
@@ -626,6 +689,8 @@ window.IZMAIL_SETTINGS = {
     }
 
 
+    /* Убираем предыдущий расчёт */
+
     document.documentElement.style.setProperty(
       "--cards-section-shift",
       "0px"
@@ -648,21 +713,23 @@ window.IZMAIL_SETTINGS = {
           groups.getBoundingClientRect();
 
 
-        /* Верхний отступ */
+        /* Отступ ПОСЛЕ поиска */
 
         var topGap =
           cardsRect.top -
           searchRect.bottom;
 
 
-        /* Нижний отступ */
+        /* Отступ ПОСЛЕ больших кнопок */
 
         var bottomGap =
           groupsRect.top -
           cardsRect.bottom;
 
 
-        /* Разница */
+        /*
+          Повторяем нижний отступ сверху.
+        */
 
         var shift =
           bottomGap -
@@ -715,7 +782,7 @@ window.IZMAIL_SETTINGS = {
   );
 
 
-  /* При изменении размера экрана */
+  /* При изменении размера телефона */
 
   window.addEventListener(
     "resize",
@@ -731,7 +798,7 @@ window.IZMAIL_SETTINGS = {
   );
 
 
-  /* При возвращении в приложение */
+  /* При возвращении в Telegram */
 
   window.addEventListener(
     "focus",
