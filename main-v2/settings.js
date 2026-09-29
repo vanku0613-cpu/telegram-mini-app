@@ -1165,3 +1165,125 @@ function izmailSearchIsActive() {
 
 
 })();
+/* =========================================================
+   УСКОРЕНИЕ MAIN-V2
+   SERVICE WORKER + ПРЕДЗАГРУЗКА СТРАНИЦ
+   ========================================================= */
+
+(function () {
+
+  /* Регистрация Service Worker */
+
+  if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", function () {
+
+      navigator.serviceWorker
+        .register("./sw.js")
+        .then(function (registration) {
+
+          registration.update();
+
+        })
+        .catch(function (error) {
+
+          console.log(
+            "Service Worker:",
+            error
+          );
+
+        });
+
+    });
+
+  }
+
+
+  /* ---------------------------------------------------------
+     Заранее подготавливаем страницы,
+     на которые пользователь может перейти
+     --------------------------------------------------------- */
+
+  var pages = [
+    "../soglashenie/",
+    "../ukrytia/",
+    "../our-groups-menu/"
+  ];
+
+
+  pages.forEach(function (url) {
+
+    var link =
+      document.createElement("link");
+
+    link.rel =
+      "prefetch";
+
+    link.href =
+      url;
+
+    document.head.appendChild(link);
+
+  });
+
+
+  /* ---------------------------------------------------------
+     Как только пользователь касается внутренней кнопки,
+     начинаем загрузку страницы заранее
+     --------------------------------------------------------- */
+
+  document.addEventListener(
+    "pointerdown",
+    function (event) {
+
+      var link =
+        event.target.closest("a[href]");
+
+      if (!link) {
+        return;
+      }
+
+
+      var url;
+
+      try {
+
+        url =
+          new URL(
+            link.href,
+            location.href
+          );
+
+      } catch (e) {
+
+        return;
+
+      }
+
+
+      /* Внешние сайты не трогаем */
+
+      if (
+        url.origin !==
+        location.origin
+      ) {
+        return;
+      }
+
+
+      fetch(
+        url.href,
+        {
+          method: "GET",
+          cache: "force-cache",
+          credentials: "same-origin"
+        }
+      ).catch(function () {});
+
+    },
+    {
+      passive: true
+    }
+  );
+
+})();
