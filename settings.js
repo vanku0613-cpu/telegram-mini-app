@@ -18,7 +18,7 @@ window.IZMAIL_SETTINGS = {
       1.04 = увеличение всего интерфейса на 4%
     */
 
-    masterScale: 1.07
+    masterScale: 1.09
   },
 
 
