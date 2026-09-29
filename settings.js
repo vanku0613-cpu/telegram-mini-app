@@ -14,7 +14,7 @@ window.IZMAIL_SETTINGS = {
   design: {
 
     /* Текущий идеальный размер */
-    masterScale: 1.09
+    masterScale: 1.08
 
   },
 
