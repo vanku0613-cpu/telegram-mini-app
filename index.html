@@ -1356,27 +1356,10 @@ a.nav{ text-decoration:none; }
 
   setInterval(syncRealScene,Number((CFG.updates && CFG.updates.sceneWeatherMs) || 600000));
 
-  /* VIEW COUNTER: +1 no more often than once per 3 minutes */
-  (function(){
-    var el=document.getElementById("viewCount");
-    if(!el) return;
-    try{
-      var CK="izmail_directory_view_count";
-      var TK="izmail_directory_view_last_time";
-      var THREE=Number((CFG.updates && CFG.updates.viewIntervalMs) || 180000);
-      var count=parseInt(localStorage.getItem(CK)||"0",10)||0;
-      var last=parseInt(localStorage.getItem(TK)||"0",10)||0;
-      var now=Date.now();
-      if(!last || now-last>=THREE){
-        count+=1;
-        localStorage.setItem(CK,String(count));
-        localStorage.setItem(TK,String(now));
-      }
-      el.textContent=Math.max(1,count).toLocaleString("ru-RU");
-    }catch(e){
-      el.textContent="1";
-    }
-  })();
+  /* Shared view counter; loaded independently of other page features. */
+  var viewCounterScript = document.createElement("script");
+  viewCounterScript.src = "./view-counter.js?v=1";
+  document.head.appendChild(viewCounterScript);
 
   /* SEARCH */
   var search=document.getElementById("directorySearch");
