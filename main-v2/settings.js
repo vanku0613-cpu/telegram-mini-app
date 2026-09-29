@@ -1,10 +1,6 @@
 /* =========================================================
    СПРАВОЧНИК ИЗМАИЛ
-   РАБОЧАЯ ВЕРСИЯ MAIN-V2
-
-   ВАЖНО:
-   Корневые index.html и settings.js ЗАМОРОЖЕНЫ.
-   Все следующие изменения главного меню делаем здесь.
+   MAIN-V2
    ========================================================= */
 
 window.IZMAIL_BUILD = "MAIN_V2_WORKING";
@@ -29,62 +25,27 @@ window.IZMAIL_SETTINGS = {
 
   layout: {
 
-    /*
-      Текущий финальный отступ меню от верхней картинки.
-      Фон и круглая аватарка не двигаются.
-    */
-
     menuDown: "5.40%",
-
-
-    /* Просмотрено */
 
     viewerTop: "32.90%",
 
-
-    /* Погода / Курс / Укрытие */
-
     topRowTop: "36.60%",
-
-
-    /* Поиск */
 
     searchTop: "43.50%",
 
-
-    /* Большие кнопки */
-
     cardsTop: "51.00%",
-
-
-    /* Наши группы */
 
     groupsTop: "91.20%",
 
-
-    /* Главная / Реклама / Избранное */
-
     bottomTop: "98.20%",
 
-
-    /* Пользовательское соглашение */
-
     agreementTop: "105.00%",
-
-
-    /* Поля слева и справа */
 
     menuLeft: "4.88%",
 
     menuWidth: "90.24%",
 
-
-    /* Расстояние между большими кнопками */
-
     cardsGap: "0.75vw",
-
-
-    /* Зона погодных эффектов */
 
     weatherStageHeight: "41.5%"
 
@@ -170,8 +131,6 @@ window.IZMAIL_SETTINGS = {
     fadeEnd: 1.00,
 
 
-    /* ДОЖДЬ */
-
     rain: {
 
       count: 118,
@@ -217,8 +176,6 @@ window.IZMAIL_SETTINGS = {
     },
 
 
-    /* СНЕГ */
-
     snow: {
 
       count: 78,
@@ -245,7 +202,7 @@ window.IZMAIL_SETTINGS = {
 
 
   /* =========================================================
-     ОСНОВНЫЕ ССЫЛКИ MAIN-V2
+     ССЫЛКИ
      ========================================================= */
 
   links: {
@@ -253,42 +210,23 @@ window.IZMAIL_SETTINGS = {
     mainGroup:
       "https://t.me/SPRAVOCHNIK_IZMAIL",
 
-
-    /* Укрытия */
-
     shelter:
       "../ukrytia/",
-
-
-    /* Соглашение */
 
     agreement:
       "../soglashenie/",
 
-
-    /* Реклама */
-
     ads:
       "https://t.me/Vanku13",
-
-
-    /* Курс валют */
 
     currency:
       "https://minfin.com.ua/currency/izmail/",
 
-
-    /* Наши группы */
-
     groups:
       "../our-groups-menu/",
 
-
     /*
-      ГЛАВНАЯ
-
-      Теперь это именно текущая версия MAIN-V2.
-      В старую корневую версию ../ больше не уходим.
+      Главная теперь всегда MAIN-V2.
     */
 
     home:
@@ -298,7 +236,7 @@ window.IZMAIL_SETTINGS = {
 
 
   /* =========================================================
-     ССЫЛКИ КАТЕГОРИЙ
+     КАТЕГОРИИ
      ========================================================= */
 
   categoryLinks: {
@@ -336,10 +274,84 @@ window.IZMAIL_SETTINGS = {
 
 
 /* =========================================================
+   КЛЮЧИ ФИКСАЦИИ ГЕОМЕТРИИ
+
+   Для каждой ширины телефона запоминается своё положение.
+   ========================================================= */
+
+var IZMAIL_SCREEN_WIDTH =
+  Math.round(
+    window.innerWidth
+  );
+
+
+var IZMAIL_SHIFT_KEY =
+  "izmail_cards_shift_v3_" +
+  IZMAIL_SCREEN_WIDTH;
+
+
+var IZMAIL_VIEWER_KEY =
+  "izmail_viewer_left_v3_" +
+  IZMAIL_SCREEN_WIDTH;
+
+
+var IZMAIL_SAVED_SHIFT =
+  null;
+
+
+var IZMAIL_SAVED_VIEWER =
+  null;
+
+
+try {
+
+  IZMAIL_SAVED_SHIFT =
+    sessionStorage.getItem(
+      IZMAIL_SHIFT_KEY
+    );
+
+
+  IZMAIL_SAVED_VIEWER =
+    sessionStorage.getItem(
+      IZMAIL_VIEWER_KEY
+    );
+
+} catch (e) {}
+
+
+/* =========================================================
+   СРАЗУ ВОССТАНАВЛИВАЕМ ПОСЛЕДНЕЕ ПОЛОЖЕНИЕ
+
+   Это происходит ещё до первого отображения интерфейса.
+   ========================================================= */
+
+if (
+  IZMAIL_SAVED_SHIFT !== null &&
+  !isNaN(
+    parseFloat(
+      IZMAIL_SAVED_SHIFT
+    )
+  )
+) {
+
+  document.documentElement.style.setProperty(
+
+    "--cards-section-shift",
+
+    parseFloat(
+      IZMAIL_SAVED_SHIFT
+    ).toFixed(2) + "px"
+
+  );
+
+}
+
+
+/* =========================================================
    ПРИМЕНЕНИЕ НАСТРОЕК
    ========================================================= */
 
-(function(cfg) {
+(function (cfg) {
 
   var layout =
     cfg.layout || {};
@@ -367,11 +379,36 @@ window.IZMAIL_SETTINGS = {
     layout.menuWidth || "90.24%";
 
 
+  var savedViewerCss =
+    "";
+
+
+  if (
+    IZMAIL_SAVED_VIEWER !== null &&
+    !isNaN(
+      parseFloat(
+        IZMAIL_SAVED_VIEWER
+      )
+    )
+  ) {
+
+    savedViewerCss =
+
+      "left:" +
+      parseFloat(
+        IZMAIL_SAVED_VIEWER
+      ).toFixed(2) +
+      "px !important;";
+
+  }
+
+
   var css = [
 
-    /* -----------------------------------------------------
-       НИЖНЯЯ ЧАСТЬ НЕ ОБРЕЗАЕТСЯ
-       ----------------------------------------------------- */
+
+    /* =====================================================
+       СТРАНИЦА
+       ===================================================== */
 
     "html{" +
       "overflow:hidden !important;" +
@@ -388,9 +425,9 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        ФОН
-       ----------------------------------------------------- */
+       ===================================================== */
 
     ".bg-main{" +
 
@@ -403,14 +440,17 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        ПОГОДНЫЕ ЭФФЕКТЫ
-       ----------------------------------------------------- */
+       ===================================================== */
 
     ".scene-layer{" +
 
       "height:" +
-      (layout.weatherStageHeight || "41.5%") +
+      (
+        layout.weatherStageHeight ||
+        "41.5%"
+      ) +
       " !important;" +
 
       "scale:" +
@@ -422,14 +462,19 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        ПРОСМОТРЕНО
-       ----------------------------------------------------- */
+       ===================================================== */
 
     ".viewer{" +
 
+      savedViewerCss +
+
       "top:calc(" +
-      (layout.viewerTop || "32.90%") +
+      (
+        layout.viewerTop ||
+        "32.90%"
+      ) +
       " + " +
       down +
       ") !important;" +
@@ -445,9 +490,9 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
-       ПОГОДА / КУРС / УКРЫТИЕ
-       ----------------------------------------------------- */
+    /* =====================================================
+       ПОГОДА / ВАЛЮТА / УКРЫТИЕ
+       ===================================================== */
 
     ".top-row{" +
 
@@ -460,7 +505,10 @@ window.IZMAIL_SETTINGS = {
       " !important;" +
 
       "top:calc(" +
-      (layout.topRowTop || "36.60%") +
+      (
+        layout.topRowTop ||
+        "36.60%"
+      ) +
       " + " +
       down +
       ") !important;" +
@@ -474,9 +522,9 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        ПОИСК
-       ----------------------------------------------------- */
+       ===================================================== */
 
     ".search-wrap{" +
 
@@ -489,7 +537,10 @@ window.IZMAIL_SETTINGS = {
       " !important;" +
 
       "top:calc(" +
-      (layout.searchTop || "43.50%") +
+      (
+        layout.searchTop ||
+        "43.50%"
+      ) +
       " + " +
       down +
       ") !important;" +
@@ -503,9 +554,9 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        БОЛЬШИЕ КНОПКИ
-       ----------------------------------------------------- */
+       ===================================================== */
 
     ".cards{" +
 
@@ -518,13 +569,19 @@ window.IZMAIL_SETTINGS = {
       " !important;" +
 
       "top:calc(" +
-      (layout.cardsTop || "51.00%") +
+      (
+        layout.cardsTop ||
+        "51.00%"
+      ) +
       " + " +
       down +
       ") !important;" +
 
       "gap:" +
-      (layout.cardsGap || "0.75vw") +
+      (
+        layout.cardsGap ||
+        "0.75vw"
+      ) +
       " !important;" +
 
       "scale:" +
@@ -538,9 +595,9 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        НАШИ ГРУППЫ
-       ----------------------------------------------------- */
+       ===================================================== */
 
     ".groups{" +
 
@@ -553,7 +610,10 @@ window.IZMAIL_SETTINGS = {
       " !important;" +
 
       "top:calc(" +
-      (layout.groupsTop || "91.20%") +
+      (
+        layout.groupsTop ||
+        "91.20%"
+      ) +
       " + " +
       down +
       ") !important;" +
@@ -569,9 +629,9 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
-       ГЛАВНАЯ / РЕКЛАМА / ИЗБРАННОЕ
-       ----------------------------------------------------- */
+    /* =====================================================
+       НИЖНИЕ КНОПКИ
+       ===================================================== */
 
     ".bottom{" +
 
@@ -584,7 +644,10 @@ window.IZMAIL_SETTINGS = {
       " !important;" +
 
       "top:calc(" +
-      (layout.bottomTop || "98.20%") +
+      (
+        layout.bottomTop ||
+        "98.20%"
+      ) +
       " + " +
       down +
       ") !important;" +
@@ -600,14 +663,17 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        СОГЛАШЕНИЕ
-       ----------------------------------------------------- */
+       ===================================================== */
 
     ".agreement{" +
 
       "top:calc(" +
-      (layout.agreementTop || "105.00%") +
+      (
+        layout.agreementTop ||
+        "105.00%"
+      ) +
       " + " +
       down +
       ") !important;" +
@@ -617,9 +683,9 @@ window.IZMAIL_SETTINGS = {
     "}",
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        КРУГЛАЯ АВАТАРКА
-       ----------------------------------------------------- */
+       ===================================================== */
 
     "#mainLogoHotspot{" +
 
@@ -633,7 +699,10 @@ window.IZMAIL_SETTINGS = {
 
     "}"
 
-  ].join("\n");
+
+  ].join(
+    "\n"
+  );
 
 
   var style =
@@ -654,14 +723,14 @@ window.IZMAIL_SETTINGS = {
     style
   );
 
-})(window.IZMAIL_SETTINGS);
+
+})(
+  window.IZMAIL_SETTINGS
+);
 
 
 /* =========================================================
-   ПРОВЕРКА АКТИВНОГО ПОИСКА
-
-   Пока открыта клавиатура,
-   интерфейс не пересчитываем.
+   АКТИВЕН ЛИ ПОИСК
    ========================================================= */
 
 function izmailSearchIsActive() {
@@ -678,28 +747,64 @@ function izmailSearchIsActive() {
 
 
   return !!(
+
     active.matches &&
+
     active.matches(
       "#directorySearch, .search-real, input[type='search']"
     )
+
   );
 
 }
 
 
 /* =========================================================
-   ВЫРАВНИВАНИЕ "ПРОСМОТРЕНО"
-
-   Ровно по центру кнопки Погода.
+   ЗАПУСК ПОСЛЕ ГОТОВНОСТИ DOM
    ========================================================= */
 
-(function() {
+function izmailWhenReady(
+  callback
+) {
+
+  if (
+    document.readyState ===
+    "loading"
+  ) {
+
+    window.addEventListener(
+      "DOMContentLoaded",
+      callback,
+      {
+        once: true
+      }
+    );
+
+  } else {
+
+    callback();
+
+  }
+
+}
+
+
+/* =========================================================
+   ВЫРАВНИВАНИЕ «ПРОСМОТРЕНО»
+
+   ВАЖНО:
+   При возврате на страницу ничего не пересчитываем.
+   ========================================================= */
+
+(function () {
 
 
   function alignViewerWithWeather() {
 
 
-    if (izmailSearchIsActive()) {
+    if (
+      izmailSearchIsActive()
+    ) {
 
       return;
 
@@ -713,6 +818,7 @@ function izmailSearchIsActive() {
 
 
     var weather =
+
       document.querySelector(
         ".weather-panel"
       ) ||
@@ -756,65 +862,55 @@ function izmailSearchIsActive() {
 
 
     var centerX =
+
       weatherRect.left -
+
       appRect.left +
+
       weatherRect.width / 2;
 
 
     viewer.style.left =
-      centerX.toFixed(2) + "px";
+      centerX.toFixed(2) +
+      "px";
+
+
+    try {
+
+      sessionStorage.setItem(
+
+        IZMAIL_VIEWER_KEY,
+
+        centerX.toFixed(2)
+
+      );
+
+    } catch (e) {}
 
   }
 
 
-  window.addEventListener(
-    "DOMContentLoaded",
-    function() {
+  /* Первый расчёт */
 
+  izmailWhenReady(
+    function () {
 
       requestAnimationFrame(
-        function() {
-
+        function () {
 
           requestAnimationFrame(
             alignViewerWithWeather
           );
 
-
         }
       );
-
-
-    }
-  );
-
-
-  document.addEventListener(
-    "visibilitychange",
-    function() {
-
-
-      if (
-        document.visibilityState === "visible" &&
-        !izmailSearchIsActive()
-      ) {
-
-        requestAnimationFrame(
-          alignViewerWithWeather
-        );
-
-      }
-
 
     }
   );
 
 
   /*
-    При появлении клавиатуры меняется высота,
-    но не ширина.
-
-    Поэтому клавиатуру игнорируем.
+    Клавиатуру не считаем изменением экрана.
   */
 
   var lastWidth =
@@ -823,7 +919,7 @@ function izmailSearchIsActive() {
 
   window.addEventListener(
     "resize",
-    function() {
+    function () {
 
 
       var newWidth =
@@ -831,13 +927,18 @@ function izmailSearchIsActive() {
 
 
       var widthChanged =
+
         Math.abs(
+
           newWidth -
           lastWidth
+
         ) > 4;
 
 
-      if (!widthChanged) {
+      if (
+        !widthChanged
+      ) {
 
         return;
 
@@ -852,19 +953,18 @@ function izmailSearchIsActive() {
         alignViewerWithWeather
       );
 
-
     }
   );
 
 
+  /* Поворот телефона */
+
   window.addEventListener(
     "orientationchange",
-    function() {
-
+    function () {
 
       setTimeout(
-        function() {
-
+        function () {
 
           lastWidth =
             window.innerWidth;
@@ -872,11 +972,9 @@ function izmailSearchIsActive() {
 
           alignViewerWithWeather();
 
-
         },
         250
       );
-
 
     }
   );
@@ -888,38 +986,38 @@ function izmailSearchIsActive() {
 /* =========================================================
    ОДИНАКОВЫЕ ВНЕШНИЕ ОТСТУПЫ
 
-   ПОИСК
-      ↓
-   ОТСТУП
-
-   БОЛЬШИЕ КНОПКИ
-
-   ОТСТУП
-      ↓
-   НАШИ ГРУППЫ
-
-   Без дёргания при клавиатуре.
+   ВАЖНО:
+   При возврате из соглашения, укрытий и других страниц
+   повторного пересчёта НЕТ.
    ========================================================= */
 
-(function() {
+(function () {
 
 
   function getCurrentShift() {
 
 
     var raw =
+
       getComputedStyle(
         document.documentElement
-      ).getPropertyValue(
+      )
+      .getPropertyValue(
         "--cards-section-shift"
       );
 
 
     var value =
-      parseFloat(raw);
+      parseFloat(
+        raw
+      );
 
 
-    if (isNaN(value)) {
+    if (
+      isNaN(
+        value
+      )
+    ) {
 
       return 0;
 
@@ -931,10 +1029,33 @@ function izmailSearchIsActive() {
   }
 
 
+  function saveShift(
+    value
+  ) {
+
+    try {
+
+      sessionStorage.setItem(
+
+        IZMAIL_SHIFT_KEY,
+
+        Number(
+          value
+        ).toFixed(2)
+
+      );
+
+    } catch (e) {}
+
+  }
+
+
   function equalizeOuterGaps() {
 
 
-    if (izmailSearchIsActive()) {
+    if (
+      izmailSearchIsActive()
+    ) {
 
       return;
 
@@ -971,10 +1092,12 @@ function izmailSearchIsActive() {
 
 
     requestAnimationFrame(
-      function() {
+      function () {
 
 
-        if (izmailSearchIsActive()) {
+        if (
+          izmailSearchIsActive()
+        ) {
 
           return;
 
@@ -994,11 +1117,13 @@ function izmailSearchIsActive() {
 
 
         var topGap =
+
           cardsRect.top -
           searchRect.bottom;
 
 
         var bottomGap =
+
           groupsRect.top -
           cardsRect.bottom;
 
@@ -1008,40 +1133,64 @@ function izmailSearchIsActive() {
 
 
         var newShift =
+
           currentShift +
+
           (
             bottomGap -
             topGap
           );
 
 
-        if (newShift < 0) {
+        if (
+          newShift < 0
+        ) {
 
           newShift = 0;
 
         }
 
 
+        /*
+          Если положение уже правильное,
+          вообще ничего не двигаем.
+        */
+
         if (
+
           Math.abs(
+
             newShift -
             currentShift
+
           ) < 0.5
+
         ) {
+
+          saveShift(
+            currentShift
+          );
 
           return;
 
         }
 
 
-        document.documentElement.style.setProperty(
+        document.documentElement
+          .style
+          .setProperty(
 
-          "--cards-section-shift",
+            "--cards-section-shift",
 
-          newShift.toFixed(2) + "px"
+            newShift.toFixed(2) +
+            "px"
 
+          );
+
+
+        saveShift(
+          newShift
         );
-
 
       }
     );
@@ -1049,54 +1198,30 @@ function izmailSearchIsActive() {
   }
 
 
-  /* Первый расчёт */
+  /* Только первый расчёт */
 
-  window.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
+  izmailWhenReady(
+    function () {
 
       requestAnimationFrame(
-        function() {
-
+        function () {
 
           requestAnimationFrame(
             equalizeOuterGaps
           );
 
-
         }
       );
 
-
     }
   );
 
 
-  /* Возвращение в приложение */
-
-  document.addEventListener(
-    "visibilitychange",
-    function() {
-
-
-      if (
-        document.visibilityState === "visible" &&
-        !izmailSearchIsActive()
-      ) {
-
-        requestAnimationFrame(
-          equalizeOuterGaps
-        );
-
-      }
-
-
-    }
-  );
-
-
-  /* Клавиатуру игнорируем */
+  /*
+    При открытии клавиатуры
+    ширина обычно не меняется,
+    поэтому ничего не двигаем.
+  */
 
   var lastWidth =
     window.innerWidth;
@@ -1104,7 +1229,7 @@ function izmailSearchIsActive() {
 
   window.addEventListener(
     "resize",
-    function() {
+    function () {
 
 
       var newWidth =
@@ -1112,13 +1237,18 @@ function izmailSearchIsActive() {
 
 
       var widthChanged =
+
         Math.abs(
+
           newWidth -
           lastWidth
+
         ) > 4;
 
 
-      if (!widthChanged) {
+      if (
+        !widthChanged
+      ) {
 
         return;
 
@@ -1133,7 +1263,6 @@ function izmailSearchIsActive() {
         equalizeOuterGaps
       );
 
-
     }
   );
 
@@ -1142,12 +1271,10 @@ function izmailSearchIsActive() {
 
   window.addEventListener(
     "orientationchange",
-    function() {
-
+    function () {
 
       setTimeout(
-        function() {
-
+        function () {
 
           lastWidth =
             window.innerWidth;
@@ -1155,11 +1282,9 @@ function izmailSearchIsActive() {
 
           equalizeOuterGaps();
 
-
         },
         250
       );
-
 
     }
   );
@@ -1170,59 +1295,62 @@ function izmailSearchIsActive() {
 
 /* =========================================================
    УСКОРЕНИЕ MAIN-V2
-   SERVICE WORKER + ПРЕДЗАГРУЗКА СТРАНИЦ
    ========================================================= */
 
 (function () {
 
 
-  /* ---------------------------------------------------------
+  /* =====================================================
      SERVICE WORKER
-     --------------------------------------------------------- */
+     ===================================================== */
 
-  if ("serviceWorker" in navigator) {
-
+  if (
+    "serviceWorker" in
+    navigator
+  ) {
 
     window.addEventListener(
       "load",
       function () {
 
-
         navigator.serviceWorker
-          .register("./sw.js")
-          .then(
-            function (registration) {
 
+          .register(
+            "./sw.js"
+          )
+
+          .then(
+            function (
+              registration
+            ) {
 
               registration.update();
 
-
             }
           )
-          .catch(
-            function (error) {
 
+          .catch(
+            function (
+              error
+            ) {
 
               console.log(
                 "Service Worker:",
                 error
               );
 
-
             }
           );
-
 
       }
     );
 
-
   }
 
 
-  /* ---------------------------------------------------------
-     ПРЕДЗАГРУЗКА ВНУТРЕННИХ СТРАНИЦ
-     --------------------------------------------------------- */
+  /* =====================================================
+     ПРЕДЗАГРУЗКА СТРАНИЦ
+     ===================================================== */
 
   var pages = [
 
@@ -1236,8 +1364,9 @@ function izmailSearchIsActive() {
 
 
   pages.forEach(
-    function (url) {
-
+    function (
+      url
+    ) {
 
       var link =
         document.createElement(
@@ -1257,19 +1386,19 @@ function izmailSearchIsActive() {
         link
       );
 
-
     }
   );
 
 
-  /* ---------------------------------------------------------
-     ПРИ КАСАНИИ ВНУТРЕННЕЙ ССЫЛКИ
-     НАЧИНАЕМ ЗАГРУЗКУ ЗАРАНЕЕ
-     --------------------------------------------------------- */
+  /* =====================================================
+     НАЧИНАЕМ ЗАГРУЗКУ В МОМЕНТ КАСАНИЯ
+     ===================================================== */
 
   document.addEventListener(
     "pointerdown",
-    function (event) {
+    function (
+      event
+    ) {
 
 
       var link =
@@ -1278,7 +1407,9 @@ function izmailSearchIsActive() {
         );
 
 
-      if (!link) {
+      if (
+        !link
+      ) {
 
         return;
 
@@ -1290,33 +1421,29 @@ function izmailSearchIsActive() {
 
       try {
 
-
         url =
           new URL(
             link.href,
             location.href
           );
 
-
       } catch (e) {
 
-
         return;
-
 
       }
 
 
-      /* Внешние сайты не трогаем */
+      /*
+        Только наш сайт.
+      */
 
       if (
         url.origin !==
         location.origin
       ) {
 
-
         return;
-
 
       }
 
@@ -1340,12 +1467,10 @@ function izmailSearchIsActive() {
         function () {}
       );
 
-
     },
     {
 
-      passive:
-        true
+      passive: true
 
     }
   );
@@ -1355,137 +1480,48 @@ function izmailSearchIsActive() {
 
 
 /* =========================================================
-   КНОПКА «ГЛАВНАЯ»
+   ПОДКЛЮЧАЕМ ЕДИНУЮ НАВИГАЦИЮ
 
-   БЕЗ ПЕРЕХОДА В СТАРУЮ КОРНЕВУЮ ВЕРСИЮ.
-   БЕЗ ?reload=...
-
-   Обновляем именно текущий MAIN-V2
-   по тому же адресу.
+   Здесь больше нет отдельного кода для кнопки «Главная».
+   Всеми переходами занимается navigation.js.
    ========================================================= */
 
 (function () {
 
 
-  function findHomeButton(
-    target
+  if (
+    document.querySelector(
+      "script[data-izmail-navigation]"
+    )
   ) {
 
-
-    var element =
-      target.closest(
-        "a, button, [role='button'], [data-action], [data-link]"
-      );
-
-
-    if (!element) {
-
-      return null;
-
-    }
-
-
-    var action =
-      (
-        element.dataset.action ||
-        ""
-      ).toLowerCase();
-
-
-    var dataLink =
-      (
-        element.dataset.link ||
-        ""
-      ).toLowerCase();
-
-
-    var id =
-      (
-        element.id ||
-        ""
-      ).toLowerCase();
-
-
-    var text =
-      (
-        element.textContent ||
-        ""
-      )
-      .trim()
-      .toLowerCase();
-
-
-    if (
-
-      action === "home" ||
-
-      dataLink === "home" ||
-
-      id === "home" ||
-
-      id === "homebutton" ||
-
-      id === "homebtn" ||
-
-      text === "главная"
-
-    ) {
-
-
-      return element;
-
-
-    }
-
-
-    return null;
+    return;
 
   }
 
 
-  document.addEventListener(
-    "click",
-    function (event) {
+  var script =
+    document.createElement(
+      "script"
+    );
 
 
-      var button =
-        findHomeButton(
-          event.target
-        );
+  script.src =
+    "../navigation.js?v=2";
 
 
-      if (!button) {
-
-        return;
-
-      }
+  script.async =
+    false;
 
 
-      /*
-        Останавливаем старую логику кнопки,
-        если она есть в index.html.
-      */
-
-      event.preventDefault();
-
-      event.stopPropagation();
-
-      event.stopImmediatePropagation();
+  script.setAttribute(
+    "data-izmail-navigation",
+    "1"
+  );
 
 
-      /*
-        Не меняем адрес.
-        Не переходим в ../.
-        Не добавляем ?reload=...
-
-        Просто обновляем текущий MAIN-V2.
-      */
-
-      window.location.reload();
-
-
-    },
-    true
+  document.head.appendChild(
+    script
   );
 
 
