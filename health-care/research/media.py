@@ -3,7 +3,9 @@ data=json.loads((ROOT/'telegram.json').read_text(encoding='utf-8'))
 def download(c):
  try:
   if c.get('media') and not c['media'][0].get('poster'): c['media']=post(c['url'])['media']
+  # Video imports are retired: the app uses generated static covers.
   for i,m in enumerate(c.get('media',[])):
+   if m['type']=='video':continue
    name=c['id']+'-'+str(i)+('.mp4' if m['type']=='video' else '.jpg')
    path=ROOT.parent/'media'/name
    if not path.exists():path.write_bytes(fetch(m['url']))

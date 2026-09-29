@@ -1,0 +1,270 @@
+{
+  "promptTemplate": "Create ONE finished landscape 3:2 Russian Izmail directory category cover. Exact top small text \"СПРАВОЧНИК ИЗМАИЛ\". Exact large title \"{TITLE}\". Deep navy and royal blue photographic backdrop, restrained cyan bokeh, glossy beveled blue title panels, crisp WHITE SANS SERIF text, generous margins, legible at 320px width. Bottom half realistic generic editorial photograph about the named specialty/service, integrated in rounded photo frame. No named doctor portraits or brands, no claims, no phone numbers. Distinct tasteful appropriate subject for this category. Static image, polished matching a medical and beauty directory. For veterinarian categories show veterinarian with cat/dog; for nonmedical energy practices show calm relaxation, no medical symbols. For geographic category show a generic medical consultation, no landmark claims.",
+  "images": [
+    {
+      "id": "96228",
+      "name": "Поликлиники и больницы",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-5c124c68-93e4-44f2-8a10-e4a4cda583eb.png"
+    },
+    {
+      "id": "96229",
+      "name": "Семейный врач/терапевт",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-f533f53d-6ab3-4f50-998d-b3be5e146e9f.png"
+    },
+    {
+      "id": "96246",
+      "name": "УЗИ / УЗД",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-55fee24d-3aea-4316-bfde-6eb291708981.png"
+    },
+    {
+      "id": "96230",
+      "name": "Педиатр",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-b2e64520-1d8a-4982-bd8c-616f035c44e9.png"
+    },
+    {
+      "id": "96259",
+      "name": "Хирург",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-db93ffad-4b97-43cf-ae90-292d814b46de.png"
+    },
+    {
+      "id": "96248",
+      "name": "МРТ",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-5cce950e-b290-4d22-b910-a727410cfac7.png"
+    },
+    {
+      "id": "96231",
+      "name": "Стоматологи · взрослые и детские",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-19e310d5-ee6a-4bd3-a84a-aa4511942453.png"
+    },
+    {
+      "id": "96260",
+      "name": "Травматологи и ортопеды",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-82dca4e1-a2d4-41cb-8ae3-0d663bfb41c6.png"
+    },
+    {
+      "id": "96261",
+      "name": "Нейрохирург",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-7d2fb55f-9aad-489e-9c4b-57c47aebc28c.png"
+    },
+    {
+      "id": "96262",
+      "name": "Уролог-хирург",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-3df0d87f-1905-4332-b0e4-bc9393d5c0a9.png"
+    },
+    {
+      "id": "96263",
+      "name": "Анестезиолог-реаниматолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-85b87e33-68f2-4263-9e8b-35e7c79a6742.png"
+    },
+    {
+      "id": "96274",
+      "name": "Ревматолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-13537434-63f1-4b54-9215-16391cc51dcb.png"
+    },
+    {
+      "id": "96264",
+      "name": "Кардиолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-e71b2fe1-9171-428c-9037-b53c090e024a.png"
+    },
+    {
+      "id": "96275",
+      "name": "Невропатолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-7d3246fb-a6b8-4494-bc18-192b840366ca.png"
+    },
+    {
+      "id": "96269",
+      "name": "Флеболог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-7b403457-ff07-4399-86be-46603b3a0158.png"
+    },
+    {
+      "id": "96284",
+      "name": "Психотерапевт",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-3f0fbf12-0993-43c9-8f63-ab0e0cab496d.png"
+    },
+    {
+      "id": "96282",
+      "name": "Психиатр",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-fc68c05c-de9a-4ea0-aad0-a8232b16b47a.png"
+    },
+    {
+      "id": "96285",
+      "name": "Офтальмолог (окулист)",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-2f11a497-2c01-4406-8537-c9921ae06a43.png"
+    },
+    {
+      "id": "96291",
+      "name": "Логопед",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-12eb4618-4408-4bb1-9684-b10e5aabc9ae.png"
+    },
+    {
+      "id": "96288",
+      "name": "ЛОР",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-d0f0bb52-4fc9-4f1d-880d-6ff4f325f4eb.png"
+    },
+    {
+      "id": "96292",
+      "name": "Гинеколог/акушер",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-89463c7c-80a0-403b-8b66-8a48cede31e8.png"
+    },
+    {
+      "id": "96289",
+      "name": "Фониатр",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-170c278d-f017-4c23-bc65-a2de0e462aef.png"
+    },
+    {
+      "id": "96293",
+      "name": "Репродуктолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-15076870-aa30-4064-8dc9-cdbf825654a6.png"
+    },
+    {
+      "id": "96295",
+      "name": "Уролог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-0f57f9d2-6dce-4ade-8736-89880b500965.png"
+    },
+    {
+      "id": "96294",
+      "name": "Маммолог/Онколог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-d6f8b127-4168-493a-b330-ef733cdea959.png"
+    },
+    {
+      "id": "96296",
+      "name": "Андролог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-f9037026-99e8-4cd1-b7e9-16d27a28c831.png"
+    },
+    {
+      "id": "96300",
+      "name": "Трихолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-10b6e1b9-2adb-427e-84b9-e984c225cb41.png"
+    },
+    {
+      "id": "96297",
+      "name": "Дерматолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-9aa4fcde-4473-4c52-986c-df8e09023304.png"
+    },
+    {
+      "id": "96301",
+      "name": "Косметолог-врач",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-1f495ea0-831c-4f2f-8792-59f1bf2f9e42.png"
+    },
+    {
+      "id": "96304",
+      "name": "Эндокринолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-6e96e90e-9cfd-4748-9fc5-21f0f1118e47.png"
+    },
+    {
+      "id": "96299",
+      "name": "Дерматовенеролог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-b12aa482-7986-40be-83dc-2364340d06be.png"
+    },
+    {
+      "id": "96305",
+      "name": "Гастроэнтеролог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-f3575511-c95f-4d3d-b2d3-4b45edccc115.png"
+    },
+    {
+      "id": "96307",
+      "name": "Нефролог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-6199d9fb-dd71-44e6-be05-f831e46b3ffb.png"
+    },
+    {
+      "id": "96306",
+      "name": "Пульмонолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-92a2d925-f8bd-4222-b3bc-0b9ad8a71b05.png"
+    },
+    {
+      "id": "96309",
+      "name": "Гепатолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-9db68fad-5f92-47c9-8c33-d8afed86b2fb.png"
+    },
+    {
+      "id": "96311",
+      "name": "Аллерголог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-110deba5-1691-4f95-af7f-dbdd032d9f58.png"
+    },
+    {
+      "id": "96310",
+      "name": "Инфекционист",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-eae78767-0659-4760-8d1b-40d4f12e0004.png"
+    },
+    {
+      "id": "96312",
+      "name": "Иммунолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-50a243b9-8926-48cf-bd49-87c31c5efeb7.png"
+    },
+    {
+      "id": "96313",
+      "name": "Гематолог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-b2703473-b0b5-4849-b8a5-60a5591ab468.png"
+    },
+    {
+      "id": "96318",
+      "name": "Генетик",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-a66493f0-eb21-478e-a054-118ca9cb0e8b.png"
+    },
+    {
+      "id": "96314",
+      "name": "Онкохирург",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-ce1b7fb1-83e7-4fb4-ab5c-39be7e848083.png"
+    },
+    {
+      "id": "96319",
+      "name": "Врачи Килия, Шевченково, Вилково",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-ba15e500-2e17-46f9-89bc-5de2840dacc6.png"
+    },
+    {
+      "id": "96315",
+      "name": "Нарколог",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-7e8b6b8a-4917-4151-874b-6c314d3cc811.png"
+    },
+    {
+      "id": "20125",
+      "name": "Ветеринары Измаила",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-bef72fcc-dd35-4845-b661-79893e577903.png"
+    },
+    {
+      "id": "96046",
+      "name": "Маникюр и педикюр",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-397c24f1-4658-4ad5-be7e-6606c71a3ed7.png"
+    },
+    {
+      "id": "96323",
+      "name": "Ветврачи Татарбунары",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-80c1538c-85b7-402b-a5e4-77e0c941c3ce.png"
+    },
+    {
+      "id": "96047",
+      "name": "Брови / ресницы",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-45341785-65d2-49d1-a028-e6f766545f0e.png"
+    },
+    {
+      "id": "96045",
+      "name": "Парикмахеры",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-09af331a-f3ea-4b16-87fc-dcebe704dc41.png"
+    },
+    {
+      "id": "96048",
+      "name": "Косметологи",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-de0f6454-e0ab-44da-9b09-85f507f7c450.png"
+    },
+    {
+      "id": "96052",
+      "name": "Уход за кожей",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-d4fc24fd-6dce-4bf1-b3a3-3e4332ecdf23.png"
+    },
+    {
+      "id": "96053",
+      "name": "Диетологи/фитнес-тренеры",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-88076485-e954-460c-a6d6-ef17e2675311.png"
+    },
+    {
+      "id": "96049",
+      "name": "Массаж",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-cd38bee4-6856-43f7-be57-d6952baf60c2.png"
+    },
+    {
+      "id": "96054",
+      "name": "Энергопрактика",
+      "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-fdf9762f-2fc9-4469-a7ff-a319403114dd.png"
+    }
+  ]
+}

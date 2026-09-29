@@ -43,7 +43,10 @@ def enrich(records,categories,sources):
   if r['id']=='r213':r['review']={'summary':'На Health24: 5 из 5, один отзыв. Пациентка отмечает внимательность, поддержку и понятные объяснения врача. Краткий пересказ отзыва; это мнение пациента.','label':'Health24 · отзыв о Чебановой Олене Олександрівне','url':'https://h24.ua/doctor/146860-chebanova-olena-oleksandrivna/reviews','checked':'30.09.2026'}
   if r['id']=='r214':r['review']={'summary':'На Health24: 5 из 5, одна оценка. Текстовый комментарий не опубликован.','label':'Health24 · оценка Коренюка Олексія Микитовича','url':'https://h24.ua/doctor/237968-korenyuk-oleksij-mykytovych/reviews','checked':'30.09.2026'}
   if r['id']=='r129':r['review']={'summary':'Оценка клиники ZOOline в каталоге Veterinarka: 4,6 из 5, 146 отзывов. Рейтинг относится ко всей клинике.','label':'Veterinarka · сведения каталога','url':'https://veterinarka.com.ua/ru/vet-clinics/odeska-oblast/izmail','checked':'30.09.2026'}
+ # City-specific institutional contacts, verified on their own websites.
+ sources['eurotom-bolgrad']={'label':'ЕвроТом · официальный сайт, Болград','url':'https://www.eurotom.in/ru','checked':'2026-09-30','kind':'official'}
+ records.append({'id':'eurotom-bolgrad','category':'ct','name':'ЕвроТом · Болград','phones':['0963021534'],'city':'Болград','note':'КТ и УЗИ. ул. Измаильская, 71–75. Исследование и время записи уточните в центре.','source':'eurotom-bolgrad','phoneLabel':'Запись в диагностический центр'})
  for c in categories:
-  if not c['media']:
+  if not c['media'] or any(m['type']=='video' for m in c['media']):
    slug='psychologist' if c['id']=='96283' else c['id'];path='media/cover-'+slug+'.jpg'
    c['media']=[{'type':'image','src':path,'poster':path}]

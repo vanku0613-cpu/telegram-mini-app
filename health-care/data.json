@@ -1,4 +1,14 @@
 {
+  "cityOrder": [
+    "Измаил",
+    "Килия",
+    "Болград",
+    "Рени",
+    "Татарбунары",
+    "Одесса",
+    "Киев",
+    "Львов"
+  ],
   "updated": "2026-09-30",
   "sources": {
     "telegram": {
@@ -401,6 +411,12 @@
       "url": "https://veterinarka.com.ua/ru/vet-clinics/odeska-oblast/izmail",
       "checked": "2026-09-30",
       "kind": "directory"
+    },
+    "eurotom-bolgrad": {
+      "label": "ЕвроТом · официальный сайт, Болград",
+      "url": "https://www.eurotom.in/ru",
+      "checked": "2026-09-30",
+      "kind": "official"
     }
   },
   "categories": [
@@ -410,9 +426,9 @@
       "name": "Поликлиники и больницы",
       "media": [
         {
-          "type": "video",
-          "src": "media/96228-0.mp4",
-          "poster": "media/96228-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96228.jpg",
+          "poster": "media/cover-96228.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96228",
@@ -426,9 +442,9 @@
       "name": "Семейный врач/терапевт",
       "media": [
         {
-          "type": "video",
-          "src": "media/96229-0.mp4",
-          "poster": "media/96229-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96229.jpg",
+          "poster": "media/cover-96229.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96229",
@@ -442,9 +458,9 @@
       "name": "Педиатр",
       "media": [
         {
-          "type": "video",
-          "src": "media/96230-0.mp4",
-          "poster": "media/96230-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96230.jpg",
+          "poster": "media/cover-96230.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96230",
@@ -458,9 +474,9 @@
       "name": "Стоматологи · взрослые и детские",
       "media": [
         {
-          "type": "video",
-          "src": "media/96231-0.mp4",
-          "poster": "media/96231-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96231.jpg",
+          "poster": "media/cover-96231.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96231",
@@ -474,9 +490,9 @@
       "name": "УЗИ / УЗД",
       "media": [
         {
-          "type": "video",
-          "src": "media/96246-0.mp4",
-          "poster": "media/96246-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96246.jpg",
+          "poster": "media/cover-96246.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96246",
@@ -490,9 +506,9 @@
       "name": "МРТ",
       "media": [
         {
-          "type": "video",
-          "src": "media/96248-0.mp4",
-          "poster": "media/96248-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96248.jpg",
+          "poster": "media/cover-96248.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96248",
@@ -506,9 +522,9 @@
       "name": "Хирург",
       "media": [
         {
-          "type": "video",
-          "src": "media/96259-0.mp4",
-          "poster": "media/96259-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96259.jpg",
+          "poster": "media/cover-96259.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96259",
@@ -522,9 +538,9 @@
       "name": "Травматологи и ортопеды",
       "media": [
         {
-          "type": "video",
-          "src": "media/96260-0.mp4",
-          "poster": "media/96260-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96260.jpg",
+          "poster": "media/cover-96260.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96260",
@@ -538,9 +554,9 @@
       "name": "Нейрохирург",
       "media": [
         {
-          "type": "video",
-          "src": "media/96261-0.mp4",
-          "poster": "media/96261-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96261.jpg",
+          "poster": "media/cover-96261.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96261",
@@ -554,9 +570,9 @@
       "name": "Уролог-хирург",
       "media": [
         {
-          "type": "video",
-          "src": "media/96262-0.mp4",
-          "poster": "media/96262-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96262.jpg",
+          "poster": "media/cover-96262.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96262",
@@ -570,9 +586,9 @@
       "name": "Анестезиолог-реаниматолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96263-0.mp4",
-          "poster": "media/96263-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96263.jpg",
+          "poster": "media/cover-96263.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96263",
@@ -586,9 +602,9 @@
       "name": "Кардиолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96264-0.mp4",
-          "poster": "media/96264-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96264.jpg",
+          "poster": "media/cover-96264.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96264",
@@ -602,9 +618,9 @@
       "name": "Флеболог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96269-0.mp4",
-          "poster": "media/96269-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96269.jpg",
+          "poster": "media/cover-96269.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96269",
@@ -618,9 +634,9 @@
       "name": "Ревматолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96274-0.mp4",
-          "poster": "media/96274-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96274.jpg",
+          "poster": "media/cover-96274.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96274",
@@ -634,9 +650,9 @@
       "name": "Невропатолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96275-0.mp4",
-          "poster": "media/96275-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96275.jpg",
+          "poster": "media/cover-96275.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96275",
@@ -650,9 +666,9 @@
       "name": "Психиатр",
       "media": [
         {
-          "type": "video",
-          "src": "media/96282-0.mp4",
-          "poster": "media/96282-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96282.jpg",
+          "poster": "media/cover-96282.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96282",
@@ -682,9 +698,9 @@
       "name": "Психотерапевт",
       "media": [
         {
-          "type": "video",
-          "src": "media/96284-0.mp4",
-          "poster": "media/96284-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96284.jpg",
+          "poster": "media/cover-96284.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96284",
@@ -698,9 +714,9 @@
       "name": "Офтальмолог (окулист)",
       "media": [
         {
-          "type": "video",
-          "src": "media/96285-0.mp4",
-          "poster": "media/96285-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96285.jpg",
+          "poster": "media/cover-96285.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96285",
@@ -714,9 +730,9 @@
       "name": "ЛОР",
       "media": [
         {
-          "type": "video",
-          "src": "media/96288-0.mp4",
-          "poster": "media/96288-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96288.jpg",
+          "poster": "media/cover-96288.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96288",
@@ -730,9 +746,9 @@
       "name": "Фониатр",
       "media": [
         {
-          "type": "video",
-          "src": "media/96289-0.mp4",
-          "poster": "media/96289-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96289.jpg",
+          "poster": "media/cover-96289.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96289",
@@ -746,9 +762,9 @@
       "name": "Логопед",
       "media": [
         {
-          "type": "video",
-          "src": "media/96291-0.mp4",
-          "poster": "media/96291-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96291.jpg",
+          "poster": "media/cover-96291.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96291",
@@ -762,9 +778,9 @@
       "name": "Гинеколог/акушер",
       "media": [
         {
-          "type": "video",
-          "src": "media/96292-0.mp4",
-          "poster": "media/96292-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96292.jpg",
+          "poster": "media/cover-96292.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96292",
@@ -778,9 +794,9 @@
       "name": "Репродуктолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96293-0.mp4",
-          "poster": "media/96293-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96293.jpg",
+          "poster": "media/cover-96293.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96293",
@@ -794,9 +810,9 @@
       "name": "Маммолог/Онколог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96294-0.mp4",
-          "poster": "media/96294-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96294.jpg",
+          "poster": "media/cover-96294.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96294",
@@ -810,9 +826,9 @@
       "name": "Уролог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96295-0.mp4",
-          "poster": "media/96295-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96295.jpg",
+          "poster": "media/cover-96295.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96295",
@@ -826,9 +842,9 @@
       "name": "Андролог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96296-0.mp4",
-          "poster": "media/96296-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96296.jpg",
+          "poster": "media/cover-96296.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96296",
@@ -842,9 +858,9 @@
       "name": "Дерматолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96297-0.mp4",
-          "poster": "media/96297-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96297.jpg",
+          "poster": "media/cover-96297.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96297",
@@ -858,9 +874,9 @@
       "name": "Дерматовенеролог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96299-0.mp4",
-          "poster": "media/96299-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96299.jpg",
+          "poster": "media/cover-96299.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96299",
@@ -874,9 +890,9 @@
       "name": "Трихолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96300-0.mp4",
-          "poster": "media/96300-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96300.jpg",
+          "poster": "media/cover-96300.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96300",
@@ -890,9 +906,9 @@
       "name": "Косметолог-врач",
       "media": [
         {
-          "type": "video",
-          "src": "media/96301-0.mp4",
-          "poster": "media/96301-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96301.jpg",
+          "poster": "media/cover-96301.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96301",
@@ -906,9 +922,9 @@
       "name": "Эндокринолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96304-0.mp4",
-          "poster": "media/96304-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96304.jpg",
+          "poster": "media/cover-96304.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96304",
@@ -922,9 +938,9 @@
       "name": "Гастроэнтеролог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96305-0.mp4",
-          "poster": "media/96305-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96305.jpg",
+          "poster": "media/cover-96305.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96305",
@@ -938,9 +954,9 @@
       "name": "Пульмонолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96306-0.mp4",
-          "poster": "media/96306-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96306.jpg",
+          "poster": "media/cover-96306.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96306",
@@ -954,9 +970,9 @@
       "name": "Нефролог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96307-0.mp4",
-          "poster": "media/96307-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96307.jpg",
+          "poster": "media/cover-96307.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96307",
@@ -970,9 +986,9 @@
       "name": "Гепатолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96309-0.mp4",
-          "poster": "media/96309-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96309.jpg",
+          "poster": "media/cover-96309.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96309",
@@ -986,9 +1002,9 @@
       "name": "Инфекционист",
       "media": [
         {
-          "type": "video",
-          "src": "media/96310-0.mp4",
-          "poster": "media/96310-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96310.jpg",
+          "poster": "media/cover-96310.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96310",
@@ -1002,9 +1018,9 @@
       "name": "Аллерголог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96311-0.mp4",
-          "poster": "media/96311-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96311.jpg",
+          "poster": "media/cover-96311.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96311",
@@ -1018,9 +1034,9 @@
       "name": "Иммунолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96312-0.mp4",
-          "poster": "media/96312-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96312.jpg",
+          "poster": "media/cover-96312.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96312",
@@ -1034,9 +1050,9 @@
       "name": "Гематолог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96313-0.mp4",
-          "poster": "media/96313-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96313.jpg",
+          "poster": "media/cover-96313.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96313",
@@ -1050,9 +1066,9 @@
       "name": "Онкохирург",
       "media": [
         {
-          "type": "video",
-          "src": "media/96314-0.mp4",
-          "poster": "media/96314-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96314.jpg",
+          "poster": "media/cover-96314.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96314",
@@ -1066,9 +1082,9 @@
       "name": "Нарколог",
       "media": [
         {
-          "type": "video",
-          "src": "media/96315-0.mp4",
-          "poster": "media/96315-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96315.jpg",
+          "poster": "media/cover-96315.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96315",
@@ -1082,9 +1098,9 @@
       "name": "Генетик",
       "media": [
         {
-          "type": "video",
-          "src": "media/96318-0.mp4",
-          "poster": "media/96318-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96318.jpg",
+          "poster": "media/cover-96318.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96318",
@@ -1098,9 +1114,9 @@
       "name": "Врачи Килия, Шевченково, Вилково",
       "media": [
         {
-          "type": "video",
-          "src": "media/96319-0.mp4",
-          "poster": "media/96319-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96319.jpg",
+          "poster": "media/cover-96319.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96319",
@@ -1114,9 +1130,9 @@
       "name": "Ветеринары Измаила",
       "media": [
         {
-          "type": "video",
-          "src": "media/20125-0.mp4",
-          "poster": "media/20125-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-20125.jpg",
+          "poster": "media/cover-20125.jpg"
         }
       ],
       "source": "https://t.me/Izmail_CHAT_24_7/20125",
@@ -1130,9 +1146,9 @@
       "name": "Ветврачи Татарбунары",
       "media": [
         {
-          "type": "video",
-          "src": "media/96323-0.mp4",
-          "poster": "media/96323-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96323.jpg",
+          "poster": "media/cover-96323.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96323",
@@ -1146,9 +1162,9 @@
       "name": "Парикмахеры",
       "media": [
         {
-          "type": "video",
-          "src": "media/96045-0.mp4",
-          "poster": "media/96045-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96045.jpg",
+          "poster": "media/cover-96045.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96045",
@@ -1162,9 +1178,9 @@
       "name": "Маникюр и педикюр",
       "media": [
         {
-          "type": "video",
-          "src": "media/96046-0.mp4",
-          "poster": "media/96046-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96046.jpg",
+          "poster": "media/cover-96046.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96046",
@@ -1178,9 +1194,9 @@
       "name": "Брови / ресницы",
       "media": [
         {
-          "type": "video",
-          "src": "media/96047-0.mp4",
-          "poster": "media/96047-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96047.jpg",
+          "poster": "media/cover-96047.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96047",
@@ -1194,9 +1210,9 @@
       "name": "Косметологи",
       "media": [
         {
-          "type": "video",
-          "src": "media/96048-0.mp4",
-          "poster": "media/96048-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96048.jpg",
+          "poster": "media/cover-96048.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96048",
@@ -1210,9 +1226,9 @@
       "name": "Массаж",
       "media": [
         {
-          "type": "video",
-          "src": "media/96049-0.mp4",
-          "poster": "media/96049-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96049.jpg",
+          "poster": "media/cover-96049.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96049",
@@ -1226,9 +1242,9 @@
       "name": "Уход за кожей",
       "media": [
         {
-          "type": "video",
-          "src": "media/96052-0.mp4",
-          "poster": "media/96052-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96052.jpg",
+          "poster": "media/cover-96052.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96052",
@@ -1242,9 +1258,9 @@
       "name": "Диетологи/фитнес-тренеры",
       "media": [
         {
-          "type": "video",
-          "src": "media/96053-0.mp4",
-          "poster": "media/96053-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96053.jpg",
+          "poster": "media/cover-96053.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96053",
@@ -1258,9 +1274,9 @@
       "name": "Энергопрактика",
       "media": [
         {
-          "type": "video",
-          "src": "media/96054-0.mp4",
-          "poster": "media/96054-0-poster.jpg"
+          "type": "image",
+          "src": "media/cover-96054.jpg",
+          "poster": "media/cover-96054.jpg"
         }
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96054",
@@ -1280,7 +1296,7 @@
         }
       ],
       "order": 54,
-      "count": 3,
+      "count": 4,
       "note": ""
     },
     {
@@ -4722,6 +4738,18 @@
       "note": "ул. Вячеслава Черновола (бывшая Чехова), 2. Перед визитом уточните приём животных.",
       "source": "statevet",
       "phoneLabel": "Телефон учреждения"
+    },
+    {
+      "id": "eurotom-bolgrad",
+      "category": "ct",
+      "name": "ЕвроТом · Болград",
+      "phones": [
+        "0963021534"
+      ],
+      "city": "Болград",
+      "note": "КТ и УЗИ. ул. Измаильская, 71–75. Исследование и время записи уточните в центре.",
+      "source": "eurotom-bolgrad",
+      "phoneLabel": "Запись в диагностический центр"
     }
   ]
 }
