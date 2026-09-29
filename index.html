@@ -910,9 +910,9 @@ a.nav{ text-decoration:none; }
       </div>
       <div class="panel info currency-panel" id="currencyPanel" role="link" tabindex="0" aria-label="Курс валют">
         <div class="currency-watermark" aria-hidden="true">₴</div>
-        <div class="info-title">Курс НБУ</div>
-        <div class="rate"><span>USD</span><span id="usdRate">41.20</span></div>
-        <div class="rate"><span>EUR</span><span id="eurRate">44.60</span></div>
+        <div class="info-title"><a href="https://t.me/frankexange" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline" title="Frank Exchange — покупка / продажа">FRANK EXCHANGE</a></div>
+        <div class="rate"><span>USD</span><span id="usdRate">— / —</span></div>
+        <div class="rate"><span>EUR</span><span id="eurRate">— / —</span></div>
       </div>
       <a class="shelter pressable" id="shelterBtn"
       href="./ukrytia/" aria-label="Укрытия Измаила"><span class="shield">⌂</span><span class="shelter-label">Укрытие<br>Измаил</span><span class="chev">›</span><span class="press-glow"></span></a>
@@ -1413,40 +1413,23 @@ a.nav{ text-decoration:none; }
       .catch(function(){});
   }
 
-  /* NBU RATES */
-  function loadCurrency(){
-    fetch("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json",{cache:"no-store"})
-      .then(function(r){if(!r.ok) throw new Error("currency");return r.json();})
-      .then(function(data){
-        var usd=null,eur=null;
-        for(var i=0;i<data.length;i++){
-          if(data[i].cc==="USD") usd=data[i];
-          if(data[i].cc==="EUR") eur=data[i];
-        }
-        var u=document.getElementById("usdRate");
-        var e=document.getElementById("eurRate");
-        if(u&&usd) u.textContent=Number(usd.rate).toFixed(2);
-        if(e&&eur) e.textContent=Number(eur.rate).toFixed(2);
-      })
-      .catch(function(){});
-  }
+  /* Frank Exchange rates from the shared, periodically updated JSON. */
+  var frankRatesScript=document.createElement("script");
+  frankRatesScript.src="./main-v2/frank-rates.js?v=2";
+  document.head.appendChild(frankRatesScript);
 
   loadWeather();
-  loadCurrency();
   setInterval(loadWeather,Number((CFG.updates && CFG.updates.weatherPanelMs) || 600000));
-  setInterval(loadCurrency,Number((CFG.updates && CFG.updates.currencyMs) || 1800000));
 
   window.addEventListener("focus", function(){
     syncRealScene();
     loadWeather();
-    loadCurrency();
   });
 
   document.addEventListener("visibilitychange", function(){
     if (!document.hidden) {
       syncRealScene();
       loadWeather();
-      loadCurrency();
     }
   });
 
@@ -1467,8 +1450,9 @@ a.nav{ text-decoration:none; }
   var currency=document.getElementById("currencyPanel");
   if(currency){
     currency.style.cursor="pointer";
-    currency.addEventListener("click",function(){
-      window.location.href=((CFG.links && CFG.links.currency) || "https://minfin.com.ua/currency/izmail/");
+    currency.addEventListener("click",function(event){
+      if(event.target.closest("a")) return;
+      window.location.href="https://t.me/frankexange";
     });
   }
 

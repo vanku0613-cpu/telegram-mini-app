@@ -151,7 +151,7 @@ window.IZMAIL_SETTINGS = {
 
     weatherPanelMs: 600000,
 
-    currencyMs: 1800000,
+    currencyMs: 300000,
 
     viewIntervalMs: 180000
 
@@ -262,7 +262,7 @@ window.IZMAIL_SETTINGS = {
       "https://t.me/Vanku13",
 
     currency:
-      "https://minfin.com.ua/currency/izmail/",
+      "https://t.me/frankexange",
 
     groups:
       "./our-groups-menu/",

@@ -1,0 +1,67 @@
+name: Update Frank Exchange rates
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "*/10 * * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: frank-rates-pages
+  cancel-in-progress: false
+
+jobs:
+  update-rates:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - name: Test rate parsing and failure preservation
+        run: node --test tests/frank-rates.test.mjs
+      - name: Read latest Frank Exchange rates
+        id: rates
+        continue-on-error: true
+        run: node scripts/update-frank-rates.mjs
+      - name: Report unavailable Telegram
+        if: steps.rates.outcome == 'failure'
+        run: echo "::warning::Telegram rates unavailable or invalid; keeping the last correct JSON."
+      - name: Commit updated rates
+        id: commit
+        shell: bash
+        run: |
+          if git diff --quiet -- data/frank-rates.json; then
+            echo "Rates did not change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/frank-rates.json
+          git commit -m "Update Frank Exchange rates"
+          git pull --rebase origin main
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      # Bot commits do not trigger the legacy Pages build. Publish explicitly.
+      - uses: actions/configure-pages@v5
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+      - uses: actions/upload-pages-artifact@v4
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+        with:
+          path: '.'
+      - uses: actions/deploy-pages@v4
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+        id: deployment

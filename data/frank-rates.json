@@ -1,0 +1,15 @@
+{
+  "source": "Frank Exchange",
+  "sourceChannel": "@frankexange",
+  "sourceUrl": "https://t.me/frankexange",
+  "date": "29.09.2026",
+  "usd": {
+    "buy": 44.7,
+    "sell": 45.2
+  },
+  "eur": {
+    "buy": 51,
+    "sell": 51.7
+  },
+  "fetchedAt": "2026-09-29T16:11:19.361Z"
+}

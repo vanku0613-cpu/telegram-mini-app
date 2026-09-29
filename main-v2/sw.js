@@ -90,6 +90,29 @@ self.addEventListener("fetch", function (event) {
     return;
   }
 
+  /* Rates bypass the general cache-first rule; the UI retains validated data. */
+  if (url.pathname.endsWith("/data/frank-rates.json")) {
+    event.respondWith(fetch(request, { cache: "no-store" }));
+    return;
+  }
+
+  if (url.pathname.endsWith("/main-v2/frank-rates.js")) {
+    event.respondWith((async function () {
+      const cache = await caches.open(CACHE_NAME);
+      try {
+        const response = await fetch(request, { cache: "no-store" });
+        if (!response.ok) throw new Error("rates-script-http");
+        await cache.put(request, response.clone());
+        return response;
+      } catch (error) {
+        const cached = await cache.match(request);
+        if (cached) return cached;
+        throw error;
+      }
+    })());
+    return;
+  }
+
 
   /* ---------------------------------------------------------
      SETTINGS.JS
