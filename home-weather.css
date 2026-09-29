@@ -1,0 +1,31 @@
+/* Preserve the old photograph's exact layout ratio; keep UI geometry unchanged. */
+#bgMain{aspect-ratio:941 / 1672;object-fit:fill}
+#app.time-day .bg-main{filter:brightness(1.03) saturate(.91) contrast(1.01)!important}
+#app.time-evening .bg-main{filter:brightness(.88) saturate(1.05) contrast(1.02)!important}
+#app.time-night .bg-main{filter:brightness(.57) saturate(.70) contrast(1.08)!important}
+.scene-layer.night .time-filter{background:linear-gradient(180deg,rgba(3,12,42,.22),rgba(8,28,67,.18) 56%,transparent 100%)}
+/* The supplied artwork already has a sun. Avoid a second disk over its lettering. */
+.scene-layer .sun-moon{display:none!important}
+.scene-layer.night.clear .stars-layer{opacity:.9!important}
+.scene-layer.night.cloudy .stars-layer,.scene-layer.night.rain .stars-layer,.scene-layer.night.snow .stars-layer{opacity:0!important}
+.stars-layer{background-image:radial-gradient(circle at 45% 3%,#fff 0 1px,transparent 1.8px),radial-gradient(circle at 54% 8%,#fff 0 .8px,transparent 1.6px),radial-gradient(circle at 69% 2%,#dcecff 0 1px,transparent 1.8px),radial-gradient(circle at 81% 6%,#fff 0 1.2px,transparent 2px),radial-gradient(circle at 91% 3%,#fff 0 .8px,transparent 1.6px),radial-gradient(circle at 63% 6%,#dbeeff 0 .8px,transparent 1.6px),radial-gradient(circle at 73% 10%,#fff 0 .7px,transparent 1.4px)!important}
+.scene-layer.windy .moving-clouds{opacity:.32!important;animation-duration:6s!important}
+.scene-layer.rain.windy .moving-clouds{opacity:.62!important}
+.scene-layer.heavy-rain .weather-shade{background:linear-gradient(180deg,rgba(12,29,53,.32),rgba(26,46,67,.19) 70%,transparent)}
+@media(prefers-reduced-motion:reduce){.scene-layer *{animation:none!important;transition:none!important}}
+/* Small, irregular stars twinkle independently rather than flashing together. */
+.stars-layer{background-image:none!important;animation:none!important}
+.sky-star{position:absolute;display:block;border-radius:50%;opacity:var(--star-alpha);box-shadow:0 0 3px #d9eaff66;animation:skyTwinkle var(--twinkle-duration) ease-in-out infinite alternate}
+@keyframes skyTwinkle{from{opacity:calc(var(--star-alpha)*.5);transform:scale(.88)}to{opacity:var(--star-alpha);transform:scale(1.06)}}
+@media(prefers-reduced-motion:reduce){.sky-star{animation:none!important}}
+/* Clouds drift gently, faster only when the reported wind is stronger. */
+.scene-layer .moving-clouds{animation:skyCloudDrift 44s ease-in-out infinite alternate!important;will-change:transform}
+.scene-layer.clear .moving-clouds{opacity:.10!important}
+.scene-layer.windy .moving-clouds{animation-duration:17s!important}
+.scene-layer.thunder .moving-clouds{opacity:.80!important;filter:brightness(.54)}
+@keyframes skyCloudDrift{from{transform:translate3d(-8%,-1%,0)}to{transform:translate3d(8%,1.5%,0)}}
+.scene-layer.fog .weather-shade{background:linear-gradient(180deg,rgba(201,213,221,.13),rgba(205,219,228,.27) 56%,rgba(205,219,228,.1) 85%,transparent)}
+@media(prefers-reduced-motion:reduce){.scene-layer .moving-clouds{animation:none!important;will-change:auto}}
+/* Night uses actual night artwork: keep its neon and lamps readable. */
+#app.time-night .bg-main{filter:brightness(.93) saturate(.96) contrast(1.02)!important}
+.scene-layer.night .time-filter{background:linear-gradient(180deg,rgba(3,12,42,.08),rgba(8,28,67,.04) 56%,transparent 100%)}
