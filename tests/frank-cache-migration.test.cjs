@@ -47,7 +47,7 @@ test('old installed NBU page upgrades to Frank without manual refresh', async ()
     const reopened = await context.newPage();
     reopened.on('console', message => { if (message.text().includes('Service Worker')) console.log(message.text()); });
     const navigations = [];
-    reopened.on('framenavigated', frame => { if (frame === reopened.mainFrame()) navigations.push(frame.url()); });
+    reopened.on('request', request => { if (request.resourceType() === 'document') navigations.push(request.url()); });
     await reopened.goto(origin + '/main-v2/');
     // The old settings call registration.update() themselves at load time.
     try { await reopened.waitForURL('**frank_revision=3', { timeout: 15000 }); }

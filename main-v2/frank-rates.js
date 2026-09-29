@@ -62,5 +62,6 @@
   document.addEventListener("visibilitychange", function () { if (!document.hidden) load(); });
   window.addEventListener("focus", load);
   window.addEventListener("online", load);
+  window.addEventListener("izmail:refresh", load);
   window.addEventListener("pageshow", function (event) { if (event.persisted) load(); });
 })();

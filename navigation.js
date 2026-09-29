@@ -1,783 +1,142 @@
-/* =========================================================
-   СПРАВОЧНИК ИЗМАИЛ
-   ЕДИНАЯ УНИВЕРСАЛЬНАЯ НАВИГАЦИЯ
-   ПЛАВНЫЙ ВОЗВРАТ БЕЗ ПЕРЕСТРОЙКИ MAIN-V2
-   ========================================================= */
-
 (function () {
-
   "use strict";
+  if (window.IZMAIL_NAV_READY) return;
+  window.IZMAIL_NAV_READY = true;
+  var root = new URL("./", document.currentScript.src);
+  var main = new URL("main-v2/", root);
+  var PENDING = "izmail_navigation_pending_v5";
+  var STATE = "izmailNavigationV5";
+  var leaving = false;
+  var lastRefresh = 0;
+  var prefetched = new Set();
 
-
-  /* =========================================================
-     БАЗОВЫЕ АДРЕСА
-     ========================================================= */
-
-  var script =
-    document.currentScript;
-
-
-  var scriptUrl;
-
-
-  try {
-
-    scriptUrl =
-      new URL(
-        script && script.src
-          ? script.src
-          : "./navigation.js",
-        location.href
-      );
-
-  } catch (e) {
-
-    return;
-
+  function path(url) { return url.pathname.replace(/index\.html$/i, "").replace(/\/$/, ""); }
+  function inside(url) { return url.origin === root.origin && url.pathname.startsWith(root.pathname); }
+  function isHome(url) { return inside(url) && (path(url) === path(root) || path(url) === path(main)); }
+  function samePage(a, b) { return a.origin === b.origin && path(a) === path(b) && a.search === b.search; }
+  function readState() { return history.state && history.state[STATE]; }
+  function saveState(value) {
+    try { history.replaceState(Object.assign({}, history.state, { [STATE]: value }), ""); } catch (_) {}
   }
-
-
-  var projectRoot =
-    new URL(
-      "./",
-      scriptUrl
-    );
-
-
-  var mainUrl =
-    new URL(
-      "main-v2/",
-      projectRoot
-    );
-
-
-  var MAIN_MARKER =
-    "izmail_main_opened_v4";
-
-
-  /* =========================================================
-     НОРМАЛИЗАЦИЯ ПУТИ
-     ========================================================= */
-
-  function cleanPath(path) {
-
-    path =
-      path || "/";
-
-
-    path =
-      path.replace(
-        /index\.html$/i,
-        ""
-      );
-
-
-    if (
-      !path.endsWith("/")
-    ) {
-
-      path += "/";
-
-    }
-
-
-    return path;
-
-  }
-
-
-  /* =========================================================
-     МЫ НА MAIN-V2?
-     ========================================================= */
-
-  function isMainPage() {
-
-    return (
-
-      location.origin ===
-        mainUrl.origin &&
-
-      cleanPath(
-        location.pathname
-      ) ===
-        cleanPath(
-          mainUrl.pathname
-        )
-
-    );
-
-  }
-
-
-  /* =========================================================
-     ССЫЛКА ВНУТРИ НАШЕГО ПРОЕКТА?
-     ========================================================= */
-
-  function isInsideProject(url) {
-
-    return (
-
-      url.origin ===
-        location.origin &&
-
-      url.pathname.indexOf(
-        projectRoot.pathname
-      ) === 0
-
-    );
-
-  }
-
-
-  /* =========================================================
-     ССЫЛКА ВЕДЁТ НА MAIN-V2?
-     ========================================================= */
-
-  function isMainUrl(url) {
-
-    return (
-
-      url.origin ===
-        mainUrl.origin &&
-
-      cleanPath(
-        url.pathname
-      ) ===
-        cleanPath(
-          mainUrl.pathname
-        )
-
-    );
-
-  }
-
-
-  /* =========================================================
-     ЗАПОМИНАЕМ ОТКРЫТУЮ ГЛАВНУЮ
-     ========================================================= */
-
-  function rememberMain() {
-
+  function initialize() {
+    var here = new URL(location.href);
+    var pending;
     try {
-
-      sessionStorage.setItem(
-        MAIN_MARKER,
-        "1"
-      );
-
-    } catch (e) {}
-
-  }
-
-
-  function hasMainMarker() {
-
-    try {
-
-      return (
-        sessionStorage.getItem(
-          MAIN_MARKER
-        ) === "1"
-      );
-
-    } catch (e) {
-
-      return false;
-
-    }
-
-  }
-
-
-  function forgetMainMarker() {
-
-    try {
-
-      sessionStorage.removeItem(
-        MAIN_MARKER
-      );
-
-    } catch (e) {}
-
-  }
-
-
-  /* =========================================================
-     ОТКУДА ОТКРЫЛИ ТЕКУЩУЮ СТРАНИЦУ
-     ========================================================= */
-
-  function cameFromMain() {
-
-    try {
-
-      if (
-        !document.referrer
-      ) {
-
-        return false;
-
+      pending = JSON.parse(sessionStorage.getItem(PENDING) || "null");
+      sessionStorage.removeItem(PENDING);
+    } catch (_) {}
+    if (isHome(here)) {
+      saveState({ home: here.href, depth: 0 });
+    } else if (!readState() && pending && document.referrer) {
+      // Only a verified transition from the immediately preceding document
+      // may use history.go. A stale global marker must never leave the app.
+      var ref = new URL(document.referrer);
+      if (samePage(new URL(pending.from), ref) && samePage(new URL(pending.to), here)) {
+        saveState({ home: pending.home, depth: pending.depth });
       }
-
-
-      var ref =
-        new URL(
-          document.referrer
-        );
-
-
-      return isMainUrl(
-        ref
-      );
-
-    } catch (e) {
-
-      return false;
-
     }
-
   }
+  initialize();
 
-
-  /* =========================================================
-     ВОЗВРАТ НА MAIN-V2
-     ========================================================= */
-
-  function returnToMain() {
-
-    /*
-      ВАЖНО:
-
-      Если MAIN-V2 уже был открыт,
-      не загружаем его заново.
-
-      history.back() возвращает существующую
-      страницу из истории браузера.
-    */
-
-    if (
-      history.length > 1 &&
-      (
-        cameFromMain() ||
-        hasMainMarker()
-      )
-    ) {
-
-      forgetMainMarker();
-
-      history.back();
-
-      return;
-
-    }
-
-
-    /*
-      Если внутреннюю страницу открыли напрямую,
-      MAIN-V2 в истории может не существовать.
-
-      Только тогда открываем её обычным способом.
-    */
-
-    location.replace(
-      mainUrl.href
-    );
-
+  function softRefresh() {
+    // Repeated taps neither reload the document nor start overlapping refreshes.
+    if (Date.now() - lastRefresh < 1000) return;
+    lastRefresh = Date.now();
+    window.dispatchEvent(new CustomEvent("izmail:refresh", { detail: { source: "home" } }));
   }
-
-
-  /* =========================================================
-     МЯГКОЕ ДЕЙСТВИЕ КНОПКИ «ГЛАВНАЯ»
-     ========================================================= */
-
-  function refreshMain() {
-
-    /*
-      НИКАКОГО:
-      - location.reload()
-      - scrollTo()
-      - искусственного focus
-      - visibilitychange
-
-      Уже открытая главная остаётся на месте.
-    */
-
-    try {
-
-      window.dispatchEvent(
-        new CustomEvent(
-          "izmail:refresh",
-          {
-            detail: {
-              source: "home"
-            }
-          }
-        )
-      );
-
-    } catch (e) {}
-
-  }
-
-
-  /* =========================================================
-     ОПРЕДЕЛЕНИЕ КНОПКИ «ГЛАВНАЯ»
-     ========================================================= */
-
-  function isHomeButton(element) {
-
-    if (
-      !element
-    ) {
-
-      return false;
-
-    }
-
-
-    var action =
-      (
-        element.getAttribute(
-          "data-action"
-        ) || ""
-      )
-      .trim()
-      .toLowerCase();
-
-
-    var nav =
-      (
-        element.getAttribute(
-          "data-nav"
-        ) || ""
-      )
-      .trim()
-      .toLowerCase();
-
-
-    var id =
-      (
-        element.id || ""
-      )
-      .trim()
-      .toLowerCase();
-
-
-    var text =
-      (
-        element.textContent || ""
-      )
-      .replace(
-        /\s+/g,
-        " "
-      )
-      .trim()
-      .toLowerCase();
-
-
-    return (
-
-      action === "home" ||
-
-      action === "homepage" ||
-
-      nav === "home" ||
-
-      id === "home" ||
-
-      id === "homebtn" ||
-
-      id === "homebutton" ||
-
-      text === "главная"
-
-    );
-
-  }
-
-
-  /* =========================================================
-     DATA-NAV
-     ========================================================= */
-
-  function getDataNavUrl(element) {
-
-    var value =
-      element.getAttribute(
-        "data-nav"
-      );
-
-
-    if (
-      !value ||
-      value.trim().toLowerCase() === "home"
-    ) {
-
-      return null;
-
-    }
-
-
-    try {
-
-      return new URL(
-        value,
-        location.href
-      );
-
-    } catch (e) {
-
-      return null;
-
-    }
-
-  }
-
-
-  /* =========================================================
-     ПЕРЕХОД ПО DATA-NAV
-     ========================================================= */
-
-  function navigateByDataNav(
-    element,
-    event
-  ) {
-
-    var url =
-      getDataNavUrl(
-        element
-      );
-
-
-    if (
-      !url
-    ) {
-
-      return false;
-
-    }
-
-
-    event.preventDefault();
-
-    event.stopPropagation();
-
-    event.stopImmediatePropagation();
-
-
-    /*
-      Если ведёт на MAIN-V2.
-    */
-
-    if (
-      isMainUrl(
-        url
-      )
-    ) {
-
-      if (
-        isMainPage()
-      ) {
-
-        refreshMain();
-
-      } else {
-
-        returnToMain();
-
-      }
-
-
-      return true;
-
-    }
-
-
-    /*
-      Уходим с MAIN-V2
-      на внутреннюю страницу проекта.
-    */
-
-    if (
-      isMainPage() &&
-      isInsideProject(
-        url
-      )
-    ) {
-
-      rememberMain();
-
-    }
-
-
-    location.href =
-      url.href;
-
-
+  function beginNavigation() {
+    if (leaving) return false;
+    leaving = true;
+    // Release if the browser cancels a navigation (offline, external handler).
+    setTimeout(function () { leaving = false; }, 2000);
     return true;
-
   }
-
-
-  /* =========================================================
-     ЕДИНЫЙ ОБРАБОТЧИК ВСЕХ КНОПОК
-     ========================================================= */
-
-  document.addEventListener(
-    "click",
-    function (event) {
-
-
-      /*
-        Не вмешиваемся в уже обработанный клик.
-      */
-
-      if (
-        event.defaultPrevented
-      ) {
-
-        return;
-
-      }
-
-
-      var target =
-        event.target;
-
-
-      if (
-        !target ||
-        !target.closest
-      ) {
-
-        return;
-
-      }
-
-
-      var element =
-        target.closest(
-          "a, button, [role='button'], [data-nav], [data-main-back], [data-action]"
-        );
-
-
-      if (
-        !element
-      ) {
-
-        return;
-
-      }
-
-
-      /* =====================================================
-         1. КНОПКА «ВЕРНУТЬСЯ В ГЛАВНОЕ МЕНЮ»
-         ===================================================== */
-
-      if (
-        element.hasAttribute(
-          "data-main-back"
-        )
-      ) {
-
-        event.preventDefault();
-
-        event.stopPropagation();
-
-        event.stopImmediatePropagation();
-
-
-        returnToMain();
-
-        return;
-
-      }
-
-
-      /* =====================================================
-         2. КНОПКА «ГЛАВНАЯ»
-         ===================================================== */
-
-      if (
-        isHomeButton(
-          element
-        )
-      ) {
-
-        event.preventDefault();
-
-        event.stopPropagation();
-
-        event.stopImmediatePropagation();
-
-
-        if (
-          isMainPage()
-        ) {
-
-          refreshMain();
-
-        } else {
-
-          returnToMain();
-
-        }
-
-
-        return;
-
-      }
-
-
-      /* =====================================================
-         3. БУДУЩИЕ КНОПКИ DATA-NAV
-         ===================================================== */
-
-      if (
-        element.hasAttribute(
-          "data-nav"
-        )
-      ) {
-
-        if (
-          navigateByDataNav(
-            element,
-            event
-          )
-        ) {
-
-          return;
-
-        }
-
-      }
-
-
-      /* =====================================================
-         4. ОБЫЧНЫЕ ССЫЛКИ
-         ===================================================== */
-
-      if (
-        element.tagName === "A" &&
-        element.href
-      ) {
-
-        var url;
-
-
-        try {
-
-          url =
-            new URL(
-              element.href,
-              location.href
-            );
-
-        } catch (e) {
-
-          return;
-
-        }
-
-
-        /*
-          ВНЕШНИЕ ССЫЛКИ НЕ ТРОГАЕМ.
-          Telegram / Instagram / Minfin и т.д.
-        */
-
-        if (
-          !isInsideProject(
-            url
-          )
-        ) {
-
-          return;
-
-        }
-
-
-        /*
-          Ссылка на MAIN-V2.
-        */
-
-        if (
-          isMainUrl(
-            url
-          )
-        ) {
-
-          event.preventDefault();
-
-          event.stopPropagation();
-
-          event.stopImmediatePropagation();
-
-
-          if (
-            isMainPage()
-          ) {
-
-            refreshMain();
-
-          } else {
-
-            returnToMain();
-
-          }
-
-
-          return;
-
-        }
-
-
-        /*
-          С MAIN-V2 уходим во внутренний раздел.
-        */
-
-        if (
-          isMainPage()
-        ) {
-
-          rememberMain();
-
-        }
-
-      }
-
-    },
-    true
-  );
-
-
-  /* =========================================================
-     PAGE SHOW
-
-     Специально НИЧЕГО НЕ ДВИГАЕМ.
-
-     Раньше здесь был scrollTo(0,0),
-     который мог визуально дёргать MAIN-V2
-     после history.back().
-     ========================================================= */
-
-  window.addEventListener(
-    "pageshow",
-    function () {
-
-      if (
-        isMainPage()
-      ) {
-
-        /*
-          Просто очищаем старый маркер.
-          Геометрию страницы не трогаем.
-        */
-
-        forgetMainMarker();
-
-      }
-
+  function returnHome() {
+    if (isHome(new URL(location.href))) { softRefresh(); return; }
+    if (!beginNavigation()) return;
+    var state = readState();
+    if (state && state.depth > 0 && history.length > state.depth && isHome(new URL(state.home))) {
+      history.go(-state.depth);
+    } else {
+      location.assign(main.href);
     }
-  );
+  }
+  function navigate(url) {
+    var here = new URL(location.href);
+    if (isHome(url)) { returnHome(); return; }
+    if (samePage(url, here) && !url.hash) return;
+    if (!beginNavigation()) return;
+    var state = readState();
+    if (inside(url) && state) {
+      try {
+        sessionStorage.setItem(PENDING, JSON.stringify({
+          from: here.href, to: url.href, home: state.home, depth: state.depth + 1
+        }));
+      } catch (_) {}
+    }
+    location.assign(url.href);
+  }
+  function elementFor(event) {
+    return event.target.closest && event.target.closest("a,button,[role='button'],[role='link'],[data-nav],[data-main-back],[data-action]");
+  }
+  function homeButton(el) {
+    return el.hasAttribute("data-main-back") || /^(home|homebtn|homebutton)$/i.test(el.id) ||
+      /^(home|homepage)$/i.test(el.getAttribute("data-action") || "") || el.getAttribute("data-nav") === "home";
+  }
+  function targetUrl(el) {
+    var raw = el.getAttribute("data-nav") || el.getAttribute("href");
+    if (!raw || raw === "home" || raw.startsWith("#")) return null;
+    try {
+      var url = new URL(raw, location.href);
+      return /^(https?:)$/.test(url.protocol) ? url : null;
+    } catch (_) { return null; }
+  }
+  function stop(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }
+  document.addEventListener("click", function (event) {
+    if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    var el = elementFor(event);
+    if (!el || el.disabled || el.getAttribute("aria-disabled") === "true") return;
+    if (el.hasAttribute("download") || (el.target && el.target !== "_self")) return;
+    if (homeButton(el)) { stop(event); returnHome(); return; }
+    var url = targetUrl(el);
+    if (!url) return;
+    // Native external anchors retain new-tab, Telegram and browser behavior.
+    if (!inside(url) && el.tagName === "A") return;
+    if (url.hash && samePage(url, new URL(location.href))) return;
+    stop(event);
+    navigate(url);
+  }, true);
 
+  // Declarative future buttons receive keyboard activation as well as taps.
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    var el = elementFor(event);
+    if (!el || /^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(el.tagName) || el.isContentEditable) return;
+    if (!el.hasAttribute("data-nav") && !homeButton(el)) return;
+    event.preventDefault();
+    if (!event.repeat) el.click();
+  });
+  function prefetch(event) {
+    var el = elementFor(event);
+    if (!el || el.disabled || el.hasAttribute("download")) return;
+    var url = targetUrl(el);
+    if (!url || !inside(url) || isHome(url) || prefetched.has(url.href) || url.hash) return;
+    if (navigator.connection && (navigator.connection.saveData || /(^|-)2g$/.test(navigator.connection.effectiveType))) return;
+    prefetched.add(url.href);
+    var link = document.createElement("link");
+    link.rel = "prefetch";
+    link.href = url.href;
+    document.head.appendChild(link);
+  }
+  document.addEventListener("pointerover", prefetch, { passive: true });
+  document.addEventListener("pointerdown", prefetch, { passive: true });
+  document.addEventListener("focusin", prefetch);
+  window.addEventListener("pageshow", function () { leaving = false; });
 
+  var style = document.createElement("style");
+  style.textContent = "a,button,[role=button],[role=link],[data-nav]{touch-action:manipulation}";
+  document.head.appendChild(style);
 })();

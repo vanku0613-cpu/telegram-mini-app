@@ -108,4 +108,5 @@
     } else { connect(); refresh(); }
   });
   window.addEventListener("online", refresh);
+  window.addEventListener("izmail:refresh", refresh);
 })();

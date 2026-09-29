@@ -879,6 +879,7 @@ a.nav{ text-decoration:none; }
   document.write('<script src="./settings.js?v=' + Date.now() + '"><\/script>');
 </script>
 
+<script src="./navigation.js?v=5" defer data-izmail-navigation="1"></script>
 </head>
 <body>
 <div id="app">
@@ -1229,7 +1230,11 @@ a.nav{ text-decoration:none; }
     if(weatherBtn) weatherBtn.textContent="ПОГОДА · "+labels[state.weather];
   }
 
+  var appliedScene="";
   function applyScene(source){
+    var sceneKey=[state.season,state.time,state.weather].join(":");
+    if(sceneKey===appliedScene) return;
+    appliedScene=sceneKey;
     fxMode=state.weather;
 
     if(bgMain) bgMain.src=SEASON_IMAGES[state.season];
@@ -1358,7 +1363,7 @@ a.nav{ text-decoration:none; }
 
   /* Shared view counter; loaded independently of other page features. */
   var viewCounterScript = document.createElement("script");
-  viewCounterScript.src = "./view-counter.js?v=1";
+  viewCounterScript.src = "./view-counter.js?v=2";
   document.head.appendChild(viewCounterScript);
 
   /* SEARCH */
@@ -1415,11 +1420,16 @@ a.nav{ text-decoration:none; }
 
   /* Frank Exchange rates from the shared, periodically updated JSON. */
   var frankRatesScript=document.createElement("script");
-  frankRatesScript.src="./main-v2/frank-rates.js?v=3";
+  frankRatesScript.src="./main-v2/frank-rates.js?v=4";
   document.head.appendChild(frankRatesScript);
 
   loadWeather();
   setInterval(loadWeather,Number((CFG.updates && CFG.updates.weatherPanelMs) || 600000));
+
+  window.addEventListener("izmail:refresh", function(){
+    syncRealScene();
+    loadWeather();
+  });
 
   window.addEventListener("focus", function(){
     syncRealScene();
@@ -1457,13 +1467,11 @@ a.nav{ text-decoration:none; }
   }
 
   var groups=document.getElementById("groupsBtn");
-  if(groups) groups.addEventListener("click",function(){
-    window.location.href=((CFG.links && CFG.links.groups) || "./our-groups-menu/");
-  });
+  if(groups) groups.setAttribute("data-nav",((CFG.links && CFG.links.groups) || "./our-groups-menu/"));
 
   var home=document.getElementById("homeBtn");
   if(home) home.addEventListener("click",function(){
-    window.location.href=((CFG.links && CFG.links.home) || "./");
+    window.dispatchEvent(new CustomEvent("izmail:refresh"));
   });
 
   var fav=document.getElementById("favBtn");
@@ -1477,19 +1485,11 @@ a.nav{ text-decoration:none; }
   });
 
   for(var ci=0;ci<cards.length;ci++){
-    (function(card){
-      card.addEventListener("click",function(){
-        var title=card.getAttribute("data-title")||"";
-        var map=(CFG.categoryLinks || {});
-        var target=map[title] || "";
-        if(!target && title==="Работа / Вакансии"){
-          target="https://t.me/rabota_v_izmaile";
-        }
-        if(target){
-          window.location.href=target;
-        }
-      });
-    })(cards[ci]);
+    var card=cards[ci];
+    var title=card.getAttribute("data-title")||"";
+    var target=(CFG.categoryLinks || {})[title] || "";
+    if(!target && title==="Работа / Вакансии") target="https://t.me/rabota_v_izmaile";
+    if(target) card.setAttribute("data-nav",target);
   }
 
 })();
