@@ -3,7 +3,7 @@
    Ускорение main-v2
    ========================================================= */
 
-const CACHE_NAME = "izmail-main-v2-v1";
+const CACHE_NAME = "izmail-main-v2-frank-v3";
 
 const APP_FILES = [
   "./",
@@ -23,7 +23,9 @@ self.addEventListener("install", function (event) {
     caches
       .open(CACHE_NAME)
       .then(function (cache) {
-        return cache.addAll(APP_FILES);
+        return cache.addAll(APP_FILES.map(function (url) {
+          return new Request(url, { cache: "no-store" });
+        }));
       })
   );
 
@@ -38,31 +40,28 @@ self.addEventListener("install", function (event) {
    ========================================================= */
 
 self.addEventListener("activate", function (event) {
-
-  event.waitUntil(
-
-    caches
-      .keys()
-      .then(function (cacheNames) {
-
-        return Promise.all(
-
-          cacheNames.map(function (name) {
-
-            if (name !== CACHE_NAME) {
-              return caches.delete(name);
-            }
-
-          })
-
-        );
-
-      })
-
-  );
-
-  self.clients.claim();
-
+  event.waitUntil((async function () {
+    const names = await caches.keys();
+    const obsolete = names.filter(function (name) {
+      return name.startsWith("izmail-main-v2-") && name !== CACHE_NAME;
+    });
+    await Promise.all(obsolete.map(function (name) { return caches.delete(name); }));
+    await self.clients.claim();
+    // Old HTML has no update listener. Replace it once after this migration,
+    // so users do not have to press Telegram's refresh button themselves.
+    if (obsolete.length) {
+      const windows = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+      windows.forEach(function (client) {
+        if (!client.url.startsWith(self.registration.scope)) return;
+        const url = new URL(client.url);
+        if (url.searchParams.get("frank_revision") === "3") return;
+        url.searchParams.set("frank_revision", "3");
+        // Do not await navigation inside activation: its fetch waits for the
+        // activation event to finish, which would otherwise deadlock.
+        client.navigate(url.href).catch(function () {});
+      });
+    }
+  })());
 });
 
 
@@ -138,7 +137,7 @@ self.addEventListener("fetch", function (event) {
             await cache.match(cacheKey);
 
           const networkPromise =
-            fetch(request)
+            fetch(request, { cache: "no-store" })
               .then(function (response) {
 
                 if (response && response.ok) {
@@ -156,12 +155,7 @@ self.addEventListener("fetch", function (event) {
               });
 
 
-          /*
-             Показываем сохранённый файл сразу,
-             а свежую версию получаем в фоне.
-          */
-
-          return cached || networkPromise;
+          return networkPromise;
 
         })
 
@@ -183,8 +177,9 @@ self.addEventListener("fetch", function (event) {
 
     event.respondWith(
 
-      fetch(request)
+      fetch(request, { cache: "no-store" })
         .then(function (response) {
+          if (!response.ok) throw new Error("page-http-" + response.status);
 
           const copy =
             response.clone();

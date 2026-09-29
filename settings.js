@@ -1206,3 +1206,19 @@ function izmailSearchIsActive() {
 
 
 })();
+
+/* Replace cached NBU HTML once; settings are also loaded by legacy pages. */
+(function () {
+  function refreshLegacyCurrencyPage() {
+    if (!navigator.onLine) return;
+    var panel = document.getElementById("currencyPanel");
+    if (!panel || panel.querySelector('a[href="https://t.me/frankexange"]')) return;
+    var url = new URL(window.location.href);
+    if (url.searchParams.get("frank_revision") === "3") return;
+    url.searchParams.set("frank_revision", "3");
+    window.location.replace(url.href);
+  }
+  window.addEventListener("DOMContentLoaded", refreshLegacyCurrencyPage);
+  window.addEventListener("pageshow", refreshLegacyCurrencyPage);
+  window.addEventListener("online", refreshLegacyCurrencyPage);
+})();

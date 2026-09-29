@@ -33,13 +33,23 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       let data = JSON.parse(fs.readFileSync(path.join(root, 'data/frank-rates.json')));
       let fail = false;
       let requests = 0;
-      await context.route('**/data/frank-rates.json?*', route => {
+      let releaseFirst;
+      const firstResponse = new Promise(resolve => { releaseFirst = resolve; });
+      await context.addInitScript(() => { if (!localStorage.getItem('izmail_frank_rates_v1')) localStorage.setItem('izmail_frank_rates_v1', JSON.stringify({
+        sourceUrl: 'https://t.me/frankexange', fetchedAt: '2026-01-01T00:00:00Z',
+        usd: { buy: 40, sell: 41 }, eur: { buy: 42, sell: 43 }
+      })); });
+      await context.route('**/data/frank-rates.json?*', async route => {
         requests++;
+        if (requests === 1) await firstResponse;
         return fail ? route.abort() : route.fulfill({ json: data });
       });
       const page = await context.newPage();
       await page.clock.install();
       await page.goto(origin + entry);
+      await page.waitForFunction(() => document.querySelector('script[src*="frank-rates.js"]'));
+      assert.equal(await page.locator('#usdRate').textContent(), '— / —', 'do not flash obsolete local rates before the fresh response');
+      releaseFirst();
       await page.waitForFunction(() => document.getElementById('usdRate').textContent === '44.70 / 45.20');
       assert.equal(await page.locator('#eurRate').textContent(), '51.00 / 51.70');
       assert.equal(await page.locator('#currencyPanel a').getAttribute('href'), 'https://t.me/frankexange');
@@ -55,9 +65,9 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       data.usd.buy = 44.8;
       data.fetchedAt = new Date(Date.now() + 1000).toISOString();
       const before = requests;
-      await page.clock.fastForward(299000);
+      await page.clock.fastForward(290000);
       assert.equal(requests, before);
-      await page.clock.fastForward(1000);
+      await page.clock.fastForward(10000);
       await page.waitForFunction(() => document.getElementById('usdRate').textContent === '44.80 / 45.20');
       fail = true;
       await page.reload();

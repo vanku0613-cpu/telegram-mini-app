@@ -6,6 +6,7 @@
   var REFRESH_MS = 5 * 60 * 1000;
   var loading = false;
   var last = null;
+  var cached = null;
 
   function valid(data) {
     return data && data.sourceUrl === "https://t.me/frankexange" &&
@@ -41,19 +42,25 @@
         cache: "no-store", credentials: "same-origin", signal: controller.signal
       });
       if (!response.ok) throw new Error("rates-http-" + response.status);
-      render(await response.json());
+      var data = await response.json();
+      if (!valid(data)) throw new Error("rates-invalid");
+      render(data);
     } catch (_) {
       // Keep the last validated rates; never replace them with NBU or zeros.
+      if (!last) render(cached);
     } finally {
       clearTimeout(timeout);
       loading = false;
     }
   }
 
-  try { render(JSON.parse(localStorage.getItem(CACHE_KEY) || "null")); } catch (_) {}
+  // Prefer a fresh response on opening; use stored rates only if it fails.
+  try { cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null"); } catch (_) {}
+  if (!navigator.onLine) render(cached);
   load();
   setInterval(function () { if (!document.hidden) load(); }, REFRESH_MS);
   document.addEventListener("visibilitychange", function () { if (!document.hidden) load(); });
   window.addEventListener("focus", load);
   window.addEventListener("online", load);
+  window.addEventListener("pageshow", function (event) { if (event.persisted) load(); });
 })();
