@@ -1,1 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#06182f">
+  <title>Укрытия Измаила</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="page">
 
+    <header class="hero">
+      <div class="hero-glow"></div>
+
+      <a class="back-btn" href="../" aria-label="Вернуться в главное меню">
+        <span class="back-arrow">←</span>
+        <span>Главное меню</span>
+      </a>
+
+      <div class="hero-content">
+        <div class="shield">⌂</div>
+        <div class="hero-copy">
+          <div class="eyebrow">Безопасность рядом</div>
+          <h1>Укрытия <span>Измаила</span></h1>
+          <p>Быстрый доступ к карте и поиску ближайших укрытий.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="panel-title">
+        <span class="dot"></span>
+        Поиск укрытия
+      </div>
+
+      <form id="searchForm" class="search-box">
+        <span class="search-icon">⌕</span>
+        <input
+          id="searchInput"
+          type="search"
+          autocomplete="off"
+          placeholder="Улица, адрес или район…"
+          aria-label="Поиск укрытия по адресу"
+        >
+        <button type="submit">Найти</button>
+      </form>
+
+      <div class="quick-grid">
+        <button class="quick quick-green" id="nearbyBtn" type="button">
+          <span class="quick-icon">●</span>
+          <span class="quick-copy">
+            <b>Найти рядом</b>
+            <small>Поиск укрытий поблизости</small>
+          </span>
+          <span class="chev">›</span>
+        </button>
+
+        <button class="quick" id="mapBtn" type="button">
+          <span class="quick-icon">▱</span>
+          <span class="quick-copy">
+            <b>Открыть карту</b>
+            <small>Укрытия Измаила в Google Maps</small>
+          </span>
+          <span class="chev">›</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div class="round-icon">✓</div>
+        <div>
+          <h2>Как пользоваться</h2>
+          <p>Выберите удобный способ поиска.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span>1</span>
+          <div>
+            <b>Введите адрес</b>
+            <small>Например, название улицы или район.</small>
+          </div>
+        </div>
+
+        <div class="step">
+          <span>2</span>
+          <div>
+            <b>Откройте карту</b>
+            <small>Проверьте ближайшие варианты на карте.</small>
+          </div>
+        </div>
+
+        <div class="step">
+          <span>3</span>
+          <div>
+            <b>Проверьте доступность</b>
+            <small>Перед использованием убедитесь, что выбранное укрытие доступно.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="important">
+      <b>Важно</b>
+      <span>Во время тревоги ориентируйтесь на официальные сообщения и выбирайте безопасный маршрут.</span>
+    </section>
+
+    <a class="bottom-back" href="../">
+      <span>←</span>
+      Вернуться в главное меню
+    </a>
+
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
