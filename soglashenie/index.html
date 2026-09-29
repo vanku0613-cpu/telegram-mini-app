@@ -481,50 +481,78 @@ body{
 </main>
 
 <script>
-(function(){
+(function () {
 
   var buttons =
-    document.querySelectorAll("[data-main-back]");
-
-  var target =
-    "../main-v2/";
-
-  try{
-
-    if(document.referrer){
-
-      var ref =
-        new URL(document.referrer);
-
-      if(ref.origin === location.origin){
-
-        if(
-          ref.pathname.indexOf("/main-v2/") !== -1
-        ){
-
-          target =
-            "../main-v2/";
-
-        }else if(
-          ref.pathname.indexOf("/soglashenie/") === -1
-        ){
-
-          target =
-            "../";
-
-        }
-
-      }
-
-    }
-
-  }catch(e){}
+    document.querySelectorAll(
+      "[data-main-back]"
+    );
 
   buttons.forEach(
-    function(btn){
+    function (button) {
 
-      btn.href =
-        target;
+      button.addEventListener(
+        "click",
+        function (event) {
+
+          event.preventDefault();
+
+          var cameFromMainV2 =
+            false;
+
+          try {
+
+            if (document.referrer) {
+
+              var ref =
+                new URL(
+                  document.referrer
+                );
+
+              if (
+                ref.origin === location.origin &&
+                ref.pathname.indexOf("/main-v2/") !== -1
+              ) {
+
+                cameFromMainV2 =
+                  true;
+
+              }
+
+            }
+
+          } catch (e) {}
+
+
+          /*
+            Если соглашение открыли из MAIN-V2,
+            возвращаем уже открытую страницу
+            из истории браузера.
+          */
+
+          if (
+            cameFromMainV2 &&
+            history.length > 1
+          ) {
+
+            history.back();
+
+            return;
+
+          }
+
+
+          /*
+            Если соглашение открыли напрямую,
+            возвращаем в MAIN-V2 обычным способом.
+          */
+
+          location.replace(
+            "../main-v2/"
+          );
+
+        }
+      );
 
     }
   );
