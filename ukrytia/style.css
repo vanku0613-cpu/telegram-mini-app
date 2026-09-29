@@ -17,3 +17,6 @@
 .marker-dot.caution svg path:first-child{fill:#b56b16}
 .leaflet-popup-content .route{display:block;text-align:center;border-radius:7px;padding:8px;margin-top:9px;text-decoration:none}
 @media(max-width:600px){#map{height:330px}}
+.emergency-shortcut{width:100%;text-align:left;font-family:inherit;cursor:pointer}
+#emergencyPanel .panel{text-align:left}
+#mapSection{scroll-margin-top:16px}
