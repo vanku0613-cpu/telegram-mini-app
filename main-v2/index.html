@@ -881,7 +881,7 @@ a.nav{ text-decoration:none; }
 
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 <link rel="stylesheet" href="../home-weather.css?v=2">
-<link rel="stylesheet" href="../home-info.css?v=2">
+<link rel="stylesheet" href="../home-info.css?v=3">
 <script src="../home-feedback.js?v=1" defer></script>
 <script src="../weather-profile.js?v=2"></script>
 </head>
@@ -911,14 +911,13 @@ a.nav{ text-decoration:none; }
         <div class="info-title">Погода</div>
         <div class="temp" id="weatherTemp">22°C</div>
         <div class="condition" id="weatherText">Переменная облачность</div>
-        <div class="weather-extra" id="weatherExtra">Ощущается 22° · ветер 2 м/с</div>
       </a>
       <div class="panel info currency-panel" id="currencyPanel" role="link" tabindex="0" aria-label="Курс валют">
         <div class="currency-watermark" aria-hidden="true">₴</div>
         <div class="info-title"><a href="https://t.me/frankexange" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline" title="Frank Exchange — покупка / продажа">FRANK EXCHANGE</a></div>
         <div class="rate"><span>USD</span><span id="usdRate">— / —</span></div>
         <div class="rate"><span>EUR</span><span id="eurRate">— / —</span></div>
-        <time class="rates-updated" id="ratesUpdated">Обновлено · Измаил<span>—</span></time>
+        <time class="rates-updated" id="ratesUpdated"><span>—</span></time>
       </div>
       <a class="shelter pressable" id="shelterBtn"
       href="./ukrytia/" aria-label="Укрытия Измаила"><span class="shield">⌂</span><span class="shelter-label">Укрытие<br>Измаил</span><span class="chev">›</span><span class="press-glow"></span></a>
@@ -1504,7 +1503,6 @@ a.nav{ text-decoration:none; }
         };
         var temp=document.getElementById("weatherTemp");
         var txt=document.getElementById("weatherText");
-        var extra=document.getElementById("weatherExtra");
         var icon=document.getElementById("weatherIcon");
         if(c.weather_code == null || !isFinite(Number(c.weather_code))) throw new Error("Invalid weather code");
         var code=Number(c.weather_code);
@@ -1514,13 +1512,6 @@ a.nav{ text-decoration:none; }
         if(temp && isFinite(Number(c.temperature_2m))) temp.textContent=Math.round(Number(c.temperature_2m))+"°C";
         if(txt) txt.textContent=names[code]||"Погода";
         if(icon) icon.textContent=(state.time==="night" && (code===0 || code===1))?"🌙":(profile.thunder?"⛈️":icons[code]||(profile.weather==="rain"?"🌧️":profile.weather==="snow"?"❄️":"🌤️"));
-        if(extra){
-          var a=[];
-          if(isFinite(Number(c.apparent_temperature))) a.push("ощущ. "+Math.round(Number(c.apparent_temperature))+"°");
-          if(isFinite(Number(c.wind_speed_10m))) a.push("ветер "+Math.round(Number(c.wind_speed_10m))+" м/с");
-          if(isFinite(Number(c.relative_humidity_2m))) a.push("влажн. "+Math.round(Number(c.relative_humidity_2m))+"%");
-          extra.textContent=a.join(" · ");
-        }
       })
       .catch(function(){})
       .finally(function(){clearTimeout(weatherTimeout);weatherPending=false;});
