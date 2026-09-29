@@ -71,6 +71,336 @@
       "url": "https://smartlab.ua/address/izmayil/izmayil-vul-verhnotorgova-56-primishennya-3",
       "checked": "2026-09-30",
       "kind": "official"
+    },
+    "directory-popova-rayisa-dmytrivna": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/popova-rayisa-dmytrivna",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-innovamrtct": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/innovamrtct",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-laboratoriya-csd-lab": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/laboratoriya-csd-lab",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-lohopedychnyy-tsentr": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/lohopedychnyy-tsentr",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-hay-leonid-anatoliyovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/hay-leonid-anatoliyovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-medychnyy-tsentr-zolotarovykh": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/medychnyy-tsentr-zolotarovykh",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-hordyk-alona-oleksandrivnalikar-lor": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/hordyk-alona-oleksandrivnalikar-lor",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-zinoveyeva-olena-oleksandrivna": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/zinoveyeva-olena-oleksandrivna",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-ratushnenko-oleksandr-serhiyovych-likar-otolarynholoh": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/ratushnenko-oleksandr-serhiyovych-likar-otolarynholoh",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-dytyachyy-psykholoh": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/dytyachyy-psykholoh",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-praktykuyuchyy-psykholoh": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/praktykuyuchyy-psykholoh",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-praktykuyuchyy-psykholoh-2": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/praktykuyuchyy-psykholoh-2",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-elektroentsefalohiya": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/elektroentsefalohiya",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-kokhan-maksym-valeriyovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/kokhan-maksym-valeriyovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-nikolayev-heorhiy-borysovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/nikolayev-heorhiy-borysovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-balaban-stepan-markovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/balaban-stepan-markovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-dental": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/dental",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-dentaleks": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/dentaleks",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-yevchev-yuriy-ivanovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/yevchev-yuriy-ivanovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-zlatyev-oleksandr-demyanovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/zlatyev-oleksandr-demyanovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-ivashchenko-roman-olehovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/ivashchenko-roman-olehovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-kozhukhar-marianna-vadymivna": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/kozhukhar-marianna-vadymivna",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-kulzhy-stepan-ivanovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/kulzhy-stepan-ivanovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-likar-stomatoloh-valeriy-vyacheslavovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/likar-stomatoloh-valeriy-vyacheslavovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-malomen-semen-ivanovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/malomen-semen-ivanovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-matyukhin-kostyantyn-valeriyovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/matyukhin-kostyantyn-valeriyovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-mokanu-maryna-viktorivna": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/mokanu-maryna-viktorivna",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-mokanu-serhiy-ivanovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/mokanu-serhiy-ivanovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-nenov-fedir-heorhiyevych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/nenov-fedir-heorhiyevych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-paraskiva-yuriy-dmytrovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/paraskiva-yuriy-dmytrovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-pp-fils-plyus": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/pp-fils-plyus",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-savastru-mykhaylo-hryhorovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/savastru-mykhaylo-hryhorovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-stoykov-denys-arkadiyovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/stoykov-denys-arkadiyovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-stomatoloh-tatush-mykhaylo-ivanovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/stomatoloh-tatush-mykhaylo-ivanovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-stomatolohichna-klinika-darahan": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/stomatolohichna-klinika-darahan",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-stomatolohichnyy-kabinet-lux-dental": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/stomatolohichnyy-kabinet-lux-dental",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-dental-plus": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/dental-plus",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-stomatolohiya-vitaline": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/stomatolohiya-vitaline",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-yankovska-tetyana-mykolayivna": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/yankovska-tetyana-mykolayivna",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-infektsiyna-likarnya": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/infektsiyna-likarnya",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-diahnostychnyy-tsentr-into-sana-2": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/diahnostychnyy-tsentr-into-sana-2",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-medychnyy-tsentr-alfa-medservis": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/medychnyy-tsentr-alfa-medservis",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-likar-akusher-hinekoloh": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/likar-akusher-hinekoloh",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-likar-hinekoloh": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/likar-hinekoloh",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-serpeninova": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/serpeninova",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-voloshyna-alla-ivanivna": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/voloshyna-alla-ivanivna",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-kushnirenko-ruslan-volodymyrovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/kushnirenko-ruslan-volodymyrovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-likar-nevroloh-aleksandrova-alla-oleksiyivna": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/likar-nevroloh-aleksandrova-alla-oleksiyivna",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-nahorna-natalya-anatoliyivna": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/nahorna-natalya-anatoliyivna",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-tanher-dmytro-mykhaylovych": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/tanher-dmytro-mykhaylovych",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-dermatolohichne-viddilennya": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/dermatolohichne-viddilennya",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "directory-likar-dermatoloh-2": {
+      "label": "Dovidka.in.ua · Измаил",
+      "url": "https://dovidka.in.ua/likar-dermatoloh-2",
+      "checked": "2026-09-30",
+      "kind": "directory"
+    },
+    "tclinic": {
+      "label": "Официальный сайт Tclinic",
+      "url": "https://tclinic.ua/uk/clinic",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "statevet": {
+      "label": "ФГИУ · контакт учреждения; сверено с местным обзором ветклиник",
+      "url": "https://www.spfu.gov.ua/userfiles/files/Kislica%20OM.pdf",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "vetcatalog": {
+      "label": "Каталог Veterinarka · Измаил",
+      "url": "https://veterinarka.com.ua/ru/vet-clinics/odeska-oblast/izmail",
+      "checked": "2026-09-30",
+      "kind": "directory"
     }
   },
   "categories": [
@@ -87,7 +417,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96228",
       "order": 0,
-      "count": 14,
+      "count": 15,
       "note": ""
     },
     {
@@ -135,7 +465,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96231",
       "order": 3,
-      "count": 12,
+      "count": 37,
       "note": ""
     },
     {
@@ -199,7 +529,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96260",
       "order": 7,
-      "count": 10,
+      "count": 12,
       "note": ""
     },
     {
@@ -311,7 +641,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96275",
       "order": 14,
-      "count": 4,
+      "count": 9,
       "note": ""
     },
     {
@@ -334,10 +664,16 @@
       "id": "96283",
       "branch": "doctors",
       "name": "Психолог",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-psychologist.jpg",
+          "poster": "media/cover-psychologist.jpg"
+        }
+      ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96283",
       "order": 16,
-      "count": 4,
+      "count": 7,
       "note": ""
     },
     {
@@ -385,7 +721,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96288",
       "order": 19,
-      "count": 4,
+      "count": 7,
       "note": ""
     },
     {
@@ -417,7 +753,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96291",
       "order": 21,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
@@ -433,7 +769,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96292",
       "order": 22,
-      "count": 14,
+      "count": 16,
       "note": ""
     },
     {
@@ -593,7 +929,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96305",
       "order": 32,
-      "count": 7,
+      "count": 8,
       "note": ""
     },
     {
@@ -657,7 +993,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96310",
       "order": 36,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
@@ -785,7 +1121,7 @@
       ],
       "source": "https://t.me/Izmail_CHAT_24_7/20125",
       "order": 44,
-      "count": 12,
+      "count": 13,
       "note": ""
     },
     {
@@ -936,25 +1272,43 @@
       "id": "ct",
       "name": "КТ-диагностика",
       "branch": "doctors",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-ct.jpg",
+          "poster": "media/cover-ct.jpg"
+        }
+      ],
       "order": 54,
-      "count": 2,
+      "count": 3,
       "note": ""
     },
     {
       "id": "lab",
       "name": "Анализы и лаборатории",
       "branch": "doctors",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-lab.jpg",
+          "poster": "media/cover-lab.jpg"
+        }
+      ],
       "order": 55,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
       "id": "palliative",
       "name": "Паллиативная помощь",
       "branch": "doctors",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-palliative.jpg",
+          "poster": "media/cover-palliative.jpg"
+        }
+      ],
       "order": 56,
       "count": 1,
       "note": ""
@@ -963,7 +1317,13 @@
       "id": "phthis",
       "name": "Фтизиатр",
       "branch": "doctors",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-phthis.jpg",
+          "poster": "media/cover-phthis.jpg"
+        }
+      ],
       "order": 57,
       "count": 1,
       "note": ""
@@ -972,16 +1332,28 @@
       "id": "functional",
       "name": "Функциональная диагностика",
       "branch": "doctors",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-functional.jpg",
+          "poster": "media/cover-functional.jpg"
+        }
+      ],
       "order": 58,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
       "id": "trust",
       "name": "Кабинет «Довіра»",
       "branch": "doctors",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-trust.jpg",
+          "poster": "media/cover-trust.jpg"
+        }
+      ],
       "order": 59,
       "count": 1,
       "note": ""
@@ -990,7 +1362,13 @@
       "id": "xray",
       "name": "Рентгенологи",
       "branch": "doctors",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-xray.jpg",
+          "poster": "media/cover-xray.jpg"
+        }
+      ],
       "order": 60,
       "count": 2,
       "note": ""
@@ -999,7 +1377,13 @@
       "id": "sports",
       "name": "Спортивная медицина",
       "branch": "doctors",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-sports.jpg",
+          "poster": "media/cover-sports.jpg"
+        }
+      ],
       "order": 61,
       "count": 1,
       "note": ""
@@ -1327,12 +1711,16 @@
       "category": "96231",
       "name": "Кожухар Маріанна",
       "phones": [
-        "0637016455"
+        "0637016455",
+        "0980522205"
       ],
       "city": "Измаил",
-      "note": "Детский стоматолог. «Аліна», ул. Кишинёвская, напротив «Диагност»",
+      "note": "Детский стоматолог. «Аліна», ул. Кишинёвская, напротив «Диагност» проспект Миру, 48 вхід з Кишинівської. Контакт опубликован в городском каталоге; приём уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "directory-kozhukhar-marianna-vadymivna"
+      ]
     },
     {
       "id": "r29",
@@ -1363,24 +1751,34 @@
       "category": "96231",
       "name": "Параскива Юрий Дмитриевич",
       "phones": [
-        "0635359009"
+        "0635359009",
+        "0674990438"
       ],
       "city": "Измаил",
-      "note": "Хирург-стоматолог",
+      "note": "Хирург-стоматолог вул. Комерційна, 79. Контакт опубликован в городском каталоге; приём уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "directory-paraskiva-yuriy-dmytrovych"
+      ]
     },
     {
       "id": "r32",
       "category": "96246",
       "name": "Альфа Мед Сервіс",
       "phones": [
-        "0984418280"
+        "0984418280",
+        "0484163600",
+        "0672935029",
+        "0677363489"
       ],
       "city": "Измаил",
-      "note": "ул. Перекопской Дивизии, угол ул. Клушина",
+      "note": "ул. Перекопской Дивизии, угол ул. Клушина вул.Патріотів,9/Клушина. Контакт опубликован в городском каталоге; приём уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "directory-medychnyy-tsentr-alfa-medservis"
+      ]
     },
     {
       "id": "r33",
@@ -1882,24 +2280,32 @@
       "category": "96297",
       "name": "Басов",
       "phones": [
-        "0506723689"
+        "0506723689",
+        "0962505367"
       ],
       "city": "Измаил",
-      "note": "Дерматолог; детский приём уточнить",
+      "note": "Дерматолог; детский приём уточнить вул.Дмитрієвська,48. Контакт опубликован в городском каталоге; приём уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "directory-likar-dermatoloh-2"
+      ]
     },
     {
       "id": "r77",
       "category": "96297",
       "name": "Дерматология на Хотинской",
       "phones": [
-        "0965462904"
+        "0965462904",
+        "0949989536"
       ],
       "city": "Измаил",
-      "note": "",
+      "note": " Вул. Хотинська, 52. Контакт опубликован в городском каталоге; приём уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "directory-dermatolohichne-viddilennya"
+      ]
     },
     {
       "id": "r78",
@@ -2413,9 +2819,12 @@
         "0968079605"
       ],
       "city": "Измаил",
-      "note": "ул. Молодёжная, 106; выезд на дом уточнить",
+      "note": "Heart Vet · ул. Молодёжная, 106. Время приёма уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "vetcatalog"
+      ]
     },
     {
       "id": "r121",
@@ -2461,9 +2870,12 @@
         "0984133965"
       ],
       "city": "Измаил",
-      "note": "",
+      "note": "Vet Патруль · ул. Авраамовская, 76/2. Время приёма уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "vetcatalog"
+      ]
     },
     {
       "id": "r125",
@@ -2485,9 +2897,12 @@
         "0971248971"
       ],
       "city": "Измаил",
-      "note": "Общий номер кабинета из подборки",
+      "note": "Кабинет «Ушки на макушке» · ул. Мира, 54. Время приёма уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "vetcatalog"
+      ]
     },
     {
       "id": "r127",
@@ -2497,9 +2912,12 @@
         "0971248961"
       ],
       "city": "Измаил",
-      "note": "",
+      "note": "Кабинет «Ушки на макушке» · ул. Мира, 54. Время приёма уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "vetcatalog"
+      ]
     },
     {
       "id": "r128",
@@ -2509,9 +2927,12 @@
         "0971787928"
       ],
       "city": "Измаил",
-      "note": "",
+      "note": "VetAleX · ул. Греческая, 26. Время приёма уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "vetcatalog"
+      ]
     },
     {
       "id": "r129",
@@ -2521,9 +2942,18 @@
         "0736607682"
       ],
       "city": "Измаил",
-      "note": "",
+      "note": "ZOOline · пр. Незалежності (бывший Суворова), 180. Время приёма уточните по телефону.",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "additionalSources": [
+        "vetcatalog"
+      ],
+      "review": {
+        "summary": "Оценка клиники ZOOline в каталоге Veterinarka: 4,6 из 5, 146 отзывов. Рейтинг относится ко всей клинике.",
+        "label": "Veterinarka · сведения каталога",
+        "url": "https://veterinarka.com.ua/ru/vet-clinics/odeska-oblast/izmail",
+        "checked": "30.09.2026"
+      }
     },
     {
       "id": "r130",
@@ -3537,7 +3967,13 @@
       "city": "Измаил",
       "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру.",
       "source": "doctors",
-      "phoneLabel": "Регистратура, не личный номер"
+      "phoneLabel": "Регистратура, не личный номер",
+      "review": {
+        "summary": "На Health24: 5 из 5, один отзыв. Пациентка отмечает внимательность, поддержку и понятные объяснения врача. Краткий пересказ отзыва; это мнение пациента.",
+        "label": "Health24 · отзыв о Чебановой Олене Олександрівне",
+        "url": "https://h24.ua/doctor/146860-chebanova-olena-oleksandrivna/reviews",
+        "checked": "30.09.2026"
+      }
     },
     {
       "id": "r214",
@@ -3549,19 +3985,29 @@
       "city": "Измаил",
       "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру.",
       "source": "doctors",
-      "phoneLabel": "Регистратура, не личный номер"
+      "phoneLabel": "Регистратура, не личный номер",
+      "review": {
+        "summary": "На Health24: 5 из 5, одна оценка. Текстовый комментарий не опубликован.",
+        "label": "Health24 · оценка Коренюка Олексія Микитовича",
+        "url": "https://h24.ua/doctor/237968-korenyuk-oleksij-mykytovych/reviews",
+        "checked": "30.09.2026"
+      }
     },
     {
       "id": "r215",
       "category": "96292",
       "name": "Заржицький Богдан Олегович",
       "phones": [
-        "0962359085"
+        "0962359085",
+        "0679238055"
       ],
       "city": "Измаил",
-      "note": "Лікар гінеколог онколог. Женская консультация. Уточните текущий приём через регистратуру.",
+      "note": "Лікар гінеколог онколог. Женская консультация. Уточните текущий приём через регистратуру. Контакт опубликован в городском каталоге; приём уточните по телефону.",
       "source": "doctors",
-      "phoneLabel": "Регистратура, не личный номер"
+      "phoneLabel": "Регистратура и контакт врача из каталога",
+      "additionalSources": [
+        "directory-likar-hinekoloh"
+      ]
     },
     {
       "id": "r216",
@@ -3686,6 +4132,596 @@
       "note": "Смартлаб, ул. Верхнеторговая, 56, помещение 3. Наличие приёма уточните при записи.",
       "source": "smartlab",
       "phoneLabel": "Контакт-центр, не личный номер"
+    },
+    {
+      "id": "dovidka-popova-rayisa-dmytrivna",
+      "category": "96305",
+      "name": "Попова Раїса Дмитрівна",
+      "phones": [
+        "0963641495"
+      ],
+      "city": "Измаил",
+      "note": "вул. Телеграфна, 182. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-popova-rayisa-dmytrivna",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-innovamrtct",
+      "category": "ct",
+      "name": "Кабінет компютерної томографії innova.mrt.ct",
+      "phones": [
+        "0800335312"
+      ],
+      "city": "Измаил",
+      "note": "вул. Телеграфна,182. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-innovamrtct",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-laboratoriya-csd-lab",
+      "category": "lab",
+      "name": "Лабораторія CSD LAB",
+      "phones": [
+        "0800330075"
+      ],
+      "city": "Измаил",
+      "note": "CSD LAB: ул. Ильи Репина, 14; пр. Незалежності, 79. Общий контакт-центр сети.",
+      "source": "directory-laboratoriya-csd-lab",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-lohopedychnyy-tsentr",
+      "category": "96291",
+      "name": "Логопедичний центр",
+      "phones": [
+        "0679823501",
+        "0665043878"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-lohopedychnyy-tsentr",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-hay-leonid-anatoliyovych",
+      "category": "96260",
+      "name": "Гай Леонід Анатолійович",
+      "phones": [
+        "0677244670"
+      ],
+      "city": "Измаил",
+      "note": "Ортопед-травматолог из Одессы; в каталоге указан приём в Измаиле. Даты приезда уточните.",
+      "source": "directory-hay-leonid-anatoliyovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-medychnyy-tsentr-zolotarovykh",
+      "category": "96260",
+      "name": "Медичний центр Золотарьових",
+      "phones": [
+        "0677671590"
+      ],
+      "city": "Измаил",
+      "note": "вул.Семінарська,58. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-medychnyy-tsentr-zolotarovykh",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-hordyk-alona-oleksandrivnalikar-lor",
+      "category": "96288",
+      "name": "Гордик Альона Олександрівна.Лікар-ЛОР",
+      "phones": [
+        "0991048053"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-hordyk-alona-oleksandrivnalikar-lor",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-zinoveyeva-olena-oleksandrivna",
+      "category": "96288",
+      "name": "Зіновеєва Олена Олександрівна",
+      "phones": [
+        "0682661811"
+      ],
+      "city": "Измаил",
+      "note": "вул. Портова, 11А. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-zinoveyeva-olena-oleksandrivna",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-ratushnenko-oleksandr-serhiyovych-likar-otolarynholoh",
+      "category": "96288",
+      "name": "Ратушненко Олександр Сергійович лікар отоларинголог",
+      "phones": [
+        "0972235045"
+      ],
+      "city": "Измаил",
+      "note": "проспект Миру, 36а. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-ratushnenko-oleksandr-serhiyovych-likar-otolarynholoh",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-dytyachyy-psykholoh",
+      "category": "96283",
+      "name": "Дитячий психолог Бакеркіна О.Р.",
+      "phones": [
+        "0677257305"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-dytyachyy-psykholoh",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-praktykuyuchyy-psykholoh",
+      "category": "96283",
+      "name": "Практикуючий психолог Вікторія",
+      "phones": [
+        "0973533835"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-praktykuyuchyy-psykholoh",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-praktykuyuchyy-psykholoh-2",
+      "category": "96283",
+      "name": "Практикуючий психолог Настасія",
+      "phones": [
+        "0934963684"
+      ],
+      "city": "Измаил",
+      "note": "Проспект Незалежності, 77. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-praktykuyuchyy-psykholoh-2",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-elektroentsefalohiya",
+      "category": "functional",
+      "name": "електроенцефалогія",
+      "phones": [
+        "0976431028"
+      ],
+      "city": "Измаил",
+      "note": "ЭЭГ · Клименко Ігор Павлович. Запись на функциональную диагностику.",
+      "source": "directory-elektroentsefalohiya",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-kokhan-maksym-valeriyovych",
+      "category": "96231",
+      "name": "Кохан Максим Валерійович",
+      "phones": [
+        "0936824439"
+      ],
+      "city": "Измаил",
+      "note": "вул.Гетьмана Мазепи,. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-kokhan-maksym-valeriyovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-nikolayev-heorhiy-borysovych",
+      "category": "96231",
+      "name": "Ніколаєв Георгій Борисович",
+      "phones": [
+        "0484123578",
+        "0970778181",
+        "0966024465"
+      ],
+      "city": "Измаил",
+      "note": "вул.Садова,14. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-nikolayev-heorhiy-borysovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-balaban-stepan-markovych",
+      "category": "96231",
+      "name": "Балабан Степан Маркович",
+      "phones": [
+        "0979541213"
+      ],
+      "city": "Измаил",
+      "note": "проспект Миру, 48. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-balaban-stepan-markovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-dental",
+      "category": "96231",
+      "name": "Дентал",
+      "phones": [
+        "0677630927",
+        "0689138447"
+      ],
+      "city": "Измаил",
+      "note": "проспект Миру, 18. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-dental",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-dentaleks",
+      "category": "96231",
+      "name": "Денталекс",
+      "phones": [
+        "0484161303",
+        "0977354243"
+      ],
+      "city": "Измаил",
+      "note": "проспект Незалежності, 59А. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-dentaleks",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-yevchev-yuriy-ivanovych",
+      "category": "96231",
+      "name": "Євчев Юрій Іванович",
+      "phones": [
+        "0678016643"
+      ],
+      "city": "Измаил",
+      "note": "вул.Садова,14. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-yevchev-yuriy-ivanovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-zlatyev-oleksandr-demyanovych",
+      "category": "96231",
+      "name": "Златєв Олександр Дем'янович",
+      "phones": [
+        "0674892250",
+        "0484125705"
+      ],
+      "city": "Измаил",
+      "note": "вул.Садова,4. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-zlatyev-oleksandr-demyanovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-ivashchenko-roman-olehovych",
+      "category": "96231",
+      "name": "Іващенко Роман Олегович",
+      "phones": [
+        "0502143231"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-ivashchenko-roman-olehovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-kulzhy-stepan-ivanovych",
+      "category": "96231",
+      "name": "Кульжи Степан Іванович",
+      "phones": [
+        "0976446246"
+      ],
+      "city": "Измаил",
+      "note": "Проспект Миру, 22. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-kulzhy-stepan-ivanovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-likar-stomatoloh-valeriy-vyacheslavovych",
+      "category": "96231",
+      "name": "Лікар - стоматолог Валерій В'ячеславович",
+      "phones": [
+        "0965806651"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-likar-stomatoloh-valeriy-vyacheslavovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-malomen-semen-ivanovych",
+      "category": "96231",
+      "name": "Маломен Семен Іванович",
+      "phones": [
+        "0979023767"
+      ],
+      "city": "Измаил",
+      "note": "вул.Садова.14. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-malomen-semen-ivanovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-matyukhin-kostyantyn-valeriyovych",
+      "category": "96231",
+      "name": "Матюхін Костянтин Валерійович",
+      "phones": [
+        "0636790707"
+      ],
+      "city": "Измаил",
+      "note": "пр-т Незалежності,59А. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-matyukhin-kostyantyn-valeriyovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-mokanu-maryna-viktorivna",
+      "category": "96231",
+      "name": "Мокану Марина Вікторівна",
+      "phones": [
+        "0963569009",
+        "0484151496"
+      ],
+      "city": "Измаил",
+      "note": "проспект Миру,26. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-mokanu-maryna-viktorivna",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-mokanu-serhiy-ivanovych",
+      "category": "96231",
+      "name": "Мокану Сергій Іванович",
+      "phones": [
+        "0484164495",
+        "0679654840"
+      ],
+      "city": "Измаил",
+      "note": "вул.Садова,14. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-mokanu-serhiy-ivanovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-nenov-fedir-heorhiyevych",
+      "category": "96231",
+      "name": "Ненов Федір Георгієвич",
+      "phones": [
+        "0667385877",
+        "0932336111",
+        "0484151495"
+      ],
+      "city": "Измаил",
+      "note": "проспект Миру,26. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-nenov-fedir-heorhiyevych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-pp-fils-plyus",
+      "category": "96231",
+      "name": "ПП Філс Плюс",
+      "phones": [
+        "0484122760"
+      ],
+      "city": "Измаил",
+      "note": "вул.Садова,14. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-pp-fils-plyus",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-savastru-mykhaylo-hryhorovych",
+      "category": "96231",
+      "name": "Савастру Михайло Григорович",
+      "phones": [
+        "0674823947",
+        "0484155324"
+      ],
+      "city": "Измаил",
+      "note": "вул. Кишинівська, 103. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-savastru-mykhaylo-hryhorovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-stoykov-denys-arkadiyovych",
+      "category": "96231",
+      "name": "Стойков Денис Аркадійович",
+      "phones": [
+        "0976722006"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-stoykov-denys-arkadiyovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-stomatoloh-tatush-mykhaylo-ivanovych",
+      "category": "96231",
+      "name": "Стоматолог Татуш Михайло Іванович",
+      "phones": [
+        "0964804270"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-stomatoloh-tatush-mykhaylo-ivanovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-stomatolohichna-klinika-darahan",
+      "category": "96231",
+      "name": "Стоматологічна клініка Дараган Любов Іванівна",
+      "phones": [
+        "0984552191",
+        "0484124230"
+      ],
+      "city": "Измаил",
+      "note": "вул.Покровська,52. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-stomatolohichna-klinika-darahan",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-stomatolohichnyy-kabinet-lux-dental",
+      "category": "96231",
+      "name": "Стоматологічний кабінет Lux Dental",
+      "phones": [
+        "0973707317"
+      ],
+      "city": "Измаил",
+      "note": "вул.Поперечна, 2/1. Офіс 89. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-stomatolohichnyy-kabinet-lux-dental",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-dental-plus",
+      "category": "96231",
+      "name": "Стоматологія «Дентал Плюс»",
+      "phones": [
+        "0484156789"
+      ],
+      "city": "Измаил",
+      "note": "просп. Незалежності, 45, Ізмаїл. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-dental-plus",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-stomatolohiya-vitaline",
+      "category": "96231",
+      "name": "Стоматологія Vitaline",
+      "phones": [
+        "0672033787"
+      ],
+      "city": "Измаил",
+      "note": "вул.Садова, 4 А, Ізмаїл. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-stomatolohiya-vitaline",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-yankovska-tetyana-mykolayivna",
+      "category": "96231",
+      "name": "Янковська Тетяна Миколаївна",
+      "phones": [
+        "0687930526"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-yankovska-tetyana-mykolayivna",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-infektsiyna-likarnya",
+      "category": "96310",
+      "name": "Інфекційна лікарня",
+      "phones": [
+        "0484126328"
+      ],
+      "city": "Измаил",
+      "note": "вул.Тиха,3. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-infektsiyna-likarnya",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-diahnostychnyy-tsentr-into-sana-2",
+      "category": "96228",
+      "name": "Діагностичний центр Into Sana",
+      "phones": [
+        "0966307500",
+        "0484172266"
+      ],
+      "city": "Измаил",
+      "note": "вул.Мистецька,59А. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-diahnostychnyy-tsentr-into-sana-2",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-likar-akusher-hinekoloh",
+      "category": "96292",
+      "name": "Лікар-акушер-гінеколог Ліман Олександр Олександрович",
+      "phones": [
+        "0973013336"
+      ],
+      "city": "Измаил",
+      "note": "вул. Комерційна,111А. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-likar-akusher-hinekoloh",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-serpeninova",
+      "category": "96292",
+      "name": "Лікар-гінеколог Серпенінова",
+      "phones": [
+        "0677784321",
+        "0667784321"
+      ],
+      "city": "Измаил",
+      "note": "вул.Торгова, 14А. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-serpeninova",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-voloshyna-alla-ivanivna",
+      "category": "96275",
+      "name": "Волошина Алла Іванівна",
+      "phones": [
+        "0963651785"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-voloshyna-alla-ivanivna",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-kushnirenko-ruslan-volodymyrovych",
+      "category": "96275",
+      "name": "Кушніренко Руслан Володимирович",
+      "phones": [
+        "0965369681"
+      ],
+      "city": "Измаил",
+      "note": "вул. Телеграфна, 182. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-kushnirenko-ruslan-volodymyrovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-likar-nevroloh-aleksandrova-alla-oleksiyivna",
+      "category": "96275",
+      "name": "Лікар-невролог Александрова Алла Олексіївна",
+      "phones": [
+        "0975619440"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-likar-nevroloh-aleksandrova-alla-oleksiyivna",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-nahorna-natalya-anatoliyivna",
+      "category": "96275",
+      "name": "Нагорна Наталя Анатоліївна",
+      "phones": [
+        "0675920379"
+      ],
+      "city": "Измаил",
+      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-nahorna-natalya-anatoliyivna",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "dovidka-tanher-dmytro-mykhaylovych",
+      "category": "96275",
+      "name": "Тангер Дмитро Михайлович",
+      "phones": [
+        "0985200516"
+      ],
+      "city": "Измаил",
+      "note": "вул.Патріотів,6. Контакт опубликован в городском каталоге; приём уточните по телефону.",
+      "source": "directory-tanher-dmytro-mykhaylovych",
+      "phoneLabel": "Контакт для записи из каталога"
+    },
+    {
+      "id": "tclinic",
+      "category": "96231",
+      "name": "Tclinic · стоматология",
+      "phones": [
+        "0677098144"
+      ],
+      "city": "Измаил",
+      "note": "ул. Тульчиановская, 47. Приём взрослых и детей; ортодонтия, хирургия и протезирование.",
+      "source": "tclinic",
+      "phoneLabel": "Регистратура клиники"
+    },
+    {
+      "id": "state-vet-izmail",
+      "category": "20125",
+      "name": "Районная государственная ветеринарная больница",
+      "phones": [
+        "0484125370"
+      ],
+      "city": "Измаил",
+      "note": "ул. Вячеслава Черновола (бывшая Чехова), 2. Перед визитом уточните приём животных.",
+      "source": "statevet",
+      "phoneLabel": "Телефон учреждения"
     }
   ]
 }

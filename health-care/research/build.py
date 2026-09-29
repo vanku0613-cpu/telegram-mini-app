@@ -85,6 +85,8 @@ for r in records:
 sources['smartlab']={'label':'Смартлаб · отделение в Измаиле','url':'https://smartlab.ua/address/izmayil/izmayil-vul-verhnotorgova-56-primishennya-3','checked':'2026-09-30','kind':'official'}
 for cat,name in [('96304','Мойсеєнко Альона Леонідівна · эндокринолог'),('96264','Почтаренко Ігор В’ячеславович · кардиолог')]:
  add(cat,name,'0800750070,0733750070',note='Смартлаб, ул. Верхнеторговая, 56, помещение 3. Наличие приёма уточните при записи.',source='smartlab',phoneLabel='Контакт-центр, не личный номер')
+from enrich import enrich
+enrich(records,categories,sources)
 for i,c in enumerate(categories):
  c['order']=i
  c['count']=sum(r['category']==c['id'] for r in records)

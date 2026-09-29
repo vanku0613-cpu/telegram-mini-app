@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+
+    <title>Tclinic - преміальна стоматологія в Ізмаїлі | Без болю та стресу</title>
+    <meta name="title" content="Tclinic - преміальна стоматологія в Ізмаїлі | Без болю та стресу" />
+    <meta name="description" content="Сучасна стоматологія в Ізмаїлі. Імплантація, протезування, ортодонтія, дитяча стоматологія. Власна лабораторія, лікування уві сні. Запишіться вже сьогодні!" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tclinic.ua/uk/clinic/" />
+    <meta property="og:title" content="Tclinic - преміальна стоматологія в Ізмаїлі | Без болю та стресу" />
+    <meta property="og:description" content="Сучасна стоматологія в Ізмаїлі. Імплантація, протезування, ортодонтія, дитяча стоматологія. Власна лабораторія, лікування уві сні. Запишіться вже сьогодні!" />
+    <meta property="og:image" content="https://tclinic.ua/assets/photos/panorama.webp" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://tclinic.ua/uk/clinic" />
+    <meta property="twitter:title" content="Tclinic - преміальна стоматологія в Ізмаїлі | Без болю та стресу" />
+    <meta property="twitter:description" content="Сучасна стоматологія в Ізмаїлі. Імплантація, протезування, ортодонтія, дитяча стоматологія. Власна лабораторія, лікування уві сні. Запишіться вже сьогодні!" />
+    <meta property="twitter:image" content="https://tclinic.ua/assets/photos/panorama.webp" />
+
+    <link rel="stylesheet" href="../assets/libraries/FontAwesome/css/all.min.css?v=1.6.6">
+<link rel="stylesheet" href="../assets/fonts/Syne.css?v=1.6.6">
+<link rel="stylesheet" href="../assets/fonts/Staatliches.css?v=1.6.6">
+<link rel="stylesheet" href="../assets/fonts/HelveticaNeueCyr.css?v=1.6.6">
+    <!-- інтерактивна мапа -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- навігація та вікно подачі заявки, футєр -->
+    <link rel="stylesheet" href="/styles/dark/navigation.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/leave-request.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/footer.css?v=1.6.9">
+
+    <!-- основні стилі по блокам -->
+    <link rel="stylesheet" href="/styles/dark/clinic/0-general.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/1-animations.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/2-motto.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/3-confidence.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/4-importance.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/5-working.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/6-interaction.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/7-level.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/8-feature.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/9-services.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/10-team.css?v=1.6.9">
+    <link rel="stylesheet" href="/styles/dark/clinic/11-questions.css?v=1.6.9">
+
+</head>
+
+<body>
+
+    <script>
+    // worst ever systems detector
+
+    if (
+        [
+            'iPad Simulator',
+            'iPhone Simulator',
+            'iPod Simulator',
+            'iPad',
+            'iPhone',
+            'iPod'
+        ].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
+
+        document.body.classList.add('ios');
+    }
+</script>    <script>
+    addEventListener('resize', scaleDocumentBody);
+
+    function scaleDocumentBody() {
+        if(window.location.hostname == 'clinic') return;
+
+        if(window.innerWidth > 1280 && window.innerHeight > 720) {
+            let coefficient = 1.0;
+            let baseSide = 1267.0 / 586.0;
+            let currentSide = window.innerWidth / window.innerHeight;
+            if(currentSide > baseSide) coefficient /= currentSide / baseSide;
+            let scale = window.innerWidth / 1280 * coefficient;
+            if(scale < 1) scale = 1;
+            document.body.style.zoom = scale;
+        }
+    }
+
+    scaleDocumentBody();
+</script>
+    <div id="navigation">
+
+    <div class="navigationBackground" data-navigation="unactive"></div>
+
+    <!-- capsule active || capsule disappear -->
+    <div class="capsule">
+        <a href="/uk/clinic" class="logo">
+            <img src="/assets/images/Logo-Light.svg">
+        </a>
+        <div class="couple">
+            <a href="/uk/about">Про клініку</a>
+            <div data-navigation="services">
+                <span>Послуги</span>
+                <span>&#8201;</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="group">
+            <a href="tel:+380677098144" class="button-secondary">+38 (067) 709 81 44</a>
+            <div data-action="LeaveRequest" class="button-primary onlyPC">
+                <span>Запис на консультацію</span>
+                <span>&#8201;</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div data-navigation="language" class="button-mini-primary">
+                <span>
+                    UA                </span>
+                <span>&#8201;</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="opener" data-navigation="navigation">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="closer" data-navigation="unactive">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+
+    <!-- navigation active subactive -->
+   <div class="navigation">
+        <div class="general">
+            <div class="top">
+                <div class="list">
+                    <a class="headlighting" href="/uk/clinic">
+                        <span class="title">Головна</span>
+                        <span class="number">01</span>
+                    </a>
+                    <a class="headlighting" href="/uk/about">
+                        <span class="title">Про клініку</span>
+                        <span class="number">02</span>
+                    </a>
+                    <div class="headlighting" data-navigation="mini-services">
+                        <div class="title">
+                            <span>Послуги</span>
+                            <span>&#8201;</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <span class="number">03</span>
+                    </div>
+                </div>
+                <div class="closer" data-navigation="unactive">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="mid">
+                <a href="/uk/treatment-in-the-sleep" class="row">Лікування уві сні</a>
+                <a href="/uk/hygiene-and-periodontology" class="row">Гігієна та пародонтологія</a>
+                <a href="/uk/therapy-and-endodontics" class="row">Терапія та ендодонтія</a>
+                <a href="/uk/pediatric-dentistry" class="row">Дитяча стоматологія</a>
+                <a href="/uk/orthodontics" class="row">Ортодонтія</a>
+                <a href="/uk/implantation" class="row">Імплантація</a>
+                <a href="/uk/prosthesis" class="row">Протезування</a>
+                <a href="/uk/surgery" class="row">Хірургія</a>
+            </div>
+            <div class="mid-splitter"></div>
+            <a href="tel:+380677098144" class="phone">+38 (067) 709 81 44</a>
+            <div data-action="LeaveRequest" class="mini-button-primary">
+                <span>Запис на консультацію</span>
+                <span>&#8201;</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="bottom">
+                <div class="info">Україна, м. Ізмаїл, вул. Тульчіанівська, 47</div>
+                <div class="info">Понеділок-П’ятниця<br>09:00 - 18:00</div>
+                <div class="bottom-splitter"></div>
+                <div class="couple">
+                    <div class="language">
+                        <div class="mini-button-primary">
+                            <span>
+                                UA                            </span>
+                            <span>&#8201;</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <a href="/uk/clinic" class="option active">UA</a>
+                        <a href="/en/clinic" class="option ">EN</a>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.instagram.com/tclinic_izmail_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/tclinicizmail/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mini-services">
+            <div class="element">
+                <div class="top">
+                    <span class="number">01</span>
+                    <img src="/assets/photos/services/1.webp">
+                </div>
+                <a href="/uk/hygiene-and-periodontology" class="bottom">
+                    <div class="title">Гігієна та пародонтологія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <div class="top">
+                    <span class="number">02</span>
+                    <img src="/assets/photos/services/2.webp">
+                </div>
+                <a href="/uk/therapy-and-endodontics" class="bottom">
+                    <div class="title">Терапія та ендодонтія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <div class="top">
+                    <span class="number">03</span>
+                    <img src="/assets/photos/services/3.webp">
+                </div>
+                <a href="/uk/pediatric-dentistry" class="bottom">
+                    <div class="title">Дитяча стоматологія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <div class="top">
+                    <span class="number">04</span>
+                    <img src="/assets/photos/services/4.webp">
+                </div>
+                <a href="/uk/orthodontics" class="bottom">
+                    <div class="title">Ортодонтія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <div class="top">
+                    <span class="number">05</span>
+                    <img src="/assets/photos/services/5.webp">
+                </div>
+                <a href="/uk/treatment-in-the-sleep" class="bottom">
+                    <div class="title">Лікування уві сні</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <div class="top">
+                    <span class="number">06</span>
+                    <img src="/assets/photos/services/6.webp">
+                </div>
+                <a href="/uk/implantation" class="bottom">
+                    <div class="title">Імплантація</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <div class="top">
+                    <span class="number">07</span>
+                    <img src="/assets/photos/services/7.webp">
+                </div>
+                <a href="/uk/prosthesis" class="bottom">
+                    <div class="title">Протезування</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <div class="top">
+                    <span class="number">08</span>
+                    <img src="/assets/photos/services/8.webp">
+                </div>
+                <a href="/uk/surgery" class="bottom">
+                    <div class="title">Хірургія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- services active -->
+    <div class="services">
+        <div class="closer" data-navigation="unactive">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="row">
+            <div class="element">
+                <a href="https://tclinic.ua/uk/hygiene-and-periodontology" target="_blank" class="top">
+                    <div class="play">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                    <span class="number">01</span>
+                    <img src="/assets/photos/services/1.webp">
+                </a>
+                <a href="/uk/hygiene-and-periodontology" class="bottom">
+                    <div class="title">Гігієна та пародонтологія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <a href="https://tclinic.ua/uk/therapy-and-endodontics" target="_blank" class="top">
+                    <div class="play">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                    <span class="number">02</span>
+                    <img src="/assets/photos/services/2.webp">
+                </a>
+                <a href="/uk/therapy-and-endodontics" class="bottom">
+                    <div class="title">Терапія та ендодонтія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <a href="https://tclinic.ua/uk/pediatric-dentistry" target="_blank" class="top">
+                    <div class="play">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                    <span class="number">03</span>
+                    <img src="/assets/photos/services/3.webp">
+                </a>
+                <a href="/uk/pediatric-dentistry" class="bottom">
+                    <div class="title">Дитяча стоматологія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <a href="https://tclinic.ua/uk/orthodontics" target="_blank" class="top">
+                    <div class="play">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                    <span class="number">04</span>
+                    <img src="/assets/photos/services/4.webp">
+                </a>
+                <a href="/uk/orthodontics" class="bottom">
+                    <div class="title">Ортодонтія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="element">
+                <a href="https://tclinic.ua/uk/treatment-in-the-sleep" target="_blank" class="top">
+                    <div class="play">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                    <span class="number">05</span>
+                    <img src="/assets/photos/services/5.webp">
+                </a>
+                <a href="/uk/treatment-in-the-sleep" class="bottom">
+                    <div class="title">Лікування уві сні</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <a href="https://tclinic.ua/uk/implantation" target="_blank" class="top">
+                    <div class="play">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                    <span class="number">06</span>
+                    <img src="/assets/photos/services/6.webp">
+                </a>
+                <a href="/uk/implantation" class="bottom">
+                    <div class="title">Імплантація</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <a href="https://tclinic.ua/uk/prosthesis" target="_blank" class="top">
+                    <div class="play">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                    <span class="number">07</span>
+                    <img src="/assets/photos/services/7.webp">
+                </a>
+                <a href="/uk/prosthesis" class="bottom">
+                    <div class="title">Протезування</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="element">
+                <a href="https://tclinic.ua/uk/surgery" target="_blank" class="top">
+                    <div class="play">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                    <span class="number">08</span>
+                    <img src="/assets/photos/services/8.webp">
+                </a>
+                <a href="/uk/surgery" class="bottom">
+                    <div class="title">Хірургія</div>
+                    <div class="pointer">
+                        <i class="fa-regular fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- switch active -->
+    <div class="switch">
+        <a href="/uk/clinic" class="option active">UA</a>
+        <a href="/en/clinic" class="option ">EN</a>
+    </div>
+
+</div>    <div class="LeaveRequestBackground"></div>
+
+<div class="LeaveRequest">
+    <div class="LeaveRequestImage">
+        <img src="/assets/photos/surgery.png" alt="">
+    </div>
+    <div class="LeaveRequestForm">
+        <div class="Header">Залишити заявку</div>
+        <div class="Description">Залиште свої дані і наш менеджер з вами зв'яжеться найближчим часом</div>
+        <div class="Form" id="LeaveRequestForm">
+            <input type="text" placeholder="Ім'я" name="firstname">
+            <input type="text" placeholder="Прізвище" name="lastname">
+            <input type="text" placeholder="Номер телефону" name="phone">
+        </div>
+        <div class="Submit"><span>Запис на консультацiю</span><i class="fa-regular fa-chevron-right"></i></div>
+        <div class="Privacy"><span>Натискаючи на кнопку, я даю згоду на обробку моїх <span class="Accent">персональних даних</span></span></div>
+    </div>
+    <div class="LeaveRequestAnswer" hidden>
+        <div class="CircleTimer">
+            <div class="LeftHalf"></div>
+            <div class="WhiteHalf"></div>
+            <div class="RightHalf"></div>
+            <div class="Paper"></div>
+            <svg class="Mark" xmlns="http://www.w3.org/2000/svg" width="102" height="102" viewBox="0 0 102 102" fill="none">
+                <path d="M33.2373 51.3482L45.374 63.4845L69.6463 39.2123" stroke="#14B805" stroke-width="3" />
+            </svg>
+        </div>
+        <div class="Header">Дякуємо!</div>
+        <div class="Description">Вашу заявку прийнято. Найближчим часом ми з вами зв'яжемося щоб обговорити всі деталі</div>
+    </div>
+    <div class="CloseButton">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <rect x="0.957031" y="13.8045" width="18.3296" height="2.09196" transform="rotate(-45 0.957031 13.8045)" fill="black"></rect>
+                <rect x="2.43604" y="0.843567" width="18.3296" height="2.09196" transform="rotate(45 2.43604 0.843567)" fill="black"></rect>
+            </g>
+        </svg>
+    </div>
+</div>
+
+    <div class="SectionContainer" id="MottoSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="Video OnlyPC">
+                    <video width="1200" height="100%" data-start="0" playsinline data-m3u8="https://tclinic.ua/assets/videos/general/1_tclinic_zahlavne_1080.m3u8" data-sound="true" allow="autoplay" muted loop>
+                    </video>
+                    <button class="sound-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 9v6h4l5 4V5L9 9H5z"></path>
+                            <path d="M17 9a4 4 0 0 1 0 6"></path>
+                            <path d="M19.5 7.5a7.5 7.5 0 0 1 0 9"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="TextContainer">
+                    <div class="Motto Anime" data-delay="0">
+                        <span>Від турботи до досконалості:</span>
+                        <span class="Accent">стоматологія</span>
+                        <span> високого рівня</span>
+                    </div>
+                    <div class="Description Anime" data-delay="400"><span>Команда професіоналів, сучасні технології та власна лабораторія — усе для вашого здоров'я в одному місці.</span></div>
+                </div>
+                <div class="Video OnlyMobile">
+                    <video width="1200" height="100%" data-start="0" playsinline data-m3u8="https://tclinic.ua/assets/videos/general/1_tclinic_zahlavne_720.m3u8" data-sound="true" allow="autoplay" muted loop>
+                    </video>
+                    <button class="sound-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 9v6h4l5 4V5L9 9H5z"></path>
+                            <path d="M17 9a4 4 0 0 1 0 6"></path>
+                            <path d="M19.5 7.5a7.5 7.5 0 0 1 0 9"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="DescriptionMobile Anime" data-delay="400"><span>Команда професіоналів, сучасні технології та власна лабораторія — усе для вашого здоров'я в одному місці.</span></div>
+                <div class="ConsultMeContainer">
+                    <div class="ConsultMeButton" data-action="LeaveRequest">
+                        <span>Записатися на консультацію</span>
+                        <i class="fa-regular fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="SectionContainer" id="ConfidenceSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="Dot Anime AnimeParent OnlyPC" data-parent="Confidence" data-delay="500"></div>
+                <div class="Line AnimeGroup OnlyPC" data-parent="Confidence" data-delay="900"></div>
+                <div class="Motto Anime" data-delay="800">
+                    <span>Стоматологія — це не просто лікування зубів. Це про </span>
+                    <span class="Accent">якість життя, впевненість у собі та здоров'я на довгі роки.</span>
+                </div>
+                <div class="Photo Photo1 EntireAnime" data-delay="500" data-mobile-delay="800">
+                    <img src="/assets/photos/circle/blonde-woman.webp">
+                </div>
+                <div class="Photo Photo2 EntireAnime" data-delay="1100" data-mobile-delay="1100">
+                    <img src="/assets/photos/circle/child.webp">
+                </div>
+                <div class="Photo2Text EntireAnime" data-delay="1300" data-mobile-delay="1100">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+                        <defs>
+                            <path id="Photo2TextTrick" d="M250,400
+                       a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" transform="rotate(12,250,250)"></path>
+                        </defs>
+                        <g class="Photo2TextTrick">
+                            <text textLength="940">
+                                <textPath xlink:href="#Photo2TextTrick" textLength="940">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;Усмішка,&nbsp;що&nbsp;змінює&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </textPath>
+                            </text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="Photo Photo3 EntireAnime" data-delay="800" data-mobile-delay="1300">
+                    <img src="/assets/photos/circle/young-woman.webp">
+                </div>
+                <div class="Photo Photo4 EntireAnime" data-delay="1600" data-mobile-delay="1500">
+                    <img src="/assets/photos/circle/shirt-man.webp">
+                </div>
+                <div class="Photo Photo5 EntireAnime OnlyMobile" data-mobile-delay="500">
+                    <img src="/assets/photos/circle/smiling-to-up.webp">
+                </div>
+                <!--div class="Photo Photo6 EntireAnime OnlyMobile" data-mobile-delay="900">
+                    <img src="/assets/photos/circle/smiling-woman.webp">
+                </div-->
+                <div class="Lead1 AnimeParent OnlyMobile" data-parent="Confidence"></div>
+                <div class="Lead1 AnimeGroup" data-parent="Confidence" data-delay="1300" data-mobile-delay="600">
+                    <span>Ми забезпечуємо пацієнтам повний цикл лікування: від діагностики до ідеальної усмішки.</span>
+                </div>
+                <div class="Lead2 AnimeGroup" data-parent="Confidence" data-delay="1500" data-mobile-delay="600">
+                    <span>Комплексний підхід до вашої посмішки</span>
+                </div>
+                <div class="Lead3 AnimeGroup" data-parent="Confidence" data-delay="1700" data-mobile-delay="800">
+                    <span>Комфорт на кожному етапі, сучасні технології та турбота — основа нашої роботи.</span>
+                </div>
+                <div class="Smile OnlyMobile Anime" data-delay="500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="51" viewBox="-3 -3 153 54" fill="none">
+                        <path d="M14.333 14.0938C34.3739 31.03 86.8193 54.7407 136.274 14.0938" stroke="#1D75FF" stroke-width="27.1908" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="SectionContainer" id="ImportanceSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="Motto"><span>Чому це важливо?</span></div>
+                <div class="Photo AnimeParent" data-parent="ImportancePC">
+                    <video data-start="10" playsinline data-m3u8="https://tclinic.ua/assets/videos/general/2_chomu_tse_1080.m3u8" muted loop>
+                </div>
+                <div class="OnlyPC">
+                    <div class="Lead1 AnimeGroup" data-parent="ImportancePC" data-delay="500">
+                        <span class="Accent">01</span>
+                        <span>Відсутність усіх необхідних спеціалістів в одному місці забирає ваш час і сили.</span>
+                    </div>
+                    <div class="Lead2 AnimeGroup" data-parent="ImportancePC" data-delay="700">
+                        <span class="Accent">02</span>
+                        <span>Запущені стоматологічні проблеми ведуть до ускладнень і втрати зубів.</span>
+                    </div>
+                    <div class="Lead3 AnimeGroup" data-parent="ImportancePC" data-delay="900">
+                        <span class="Accent">03</span>
+                        <span>Біль і страх заважають звернутися до лікаря вчасно.</span>
+                    </div>
+                </div>
+                <div class="LeadMobileContainer OnlyMobile">
+                    <div class="BottomLead Anime AnimeParent" data-parent="ImportanceMobile" data-delay="400">
+                        <span class="Accent">01</span>
+                        <span>Відсутність усіх необхідних спеціалістів в одному місці забирає ваш час і сили.</span>
+                    </div>
+                    <div class="BottomLead AnimeGroup" data-parent="ImportanceMobile" data-delay="600">
+                        <span class="Accent">02</span>
+                        <span>Запущені стоматологічні проблеми ведуть до ускладнень і втрати зубів.</span>
+                    </div>
+                    <div class="BottomLead AnimeGroup" data-parent="ImportanceMobile" data-delay="800">
+                        <span class="Accent">03</span>
+                        <span>Біль і страх заважають звернутися до лікаря вчасно.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="SectionContainer" id="WorkingSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="Motto">
+                    <span>Tclinic</span>
+                    <span class="Accent">вирішує це</span>
+                    <span>для вас:</span>
+                </div>
+                <div class="Container OnlyPC">
+                    <div class="ContainerItem1 ContainerItem">
+                        <div class="ContainerItem1Top"><span>Комплексний підхід</span></div>
+                        <div class="ContainerItem1Bottom"><span>Комплексний підхід в одному місці</span></div>
+                    </div>
+                    <div class="ContainerItem2 ContainerItem">
+                        <div class="ContainerItem2Top"><span>Комфорт і безпека</span></div>
+                        <div class="ContainerItem2Bottom"><span>Комфорт і безпека на кожному етапі лікування завдяки сучасним методикам.</span></div>
+                    </div>
+                    <div class="ContainerItem3 ContainerItem">
+                        <img src="/assets/photos/lead/surgery.webp">
+                    </div>
+                    <div class="ContainerItem4 ContainerItem">
+                        <div class="ContainerItem4Top"><span>Точність і ефективність</span></div>
+                        <div class="ContainerItem4Bottom"><span>Точність і ефективність завдяки передовим технологіям та професіоналізму команди.</span></div>
+                    </div>
+                    <div class="ContainerItem5 ContainerItem">
+                        <div class="ContainerItem5Left"><span>Як ми працюємо?</span></div>
+                        <div class="ContainerItem5Right"><span>Ми знаємо, що до початку будь-яких маніпуляцій пацієнту важливо познайомитися з клінікою та лікарями, і зрозуміти всі етапи свого лікування.</span></div>
+                    </div>
+                </div>
+                <div class="Container OnlyMobile">
+                    <div class="MobileRow">
+                        <div class="ContainerItem3">
+                            <img src="/assets/photos/lead/surgery.webp">
+                        </div>
+                        <div class="ContainerItem2">
+                            <div class="ContainerItem2Top"><span>Комфорт і безпека</span></div>
+                            <div class="ContainerItem2Bottom"><span>Комфорт і безпека на кожному етапі лікування завдяки сучасним методикам.</span></div>
+                        </div>
+                    </div>
+                    <div class="MobileRow">
+                        <div class="ContainerItem4">
+                            <div class="ContainerItem4Top"><span>Точність і ефективність</span></div>
+                            <div class="ContainerItem4Bottom"><span>Точність і ефективність завдяки передовим технологіям та професіоналізму команди.</span></div>
+                        </div>
+                        <div class="ContainerItem1">
+                            <div class="ContainerItem1Top"><span>Комплексний підхід</span></div>
+                            <div class="ContainerItem1Bottom"><span>Комплексний підхід в одному місці</span></div>
+                        </div>
+                    </div>
+                    <div class="MobileRow">
+                        <div class="ContainerItem5">
+                            <div class="ContainerItem5Right"><span>Ми знаємо, що до початку будь-яких маніпуляцій пацієнту важливо познайомитися з клінікою та лікарями, і зрозуміти всі етапи свого лікування.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="SectionContainer" id="InteractionSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="Vertical Line1 Anime" data-delay="300"></div>
+                <div class="Horizontal OnlyPC Line2 AnimeGroup" data-parent="InteractionDot2" data-delay="500"></div>
+                <div class="Horizontal OnlyPC Line3 AnimeGroup" data-parent="InteractionDot3" data-delay="500"></div>
+                <div class="Horizontal OnlyPC Line4 AnimeGroup" data-parent="InteractionDot4" data-delay="500"></div>
+                <div class="Vector Vector1 OnlyPC EntireAnime" data-parent="InteractionDot2" data-delay="600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="28" viewBox="0 0 35 31" fill="none">
+                        <path opacity="0.4" d="M12.3718 5.54178C14.0124 5.54178 15.5859 6.19351 16.7459 7.35359C17.906 8.51368 18.5578 10.0871 18.5578 11.7277C18.5578 13.3683 17.906 14.9417 16.7459 16.1018C15.5859 17.2619 14.0124 17.9136 12.3718 17.9136C10.7312 17.9136 9.15781 17.2619 7.99773 16.1018C6.83765 14.9417 6.18592 13.3683 6.18592 11.7277C6.18592 10.0871 6.83765 8.51368 7.99773 7.35359C9.15781 6.19351 10.7312 5.54178 12.3718 5.54178ZM12.3718 21.0066C16.5009 21.0066 24.7437 23.0789 24.7437 27.1925V30.2855H0V27.1925C0 23.0789 8.24273 21.0066 12.3718 21.0066ZM24.3725 6.09851C27.4964 9.50077 27.4964 14.2175 24.3725 17.3414L21.7744 14.7279C23.0735 12.903 23.0735 10.5369 21.7744 8.71206L24.3725 6.09851ZM29.4914 0.902344C35.569 7.16559 35.5226 16.5372 29.4914 22.5531L26.9706 20.0323C31.2543 15.1145 31.2543 8.09347 26.9706 3.42311L29.4914 0.902344Z" fill="white" />
+                    </svg>
+                </div>
+                <div class="Vector Vector2 OnlyPC EntireAnime" data-parent="InteractionDot3" data-delay="600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="26" viewBox="0 0 21 28" fill="none">
+                        <g opacity="0.4">
+                            <path d="M20.766 12.1239H12.558C11.8117 12.1239 11.0959 11.8274 10.5681 11.2996C10.0404 10.7719 9.74386 10.0561 9.74386 9.30971V1.1017C9.74386 1.0395 9.71915 0.979855 9.67517 0.935875C9.63119 0.891895 9.57154 0.867187 9.50935 0.867188H4.11551C3.12036 0.867188 2.16596 1.26251 1.46228 1.96619C0.758604 2.66987 0.363281 3.62427 0.363281 4.61942V23.3806C0.363281 24.3757 0.758604 25.3301 1.46228 26.0338C2.16596 26.7375 3.12036 27.1328 4.11551 27.1328H17.2483C18.2435 27.1328 19.1979 26.7375 19.9016 26.0338C20.6052 25.3301 21.0006 24.3757 21.0006 23.3806V12.3584C21.0006 12.2962 20.9759 12.2366 20.9319 12.1926C20.8879 12.1486 20.8282 12.1239 20.766 12.1239Z" fill="white" />
+                            <path d="M20.2514 10.0475L11.82 1.61613C11.8036 1.59983 11.7828 1.58874 11.7601 1.58426C11.7374 1.57977 11.7139 1.58209 11.6926 1.59093C11.6712 1.59976 11.6529 1.61472 11.64 1.63391C11.6271 1.6531 11.6202 1.67568 11.6201 1.6988V9.30938C11.6201 9.55817 11.7189 9.79677 11.8949 9.97268C12.0708 10.1486 12.3094 10.2474 12.5582 10.2474H20.1688C20.1919 10.2473 20.2145 10.2404 20.2336 10.2275C20.2528 10.2146 20.2678 10.1964 20.2766 10.175C20.2855 10.1536 20.2878 10.1301 20.2833 10.1074C20.2788 10.0848 20.2677 10.0639 20.2514 10.0475Z" fill="white" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="Vector Vector3 OnlyPC EntireAnime" data-parent="InteractionDot4" data-delay="600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="29" height="25" viewBox="0 0 30 26" fill="none">
+                        <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M10.306 23.3153C5.94941 19.9771 0 14.4629 0 9.24924C0 0.539027 8.14177 -2.71324 14.8032 4.01334C21.4647 -2.71324 29.6064 0.539027 29.6064 9.24924C29.6064 14.4629 23.6556 19.9771 19.3004 23.3153C17.3287 24.8252 16.3428 25.5816 14.8032 25.5816C13.2637 25.5816 12.2778 24.8267 10.306 23.3153ZM21.4647 5.22721C21.7591 5.22721 22.0415 5.34418 22.2497 5.55239C22.4579 5.7606 22.5749 6.04299 22.5749 6.33745V8.18785H24.4253C24.7198 8.18785 25.0022 8.30482 25.2104 8.51303C25.4186 8.72125 25.5356 9.00364 25.5356 9.29809C25.5356 9.59255 25.4186 9.87494 25.2104 10.0832C25.0022 10.2914 24.7198 10.4083 24.4253 10.4083H22.5749V12.2587C22.5749 12.5532 22.4579 12.8356 22.2497 13.0438C22.0415 13.252 21.7591 13.369 21.4647 13.369C21.1702 13.369 20.8878 13.252 20.6796 13.0438C20.4714 12.8356 20.3544 12.5532 20.3544 12.2587V10.4083H18.504C18.2096 10.4083 17.9272 10.2914 17.719 10.0832C17.5108 9.87494 17.3938 9.59255 17.3938 9.29809C17.3938 9.00364 17.5108 8.72125 17.719 8.51303C17.9272 8.30482 18.2096 8.18785 18.504 8.18785H20.3544V6.33745C20.3544 6.04299 20.4714 5.7606 20.6796 5.55239C20.8878 5.34418 21.1702 5.22721 21.4647 5.22721Z" fill="white" />
+                    </svg>
+                </div>
+                <div class="Dot1 Dot EntireAnime AnimeParent" data-parent="InteractionDot1" data-delay="400"></div>
+                <div class="Dot2 Dot EntireAnime AnimeParent" data-parent="InteractionDot2" data-delay="400"></div>
+                <div class="Dot3 Dot EntireAnime AnimeParent" data-parent="InteractionDot3" data-delay="400"></div>
+                <div class="Dot4 Dot EntireAnime AnimeParent" data-parent="InteractionDot4" data-delay="400"></div>
+                <div class="Motto"><span>Етапи взаємодії</span></div>
+                <div class="LeadContainer Lead1Container EntireAnime" data-parent="InteractionDot2" data-delay="900" data-mobile-delay="600">
+                    <div class="LeadTop">
+                        <img src="/assets/photos/interaction/1.webp">
+                        <span>Консультація та діагностика</span>
+                        <span class="Accent">01</span>
+                    </div>
+                    <div class="LeadBottom">
+                        <span>Спілкування з головним лікарем, огляд, цифрове сканування та рентгенологічне дослідження.</span>
+                    </div>
+                </div>
+                <div class="LeadContainer Lead2Container EntireAnime" data-parent="InteractionDot3" data-delay="900" data-mobile-delay="600">
+                    <div class="LeadTop">
+                        <img src="/assets/photos/interaction/2.webp">
+                        <span>Індивідуальний план лікування</span>
+                        <span class="Accent">02</span>
+                    </div>
+                    <div class="LeadBottom">
+                        <span>Презентація детального плану з термінами, етапами та вартістю.</span>
+                    </div>
+                </div>
+                <div class="LeadContainer Lead3Container EntireAnime" data-parent="InteractionDot4" data-delay="900" data-mobile-delay="600">
+                    <div class="LeadTop">
+                        <img src="/assets/photos/interaction/3.webp">
+                        <span>Лікування в комфортних умовах</span>
+                        <span class="Accent">03</span>
+                    </div>
+                    <div class="LeadBottom">
+                        <span>Сучасні методики, можливість лікування уві сні, найкращі технології.</span>
+                    </div>
+                </div>
+                <div class="Motto2 OnlyPC">
+                    <span>Перше знайомство — це початок вашої історії</span>
+                    <span class="Accent">здорової посмішки</span>
+                    <span>разом із Tclinic.</span>
+                </div>
+                <div class="Motto2 OnlyMobile">
+                    <span>Перше знайомство — це<br>початок вашої історії</span>
+                    <span class="Accent">здорової<br>посмішки</span>
+                    <span>разом із Tclinic.</span>
+                </div>
+                <div class="ActionButton" data-action="LeaveRequest">
+                    <span>Записатися на консультацію</span>
+                    <i class="fa-regular fa-chevron-right"></i>
+                </div>
+                <div class="ClientDialog">
+                    <span>Залиште номер свого телефону. Ми передзвонимо Вам та запропонуємо день і час для відвідування клініки та консультації з лікарем.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="SectionContainer" id="LevelSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="Photo">
+                    <img src="/assets/stock/wide/smile-woman.webp">
+                </div>
+                <div class="LeftSide">
+                    <div class="LeftSideHeading"><span>Про клініку</span></div>
+                    <div class="LeftSideMotto Anime" data-delay="400">
+                        <span>Tclinic — преміальна стоматологія</span>
+                        <span class="Accent">високого</span>
+                        <span> рівня</span>
+                    </div>
+                    <div class="LeftSideDescription Anime OnlyMobile" data-delay="600">
+                        <span>Ми об'єднали професіоналізм, сучасні технології і турботу, щоб подарувати вам здорову посмішку, якою можна пишатися.</span>
+                    </div>
+                    <div class="LeftSideDescription OnlyPC Anime" data-delay="600">
+                        <span>Ми об'єднали професіоналізм, сучасні технології і турботу, щоб подарувати вам здорову посмішку, якою можна пишатися.</span>
+                    </div>
+                </div>
+                <div class="RightSide">
+                    <div class="RightSideVideoContainer">
+                        <div class="RightSideVideo">
+                            <video height="400" data-start="10" playsinline data-m3u8="https://tclinic.ua/assets/videos/general/8_2_premialna_stomatolohiia_1080.m3u8" muted loop>
+                            </video>
+                        </div>
+                        <div class="RightSideVideo">
+                            <video height="400" data-start="40" playsinline data-m3u8="https://tclinic.ua/assets/videos/general/8_1_premialna_stomatolohiia_1080.m3u8" muted loop>
+                            </video>
+                        </div>
+                    </div>
+                    <div class="RightSideLeadContainer">
+                        <div class="RightSideLead Anime AnimeParent" data-parent="LevelLeal" data-delay="800" data-mobile-delay="400">
+                            <span class="Accent">01</span>
+                            <span>Багаторічний досвід у наданні медичних послуг</span>
+                        </div>
+                        <div class="RightSideLead AnimeGroup" data-parent="LevelLeal" data-delay="1000" data-mobile-delay="600">
+                            <span class="Accent">02</span>
+                            <span>Тисячі успішних кейсів: від реставрації до складних хірургічних маніпуляцій.</span>
+                        </div>
+                        <div class="RightSideLead AnimeGroup" data-parent="LevelLeal" data-delay="1200" data-mobile-delay="800">
+                            <span class="Accent">03</span>
+                            <span>Ваш візит до нашої клініки є гарантією того, що ви в надійних руках професіоналів.</span>
+                        </div>
+                    </div>
+                    <a href="./about" class="RightSideActionButton">
+                        <span>Дізнатися більше про клініку</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="SectionContainer" id="FeatureSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="LeftSide OnlyPC">
+                    <div class="LeftSideMotto Anime" data-delay="300">
+                        <span>Що робить нас особливими?</span>
+                    </div>
+                    <div class="LeftSideVideo">
+                        <video height="450" data-start="28" playsinline data-m3u8="https://tclinic.ua/assets/videos/general/9_shcho_robyt_1080.m3u8" muted loop>
+                        </video>
+                    </div>
+                </div>
+                <div class="RightSide OnlyPC">
+                    <div class="RightSideLeadParent Anime" data-delay="500">
+                        <div class="RightSideLead RightSideLead1">
+                            <div class="RightSideLeadHead">
+                                <span>Повний цикл лікування</span>
+                                <div class="RightSideLeadHeadTarget"></div>
+                            </div>
+                            <div class="RightSideLeadBody">
+                                <span>консультація, діагностика, лікування — усе в одному місці</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="RightSideLeadParent Anime" data-delay="700">
+                        <div class="RightSideLead RightSideLead2">
+                            <div class="RightSideLeadHead">
+                                <span>Сучасне обладнання</span>
+                                <div class="RightSideLeadHeadTarget"></div>
+                            </div>
+                            <div class="RightSideLeadBody">
+                                <span>для точного діагностування та лікування</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="RightSideLeadParent Anime" data-delay="900">
+                        <div class="RightSideLead RightSideLead3">
+                            <div class="RightSideLeadHead">
+                                <span>Комфорт</span>
+                                <div class="RightSideLeadHeadTarget"></div>
+                            </div>
+                            <div class="RightSideLeadBody">
+                                <span>можливість лікування уві сні – без страху та болю</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="RightSideLeadParent Anime" data-delay="1100">
+                        <div class="RightSideLead RightSideLead4">
+                            <div class="RightSideLeadHead">
+                                <span>Власна лабораторія TLab</span>
+                                <div class="RightSideLeadHeadTarget"></div>
+                            </div>
+                            <div class="RightSideLeadBody">
+                                <span>власна лабораторія TLab для швидких і якісних реставрацій</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="RightSideLeadParent Anime" data-delay="1300">
+                        <div class="RightSideLead RightSideLead5">
+                            <div class="RightSideLeadHead">
+                                <span>Команда експертів, що працюють злагоджено над вашим результатом</span>
+                                <div class="RightSideLeadHeadTarget"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="RightSide OnlyMobile">
+                    <div class="RightSideTopContainer">
+                        <div class="LeftSideMotto Anime" data-delay="300">
+                            <span>Що робить нас особливими?</span>
+                        </div>
+                    </div>
+                    <div class="Row">
+                        <div class="RightSideLead RightSideLead1 Anime" data-delay="500">
+                            <div class="RightSideLeadHead">
+                                <span>Повний цикл лікування</span>
+                                <div class="RightSideLeadHeadTarget"></div>
+                            </div>
+                            <div class="RightSideLeadBody">
+                                <span>консультація, діагностика, лікування — усе в одному місці</span>
+                            </div>
+                        </div>
+                        <div class="RightSideLead RightSideLead2 Anime" data-delay="700">
+                            <div class="RightSideLeadHead">
+                                <span>Сучасне обладнання</span>
+                                <div class="RightSideLeadHeadTarget"></div>
+                            </div>
+                            <div class="RightSideLeadBody">
+                                <span>для точного діагностування та лікування</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Row">
+                        <div class="RightSideLead RightSideLead3 Anime" data-delay="700">
+                            <div class="RightSideLeadHead">
+                                <span>Комфорт</span>
+                                <div class="RightSideLeadHeadTarget"></div>
+                            </div>
+                            <div class="RightSideLeadBody">
+                                <span>можливість лікування уві сні – без страху та болю</span>
+                            </div>
+                        </div>
+                        <div class="RightSideLead RightSideLead4 Anime" data-delay="500">
+                            <div class="RightSideLeadHead">
+                                <span>Власна лабораторія TLab</span>
+                                <div class="RightSideLeadHeadTarget"></div>
+                            </div>
+                            <div class="RightSideLeadBody">
+                                <span>власна лабораторія TLab для швидких і якісних реставрацій</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Row">
+                        <div class="RightSideLeadParent Anime" data-delay="500">
+                            <div class="RightSideLead RightSideLead5">
+                                <div class="RightSideLeadHead">
+                                    <span>Команда экспертів, що працюють злагоджено над вашим результатом</span>
+                                    <div class="RightSideLeadHeadTarget"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Row">
+                        <div class="LeftSideVideo Anime" data-delay="500">
+                            <video height="450" data-start="0" playsinline data-m3u8="https://tclinic.ua/assets/videos/general/9_shcho_robyt_1080.m3u8" muted loop>
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="SectionContainer" id="ServicesSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="MottoContainer">
+                    <span class="Motto">Наші послуги</span>
+                    <span class="PairMotto">Усі послуги для здорової та красивої посмішки в одному місці.</span>
+                </div>
+                <div class="LeadContainer OnlyPC">
+                    <div class="LeadParent Anime" data-delay="400">
+                        <div class="Lead">
+                            <div class="LeadPlay">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                            <a href="https://tclinic.ua/uk/hygiene-and-periodontology" target="_blank" class="LeadTop">
+                                <span class="Number">01</span>
+                                <img src="/assets/photos/services/1.webp">
+                            </a>
+                            <div class="LeadBottom">
+                                <div class="LeadCaption">
+                                    <span>Гігієна та пародонтологія</span>
+                                </div>
+                                <a href="/uk/hygiene-and-periodontology" class="LeadDetailButton">
+                                    <span>Детальна інформація</span>
+                                    <i class="fa-light fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="LeadParent Anime" data-delay="600">
+                        <div class="Lead">
+                            <div class="LeadPlay">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                            <a href="https://tclinic.ua/uk/therapy-and-endodontics" target="_blank" class="LeadTop">
+                                <span class="Number">02</span>
+                                <img src="/assets/photos/services/2.webp">
+                            </a>
+                            <div class="LeadBottom">
+                                <div class="LeadCaption">
+                                    <span>Терапія та ендодонтія</span>
+                                </div>
+                                <a href="/uk/therapy-and-endodontics" class="LeadDetailButton">
+                                    <span>Детальна інформація</span>
+                                    <i class="fa-light fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="LeadParent Anime" data-delay="800">
+                        <div class="Lead">
+                            <div class="LeadPlay">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                            <a href="https://tclinic.ua/uk/pediatric-dentistry" target="_blank" class="LeadTop">
+                                <span class="Number">03</span>
+                                <img src="/assets/photos/services/3.webp">
+                            </a>
+                            <div class="LeadBottom">
+                                <div class="LeadCaption">
+                                    <span>Дитяча стоматологія</span>
+                                </div>
+                                <a href="/uk/pediatric-dentistry" class="LeadDetailButton">
+                                    <span>Детальна інформація</span>
+                                    <i class="fa-light fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="LeadParent Anime" data-delay="1000">
+                        <div class="Lead">
+                            <div class="LeadPlay">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                            <a href="https://tclinic.ua/uk/orthodontics" target="_blank" class="LeadTop">
+                                <span class="Number">04</span>
+                                <img src="/assets/photos/services/4.webp">
+                            </a>
+                            <div class="LeadBottom">
+                                <div class="LeadCaption">
+                                    <span>Ортодонтія</span>
+                                </div>
+                                <a href="/uk/orthodontics" class="LeadDetailButton">
+                                    <span>Детальна інформація</span>
+                                    <i class="fa-light fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="LeadParent Anime" data-delay="500">
+                        <div class="Lead">
+                            <div class="LeadPlay">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                            <a href="https://tclinic.ua/uk/treatment-in-the-sleep" target="_blank" class="LeadTop">
+                                <span class="Number">05</span>
+                                <img src="/assets/photos/services/5.webp">
+                            </a>
+                            <div class="LeadBottom">
+                                <div class="LeadCaption">
+                                    <span>Лікування уві сні</span>
+                                </div>
+                                <a href="/uk/treatment-in-the-sleep" class="LeadDetailButton">
+                                    <span>Детальна інформація</span>
+                                    <i class="fa-light fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="LeadParent Anime" data-delay="700">
+                        <div class="Lead">
+                            <div class="LeadPlay">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                            <a href="https://tclinic.ua/uk/implantation" target="_blank" class="LeadTop">
+                                <span class="Number">06</span>
+                                <img src="/assets/photos/services/6.webp">
+                            </a>
+                            <div class="LeadBottom">
+                                <div class="LeadCaption">
+                                    <span>Імплантація</span>
+                                </div>
+                                <a href="/uk/implantation" class="LeadDetailButton">
+                                    <span>Детальна інформація</span>
+                                    <i class="fa-light fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="LeadParent Anime" data-delay="900">
+                        <div class="Lead">
+                            <div class="LeadPlay">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                            <a href="https://tclinic.ua/uk/prosthesis" target="_blank" class="LeadTop">
+                                <span class="Number">07</span>
+                                <img src="/assets/photos/services/7.webp">
+                            </a>
+                            <div class="LeadBottom">
+                                <div class="LeadCaption">
+                                    <span>Протезування</span>
+                                </div>
+                                <a href="/uk/prosthesis" class="LeadDetailButton">
+                                    <span>Детальна інформація</span>
+                                    <i class="fa-light fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="LeadParent Anime" data-delay="1100">
+                        <div class="Lead">
+                            <div class="LeadPlay">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                            <a href="https://tclinic.ua/uk/surgery" target="_blank" class="LeadTop">
+                                <span class="Number">08</span>
+                                <img src="/assets/photos/services/8.webp">
+                            </a>
+                            <div class="LeadBottom">
+                                <div class="LeadCaption">
+                                    <span>Хірургія</span>
+                                </div>
+                                <a href="/uk/surgery" class="LeadDetailButton">
+                                    <span>Детальна інформація</span>
+                                    <i class="fa-light fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="LeadContainer OnlyMobile">
+                    <div class="Lead Hover" data-delay="100">
+                        <div class="LeadColumn">
+                            <div class="LeadTop">
+                                <span>01</span>
+                            </div>
+                            <div class="LeadBottom">
+                                <div class="LeadBottomInner">
+                                    <div class="LeadCaption">
+                                        <span>Гігієна та пародонтологія</span>
+                                    </div>
+                                    <a href="/uk/hygiene-and-periodontology" class="LeadDetailButton">
+                                        <span>Детальна інформація</span>
+                                        <i class="fa-light fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="LeadColumn">
+                            <div class="LeadPlay">
+                                <a href="https://tclinic.ua/uk/hygiene-and-periodontology" target="_blank" class="fa-regular fa-circle-play"></a>
+                            </div>
+                            <div class="LeadImage">
+                                <img src="/assets/photos/services/1.webp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lead Even Anime" data-delay="100">
+                        <div class="LeadColumn">
+                            <div class="LeadTop">
+                                <span>02</span>
+                            </div>
+                            <div class="LeadBottom">
+                                <div class="LeadBottomInner">
+                                    <div class="LeadCaption">
+                                        <span>Терапія та ендодонтія</span>
+                                    </div>
+                                    <a href="/uk/therapy-and-endodontics" class="LeadDetailButton">
+                                        <span>Детальна інформація</span>
+                                        <i class="fa-light fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="LeadColumn">
+                            <div class="LeadPlay">
+                                <a href="https://tclinic.ua/uk/therapy-and-endodontics" target="_blank" class="fa-regular fa-circle-play"></a>
+                            </div>
+                            <div class="LeadImage">
+                                <img src="/assets/photos/services/2.webp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lead Odd Anime" data-delay="100">
+                        <div class="LeadColumn">
+                            <div class="LeadTop">
+                                <span>03</span>
+                            </div>
+                            <div class="LeadBottom">
+                                <div class="LeadBottomInner">
+                                    <div class="LeadCaption">
+                                        <span>Дитяча стоматологія</span>
+                                    </div>
+                                    <a href="/uk/pediatric-dentistry" class="LeadDetailButton">
+                                        <span>Детальна інформація</span>
+                                        <i class="fa-light fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="LeadColumn">
+                            <div class="LeadPlay">
+                                <a href="https://tclinic.ua/uk/pediatric-dentistry" target="_blank" class="fa-regular fa-circle-play"></a>
+                            </div>
+                            <div class="LeadImage">
+                                <img src="/assets/photos/services/3.webp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lead Even Anime" data-delay="100">
+                        <div class="LeadColumn">
+                            <div class="LeadTop">
+                                <span>04</span>
+                            </div>
+                            <div class="LeadBottom">
+                                <div class="LeadBottomInner">
+                                    <div class="LeadCaption">
+                                        <span>Ортодонтія</span>
+                                    </div>
+                                    <a href="/uk/orthodontics" class="LeadDetailButton">
+                                        <span>Детальна інформація</span>
+                                        <i class="fa-light fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="LeadColumn">
+                            <div class="LeadPlay">
+                                <a href="https://tclinic.ua/uk/orthodontics" target="_blank" class="fa-regular fa-circle-play"></a>
+                            </div>
+                            <div class="LeadImage">
+                                <img src="/assets/photos/services/4.webp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lead Odd Anime" data-delay="100">
+                        <div class="LeadColumn">
+                            <div class="LeadTop">
+                                <span>05</span>
+                            </div>
+                            <div class="LeadBottom">
+                                <div class="LeadBottomInner">
+                                    <div class="LeadCaption">
+                                        <span>Лікування уві сні</span>
+                                    </div>
+                                    <a href="/uk/treatment-in-the-sleep" class="LeadDetailButton">
+                                        <span>Детальна інформація</span>
+                                        <i class="fa-light fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="LeadColumn">
+                            <div class="LeadPlay">
+                                <a href="https://tclinic.ua/uk/treatment-in-the-sleep" target="_blank" class="fa-regular fa-circle-play"></a>
+                            </div>
+                            <div class="LeadImage">
+                                <img src="/assets/photos/services/5.webp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lead Even Anime" data-delay="100">
+                        <div class="LeadColumn">
+                            <div class="LeadTop">
+                                <span>06</span>
+                            </div>
+                            <div class="LeadBottom">
+                                <div class="LeadBottomInner">
+                                    <div class="LeadCaption">
+                                        <span>Імплантація</span>
+                                    </div>
+                                    <a href="/uk/implantation" class="LeadDetailButton">
+                                        <span>Детальна інформація</span>
+                                        <i class="fa-light fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="LeadColumn">
+                            <div class="LeadPlay">
+                                <a href="https://tclinic.ua/uk/implantation" target="_blank" class="fa-regular fa-circle-play"></a>
+                            </div>
+                            <div class="LeadImage">
+                                <img src="/assets/photos/services/6.webp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lead Odd Anime" data-delay="100">
+                        <div class="LeadColumn">
+                            <div class="LeadTop">
+                                <span>07</span>
+                            </div>
+                            <div class="LeadBottom">
+                                <div class="LeadBottomInner">
+                                    <div class="LeadCaption">
+                                        <span>Протезування</span>
+                                    </div>
+                                    <a href="/uk/prosthesis" class="LeadDetailButton">
+                                        <span>Детальна інформація</span>
+                                        <i class="fa-light fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="LeadColumn">
+                            <div class="LeadPlay">
+                                <a href="https://tclinic.ua/uk/prosthesis" target="_blank" class="fa-regular fa-circle-play"></a>
+                            </div>
+                            <div class="LeadImage">
+                                <img src="/assets/photos/services/7.webp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lead Even Anime" data-delay="100">
+                        <div class="LeadColumn">
+                            <div class="LeadTop">
+                                <span>08</span>
+                            </div>
+                            <div class="LeadBottom">
+                                <div class="LeadBottomInner">
+                                    <div class="LeadCaption">
+                                        <span>Хірургія</span>
+                                    </div>
+                                    <a href="/uk/surgery" class="LeadDetailButton">
+                                        <span>Детальна інформація</span>
+                                        <i class="fa-light fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="LeadColumn">
+                            <div class="LeadPlay">
+                                <a href="https://tclinic.ua/uk/surgery" target="_blank" class="fa-regular fa-circle-play"></a>
+                            </div>
+                            <div class="LeadImage">
+                                <img src="/assets/photos/services/8.webp">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="SectionContainer" id="TeamSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="Heading"><span>Команда професіоналів</span></div>
+                <div class="Description"><span>Ми лікуємо так, як лікували б себе</span></div>
+                <div class="CarouselLeftContainer OnlyMobile">
+                    <div class="CarouselLeft"><i class="fa-light fa-arrow-left"></i></div>
+                </div>
+                <div class="CarouselRightContainer OnlyMobile">
+                    <div class="CarouselRight"><i class="fa-light fa-arrow-right"></i></div>
+                </div>
+                <div class="CarouselNavigation OnlyMobile">
+                    <div class="CarouselNavigationDark"></div>
+                    <div class="CarouselNavigationLight"></div>
+                    <div class="CarouselNavigationLight"></div>
+                    <div class="CarouselNavigationLight"></div>
+                    <div class="CarouselNavigationLight"></div>
+                </div>
+                <div class="Carousel">
+                    <div class="CarouselLeftContainer OnlyPC">
+                        <div class="CarouselLeft"><i class="fa-light fa-arrow-left"></i></div>
+                    </div>
+                    <div class="CarouselBody">
+                        <div class="CarouselItemContainer">
+                            <div class="CarouselItem" style="background-image: url(/assets/members/tudoran-olga.webp)">
+                                <div class="CarouselItemContent">
+                                    <span>Ольга Тудоран</span>
+                                    <span class="Accent">гігієніст-пародонтолог</span>
+                                </div>
+                            </div>
+                            <div class="CarouselItem" style="background-image: url(/assets/members/ushakov-anton.webp)">
+                                <div class="CarouselItemContent">
+                                    <span>Антон Ушаков</span>
+                                    <span class="Accent">ортопед</span>
+                                </div>
+                            </div>
+                            <div class="CarouselItem" style="background-image: url(/assets/members/tokar-oleksandr.webp)">
+                                <div class="CarouselItemContent">
+                                    <span>Олександр Токар</span>
+                                    <span class="Accent">головний лікар, хірург-імплантолог</span>
+                                </div>
+                            </div>
+                            <div class="CarouselItem" style="background-image: url(/assets/members/lalko-ludmila.webp)">
+                                <div class="CarouselItemContent">
+                                    <span>Людмила Влялько</span>
+                                    <span class="Accent">ортодонт, дитячий стоматолог</span>
+                                </div>
+                            </div>
+                            <div class="CarouselItem Target" style="background-image: url(/assets/members/panko-mikita.webp)">
+                                <div class="CarouselItemContent">
+                                    <span>Микита Панько</span>
+                                    <span class="Accent">реставратор, хірург</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="CarouselRightContainer OnlyPC">
+                        <div class="CarouselRight"><i class="fa-light fa-arrow-right"></i></div>
+                    </div>
+                </div>
+                <div class="EndMotto Anime" data-delay="300">
+                    <span>Усмішки наших задоволених пацієнтів</span>
+                </div>
+                <div class="CarouselLeftContainer OnlyMobile">
+                    <div class="CarouselLeft"><i class="fa-light fa-arrow-left"></i></div>
+                </div>
+                <div class="CarouselRightContainer OnlyMobile">
+                    <div class="CarouselRight"><i class="fa-light fa-arrow-right"></i></div>
+                </div>
+                <div class="EndDescription Anime" data-delay="500">
+                    <span>Реальні результати, які ми</span>
+                    <span class="Accent"> створюємо щодня завдяки </span>
+                    <span>професіоналізму, сучасним технологіям та індивідуальному підходу.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="SectionContainer" id="QuestionsSection">
+        <div class="Section">
+            <div class="SectionViewport">
+                <div class="CarouselLeftContainer">
+                    <div class="CarouselLeft"><i class="fa-light fa-arrow-left"></i></div>
+                </div>
+                <div class="CarouselRightContainer">
+                    <div class="CarouselRight"><i class="fa-light fa-arrow-right"></i></div>
+                </div>
+                <div class="CarouselNavigation OnlyMobile">
+                    <div class="CarouselNavigationDark"></div>
+                    <div class="CarouselNavigationLight"></div>
+                    <div class="CarouselNavigationLight"></div>
+                    <div class="CarouselNavigationLight"></div>
+                    <div class="CarouselNavigationLight"></div>
+                    <div class="CarouselNavigationLight"></div>
+                    <div class="CarouselNavigationLight"></div>
+                </div>
+                <div class="GalleryCarouselBody">
+                    <div class="GalleryCarousel">
+                        <div class="SubGalleryContainer">
+                            <span class="Accent">06</span>
+                            <img src="/assets/smile/square/6.webp" draggable="false">
+                        </div>
+                        <div class="SubGalleryContainer">
+                            <span class="Accent">07</span>
+                            <img src="/assets/smile/square/7.webp" draggable="false">
+                        </div>
+                        <div class="SubGalleryContainer">
+                            <span class="Accent">01</span>
+                            <img src="/assets/smile/square/1.webp" draggable="false">
+                        </div>
+                        <div class="SubGalleryContainer">
+                            <span class="Accent">02</span>
+                            <img src="/assets/smile/square/2.webp" draggable="false">
+                        </div>
+                        <div class="SubGalleryContainer">
+                            <span class="Accent">03</span>
+                            <img src="/assets/smile/square/3.webp" draggable="false">
+                        </div>
+                        <div class="SubGalleryContainer">
+                            <span class="Accent">04</span>
+                            <img src="/assets/smile/square/4.webp" draggable="false">
+                        </div>
+                        <div class="SubGalleryContainer Target">
+                            <span class="Accent">05</span>
+                            <img src="/assets/smile/square/5.webp" draggable="false">
+                        </div>
+                    </div>
+                </div>
+                <div class="Motto EntireAnime" data-delay="100">
+                    <span>Ми допоможемо вам зробити</span>
+                    <span class="Accent"> перший крок </span>
+                    <span>до здорової усмішки.</span>
+                </div>
+                <div class="ActionButton" data-action="LeaveRequest">
+                    <span>Записатися на консультацію</span>
+                    <i class="fa-regular fa-chevron-right"></i>
+                </div>
+                <div class="Heading">
+                    <span>Поширені запитання</span>
+                </div>
+                <div class="QuestionContainer">
+                    <div class="Question Closed">
+                        <div class="QuestionHead">
+                            <span>Як проходить консультація?</span>
+                            <i class="Closed fa-thin fa-circle-plus"></i>
+                            <i class="Opened fa-thin fa-circle-xmark"></i>
+                        </div>
+                        <div class="QuestionBody">
+                            <span>Під час консультації лікар вислухає ваші побажання, проведе огляд ротової порожнини та діагностику за допомогою сучасного обладнання (цифрове сканування, рентген або 3D-томографія). Потім вам буде представлений детальний план лікування з усіма етапами, термінами та вартістю.</span>
+                        </div>
+                    </div>
+                    <div class="Question Closed">
+                        <div class="QuestionHead">
+                            <span>Що таке лікування уві сні?</span>
+                            <i class="Closed fa-thin fa-circle-plus"></i>
+                            <i class="Opened fa-thin fa-circle-xmark"></i>
+                        </div>
+                        <div class="QuestionBody">
+                            <span>Лікування уві сні, або седація, — це сучасна медична технологія, яка забезпечує пацієнту стан глибокого розслаблення і спокою під час процедур. Завдяки загальному знеболенню ви не відчуваєте болю чи страху, залишаючись під постійним контролем команди професіоналів. Це ідеальний варіант для тривалих, складних або стресових втручань, який підходить і дітям, і дорослим.</span>
+                        </div>
+                    </div>
+                    <div class="Question Closed">
+                        <div class="QuestionHead">
+                            <span>Де виготовляються стоматологічні конструкції для пацієнтів?</span>
+                            <i class="Closed fa-thin fa-circle-plus"></i>
+                            <i class="Opened fa-thin fa-circle-xmark"></i>
+                        </div>
+                        <div class="QuestionBody">
+                            <span>Ми виконуємо роботи як у власній лабораторії, що дозволяє нам точно та контрольовано проводити лікування, а також співпрацюємо з топовими техніками України та світу.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="SectionContainer" id="FooterSection">
+    <div class="Section">
+        <div class="SectionViewport">
+            <div class="Container OnlyPC">
+                <div class="TopContainer">
+                    <img src="/assets/images/LogoWhite.svg">
+                    <div class="InfoContainer">
+                        <span class="Header">+38 (067) 709 81 44</span>
+                        <span class="Body">Україна, м. Ізмаїл, вул. Тульчіанівська, 47</span>
+                        <span class="Bottom">Понеділок-П’ятниця</span>
+                        <span class="Bottom">09:00 - 18:00</span>
+                    </div>
+                    <div class="MapContainer leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="LeafletMap" tabindex="0" style="position: relative;">
+                        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
+                            <div class="leaflet-pane leaflet-tile-pane">
+                                <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                                    <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 17; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="https://tile.openstreetmap.org/17/76033/46971.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(6px, -146px, 0px); opacity: 1;"><img alt="" src="https://tile.openstreetmap.org/17/76033/46972.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(6px, 110px, 0px); opacity: 1;"><img alt="" src="https://tile.openstreetmap.org/17/76032/46971.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-250px, -146px, 0px); opacity: 1;"><img alt="" src="https://tile.openstreetmap.org/17/76034/46971.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(262px, -146px, 0px); opacity: 1;"><img alt="" src="https://tile.openstreetmap.org/17/76032/46972.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-250px, 110px, 0px); opacity: 1;"><img alt="" src="https://tile.openstreetmap.org/17/76034/46972.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(262px, 110px, 0px); opacity: 1;"></div>
+                                </div>
+                            </div>
+                            <div class="leaflet-pane leaflet-overlay-pane"></div>
+                            <div class="leaflet-pane leaflet-shadow-pane"><img src="https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" alt="" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(240px, 145px, 0px);"></div>
+                            <div class="leaflet-pane leaflet-marker-pane"><img src="https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="Marker" tabindex="0" role="button" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(240px, 145px, 0px); z-index: 145;"></div>
+                            <div class="leaflet-pane leaflet-tooltip-pane"></div>
+                            <div class="leaflet-pane leaflet-popup-pane"></div>
+                            <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.94647e+07px, 1.20249e+07px, 0px) scale(65536);"></div>
+                        </div>
+                        <div class="leaflet-control-container">
+                            <div class="leaflet-top leaflet-left">
+                                <div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in leaflet-disabled" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="true"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div>
+                            </div>
+                            <div class="leaflet-top leaflet-right"></div>
+                            <div class="leaflet-bottom leaflet-left"></div>
+                            <div class="leaflet-bottom leaflet-right">
+                                <div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag">
+                                            <path fill="#4C7BE1" d="M0 0h12v4H0z"></path>
+                                            <path fill="#FFD500" d="M0 4h12v3H0z"></path>
+                                            <path fill="#E0BC00" d="M0 7h12v1H0z"></path>
+                                        </svg> Leaflet</a> <span aria-hidden="true">|</span> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="BottomContainer">
+                    <a href="/storage/politica-confidenciynosty.docx" download class="Clickable">Політика<br>конфіденційності</a>
+                    <div style="margin-left: 100px;">
+                        <a href="https://www.instagram.com/tclinic_izmail_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/tclinicizmail/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                    <div></div>
+                    <a href="/uk/about" class="Clickable">Про клініку</a>
+                    <a href="https://drive.google.com/drive/folders/1UvwScwKaYQdu1LYwr55rMbnG_gglErvY" target="_blank" class="Clickable">Документи</a>
+                    <div onclick="scrollEasyTop();" class="ScrollToTop">
+                        <span>Нагору</span>
+                        <i style="margin-left: 5px;" class="fa-regular fa-arrow-up"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="Container OnlyMobile">
+                <div class="TopContainer">
+                    <div onclick="scrollEasyTop();" class="Clickable ScrollToTop">
+                        <span>Нагору</span>
+                        <i style="margin-left: 5px;" class="fa-regular fa-arrow-up"></i>
+                    </div>
+                    <img src="/assets/images/LogoWhite.svg">
+                    <div class="ActionButton" data-action="LeaveRequest">
+                        <span>Записатися на консультацію</span>
+                        <i class="fa-regular fa-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="BottomContainer">
+                    <div class="InfoContainer">
+                        <div class="Body">Україна, м. Ізмаїл, вул. Тульчіанівська, 47</div>
+                        <div>
+                            <span class="Bottom">Понеділок-П’ятниця</span>
+                            <span class="Bottom">09:00 - 18:00</span>
+                        </div>
+                    </div>
+                    <div class="MapContainer leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="LeafletMiniMap" tabindex="0" style="position: relative;">
+                        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
+                            <div class="leaflet-pane leaflet-tile-pane">
+                                <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                                    <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 17; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="https://tile.openstreetmap.org/17/76033/46972.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-234px, -35px, 0px); opacity: 1;"></div>
+                                </div>
+                            </div>
+                            <div class="leaflet-pane leaflet-overlay-pane"></div>
+                            <div class="leaflet-pane leaflet-shadow-pane"><img src="https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" alt="" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(0px, 0px, 0px);"></div>
+                            <div class="leaflet-pane leaflet-marker-pane"><img src="https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="Marker" tabindex="0" role="button" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(0px, 0px, 0px); z-index: 0;"></div>
+                            <div class="leaflet-pane leaflet-tooltip-pane"></div>
+                            <div class="leaflet-pane leaflet-popup-pane"></div>
+                            <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.94647e+07px, 1.20249e+07px, 0px) scale(65536);"></div>
+                        </div>
+                        <div class="leaflet-control-container">
+                            <div class="leaflet-top leaflet-left">
+                                <div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in leaflet-disabled" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="true"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div>
+                            </div>
+                            <div class="leaflet-top leaflet-right"></div>
+                            <div class="leaflet-bottom leaflet-left"></div>
+                            <div class="leaflet-bottom leaflet-right">
+                                <div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag">
+                                            <path fill="#4C7BE1" d="M0 0h12v4H0z"></path>
+                                            <path fill="#FFD500" d="M0 4h12v3H0z"></path>
+                                            <path fill="#E0BC00" d="M0 7h12v1H0z"></path>
+                                        </svg> Leaflet</a> <span aria-hidden="true">|</span> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="tel:+380677098144" class="Header">+38 (067) 709 81 44</a>
+                </div>
+                <div class="SocialContainer">
+                    <a href="https://www.instagram.com/tclinic_izmail_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/tclinicizmail/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <a href="/storage/politica-confidenciynosty.docx" class="Policy">Політика конфіденційності</a>
+                <a href="https://drive.google.com/drive/folders/1UvwScwKaYQdu1LYwr55rMbnG_gglErvY" target="_blank" class="Documents">Документи</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- video background -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.19/dist/hls.min.js"></script>
+
+    <!-- maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- main scripts -->
+    <script src="/scripts/appear.js?v=1.6.9"></script>
+    <script src="/scripts/navigation.js?v=1.6.9"></script>
+    <script src="/scripts/video-stream.js?v=1.6.9"></script>
+    <script src="/scripts/leave-request.js?v=1.6.9"></script>
+    <script src="/scripts/clinic/configure.js?v=1.6.9"></script>
+
+</body>
+
+</html>

@@ -38,6 +38,9 @@
     ['Ветеринарная помощь',['20125','96323']],
     ['Другие города из подборки',['96319']]
   ];
+  function branchCover(id){return '<div class="branch-visual"><span class="cover-brand">СПРАВОЧНИК ИЗМАИЛ</span><strong class="cover-title">'+branches[id]+'</strong><img src="media/'+(id==='doctors'?'doctor':'beauty')+'-photo.jpg" alt="" width="320" height="216"></div>'}
+  function cityPicker(){return '<details class="city-picker"><summary class="chip">Другие города <span aria-hidden="true">⌄</span></summary><div class="city-options">'+cities().map(c=>'<a href="#city/'+encodeURIComponent(c)+'">'+escape(c)+'</a>').join('')+'</div></details>'}
+  function reviewPanel(r){if(!r.review)return '';const v=r.review;return '<details class="reviews"><summary>Отзывы <span class="review-hide">· скрыть</span></summary><p>'+escape(v.summary)+'</p><small>'+escape(v.label)+' · '+escape(v.checked)+'</small><a href="'+escape(v.url)+'" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a></details>'}
   function thumb(c) {
     const m=c.media[0], url=m?.poster || (m?.type==='image'?m.src:null);
     if(!url)return '<span class="placeholder" aria-hidden="true">✚</span>';
@@ -53,12 +56,12 @@
     if(document.hidden)v.pause();else if(v.dataset.visible==='true')v.play().catch(()=>{});
   }));
   function tile(c) {
-    return `<a class="category-tile ${c.count?'':'empty-category'}" href="#category/${c.id}">${thumb(c)}<span class="tile-body"><strong>${escape(c.name)}</strong><small>${c.count?c.count+' карточек':'Контакты пока не найдены'} <span aria-hidden="true">›</span></small></span></a>`;
+    return `<a class="category-tile ${['20125','96323'].includes(c.id)?'veterinary':''} ${c.count?'':'empty-category'}" href="#category/${c.id}">${thumb(c)}<span class="tile-body"><strong>${escape(c.name)}</strong><small>${c.count?c.count+' карточек':'Контакты пока не найдены'} <span aria-hidden="true">›</span></small></span></a>`;
   }
   function cards(records) {
     return '<div class="contact-list">'+records.map(r=>{
       const c=data.categories.find(c=>c.id===r.category);
-      return `<article class="contact" data-record="${r.id}"><div class="contact-top"><span class="location ${r.city==='Измаил'?'':'other-city'}">⌖ ${escape(r.city)}</span></div><p class="specialty">${escape(c.name)}</p><h2>${escape(r.name)}</h2>${r.note?`<p class="description">${escape(r.note)}</p>`:''}<p class="phone-label">${escape(r.phoneLabel)}</p>${r.phones.map(p=>`<div class="phone-row"><a class="phone-number" href="tel:${dial(p)}">${fmt(p)}</a><div class="phone-actions"><a class="call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${fmt(p)}">☎ Позвонить</a>${favoriteButton(r,p)}</div></div>`).join('')}</article>`;
+      return `<article class="contact" data-record="${r.id}"><div class="contact-top"><span class="location ${r.city==='Измаил'?'':'other-city'}">⌖ ${escape(r.city)}</span></div><p class="specialty">${escape(c.name)}</p><h2>${escape(r.name)}</h2>${r.note?`<p class="description">${escape(r.note)}</p>`:''}<p class="phone-label">${escape(r.phoneLabel)}</p>${r.phones.map(p=>`<div class="phone-row"><a class="phone-number" href="tel:${dial(p)}">${fmt(p)}</a><div class="phone-actions"><a class="call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${fmt(p)}">☎ Позвонить</a>${favoriteButton(r,p)}</div></div>`).join('')}${reviewPanel(r)}</article>`;
     }).join('')+'</div>';
   }
   function media(c) {return '<section class="profile-banner">'+thumb(c)+'</section>'}
@@ -81,9 +84,8 @@
     $('title').innerHTML=category?escape(category.name):cityName?escape(cityName):favorites?'Избранное':branch?escape(branches[branch]):'Здоровье и уход';
     document.title=(category?.name || cityName || (favorites?'Избранное':branches[branch]) || 'Здоровье и уход')+' · Измаил';
     const back=category||cityName?`<a class="back-btn secondary" href="#${branch}">← Назад к категориям</a>`:branch||favorites?'<a class="back-btn secondary" href="#">← Назад в раздел</a>':'';
-    $('topNav').innerHTML=back+homeLink; $('bottomNav').innerHTML=back+homeLink;
-    const cover=category || (branch&&!cityName ? data.categories.find(c=>c.id===(branch==='doctors'?'96228':'96046')) : null);
-    $('profileMedia').innerHTML=cover?media(cover):'';
+    $('topNav').innerHTML=homeLink+back; $('bottomNav').innerHTML=homeLink+back;
+    $('profileMedia').innerHTML=category?media(category):branch&&!cityName?'<section class="profile-banner">'+branchCover(branch)+'</section>':'';
     document.querySelector('.finder').hidden=!branch&&!favorites;
     }
     document.querySelectorAll('#content video').forEach(v=>{videoObserver.unobserve(v);v.pause()});
@@ -102,10 +104,10 @@
     }else if(branch){
       const cats=data.categories.filter(c=>c.branch===branch);
       $('resultStatus').textContent=cats.length+' категорий';
-      $('content').innerHTML=branch==='beauty'?'<div class="category-grid">'+cats.map(tile).join('')+'</div>':'<div class="quick-links"><a class="chip" href="#category/20125">🐾 Ветеринары</a>'+cities().map(c=>'<a class="chip" href="#city/'+encodeURIComponent(c)+'">'+escape(c)+'</a>').join('')+'</div>'+groups.map(([title,ids])=>'<h2 class="group-title">'+title+'</h2><div class="category-grid">'+ids.map(id=>data.categories.find(c=>c.id===id)).filter(Boolean).map(tile).join('')+'</div>').join('');
+      $('content').innerHTML=branch==='beauty'?'<div class="category-grid">'+cats.map(tile).join('')+'</div>':'<div class="quick-links"><a class="chip veterinary" href="#category/20125">🐾 Ветеринары</a>'+cityPicker()+'</div>'+groups.map(([title,ids])=>'<h2 class="group-title">'+title+'</h2><div class="category-grid">'+ids.map(id=>data.categories.find(c=>c.id===id)).filter(Boolean).map(tile).join('')+'</div>').join('');
     }else{
       $('resultStatus').textContent='Два направления';
-      $('content').innerHTML='<div class="branches">'+[['doctors','96228','Врачи · Клиники · Диагностика · Ветеринары'],['beauty','96046','Маникюр · Волосы · Брови · Уход']].map(([id,cover,desc])=>`<a class="branch-card ${id}" href="#${id}">${thumb(data.categories.find(c=>c.id===cover))}<div class="branch-copy"><h2>${branches[id]}</h2><p>${desc}</p><span class="branch-meta">${data.categories.filter(c=>c.branch===id).length} категорий</span><span class="arrow" aria-hidden="true">›</span></div></a>`).join('')+'</div>';
+      $('content').innerHTML='<div class="branches">'+[['doctors','96228','Врачи · Клиники · Диагностика · Ветеринары'],['beauty','96046','Маникюр · Волосы · Брови · Уход']].map(([id,cover,desc])=>`<a class="branch-card ${id}" href="#${id}">${branchCover(id)}<div class="branch-copy"><h2>${branches[id]}</h2><p>${desc}</p><span class="branch-meta">${data.categories.filter(c=>c.branch===id).length} категорий</span><span class="arrow" aria-hidden="true">›</span></div></a>`).join('')+'</div>';
     }
     watchVideos();
   }
@@ -120,8 +122,10 @@
     if(route().favorites){render();$('title').focus({preventScroll:true})}else syncFavorites();
   });
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null){saved=readSaved();if(data&&route().favorites)render();else syncFavorites()}});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'){const picker=document.querySelector('.city-picker[open]');if(picker){picker.open=false;picker.querySelector('summary').focus()}}});
+  document.addEventListener('click',event=>{const picker=document.querySelector('.city-picker[open]');if(picker&&!picker.contains(event.target))picker.open=false});
   document.addEventListener('pointerdown',event=>{const el=event.target.closest('a,button');if(el){el.classList.add('tap-lit');setTimeout(()=>el.classList.remove('tap-lit'),680)}},{passive:true});
   window.addEventListener('hashchange',()=>{$('search').value='';render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
-  try{const response=await fetch('data.json');if(!response.ok)throw Error();data=await response.json();render()}
+  try{const response=await fetch('data.json?v=20260930-2',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
   catch{$('content').innerHTML='<p class="empty error">Не удалось загрузить контакты. Проверьте соединение и обновите страницу.</p>'; $('topNav').innerHTML=homeLink;$('bottomNav').innerHTML=homeLink;}
 })();

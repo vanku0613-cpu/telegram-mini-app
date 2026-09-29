@@ -1,0 +1,56 @@
+[
+  {
+    "id": "psychologist",
+    "title": "ПСИХОЛОГ",
+    "scene": "calm psychologist consultation office with two armchairs",
+    "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-50802aea-eb29-494d-8716-33c97bbf3b1d.png"
+  },
+  {
+    "id": "ct",
+    "title": "КТ-ДИАГНОСТИКА",
+    "scene": "modern CT scanner with short wide circular gantry",
+    "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-0419da65-74fd-448e-85dd-cbc6379f3968.png"
+  },
+  {
+    "id": "lab",
+    "title": "АНАЛИЗЫ И ЛАБОРАТОРИИ",
+    "scene": "clinical laboratory microscope and test tubes",
+    "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-ca550785-8fbf-4e3b-bc7f-ea8870e46c43.png"
+  },
+  {
+    "id": "palliative",
+    "title": "ПАЛЛИАТИВНАЯ ПОМОЩЬ",
+    "scene": "gentle caregiving hand holding elderly hand",
+    "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-5ba1cb48-c435-4de2-822d-3f78342a0e10.png"
+  },
+  {
+    "id": "phthis",
+    "title": "ФТИЗИАТР",
+    "scene": "lung X-ray and stethoscope on desk",
+    "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-3e9dfe2e-c33a-410f-a22b-00431bd5fbd0.png"
+  },
+  {
+    "id": "functional",
+    "title": "ФУНКЦИОНАЛЬНАЯ ДИАГНОСТИКА",
+    "scene": "ECG machine with paper cardiogram and electrodes",
+    "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-5bc74ff6-27e2-464f-af89-c0be803bb347.png"
+  },
+  {
+    "id": "trust",
+    "title": "КАБИНЕТ «ДОВІРА»",
+    "scene": "private consultation room and clinician hands reassuring patient",
+    "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-c0aec6f0-584f-4d28-9ed1-ab7c9302e347.png"
+  },
+  {
+    "id": "xray",
+    "title": "РЕНТГЕНОЛОГИ",
+    "scene": "radiologist viewing chest radiograph on medical monitor",
+    "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-52298939-df22-4b6b-9d6e-77295f101fa4.png"
+  },
+  {
+    "id": "sports",
+    "title": "СПОРТИВНАЯ МЕДИЦИНА",
+    "scene": "sports doctor examining athlete knee in physiotherapy room",
+    "path": "C:\\Users\\Nataly\\.codex\\generated_images\\01a0ed45-930e-7cc1-a58d-2a6faa6cacc9\\exec-63d0a549-9776-4258-96ed-da14eb2561ff.png"
+  }
+]

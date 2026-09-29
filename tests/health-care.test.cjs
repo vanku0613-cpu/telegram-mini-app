@@ -14,7 +14,7 @@ test('all source categories, phone numbers and media are transferred with proven
     const category=data.categories.find(x=>x.id===c.id);assert.ok(category,c.id);
     const phones=new Set(data.records.filter(r=>r.category===c.id).flatMap(r=>r.phones));
     for(const match of c.text.matchAll(/(?<!\d)(?:\+?38[\s-]*)?(0\d{9})(?!\d)/g))assert.ok(phones.has(match[1]),`${c.id}: ${match[1]}`);
-    assert.equal(category.media.length,c.media.length);
+    assert.equal(category.media.length,c.media.length||1);
     for(const m of category.media){assert.ok(fs.existsSync(path.join(root,'health-care',m.src)));assert.ok(fs.existsSync(path.join(root,'health-care',m.poster)));}
   }
   for(const r of data.records){assert.ok(data.sources[r.source]);assert.ok(data.categories.some(c=>c.id===r.category));for(const p of r.phones)assert.match(p,/^(0\d{9}|1677)$/);if(r.source==='doctors')assert.match(r.phoneLabel,/Регистратура/);}
@@ -71,6 +71,18 @@ test('preview: routes, search, city filter, calls, navigation, video and mobile 
     await page.goto(origin+'#doctors');await page.locator('.category-tile').first().waitFor();assert.equal(await page.locator('.quick-links a[href="#category/96230"]').count(),0);
     assert.equal(await page.locator('#subtitle, #filters, .contact details').count(),0);
     const nav=await page.locator('#topNav .back-btn, #bottomNav .back-btn').evaluateAll(a=>a.map(e=>({w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height})));assert.deepEqual(nav.slice(0,2),nav.slice(2));
+    assert.equal(await page.locator('.veterinary').count(),3);
+    assert.match(await page.locator('#topNav a').first().innerText(),/главное меню/);
+    assert.equal(await page.locator('.city-options').isVisible(),false);
+    await page.locator('.city-picker summary').click();assert.equal(await page.locator('.city-options').isVisible(),true);
+    await page.locator('.city-options a').filter({hasText:'Килия'}).click();await page.waitForFunction(()=>document.getElementById('title').textContent==='Килия');
+    assert.equal(await page.locator('.city-picker[open]').count(),0);
+    await page.goto(origin+'#category/96292');await page.locator('.reviews').first().waitFor();
+    await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),1);
+    await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),0);
+    await page.goto(origin);await page.locator('.branch-visual').first().waitFor();assert.deepEqual(await page.locator('.cover-title').allTextContents(),['Врачи и здоровье','Красота и уход']);
     assert.deepEqual(errors,[]);
   }finally{await browser.close();await new Promise(r=>server.close(r));}
 });
+
+test('new published phones are unique and every category has local media',()=>{const previous=JSON.parse(require('node:child_process').execFileSync('git',['show','664c670:health-care/data.json'],{encoding:'utf8'}));const old=new Set(previous.records.flatMap(r=>r.phones));const fresh=data.records.flatMap(r=>r.phones).filter(p=>!old.has(p));assert.equal(new Set(fresh).size,fresh.length);for(const c of data.categories){assert.ok(c.media.length);for(const m of c.media)assert.ok(fs.existsSync(path.join(root,'health-care',m.src)))}for(const r of data.records){for(const id of r.additionalSources||[])assert.ok(data.sources[id]);if(r.review)assert.match(r.review.url,/^https:\/\//)}});
