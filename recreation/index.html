@@ -23,6 +23,13 @@
 .section-back[hidden],.tabs[hidden],.chooser[hidden]{display:none}
 .tabs .tab{background:linear-gradient(145deg,#0c3b68 0%,#082749 58%,#061c36 100%);border-color:rgba(91,173,218,.82);box-shadow:inset 0 1px #ffffff12,0 5px 16px rgba(0,0,0,.32),0 0 11px rgba(42,142,199,.18);font-size:clamp(13px,3.8vw,16px);word-break:normal;overflow-wrap:normal;hyphens:none;text-wrap:balance}
 .tabs .tab[aria-selected="true"]{background:linear-gradient(145deg,#126655,#0b443f);border-color:#63e5b2}
+.recreation-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px;margin:0 auto 14px}
+.recreation-nav:not(.has-section) .home-back{grid-column:1/-1;width:min(100%,340px);justify-self:center}
+.recreation-nav .home-back{width:100%;min-height:50px;height:auto;margin:0;padding:7px 8px;gap:5px;font-size:clamp(12px,3.3vw,14px);line-height:1.1;text-wrap:balance}
+.recreation-nav .home-back .arrow{font-size:19px}
+.recreation-nav .section-back{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:50px;margin:0;padding:7px 8px;border:1px solid #54dda5;border-radius:15px;background:linear-gradient(180deg,#159858,#0d7442);box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244;color:#fff;font-size:clamp(13px,3.5vw,15px);line-height:1.1;font-weight:900;text-align:center;text-wrap:balance;cursor:pointer}
+.recreation-nav .section-back:hover,.recreation-nav .section-back:focus-visible{border-color:#86f6c0;background:linear-gradient(180deg,#19a965,#0f824b);box-shadow:0 0 14px #34d98a55;outline:0}
+.recreation-nav .section-back[hidden]{display:none}
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=3">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
@@ -33,7 +40,7 @@
     <div><div class="eyebrow"><span class="dot" aria-hidden="true"></span>Справочник Измаил · отдых и море</div><h1>Отдых • Жильё • Море</h1><p>Базы отдыха, сауны, беседки и бассейны — выберите подходящий раздел.</p></div>
     <svg class="cover-art" viewBox="0 0 180 130" role="img" aria-label="Морской берег, солнце и волны"><defs><linearGradient id="sea" x2="0" y2="1"><stop stop-color="#59c8ef"/><stop offset="1" stop-color="#116495"/></linearGradient><linearGradient id="sand" x2="0" y2="1"><stop stop-color="#ffe0a0"/><stop offset="1" stop-color="#d89a51"/></linearGradient></defs><circle cx="132" cy="35" r="19" fill="#ffd77b"/><path d="M0 70Q35 58 72 69T145 67L180 75V130H0Z" fill="url(#sea)"/><path d="M0 95Q38 83 76 95T180 91V130H0Z" fill="#147eaa" opacity=".8"/><path d="M0 110Q46 99 95 111T180 106V130H0Z" fill="url(#sand)"/><path d="M8 79q14-7 28 0m26 4q14-7 28 0m42-5q12-6 24 0" fill="none" stroke="#d7f8ff" stroke-width="3" stroke-linecap="round"/><path d="M35 86V44m0 0 22 12H13Z" fill="#ff8375" stroke="#ffe2b2" stroke-width="2"/><path d="M35 44V30" stroke="#ffe2b2" stroke-width="3"/><path d="M142 91v-23m-13-4 13 7 13-7m-20 12 7 5 8-5" stroke="#63d69e" stroke-width="5" stroke-linecap="round" fill="none"/></svg>
   </header>
-  <a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a>
+  <nav class="recreation-nav" aria-label="Навигация сверху"><button class="section-back" id="sectionBack" type="button" hidden>← Вернуться в раздел</button><a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
   <p class="chooser">Выберите раздел</p>
   <nav class="tabs" aria-label="Разделы отдыха" role="tablist">
     <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="bases" data-tab="bases"><span class="tab-art" aria-hidden="true">🏖️</span>Базы отдыха</button>
@@ -41,8 +48,6 @@
     <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="gazebos" data-tab="gazebos"><span class="tab-art" aria-hidden="true">🌿</span>Беседки • Комплексы</button>
     <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="pools" data-tab="pools"><span class="tab-art" aria-hidden="true">🏊</span>Бассейны</button>
   </nav>
-  <button class="section-back" id="sectionBack" type="button" hidden>← Назад в раздел</button>
-
   <section class="panel" id="bases" role="tabpanel" aria-label="Базы отдыха" hidden>
     <header class="panel-head"><span class="panel-icon" aria-hidden="true">🏖️</span><div><h2>Базы отдыха</h2><p>Приморское · бронирование напрямую</p></div></header>
     <div class="cards">
@@ -72,10 +77,10 @@
   </section>
   <p class="hint">Перед поездкой уточняйте наличие мест, условия бронирования и стоимость по телефону.</p>
   <p class="footer-note">Справочник Измаил · отдых у моря и в городе</p>
-  <a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a>
+  <nav class="recreation-nav bottom-actions" aria-label="Навигация снизу"><button class="section-back" id="sectionBackBottom" type="button" hidden>← Вернуться в раздел</button><a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
 </main>
 <script>
-(()=>{const tabs=[...document.querySelectorAll('[data-tab]')];const panels=[...document.querySelectorAll('[role="tabpanel"]')];const menu=document.querySelector('.tabs');const chooser=document.querySelector('.chooser');const back=document.getElementById('sectionBack');function select(name){for(const item of tabs)item.setAttribute('aria-selected',String(item.dataset.tab===name));for(const panel of panels)panel.hidden=panel.id!==name;menu.hidden=Boolean(name);chooser.hidden=Boolean(name);back.hidden=!name;}for(const tab of tabs)tab.addEventListener('click',()=>select(tab.dataset.tab));back.addEventListener('click',()=>select(null));select(null);})();
+(()=>{const tabs=[...document.querySelectorAll('[data-tab]')];const panels=[...document.querySelectorAll('[role="tabpanel"]')];const menu=document.querySelector('.tabs');const chooser=document.querySelector('.chooser');const backs=[document.getElementById('sectionBack'),document.getElementById('sectionBackBottom')];function select(name){for(const item of tabs)item.setAttribute('aria-selected',String(item.dataset.tab===name));for(const panel of panels)panel.hidden=panel.id!==name;menu.hidden=Boolean(name);chooser.hidden=Boolean(name);document.querySelectorAll('.recreation-nav').forEach(nav=>nav.classList.toggle('has-section',Boolean(name)));backs.forEach(back=>back.hidden=!name);}for(const tab of tabs)tab.addEventListener('click',()=>select(tab.dataset.tab));backs.forEach(back=>back.addEventListener('click',()=>select(null)));select(null);})();
 </script>
 </body>
 </html>

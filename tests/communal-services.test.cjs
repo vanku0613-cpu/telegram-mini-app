@@ -25,19 +25,24 @@ test('communal services page is reachable, organized, and uses unique callable c
     await page.goto(`http://127.0.0.1:${server.address().port}/communal-services/`);
 
     assert.equal(await page.title(), 'Коммунальные службы — Справочник Измаил');
-    assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className)), ['cover', 'home-back', 'jump']);
+    assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className)), ['cover', 'communal-nav', 'jump']);
     assert.deepEqual(await page.locator('.service').evaluateAll(items => items.map(item => item.id)), ['light', 'water', 'gas', 'heat', 'housing']);
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
     assert.equal(await page.locator('.service:visible').count(), 0, 'utility information remains closed until its category is opened');
     assert.equal(await page.locator('.jump').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2,'utility buttons use the two-column home grid');
     const tileHeights=await page.locator('.communal-tab').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().height));
     assert.ok(tileHeights.every(height=>height===tileHeights[0]),'utility buttons share a consistent height');
+    assert.ok(await page.locator('.communal-tab').evaluateAll(items=>items.every(item=>parseFloat(getComputedStyle(item).fontSize)>=17)),'utility category labels are larger');
     await page.locator('[data-open="water"]').click();
     assert.equal(await page.locator('#water').isVisible(),true);
     assert.equal(await page.locator('#light').isVisible(),false);
     assert.equal(await page.locator('.jump').isVisible(),false);
     assert.equal(await page.locator('#communalBack').isVisible(),true);
-    await page.locator('#communalBack').click();
+    assert.equal(await page.locator('#communalBackBottom').isVisible(),true);
+    assert.equal(await page.locator('#communalBack').textContent(),'← Вернуться в раздел');
+    assert.equal(await page.locator('#communalBackBottom').textContent(),'← Вернуться в раздел');
+    for(const nav of await page.locator('.communal-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section and home navigation share one row')}
+    await page.locator('#communalBackBottom').click();
     assert.equal(await page.locator('.jump').isVisible(),true);
     await page.locator('[data-open="gas"]').click();
     assert.equal(await page.locator('#gas').isVisible(),true);

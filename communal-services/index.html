@@ -23,12 +23,17 @@
 </style>
 <style>
 .jump{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible;margin:0 0 12px;padding:0}
-.jump .communal-tab{display:flex;align-items:center;justify-content:center;min-width:0;height:88px;min-height:88px;padding:8px;border:1.6px solid #3478a8;border-radius:15px;background:linear-gradient(145deg,rgba(6,38,76,.98),rgba(3,25,56,.995));box-shadow:0 0 8px rgba(47,111,158,.2),inset 0 0 12px rgba(47,111,158,.06),0 4px 12px rgba(0,0,0,.2);color:#eaf7ff;font-size:clamp(15px,4.25vw,19px);font-weight:900;text-align:center;cursor:pointer}
+.jump .communal-tab{display:flex;align-items:center;justify-content:center;min-width:0;height:88px;min-height:88px;padding:8px;border:1.6px solid #3478a8;border-radius:15px;background:linear-gradient(145deg,rgba(6,38,76,.98),rgba(3,25,56,.995));box-shadow:0 0 8px rgba(47,111,158,.2),inset 0 0 12px rgba(47,111,158,.06),0 4px 12px rgba(0,0,0,.2);color:#eaf7ff;font-size:clamp(17px,5vw,21px);text-align:center;cursor:pointer}
 .jump .communal-tab[aria-pressed=true]{border-color:#5ae1ac;background:linear-gradient(145deg,#105a51,#093e43);box-shadow:inset 0 0 0 1px #a5ffd526,0 0 17px #2fc9943f;color:#dcfff0}
-.communal-back{display:flex;align-items:center;justify-content:center;width:min(100%,340px);min-height:48px;margin:0 auto 12px;padding:8px 14px;border:1px solid #6ac7f3;border-radius:15px;background:linear-gradient(180deg,#226ca3,#174b79);box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433;color:#fff;font-size:17px;font-weight:900;cursor:pointer}
+.communal-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px;margin:0 auto 14px}
+.communal-nav:not(.has-section) .home-back{grid-column:1/-1;width:min(100%,340px);justify-self:center}
+.communal-nav .home-back{width:100%;min-height:50px;height:auto;margin:0;padding:7px 8px;gap:5px;font-size:clamp(12px,3.3vw,14px);line-height:1.1;text-wrap:balance}
+.communal-nav .home-back .arrow{font-size:19px}
+.communal-back{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:50px;margin:0;padding:7px 8px;border:1px solid #54dda5;border-radius:15px;background:linear-gradient(180deg,#159858,#0d7442);box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244;color:#fff;font-size:clamp(13px,3.5vw,15px);line-height:1.1;font-weight:900;text-align:center;text-wrap:balance;cursor:pointer}
 .communal-back[hidden],.jump[hidden]{display:none}
 .service[hidden]{display:none}
-.jump .communal-tab{background:linear-gradient(145deg,#0c3b68 0%,#082749 58%,#061c36 100%);border-color:rgba(91,173,218,.82);box-shadow:inset 0 1px #ffffff12,0 5px 16px rgba(0,0,0,.32),0 0 11px rgba(42,142,199,.18);font-size:clamp(13px,3.8vw,16px);line-height:1.12;word-break:normal;overflow-wrap:normal;hyphens:none;text-wrap:balance}
+.service[hidden]{display:none}
+.jump .communal-tab{background:linear-gradient(145deg,#0c3b68 0%,#082749 58%,#061c36 100%);border-color:rgba(91,173,218,.82);box-shadow:inset 0 1px #ffffff12,0 5px 16px rgba(0,0,0,.32),0 0 11px rgba(42,142,199,.18);font-size:clamp(17px,5vw,21px);line-height:1.12;word-break:normal;overflow-wrap:normal;hyphens:none;text-wrap:balance}
 .jump .communal-tab[aria-pressed=true]{background:linear-gradient(145deg,#126655,#0b443f);border-color:#63e5b2}
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=3">
@@ -45,9 +50,8 @@
     </svg>
   </header>
 
-  <a class="home-back" href="../main-v2/" data-main-back><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a>
+  <nav class="communal-nav" aria-label="Навигация сверху"><button class="communal-back" id="communalBack" type="button" hidden>← Вернуться в раздел</button><a class="home-back" href="../main-v2/" data-main-back><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
   <nav class="jump" aria-label="Разделы коммунальных служб"><button type="button" class="communal-tab" data-open="light">⚡ Свет</button><button type="button" class="communal-tab" data-open="water">💧 Вода</button><button type="button" class="communal-tab" data-open="gas">🔥 Газ</button><button type="button" class="communal-tab" data-open="heat">♨️ Тепло</button><button type="button" class="communal-tab" data-open="housing">🏠 ЖКХ</button></nav>
-  <button class="communal-back" id="communalBack" type="button" hidden>← Назад в раздел</button>
 
   <section class="service" id="light" aria-labelledby="light-title" hidden>
     <header class="service-head"><span class="service-icon" aria-hidden="true">💡</span><div><h2 id="light-title">Электроснабжение</h2><p>Уличное освещение, аварии и отключения</p></div></header>
@@ -93,17 +97,17 @@
   </section>
 
   <p class="footer-note">В экстренной ситуации сообщите диспетчеру точный адрес и кратко опишите проблему. </p>
-  <a class="home-back" href="../main-v2/" data-main-back><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a>
+  <nav class="communal-nav bottom-actions" aria-label="Навигация снизу"><button class="communal-back" id="communalBackBottom" type="button" hidden>← Вернуться в раздел</button><a class="home-back" href="../main-v2/" data-main-back><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
 </main>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   var menu=document.querySelector('.jump');
-  var back=document.getElementById('communalBack');
+  var backs=[document.getElementById('communalBack'),document.getElementById('communalBackBottom')];
   var tabs=Array.prototype.slice.call(document.querySelectorAll('[data-open]'));
   var sections=Array.prototype.slice.call(document.querySelectorAll('.service'));
-  function showSection(id){menu.hidden=Boolean(id);back.hidden=!id;tabs.forEach(function(tab){tab.setAttribute('aria-pressed',String(tab.dataset.open===id));});sections.forEach(function(section){section.hidden=section.id!==id;});}
+  function showSection(id){menu.hidden=Boolean(id);document.querySelectorAll('.communal-nav').forEach(function(nav){nav.classList.toggle('has-section',Boolean(id));});backs.forEach(function(back){back.hidden=!id;});tabs.forEach(function(tab){tab.setAttribute('aria-pressed',String(tab.dataset.open===id));});sections.forEach(function(section){section.hidden=section.id!==id;});}
   tabs.forEach(function(tab){tab.addEventListener('click',function(){showSection(tab.dataset.open);});});
-  back.addEventListener('click',function(){showSection(null);});
+  backs.forEach(function(back){back.addEventListener('click',function(){showSection(null);});});
   showSection(null);
 });
 </script>

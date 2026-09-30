@@ -101,6 +101,8 @@ body[data-education=true] h1{font-size:clamp(23px,6vw,34px);letter-spacing:-.6px
 .back-row:not(:has(.secondary)){display:flex}
 .back-row:not(:has(.secondary)) .back-btn{width:auto;min-width:min(100%,250px);min-height:48px;padding:8px 16px;font-size:17px}
 body[data-view=search] .back-row:not(:has(.secondary)) .back-btn{width:auto!important;max-width:min(100%,250px);align-self:flex-start}
+.back-row .back-btn.secondary{border-color:#54dda5;background:linear-gradient(180deg,#159858,#0d7442);color:#fff;box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244}
+.back-row .back-btn:not(.secondary){border-color:#6ac7f3;background:linear-gradient(180deg,#226ca3,#174b79);color:#fff;box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433}
 
 /* A selected city stays visible; its alternatives are tucked behind one control. */
 .city-selection{display:flex;align-items:stretch;gap:9px;margin:0 0 10px;max-width:480px}
@@ -133,3 +135,7 @@ body[data-education=true] .back-row:not(:has(.secondary)) .back-btn{width:min(10
 .branch-card.plain-branch.doctors .branch-copy{padding-right:20px}
 .branch-card.plain-branch.doctors h2{font-size:clamp(11px,3.2vw,14px);letter-spacing:-.04em;white-space:nowrap;word-break:normal;overflow-wrap:normal;hyphens:none}
 .branch-card.plain-branch.doctors .tile-arrow{right:6px;font-size:23px}
+.search-box input[type=search]{-webkit-appearance:none;appearance:none}
+.search-box input[type=search]::-webkit-search-decoration,.search-box input[type=search]::-webkit-search-cancel-button,.search-box input[type=search]::-webkit-search-results-button,.search-box input[type=search]::-webkit-search-results-decoration{display:none;-webkit-appearance:none}
+.search-box input[type=search]::-ms-clear{display:none}
+#search:focus-visible{outline:0!important;box-shadow:none}

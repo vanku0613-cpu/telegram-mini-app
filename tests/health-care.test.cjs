@@ -57,6 +57,10 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     assert.ok(parseFloat(await page.locator('.city-tab span').first().evaluate(e=>getComputedStyle(e).fontSize))>=16,'city labels should be very easy to read');
     assert.equal(await page.locator('.city-tab span').first().evaluate(e=>getComputedStyle(e).whiteSpace),'nowrap','city names stay on one line');
     assert.equal(await page.locator('#search').getAttribute('placeholder'),'Поиск врачей');
+    assert.equal(await page.locator('#search').evaluate(e=>getComputedStyle(e).appearance),'none','the search field suppresses the browser-native search glyph');
+    await page.locator('#searchToggle').click();
+    assert.equal(await page.locator('#search').evaluate(e=>e===document.activeElement),true,'the search control focuses the input without showing a second native search icon');
+    assert.equal(await page.locator('#search').evaluate(e=>getComputedStyle(e).outlineStyle),'none','the search field relies on the visible focus glow of its container');
     for(const viewport of [{width:320,height:568},{width:390,height:664},{width:768,height:768}]){
       await page.setViewportSize(viewport);
       const pageHeight=await page.evaluate(()=>({scroll:document.documentElement.scrollHeight,height:innerHeight,content:document.querySelector('#cityNavigation').getBoundingClientRect().height}));
@@ -149,7 +153,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
       await page.setViewportSize({width,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
       const boxes=await page.locator('.contact').evaluateAll(a=>a.slice(0,2).map(e=>({x:e.getBoundingClientRect().x,y:e.getBoundingClientRect().y})));assert.equal(boxes[0].y,boxes[1].y);assert.ok(boxes[1].x>boxes[0].x);
       for(const selector of ['#topNav','#bottomNav']){
-        const links=page.locator(selector+' a');assert.deepEqual(await links.allTextContents(),['Назад в раздел','Вернуться в главное меню']);
+        const links=page.locator(selector+' a');assert.deepEqual(await links.allTextContents(),['Вернуться в раздел','Вернуться в главное меню']);
         const rects=await links.evaluateAll(es=>es.map(e=>({y:e.getBoundingClientRect().y,h:e.getBoundingClientRect().height,fits:e.scrollWidth<=e.clientWidth})));
         assert.equal(rects[0].y,rects[1].y);assert.equal(rects[0].h,rects[1].h);assert.ok(rects.every(r=>r.fits));
       }

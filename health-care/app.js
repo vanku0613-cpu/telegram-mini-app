@@ -98,7 +98,7 @@
       if(globalSearch){$('search').value=query;q=query}
       const title=globalSearch?'Поиск по справочнику':category?(category.id==='20125'?'Ветеринары':category.name):favorites?'Избранное':branches[branch]||'Здоровье и уход';
       $('title').textContent=title;document.title=title+(cityName?' · '+cityName:' · Измаил');
-      const back=favorites||globalSearch||contactId?'':category?'<a class="back-btn secondary" href="'+(category.parent?'#category/'+category.parent:branch==='doctors'?cityHref(cityName):branch==='beauty'?'#beauty':branch==='education'?'#education':'#')+'">Назад в раздел</a>':branch&&branch!=='education'?'<a class="back-btn secondary" href="#">Назад в раздел</a>':'';
+      const back=favorites||globalSearch?'':category?'<a class="back-btn secondary" href="'+(category.parent?'#category/'+category.parent:branch==='doctors'?cityHref(cityName):branch==='beauty'?'#beauty':branch==='education'?'#education':'#')+'">Вернуться в раздел</a>':branch?'<a class="back-btn secondary" href="#">Вернуться в раздел</a>':'';
       $('topNav').innerHTML=back+homeLink;$('bottomNav').innerHTML=back+homeLink;
       $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';

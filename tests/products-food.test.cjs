@@ -25,12 +25,13 @@ test('food and delivery directory switches sections and keeps contact links uniq
     await page.goto(`http://127.0.0.1:${server.address().port}/products-food/`);
 
     assert.equal(await page.title(), 'Продукты питания — Справочник Измаил');
-    assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className || item.tagName.toLowerCase())), ['cover', 'home-back', 'chooser']);
+    assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className || item.tagName.toLowerCase())), ['cover', 'section-nav', 'chooser']);
     assert.equal(await page.locator('nav.tabs .tab[data-tab]').count(), 5);
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
     assert.equal(await page.locator('.tabs').isVisible(), true);
     assert.equal(await page.locator('.panel:visible').count(), 0, 'category details stay closed until a button is selected');
     assert.equal(await page.locator('#sectionBack').isVisible(), false);
+    assert.equal(await page.locator('#sectionBackBottom').isVisible(), false);
     assert.equal(await page.locator('input[type="search"]').count(), 0);
     assert.equal(await page.locator('.unverified').count(), 0, 'small source and verification disclaimers are omitted from food listings');
     assert.equal(await page.locator('.hint').count(), 0, 'unneeded source explanation is omitted');
@@ -44,12 +45,17 @@ test('food and delivery directory switches sections and keeps contact links uniq
     assert.equal(await page.locator('#fastfood').isVisible(), false);
     assert.equal(await page.locator('.tabs').isVisible(), false, 'the category grid leaves the screen when a category opens');
     assert.equal(await page.locator('#sectionBack').isVisible(), true);
+    assert.equal(await page.locator('#sectionBackBottom').isVisible(), true);
+    assert.equal(await page.locator('#sectionBack').textContent(), '← Вернуться в раздел');
+    assert.equal(await page.locator('#sectionBackBottom').textContent(), '← Вернуться в раздел');
+    assert.match(await page.locator('#sectionBack').evaluate(e=>getComputedStyle(e).backgroundImage), /linear-gradient/);
+    for(const nav of await page.locator('.section-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section return and main-menu buttons share one row at both ends')}
     await page.locator('#sectionBack').click();
     assert.equal(await page.locator('.tabs').isVisible(), true);
     await page.locator('nav.tabs .tab[data-tab="groceries"]').click();
     assert.equal(await page.locator('#groceries').isVisible(), true);
     assert.equal(await page.locator('#restaurants').isVisible(), false);
-    await page.locator('#sectionBack').click();
+    await page.locator('#sectionBackBottom').click();
     await page.locator('.tab[data-tab="basics"]').click();
     assert.equal(await page.locator('#basics').isVisible(), true);
     await page.locator('#sectionBack').click();

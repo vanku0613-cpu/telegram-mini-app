@@ -36,12 +36,16 @@ test('recreation directory includes the four numbered sections and fits mobile s
       assert.equal(await panel.isVisible(),true);
       assert.equal(await page.locator('.tabs').isVisible(),false,'the category chooser closes while details are shown');
       assert.equal(await page.locator('#sectionBack').isVisible(),true);
+      assert.equal(await page.locator('#sectionBackBottom').isVisible(),true);
+      assert.equal(await page.locator('#sectionBack').textContent(),'← Вернуться в раздел');
+      assert.equal(await page.locator('#sectionBackBottom').textContent(),'← Вернуться в раздел');
+      for(const nav of await page.locator('.recreation-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section and home navigation share one row')}
       const phones=await panel.locator('a.phone[href^="tel:"]').evaluateAll(items=>items.map(a=>a.getAttribute('href')));
       assert.equal(phones.length,count);
       assert.equal(new Set(phones).size,phones.length,category+' has no repeated phone numbers');
       assert.ok(phones.every(href=>/^tel:\+380\d{9}$/.test(href)));
       assert.equal(await panel.locator('.phone span').allTextContents().then(x=>x.every(t=>t==='Позвонить')),true);
-      await page.locator('#sectionBack').click();
+      await page.locator('#sectionBackBottom').click();
       assert.equal(await page.locator('.tabs').isVisible(),true,'back returns to categories');
     }
     for(const width of [320,390,768]){
