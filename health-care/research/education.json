@@ -1,0 +1,491 @@
+{
+  "categories": [
+    {
+      "id": "96203",
+      "name": "Образование и обучение",
+      "branch": "education",
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96203",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96203.jpg",
+          "poster": "media/cover-96203.jpg"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "96204",
+      "name": "Репетиторы",
+      "branch": "education",
+      "children": [
+        "96216",
+        "96217",
+        "96218",
+        "96219",
+        "96220",
+        "96221"
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96204",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96204.jpg",
+          "poster": "media/cover-96204.jpg"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "96208",
+      "name": "Спорт и кружки для детей",
+      "branch": "education",
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96208",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96208.jpg",
+          "poster": "media/cover-96208.jpg"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "96215",
+      "name": "Садики",
+      "branch": "education",
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96215",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96215.jpg",
+          "poster": "media/cover-96215.jpg"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "96216",
+      "name": "Математика",
+      "branch": "education",
+      "parent": "96204",
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96216",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96204.jpg",
+          "poster": "media/cover-96204.jpg"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "96217",
+      "name": "Украинский язык",
+      "branch": "education",
+      "parent": "96204",
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96217",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96204.jpg",
+          "poster": "media/cover-96204.jpg"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "96218",
+      "name": "Другие предметы",
+      "branch": "education",
+      "parent": "96204",
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96218",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96204.jpg",
+          "poster": "media/cover-96204.jpg"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "96219",
+      "name": "Иностранные языки",
+      "branch": "education",
+      "parent": "96204",
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96219",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96204.jpg",
+          "poster": "media/cover-96204.jpg"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "96220",
+      "name": "Начальные классы",
+      "branch": "education",
+      "parent": "96204",
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96220",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96204.jpg",
+          "poster": "media/cover-96204.jpg"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "96221",
+      "name": "Подготовка к школе",
+      "branch": "education",
+      "parent": "96204",
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96221",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96204.jpg",
+          "poster": "media/cover-96204.jpg"
+        }
+      ],
+      "note": ""
+    }
+  ],
+  "records": [
+    {
+      "id": "edu-courses",
+      "name": "Учебный центр «Твій Успіх»",
+      "phones": [
+        "0982622433",
+        "0732622433"
+      ],
+      "categories": [
+        "96203"
+      ],
+      "category": "96203",
+      "note": "Курсы. Пр-т Мира, 1. Сайт из подборки: izmail.tvoyuspeh.com.ua.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96203"
+      ]
+    },
+    {
+      "id": "edu-gym-nina",
+      "name": "Ярчук Нина Гермоновна",
+      "phones": [
+        "0679253038"
+      ],
+      "categories": [
+        "96208"
+      ],
+      "category": "96208",
+      "note": "Художественная гимнастика, спортивный комплекс «Авангард». Имя приведено как в подборке.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96208"
+      ]
+    },
+    {
+      "id": "edu-gym-yulia",
+      "name": "Радионова Юлия Геннадиеана",
+      "phones": [
+        "0972728939"
+      ],
+      "categories": [
+        "96208"
+      ],
+      "category": "96208",
+      "note": "Художественная гимнастика, спортивный комплекс «Авангард». Имя приведено как в подборке.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96208"
+      ]
+    },
+    {
+      "id": "edu-kids-land",
+      "name": "Садик «Зайці-LAND»",
+      "phones": [
+        "0964353909"
+      ],
+      "categories": [
+        "96215"
+      ],
+      "category": "96215",
+      "note": "Контакт детского садика из подборки.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96215"
+      ]
+    },
+    {
+      "id": "edu-kindergarten",
+      "name": "Частный детский сад · Торговая, 61",
+      "phones": [
+        "0676497087"
+      ],
+      "categories": [
+        "96215"
+      ],
+      "category": "96215",
+      "note": "Приём детей с 2 лет. Запись и консультации. Название в сообщении не указано.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96215"
+      ]
+    },
+    {
+      "id": "edu-step-oksana",
+      "name": "Оксана · Step Up Kids",
+      "phones": [
+        "0684244305"
+      ],
+      "categories": [
+        "96216",
+        "96217",
+        "96221",
+        "96204"
+      ],
+      "category": "96216",
+      "note": "Математика и украинский язык, 1–6 классы. Подготовка к школе.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96216",
+        "education-96217",
+        "education-96221"
+      ]
+    },
+    {
+      "id": "edu-math-irina",
+      "name": "Ірина · математика",
+      "phones": [
+        "0953438880"
+      ],
+      "categories": [
+        "96216",
+        "96204"
+      ],
+      "category": "96216",
+      "note": "Математика для учеников 5–9 классов. Изучение новых тем и повторение пройденного.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96216"
+      ]
+    },
+    {
+      "id": "edu-math-elena",
+      "name": "Елена Андреевна · математика",
+      "phones": [
+        "0682189100"
+      ],
+      "categories": [
+        "96216",
+        "96204"
+      ],
+      "category": "96216",
+      "note": "Математика, алгебра и геометрия, 5–11 классы. Онлайн в Zoom. @kosmo_training_center.",
+      "city": "Онлайн",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96216"
+      ]
+    },
+    {
+      "id": "edu-ukrainian",
+      "name": "Ксенія Антонівна · украинский язык",
+      "phones": [
+        "0935601190"
+      ],
+      "categories": [
+        "96217",
+        "96204"
+      ],
+      "category": "96217",
+      "note": "Украинский язык для учеников 5–11 классов.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96217"
+      ]
+    },
+    {
+      "id": "edu-english-teens",
+      "name": "Английский для подростков",
+      "phones": [
+        "0966024434"
+      ],
+      "categories": [
+        "96219",
+        "96204"
+      ],
+      "category": "96219",
+      "note": "Набор в группу для учеников 7–11 классов. Офлайн, район Южный. Имя в сообщении не указано.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96219"
+      ]
+    },
+    {
+      "id": "edu-step-olesya",
+      "name": "Олеся · Step Up Kids",
+      "phones": [
+        "0988067616"
+      ],
+      "categories": [
+        "96219",
+        "96221",
+        "96204"
+      ],
+      "category": "96219",
+      "note": "Английский язык для дошкольников и учеников 1–4 классов. Подготовка к школе.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96219",
+        "education-96221"
+      ]
+    },
+    {
+      "id": "edu-english-school-1",
+      "name": "Английский и подготовка к школе",
+      "phones": [
+        "0964353909"
+      ],
+      "categories": [
+        "96219",
+        "96221",
+        "96204"
+      ],
+      "category": "96219",
+      "note": "Английский язык и подготовка к школе. Контакт из подборки.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96219"
+      ]
+    },
+    {
+      "id": "edu-english-school-2",
+      "name": "Английский и подготовка к школе",
+      "phones": [
+        "0938302578"
+      ],
+      "categories": [
+        "96219",
+        "96221",
+        "96204"
+      ],
+      "category": "96219",
+      "note": "Английский язык и подготовка к школе. Дополнительный контакт из подборки.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96219"
+      ]
+    },
+    {
+      "id": "edu-victoria",
+      "name": "Виктория · английский и немецкий",
+      "phones": [
+        "0635669910"
+      ],
+      "categories": [
+        "96219",
+        "96221",
+        "96220",
+        "96204"
+      ],
+      "category": "96219",
+      "note": "Английский: группы для детей и взрослых, в классе и онлайн. Немецкий: группы для детей с 3 лет. Подготовка к школе и курсы для первоклассников.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96219"
+      ]
+    },
+    {
+      "id": "edu-maria",
+      "name": "Марія Трембач · английский язык",
+      "phones": [
+        "0993327699"
+      ],
+      "categories": [
+        "96219",
+        "96204"
+      ],
+      "category": "96219",
+      "note": "Английский для детей и взрослых, индивидуальные и групповые занятия. «Дельта», кабинет 223. Офлайн и онлайн.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96219"
+      ]
+    },
+    {
+      "id": "edu-katerina",
+      "name": "Катерина · морской английский",
+      "phones": [
+        "0983295097"
+      ],
+      "categories": [
+        "96219",
+        "96204"
+      ],
+      "category": "96219",
+      "note": "Морской английский онлайн. Подготовка к собеседованию.",
+      "city": "Онлайн",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96219"
+      ]
+    },
+    {
+      "id": "edu-natalia",
+      "name": "Наталія · английский язык",
+      "phones": [
+        "0973265264"
+      ],
+      "categories": [
+        "96219",
+        "96204"
+      ],
+      "category": "96219",
+      "note": "Английский для детей 1–11 классов. Групповые занятия онлайн и офлайн, разговорная практика.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96219"
+      ]
+    },
+    {
+      "id": "edu-oksandra",
+      "name": "Оксана Олександрівна · занятия для детей",
+      "phones": [
+        "0971601930"
+      ],
+      "categories": [
+        "96221",
+        "96220",
+        "96204"
+      ],
+      "category": "96221",
+      "note": "Развивающие и учебные занятия с 4 лет. Помощь ученикам начальных классов с учёбой и домашними заданиями.",
+      "city": "Измаил",
+      "phoneLabel": "Контакт из подборки",
+      "sources": [
+        "education-96221"
+      ]
+    }
+  ]
+}

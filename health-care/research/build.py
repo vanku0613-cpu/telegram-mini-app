@@ -93,6 +93,8 @@ from city_contacts import add_city_contacts
 add_city_contacts(records,sources)
 from editorial import apply_editorial
 records,categories=apply_editorial(records,categories,sources)
+from education import add_education
+add_education(records,categories,sources)
 for i,c in enumerate(categories):
  c['order']=i
  c['count']=sum(c['id'] in r.get('categories',[r['category']]) for r in records)
