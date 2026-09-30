@@ -30,6 +30,12 @@ test('food and delivery directory switches four sections and keeps contact links
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
     assert.equal(await page.locator('#fastfood').isVisible(), true);
     assert.equal(await page.locator('input[type="search"]').count(), 0);
+    assert.equal(await page.locator('.unverified').count(), 0, 'small source and verification disclaimers are omitted from food listings');
+    assert.equal(await page.locator('.hint').count(), 0, 'unneeded source explanation is omitted');
+    assert.equal(await page.locator('.footer-note').count(), 0, 'unneeded footer disclaimer is omitted');
+    const pageText = (await page.locator('main').innerText()).toLocaleLowerCase('ru');
+    assert.equal(/публикац|публичн(?:ого)? справочник|телефоны заведений/.test(pageText), false, 'source and phone-origin explanations are omitted');
+    assert.ok(await page.locator('.contact-note, .phone span, .tag, .links a, .subtypes span').evaluateAll(items => items.every(item => parseFloat(getComputedStyle(item).fontSize) >= 12)), 'supporting text and actions remain comfortably readable');
 
     await page.locator('.tab[data-tab="restaurants"]').click();
     assert.equal(await page.locator('#restaurants').isVisible(), true);
