@@ -16,7 +16,7 @@ test('home, current buttons, nested returns and future delegated buttons', async
     res.end(fs.readFileSync(file));
   });
   const browser = await chromium.launch({
-    headless: true, channel: process.env.BROWSER_CHANNEL || undefined,
+    headless: true, channel: process.env.BROWSER_CHANNEL || 'chrome',
     ignoreDefaultArgs: ['--disable-back-forward-cache']
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
