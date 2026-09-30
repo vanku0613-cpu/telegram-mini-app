@@ -66,14 +66,17 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     assert.equal(initialScroll,0);
     await page.locator('.city-tab').filter({hasText:/^Измаил$/}).click();await page.locator('.category-tile').first().waitFor();
     assert.equal(await page.evaluate(()=>scrollY),initialScroll);
+    await page.locator('#cityListToggle').click();assert.equal(await page.locator('#cityListToggle').getAttribute('aria-expanded'),'true');assert.equal(await page.locator('.city-tab').count(),6);await page.locator('#cityListToggle').click();assert.equal(await page.locator('#cityListToggle').getAttribute('aria-expanded'),'false');assert.equal(await page.locator('.city-tab').count(),1);
     // Short/empty city lists must not move the city controls or clamp scroll to the top.
     await page.locator('#cityNavigation').scrollIntoViewIfNeeded();
     for(const city of [...data.cityOrder.slice(1),'Измаил']){
       const before=await page.locator('#cityNavigation').boundingBox();
       const scroll=await page.evaluate(()=>scrollY);
+      if(!await page.locator('.city-tab').filter({hasText:new RegExp('^'+city+'$')}).isVisible())await page.locator('#cityListToggle').click();
       await page.getByRole('link',{name:city,exact:true}).click();
       await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
-      assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),city);
+        assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),city);
+        assert.equal(await page.locator('.city-tab').count(),1,'other cities remain tucked away after choosing '+city);
       assert.equal(await page.locator('#search').getAttribute('placeholder'),'Поиск врачей по '+({'Измаил':'Измаилу','Килия':'Килии','Болград':'Болграду','Рени':'Рени','Одесса':'Одессе','Киев':'Киеву'}[city]));
       assert.ok(Math.abs((await page.locator('#cityNavigation').boundingBox()).y-before.y)<=1,city+' moved city controls');
       assert.ok(Math.abs((await page.evaluate(()=>scrollY))-scroll)<=1,city+' changed scroll');
@@ -109,7 +112,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     await page.locator('[data-record="r91"] [data-favorite]').click();
     await open('#city/'+encodeURIComponent('Одесса')+'/category/96311');
     assert.equal(await page.locator('[data-record="r91"] [data-favorite]').getAttribute('aria-pressed'),'true');
-    await open('#favorites');assert.equal(await page.locator('.contact').count(),1);
+    await open('#favorites');assert.equal(await page.locator('.contact').count(),1);assert.equal(await page.locator('.finder').isVisible(),false,'favorites contact list does not show an unnecessary search');
     assert.equal(await page.locator('.contact h2').innerText(),'Гонта Ирина Анатольевна');
     await page.locator('[data-favorite]').click();
     await open('#city/'+encodeURIComponent('Одесса'));
@@ -125,7 +128,8 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     while(await page.locator('[data-favorite]').count())await page.locator('[data-favorite]').first().click();
     assert.equal(await page.locator('.contact').count(),0);
     await open('#category/96046');
-    assert.equal(await page.evaluate(()=>{const y=s=>document.querySelector(s).getBoundingClientRect().top;return y('#profileMedia')<y('#topNav')&&y('#topNav')<y('.finder')}),true);
+    assert.equal(await page.locator('.finder').isVisible(),false,'phone folders do not show an unnecessary search');
+    assert.equal(await page.evaluate(()=>{const y=s=>document.querySelector(s).getBoundingClientRect().top;return y('#profileMedia')<y('#topNav')&&y('#topNav')<y('#content')}),true);
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
       const boxes=await page.locator('.contact').evaluateAll(a=>a.slice(0,2).map(e=>({x:e.getBoundingClientRect().x,y:e.getBoundingClientRect().y})));assert.equal(boxes[0].y,boxes[1].y);assert.ok(boxes[1].x>boxes[0].x);
@@ -136,8 +140,8 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
       }
       const nav=await page.locator('#topNav .back-btn, #bottomNav .back-btn').evaluateAll(a=>a.map(e=>({w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height})));assert.deepEqual(nav.slice(0,2),nav.slice(2));
     }
-    await page.locator('#search').fill('099 533 83 11');assert.equal(await page.locator('.contact').count(),1);assert.match(await page.locator('.contact h2').innerText(),/Виктория/);
-    await page.locator('#search').fill('несуществующийконтакт');assert.equal(await page.locator('.contact').count(),0);
+    await open('#education');assert.equal(await page.locator('.finder').isVisible(),false,'education directory has no search box');
+    await open('#category/96204');assert.equal(await page.locator('.finder').isVisible(),false,'tutor folders have no search box');
     await open('#category/96292');await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),1);await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),0);
     for(const hash of ['#city/'+encodeURIComponent('Измаил'),'#beauty']){
       await open(hash);

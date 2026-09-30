@@ -53,7 +53,7 @@
     ['Ветеринарная помощь',['20125']]
   ];
   function branchCover(id){const file=id==='doctors'?'doctors-cover.jpg':'beauty-cover.jpg';return '<div class="visual generated-cover"><img src="media/'+file+'" alt="Справочник Измаил — '+branches[id]+'" width="960" height="640" draggable="false"></div>'}
-  function cityTabs(city,q=''){const options=cities();return '<h2 class="city-heading">Выберите город</h2><nav class="city-tabs" aria-label="Город приёма">'+options.map(c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'><img src="media/city-'+cityImages[c]+'.jpg" alt="" width="330" height="220"><span>'+escape(c)+'</span></a>').join('')+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
+  function cityTabs(city,q=''){const options=cities(),tab=c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'><img src="media/city-'+cityImages[c]+'.jpg" alt="" width="330" height="220"><span>'+escape(c)+'</span></a>';const picker=city?'<div class="city-selection">'+tab(city)+'<button id="cityListToggle" type="button" aria-expanded="'+String(cityListOpen)+'">'+(cityListOpen?'Скрыть города ↑':'Другие города ↓')+'</button></div>':'';const others=city?options.filter(c=>c!==city):options;return '<h2 class="city-heading">'+(city?'Выбран город: '+escape(city):'Выберите город')+'</h2>'+picker+'<nav class="city-tabs" aria-label="Город приёма" '+(city&&!cityListOpen?'hidden':'')+'>'+(city&&!cityListOpen?'':others.map(tab).join(''))+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
   function reviewPanel(r){if(!r.review)return '';const v=r.review;return '<details class="reviews"><summary>Отзывы <span class="review-hide">· скрыть</span></summary><p>'+escape(v.summary)+'</p><small>'+escape(v.label)+' · '+escape(v.checked)+'</small><a href="'+escape(v.url)+'" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a></details>'}
   function thumb(c,city) {
     const cover=c;
@@ -75,7 +75,7 @@
     }).join('')+'</div>';
   }
   function media(c,city) {return '<section class="profile-banner">'+thumb(c,city)+'</section>'}
-  let shellKey,searchOpen=false;
+  let shellKey,searchOpen=false,cityListOpen=false;
   function matched(r,q) {
     const text=norm([r.name,r.note,r.city,r.specialties,...Object.values(r.categoryDetails||{}).flatMap(x=>[x.name,x.note,x.specialties]),...categoriesFor(r).map(id=>data.categories.find(c=>c.id===id).name),...r.phones].join(' '));
     const terms=norm(q).split(' ').filter(Boolean);
@@ -101,7 +101,8 @@
       $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';
       $('profileMedia').innerHTML=category?media(category,cityName):branch&&branch!=='education'?'<section class="profile-banner">'+branchCover(branch)+'</section>':'';
-      document.querySelector('.finder').hidden=!branch&&!favorites&&!globalSearch;
+      const phoneFolder=Boolean(category&&!category.children&&data.records.some(r=>categoriesFor(r).includes(category.id)));
+      document.querySelector('.finder').hidden=(!branch&&!favorites&&!globalSearch)||phoneFolder||branch==='education'||Boolean(contactId)||favorites;
       $('search').placeholder=branch==='doctors'?(cityName?'Поиск врачей по '+citySearch[cityName]:'Поиск врачей'):branch==='education'?'Предмет, имя или телефон':'Специальность, имя или телефон';
     }
     $('search').setAttribute('aria-label',$('search').placeholder);
@@ -150,9 +151,12 @@
   $('searchToggle').addEventListener('click',()=>{if(searchOpen){searchOpen=false;$('search').value='';$('search').blur();render();return}searchOpen=true;$('search').focus({preventScroll:true});render()});
   $('clear').addEventListener('click',()=>{searchOpen=false;$('search').value='';$('search').blur();render()});
   document.addEventListener('click',event=>{
+    const cityListToggle=event.target.closest('#cityListToggle');
+    if(cityListToggle){cityListOpen=!cityListOpen;render();return}
     const city=event.target.closest('a.city-tab');
     if(city&&event.button===0&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&!event.altKey){
       event.preventDefault();
+      cityListOpen=false;
       const navigation=$('cityNavigation'),page=document.querySelector('.page');
       const top=navigation.getBoundingClientRect().top;
       // Keep short city lists from clamping scroll while the content is replaced.
@@ -174,7 +178,7 @@
   });
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null){saved=readSaved();if(data&&route().favorites)render();else syncFavorites()}});
   document.addEventListener('pointerdown',event=>{const el=event.target.closest('a,button');if(el){el.classList.add('tap-lit');setTimeout(()=>el.classList.remove('tap-lit'),680)}},{passive:true});
-  window.addEventListener('hashchange',()=>{document.querySelector('.page').style.minHeight='';searchOpen=false;$('search').value='';$('search').blur();render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
+  window.addEventListener('hashchange',()=>{document.querySelector('.page').style.minHeight='';searchOpen=false;cityListOpen=false;$('search').value='';$('search').blur();render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
   try{const response=await fetch('data.json?v=20260930-14',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
   catch{$('content').innerHTML='<p class="empty error">Не удалось загрузить контакты. Проверьте соединение и обновите страницу.</p>'; $('topNav').innerHTML=homeLink;$('bottomNav').innerHTML=homeLink;}
 })();
