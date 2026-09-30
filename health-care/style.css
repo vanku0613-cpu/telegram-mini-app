@@ -130,3 +130,6 @@ body[data-education=true] .back-row:not(:has(.secondary)) .back-btn{width:min(10
 .category-tile.plain-tile small{padding-right:18px}
 .category-tile.plain-tile .tile-arrow{position:absolute;right:9px;bottom:8px;font-size:25px}
 @media(max-width:350px){.category-tile.plain-tile strong{font-size:12px}}
+.branch-card.plain-branch.doctors .branch-copy{padding-right:20px}
+.branch-card.plain-branch.doctors h2{font-size:clamp(11px,3.2vw,14px);letter-spacing:-.04em;white-space:nowrap;word-break:normal;overflow-wrap:normal;hyphens:none}
+.branch-card.plain-branch.doctors .tile-arrow{right:6px;font-size:23px}
