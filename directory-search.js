@@ -9,10 +9,11 @@
  const norm=v=>String(v||'').toLocaleLowerCase().replace(/[ёє]/g,'е').replace(/[ії]/g,'и').replace(/[’'`]/g,'').replace(/\s+/g,' ').trim();
  const esc=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let data,pending,expanded=false;
- function position(){if(panel.hidden)return;const r=input.closest('.search-wrap').getBoundingClientRect();const viewport=window.visualViewport;const bottom=(viewport?viewport.height+viewport.offsetTop:innerHeight);panel.style.left=r.left+'px';panel.style.top=(r.bottom+8)+'px';panel.style.width=r.width+'px';panel.style.maxHeight=Math.max(120,bottom-r.bottom-20)+'px'}
+ function position(){if(panel.hidden)return;const r=input.closest('.search-wrap').getBoundingClientRect();const viewport=window.visualViewport;const viewportBottom=(viewport?viewport.height+viewport.offsetTop:innerHeight);const nav=document.querySelector('.bottom');const navTop=nav?nav.getBoundingClientRect().top:viewportBottom;const bottom=Math.min(viewportBottom,navTop-12);panel.style.left=r.left+'px';panel.style.top=(r.bottom+8)+'px';panel.style.width=r.width+'px';panel.style.maxHeight=Math.max(0,bottom-r.bottom-8)+'px'}
  function matches(r,q){const cats=(r.categories||[r.category]).map(id=>data.categories.find(c=>c.id===id)?.name||'');const hay=norm([r.name,r.note,r.specialties,r.city,...Object.values(r.categoryDetails||{}).flatMap(x=>[x.name,x.note,x.specialties]),...cats,...r.phones].join(' '));const digits=q.replace(/\D/g,'').replace(/^38(?=0)/,'');return norm(q).split(' ').every(t=>hay.includes(t))||(digits.length>=3&&r.phones.some(p=>p.includes(digits)))}
  function syncToggle(){if(!toggle)return;toggle.setAttribute('aria-expanded',String(expanded));toggle.setAttribute('aria-label',expanded?'Закрыть поиск':'Открыть поиск')}
  function close(clear=true){expanded=false;if(clear)input.value='';input.blur();syncToggle();render()}
+ function resetForHome(){if(input.value.trim()||expanded||!panel.hidden)close(true)}
  function render(){
   const q=input.value.trim(),terms=norm(q).split(' ');
   const sections=cards.filter(c=>terms.every(t=>norm(c.dataset.title+' '+c.dataset.search).includes(t)));
@@ -33,6 +34,8 @@
  input.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();close()}if(e.key==='Enter'&&input.value.trim()){e.preventDefault();input.blur();expanded=false;syncToggle();location.assign(health.href+'#search/'+encodeURIComponent(input.value.trim()))}});
  toggle?.addEventListener('pointerdown',e=>e.preventDefault());
  toggle?.addEventListener('click',()=>{if(expanded){close();return}expanded=true;syncToggle();input.focus({preventScroll:true});render()});
+ window.addEventListener('izmail:refresh',resetForHome);
+ window.addEventListener('pageshow',resetForHome);
  panel.addEventListener('click',e=>{if(e.target.closest('[data-clear-search]'))close();if(e.target.closest('[data-retry-search]')){panel.innerHTML='<p>Загружаем контакты…</p>';load()}});
  addEventListener('resize',position);addEventListener('scroll',position,{passive:true});window.visualViewport?.addEventListener('resize',position);window.visualViewport?.addEventListener('scroll',position);
 })();

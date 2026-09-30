@@ -87,6 +87,10 @@ test('home, current buttons, nested returns and future delegated buttons', async
         const destination = selector === '#groupsBtn' ? '/our-groups-menu/' : selector === '#shelterBtn' ? '/ukrytia/' : '/soglashenie/';
         await page.locator(selector).click();
         await page.waitForURL(origin + destination);
+        if (selector === '#agreement') {
+          assert.equal(await page.getByText('Лицензии изображений').count(), 0);
+          assert.match(await page.locator('.back-btn').first().evaluate(el => getComputedStyle(el).backgroundImage), /34, 108, 163/);
+        }
         assert.equal(await page.evaluate(() => history.state.izmailNavigationV5.depth), 1);
         const back = selector === '#groupsBtn' ? '.back' : '.back-btn';
         await page.locator(back).first().click();
