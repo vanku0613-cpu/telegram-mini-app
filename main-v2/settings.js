@@ -266,7 +266,7 @@ window.IZMAIL_SETTINGS = {
       "",
 
     "Отдых • Жильё • Море":
-      ""
+      "../recreation/"
 
   },
 

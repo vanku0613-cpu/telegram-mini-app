@@ -46,6 +46,7 @@ test('food and delivery directory switches four sections and keeps contact links
     assert.ok(phones.includes('tel:+380639993132'));
     assert.ok(await page.locator('a[href="https://dostavochka.in.ua/catalog"]').count() >= 1);
     assert.equal(await page.locator('a[href="https://capofood.choiceqr.com/section:menyu/burgeri-333"]').count(), 1);
+    assert.equal(await page.locator('a[href*="t.me/SPRAVOCHNIK_IZMAIL"]').count(), 0, 'food cards do not link back to source posts');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
     await page.setViewportSize({ width: 320, height: 780 });
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);

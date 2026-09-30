@@ -45,13 +45,14 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     assert.equal(await page.locator('.city-tab[aria-current=true]').count(),0);
     assert.equal(await page.locator('.category-tile, .contact').count(),0);
     assert.equal(await page.locator('.city-heading').innerText(),'Выберите город');
-    assert.ok(parseFloat(await page.locator('.city-tab span').first().evaluate(e=>getComputedStyle(e).fontSize))>=13,'city labels should be easy to read');
+    assert.ok(parseFloat(await page.locator('.city-tab span').first().evaluate(e=>getComputedStyle(e).fontSize))>=16,'city labels should be very easy to read');
     assert.equal(await page.locator('.city-tab span').first().evaluate(e=>getComputedStyle(e).whiteSpace),'nowrap','city names stay on one line');
     assert.equal(await page.locator('#search').getAttribute('placeholder'),'Поиск врачей');
     for(const viewport of [{width:320,height:568},{width:390,height:664},{width:768,height:768}]){
       await page.setViewportSize(viewport);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight),true,JSON.stringify(viewport));
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+      assert.ok(await page.locator('.city-tab span').evaluateAll(items=>items.every(e=>e.scrollWidth<=e.clientWidth)),'city labels fit inside the existing buttons');
     }
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:900});

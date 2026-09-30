@@ -69,8 +69,8 @@ body[data-doctors=true] .profile-banner .generated-cover{height:110px}
 @media(max-height:620px){body[data-doctors=true] .profile-banner .generated-cover{height:80px}}
 
 /* Larger, single-line labels for the main menu, health categories and city picker. */
-.city-tab span{font-size:clamp(14px,3.9vw,18px);font-weight:900;line-height:1.1;white-space:nowrap}
-.city-tab{font-size:clamp(14px,3.9vw,18px)}
+.city-tab span{font-size:clamp(16px,5vw,21px);font-weight:900;line-height:1.1;white-space:nowrap}
+.city-tab{font-size:clamp(16px,5vw,21px)}
 .city-heading{font-size:clamp(19px,5vw,24px)}
 .category-tile strong,.category-tile .title,.branch-card .branch-copy h2{font-size:clamp(16px,4.2vw,21px);line-height:1.12}
 .category-tile strong,.category-tile .title{white-space:nowrap}
@@ -94,4 +94,4 @@ body[data-education=true] h1{font-size:clamp(23px,6vw,34px);letter-spacing:-.6px
 .city-heading{font-size:16px}
 body[data-doctors=true] .city-selection{max-width:480px;margin:0 auto 8px}
 body[data-doctors=true] .city-selection .city-tab{aspect-ratio:2.2}
-@media(max-width:350px){.back-row:has(.secondary){gap:6px}.back-row .back-btn{padding:6px 5px;font-size:13px}.city-selection{gap:6px}.city-selection button{font-size:13px}.city-tab span{font-size:13px}}
+@media(max-width:350px){.back-row:has(.secondary){gap:6px}.back-row .back-btn{padding:6px 5px;font-size:13px}.city-selection{gap:6px}.city-selection button{font-size:13px}.city-tab span{font-size:16px}}

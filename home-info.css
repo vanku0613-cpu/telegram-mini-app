@@ -4,8 +4,13 @@
 #app .top-row{height:calc(4.75% + var(--info-growth));margin-top:calc(var(--info-growth) * -1.045);grid-template-columns:repeat(3,minmax(0,1fr))}
 #app .viewer{margin-top:calc(var(--info-growth) * -1.09)}
 #app .weather-panel{padding:4px 6px!important}
+#app .weather-panel{align-items:center!important;justify-content:center!important}
+#app .weather-panel .info-title,#app .weather-panel .temp,#app .weather-panel .condition{display:block;flex:none;width:calc(100% - 29px);max-width:calc(100% - 29px)!important;margin-left:auto!important;margin-right:auto!important;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#app .weather-panel .info-title{height:9px;min-height:9px;line-height:9px!important}
+#app .weather-panel .temp{height:18px;min-height:18px;line-height:18px!important;margin-top:2px!important}
+#app .weather-panel .condition{height:9px;min-height:9px;line-height:9px!important;margin-top:2px!important}
 #app .weather-panel .temp{font-size:clamp(12px,3.05vw,16px)!important;line-height:1!important}
-#app .weather-panel .condition{max-width:100%!important;white-space:normal;font-size:clamp(7px,1.8vw,9px)!important;line-height:1.12!important;overflow:visible}
+#app .weather-panel .condition{max-width:calc(100% - 29px)!important;white-space:nowrap!important;font-size:clamp(7px,1.8vw,9px)!important;line-height:9px!important;overflow:hidden!important}
 #app .weather-mini{top:5px;transform:none;width:20px!important;height:20px!important;font-size:13px!important}
 #app .currency-panel{padding:4px 6px!important}
 .rates-updated{position:relative;z-index:3;display:block;margin-top:4px;color:#c6dce9;font-size:clamp(6.5px,1.65vw,8px);line-height:1.12;white-space:nowrap;font-variant-numeric:tabular-nums}
