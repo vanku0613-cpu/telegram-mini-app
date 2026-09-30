@@ -884,6 +884,7 @@ a.nav{ text-decoration:none; }
 <link rel="stylesheet" href="../home-info.css?v=3">
 <script src="../home-feedback.js?v=1" defer></script>
 <script src="../weather-profile.js?v=2"></script>
+<link rel="stylesheet" href="../directory-search.css?v=1">
 </head>
 <body>
 <div id="app">
@@ -1462,19 +1463,8 @@ a.nav{ text-decoration:none; }
   viewCounterScript.src = "../view-counter.js?v=2";
   document.head.appendChild(viewCounterScript);
 
-  /* SEARCH */
-  var search=document.getElementById("directorySearch");
+  /* Search results are handled by directory-search.js. */
   var cards=document.querySelectorAll(".card");
-  if(search){
-    search.addEventListener("input",function(){
-      var q=String(search.value||"").toLowerCase().trim();
-      for(var i=0;i<cards.length;i++){
-        var card=cards[i];
-        var hay=((card.getAttribute("data-title")||"")+" "+(card.getAttribute("data-search")||"")).toLowerCase();
-        card.style.display=(!q || hay.indexOf(q)!==-1) ? "" : "none";
-      }
-    });
-  }
 
   /* LIVE WEATHER PANEL */
   var weatherPending=false;
@@ -1589,5 +1579,6 @@ a.nav{ text-decoration:none; }
 })();
 
 </script>
+<script src="../directory-search.js?v=1"></script>
 </body>
 </html>

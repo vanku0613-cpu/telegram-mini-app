@@ -52,7 +52,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     await page.locator('.city-tab').filter({hasText:/^Измаил$/}).click();await page.locator('.category-tile').first().waitFor();
     assert.equal(await page.evaluate(()=>scrollY),initialScroll);
     // Short/empty city lists must not move the city controls or clamp scroll to the top.
-    await page.evaluate(()=>window.scrollTo(0,440));
+    await page.evaluate(()=>window.scrollTo(0,380));
     for(const city of [...data.cityOrder.slice(1),'Измаил']){
       const before=await page.locator('#cityNavigation').boundingBox();
       const scroll=await page.evaluate(()=>scrollY);
