@@ -788,16 +788,37 @@ function izmailSearchIsActive() {
       appRect.left +
       weatherRect.width / 2;
 
+    // Match the visible width after settings.js scales the two elements.
+    var viewerScale = parseFloat(window.getComputedStyle(viewer).scale);
+
+    if (!isFinite(viewerScale) || viewerScale <= 0) {
+
+      viewerScale = 1;
+
+    }
+
+    var alignedWidth = weatherRect.width / viewerScale;
+
     viewer.style.setProperty(
       "--weather-button-width",
-      weather.offsetWidth.toFixed(2) + "px"
+      alignedWidth.toFixed(2) + "px"
     );
 
-    viewer.style.setProperty("width", weather.offsetWidth.toFixed(2) + "px", "important");
+    viewer.style.setProperty("width", alignedWidth.toFixed(2) + "px", "important");
 
 
-    viewer.style.left =
-      centerX.toFixed(2) + "px";
+    viewer.style.setProperty("left", centerX.toFixed(2) + "px", "important");
+
+    var viewerRect = viewer.getBoundingClientRect();
+
+    var renderedCenterX =
+      viewerRect.left -
+      appRect.left +
+      viewerRect.width / 2;
+
+    var correctedLeft = centerX + centerX - renderedCenterX;
+
+    viewer.style.setProperty("left", correctedLeft.toFixed(2) + "px", "important");
 
   }
 

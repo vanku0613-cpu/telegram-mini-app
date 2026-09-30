@@ -30,17 +30,23 @@ test('both actual entry pages load the shared counter without changing other mar
     });
     await context.route(/https:\/\/(?!abacus\.jasoncameron\.dev)/, route => route.abort());
     const page = await context.newPage();
-    await page.setViewportSize({ width: 390, height: 844 });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    for (const entry of ['/', '/main-v2/']) {
-      await page.goto(origin + entry);
-      await page.waitForFunction(() => document.getElementById('viewCount').textContent.replace(/\s/g, '') === '1234');
-      await page.waitForTimeout(100);
-      const widths = await page.evaluate(() => ({
+    for (const width of [320, 390, 430]) {
+      await page.setViewportSize({ width, height: 844 });
+      for (const entry of ['/', '/main-v2/']) {
+        await page.goto(origin + entry);
+        await page.waitForFunction(() => document.getElementById('viewCount').textContent.replace(/\s/g, '') === '1234');
+        await page.waitForTimeout(100);
+        const widths = await page.evaluate(() => {
+          const viewerRect = document.querySelector('.viewer').getBoundingClientRect();
+          const weatherRect = document.querySelector('#weatherPanel').getBoundingClientRect();
+          return {
         innerWidth, clientWidth: document.documentElement.clientWidth, appWidth: document.querySelector('#app').offsetWidth, screenWidth: screen.width, dpr: devicePixelRatio,
-        viewer: document.querySelector('.viewer').getBoundingClientRect().width,
-        weather: document.querySelector('#weatherPanel').getBoundingClientRect().width,
+        viewer: viewerRect.width,
+        weather: weatherRect.width,
+        viewerCenter: viewerRect.left + viewerRect.width / 2,
+        weatherCenter: weatherRect.left + weatherRect.width / 2,
         viewerOffset: document.querySelector('.viewer').offsetWidth,
         weatherOffset: document.querySelector('#weatherPanel').offsetWidth,
         row: getComputedStyle(document.querySelector('.top-row')).gridTemplateColumns,
@@ -53,10 +59,13 @@ test('both actual entry pages load the shared counter without changing other mar
         rowWidth: document.querySelector('.top-row').offsetWidth,
         viewerScale: getComputedStyle(document.querySelector('.viewer')).scale,
         weatherScale: getComputedStyle(document.querySelector('#weatherPanel')).scale
-      }));
+          };
+        });
       assert.ok(Math.abs(widths.viewer - widths.weather) < 1, JSON.stringify(widths));
+      assert.ok(Math.abs(widths.viewerCenter - widths.weatherCenter) < 1, JSON.stringify(widths));
       assert.ok(await page.locator('.card').count() > 0);
       assert.equal(await page.locator('#directorySearch').count(), 1);
+      }
     }
     assert.equal(hits, 1, 'both entry pages share the same device interval');
     assert.deepEqual(errors, []);

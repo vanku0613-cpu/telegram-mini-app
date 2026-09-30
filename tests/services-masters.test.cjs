@@ -15,7 +15,7 @@ test('services and masters follow the source category hierarchy and keep contact
       res.writeHead(404);
       return res.end();
     }
-    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : 'text/html; charset=utf-8');
+    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : /\.(jpe?g)$/i.test(file) ? 'image/jpeg' : 'text/html; charset=utf-8');
     res.end(fs.readFileSync(file));
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -30,6 +30,15 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.deepEqual(await page.locator('.category strong').allTextContents(), ['Электрик / сантехник','Строительство / ремонт','Услуги по дому / участку','Бытовая техника','Окна и двери','Авто / мототехника','IT и техника']);
     assert.equal(await page.getByText('Мебель', { exact: true }).count(), 0, 'empty furniture source category is omitted');
     assert.ok(await page.locator('.category .art').count() >= 7, 'category cards use newly drawn illustrations');
+    const coverOrder = await page.evaluate(() => ({ art: document.querySelector('.cover-art').getBoundingClientRect().top, title: document.querySelector('.cover h1').getBoundingClientRect().top, home: document.querySelector('.home-back').getBoundingClientRect().top }));
+    assert.ok(coverOrder.art < coverOrder.title && coverOrder.title < coverOrder.home, 'cover artwork appears before title and return navigation');
+
+    await page.getByRole('button', { name: /Строительство \/ ремонт/ }).click();
+    const turnkey = page.getByRole('button', { name: /Ремонт под ключ/ });
+    await turnkey.locator('img').evaluate(img => img.decode());
+    assert.equal(await turnkey.locator('img').getAttribute('src'), 'repair-underway.jpg');
+    assert.ok(await turnkey.locator('img').evaluate(img => img.naturalWidth >= 900), 'turnkey repair tile uses a local high-resolution photo');
+    await page.locator('[data-back]').click();
 
     await page.getByRole('button', { name: /Электрик \/ сантехник/ }).click();
     assert.deepEqual(await page.locator('.subcat strong').allTextContents(), ['Электрик','Сантехник','Чистка канализации']);

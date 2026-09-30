@@ -52,7 +52,7 @@
     ['Другие специалисты',['96313','96314','96318']],
     ['Ветеринарная помощь',['20125']]
   ];
-  function branchCover(id){const file=id==='doctors'?'doctors-cover.jpg':'beauty-cover.jpg';return '<div class="visual generated-cover"><img src="media/'+file+'" alt="Справочник Измаил — '+branches[id]+'" width="960" height="640" draggable="false"></div>'}
+  function branchCover(id){const file=id==='doctors'?'doctors-cover.jpg':id==='beauty'?'beauty-cover.jpg':'cover-96203.jpg';return '<div class="visual generated-cover"><img src="media/'+file+'" alt="Справочник Измаил — '+branches[id]+'" width="960" height="640" draggable="false"></div>'}
   function cityTabs(city,q=''){const options=cities(),tab=c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'><img src="media/city-'+cityImages[c]+'.jpg" alt="" width="330" height="220"><span>'+escape(c)+'</span></a>';const picker=city?'<div class="city-selection">'+tab(city)+'<button id="cityListToggle" type="button" aria-expanded="'+String(cityListOpen)+'">'+(cityListOpen?'Скрыть города ↑':'Другие города ↓')+'</button></div>':'';const others=city?options.filter(c=>c!==city):options;return '<h2 class="city-heading">'+(city?'Выбран город: '+escape(city):'Выберите город')+'</h2>'+picker+'<nav class="city-tabs" aria-label="Город приёма" '+(city&&!cityListOpen?'hidden':'')+'>'+(city&&!cityListOpen?'':others.map(tab).join(''))+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
   function reviewPanel(r){if(!r.review)return '';const v=r.review;return '<details class="reviews"><summary>Отзывы <span class="review-hide">· скрыть</span></summary><p>'+escape(v.summary)+'</p><small>'+escape(v.label)+' · '+escape(v.checked)+'</small><a href="'+escape(v.url)+'" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a></details>'}
   function thumb(c,city) {
@@ -101,7 +101,7 @@
       $('topNav').innerHTML=back+homeLink;$('bottomNav').innerHTML=back+homeLink;
       $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';
-      $('profileMedia').innerHTML=category?media(category,cityName):branch&&branch!=='education'?'<section class="profile-banner">'+branchCover(branch)+'</section>':'';
+      $('profileMedia').innerHTML=category?media(category,cityName):branch?'<section class="profile-banner">'+branchCover(branch)+'</section>':'';
       const phoneFolder=Boolean(category&&!category.children&&data.records.some(r=>categoriesFor(r).includes(category.id)));
       document.querySelector('.finder').hidden=(!branch&&!favorites&&!globalSearch)||phoneFolder||branch==='education'||Boolean(contactId)||favorites;
       $('search').placeholder=branch==='doctors'?(cityName?'Поиск врачей по '+citySearch[cityName]:'Поиск врачей'):branch==='education'?'Предмет, имя или телефон':'Специальность, имя или телефон';
