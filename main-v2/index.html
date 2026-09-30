@@ -349,6 +349,7 @@ a.nav{ text-decoration:none; }
 .weather-panel{
   padding:4px 7px !important;
   justify-content:center !important;
+  align-items:stretch !important;
 }
 
 .weather-panel .info-title{
@@ -357,27 +358,44 @@ a.nav{ text-decoration:none; }
   text-decoration:none !important;
   opacity:.82;
   letter-spacing:.025em;
+  width:calc(100% - 29px);
+  max-width:calc(100% - 29px);
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
 }
 
 .weather-panel .temp{
   margin-top:2px !important;
   font-size:clamp(13px,3.35vw,18px) !important;
   line-height:.95 !important;
+  width:calc(100% - 29px);
+  max-width:calc(100% - 29px);
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
 }
 
 .weather-panel .condition{
   margin-top:2px !important;
-  max-width:72% !important;
+  width:calc(100% - 29px);
+  max-width:calc(100% - 29px) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
   font-size:clamp(6.7px,1.55vw,8.8px) !important;
   line-height:1 !important;
   opacity:.96 !important;
+  text-align:center;
 }
 
 .weather-extra{
   position:relative;
   z-index:5;
-  max-width:76%;
+  width:calc(100% - 29px);
+  max-width:calc(100% - 29px);
   margin-top:2px;
+  margin-left:auto;
+  margin-right:auto;
   color:rgba(220,240,255,.76);
   font-size:clamp(5.7px,1.28vw,7.4px);
   font-weight:700;
@@ -385,6 +403,7 @@ a.nav{ text-decoration:none; }
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
+  text-align:center;
 }
 
 .weather-mini{

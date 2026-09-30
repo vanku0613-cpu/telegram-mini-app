@@ -292,7 +292,7 @@ window.IZMAIL_SETTINGS = {
       "",
 
     "Коммунальные службы":
-      "",
+      "./communal-services/",
 
     "Работа / Вакансии":
       "https://t.me/rabota_v_izmaile",

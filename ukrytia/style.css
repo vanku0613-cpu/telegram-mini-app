@@ -42,10 +42,4 @@
 .back-btn::before{content:"←";font-size:1.2em;line-height:1}
 .back-btn{gap:7px;min-height:48px;font-size:15px}
 
-.legacy-shelters{margin-top:18px;padding:13px 14px;border:1px solid #4e6677;border-radius:12px;background:#0b2338;color:#b8cbda;font-size:12px}
-.legacy-shelters summary{color:#f0d2a6;font-weight:700;cursor:pointer;line-height:1.4}
-.legacy-shelters p{line-height:1.5}
-.legacy-shelters ul{margin:8px 0;padding-left:20px}
-.legacy-shelters li{margin:5px 0}
-.legacy-shelters a{color:#a9dcf1}
 @media(max-width:350px){.filters{gap:4px}.filters button{padding:7px 2px;font-size:9px}}
