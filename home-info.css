@@ -28,3 +28,7 @@
 #app .currency-panel .rate{margin-top:1px!important;column-gap:3px!important}#app .currency-panel .rate + .rate{margin-top:1px!important}.rates-updated{margin-top:3px}
 
 #app .currency-panel .rate{justify-content:center!important;column-gap:4px!important;transform:translateY(2px)}
+
+/* A single central axis for the exchange title, numbers and date. */
+#app .currency-panel .info-title{justify-content:center!important;text-align:center;width:100%}
+#app .currency-panel .rates-updated{text-align:center;width:100%}

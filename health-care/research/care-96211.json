@@ -1,0 +1,70 @@
+{
+  "category": {
+    "id": "96211",
+    "branch": "care",
+    "name": "Помощь и уход",
+    "media": [
+      {
+        "type": "image",
+        "src": "media/cover-96211.jpg",
+        "poster": "media/cover-96211.jpg"
+      }
+    ],
+    "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96211",
+    "order": 61,
+    "count": 4,
+    "note": ""
+  },
+  "source": {
+    "label": "Подборка услуг ухода",
+    "url": "https://t.me/SPRAVOCHNIK_IZMAIL/96211",
+    "checked": "2026-09-30",
+    "kind": "community"
+  },
+  "records": [
+    {
+      "id": "care-pension",
+      "name": "Пансионат «Долина Солнца»",
+      "city": "Великодолинское",
+      "phones": [
+        "0982328913",
+        "0689346716"
+      ],
+      "note": "Пансионат для пожилых людей в Великодолинском.",
+      "category": "96211",
+      "source": "care-telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "care-mother",
+      "name": "Вільна мама · дополнительный номер",
+      "city": "Измаил",
+      "phones": [
+        "0938302578"
+      ],
+      "note": "Уход за детьми от 1 года без предварительной записи.",
+      "category": "96211",
+      "source": "care-telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "care-carer",
+      "name": "Сиделка · уход и помощь по дому",
+      "city": "Измаил",
+      "phones": [
+        "0978430369"
+      ],
+      "note": "Опыт ухода за лежачими больными. Услуги повара и помощь по дому.",
+      "category": "96211",
+      "source": "care-telegram",
+      "phoneLabel": "Контакт из подборки"
+    }
+  ],
+  "shared": {
+    "96211": {
+      "name": "Вільна мама",
+      "specialties": "Уход за детьми",
+      "note": "Уход за детьми от 1 года без предварительной записи. Этот номер также указан в подборке логопедов как «Зайці-LAND»."
+    }
+  }
+}

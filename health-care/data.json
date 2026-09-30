@@ -4,7 +4,6 @@
     "Килия",
     "Болград",
     "Рени",
-    "Татарбунары",
     "Одесса",
     "Киев"
   ],
@@ -605,18 +604,6 @@
       "checked": "2026-09-30",
       "kind": "official"
     },
-    "web-tatar-hospital": {
-      "label": "Публичная страница учреждения",
-      "url": "https://tatarbunarybl.net.ua/kontakty",
-      "checked": "2026-09-30",
-      "kind": "official"
-    },
-    "web-tatar-family": {
-      "label": "Публичная страница учреждения",
-      "url": "https://tatarbunarsk.pmsd.org.ua/zagalna-informatsiya/",
-      "checked": "2026-09-30",
-      "kind": "official"
-    },
     "web-odesa-yanko": {
       "label": "Публичная страница учреждения",
       "url": "https://yanko.od.ua/ru/gorchag-denis-mihajlovich/",
@@ -646,6 +633,12 @@
       "url": "https://odrda.od.gov.ua/wp-content/uploads/2025/04/katalog_-poslug_vnp-odeski-gromady-510-punktiv-z-inform-vid-fondu-invalidiv.pdf",
       "checked": "2026-09-30",
       "kind": "official"
+    },
+    "care-telegram": {
+      "label": "Подборка услуг ухода",
+      "url": "https://t.me/SPRAVOCHNIK_IZMAIL/96211",
+      "checked": "2026-09-30",
+      "kind": "community"
     }
   },
   "categories": [
@@ -662,7 +655,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96228",
       "order": 0,
-      "count": 19,
+      "count": 18,
       "note": ""
     },
     {
@@ -678,7 +671,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96229",
       "order": 1,
-      "count": 11,
+      "count": 10,
       "note": ""
     },
     {
@@ -1370,22 +1363,6 @@
       "note": ""
     },
     {
-      "id": "96323",
-      "branch": "doctors",
-      "name": "Ветврачи Татарбунары",
-      "media": [
-        {
-          "type": "image",
-          "src": "media/cover-96323.jpg",
-          "poster": "media/cover-96323.jpg"
-        }
-      ],
-      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96323",
-      "order": 45,
-      "count": 3,
-      "note": ""
-    },
-    {
       "id": "96045",
       "branch": "beauty",
       "name": "Парикмахеры",
@@ -1631,6 +1608,22 @@
       ],
       "order": 61,
       "count": 1,
+      "note": ""
+    },
+    {
+      "id": "96211",
+      "branch": "care",
+      "name": "Помощь и уход",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-96211.jpg",
+          "poster": "media/cover-96211.jpg"
+        }
+      ],
+      "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96211",
+      "order": 61,
+      "count": 4,
       "note": ""
     }
   ],
@@ -2454,7 +2447,21 @@
       "city": "Измаил",
       "note": "",
       "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
+      "phoneLabel": "Контакт из подборки",
+      "categories": [
+        "96291",
+        "96211"
+      ],
+      "additionalSources": [
+        "care-telegram"
+      ],
+      "categoryDetails": {
+        "96211": {
+          "name": "Вільна мама",
+          "specialties": "Уход за детьми",
+          "note": "Уход за детьми от 1 года без предварительной записи. Этот номер также указан в подборке логопедов как «Зайці-LAND»."
+        }
+      }
     },
     {
       "id": "r70",
@@ -3248,42 +3255,6 @@
       ],
       "city": "Измаил",
       "note": "Выезд на дом — уточнить при записи",
-      "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
-    },
-    {
-      "id": "r132",
-      "category": "96323",
-      "name": "Антон · ветеринар",
-      "phones": [
-        "0968701211"
-      ],
-      "city": "Татарбунары",
-      "note": "",
-      "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
-    },
-    {
-      "id": "r133",
-      "category": "96323",
-      "name": "Анатолий · ветеринар",
-      "phones": [
-        "0982677515"
-      ],
-      "city": "Татарбунары",
-      "note": "",
-      "source": "telegram",
-      "phoneLabel": "Контакт из подборки"
-    },
-    {
-      "id": "r134",
-      "category": "96323",
-      "name": "Виталик · ветеринар",
-      "phones": [
-        "0987970812"
-      ],
-      "city": "Татарбунары",
-      "note": "",
       "source": "telegram",
       "phoneLabel": "Контакт из подборки"
     },
@@ -5534,37 +5505,6 @@
       "source": "web-bolgrad"
     },
     {
-      "id": "web-tatar-hospital",
-      "city": "Татарбунары",
-      "name": "Татарбунарская многопрофильная больница",
-      "category": "96228",
-      "categories": [
-        "96228"
-      ],
-      "phones": [
-        "0976445111",
-        "0484431360"
-      ],
-      "note": "ул. Романа Гульченко, 16. Общие контакты учреждения: уточните доступного специалиста и запись.",
-      "phoneLabel": "Контакт больницы",
-      "source": "web-tatar-hospital"
-    },
-    {
-      "id": "web-tatar-family",
-      "city": "Татарбунары",
-      "name": "Татарбунарский ЦПМСП · дежурный врач",
-      "category": "96229",
-      "categories": [
-        "96229"
-      ],
-      "phones": [
-        "0689099865"
-      ],
-      "note": "На странице центра указан круглосуточный телефон дежурного врача, также Viber.",
-      "phoneLabel": "Дежурный врач центра",
-      "source": "web-tatar-family"
-    },
-    {
       "id": "web-odesa-yanko",
       "city": "Одесса",
       "name": "Горчаг Денис Михайлович · невролог",
@@ -5654,6 +5594,43 @@
       "note": "ул. Дунайская, 15. Контакт медицинской помощи из официального каталога Одеської РДА за 2025 год (стр. 203), в разделе помощи пострадавшим от взрывоопасных предметов. Текущий приём и возможность записи уточните; более свежий публичный номер специалиста не подтверждён.",
       "phoneLabel": "Контакт учреждения из каталога 2025 года",
       "source": "web-reni"
+    },
+    {
+      "id": "care-pension",
+      "name": "Пансионат «Долина Солнца»",
+      "city": "Великодолинское",
+      "phones": [
+        "0982328913",
+        "0689346716"
+      ],
+      "note": "Пансионат для пожилых людей в Великодолинском.",
+      "category": "96211",
+      "source": "care-telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "care-mother",
+      "name": "Вільна мама · дополнительный номер",
+      "city": "Измаил",
+      "phones": [
+        "0938302578"
+      ],
+      "note": "Уход за детьми от 1 года без предварительной записи.",
+      "category": "96211",
+      "source": "care-telegram",
+      "phoneLabel": "Контакт из подборки"
+    },
+    {
+      "id": "care-carer",
+      "name": "Сиделка · уход и помощь по дому",
+      "city": "Измаил",
+      "phones": [
+        "0978430369"
+      ],
+      "note": "Опыт ухода за лежачими больными. Услуги повара и помощь по дому.",
+      "category": "96211",
+      "source": "care-telegram",
+      "phoneLabel": "Контакт из подборки"
     }
   ]
 }

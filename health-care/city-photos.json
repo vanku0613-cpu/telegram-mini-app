@@ -10,8 +10,8 @@
   {
     "city": "Килия",
     "file": "media/city-kiliia.jpg",
-    "source": "https://commons.wikimedia.org/wiki/File:%D0%A1%D1%82%D0%B0%D1%80%D0%BE%D0%B2%D0%B8%D0%BD%D0%BD%D0%B0_%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F.jpg",
-    "author": "SalloAlex",
+    "source": "https://commons.wikimedia.org/wiki/File:Kiliya_blue_church.jpg",
+    "author": "V1snyk",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   },
@@ -26,26 +26,18 @@
   {
     "city": "Рени",
     "file": "media/city-reni.jpg",
-    "source": "https://commons.wikimedia.org/wiki/File:Memorial_in_Reni_01.jpg",
-    "author": "\n\n\nYuriy Kvach\n\n\n",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-  },
-  {
-    "city": "Татарбунары",
-    "file": "media/city-tatarbunary.jpg",
-    "source": "https://commons.wikimedia.org/wiki/File:Dormition_church_in_Tatarbunary_02.jpg",
-    "author": "\n\n\nYuriy Kvach\n\n\n",
+    "source": "https://commons.wikimedia.org/wiki/File:Ascension_Cathedral,_Reni_1.jpg",
+    "author": "Yakudza",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   },
   {
     "city": "Одесса",
     "file": "media/city-odesa.jpg",
-    "source": "https://commons.wikimedia.org/wiki/File:%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D1%86%D0%BE%D0%B2%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D0%BC%D0%B0%D1%8F%D0%BA_17.jpg",
-    "author": "Nata Naval",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+    "source": "https://commons.wikimedia.org/wiki/File:Odessa_opera_theater.jpg",
+    "author": "Romankravchuk",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   },
   {
     "city": "Киев",

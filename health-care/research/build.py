@@ -91,15 +91,18 @@ from import_workbook import import_workbook
 records=import_workbook(records,sources)
 from city_contacts import add_city_contacts
 add_city_contacts(records,sources)
+from editorial import apply_editorial
+records,categories=apply_editorial(records,categories,sources)
 for i,c in enumerate(categories):
  c['order']=i
  c['count']=sum(c['id'] in r.get('categories',[r['category']]) for r in records)
  c['note']='Дополнительные немедицинские практики; не замена медицинской помощи.' if c['id']=='96054' else ''
-result={'cityOrder':['Измаил','Килия','Болград','Рени','Татарбунары','Одесса','Киев'],'updated':'2026-09-30','sources':sources,'categories':categories,'records':records}
+result={'cityOrder':['Измаил','Килия','Болград','Рени','Одесса','Киев'],'updated':'2026-09-30','sources':sources,'categories':categories,'records':records}
 (ROOT.parent/'data.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
 # Audit every full telephone number in every supplied category.
 missing=[]
 for c in data:
+ if c['id']=='96323':continue # Removed at the owner's request.
  original=set(re.findall(r'(?<!\d)0\d{9}(?!\d)',c.get('text','').replace(' ','').replace('\xa0','')))
  transferred={p for r in records if c['id'] in r.get('sourceCategories',r.get('categories',[r['category']])) for p in r['phones']}
  if original-transferred:missing.append((c['id'],list(original-transferred)))

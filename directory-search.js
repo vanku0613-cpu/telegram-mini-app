@@ -9,7 +9,7 @@
  const esc=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let data,pending;
  function position(){if(panel.hidden)return;const r=input.closest('.search-wrap').getBoundingClientRect();const viewport=window.visualViewport;const bottom=(viewport?viewport.height+viewport.offsetTop:innerHeight);panel.style.left=r.left+'px';panel.style.top=(r.bottom+8)+'px';panel.style.width=r.width+'px';panel.style.maxHeight=Math.max(120,bottom-r.bottom-20)+'px'}
- function matches(r,q){const cats=(r.categories||[r.category]).map(id=>data.categories.find(c=>c.id===id)?.name||'');const hay=norm([r.name,r.note,r.specialties,r.city,...cats,...r.phones].join(' '));const digits=q.replace(/\D/g,'').replace(/^38(?=0)/,'');return norm(q).split(' ').every(t=>hay.includes(t))||(digits.length>=3&&r.phones.some(p=>p.includes(digits)))}
+ function matches(r,q){const cats=(r.categories||[r.category]).map(id=>data.categories.find(c=>c.id===id)?.name||'');const hay=norm([r.name,r.note,r.specialties,r.city,...Object.values(r.categoryDetails||{}).flatMap(x=>[x.name,x.note,x.specialties]),...cats,...r.phones].join(' '));const digits=q.replace(/\D/g,'').replace(/^38(?=0)/,'');return norm(q).split(' ').every(t=>hay.includes(t))||(digits.length>=3&&r.phones.some(p=>p.includes(digits)))}
  function close(){input.value='';render();input.focus({preventScroll:true})}
  function render(){
   const q=input.value.trim(),terms=norm(q).split(' ');
@@ -26,7 +26,7 @@
    (!results.length&&!sections.some(c=>c.dataset.nav)?'<p>Ничего не найдено. Попробуйте имя, специальность, город или номер.</p>':'');
   position();
  }
- function load(){if(data||pending)return pending;pending=fetch(new URL('data.json?v=20260930-8',health),{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('contacts');return r.json()}).then(d=>{data=d;pending=null;render()}).catch(()=>{pending=null;if(!input.value.trim())return;panel.innerHTML='<p>Не удалось загрузить контакты.</p><button type="button" data-retry-search>Повторить</button>';position()});return pending}
+ function load(){if(data||pending)return pending;pending=fetch(new URL('data.json?v=20260930-10',health),{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('contacts');return r.json()}).then(d=>{data=d;pending=null;render()}).catch(()=>{pending=null;if(!input.value.trim())return;panel.innerHTML='<p>Не удалось загрузить контакты.</p><button type="button" data-retry-search>Повторить</button>';position()});return pending}
  input.addEventListener('focus',load);input.addEventListener('input',render);
  input.addEventListener('keydown',e=>{if(e.key==='Escape')close();if(e.key==='Enter'&&input.value.trim()){e.preventDefault();location.assign(health.href+'#search/'+encodeURIComponent(input.value.trim()))}});
  panel.addEventListener('click',e=>{if(e.target.closest('[data-clear-search]'))close();if(e.target.closest('[data-retry-search]')){panel.innerHTML='<p>Загружаем контакты…</p>';load()}});

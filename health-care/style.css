@@ -31,3 +31,27 @@ body[data-view=category] #subtitle{font-size:12px;margin-top:9px}
 /* Compact phone cards and a stable three-column city chooser. */
 .contact-list{max-width:720px;gap:8px}.contact{height:280px;padding:10px}.contact>.phone-label{margin-top:4px;padding-top:0}.contact h2{font-size:14px}.contact .contact-description{margin-bottom:4px}.phone-row{padding:6px 0;gap:5px}.phone-number{padding:2px 0}.contact .specialty{margin-bottom:5px}
 .city-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:600px;gap:10px}.city-tab{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-width:0;min-height:0;aspect-ratio:1.3;padding:0!important;overflow:hidden;isolation:isolate;background:#102d48;border:1px solid #3e647f;border-radius:12px;font-size:clamp(10px,2.8vw,14px)}.city-tab img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.city-tab:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#031426ee,transparent 80%);z-index:-1}.city-tab span{padding:9px 2px 7px;text-align:center;text-shadow:0 1px 3px #000}.city-tab[aria-current=true]{background:#102d48;border-color:#7dc9ef;outline:2px solid #7dc9ef;outline-offset:-2px;box-shadow:0 0 7px 2px #3f94c5e6,0 0 16px 6px #2b8fc666,inset 0 0 17px 3px #2b8fc438;color:white}.photo-credit{display:block;font-size:10px;margin-top:8px;color:#87a9bd;text-decoration:underline}
+
+/* Compact city selection; results retain natural scrolling. */
+.footer-brand{display:block;color:var(--green);font-size:10px;font-weight:700;margin-bottom:3px}
+body[data-doctors=true] .heading{margin:0 0 8px}body[data-doctors=true] h1{font-size:26px;letter-spacing:-.6px}
+body[data-doctors=true] .page{max-width:640px;padding:12px 14px}
+body[data-doctors=true] #profileMedia .branch-visual{height:90px}
+body[data-doctors=true] .back-row{margin:10px 0}
+body[data-doctors=true] .search-box{min-height:44px}body[data-doctors=true] .search-box input{padding:10px 0;font-size:13px}
+body[data-doctors=true] .city-heading{font-size:16px;margin:10px 0 8px}
+body[data-doctors=true] .city-tabs{max-width:480px;margin:0 auto 10px;gap:8px}
+body[data-doctors=true] .city-tab{aspect-ratio:1.45}
+body[data-doctors=true] .bottom-nav{padding-top:10px}
+body[data-doctors=true] footer{margin-top:12px}
+body[data-city-picker=true] #content{min-height:0}
+body[data-city-picker=true] .info-note,body[data-city-picker=true] #resultStatus{display:none}
+.branch-card .branch-visual .cover-title{display:none}
+.branch-card .branch-visual>img{object-position:center 3%;margin:0}
+.branch-card .branch-visual:after{display:none}
+.branch-card .branch-copy h2{font-size:16px;margin-bottom:6px}
+.city-tab img{object-position:center 40%}
+.city-tab span{width:100%;padding:6px 2px;background:linear-gradient(transparent,#041d36cc)}
+@media(max-height:620px){body[data-doctors=true] #profileMedia .branch-visual{height:72px}body[data-doctors=true] .page{padding-top:8px;padding-bottom:8px}}
+
+.profile-banner .branch-visual>img{object-position:center top}

@@ -11,3 +11,5 @@
 Сравнение: [OpenWeather](https://openweathermap.org/appid) требует API-ключ; [MET Norway](https://docs.api.met.no/doc/locationforecast/datamodel.html) использует глобальные данные порядка 9 км за пределами Скандинавии и [имеет ограничения прямых браузерных запросов](https://api.met.no/doc/locationforecast/HowTO). Оснований объявлять какой-либо сервис «самым точным» для каждого момента в Измаиле нет. Выбрана региональная модель, доступная без нового аккаунта и секретов.
 
 Атрибуция: Weather data by [Open-Meteo.com](https://open-meteo.com/), DWD and ECMWF, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Преобразования: округление температуры, русские подписи и визуальные эффекты по WMO-кодам.
+
+Кнопка подробного прогноза открывает [Yr · Izmayil](https://www.yr.no/en/forecast/daily-table/2-707308/Ukraine/Odesa%20Oblast/Izmail%20Raion/Izmayil), совместный сервис NRK и Норвежского метеорологического института. Страница проверена 30.09.2026. Эта внешняя ссылка не меняет источник данных панели и эффектов.

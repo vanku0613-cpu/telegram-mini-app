@@ -9,10 +9,11 @@ const data=require('../health-care/data.json');
 
 test('all source categories, phone numbers and media are transferred with provenance',()=>{
   assert.equal(data.cityOrder[0],'Измаил');
-  for(const city of ['Винница','Вилково','Шевченково','Львов'])assert.ok(!data.cityOrder.includes(city));
+  for(const city of ['Винница','Вилково','Шевченково','Львов','Татарбунары'])assert.ok(!data.cityOrder.includes(city));
   const original=require('../health-care/research/telegram.json');
   assert.equal(new Set(data.records.map(r=>r.id)).size,data.records.length);
   for(const c of original){
+    if(c.id==='96323')continue;
     const category=data.categories.find(x=>x.id===c.id);assert.ok(category,c.id);
     const phones=new Set(data.records.filter(r=>(r.sourceCategories||r.categories||[r.category]).includes(c.id)).flatMap(r=>r.phones));
     for(const match of c.text.matchAll(/(?<!\d)(?:\+?38[\s-]*)?(0\d{9})(?!\d)/g))assert.ok(phones.has(match[1]),`${c.id}: ${match[1]}`);
@@ -38,25 +39,31 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     const origin='http://127.0.0.1:'+server.address().port+'/health-care/';
     let navigation=0;
     async function open(hash){await page.goto(origin+'?test='+(++navigation)+hash);await page.waitForFunction(()=>document.querySelector('#content .empty strong, .branch-card, .category-tile, .contact, .city-tab'));}
-    await open('');assert.equal(await page.locator('.branch-card').count(),2);
-    assert.deepEqual(await page.locator('.cover-title').allTextContents(),['Врачи и здоровье','Красота и уход']);
+    await open('');assert.equal(await page.locator('.branch-card').count(),3);
+    assert.deepEqual(await page.locator('.branch-copy h2').allTextContents(),['Врачи и здоровье','Красота и уход','Помощь и уход']);
     await page.locator('.branch-card.doctors').click();await page.locator('.city-tab').first().waitFor();
     assert.equal(await page.locator('.city-tab[aria-current=true]').count(),0);
     assert.equal(await page.locator('.category-tile, .contact').count(),0);
     assert.equal(await page.locator('.city-heading').innerText(),'Выберите город');
+    assert.equal(await page.locator('#search').getAttribute('placeholder'),'Поиск врачей');
+    for(const viewport of [{width:320,height:568},{width:390,height:664},{width:768,height:768}]){
+      await page.setViewportSize(viewport);
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight),true,JSON.stringify(viewport));
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+    }
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:900});
       const boxes=await page.locator('.city-tab').evaluateAll(es=>es.map(e=>{const b=e.getBoundingClientRect();return {x:b.x,y:b.y,w:b.width,h:b.height}}));
-      assert.equal(boxes.length,7);assert.equal(boxes[0].y,boxes[2].y);assert.ok(boxes[3].y>boxes[0].y);assert.ok(boxes[6].y>boxes[3].y);assert.ok(boxes.every(b=>Math.abs(b.w-boxes[0].w)<1&&Math.abs(b.h-boxes[0].h)<1));
+      assert.equal(boxes.length,6);assert.equal(boxes[0].y,boxes[2].y);assert.ok(boxes[3].y>boxes[0].y);assert.ok(boxes.every(b=>Math.abs(b.w-boxes[0].w)<1&&Math.abs(b.h-boxes[0].h)<1));
       for(const img of await page.locator('.city-tab img').all()){await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0));}
     }
     await page.setViewportSize({width:390,height:900});
 
     assert.equal(await page.evaluate(()=>document.querySelector('#cityNavigation').getBoundingClientRect().top>=document.querySelector('.finder').getBoundingClientRect().bottom),true);
-    await page.locator('#search').fill('Килия');assert.equal(await page.locator('.city-tab').count(),1);await page.locator('#clear').click();
+    await page.locator('#search').fill('стомат');assert.equal(await page.locator('.city-tab').count(),6);assert.ok(await page.locator('.contact').count()>0);assert.ok(new Set(await page.locator('.location').allTextContents()).size>1);await page.locator('#clear').click();
     await page.evaluate(()=>window.scrollTo(0,100));
     const initialScroll=await page.evaluate(()=>scrollY);
-    assert.ok(initialScroll>0);
+    assert.equal(initialScroll,0);
     await page.locator('.city-tab').filter({hasText:/^Измаил$/}).click();await page.locator('.category-tile').first().waitFor();
     assert.equal(await page.evaluate(()=>scrollY),initialScroll);
     // Short/empty city lists must not move the city controls or clamp scroll to the top.
@@ -67,6 +74,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
       await page.getByRole('link',{name:city,exact:true}).click();
       await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
       assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),city);
+      assert.equal(await page.locator('#search').getAttribute('placeholder'),'Поиск врачей по '+({'Измаил':'Измаилу','Килия':'Килии','Болград':'Болграду','Рени':'Рени','Одесса':'Одессе','Киев':'Киеву'}[city]));
       assert.ok(Math.abs((await page.locator('#cityNavigation').boundingBox()).y-before.y)<=1,city+' moved city controls');
       assert.ok(Math.abs((await page.evaluate(()=>scrollY))-scroll)<=1,city+' changed scroll');
     }
@@ -91,13 +99,10 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     // Concrete mapping regressions: combined legacy folders are split by specialty.
     await open('#city/'+encodeURIComponent('Килия')+'/category/96229');assert.equal(await page.locator('.contact').count(),12);
     await open('#city/'+encodeURIComponent('Килия')+'/category/96228');assert.equal(await page.locator('.contact').count(),4);
-    await open('#city/'+encodeURIComponent('Татарбунары')+'/category/20125');assert.equal(await page.locator('.contact').count(),3);
-    assert.ok((await page.locator('#profileMedia img').last().getAttribute('src')).includes('96323'));
     await open('#city/'+encodeURIComponent('Киев')+'/category/96260');assert.equal(await page.locator('.contact').count(),1);assert.match(await page.locator('.contact h2').innerText(),/Филипчук/);
     await page.locator('#topNav .secondary').click();await page.locator('.category-tile').first().waitFor();assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),'Киев');
     await page.goBack();await page.locator('.contact').waitFor();assert.match(await page.locator('.contact h2').innerText(),/Филипчук/);
     await open('#category/96319');assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),'Килия');
-    await open('#category/96323');assert.equal(await page.locator('.contact').count(),3);
     await open('#beauty');assert.equal(await page.locator('.category-tile').count(),8);assert.equal(await page.locator('.city-tab').count(),0);
     await open('#city/'+encodeURIComponent('Одесса')+'/category/96306');
     assert.equal(await page.locator('[data-record="r91"]').count(),1);
@@ -134,13 +139,22 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     await page.locator('#search').fill('099 533 83 11');assert.equal(await page.locator('.contact').count(),1);assert.match(await page.locator('.contact h2').innerText(),/Виктория/);
     await page.locator('#search').fill('несуществующийконтакт');assert.equal(await page.locator('.contact').count(),0);
     await open('#category/96292');await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),1);await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),0);
-    for(const hash of ['#city/'+encodeURIComponent('Измаил'),'#city/'+encodeURIComponent('Татарбунары'),'#beauty']){
+    for(const hash of ['#city/'+encodeURIComponent('Измаил'),'#beauty']){
       await open(hash);
       for(const img of await page.locator('.category-tile img:not(.visual-backdrop)').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0));}
       assert.equal(await page.locator('video').count(),0);
       await page.setViewportSize({width:320,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
       assert.match(await page.locator('#topNav a:not(.secondary)').innerText(),/главное меню/);
     }
+    await open('#category/96211');
+    assert.equal(await page.locator('.contact').count(),4);
+    const carePhones=await page.locator('.phone-number').evaluateAll(es=>es.map(e=>e.getAttribute('href')).sort());
+    assert.deepEqual(carePhones,['+380982328913','+380689346716','+380964353909','+380938302578','+380978430369'].map(p=>'tel:'+p).sort());
+    await page.locator('[data-record="r68"] [data-favorite]').click();
+    await open('#favorites');assert.equal(await page.locator('[data-record="r68"]').count(),1);
+    await page.locator('[data-record="r68"] [data-favorite]').click();
+    await open('#category/96211');assert.equal(await page.locator('[data-record="r68"] [data-favorite]').getAttribute('aria-pressed'),'false');
+    assert.equal(await page.locator('#topNav .secondary').getAttribute('href'),'#');
     assert.deepEqual(videos,[]);assert.deepEqual(failed,[]);assert.deepEqual(errors,[]);
   }finally{await browser.close();await new Promise(r=>server.close(r));}
 });
@@ -170,7 +184,7 @@ test('workbook phones are complete, normalized and unique; specialty changes pre
   assert.deepEqual(common.categories,['96297','96260']);assert.match(common.note,/Аствацатрян/);assert.match(common.note,/Мищенко/);
 
   const keys=new Set(data.records.flatMap(r=>r.phones.map(p=>JSON.stringify([r.favoriteName||r.name,p]))));
-  for(const r of previous.records)for(const p of r.phones)assert.ok(keys.has(JSON.stringify([r.name,p])),'Lost favorite '+r.name);
+  for(const r of previous.records.filter(r=>r.city!=='Татарбунары'))for(const p of r.phones)assert.ok(keys.has(JSON.stringify([r.name,p])),'Lost favorite '+r.name);
   for(const r of data.records.filter(r=>r.workbookContacts)){
     for(const id of r.categories)assert.ok(data.categories.some(c=>c.id===id));
     for(const id of r.additionalSources||[])assert.ok(data.sources[id]);
@@ -179,7 +193,7 @@ test('workbook phones are complete, normalized and unique; specialty changes pre
 
 test('reviewed city additions retain provenance and introduce no duplicate phones',()=>{
  const additions=require('../health-care/research/city-additions-20260930.json');
- for(const city of ['Киев','Одесса','Татарбунары','Рени','Болград','Килия'])assert.ok(data.records.some(r=>r.id.startsWith('web-')&&r.city===city));
+ for(const city of ['Киев','Одесса','Рени','Болград','Килия'])assert.ok(data.records.some(r=>r.id.startsWith('web-')&&r.city===city));
  for(const candidate of additions){const r=data.records.find(r=>r.id===candidate.id);assert.ok(r);assert.equal(data.sources[r.source].url,candidate.url);for(const p of r.phones)assert.equal(data.records.filter(other=>other.phones.includes(p)).length,1,p);}
  assert.match(data.records.find(r=>r.id==='web-reni').note,/2025/);
 });
