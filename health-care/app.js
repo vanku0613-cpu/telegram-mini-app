@@ -63,7 +63,7 @@
   function tile(c,city,noPhoto=true) {
     const count=data.records.filter(r=>categoriesFor(r).includes(c.id)&&(!city||isInCity(r,city))).length;
     const media=noPhoto?'':thumb(c,city);
-    return `<a class="category-tile ${noPhoto?'plain-tile':''} ${c.id==='20125'?'veterinary':''} ${count?'':'empty-category'}" href="${categoryHref(c,city)}">${media}<span class="tile-body"><strong>${escape(c.id==='20125'?'Ветеринары':c.name)}</strong><small>${count?count+' контактов':'Контакты пока не найдены'}</small></span>${noPhoto?'<span class="tile-arrow" aria-hidden="true">›</span>':''}</a>`;
+    return `<a class="category-tile ${c.children?.length?'has-children':'direct-entry'} ${noPhoto?'plain-tile':''} ${c.id==='20125'?'veterinary':''} ${count?'':'empty-category'}" href="${categoryHref(c,city)}">${media}<span class="tile-body"><strong>${escape(c.id==='20125'?'Ветеринары':c.name)}</strong><small>${count?count+' контактов':'Контакты пока не найдены'}</small></span>${noPhoto?'<span class="tile-arrow" aria-hidden="true">›</span>':''}</a>`;
   }
   function cards(records) {
     return '<div class="contact-list">'+records.map(original=>{
@@ -140,7 +140,7 @@
       else $('content').innerHTML=groups.map(([title,ids])=>{const members=ids.map(id=>available.find(c=>c.id===id)).filter(Boolean);return members.length?'<h2 class="group-title">'+title+'</h2><div class="category-grid">'+members.map(c=>tile(c,cityName)).join('')+'</div>':''}).join('')||'<div class="empty"><strong>Список этого города готовится</strong>Пока нет подтверждённых местных контактов.</div>';
     }else{
       $('resultStatus').textContent='Три направления';
-      $('content').innerHTML='<div class="branches">'+[['doctors','Врачи · Клиники · Диагностика · Ветеринары'],['beauty','Маникюр · Волосы · Брови · Уход']].map(([id,desc])=>'<a class="branch-card plain-branch '+id+'" href="#'+id+'"><div class="branch-copy"><h2>'+branches[id]+'</h2><p>'+desc+'</p><span class="tile-arrow" aria-hidden="true">›</span></div></a>').join('')+(()=>{const c=data.categories.find(c=>c.id==='96211');return '<a class="branch-card plain-branch care" href="#category/96211"><div class="branch-copy"><h2>'+escape(c.name)+'</h2><p>Сиделки · Няни · Пансионат</p><span class="tile-arrow" aria-hidden="true">›</span></div></a>'})()+'</div>';
+      $('content').innerHTML='<div class="branches">'+[['doctors','Врачи · Клиники · Диагностика · Ветеринары'],['beauty','Маникюр · Волосы · Брови · Уход']].map(([id,desc])=>'<a class="branch-card plain-branch has-children '+id+'" href="#'+id+'"><div class="branch-copy"><h2>'+branches[id]+'</h2><p>'+desc+'</p><span class="tile-arrow" aria-hidden="true">›</span></div></a>').join('')+(()=>{const c=data.categories.find(c=>c.id==='96211');return '<a class="branch-card plain-branch direct-entry care" href="#category/96211"><div class="branch-copy"><h2>'+escape(c.name)+'</h2><p>Сиделки · Няни · Пансионат</p><span class="tile-arrow" aria-hidden="true">›</span></div></a>'})()+'</div>';
     }
   }
   document.addEventListener('dragstart',event=>{if(event.target.closest('.branch-card,.category-tile,.city-tab'))event.preventDefault()});

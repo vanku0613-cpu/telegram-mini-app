@@ -41,6 +41,10 @@ test('communal services page is reachable, organized, and uses unique callable c
     assert.equal(await page.locator('#communalBackBottom').isVisible(),true);
     assert.equal(await page.locator('#communalBack').textContent(),'← Вернуться в раздел');
     assert.equal(await page.locator('#communalBackBottom').textContent(),'← Вернуться в раздел');
+    await page.setViewportSize({width:320,height:844});
+    const returnLabel=await page.locator('#communalBack').evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return{whiteSpace:getComputedStyle(el).whiteSpace,lines:range.getClientRects().length}});
+    assert.deepEqual(returnLabel,{whiteSpace:'nowrap',lines:1},'section-return label stays on one line on narrow phones');
+    await page.setViewportSize({width:390,height:844});
     for(const nav of await page.locator('.communal-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section and home navigation share one row')}
     await page.locator('#communalBackBottom').click();
     assert.equal(await page.locator('.jump').isVisible(),true);

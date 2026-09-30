@@ -7,7 +7,7 @@
     "Одесса",
     "Киев"
   ],
-  "updated": "2026-09-30",
+  "updated": "2026-10-01",
   "sources": {
     "telegram": {
       "label": "Подборка справочника",
@@ -699,6 +699,85 @@
       "url": "https://t.me/SPRAVOCHNIK_IZMAIL/96221",
       "checked": "2026-09-30",
       "kind": "community"
+    },
+    "user-supplied-odessa-morshneva": {
+      "label": "Контакт предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-odessa-konoval": {
+      "label": "Контакт предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "telegram-vrachi-odessa-12704": {
+      "label": "Telegram · врачи Одессы",
+      "url": "https://t.me/vrachi_odessa/12704",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "telegram-vrachi-odessa-13920": {
+      "label": "Telegram · врачи Одессы",
+      "url": "https://t.me/vrachi_odessa/13920",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "telegram-vrachi-odessa-9305": {
+      "label": "Telegram · врачи Одессы",
+      "url": "https://t.me/vrachi_odessa/9305",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "telegram-vrachi-odessa-7459": {
+      "label": "Telegram · врачи Одессы",
+      "url": "https://t.me/vrachi_odessa/7459",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-izmail-stoyanov": {
+      "label": "Контакт предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-izmail-vodnikov": {
+      "label": "Контакт предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-izmail-klushina": {
+      "label": "Контакт предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-izmail-dentist-irina": {
+      "label": "Контакт предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-izmail-chernaya": {
+      "label": "Имя и специальности уточнены пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-izmail-tropanets": {
+      "label": "Дополнительный телефон предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-izmail-serpeninova": {
+      "label": "Контакт предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-izmail-leshchenko": {
+      "label": "Контакт предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
+    },
+    "user-supplied-izmail-ultrasound-kids": {
+      "label": "Контакт предоставлен пользователем",
+      "checked": "2026-10-01",
+      "kind": "community"
     }
   },
   "categories": [
@@ -715,7 +794,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96228",
       "order": 0,
-      "count": 18,
+      "count": 19,
       "note": ""
     },
     {
@@ -747,7 +826,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96230",
       "order": 2,
-      "count": 16,
+      "count": 17,
       "note": ""
     },
     {
@@ -763,7 +842,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96231",
       "order": 3,
-      "count": 39,
+      "count": 40,
       "note": ""
     },
     {
@@ -779,7 +858,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96246",
       "order": 4,
-      "count": 12,
+      "count": 13,
       "note": ""
     },
     {
@@ -795,7 +874,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96248",
       "order": 5,
-      "count": 2,
+      "count": 3,
       "note": ""
     },
     {
@@ -843,7 +922,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96261",
       "order": 8,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
@@ -1019,7 +1098,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96288",
       "order": 19,
-      "count": 12,
+      "count": 13,
       "note": ""
     },
     {
@@ -1067,7 +1146,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96292",
       "order": 22,
-      "count": 20,
+      "count": 21,
       "note": ""
     },
     {
@@ -1147,7 +1226,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96297",
       "order": 27,
-      "count": 5,
+      "count": 6,
       "note": ""
     },
     {
@@ -1211,7 +1290,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96304",
       "order": 31,
-      "count": 9,
+      "count": 10,
       "note": ""
     },
     {
@@ -1227,7 +1306,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96305",
       "order": 32,
-      "count": 10,
+      "count": 11,
       "note": ""
     },
     {
@@ -1307,7 +1386,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96311",
       "order": 37,
-      "count": 2,
+      "count": 3,
       "note": ""
     },
     {
@@ -1859,6 +1938,22 @@
       "note": "",
       "order": 71,
       "count": 6
+    },
+    {
+      "id": "odessa-osteopath",
+      "branch": "doctors",
+      "name": "Остеопат",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/cover-osteopath.jpg",
+          "poster": "media/cover-osteopath.jpg"
+        }
+      ],
+      "source": "https://t.me/vrachi_odessa/13920",
+      "order": 60,
+      "count": 1,
+      "note": ""
     }
   ],
   "records": [
@@ -2109,13 +2204,19 @@
     {
       "id": "r23",
       "category": "96230",
-      "name": "Черная Ольга",
+      "name": "Черная Ольга Алексеевна",
       "phones": [
         "0956837862",
         "0660981561"
       ],
       "city": "Измаил",
-      "source": "telegram"
+      "source": "user-supplied-izmail-chernaya",
+      "categories": [
+        "96230",
+        "96311"
+      ],
+      "note": "Педиатр · аллерголог",
+      "favoriteName": "Черная Ольга"
     },
     {
       "id": "r24",
@@ -2260,11 +2361,15 @@
       "name": "Консультативно-диагностический центр",
       "phones": [
         "0979985108",
-        "0683068847"
+        "0683068847",
+        "0984715101"
       ],
       "city": "Измаил",
       "note": "пр. Незалежності, 141",
-      "source": "telegram"
+      "source": "telegram",
+      "additionalSources": [
+        "user-supplied-izmail-ultrasound-kids"
+      ]
     },
     {
       "id": "r37",
@@ -2626,6 +2731,11 @@
         "education-96219"
       ],
       "categoryDetails": {
+        "96204": {
+          "name": "Английский и подготовка к школе",
+          "note": "Английский язык и подготовка к школе",
+          "specialties": "Репетиторы"
+        },
         "96215": {
           "name": "Садик «Зайці-LAND»",
           "specialties": "Садики"
@@ -2639,11 +2749,6 @@
           "name": "Английский и подготовка к школе",
           "note": "Английский язык и подготовка к школе",
           "specialties": "Подготовка к школе"
-        },
-        "96204": {
-          "name": "Английский и подготовка к школе",
-          "note": "Английский язык и подготовка к школе",
-          "specialties": "Репетиторы"
         }
       }
     },
@@ -2803,11 +2908,15 @@
       "category": "96304",
       "name": "Тропанец Мария Ивановна · запись",
       "phones": [
-        "0979129037"
+        "0979129037",
+        "0983326012"
       ],
       "city": "Измаил",
-      "note": "",
-      "source": "telegram"
+      "note": "Частный приём",
+      "source": "telegram",
+      "additionalSources": [
+        "user-supplied-izmail-tropanets"
+      ]
     },
     {
       "id": "r84",
@@ -3749,7 +3858,7 @@
         "0994959919"
       ],
       "city": "Измаил",
-      "note": "ул. Белгород-Днестровская, 31, территория районной больницы",
+      "note": "МРТ позвоночника · ул. Белгород-Днестровская, 31, территория районной больницы",
       "source": "eurotom",
       "phoneLabel": "Запись в учреждение"
     },
@@ -5709,6 +5818,11 @@
         "education-96219"
       ],
       "categoryDetails": {
+        "96204": {
+          "name": "Английский и подготовка к школе",
+          "note": "Английский язык и подготовка к школе",
+          "specialties": "Репетиторы"
+        },
         "96219": {
           "name": "Английский и подготовка к школе",
           "note": "Английский язык и подготовка к школе",
@@ -5718,11 +5832,6 @@
           "name": "Английский и подготовка к школе",
           "note": "Английский язык и подготовка к школе",
           "specialties": "Подготовка к школе"
-        },
-        "96204": {
-          "name": "Английский и подготовка к школе",
-          "note": "Английский язык и подготовка к школе",
-          "specialties": "Репетиторы"
         }
       }
     },
@@ -5983,6 +6092,186 @@
       "note": "Развивающие и учебные занятия с 4 лет. Помощь ученикам начальных классов с учёбой и домашними заданиями",
       "city": "Измаил",
       "source": "education-96221",
+      "additionalSources": []
+    },
+    {
+      "id": "user-odessa-morshneva",
+      "name": "Моршнева Светлана Петровна",
+      "phones": [
+        "0677017223"
+      ],
+      "categories": [
+        "96304"
+      ],
+      "category": "96304",
+      "note": "Эндокринолог",
+      "city": "Одесса",
+      "source": "user-supplied-odessa-morshneva",
+      "additionalSources": []
+    },
+    {
+      "id": "telegram-odessa-nitochko-12704",
+      "name": "Ниточко Олег Иванович",
+      "phones": [
+        "0674891039"
+      ],
+      "categories": [
+        "96297"
+      ],
+      "category": "96297",
+      "note": "Дерматолог",
+      "city": "Одесса",
+      "source": "telegram-vrachi-odessa-12704",
+      "additionalSources": []
+    },
+    {
+      "id": "telegram-odessa-moskalchuk-13920",
+      "name": "Москальчук Сергей Петрович",
+      "phones": [
+        "0965877287"
+      ],
+      "categories": [
+        "odessa-osteopath"
+      ],
+      "category": "odessa-osteopath",
+      "note": "Остеопат",
+      "city": "Одесса",
+      "source": "telegram-vrachi-odessa-13920",
+      "additionalSources": []
+    },
+    {
+      "id": "telegram-odessa-khramov-9305",
+      "name": "Храмов Евгений Александрович",
+      "phones": [
+        "0964805120"
+      ],
+      "categories": [
+        "96261"
+      ],
+      "category": "96261",
+      "note": "Детский нейрохирург · Детская областная больница",
+      "city": "Одесса",
+      "source": "telegram-vrachi-odessa-9305",
+      "additionalSources": []
+    },
+    {
+      "id": "telegram-odessa-uzd-slobodka-7459",
+      "name": "Детская областная поликлиника · Слободка",
+      "phones": [
+        "0969493728"
+      ],
+      "categories": [
+        "96246"
+      ],
+      "category": "96246",
+      "note": "Запись на УЗД",
+      "city": "Одесса",
+      "source": "telegram-vrachi-odessa-7459",
+      "additionalSources": []
+    },
+    {
+      "id": "user-odessa-konoval",
+      "name": "Коновал Людмила Александровна",
+      "phones": [
+        "0937414080"
+      ],
+      "categories": [
+        "96230"
+      ],
+      "category": "96230",
+      "note": "Педиатр · детская городская поликлиника № 6, Таирова",
+      "city": "Одесса",
+      "source": "user-supplied-odessa-konoval",
+      "additionalSources": []
+    },
+    {
+      "id": "user-izmail-stoyanov",
+      "name": "Стоянов Евгений Васильевич",
+      "phones": [
+        "0984947315"
+      ],
+      "categories": [
+        "96305"
+      ],
+      "category": "96305",
+      "note": "Гастроэнтеролог",
+      "city": "Измаил",
+      "source": "user-supplied-izmail-stoyanov",
+      "additionalSources": []
+    },
+    {
+      "id": "user-izmail-mri-vodnikov",
+      "name": "Больница Водников",
+      "phones": [
+        "0983685538"
+      ],
+      "categories": [
+        "96248"
+      ],
+      "category": "96248",
+      "note": "МРТ",
+      "city": "Измаил",
+      "source": "user-supplied-izmail-vodnikov",
+      "additionalSources": []
+    },
+    {
+      "id": "user-izmail-klushina-specialists-registry",
+      "name": "Регистратура врачей-специалистов · ул. Клушина",
+      "phones": [
+        "0968592698"
+      ],
+      "categories": [
+        "96228"
+      ],
+      "category": "96228",
+      "note": "ул. Клушина, 6",
+      "city": "Измаил",
+      "source": "user-supplied-izmail-klushina",
+      "additionalSources": []
+    },
+    {
+      "id": "user-izmail-dentist-irina",
+      "name": "Ирина Александровна",
+      "phones": [
+        "0976064489"
+      ],
+      "categories": [
+        "96231"
+      ],
+      "category": "96231",
+      "note": "Стоматолог · лечение, протезирование, чистка зубов",
+      "city": "Измаил",
+      "source": "user-supplied-izmail-dentist-irina",
+      "additionalSources": []
+    },
+    {
+      "id": "user-izmail-serpeninova",
+      "name": "Серпенинова Ирина Викторовна",
+      "phones": [
+        "0679770385"
+      ],
+      "categories": [
+        "96292"
+      ],
+      "category": "96292",
+      "note": "Частный приём",
+      "city": "Измаил",
+      "source": "user-supplied-izmail-serpeninova",
+      "additionalSources": []
+    },
+    {
+      "id": "user-izmail-leshchenko-ent",
+      "name": "Лещенко · ЛОР",
+      "phones": [
+        "0678529100"
+      ],
+      "categories": [
+        "96288"
+      ],
+      "category": "96288",
+      "note": "Медицинский центр",
+      "city": "Измаил",
+      "source": "user-supplied-izmail-leshchenko",
       "additionalSources": []
     }
   ]

@@ -28,10 +28,14 @@
 .paired-nav:not(.has-section) .home-back{grid-column:1/-1;width:min(100%,340px);justify-self:center}
 .paired-nav .home-back{width:100%;min-height:50px;height:auto;margin:0;padding:7px 8px;gap:5px;font-size:clamp(12px,3.3vw,14px);line-height:1.1;text-wrap:balance}
 .paired-nav .home-back .arrow{font-size:19px}
-.paired-nav .inner-back{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:50px;margin:0;padding:7px 8px;border:1px solid #54dda5;border-radius:15px;background:linear-gradient(180deg,#159858,#0d7442);box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244;color:#fff;font-size:clamp(13px,3.5vw,15px);line-height:1.1;font-weight:900;text-align:center;text-wrap:balance;cursor:pointer}
+.paired-nav .inner-back{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:50px;margin:0;padding:7px 5px;border:1px solid #54dda5;border-radius:15px;background:linear-gradient(180deg,#159858,#0d7442);box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244;color:#fff;font-size:clamp(10px,3.2vw,15px);line-height:1.1;font-weight:900;text-align:center;white-space:nowrap;text-wrap:nowrap;cursor:pointer}
 .paired-nav .inner-back[hidden]{display:none}
+/* Make the master category picker distinct from its specialization list. */
+#view[data-section="masters"][data-level="categories"] .category{background:linear-gradient(145deg,#1c4566,#112d48 72%,#0b2035);border-color:rgba(119,165,198,.82);box-shadow:inset 0 1px rgba(235,247,255,.09),0 6px 18px rgba(0,0,0,.27),0 0 12px rgba(75,141,184,.15)}
+#view[data-section="masters"][data-level="categories"] .category:before{background:radial-gradient(circle at 86% 16%,rgba(113,170,204,.2),transparent 44%),linear-gradient(0deg,#041327e8,transparent 82%)}
+#view[data-section="masters"][data-level="subcategories"] .subcat{background:linear-gradient(145deg,#172b40,#101d2e 72%,#0b1725);border-color:rgba(88,119,148,.72);box-shadow:inset 0 1px rgba(226,238,249,.05),0 5px 15px rgba(0,0,0,.26)}
 </style>
-<link rel="stylesheet" href="../interior-polish.css?v=3">
+<link rel="stylesheet" href="../interior-polish.css?v=4">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 </head>
 <body>
@@ -116,8 +120,8 @@ const drawings={
 const icon=(key)=>`<svg class="art" viewBox="0 0 24 24" fill="none" stroke="#8fe4ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${drawings[key]||drawings.wrench}</svg>`;
 const view=document.getElementById('view'),title=document.getElementById('viewTitle'),hint=document.getElementById('viewHint'),viewIcon=document.getElementById('viewIcon'),tabs=[...document.querySelectorAll('[data-section]')],backButtons=[...document.querySelectorAll('[data-back]')];let section='masters',category=null,depth='categories';
 function backOneLevel(){if(section==='services'){depth='categories';category=null}else if(depth==='contacts'){delete category.selected;depth='subcategories'}else if(depth==='subcategories'){depth='categories';category=null}render()}
-function categoryCard(item,index,sub=false){const n=sub?item.people.length:0;const meta=sub?`${n} ${n===1?'контакт':'контакта'}`:item.sub?.length?`${item.sub.length} заполненных раздела`:`${item.people.length} контактов`;return `<button type="button" class="${sub?'subcat':'category'}" data-item="${index}"><strong>${item.title}</strong><small>${meta}</small><span class="tile-arrow" aria-hidden="true">›</span></button>`}
-function render(){const data=section==='masters'?masters:services,hasBack=section==='services'?depth==='phones':depth!=='categories';tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.section===section)));backButtons.forEach(button=>button.hidden=!hasBack);document.querySelectorAll('.paired-nav').forEach(nav=>nav.classList.toggle('has-section',hasBack));view.innerHTML='';
+function categoryCard(item,index,sub=false){const n=sub?item.people.length:0;const meta=sub?`${n} ${n===1?'контакт':'контакта'}`:item.sub?.length?`${item.sub.length} заполненных раздела`:`${item.people.length} контактов`;const level=sub||section==='services'?'direct-entry':'has-children';return `<button type="button" class="${sub?'subcat':'category'} ${level}" data-item="${index}"><strong>${item.title}</strong><small>${meta}</small><span class="tile-arrow" aria-hidden="true">›</span></button>`}
+function render(){const data=section==='masters'?masters:services,hasBack=section==='services'?depth==='phones':depth!=='categories';view.dataset.section=section;view.dataset.level=depth;tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.section===section)));backButtons.forEach(button=>button.hidden=!hasBack);document.querySelectorAll('.paired-nav').forEach(nav=>nav.classList.toggle('has-section',hasBack));view.innerHTML='';
  if(section==='services'){
   viewIcon.textContent='🧰';title.textContent='Услуги';hint.textContent='Выберите направление';
   if(depth==='categories'){view.innerHTML=`<div class="grid">${services.map((x,i)=>categoryCard({...x,sub:[]},i)).join('')}</div>`;view.querySelectorAll('[data-item]').forEach(b=>b.addEventListener('click',()=>{category=services[Number(b.dataset.item)];depth='phones';render()}));return}

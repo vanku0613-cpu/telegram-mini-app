@@ -96,13 +96,17 @@ body[data-education=true] h1{font-size:clamp(23px,6vw,34px);letter-spacing:-.6px
 
 /* Keep both return actions aligned, readable, and clearly directional. */
 .back-row:has(.secondary){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px}
-.back-row .back-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;width:100%;min-width:0;min-height:48px;padding:6px 8px;white-space:normal;text-align:center;font-size:clamp(14px,3.7vw,17px);line-height:1.2}
+.back-row .back-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;width:100%;min-width:0;min-height:48px;padding:6px 5px;text-align:center;font-size:clamp(10px,3.2vw,15px);line-height:1.2}
+.back-row .back-btn.secondary{white-space:nowrap;text-wrap:nowrap}
+.back-row .back-btn:not(.secondary){white-space:normal;text-wrap:balance;overflow-wrap:anywhere;min-width:0;font-size:clamp(12px,3.6vw,15px)}
 .back-row .back-btn::before{content:"←";flex:none;font-size:1.2em;line-height:1}
 .back-row:not(:has(.secondary)){display:flex}
 .back-row:not(:has(.secondary)) .back-btn{width:auto;min-width:min(100%,250px);min-height:48px;padding:8px 16px;font-size:17px}
 body[data-view=search] .back-row:not(:has(.secondary)) .back-btn{width:auto!important;max-width:min(100%,250px);align-self:flex-start}
 .back-row .back-btn.secondary{border-color:#54dda5;background:linear-gradient(180deg,#159858,#0d7442);color:#fff;box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244}
 .back-row .back-btn:not(.secondary){border-color:#6ac7f3;background:linear-gradient(180deg,#226ca3,#174b79);color:#fff;box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433}
+.category-tile.has-children{background:linear-gradient(145deg,#1c4566,#112d48 72%,#0b2035);border-color:rgba(119,165,198,.82);box-shadow:inset 0 1px rgba(235,247,255,.09),0 6px 18px rgba(0,0,0,.27),0 0 12px rgba(75,141,184,.15)}
+.category-tile:not(.has-children){background:linear-gradient(145deg,#172b40,#101d2e 72%,#0b1725);border-color:rgba(88,119,148,.72)}
 
 /* A selected city stays visible; its alternatives are tucked behind one control. */
 .city-selection{display:flex;align-items:stretch;gap:9px;margin:0 0 10px;max-width:480px}
@@ -113,6 +117,7 @@ body[data-view=search] .back-row:not(:has(.secondary)) .back-btn{width:auto!impo
 body[data-doctors=true] .city-selection{max-width:480px;margin:0 auto 8px}
 body[data-doctors=true] .city-selection .city-tab{aspect-ratio:2.2}
 @media(max-width:350px){.back-row:has(.secondary){gap:6px}.back-row .back-btn{padding:6px 5px;font-size:13px}.city-selection{gap:6px}.city-selection button{font-size:13px}.city-tab span{font-size:16px}}
+@media(max-width:350px){.back-row .back-btn.secondary{font-size:10px}.back-row .back-btn:not(.secondary){font-size:12px}}
 
 /* Final grid overrides after the legacy doctor-picker layout. */
 body[data-doctors=true] .city-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}

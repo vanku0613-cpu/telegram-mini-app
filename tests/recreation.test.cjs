@@ -39,6 +39,12 @@ test('recreation directory includes the four numbered sections and fits mobile s
       assert.equal(await page.locator('#sectionBackBottom').isVisible(),true);
       assert.equal(await page.locator('#sectionBack').textContent(),'← Вернуться в раздел');
       assert.equal(await page.locator('#sectionBackBottom').textContent(),'← Вернуться в раздел');
+      if(category==='bases'){
+        await page.setViewportSize({width:320,height:844});
+        const returnLabel=await page.locator('#sectionBack').evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return{whiteSpace:getComputedStyle(el).whiteSpace,lines:range.getClientRects().length}});
+        assert.deepEqual(returnLabel,{whiteSpace:'nowrap',lines:1},'section-return label stays on one line on narrow phones');
+        await page.setViewportSize({width:390,height:844});
+      }
       for(const nav of await page.locator('.recreation-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section and home navigation share one row')}
       const phones=await panel.locator('a.phone[href^="tel:"]').evaluateAll(items=>items.map(a=>a.getAttribute('href')));
       assert.equal(phones.length,count);

@@ -25,7 +25,7 @@ test('services and masters follow the source category hierarchy and keep contact
     await page.route('https://**', route => route.abort());
     await page.goto(`http://127.0.0.1:${server.address().port}/services-masters/`);
     assert.equal(await page.title(), 'Услуги и мастера — Справочник Измаил');
-    assert.deepEqual((await page.locator('[data-section]').allTextContents()).map(t => t.replace(/\s+/g, ' ').trim()), ['🛠️ Мастера', '🧰 Услуги']);
+    assert.deepEqual((await page.locator('.section-tabs [data-section]').allTextContents()).map(t => t.replace(/\s+/g, ' ').trim()), ['🛠️ Мастера', '🧰 Услуги']);
     assert.equal(await page.locator('.home-back').count(), 2);
     assert.deepEqual(await page.locator('.category strong').allTextContents(), ['Электрик / сантехник','Строительство / ремонт','Услуги по дому / участку','Бытовая техника','Окна и двери','Авто / мототехника','IT и техника']);
     assert.equal(await page.getByText('Мебель', { exact: true }).count(), 0, 'empty furniture source category is omitted');
@@ -35,11 +35,18 @@ test('services and masters follow the source category hierarchy and keep contact
     const coverOrder = await page.evaluate(() => ({ art: document.querySelector('.cover-art').getBoundingClientRect().top, title: document.querySelector('.cover h1').getBoundingClientRect().top, home: document.querySelector('.home-back').getBoundingClientRect().top }));
     assert.ok(coverOrder.art < coverOrder.title && coverOrder.title < coverOrder.home, 'cover artwork appears before title and return navigation');
 
+    const menuBackground=await page.locator('#view[data-section="masters"][data-level="categories"] .category').first().evaluate(el=>getComputedStyle(el).backgroundImage);
     await page.getByRole('button', { name: /Строительство \/ ремонт/ }).click();
     assert.equal(await page.locator('.subcat').count(), 16, 'construction and repair services remain individually selectable');
     assert.equal(await page.locator('.subcat img').count(), 0, 'specialization buttons contain no added photos');
     assert.equal(await page.locator('[data-back]').first().textContent(), '← Вернуться в раздел');
     assert.equal(await page.locator('[data-back]').nth(1).textContent(), '← Вернуться в раздел');
+    await page.setViewportSize({width:320,height:844});
+    const returnLabel=await page.locator('[data-back]').first().evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return{whiteSpace:getComputedStyle(el).whiteSpace,lines:range.getClientRects().length}});
+    assert.deepEqual(returnLabel,{whiteSpace:'nowrap',lines:1},'section-return label stays on one line on narrow phones');
+    await page.setViewportSize({width:390,height:844});
+    const submenuBackground=await page.locator('#view[data-section="masters"][data-level="subcategories"] .subcat').first().evaluate(el=>getComputedStyle(el).backgroundImage);
+    assert.notEqual(menuBackground,submenuBackground,'master categories and their specialization menu use distinct professional color surfaces');
     for(const nav of await page.locator('.paired-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section and home navigation share one row')}
     await page.locator('[data-back]').first().click();
 

@@ -65,7 +65,8 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
       await page.setViewportSize(viewport);
       const pageHeight=await page.evaluate(()=>({scroll:document.documentElement.scrollHeight,height:innerHeight,content:document.querySelector('#cityNavigation').getBoundingClientRect().height}));
       assert.equal(pageHeight.scroll<=pageHeight.height,true,JSON.stringify(viewport)+' '+JSON.stringify(pageHeight));
-      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+      const horizontalOverflow=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:innerWidth,body:document.body.getBoundingClientRect().toJSON(),page:document.querySelector('.page').getBoundingClientRect().toJSON(),search:document.querySelector('.search-box').getBoundingClientRect().toJSON(),focus:document.activeElement?.id,items:[...document.querySelectorAll('body *')].map(e=>({tag:e.tagName,className:typeof e.className==='string'?e.className:'',right:Math.round(e.getBoundingClientRect().right),scroll:e.scrollWidth,client:e.clientWidth,text:(e.innerText||'').slice(0,40)})).filter(e=>e.right>innerWidth+1||e.scroll>e.client+1).slice(0,8)}));
+      assert.equal(horizontalOverflow.scroll<=horizontalOverflow.width,true,JSON.stringify(viewport)+' '+JSON.stringify(horizontalOverflow));
       const cityFit=await page.locator('.city-tab span').evaluateAll(items=>items.map(e=>({text:e.textContent,width:e.clientWidth,scroll:e.scrollWidth,font:getComputedStyle(e).fontSize})));
       const cityLayout=await page.evaluate(()=>({width:innerWidth,doctors:document.body.dataset.doctors,columns:getComputedStyle(document.querySelector('.city-tabs')).gridTemplateColumns}));
       assert.ok(cityFit.every(item=>item.scroll<=item.width),'city labels fit inside the existing buttons: '+JSON.stringify(cityLayout)+' '+JSON.stringify(cityFit));
@@ -154,6 +155,8 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
       const boxes=await page.locator('.contact').evaluateAll(a=>a.slice(0,2).map(e=>({x:e.getBoundingClientRect().x,y:e.getBoundingClientRect().y})));assert.equal(boxes[0].y,boxes[1].y);assert.ok(boxes[1].x>boxes[0].x);
       for(const selector of ['#topNav','#bottomNav']){
         const links=page.locator(selector+' a');assert.deepEqual(await links.allTextContents(),['Вернуться в раздел','Вернуться в главное меню']);
+        const sectionLabel=await links.first().evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return{whiteSpace:getComputedStyle(el).whiteSpace,lines:range.getClientRects().length}});
+        assert.deepEqual(sectionLabel,{whiteSpace:'nowrap',lines:1},'section-return label stays on one line on narrow phones');
         const rects=await links.evaluateAll(es=>es.map(e=>({y:e.getBoundingClientRect().y,h:e.getBoundingClientRect().height,fits:e.scrollWidth<=e.clientWidth})));
         assert.equal(rects[0].y,rects[1].y);assert.equal(rects[0].h,rects[1].h);assert.ok(rects.every(r=>r.fits));
       }
@@ -168,6 +171,11 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     assert.equal(await page.locator('.category-tile img').count(),0,'doctor category buttons contain no photos');
     await open('#beauty');assert.equal(await page.locator('.category-tile img').count(),0,'beauty category buttons contain no photos');
     await open('#education');assert.equal(await page.locator('.category-tile img').count(),0,'education category buttons contain no photos');
+    assert.equal(await page.locator('.category-tile.has-children strong').first().textContent(),'Репетиторы','categories leading to another menu use the submenu style');
+    assert.equal(await page.locator('.category-tile:not(.has-children) strong').first().textContent(),'Образование и обучение','categories leading to contacts use the direct-contact style');
+    const nestedBackground=await page.locator('.category-tile.has-children').first().evaluate(el=>getComputedStyle(el).backgroundImage);
+    const directBackground=await page.locator('.category-tile:not(.has-children)').first().evaluate(el=>getComputedStyle(el).backgroundImage);
+    assert.notEqual(nestedBackground,directBackground,'education category colors distinguish a submenu from a direct contact list');
     const educationTiles=await page.locator('.category-tile').evaluateAll(items=>items.map(item=>({height:item.getBoundingClientRect().height,font:parseFloat(getComputedStyle(item.querySelector('strong')).fontSize)})));
     assert.ok(educationTiles.every(tile=>tile.height===educationTiles[0].height&&tile.font>=14),'education buttons share a large uniform size');
     for(const hash of ['#city/'+encodeURIComponent('Измаил'),'#beauty','#education']){
