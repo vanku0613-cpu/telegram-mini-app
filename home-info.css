@@ -3,6 +3,7 @@
 #app{--info-growth:clamp(16px,4vw,20px)}
 #app .top-row{height:calc(4.75% + var(--info-growth));margin-top:calc(var(--info-growth) * -1.045);grid-template-columns:repeat(3,minmax(0,1fr))}
 #app .viewer{margin-top:calc(var(--info-growth) * -1.09)}
+#app .viewer{transform:translateX(-50%);width:var(--weather-button-width,auto);justify-content:center;white-space:nowrap}
 #app .viewer{min-height:22px;height:2.1%;gap:6px;padding:1px 1.8%;align-items:center;font-size:clamp(10px,2.35vw,13px);font-weight:900;line-height:1}
 #app .viewer-eye{font-size:clamp(12px,2.7vw,15px);line-height:1}
 #app #viewCount{font-size:1.12em;font-weight:900;font-variant-numeric:tabular-nums}

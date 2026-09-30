@@ -251,7 +251,7 @@ window.IZMAIL_SETTINGS = {
       "",
 
     "Услуги и мастера":
-      "",
+      "../services-masters/",
 
     "Продукты питания":
       "../products-food/",
@@ -843,6 +843,13 @@ function izmailWhenReady(
       appRect.left +
 
       weatherRect.width / 2;
+
+
+    viewer.style.setProperty(
+      "--weather-button-width",
+      weatherRect.width.toFixed(2) + "px"
+
+    );
 
 
     var currentLeft =
