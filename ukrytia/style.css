@@ -20,3 +20,6 @@
 .emergency-shortcut{width:100%;text-align:left;font-family:inherit;cursor:pointer}
 #emergencyPanel .panel{text-align:left}
 #mapSection{scroll-margin-top:16px}
+
+/* Same main-menu button as the health directory favorites. */
+.back-btn{justify-content:center;min-height:44px;padding:0 16px;gap:8px;border-radius:15px;font-size:14px;font-weight:800;background:linear-gradient(#226ca3,#174b79);border-color:#6ac7f3;box-shadow:inset 0 0 0 1px #ffffff0f,0 8px 24px #117b4233}

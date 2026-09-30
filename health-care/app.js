@@ -10,6 +10,7 @@
   const favoriteKey=(r,p)=>JSON.stringify([r.favoriteName||r.name,p]);
   const cityNames=r=>r.city.split(' / ');
   const cities=()=>data.cityOrder;
+  const cityImages={'Измаил':'izmail','Килия':'kiliia','Болград':'bolhrad','Рени':'reni','Татарбунары':'tatarbunary','Одесса':'odesa','Киев':'kyiv'};
   const categoryFor=r=>r.category==='96319'?(/Поликлиника/.test(r.name)?'96228':'96229'):r.category==='96323'?'20125':r.category;
   const categoriesFor=r=>r.categories||[categoryFor(r)];
   const cityHref=city=>'#city/'+encodeURIComponent(city);
@@ -52,7 +53,7 @@
     ['Ветеринарная помощь',['20125']]
   ];
   function branchCover(id){return '<div class="branch-visual"><span class="cover-brand">СПРАВОЧНИК ИЗМАИЛ</span><strong class="cover-title">'+branches[id]+'</strong><img src="media/'+(id==='doctors'?'doctor':'beauty')+'-photo.jpg" alt="" width="320" height="216"></div>'}
-  function cityTabs(city,q=''){const options=cities().filter(c=>city||norm(c).includes(norm(q)));return '<h2 class="city-heading">Выберите город</h2><nav class="city-tabs" aria-label="Город приёма">'+options.map(c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'>'+escape(c)+'</a>').join('')+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
+  function cityTabs(city,q=''){const options=cities().filter(c=>city||norm(c).includes(norm(q)));return '<h2 class="city-heading">Выберите город</h2><nav class="city-tabs" aria-label="Город приёма">'+options.map(c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'><img src="media/city-'+cityImages[c]+'.jpg" alt="" width="330" height="220"><span>'+escape(c)+'</span></a>').join('')+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
   function reviewPanel(r){if(!r.review)return '';const v=r.review;return '<details class="reviews"><summary>Отзывы <span class="review-hide">· скрыть</span></summary><p>'+escape(v.summary)+'</p><small>'+escape(v.label)+' · '+escape(v.checked)+'</small><a href="'+escape(v.url)+'" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a></details>'}
   function thumb(c,city) {
     const cover=c.id==='20125'&&city==='Татарбунары'?data.categories.find(x=>x.id==='96323'):c;
@@ -153,6 +154,6 @@
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null){saved=readSaved();if(data&&route().favorites)render();else syncFavorites()}});
   document.addEventListener('pointerdown',event=>{const el=event.target.closest('a,button');if(el){el.classList.add('tap-lit');setTimeout(()=>el.classList.remove('tap-lit'),680)}},{passive:true});
   window.addEventListener('hashchange',()=>{document.querySelector('.page').style.minHeight='';$('search').value='';render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
-  try{const response=await fetch('data.json?v=20260930-8',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
+  try{const response=await fetch('data.json?v=20260930-9',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
   catch{$('content').innerHTML='<p class="empty error">Не удалось загрузить контакты. Проверьте соединение и обновите страницу.</p>'; $('topNav').innerHTML=homeLink;$('bottomNav').innerHTML=homeLink;}
 })();

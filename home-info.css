@@ -26,3 +26,5 @@
 
 /* Keep USD and EUR close together in the existing panel. */
 #app .currency-panel .rate{margin-top:1px!important;column-gap:3px!important}#app .currency-panel .rate + .rate{margin-top:1px!important}.rates-updated{margin-top:3px}
+
+#app .currency-panel .rate{justify-content:center!important;column-gap:4px!important;transform:translateY(2px)}

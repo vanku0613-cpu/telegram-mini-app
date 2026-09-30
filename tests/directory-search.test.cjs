@@ -17,8 +17,8 @@ test('global directory search and uniform contact cards',async()=>{
  await page.locator('[data-clear-search]').click();assert.equal(await page.locator('#directoryResults').isVisible(),false);
  }
  await page.goto(base+'/health-care/#search/'+encodeURIComponent('стоматолог'));await page.locator('.contact').first().waitFor();assert.match(await page.locator('#content').innerText(),/Одесса/);
- for(const width of [320,390,768]){await page.setViewportSize({width,height:844});const sizes=await page.locator('.contact').evaluateAll(es=>es.map(e=>({w:Math.round(e.getBoundingClientRect().width),h:e.getBoundingClientRect().height})));assert.equal(new Set(sizes.map(s=>s.w)).size,1);assert.deepEqual([...new Set(sizes.map(s=>s.h))],[380]);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);}
- await page.locator('.contact-description summary').first().click();assert.equal(await page.locator('.contact').first().evaluate(e=>e.getBoundingClientRect().height),380);
+ for(const width of [320,390,768]){await page.setViewportSize({width,height:844});const sizes=await page.locator('.contact').evaluateAll(es=>es.map(e=>({w:Math.round(e.getBoundingClientRect().width),h:e.getBoundingClientRect().height})));assert.equal(new Set(sizes.map(s=>s.w)).size,1);assert.deepEqual([...new Set(sizes.map(s=>s.h))],[280]);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);}
+ await page.locator('.contact-description summary').first().click();assert.equal(await page.locator('.contact').first().evaluate(e=>e.getBoundingClientRect().height),280);
  await page.locator('[data-favorite]').first().click();await page.goto(base+'/health-care/#favorites');await page.locator('.contact').waitFor();assert.equal(await page.locator('#topNav a').count(),1);assert.equal(await page.locator('#bottomNav a').count(),1);assert.match(await page.locator('#topNav').innerText(),/главное меню/);
  await page.goto(base+'/health-care/#city/'+encodeURIComponent('Измаил'));await page.locator('.category-tile').first().waitFor();assert.equal(await page.locator('#topNav a').count(),2);
  assert.deepEqual(errors,[]);

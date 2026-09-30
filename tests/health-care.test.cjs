@@ -44,6 +44,14 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     assert.equal(await page.locator('.city-tab[aria-current=true]').count(),0);
     assert.equal(await page.locator('.category-tile, .contact').count(),0);
     assert.equal(await page.locator('.city-heading').innerText(),'Выберите город');
+    for(const width of [320,390,768]){
+      await page.setViewportSize({width,height:900});
+      const boxes=await page.locator('.city-tab').evaluateAll(es=>es.map(e=>{const b=e.getBoundingClientRect();return {x:b.x,y:b.y,w:b.width,h:b.height}}));
+      assert.equal(boxes.length,7);assert.equal(boxes[0].y,boxes[2].y);assert.ok(boxes[3].y>boxes[0].y);assert.ok(boxes[6].y>boxes[3].y);assert.ok(boxes.every(b=>Math.abs(b.w-boxes[0].w)<1&&Math.abs(b.h-boxes[0].h)<1));
+      for(const img of await page.locator('.city-tab img').all()){await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0));}
+    }
+    await page.setViewportSize({width:390,height:900});
+
     assert.equal(await page.evaluate(()=>document.querySelector('#cityNavigation').getBoundingClientRect().top>=document.querySelector('.finder').getBoundingClientRect().bottom),true);
     await page.locator('#search').fill('Килия');assert.equal(await page.locator('.city-tab').count(),1);await page.locator('#clear').click();
     await page.evaluate(()=>window.scrollTo(0,100));
@@ -52,7 +60,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     await page.locator('.city-tab').filter({hasText:/^Измаил$/}).click();await page.locator('.category-tile').first().waitFor();
     assert.equal(await page.evaluate(()=>scrollY),initialScroll);
     // Short/empty city lists must not move the city controls or clamp scroll to the top.
-    await page.evaluate(()=>window.scrollTo(0,380));
+    await page.locator('#cityNavigation').scrollIntoViewIfNeeded();
     for(const city of [...data.cityOrder.slice(1),'Измаил']){
       const before=await page.locator('#cityNavigation').boundingBox();
       const scroll=await page.evaluate(()=>scrollY);

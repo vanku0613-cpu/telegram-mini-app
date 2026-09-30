@@ -149,7 +149,7 @@ window.IZMAIL_SETTINGS = {
 
     sceneWeatherMs: 600000,
 
-    weatherPanelMs: 600000,
+    weatherPanelMs: 300000,
 
     currencyMs: 300000,
 

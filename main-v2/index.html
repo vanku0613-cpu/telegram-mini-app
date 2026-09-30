@@ -881,9 +881,10 @@ a.nav{ text-decoration:none; }
 
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 <link rel="stylesheet" href="../home-weather.css?v=2">
-<link rel="stylesheet" href="../home-info.css?v=4">
+<link rel="stylesheet" href="../home-info.css?v=5">
 <script src="../home-feedback.js?v=1" defer></script>
 <script src="../weather-profile.js?v=2"></script>
+<script src="../weather-source.js?v=1"></script>
 <link rel="stylesheet" href="../directory-search.css?v=1">
 </head>
 <body>
@@ -910,8 +911,8 @@ a.nav{ text-decoration:none; }
       <a class="panel info weather-panel" id="weatherPanel" href="https://www.meteoblue.com/ru/погода/неделя/Измаил_Украина_707308" target="_blank" rel="noopener noreferrer" aria-label="Подробный прогноз погоды в Измаиле">
         <div class="weather-mini" id="weatherIcon">🌤️</div>
         <div class="info-title">Погода</div>
-        <div class="temp" id="weatherTemp">22°C</div>
-        <div class="condition" id="weatherText">Переменная облачность</div>
+        <div class="temp" id="weatherTemp">—°C</div>
+        <div class="condition" id="weatherText">Загружаем погоду…</div>
       </a>
       <div class="panel info currency-panel" id="currencyPanel" role="link" tabindex="0" aria-label="Курс валют">
         <div class="currency-watermark" aria-hidden="true">₴</div>
@@ -1407,7 +1408,10 @@ a.nav{ text-decoration:none; }
     return "autumn";
   }
 
+  var weatherSolar=null;
   function realTimeOfDay(){
+    var solarTime=window.izmailWeatherSource.timeOfDay(weatherSolar);
+    if(solarTime)return solarTime;
     var h=kyivHour();
     var tc=(CFG.time || {});
     var morning=Number(tc.morningStart == null ? 6 : tc.morningStart);
@@ -1425,17 +1429,6 @@ a.nav{ text-decoration:none; }
     if([51,53,55,56,57,61,63,65,66,67,80,81,82,95,96,99].indexOf(code)!==-1) return "rain";
     if([1,2,3,45,48].indexOf(code)!==-1) return "cloudy";
     return "clear";
-  }
-
-  function weatherUrl(fields){
-    var wc=(CFG.weather || {});
-    var lat=(wc.latitude == null ? 45.35 : wc.latitude);
-    var lon=(wc.longitude == null ? 28.84 : wc.longitude);
-    var tz=encodeURIComponent(wc.timezone || "Europe/Kyiv");
-    return "https://api.open-meteo.com/v1/forecast?latitude="+lat+
-      "&longitude="+lon+
-      "&current="+fields+
-      "&timezone="+tz;
   }
 
   function syncRealScene(){
@@ -1471,12 +1464,13 @@ a.nav{ text-decoration:none; }
   function loadWeather(){
     if(weatherPending) return;
     weatherPending=true;
-    var weatherController=new AbortController();
-    var weatherTimeout=setTimeout(function(){weatherController.abort();},12000);
-    fetch(weatherUrl("temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m")+"&wind_speed_unit=ms",{cache:"no-store",signal:weatherController.signal})
-      .then(function(r){if(!r.ok) throw new Error("weather");return r.json();})
+    window.izmailWeatherSource.load()
       .then(function(d){
-        var c=d&&d.current?d.current:{};
+        var c=d.current;
+        weatherSolar=d.daily||null;
+        var panel=document.getElementById("weatherPanel");
+        if(panel){panel.dataset.source=d.provider;panel.dataset.weatherTime=String(c.time);panel.title="Измаил · "+d.provider+" · расчёт на "+new Intl.DateTimeFormat('ru-RU',{timeZone:'Europe/Kyiv',hour:'2-digit',minute:'2-digit'}).format(new Date(c.time*1000));}
+
         var names={
           0:"Ясно",1:"Преимущественно ясно",2:"Переменная облачность",3:"Облачно",
           45:"Туман",48:"Туман",51:"Морось",53:"Морось",55:"Сильная морось",
@@ -1503,8 +1497,13 @@ a.nav{ text-decoration:none; }
         if(txt) txt.textContent=names[code]||"Погода";
         if(icon) icon.textContent=(state.time==="night" && (code===0 || code===1))?"🌙":(profile.thunder?"⛈️":icons[code]||(profile.weather==="rain"?"🌧️":profile.weather==="snow"?"❄️":"🌤️"));
       })
-      .catch(function(){})
-      .finally(function(){clearTimeout(weatherTimeout);weatherPending=false;});
+      .catch(function(){
+        var panel=document.getElementById("weatherPanel"),txt=document.getElementById("weatherText");
+        if(panel && !panel.dataset.weatherTime && txt)txt.textContent="Погода недоступна";
+        if(panel && panel.dataset.weatherTime && Date.now()-Number(panel.dataset.weatherTime)*1000>7200000 && txt)txt.textContent="Данные погоды устарели";
+        if(panel)panel.title="Не удалось обновить погоду. Последние данные сохранены.";
+      })
+      .finally(function(){weatherPending=false;});
   }
 
   /* Frank Exchange rates from the shared, periodically updated JSON. */
@@ -1513,7 +1512,8 @@ a.nav{ text-decoration:none; }
   document.head.appendChild(frankRatesScript);
 
   loadWeather();
-  setInterval(loadWeather,Number((CFG.updates && CFG.updates.weatherPanelMs) || 600000));
+  setInterval(function(){if(!document.hidden)loadWeather();},300000);
+  window.addEventListener("online",loadWeather);
 
   window.addEventListener("izmail:refresh", function(){
     syncRealScene();
