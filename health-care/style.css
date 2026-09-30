@@ -55,3 +55,13 @@ body[data-city-picker=true] .info-note,body[data-city-picker=true] #resultStatus
 @media(max-height:620px){body[data-doctors=true] #profileMedia .branch-visual{height:72px}body[data-doctors=true] .page{padding-top:8px;padding-bottom:8px}}
 
 .profile-banner .branch-visual>img{object-position:center top}
+
+/* Stable touch targets and room below the phone / Telegram top inset. */
+html,body{overscroll-behavior-x:none}
+.page,body[data-doctors=true] .page{padding-top:calc(24px + max(env(safe-area-inset-top,0px),var(--tg-safe-area-inset-top,0px)) + var(--tg-content-safe-area-inset-top,0px))}
+:is(.branch-card,.category-tile,.city-tab,.back-btn){-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;transition:none;transform:none!important}
+:is(.branch-card,.category-tile,.city-tab) img{-webkit-user-drag:none;user-select:none;pointer-events:none}
+:is(.branch-card,.category-tile,.city-tab,.back-btn):is(:hover,:active,:focus,.tap-lit){transform:none!important;translate:none;scale:none}
+.branch-card .generated-cover img{width:100%;height:100%;margin:0;object-fit:contain;opacity:1;border-radius:0}
+body[data-doctors=true] .profile-banner .generated-cover{height:110px}
+@media(max-height:620px){body[data-doctors=true] .profile-banner .generated-cover{height:80px}}

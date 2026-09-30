@@ -52,12 +52,12 @@
     ['Другие специалисты',['96313','96314','96318']],
     ['Ветеринарная помощь',['20125']]
   ];
-  function branchCover(id){return '<div class="branch-visual"><strong class="cover-title">'+branches[id]+'</strong><img src="media/'+(id==='doctors'?'doctor':'beauty')+'-photo.jpg" alt="" width="320" height="216"></div>'}
+  function branchCover(id){if(id==='doctors')return '<div class="visual generated-cover"><img src="media/doctors-cover.jpg" alt="Справочник Измаил — Врачи и здоровье" width="960" height="640" draggable="false"></div>';return '<div class="branch-visual"><strong class="cover-title">'+branches[id]+'</strong><img src="media/'+(id==='doctors'?'doctor':'beauty')+'-photo.jpg" alt="" width="320" height="216"></div>'}
   function cityTabs(city,q=''){const options=cities();return '<h2 class="city-heading">Выберите город</h2><nav class="city-tabs" aria-label="Город приёма">'+options.map(c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'><img src="media/city-'+cityImages[c]+'.jpg" alt="" width="330" height="220"><span>'+escape(c)+'</span></a>').join('')+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
   function reviewPanel(r){if(!r.review)return '';const v=r.review;return '<details class="reviews"><summary>Отзывы <span class="review-hide">· скрыть</span></summary><p>'+escape(v.summary)+'</p><small>'+escape(v.label)+' · '+escape(v.checked)+'</small><a href="'+escape(v.url)+'" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a></details>'}
   function thumb(c,city) {
     const cover=c;
-    const url=cover.media[0]?.src;
+    const url=cover.media[0]?.src+(c.id==='96211'?'?v=2':'');
     return url?`<div class="visual"><img class="visual-backdrop" src="${escape(url)}" alt="" loading="lazy" aria-hidden="true"><img src="${escape(url)}" alt="" loading="lazy" width="320" height="216"></div>`:'';
   }
   function tile(c,city) {
@@ -131,6 +131,8 @@
       $('content').innerHTML='<div class="branches">'+[['doctors','Врачи · Клиники · Диагностика · Ветеринары'],['beauty','Маникюр · Волосы · Брови · Уход']].map(([id,desc])=>'<a class="branch-card '+id+'" href="#'+id+'">'+branchCover(id)+'<div class="branch-copy"><h2>'+branches[id]+'</h2><p>'+desc+'</p></div></a>').join('')+(()=>{const c=data.categories.find(c=>c.id==='96211');return '<a class="branch-card care" href="#category/96211">'+thumb(c)+'<div class="branch-copy"><h2>'+escape(c.name)+'</h2><p>Сиделки · Няни · Пансионат</p></div></a>'})()+'</div>';
     }
   }
+  document.addEventListener('dragstart',event=>{if(event.target.closest('.branch-card,.category-tile,.city-tab'))event.preventDefault()});
+  document.addEventListener('contextmenu',event=>{if(event.target.closest('.branch-card,.category-tile,.city-tab'))event.preventDefault()});
   $('search').addEventListener('input',render);
   $('clear').addEventListener('click',()=>{$('search').value='';render();$('search').focus()});
   document.addEventListener('click',event=>{
@@ -159,6 +161,6 @@
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null){saved=readSaved();if(data&&route().favorites)render();else syncFavorites()}});
   document.addEventListener('pointerdown',event=>{const el=event.target.closest('a,button');if(el){el.classList.add('tap-lit');setTimeout(()=>el.classList.remove('tap-lit'),680)}},{passive:true});
   window.addEventListener('hashchange',()=>{document.querySelector('.page').style.minHeight='';$('search').value='';render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
-  try{const response=await fetch('data.json?v=20260930-10',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
+  try{const response=await fetch('data.json?v=20260930-11',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
   catch{$('content').innerHTML='<p class="empty error">Не удалось загрузить контакты. Проверьте соединение и обновите страницу.</p>'; $('topNav').innerHTML=homeLink;$('bottomNav').innerHTML=homeLink;}
 })();
