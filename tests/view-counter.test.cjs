@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const http = require('node:http');
 const { chromium } = require('playwright');
 const source = fs.readFileSync(require('node:path').join(__dirname, '../view-counter.js'), 'utf8');
-const timeKey = 'izmail_directory_global_view_last_time_v1';
+const timeKey = 'izmail_directory_global_view_last_time_hourly_20260930_v1';
 
 test('both actual entry pages load the shared counter without changing other markup', async () => {
   const path = require('node:path');
@@ -46,7 +46,7 @@ test('both actual entry pages load the shared counter without changing other mar
   }
 });
 
-test('shared counter: devices, concurrent tabs, five minutes, streaming and failures', async () => {
+test('shared counter: devices, concurrent tabs, one hour, streaming and failures', async () => {
   const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
     res.end('<span id="viewCount">1</span>');
@@ -116,14 +116,14 @@ test('shared counter: devices, concurrent tabs, five minutes, streaming and fail
     assert.equal(hits, 3, 'simultaneous tabs count once');
 
     const countedAt = await pageA.evaluate(key => Number(localStorage.getItem(key)), timeKey);
-    await pageA.clock.install({ time: new Date(countedAt + 299000) });
+    await pageA.clock.install({ time: new Date(countedAt + 3599000) });
     await pageA.addScriptTag({ content: source });
     await displayed(pageA, 43);
-    assert.equal(hits, 3, 'less than five minutes does not increment');
-    await pageA.clock.fastForward(2000);
+    assert.equal(hits, 3, 'less than one hour does not increment');
+    await pageA.clock.fastForward(1000);
     await pageA.addScriptTag({ content: source });
     await displayed(pageA, 44);
-    assert.equal(hits, 4, 'after five minutes a new opening increments');
+    assert.equal(hits, 4, 'after one hour a new opening increments');
 
     loseResponse = true;
     const d = await device();

@@ -5,9 +5,9 @@
   if (!el) return;
 
   var API = "https://abacus.jasoncameron.dev";
-  var COUNTER = "/vanku0613-cpu.github.io/spravochnik_izmail_main_v2_views";
-  var TIME_KEY = "izmail_directory_global_view_last_time_v1";
-  var INTERVAL = 300000;
+  var COUNTER = "/vanku0613-cpu.github.io/spravochnik_izmail_main_v2_views_hourly_20260930";
+  var TIME_KEY = "izmail_directory_global_view_last_time_hourly_20260930_v1";
+  var INTERVAL = 3600000;
   var lastValue = -1;
   var reading = false;
   var stream;
