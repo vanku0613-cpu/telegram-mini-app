@@ -6,30 +6,58 @@
 <meta name="theme-color" content="#06182f">
 <title>Наши группы — Справочник Измаил</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#041326;color:#fff;font-family:Arial,sans-serif}
-body{background:radial-gradient(circle at 75% 0,rgba(39,139,203,.18),transparent 30%),linear-gradient(180deg,#061a34,#031225)}
-.wrap{width:min(100%,720px);margin:auto;padding:18px 13px 34px}
-.back{display:inline-flex;color:#fff;text-decoration:none;border:1px solid rgba(75,154,205,.62);border-radius:16px;padding:8px 12px;background:rgba(6,40,74,.75);font-size:13px;font-weight:800}
-.hero{margin:16px 0 12px;padding:19px 16px;border:1px solid rgba(64,143,195,.48);border-radius:20px;background:linear-gradient(145deg,rgba(8,45,82,.96),rgba(3,24,49,.98))}
-.hero small{color:#89c6ec;font-weight:800}.hero h1{margin:5px 0 4px;font-size:28px}.hero p{margin:0;color:#9eb6cd;font-size:12px}
-.grid{display:grid;gap:9px}
-.item{display:grid;grid-template-columns:42px 1fr 20px;align-items:center;gap:10px;min-height:66px;padding:10px 12px;border:1px solid rgba(52,119,167,.52);border-radius:15px;background:linear-gradient(145deg,rgba(7,39,73,.94),rgba(4,25,49,.97));color:#fff;text-decoration:none}
-.ico{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#0a3d69;border:1px solid rgba(92,169,217,.42);font-size:17px}.item b{display:block;font-size:13px}.item span small{display:block;margin-top:3px;color:#91abc3;font-size:10px}.chev{color:#7fd4ff;font-size:22px}
-.note{margin-top:12px;padding:10px 12px;border-left:3px solid #3d94c9;background:rgba(5,33,61,.75);border-radius:10px;color:#8faac2;font-size:11px;line-height:1.4}
+:root{color-scheme:dark;--bg:#041326;--panel:#08213d;--line:#3478a8;--cyan:#71d5ff;--muted:#a8bfd4;--blue:#226ca3}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:#fff;font-family:Arial,sans-serif}
+body{background:radial-gradient(ellipse at 50% -8%,rgba(43,145,209,.24),transparent 48%),linear-gradient(180deg,#071a33,#031225 78%)}
+.wrap{width:min(100%,760px);margin:auto;padding:calc(14px + env(safe-area-inset-top)) 14px calc(28px + env(safe-area-inset-bottom))}
+.home-back{min-height:48px;display:flex;align-items:center;justify-content:center;gap:10px;width:min(100%,300px);padding:0 18px;border:1px solid #6ac7f3;border-radius:15px;background:linear-gradient(180deg,#226ca3,#174b79);box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433,0 0 16px #268fd033;color:#fff;text-decoration:none;font-size:15px;font-weight:800;line-height:1.15;transition:filter .15s,box-shadow .15s}
+.home-back:hover,.home-back:focus-visible{filter:brightness(1.12);box-shadow:inset 0 0 0 1px #ffffff20,0 8px 24px #145d9455,0 0 20px #268fd055;outline:none}.home-back:active{filter:brightness(1.2)}.home-back .arrow{font-size:22px;line-height:1}
+.hero{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 116px;align-items:center;gap:12px;margin:14px 0 15px;padding:17px 18px;border:1px solid rgba(77,166,218,.55);border-radius:22px;background:linear-gradient(120deg,rgba(7,39,73,.98),rgba(3,21,43,.97));box-shadow:inset 0 1px #ffffff0d,0 12px 30px #0004}
+.hero:before{position:absolute;z-index:-1;inset:0;content:"";background:radial-gradient(circle at 84% 50%,#187cbc33,transparent 32%)}.eyebrow{display:flex;align-items:center;gap:7px;color:#92d7fa;font-size:10px;letter-spacing:.13em;font-weight:800;text-transform:uppercase}.live-dot{width:7px;height:7px;border-radius:50%;background:#69d7ff;box-shadow:0 0 10px #69d7ff}.hero h1{margin:8px 0 5px;font-size:27px;line-height:1.05;letter-spacing:-.03em}.hero p{margin:0;max-width:440px;color:#b0c6d9;font-size:12px;line-height:1.45}.hero-art{width:116px;height:92px;filter:drop-shadow(0 0 13px #29a4e955)}
+.section-heading{display:flex;align-items:center;justify-content:space-between;margin:17px 2px 9px}.section-heading h2{margin:0;font-size:14px;letter-spacing:.02em}.count{padding:5px 9px;border:1px solid #4a94c466;border-radius:99px;background:#0a3455;color:#a9e4ff;font-size:10px;font-weight:800}
+.grid{display:grid;grid-template-columns:1fr;gap:9px}.item{position:relative;display:grid;grid-template-columns:54px minmax(0,1fr) 18px;align-items:center;gap:12px;min-height:78px;padding:10px 13px;border:1px solid rgba(66,136,181,.56);border-radius:17px;background:linear-gradient(145deg,rgba(8,40,73,.97),rgba(4,23,45,.98));color:#fff;text-decoration:none;box-shadow:inset 0 1px #ffffff08,0 7px 18px #0002;transition:transform .16s,border-color .16s,box-shadow .16s,background .16s;overflow:hidden}
+.item:before{position:absolute;inset:0;content:"";background:linear-gradient(105deg,transparent 35%,#53c5ff08 68%,#53c5ff12);opacity:0;transition:opacity .16s;pointer-events:none}.item:hover,.item:focus-visible{border-color:#65c9f1;box-shadow:inset 0 0 0 1px #9ee9ff12,0 0 0 1px #56b9e633,0 0 19px #187cb644;outline:none}.item:hover:before,.item:focus-visible:before{opacity:1}.item:active{transform:scale(.99)}
+.avatar{position:relative;display:grid;place-items:center;width:52px;height:52px;border:1px solid #74cffa;border-radius:50%;background:linear-gradient(145deg,#115080,#092641);box-shadow:0 0 0 3px #51bcf018,0 0 17px #229bd54a;overflow:hidden}.avatar img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}.avatar img[hidden]{display:none}.avatar .fallback{display:none;position:absolute;inset:0;place-items:center;font-size:22px;background:linear-gradient(145deg,#104978,#071c32)}.avatar.is-fallback .fallback{display:grid}
+.copy{min-width:0}.copy b{display:block;font-size:13px;line-height:1.25;font-weight:800}.copy small{display:block;margin-top:4px;color:#a8bfd4;font-size:10px;line-height:1.35}.chev{color:var(--cyan);font-size:24px;line-height:1;text-align:center;text-shadow:0 0 12px #43baff88}
+.bottom-home{display:flex;justify-content:center;margin-top:15px}.bottom-home .home-back{width:min(100%,340px)}
+@media(min-width:620px){.wrap{padding-left:22px;padding-right:22px}.hero{grid-template-columns:minmax(0,1fr) 142px;padding:22px 24px}.hero-art{width:142px;height:105px}.hero h1{font-size:31px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.item{min-height:86px;grid-template-columns:54px minmax(0,1fr) 14px;padding:11px}.copy b{font-size:12px}.copy small{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 </head>
 <body>
 <main class="wrap">
-<a class="back" href="../">← Главное меню</a>
-<section class="hero"><small>СЕТЬ СПРАВОЧНИКА</small><h1>Наши группы</h1><p>Основные сообщества и полезные переходы.</p></section>
-<div class="grid">
-<a class="item" href="https://t.me/SPRAVOCHNIK_IZMAIL"><span class="ico">➤</span><span><b>Справочник Измаил</b><small>Главная группа</small></span><span class="chev">›</span></a>
-<a class="item" href="https://t.me/IZMAIL_GAZ_SVET_VODA"><span class="ico">⌁</span><span><b>Коммунальный чат Измаил</b><small>Свет • вода • газ • коммунальные вопросы</small></span><span class="chev">›</span></a>
-<a class="item" href="https://t.me/rabota_v_izmaile"><span class="ico">⌂</span><span><b>Работа / вакансии</b><small>Вакансии и поиск работы</small></span><span class="chev">›</span></a>
-<a class="item" href="https://t.me/Vanku13"><span class="ico">✦</span><span><b>Реклама и связь</b><small>@Vanku13</small></span><span class="chev">›</span></a>
-</div>
-<div class="note">Эту страницу можно дальше постепенно дополнять новыми группами, не меняя основное меню.</div>
+  <header class="hero">
+    <div>
+      <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Сообщества Измаила</div>
+      <h1>Наши группы</h1>
+      <p>Выберите сообщество по интересам и присоединяйтесь к своим.</p>
+    </div>
+    <svg class="hero-art" viewBox="0 0 160 112" role="img" aria-label="Город и общение жителей">
+      <defs><linearGradient id="sky" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#37c9ff" stop-opacity=".95"/><stop offset="1" stop-color="#2676d8" stop-opacity=".7"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <path d="M12 93h136" stroke="#58c9f6" stroke-opacity=".6" stroke-width="2"/>
+      <path d="M23 93V62h23v31M50 93V45h25v48M80 93V58h19v35M103 93V38h25v55M132 93V67h14v26" fill="#0b3155" stroke="#50bce9" stroke-opacity=".7" stroke-width="1.4"/>
+      <path d="M57 57h4m7 0h2M110 50h4m7 0h1M31 72h3m8 0h1m21 14h3m42-22h3m12 0h2m-25 19h2" stroke="#83dcff" stroke-linecap="round" stroke-width="2"/>
+      <path d="M29 24h49a11 11 0 0 1 11 11v8a11 11 0 0 1-11 11H60l-11 9v-9H29a11 11 0 0 1-11-11v-8a11 11 0 0 1 11-11Z" fill="#0b3155" stroke="url(#sky)" stroke-width="2" filter="url(#glow)"/>
+      <circle cx="38" cy="39" r="3" fill="#9eeaff"/><circle cx="52" cy="39" r="3" fill="#9eeaff"/><circle cx="66" cy="39" r="3" fill="#9eeaff"/>
+      <path d="M96 16h40a9 9 0 0 1 9 9v5a9 9 0 0 1-9 9h-10l-8 7v-7H96a9 9 0 0 1-9-9v-5a9 9 0 0 1 9-9Z" fill="#092743" stroke="#69d6ff" stroke-opacity=".9" stroke-width="1.7"/>
+      <path d="m99 29 7-7 7 7m-7-6v13m8-6h13m-7-6 7 6-7 6" fill="none" stroke="#91e2ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </svg>
+  </header>
+
+  <a class="home-back" href="../main-v2/" data-main-back><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a>
+  <div class="section-heading"><h2>Выберите группу</h2><span class="count">7 сообществ</span></div>
+  <nav class="grid" aria-label="Группы Справочника Измаил">
+    <a class="item" href="https://t.me/SPRAVOCHNIK_IZMAIL"><span class="avatar"><img src="https://cdn4.telesco.pe/file/gc5RG9o2MtcVxAvlHJOGuYVF-DNWgiJzsl7F4exRLPa50JTaXDk0E-QCTvtVAU1zNBulWnStJBBWbnJnO8vJMjGbrRQhBFuFZuvxYcHIa0AkvkuZuelV-6MH2PMvT27T37YD1Nsm1T7zLq1YQgtYKCsdiJsZI0cOoG8YXWRUoXqBRI89YQ-B7iB8jknOpgKr5m02BbnVK9WGM5NcMInte1ThoIi1MIuhQT9GfGbaAFjRx5iyPn6n3o6jULUUmq18RWkygB0eWWKhfVj2RVCqJY0VC9D4-ovkUazpluGJ5nixo0OAfzZjM36bQ6UtH1CeZL-nXYB97HwNrf_fYCNyjQ.jpg" alt="" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')"><span class="fallback" aria-hidden="true">📘</span></span><span class="copy"><b>Справочник Измаил</b><small>Полезные контакты, услуги и помощь жителям</small></span><span class="chev" aria-hidden="true">›</span></a>
+    <a class="item" href="https://t.me/Vkusny_Chat_Izmail"><span class="avatar"><img src="https://cdn4.telesco.pe/file/XhlqWJONKKkjwYS_gdXWAkkWXKipbl1FAid9HmcaeVAZReq65BtOFFPJTqShRXkbokCd9kLSQd7E4X66rJt4PdJfYiXQZ4I-y3N1ecxpsMx-0XqxF6XRODxZm42ZCoVrZx8S7dwFQZaXSSVvq6ZCnlNm61nvgHuo2Tn5zCDZ_Tcng58CI16Udg1l8BPaeIrXrF4hkF_ibCcDqVknmhFAFeEIaQ--Cq_G3EHKzFmyKK8EViOOpNBuVhOX3el4NdWZCWG3NNlNuu5_mTy1M4f86ZyG_bmHjUBCRoSTga45nIgXz0R6l26-9V3eYyyqCGbHq_7hPkscbFbOB4zltHoQYw.jpg" alt="" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')"><span class="fallback" aria-hidden="true">🛍️</span></span><span class="copy"><b>Рынок Измаил Онлайн</b><small>Местные товары: купить, продать, найти</small></span><span class="chev" aria-hidden="true">›</span></a>
+    <a class="item" href="https://t.me/AVTO_IZMAIL_ODESSA"><span class="avatar"><img src="https://cdn4.telesco.pe/file/GZpXEO8J2yy36TdC0UUBjSiPSyNC1xxuEfu4ns6hWmzyAa4SnOilHmDo_eRaJoR1DFIyYa3NTLsbRnqYe_GhijGpRVLqu4Xt1L15CyEmjw5Q0wLfvZJ6Zji9JNCQp1xruPLKvxti1nB3ij1a1qyBSmlgRXlHvcZh7eCGlTHbkC7fte5nG6zQHlitmIddwdhoizlGGtMAbZTyxWUcJ2uMK7ldk8tsQZve8IXi6NOloAoHcthwSQyYbvQ0nqDu1feFIlppQ_8ziPitUyfbu-5WWXtXbZGVkR0yNGiwo4yGMV6KaXyrvtbCABnbRHMhBz2AgIhcaV9KirYPmzi6OOJQHg.jpg" alt="" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')"><span class="fallback" aria-hidden="true">🚗</span></span><span class="copy"><b>Авто Бессарабия</b><small>Покупка и продажа автомобилей и запчастей</small></span><span class="chev" aria-hidden="true">›</span></a>
+    <a class="item" href="https://t.me/rabota_v_izmaile"><span class="avatar"><img src="https://cdn4.telesco.pe/file/lJg198YnuLIxfgwofUHbYUUnastgdmGCJRifTWpjwXWgMPskacIYK8aSGh5PA4R5lowH_Rh1NEP_WXmWhLx320JDgQitiqqGb9YrIXC1Gqgts5yilTQr3gYUbSgndrV1XwjHr4f1XFvp_ikX2CHbJeajSjNiNjCmRduyJdijeDuzDIe6gUuiLiMJfMPqcql8_U0AWjNq_JAn52BcI4Z55XC6IGp7ffLP-l8MMRXwjCF6N4A9iT61qR9LheH4TBcNYVVTD8tYrz50iizHDPQ11t6vMM1mPIfERoomhwAwe-9xyOZYJuYW2fTPFzA-K4N32gBcwzgs9ryX0ZlOJKCsPw.jpg" alt="" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')"><span class="fallback" aria-hidden="true">💼</span></span><span class="copy"><b>Работа в Измаиле</b><small>Вакансии и предложения о работе</small></span><span class="chev" aria-hidden="true">›</span></a>
+    <a class="item" href="https://t.me/Izmail_CHAT_24_7"><span class="avatar"><img src="https://cdn4.telesco.pe/file/IxU0sTa2SwKtwWP65AFtzJJ04lYGxswQ2ddqXEgkiWE9ueC0t-MzCXXv3Jq7ePcp0w2hGeEXppLWDNxAXw0Zs0SQLTiuWb3XjF1KRn0ObBuZgNchJOn1KlBgVeu84NLi4XWQIsmRQe3KLoHVXWU6eaZflyxMWQ7Ri8PezTwUWNBtXXy8YjxEIoRyllIxUN5ehDz5y1OLwQhVtkyHmmmQG33lPMpEV6Aoh9zQ0_Jjs9tvwHkd030mOeBqBguIssbpMGvIo4H3vZZegIfchPUQI-o4Gi9Fkpi99Pwh0WGwUvhgAGDiN_TfgVb-cOESNRBhLD3GoR2X8bnm-LPuYKzppg.jpg" alt="" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')"><span class="fallback" aria-hidden="true">🐾</span></span><span class="copy"><b>Zoo-Чат Измаила</b><small>Общение и взаимопомощь владельцев животных</small></span><span class="chev" aria-hidden="true">›</span></a>
+    <a class="item" href="https://t.me/IZMAIL_GAZ_SVET_VODA"><span class="avatar"><img src="https://cdn4.telesco.pe/file/nrzjP8Y76owH6oPgnaJ9MD15OsqpSc9yU3emPDQ99hXYbpmyAChNLqfhX_uedENff3eoE4NC2a87kIoA1FTllYNHfNiQSjYejZ6vWxrARnkVzbXLhKqaElw1UOGuv31H_WIDx8TNSB3vZ2QXwoSFZ1HG69qS4sv9Oltwgf8d7i4LYLAgPQOBLH1ptpeBb-HrjLMYUlMQFr-ePM1qOpVQyyJGESBVpt4GYvNgfm6X-JwaoHlJANv4t3JjCmr62nQCjoPvyy7ZsUN618f0jLShs-CJS_7Df8Tht3bMai3tlX5MkdSnfWHkVgLtNwXGPjP8Vue1EAt5c-x47c1UeeuZSw.jpg" alt="" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')"><span class="fallback" aria-hidden="true">💡</span></span><span class="copy"><b>Измаил Свет · Вода · Газ · Интернет</b><small>Коммунальные вопросы, отключения и связь</small></span><span class="chev" aria-hidden="true">›</span></a>
+    <a class="item" href="https://t.me/buro_nahodok_izmail"><span class="avatar"><img src="https://cdn4.telesco.pe/file/pKEMD3hpB0pCjsHWz4-hGMSu6c3pMOL7gd3qFxyDyJAT7zrghZXbLPZ2HTfAekqDxP75bfQNkJLstwUQrr0g4z_HC0anbD0xmU0oa0x8rIupSREcyRm2AiN-C19un7WfFfim9wSdsLjlZWrfgbtlIJfZ4ZHVSwZfKcAWsd_67tjHP6tCdzGizn6qy25xE6xYUFrDSQKuzoTrwdLCliReYHrfQZ_yCsI8aljG0orkcYenSIPpaCENSo1F-CQri1NuTmBW2MMY8m2jJulN12XC-z5Y2I8tOCAVWajkItHtNaxQKm7MwRTAHxbmmfGbEf6K5k_QGNCX0zUwAk6pLFsHxw.jpg" alt="" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')"><span class="fallback" aria-hidden="true">🔎</span></span><span class="copy"><b>Бюро находок Измаил</b><small>Помощь в поиске потерянных и найденных вещей</small></span><span class="chev" aria-hidden="true">›</span></a>
+  </nav>
+
+  <div class="bottom-home"><a class="home-back" href="../main-v2/" data-main-back><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></div>
 </main>
 </body>
 </html>
