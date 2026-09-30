@@ -28,7 +28,9 @@ test('food and delivery directory switches sections and keeps contact links uniq
     assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className || item.tagName.toLowerCase())), ['cover', 'home-back', 'chooser']);
     assert.equal(await page.locator('nav.tabs .tab[data-tab]').count(), 5);
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
-    assert.equal(await page.locator('#fastfood').isVisible(), true);
+    assert.equal(await page.locator('.tabs').isVisible(), true);
+    assert.equal(await page.locator('.panel:visible').count(), 0, 'category details stay closed until a button is selected');
+    assert.equal(await page.locator('#sectionBack').isVisible(), false);
     assert.equal(await page.locator('input[type="search"]').count(), 0);
     assert.equal(await page.locator('.unverified').count(), 0, 'small source and verification disclaimers are omitted from food listings');
     assert.equal(await page.locator('.hint').count(), 0, 'unneeded source explanation is omitted');
@@ -40,14 +42,22 @@ test('food and delivery directory switches sections and keeps contact links uniq
     await page.locator('.tab[data-tab="restaurants"]').click();
     assert.equal(await page.locator('#restaurants').isVisible(), true);
     assert.equal(await page.locator('#fastfood').isVisible(), false);
+    assert.equal(await page.locator('.tabs').isVisible(), false, 'the category grid leaves the screen when a category opens');
+    assert.equal(await page.locator('#sectionBack').isVisible(), true);
+    await page.locator('#sectionBack').click();
+    assert.equal(await page.locator('.tabs').isVisible(), true);
     await page.locator('nav.tabs .tab[data-tab="groceries"]').click();
     assert.equal(await page.locator('#groceries').isVisible(), true);
+    assert.equal(await page.locator('#restaurants').isVisible(), false);
+    await page.locator('#sectionBack').click();
     await page.locator('.tab[data-tab="basics"]').click();
     assert.equal(await page.locator('#basics').isVisible(), true);
+    await page.locator('#sectionBack').click();
     await page.locator('.tab[data-tab="gifts"]').click();
     assert.equal(await page.locator('#gifts').isVisible(), true);
     assert.deepEqual(await page.locator('#gifts a.phone[href^="tel:"]').evaluateAll(items => items.map(item => item.getAttribute('href'))), ['tel:+380976143819', 'tel:+380971798587']);
     assert.match(await page.locator('#gifts').innerText(), /Фрукты и клубника в шоколаде[\s\S]*Зефирные цветы/);
+    await page.locator('#sectionBack').click();
     await page.locator('nav.tabs .tab[data-tab="groceries"]').click();
 
     const phones = await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(item => item.getAttribute('href')));

@@ -20,6 +20,21 @@ body[data-view=category] #subtitle{font-size:12px;margin-top:9px}
 .branch-card .branch-visual{position:relative;justify-content:flex-end;isolation:isolate;padding:8px;gap:5px}.branch-card .branch-visual>img{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:0;object-position:center 20%;z-index:-2}.branch-card .branch-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#05294fee,transparent 70%);z-index:-1}.branch-card .branch-visual .cover-brand{position:absolute;top:7px;font-size:8px}.branch-card .branch-visual .cover-title{font-size:14px;line-height:1.15;text-shadow:0 1px 3px #001d40}
 .city-tabs{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 12px}.city-tab{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 13px;background:#102d48;border:1px solid #3e647f;border-radius:12px;color:#cee6f3;font-size:13px;font-weight:700}.city-tab[aria-current=true]{background:linear-gradient(#179954,#0d713d);border-color:#70e8a6;color:white;box-shadow:0 0 10px #36cb6933}.city-vet{display:inline-flex;gap:8px;align-items:center;min-height:40px;margin:0 0 15px}body[data-view=branch] #profileMedia .branch-visual{height:140px}.group-title:first-child{margin-top:8px}@media(max-width:350px){.city-tab{padding:8px 10px;font-size:12px}}
 
+/* Main-menu sized text-first tiles for the health directory; city cards keep their photos. */
+.branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.branch-card.plain-branch{display:flex;height:88px;min-height:88px;margin:0;border:1.6px solid rgba(74,145,190,.68);border-radius:15px;background:linear-gradient(145deg,rgba(6,38,76,.98),rgba(3,25,56,.995));box-shadow:0 0 8px rgba(47,111,158,.2),inset 0 0 12px rgba(47,111,158,.06),0 4px 12px rgba(0,0,0,.2)}
+.branch-card.plain-branch .branch-copy{position:relative;width:100%;min-height:inherit;display:flex;flex-direction:column;justify-content:center;padding:10px 34px 10px 12px}
+.branch-card.plain-branch h2{margin:0;font-size:clamp(15px,4.25vw,19px);line-height:1.08;letter-spacing:-.02em;overflow-wrap:anywhere}
+.branch-card.plain-branch p{margin:4px 0 0;font-size:11px;line-height:1.12;overflow-wrap:anywhere}
+.branch-card.plain-branch .tile-arrow{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:#e3fbff;font-size:30px;font-weight:300}
+.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.category-tile.plain-tile{display:grid;grid-template-columns:minmax(0,1fr) 20px;align-items:center;height:88px;min-height:88px;padding:8px 12px;border:1.6px solid rgba(74,145,190,.68);border-radius:15px;background:linear-gradient(145deg,rgba(6,38,76,.98),rgba(3,25,56,.995));box-shadow:0 0 8px rgba(47,111,158,.2),inset 0 0 12px rgba(47,111,158,.06),0 4px 12px rgba(0,0,0,.2)}
+.category-tile.plain-tile .tile-body{min-width:0;min-height:0;padding:0;gap:4px;justify-content:center}
+.category-tile.plain-tile strong{font-size:clamp(15px,4.25vw,19px);font-weight:900;line-height:1.08;white-space:normal;overflow-wrap:anywhere}
+.category-tile.plain-tile small{margin:0;font-size:11px;line-height:1.1}
+.plain-tile .tile-arrow{justify-self:end;color:#e3fbff;font-size:30px;font-weight:300;line-height:1}
+@media(max-width:350px){.branch-card.plain-branch h2,.category-tile.plain-tile strong{font-size:14px}}
+
 .city-heading{font-size:18px;margin:20px 0 12px;color:#eef6ff}.city-tabs{margin-bottom:12px}#cityNavigation .city-vet{margin-bottom:0}
 
 /* Every phone card has the same dimensions, including expanded details. */
@@ -96,3 +111,12 @@ body[data-view=search] .back-row:not(:has(.secondary)) .back-btn{width:auto!impo
 body[data-doctors=true] .city-selection{max-width:480px;margin:0 auto 8px}
 body[data-doctors=true] .city-selection .city-tab{aspect-ratio:2.2}
 @media(max-width:350px){.back-row:has(.secondary){gap:6px}.back-row .back-btn{padding:6px 5px;font-size:13px}.city-selection{gap:6px}.city-selection button{font-size:13px}.city-tab span{font-size:16px}}
+
+/* Final grid overrides after the legacy doctor-picker layout. */
+body[data-doctors=true] .city-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+body[data-doctors=true] .city-tabs .city-tab{width:100%;height:68px;min-height:68px;aspect-ratio:auto;border-radius:15px}
+body[data-doctors=true] .city-tabs .city-tab span{display:block;align-self:stretch;width:100%;box-sizing:border-box}
+@media(max-height:700px){body[data-doctors=true] .city-tabs .city-tab{height:60px;min-height:60px}}
+@media(max-height:620px){body[data-doctors=true] .city-tabs .city-tab{height:42px;min-height:42px}}
+
+body[data-education=true] .back-row:not(:has(.secondary)) .back-btn{width:min(100%,250px);min-width:0;max-width:100%}

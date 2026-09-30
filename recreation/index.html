@@ -17,6 +17,11 @@
 @media(max-width:350px){.wrap{padding-left:10px;padding-right:10px}.cover{grid-template-columns:minmax(0,1fr) 90px;padding:12px}.cover-art{width:90px;height:75px}.tab{min-height:84px;padding:8px 6px;font-size:13px}.contact h3{font-size:15px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
+<style>
+.tabs .tab{height:92px;min-height:92px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;border-radius:15px;font-size:clamp(15px,4.25vw,19px);line-height:1.12}
+.section-back{display:flex;align-items:center;justify-content:center;width:min(100%,340px);min-height:48px;margin:0 auto 12px;padding:8px 14px;border:1px solid #6ac7f3;border-radius:15px;background:linear-gradient(180deg,#226ca3,#174b79);box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433;color:#fff;font-size:17px;font-weight:900;cursor:pointer}
+.section-back[hidden],.tabs[hidden],.chooser[hidden]{display:none}
+</style>
 <link rel="stylesheet" href="../interior-polish.css?v=3">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 </head>
@@ -29,13 +34,14 @@
   <a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a>
   <p class="chooser">Выберите раздел</p>
   <nav class="tabs" aria-label="Разделы отдыха" role="tablist">
-    <button class="tab" type="button" role="tab" aria-selected="true" aria-controls="bases" data-tab="bases"><span class="tab-art" aria-hidden="true">🏖️</span>Базы отдыха</button>
+    <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="bases" data-tab="bases"><span class="tab-art" aria-hidden="true">🏖️</span>Базы отдыха</button>
     <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="saunas" data-tab="saunas"><span class="tab-art" aria-hidden="true">♨️</span>Сауны • Бани</button>
     <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="gazebos" data-tab="gazebos"><span class="tab-art" aria-hidden="true">🌿</span>Беседки • Комплексы</button>
     <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="pools" data-tab="pools"><span class="tab-art" aria-hidden="true">🏊</span>Бассейны</button>
   </nav>
+  <button class="section-back" id="sectionBack" type="button" hidden>← Назад в раздел</button>
 
-  <section class="panel" id="bases" role="tabpanel" aria-label="Базы отдыха">
+  <section class="panel" id="bases" role="tabpanel" aria-label="Базы отдыха" hidden>
     <header class="panel-head"><span class="panel-icon" aria-hidden="true">🏖️</span><div><h2>Базы отдыха</h2><p>Приморское · бронирование напрямую</p></div></header>
     <div class="cards">
       <article class="contact"><h3>База отдыха «Колос»</h3><p class="contact-note">Село Приморское. Несколько телефонов для связи и бронирования.</p><div class="phones"><a class="phone" href="tel:+380972728939"><strong>+380 97 272 89 39</strong><span>Позвонить</span></a><a class="phone" href="tel:+380961624747"><strong>+380 96 162 47 47</strong><span>Позвонить</span></a><a class="phone" href="tel:+380977436647"><strong>+380 97 743 66 47</strong><span>Позвонить</span></a></div></article>
@@ -67,7 +73,7 @@
   <a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a>
 </main>
 <script>
-(()=>{const tabs=[...document.querySelectorAll('[data-tab]')];const panels=[...document.querySelectorAll('[role="tabpanel"]')];for(const tab of tabs)tab.addEventListener('click',()=>{for(const item of tabs)item.setAttribute('aria-selected',String(item===tab));for(const panel of panels)panel.hidden=panel.id!==tab.dataset.tab;});})();
+(()=>{const tabs=[...document.querySelectorAll('[data-tab]')];const panels=[...document.querySelectorAll('[role="tabpanel"]')];const menu=document.querySelector('.tabs');const chooser=document.querySelector('.chooser');const back=document.getElementById('sectionBack');function select(name){for(const item of tabs)item.setAttribute('aria-selected',String(item.dataset.tab===name));for(const panel of panels)panel.hidden=panel.id!==name;menu.hidden=Boolean(name);chooser.hidden=Boolean(name);back.hidden=!name;}for(const tab of tabs)tab.addEventListener('click',()=>select(tab.dataset.tab));back.addEventListener('click',()=>select(null));select(null);})();
 </script>
 </body>
 </html>

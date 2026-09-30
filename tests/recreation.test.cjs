@@ -24,18 +24,25 @@ test('recreation directory includes the four numbered sections and fits mobile s
     assert.equal(await page.title(),'Отдых • Жильё • Море — Справочник Измаил');
     assert.deepEqual(await page.locator('[role=tab]').allTextContents(),['🏖️Базы отдыха','♨️Сауны • Бани','🌿Беседки • Комплексы','🏊Бассейны']);
     assert.equal(await page.locator('.home-back').count(),2);
-    assert.equal(await page.locator('#bases').isVisible(),true);
+    assert.equal(await page.locator('.panel:visible').count(),0,'activity details are hidden until a category opens');
+    assert.equal(await page.locator('.tabs').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2);
+    const tileHeights=await page.locator('[role=tab]').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().height));
+    assert.ok(tileHeights.every(height=>height===tileHeights[0]),'recreation buttons share one large-menu size');
     assert.equal(await page.getByText('Снять жильё',{exact:true}).count(),0,'the source category without listed contacts is omitted');
     const expected={bases:7,saunas:1,gazebos:3,pools:1};
     for(const [category,count] of Object.entries(expected)){
       await page.locator(`[data-tab="${category}"]`).click();
       const panel=page.locator(`#${category}`);
       assert.equal(await panel.isVisible(),true);
+      assert.equal(await page.locator('.tabs').isVisible(),false,'the category chooser closes while details are shown');
+      assert.equal(await page.locator('#sectionBack').isVisible(),true);
       const phones=await panel.locator('a.phone[href^="tel:"]').evaluateAll(items=>items.map(a=>a.getAttribute('href')));
       assert.equal(phones.length,count);
       assert.equal(new Set(phones).size,phones.length,category+' has no repeated phone numbers');
       assert.ok(phones.every(href=>/^tel:\+380\d{9}$/.test(href)));
       assert.equal(await panel.locator('.phone span').allTextContents().then(x=>x.every(t=>t==='Позвонить')),true);
+      await page.locator('#sectionBack').click();
+      assert.equal(await page.locator('.tabs').isVisible(),true,'back returns to categories');
     }
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:800});

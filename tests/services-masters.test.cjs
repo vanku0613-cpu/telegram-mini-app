@@ -29,26 +29,15 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.equal(await page.locator('.home-back').count(), 2);
     assert.deepEqual(await page.locator('.category strong').allTextContents(), ['Электрик / сантехник','Строительство / ремонт','Услуги по дому / участку','Бытовая техника','Окна и двери','Авто / мототехника','IT и техника']);
     assert.equal(await page.getByText('Мебель', { exact: true }).count(), 0, 'empty furniture source category is omitted');
-    assert.equal(await page.locator('.category img.photo').count(), 7, 'each master category has a relevant photo');
-    const masterImages = await page.locator('.category img.photo').evaluateAll(async images => {
-      for (const image of images) { image.loading = 'eager'; await image.decode(); }
-      return images.map(image => image.naturalWidth);
-    });
-    assert.ok(masterImages.every(width => width >= 600), 'master category photos load at useful resolution');
+    assert.equal(await page.locator('.category img, .subcat img').count(), 0, 'service and master buttons are photo-free');
+    const masterTiles = await page.locator('.category').evaluateAll(items => items.map(item => ({height:item.getBoundingClientRect().height,font:parseFloat(getComputedStyle(item.querySelector('strong')).fontSize)})));
+    assert.ok(masterTiles.every(tile => tile.height === masterTiles[0].height && tile.font >= 14), 'master buttons share a large, uniform size');
     const coverOrder = await page.evaluate(() => ({ art: document.querySelector('.cover-art').getBoundingClientRect().top, title: document.querySelector('.cover h1').getBoundingClientRect().top, home: document.querySelector('.home-back').getBoundingClientRect().top }));
     assert.ok(coverOrder.art < coverOrder.title && coverOrder.title < coverOrder.home, 'cover artwork appears before title and return navigation');
 
     await page.getByRole('button', { name: /Строительство \/ ремонт/ }).click();
-    const turnkey = page.getByRole('button', { name: /Ремонт под ключ/ });
-    await turnkey.locator('img.photo').evaluate(img => img.decode());
-    assert.equal(await turnkey.locator('img').getAttribute('src'), 'repair-underway.jpg');
-    assert.ok(await turnkey.locator('img').evaluate(img => img.naturalWidth >= 900), 'turnkey repair tile uses a local high-resolution photo');
-    const constructionImages = await page.locator('.subcat img.photo').evaluateAll(async images => {
-      for (const image of images) { image.loading = 'eager'; await image.decode(); }
-      return images.map(image => image.naturalWidth);
-    });
-    assert.equal(constructionImages.length, 16, 'every construction and repair service has its own visual card');
-    assert.ok(constructionImages.every(width => width >= 600), 'all construction photos load');
+    assert.equal(await page.locator('.subcat').count(), 16, 'construction and repair services remain individually selectable');
+    assert.equal(await page.locator('.subcat img').count(), 0, 'specialization buttons contain no added photos');
     await page.locator('[data-back]').click();
 
     await page.getByRole('button', { name: /Электрик \/ сантехник/ }).click();
@@ -63,22 +52,15 @@ test('services and masters follow the source category hierarchy and keep contact
 
     for (const categoryName of ['Услуги по дому / участку','Бытовая техника','Окна и двери','Авто / мототехника','IT и техника']) {
       await page.getByRole('button', { name: new RegExp(categoryName) }).click();
-      const imageWidths = await page.locator('.subcat img.photo').evaluateAll(async images => {
-        for (const image of images) { image.loading = 'eager'; await image.decode(); }
-        return images.map(image => image.naturalWidth);
-      });
-      assert.ok(imageWidths.length > 0 && imageWidths.every(width => width >= 600), `${categoryName} cards have working photos`);
+      assert.ok(await page.locator('.subcat').count() > 0, `${categoryName} has selectable specializations`);
+      assert.equal(await page.locator('.subcat img').count(), 0, `${categoryName} buttons have no photos`);
       await page.locator('[data-back]').click();
     }
 
     await page.locator('[data-section="services"]').click();
     assert.ok(await page.locator('.category').count() > 0);
-    const serviceImages = await page.locator('.category img.photo').evaluateAll(async images => {
-      for (const image of images) { image.loading = 'eager'; await image.decode(); }
-      return images.map(image => image.naturalWidth);
-    });
-    assert.equal(serviceImages.length, 9, 'every services tile has a relevant photo');
-    assert.ok(serviceImages.every(width => width >= 600), 'all service photos load');
+    assert.equal(await page.locator('.category').count(), 9);
+    assert.equal(await page.locator('.category img').count(), 0, 'service buttons have no photos');
     await page.getByRole('button', { name: /Ассенизатор/ }).click();
     assert.deepEqual(await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(a => a.getAttribute('href'))), ['tel:+380972212131']);
 
@@ -88,6 +70,8 @@ test('services and masters follow the source category hierarchy and keep contact
     }
     assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/"/);
     assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/"/);
+    assert.equal(fs.existsSync(path.join(root,'services-masters','photos')),false,'downloaded category photos were removed');
+    assert.equal(fs.existsSync(path.join(root,'services-masters','repair-underway.jpg')),false,'the remaining category photo was removed too');
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));

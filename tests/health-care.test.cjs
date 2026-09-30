@@ -56,14 +56,17 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     assert.equal(await page.locator('#search').getAttribute('placeholder'),'Поиск врачей');
     for(const viewport of [{width:320,height:568},{width:390,height:664},{width:768,height:768}]){
       await page.setViewportSize(viewport);
-      assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight),true,JSON.stringify(viewport));
+      const pageHeight=await page.evaluate(()=>({scroll:document.documentElement.scrollHeight,height:innerHeight,content:document.querySelector('#cityNavigation').getBoundingClientRect().height}));
+      assert.equal(pageHeight.scroll<=pageHeight.height,true,JSON.stringify(viewport)+' '+JSON.stringify(pageHeight));
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
-      assert.ok(await page.locator('.city-tab span').evaluateAll(items=>items.every(e=>e.scrollWidth<=e.clientWidth)),'city labels fit inside the existing buttons');
+      const cityFit=await page.locator('.city-tab span').evaluateAll(items=>items.map(e=>({text:e.textContent,width:e.clientWidth,scroll:e.scrollWidth,font:getComputedStyle(e).fontSize})));
+      const cityLayout=await page.evaluate(()=>({width:innerWidth,doctors:document.body.dataset.doctors,columns:getComputedStyle(document.querySelector('.city-tabs')).gridTemplateColumns}));
+      assert.ok(cityFit.every(item=>item.scroll<=item.width),'city labels fit inside the existing buttons: '+JSON.stringify(cityLayout)+' '+JSON.stringify(cityFit));
     }
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:900});
       const boxes=await page.locator('.city-tab').evaluateAll(es=>es.map(e=>{const b=e.getBoundingClientRect();return {x:b.x,y:b.y,w:b.width,h:b.height}}));
-      assert.equal(boxes.length,6);assert.equal(boxes[0].y,boxes[2].y);assert.ok(boxes[3].y>boxes[0].y);assert.ok(boxes.every(b=>Math.abs(b.w-boxes[0].w)<1&&Math.abs(b.h-boxes[0].h)<1));
+      assert.equal(boxes.length,6);assert.equal(boxes[0].y,boxes[1].y);assert.ok(boxes[2].y>boxes[0].y);assert.ok(boxes.every(b=>Math.abs(b.w-boxes[0].w)<1&&Math.abs(b.h-boxes[0].h)<1));
       for(const img of await page.locator('.city-tab img').all()){await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0));}
     }
     await page.setViewportSize({width:390,height:900});
@@ -150,13 +153,20 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
       const nav=await page.locator('#topNav .back-btn, #bottomNav .back-btn').evaluateAll(a=>a.map(e=>({w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height})));assert.deepEqual(nav.slice(0,2),nav.slice(2));
     }
     await open('#education');assert.equal(await page.locator('.finder').isVisible(),false,'education directory has no search box');
-    await open('#category/96204');assert.equal(await page.locator('.finder').isVisible(),false,'tutor folders have no search box');
+    await open('#category/96204');assert.equal(await page.locator('.finder').isVisible(),false,'tutor folders have no search box');assert.equal(await page.locator('.category-tile img').count(),0,'education subcategory buttons contain no photos');
     await open('#category/96292');await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),1);await page.locator('.reviews summary').first().click();assert.equal(await page.locator('.reviews[open]').count(),0);
-    for(const hash of ['#city/'+encodeURIComponent('Измаил'),'#beauty']){
+    await open('#city/'+encodeURIComponent('Измаил'));
+    assert.equal(await page.locator('.city-tab img').count()>0,true,'city buttons keep their city photos');
+    for(const img of await page.locator('.city-tab img').all()){await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0));}
+    assert.equal(await page.locator('.category-tile img').count(),0,'doctor category buttons contain no photos');
+    await open('#beauty');assert.equal(await page.locator('.category-tile img').count(),0,'beauty category buttons contain no photos');
+    await open('#education');assert.equal(await page.locator('.category-tile img').count(),0,'education category buttons contain no photos');
+    const educationTiles=await page.locator('.category-tile').evaluateAll(items=>items.map(item=>({height:item.getBoundingClientRect().height,font:parseFloat(getComputedStyle(item.querySelector('strong')).fontSize)})));
+    assert.ok(educationTiles.every(tile=>tile.height===educationTiles[0].height&&tile.font>=14),'education buttons share a large uniform size');
+    for(const hash of ['#city/'+encodeURIComponent('Измаил'),'#beauty','#education']){
       await open(hash);
-      for(const img of await page.locator('.category-tile img:not(.visual-backdrop)').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0));}
       assert.equal(await page.locator('video').count(),0);
-      await page.setViewportSize({width:320,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+      await page.setViewportSize({width:320,height:900});const overflow=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:innerWidth,items:[...document.querySelectorAll('body *')].map(e=>({tag:e.tagName,class:e.className?.baseVal||e.className,right:e.getBoundingClientRect().right,width:e.getBoundingClientRect().width})).filter(e=>e.right>innerWidth+1).slice(0,8)}));assert.equal(overflow.scroll<=overflow.width,true,hash+' '+JSON.stringify(overflow));
       assert.match(await page.locator('#topNav a:not(.secondary)').innerText(),/главное меню/);
     }
     await open('#category/96211');

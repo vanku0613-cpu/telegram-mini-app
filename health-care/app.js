@@ -60,9 +60,10 @@
     const url=cover.media[0]?.src+(c.id==='96211'?'?v=2':'');
     return url?`<div class="visual"><img class="visual-backdrop" src="${escape(url)}" alt="" loading="lazy" aria-hidden="true"><img src="${escape(url)}" alt="" loading="lazy" width="320" height="216"></div>`:'';
   }
-  function tile(c,city) {
+  function tile(c,city,noPhoto=true) {
     const count=data.records.filter(r=>categoriesFor(r).includes(c.id)&&(!city||isInCity(r,city))).length;
-    return `<a class="category-tile ${c.id==='20125'?'veterinary':''} ${count?'':'empty-category'}" href="${categoryHref(c,city)}">${thumb(c,city)}<span class="tile-body"><strong>${escape(c.id==='20125'?'Ветеринары':c.name)}</strong><small>${count?count+' контактов':'Контакты пока не найдены'} <span aria-hidden="true">›</span></small></span></a>`;
+    const media=noPhoto?'':thumb(c,city);
+    return `<a class="category-tile ${noPhoto?'plain-tile':''} ${c.id==='20125'?'veterinary':''} ${count?'':'empty-category'}" href="${categoryHref(c,city)}">${media}<span class="tile-body"><strong>${escape(c.id==='20125'?'Ветеринары':c.name)}</strong><small>${count?count+' контактов':'Контакты пока не найдены'}</small></span>${noPhoto?'<span class="tile-arrow" aria-hidden="true">›</span>':''}</a>`;
   }
   function cards(records) {
     return '<div class="contact-list">'+records.map(original=>{
@@ -125,7 +126,7 @@
     }else if(category?.children&&!contactId){
       const children=category.children.map(id=>data.categories.find(c=>c.id===id));
       $('resultStatus').textContent=children.length+' категорий';
-      $('content').innerHTML='<div class="category-grid">'+children.map(c=>tile(c,null)).join('')+'</div>';
+      $('content').innerHTML='<div class="category-grid">'+children.map(c=>tile(c,null,true)).join('')+'</div>';
     }else if(category||favorites||globalSearch||contactId){
       $('resultStatus').textContent=(cityName?cityName+' · ':'')+scope.length+' контактов';
       const sorted=scope.slice().sort((a,b)=>(data.sources[b.source].kind==='official')-(data.sources[a.source].kind==='official'));
@@ -135,11 +136,11 @@
       const local=c=>data.records.some(r=>categoriesFor(r).includes(c.id)&&cityNames(r).includes(cityName));
       const available=branch==='doctors'&&cityName!=='Измаил'?cats.filter(local):cats;
       $('resultStatus').textContent=(cityName?cityName+' · ':'')+available.length+' категорий';
-      if(branch==='beauty'||branch==='education')$('content').innerHTML='<div class="category-grid">'+available.map(c=>tile(c,null)).join('')+'</div>';
+      if(branch==='beauty'||branch==='education')$('content').innerHTML='<div class="category-grid">'+available.map(c=>tile(c,null,true)).join('')+'</div>';
       else $('content').innerHTML=groups.map(([title,ids])=>{const members=ids.map(id=>available.find(c=>c.id===id)).filter(Boolean);return members.length?'<h2 class="group-title">'+title+'</h2><div class="category-grid">'+members.map(c=>tile(c,cityName)).join('')+'</div>':''}).join('')||'<div class="empty"><strong>Список этого города готовится</strong>Пока нет подтверждённых местных контактов.</div>';
     }else{
       $('resultStatus').textContent='Три направления';
-      $('content').innerHTML='<div class="branches">'+[['doctors','Врачи · Клиники · Диагностика · Ветеринары'],['beauty','Маникюр · Волосы · Брови · Уход']].map(([id,desc])=>'<a class="branch-card '+id+'" href="#'+id+'">'+branchCover(id)+'<div class="branch-copy"><h2>'+branches[id]+'</h2><p>'+desc+'</p></div></a>').join('')+(()=>{const c=data.categories.find(c=>c.id==='96211');return '<a class="branch-card care" href="#category/96211">'+thumb(c)+'<div class="branch-copy"><h2>'+escape(c.name)+'</h2><p>Сиделки · Няни · Пансионат</p></div></a>'})()+'</div>';
+      $('content').innerHTML='<div class="branches">'+[['doctors','Врачи · Клиники · Диагностика · Ветеринары'],['beauty','Маникюр · Волосы · Брови · Уход']].map(([id,desc])=>'<a class="branch-card plain-branch '+id+'" href="#'+id+'"><div class="branch-copy"><h2>'+branches[id]+'</h2><p>'+desc+'</p><span class="tile-arrow" aria-hidden="true">›</span></div></a>').join('')+(()=>{const c=data.categories.find(c=>c.id==='96211');return '<a class="branch-card plain-branch care" href="#category/96211"><div class="branch-copy"><h2>'+escape(c.name)+'</h2><p>Сиделки · Няни · Пансионат</p><span class="tile-arrow" aria-hidden="true">›</span></div></a>'})()+'</div>';
     }
   }
   document.addEventListener('dragstart',event=>{if(event.target.closest('.branch-card,.category-tile,.city-tab'))event.preventDefault()});

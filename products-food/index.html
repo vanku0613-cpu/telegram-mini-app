@@ -20,6 +20,15 @@
 @media(max-width:350px){.tab{font-size:13px;padding-inline:7px}.phone strong{font-size:12px}.tag{max-width:45%;white-space:normal;text-align:right}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
+<style>
+/* Category picker and selected details are separate views, like the main-menu cards. */
+.tabs{gap:8px}
+.tabs .tab{height:88px;min-height:88px;display:flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:15px;font-size:clamp(15px,4.25vw,19px);line-height:1.12}
+.section-back{display:flex;align-items:center;justify-content:center;width:min(100%,340px);min-height:48px;margin:0 auto 12px;padding:8px 14px;border:1px solid #6ac7f3;border-radius:15px;background:linear-gradient(180deg,#226ca3,#174b79);box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433;color:#fff;font-size:17px;font-weight:900;cursor:pointer}
+.section-back[hidden]{display:none}
+.tabs[hidden]{display:none}
+.chooser[hidden]{display:none}
+</style>
 <link rel="stylesheet" href="../interior-polish.css?v=3">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 </head>
@@ -36,14 +45,15 @@
   <a class="home-back" href="../main-v2/" data-main-back><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a>
   <p class="chooser">Выберите нужный раздел</p>
   <nav class="tabs" aria-label="Категории продуктов и доставки">
-    <button class="tab" type="button" data-tab="fastfood" aria-pressed="true">🍔 Доставка фастфуда</button>
+    <button class="tab" type="button" data-tab="fastfood" aria-pressed="false">🍔 Доставка фастфуда</button>
     <button class="tab" type="button" data-tab="restaurants" aria-pressed="false">🍽️ Доставка из ресторанов</button>
     <button class="tab" type="button" data-tab="groceries" aria-pressed="false">🛒 Доставка продуктов</button>
     <button class="tab" type="button" data-tab="basics" aria-pressed="false">🥗 Основные продукты</button>
     <button class="tab" type="button" data-tab="gifts" aria-pressed="false">🎁 Съедобные подарки</button>
   </nav>
+  <button class="section-back" id="sectionBack" type="button" hidden>← Назад в раздел</button>
 
-  <section class="panel" id="fastfood" aria-labelledby="fastfood-title">
+  <section class="panel" id="fastfood" aria-labelledby="fastfood-title" hidden>
     <header class="panel-head"><span class="panel-icon" aria-hidden="true">🍔</span><div><h2 id="fastfood-title">Доставка фастфуда</h2><p>Бургеры, хот-доги, шаурма, пицца и роллы</p></div></header>
     <div class="cards">
       <article class="contact"><div class="contact-top"><h3>Mr. Edovsky · бургеры, пицца и роллы</h3><span class="tag">меню онлайн</span></div><p class="contact-note">Доставка по городу.</p><div class="phones"><a class="phone" href="tel:+380684919192"><strong>+380 68 491 91 92</strong><span>Позвонить</span></a><a class="phone" href="tel:+380994919192"><strong>+380 99 491 91 92</strong><span>Позвонить</span></a></div><div class="links"><a href="https://edovsky.od.ua/" target="_blank" rel="noopener"><span>↗</span> Сайт и меню</a><a href="https://edovsky.od.ua/menu-dostavki/burgery-i-hot-dogi/" target="_blank" rel="noopener"><span>↗</span> Бургеры</a><a href="https://edovsky.od.ua/menu-dostavki/piczcza/" target="_blank" rel="noopener"><span>↗</span> Пицца</a><a href="https://edovsky.od.ua/menu-dostavki/rolly/" target="_blank" rel="noopener"><span>↗</span> Роллы</a></div></article>
@@ -90,14 +100,18 @@
 </main>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  var tabs=Array.prototype.slice.call(document.querySelectorAll('[data-tab]'));
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('.tabs [data-tab]'));
   var panels=Array.prototype.slice.call(document.querySelectorAll('.panel[id]'));
   function select(name){
     tabs.forEach(function(tab){var active=tab.dataset.tab===name;tab.setAttribute('aria-pressed',String(active));});
     panels.forEach(function(panel){panel.hidden=panel.id!==name;});
+    document.querySelector('.tabs').hidden=Boolean(name);
+    document.querySelector('.chooser').hidden=Boolean(name);
+    document.getElementById('sectionBack').hidden=!name;
   }
-  tabs.forEach(function(tab){tab.addEventListener('click',function(){select(tab.dataset.tab);});});
-  select('fastfood');
+  document.querySelectorAll('[data-tab]').forEach(function(tab){tab.addEventListener('click',function(){select(tab.dataset.tab);});});
+  document.getElementById('sectionBack').addEventListener('click',function(){select(null);});
+  select(null);
 });
 </script>
 </body>
