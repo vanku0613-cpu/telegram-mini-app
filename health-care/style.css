@@ -68,14 +68,23 @@ html,body{overscroll-behavior-x:none}
 body[data-doctors=true] .profile-banner .generated-cover{height:110px}
 @media(max-height:620px){body[data-doctors=true] .profile-banner .generated-cover{height:80px}}
 
+/* Larger, single-line labels for the main menu, health categories and city picker. */
+.city-tab span{font-size:clamp(14px,3.9vw,18px);font-weight:900;line-height:1.1;white-space:nowrap}
+.city-tab{font-size:clamp(14px,3.9vw,18px)}
+.city-heading{font-size:clamp(19px,5vw,24px)}
+.category-tile strong,.category-tile .title,.branch-card .branch-copy h2{font-size:clamp(16px,4.2vw,21px);line-height:1.12}
+.category-tile strong,.category-tile .title{white-space:nowrap}
+.back-row .back-btn{font-size:clamp(14px,3.9vw,17px)}
+.city-selection button{font-size:clamp(14px,3.8vw,17px)}
+
 body[data-education=true] h1{font-size:clamp(23px,6vw,34px);letter-spacing:-.6px}body[data-education=true] .category-grid .visual{aspect-ratio:3/2}
 
 /* Keep both return actions aligned, readable, and clearly directional. */
 .back-row:has(.secondary){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px}
-.back-row .back-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;width:100%;min-width:0;min-height:48px;padding:6px 8px;white-space:normal;text-align:center;font-size:clamp(12px,3.5vw,15px);line-height:1.2}
+.back-row .back-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;width:100%;min-width:0;min-height:48px;padding:6px 8px;white-space:normal;text-align:center;font-size:clamp(14px,3.7vw,17px);line-height:1.2}
 .back-row .back-btn::before{content:"←";flex:none;font-size:1.2em;line-height:1}
 .back-row:not(:has(.secondary)){display:flex}
-.back-row:not(:has(.secondary)) .back-btn{width:auto;min-width:min(100%,250px);min-height:48px;padding:8px 16px;font-size:15px}
+.back-row:not(:has(.secondary)) .back-btn{width:auto;min-width:min(100%,250px);min-height:48px;padding:8px 16px;font-size:17px}
 
 /* A selected city stays visible; its alternatives are tucked behind one control. */
 .city-selection{display:flex;align-items:stretch;gap:9px;margin:0 0 10px;max-width:480px}
@@ -85,4 +94,4 @@ body[data-education=true] h1{font-size:clamp(23px,6vw,34px);letter-spacing:-.6px
 .city-heading{font-size:16px}
 body[data-doctors=true] .city-selection{max-width:480px;margin:0 auto 8px}
 body[data-doctors=true] .city-selection .city-tab{aspect-ratio:2.2}
-@media(max-width:350px){.back-row:has(.secondary){gap:6px}.back-row .back-btn{padding:6px 5px;font-size:12px}.city-selection{gap:6px}.city-selection button{font-size:12px}}
+@media(max-width:350px){.back-row:has(.secondary){gap:6px}.back-row .back-btn{padding:6px 5px;font-size:13px}.city-selection{gap:6px}.city-selection button{font-size:13px}.city-tab span{font-size:13px}}

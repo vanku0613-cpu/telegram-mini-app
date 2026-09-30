@@ -254,7 +254,7 @@ window.IZMAIL_SETTINGS = {
       "",
 
     "Продукты питания":
-      "",
+      "../products-food/",
 
     "Коммунальные службы":
       "../communal-services/",

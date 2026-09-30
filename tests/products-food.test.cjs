@@ -1,0 +1,66 @@
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const http = require('node:http');
+const { chromium } = require('playwright');
+
+test('food and delivery directory switches four sections and keeps contact links unique', async () => {
+  const root = path.resolve(__dirname, '..');
+  const server = http.createServer((req, res) => {
+    const pathname = new URL(req.url, 'http://localhost').pathname;
+    const file = path.join(root, pathname, pathname.endsWith('/') ? 'index.html' : '');
+    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
+      res.writeHead(404);
+      return res.end();
+    }
+    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : 'text/html; charset=utf-8');
+    res.end(fs.readFileSync(file));
+  });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  const browser = await chromium.launch({ headless: true, channel: process.env.BROWSER_CHANNEL || 'chrome' });
+  try {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await page.route('https://**', route => route.abort());
+    await page.goto(`http://127.0.0.1:${server.address().port}/products-food/`);
+
+    assert.equal(await page.title(), 'Продукты питания — Справочник Измаил');
+    assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className || item.tagName.toLowerCase())), ['cover', 'home-back', 'chooser']);
+    assert.equal(await page.locator('nav.tabs .tab[data-tab]').count(), 4);
+    assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
+    assert.equal(await page.locator('#fastfood').isVisible(), true);
+    assert.equal(await page.locator('input[type="search"]').count(), 0);
+
+    await page.locator('.tab[data-tab="restaurants"]').click();
+    assert.equal(await page.locator('#restaurants').isVisible(), true);
+    assert.equal(await page.locator('#fastfood').isVisible(), false);
+    await page.locator('nav.tabs .tab[data-tab="groceries"]').click();
+    assert.equal(await page.locator('#groceries').isVisible(), true);
+    await page.locator('.tab[data-tab="basics"]').click();
+    assert.equal(await page.locator('#basics').isVisible(), true);
+    await page.locator('nav.tabs .tab[data-tab="groceries"]').click();
+
+    const phones = await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(item => item.getAttribute('href')));
+    assert.equal(phones.length, new Set(phones).size, 'telephone links must not be duplicated');
+    assert.ok(phones.includes('tel:+380684919192'));
+    assert.ok(phones.includes('tel:+380639993132'));
+    assert.ok(await page.locator('a[href="https://dostavochka.in.ua/catalog"]').count() >= 1);
+    assert.equal(await page.locator('a[href="https://capofood.choiceqr.com/section:menyu/burgeri-333"]').count(), 1);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+    await page.setViewportSize({ width: 320, height: 780 });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+    await page.setViewportSize({ width: 768, height: 900 });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+    assert.equal(await page.locator('#groceries .cards').evaluate(el => getComputedStyle(el).gridTemplateColumns.split(' ').length), 2);
+
+    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Продукты питания":\s*"\.\/products-food\/"/);
+    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Продукты питания":\s*"\.\.\/products-food\/"/);
+    await page.goto(`http://127.0.0.1:${server.address().port}/main-v2/`);
+    await page.waitForFunction(() => document.querySelector('.card[data-title="Продукты питания"]')?.getAttribute('data-nav') === '../products-food/');
+    assert.ok(await page.locator('.card-copy strong').evaluateAll(items=>items.every(el=>parseFloat(getComputedStyle(el).fontSize)>=11.5)),'home menu labels use a more readable type size');
+    assert.ok(await page.locator('.card-copy strong').evaluateAll(items=>items.every(el=>getComputedStyle(el).whiteSpace==='nowrap')),'home menu labels remain on one line');
+  } finally {
+    await browser.close();
+    await new Promise(resolve => server.close(resolve));
+  }
+});

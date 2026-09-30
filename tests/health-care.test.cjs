@@ -45,6 +45,8 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     assert.equal(await page.locator('.city-tab[aria-current=true]').count(),0);
     assert.equal(await page.locator('.category-tile, .contact').count(),0);
     assert.equal(await page.locator('.city-heading').innerText(),'Выберите город');
+    assert.ok(parseFloat(await page.locator('.city-tab span').first().evaluate(e=>getComputedStyle(e).fontSize))>=13,'city labels should be easy to read');
+    assert.equal(await page.locator('.city-tab span').first().evaluate(e=>getComputedStyle(e).whiteSpace),'nowrap','city names stay on one line');
     assert.equal(await page.locator('#search').getAttribute('placeholder'),'Поиск врачей');
     for(const viewport of [{width:320,height:568},{width:390,height:664},{width:768,height:768}]){
       await page.setViewportSize(viewport);

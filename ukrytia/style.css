@@ -35,11 +35,11 @@
 
 /* Keep all four shelter filters in one compact row on phones. */
 .filters{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.1fr) minmax(0,.9fr) minmax(0,1.35fr);gap:5px;flex-wrap:nowrap}
-.filters button{min-width:0;white-space:nowrap;padding:7px 4px;font-size:clamp(9px,2.65vw,12px);line-height:1.15}
+.filters button{min-width:0;white-space:nowrap;padding:7px 3px;font-size:clamp(10px,2.8vw,13px);line-height:1.15}
 .filters button[aria-pressed=true]{font-weight:700}
 
 /* Make the return arrow and label easier to see. */
 .back-btn::before{content:"←";font-size:1.2em;line-height:1}
 .back-btn{gap:7px;min-height:48px;font-size:15px}
 
-@media(max-width:350px){.filters{gap:4px}.filters button{padding:7px 2px;font-size:9px}}
+@media(max-width:350px){.filters{gap:4px}.filters button{padding:7px 2px;font-size:10px}}
