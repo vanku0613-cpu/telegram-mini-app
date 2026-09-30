@@ -11,12 +11,17 @@
 <style>
 /* Match the home menu's two-column cards, while keeping this section photo-free. */
 #view .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-#view .grid>.category,#view .grid>.subcat{display:grid;grid-template-columns:minmax(0,1fr) 24px;grid-template-rows:1fr auto;align-items:center;justify-items:stretch;column-gap:6px;height:88px;min-height:88px;padding:8px 11px;text-align:left;background:linear-gradient(145deg,rgba(6,38,76,.98),rgba(3,25,56,.995));border:1.6px solid rgba(74,145,190,.68);border-radius:15px;box-shadow:0 0 8px rgba(47,111,158,.2),inset 0 0 12px rgba(47,111,158,.06),0 4px 12px rgba(0,0,0,.2)}
+#view .grid>.category,#view .grid>.subcat{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:1fr auto;align-items:center;justify-items:stretch;column-gap:0;height:88px;min-height:88px;padding:8px 11px;text-align:left;background:linear-gradient(145deg,rgba(6,38,76,.98),rgba(3,25,56,.995));border:1.6px solid rgba(74,145,190,.68);border-radius:15px;box-shadow:0 0 8px rgba(47,111,158,.2),inset 0 0 12px rgba(47,111,158,.06),0 4px 12px rgba(0,0,0,.2)}
 #view .grid>.category:before,#view .grid>.subcat:before{background:radial-gradient(circle at 100% 0,rgba(47,153,206,.18),transparent 50%)}
 #view .grid>.category>strong,#view .grid>.subcat>strong{grid-column:1;grid-row:1;align-self:end;font-size:clamp(14px,4.25vw,19px);font-weight:900;line-height:1.08;letter-spacing:-.02em;text-align:left;overflow-wrap:anywhere}
 #view .grid>.category>small,#view .grid>.subcat>small{grid-column:1;grid-row:2;align-self:start;margin-top:4px;font-size:11px;line-height:1.1;text-align:left}
 #view .grid>.category>.tile-arrow,#view .grid>.subcat>.tile-arrow{position:relative;z-index:1;grid-column:2;grid-row:1/3;justify-self:end;color:#e3fbff;font-size:32px;font-weight:300;line-height:1}
 @media(max-width:350px){#view .grid>.category,#view .grid>.subcat{padding:8px 9px}#view .grid>.category>strong,#view .grid>.subcat>strong{font-size:14px}}
+/* Keep labels intact: short labels fit on one line; longer ones wrap only between words. */
+#view .grid>.category,#view .grid>.subcat{background:linear-gradient(145deg,#0c3b68 0%,#082749 58%,#061c36 100%);border-color:rgba(91,173,218,.82);box-shadow:inset 0 1px #ffffff12,0 5px 16px rgba(0,0,0,.32),0 0 11px rgba(42,142,199,.18)}
+#view .grid>.category>strong,#view .grid>.subcat>strong{font-size:clamp(12px,3.8vw,16px);word-break:normal;overflow-wrap:normal;hyphens:none;text-wrap:balance}
+#view .grid>.category>.tile-arrow,#view .grid>.subcat>.tile-arrow{position:absolute;right:9px;bottom:9px;grid-column:auto;grid-row:auto;font-size:25px}
+#view .grid>.category>small,#view .grid>.subcat>small{padding-right:18px}
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=3">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
