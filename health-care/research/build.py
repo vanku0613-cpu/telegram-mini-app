@@ -89,6 +89,8 @@ from enrich import enrich
 enrich(records,categories,sources)
 from import_workbook import import_workbook
 records=import_workbook(records,sources)
+from city_contacts import add_city_contacts
+add_city_contacts(records,sources)
 for i,c in enumerate(categories):
  c['order']=i
  c['count']=sum(c['id'] in r.get('categories',[r['category']]) for r in records)

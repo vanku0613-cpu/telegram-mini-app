@@ -33,12 +33,11 @@
       // fetchedAt is when the shared data was refreshed, not the channel post time.
       var date = new Date(data.fetchedAt);
       var stamp = new Intl.DateTimeFormat("ru-RU", {
-        timeZone: "Europe/Kyiv", day: "2-digit", month: "2-digit", year: "2-digit",
-        hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+        timeZone: "Europe/Kyiv", day: "2-digit", month: "2-digit", year: "2-digit"
       }).format(date);
       updated.dateTime = date.toISOString();
-      updated.querySelector("span").textContent = stamp;
-      updated.title = "Данные обновлены " + stamp + " (киевское время)";
+      updated.querySelector("span").textContent = "на " + stamp;
+      updated.title = "Данные на " + stamp;
       panel.setAttribute("aria-label", panel.title + ". " + updated.title);
     }
     last = data;

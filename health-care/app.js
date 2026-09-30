@@ -36,7 +36,7 @@
     if(category?.branch==='doctors'&&!cityName)cityName='Измаил';
     return {category,cityName,branch,contactId:contact?.id,globalSearch,query:parts[1]||'',favorites:parts[0]==='favorites'};
   };
-  const homeLink = '<a class="back-btn" href="../main-v2/">⌂ Вернуться в главное меню</a>';
+  const homeLink = '<a class="back-btn" href="../main-v2/">Вернуться в главное меню</a>';
   const groups = [
     ['С чего начать',['96228','96229','96230','96231']],
     ['Диагностика и анализы',['96246','96248','ct','lab','functional','xray']],
@@ -88,8 +88,8 @@
       if(globalSearch){$('search').value=query;q=query}
       const title=globalSearch?'Поиск по справочнику':category?(category.id==='20125'?'Ветеринары':category.name):favorites?'Избранное':branches[branch]||'Здоровье и уход';
       $('title').textContent=title;document.title=title+(cityName?' · '+cityName:' · Измаил');
-      const back=favorites||globalSearch||contactId||(branch==='doctors'&&!category)?'':category?'<a class="back-btn secondary" href="'+(branch==='doctors'?cityHref(cityName):'#beauty')+'">← Назад к категориям</a>':branch?'<a class="back-btn secondary" href="#">← Назад в раздел</a>':'';
-      $('topNav').innerHTML=homeLink+back;$('bottomNav').innerHTML=homeLink+back;
+      const back=favorites||globalSearch||contactId?'':category?'<a class="back-btn secondary" href="'+(branch==='doctors'?cityHref(cityName):'#beauty')+'">Назад в раздел</a>':branch?'<a class="back-btn secondary" href="#">Назад в раздел</a>':'';
+      $('topNav').innerHTML=back+homeLink;$('bottomNav').innerHTML=back+homeLink;
       $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';
       $('profileMedia').innerHTML=category?media(category,cityName):branch?'<section class="profile-banner">'+branchCover(branch)+'</section>':'';
@@ -153,6 +153,6 @@
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null){saved=readSaved();if(data&&route().favorites)render();else syncFavorites()}});
   document.addEventListener('pointerdown',event=>{const el=event.target.closest('a,button');if(el){el.classList.add('tap-lit');setTimeout(()=>el.classList.remove('tap-lit'),680)}},{passive:true});
   window.addEventListener('hashchange',()=>{document.querySelector('.page').style.minHeight='';$('search').value='';render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
-  try{const response=await fetch('data.json?v=20260930-7',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
+  try{const response=await fetch('data.json?v=20260930-8',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
   catch{$('content').innerHTML='<p class="empty error">Не удалось загрузить контакты. Проверьте соединение и обновите страницу.</p>'; $('topNav').innerHTML=homeLink;$('bottomNav').innerHTML=homeLink;}
 })();

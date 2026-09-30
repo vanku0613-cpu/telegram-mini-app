@@ -556,6 +556,96 @@
       "checked": "2026-09-30",
       "kind": "provided",
       "onlineMatched": false
+    },
+    "web-kiliya-surgery": {
+      "label": "Публичная страница учреждения",
+      "url": "https://kiliya.crl.net.ua/telefonnyj-dovidnyk/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-kiliya-therapy": {
+      "label": "Публичная страница учреждения",
+      "url": "https://kiliya.crl.net.ua/telefonnyj-dovidnyk/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-kiliya-pediatrics": {
+      "label": "Публичная страница учреждения",
+      "url": "https://kiliya.crl.net.ua/telefonnyj-dovidnyk/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-kiliya-gyn": {
+      "label": "Публичная страница учреждения",
+      "url": "https://kiliya.crl.net.ua/telefonnyj-dovidnyk/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-kiliya-infection": {
+      "label": "Публичная страница учреждения",
+      "url": "https://kiliya.crl.net.ua/telefonnyj-dovidnyk/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-kiliya-dental": {
+      "label": "Публичная страница учреждения",
+      "url": "https://kiliya.crl.net.ua/telefonnyj-dovidnyk/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-kiliya-reception": {
+      "label": "Публичная страница учреждения",
+      "url": "https://kiliya.crl.net.ua/telefonnyj-dovidnyk/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-bolgrad": {
+      "label": "Публичная страница учреждения",
+      "url": "https://bolgrad-hospital.h24.ua/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-tatar-hospital": {
+      "label": "Публичная страница учреждения",
+      "url": "https://tatarbunarybl.net.ua/kontakty",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-tatar-family": {
+      "label": "Публичная страница учреждения",
+      "url": "https://tatarbunarsk.pmsd.org.ua/zagalna-informatsiya/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-odesa-yanko": {
+      "label": "Публичная страница учреждения",
+      "url": "https://yanko.od.ua/ru/gorchag-denis-mihajlovich/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-odesa-expert": {
+      "label": "Публичная страница учреждения",
+      "url": "https://www.expert-health.com.ua/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-kyiv-heart": {
+      "label": "Публичная страница учреждения",
+      "url": "https://heart.kyiv.ua/en/experts/diagnostic-consultancy-department/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-kyiv-heart-child": {
+      "label": "Публичная страница учреждения",
+      "url": "https://heart.kyiv.ua/en/contacts-2/",
+      "checked": "2026-09-30",
+      "kind": "official"
+    },
+    "web-reni": {
+      "label": "Одеська РДА · каталог 2025, стр. 203",
+      "url": "https://odrda.od.gov.ua/wp-content/uploads/2025/04/katalog_-poslug_vnp-odeski-gromady-510-punktiv-z-inform-vid-fondu-invalidiv.pdf",
+      "checked": "2026-09-30",
+      "kind": "official"
     }
   },
   "categories": [
@@ -572,7 +662,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96228",
       "order": 0,
-      "count": 15,
+      "count": 19,
       "note": ""
     },
     {
@@ -588,7 +678,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96229",
       "order": 1,
-      "count": 8,
+      "count": 11,
       "note": ""
     },
     {
@@ -604,7 +694,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96230",
       "order": 2,
-      "count": 15,
+      "count": 16,
       "note": ""
     },
     {
@@ -620,7 +710,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96231",
       "order": 3,
-      "count": 37,
+      "count": 39,
       "note": ""
     },
     {
@@ -636,7 +726,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96246",
       "order": 4,
-      "count": 11,
+      "count": 12,
       "note": ""
     },
     {
@@ -668,7 +758,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96259",
       "order": 6,
-      "count": 16,
+      "count": 19,
       "note": ""
     },
     {
@@ -748,7 +838,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96264",
       "order": 11,
-      "count": 7,
+      "count": 10,
       "note": ""
     },
     {
@@ -796,7 +886,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96275",
       "order": 14,
-      "count": 12,
+      "count": 16,
       "note": ""
     },
     {
@@ -828,7 +918,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96283",
       "order": 16,
-      "count": 7,
+      "count": 8,
       "note": ""
     },
     {
@@ -860,7 +950,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96285",
       "order": 18,
-      "count": 9,
+      "count": 11,
       "note": ""
     },
     {
@@ -876,7 +966,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96288",
       "order": 19,
-      "count": 10,
+      "count": 12,
       "note": ""
     },
     {
@@ -924,7 +1014,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96292",
       "order": 22,
-      "count": 17,
+      "count": 20,
       "note": ""
     },
     {
@@ -972,7 +1062,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96295",
       "order": 25,
-      "count": 2,
+      "count": 4,
       "note": ""
     },
     {
@@ -1020,7 +1110,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96299",
       "order": 28,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
@@ -1068,7 +1158,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96304",
       "order": 31,
-      "count": 7,
+      "count": 9,
       "note": ""
     },
     {
@@ -1084,7 +1174,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96305",
       "order": 32,
-      "count": 9,
+      "count": 10,
       "note": ""
     },
     {
@@ -1148,7 +1238,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96310",
       "order": 36,
-      "count": 2,
+      "count": 3,
       "note": ""
     },
     {
@@ -1435,7 +1525,7 @@
         }
       ],
       "order": 54,
-      "count": 4,
+      "count": 5,
       "note": ""
     },
     {
@@ -1495,7 +1585,7 @@
         }
       ],
       "order": 58,
-      "count": 2,
+      "count": 4,
       "note": ""
     },
     {
@@ -5307,6 +5397,263 @@
       "workbookContacts": [
         "Q002"
       ]
+    },
+    {
+      "id": "web-kiliya-surgery",
+      "city": "Килия",
+      "name": "Гуцулюк Григорій · хирург",
+      "category": "96259",
+      "categories": [
+        "96259"
+      ],
+      "phones": [
+        "0484340235"
+      ],
+      "note": "Килийская многопрофильная больница, ул. Кубышкина, 19. Служебный телефон отделения; расписание уточните при обращении.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-kiliya-surgery"
+    },
+    {
+      "id": "web-kiliya-therapy",
+      "city": "Килия",
+      "name": "Алексеєв В’ячеслав · терапевт",
+      "category": "96229",
+      "categories": [
+        "96229"
+      ],
+      "phones": [
+        "0484342484"
+      ],
+      "note": "Килийская многопрофильная больница, ул. Кубышкина, 19. Служебный телефон отделения; расписание уточните при обращении.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-kiliya-therapy"
+    },
+    {
+      "id": "web-kiliya-pediatrics",
+      "city": "Килия",
+      "name": "Кучеренко Анна · педиатр",
+      "category": "96230",
+      "categories": [
+        "96230"
+      ],
+      "phones": [
+        "0484342025"
+      ],
+      "note": "Килийская многопрофильная больница, ул. Кубышкина, 19. Служебный телефон отделения; расписание уточните при обращении.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-kiliya-pediatrics"
+    },
+    {
+      "id": "web-kiliya-gyn",
+      "city": "Килия",
+      "name": "Окішор Тетяна · акушер-гинеколог",
+      "category": "96292",
+      "categories": [
+        "96292"
+      ],
+      "phones": [
+        "0484341564",
+        "0962905102"
+      ],
+      "note": "Килийская многопрофильная больница, ул. Кубышкина, 19. Служебный телефон отделения; расписание уточните при обращении.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-kiliya-gyn"
+    },
+    {
+      "id": "web-kiliya-infection",
+      "city": "Килия",
+      "name": "Кутила Тетяна · инфекционист",
+      "category": "96310",
+      "categories": [
+        "96310"
+      ],
+      "phones": [
+        "0484340450"
+      ],
+      "note": "Килийская многопрофильная больница, ул. Кубышкина, 19. Служебный телефон отделения; расписание уточните при обращении.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-kiliya-infection"
+    },
+    {
+      "id": "web-kiliya-dental",
+      "city": "Килия",
+      "name": "Наньєва Валентина · стоматолог-ортопед",
+      "category": "96231",
+      "categories": [
+        "96231"
+      ],
+      "phones": [
+        "0984321101"
+      ],
+      "note": "Килийская многопрофильная больница, ул. Кубышкина, 19. Служебный телефон отделения; расписание уточните при обращении.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-kiliya-dental"
+    },
+    {
+      "id": "web-kiliya-reception",
+      "city": "Килия",
+      "name": "Килийская больница · поликлиника",
+      "category": "96228",
+      "categories": [
+        "96228"
+      ],
+      "phones": [
+        "0484342063"
+      ],
+      "note": "Килийская многопрофильная больница, ул. Кубышкина, 19. Служебный телефон отделения; расписание уточните при обращении.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-kiliya-reception"
+    },
+    {
+      "id": "web-bolgrad",
+      "city": "Болград",
+      "name": "Болградская ЦРБ · запись к специалистам",
+      "category": "96228",
+      "categories": [
+        "96228",
+        "96299",
+        "96288",
+        "96292",
+        "96304",
+        "96295",
+        "96285",
+        "functional",
+        "96229",
+        "ct",
+        "96283",
+        "96275",
+        "96259"
+      ],
+      "phones": [
+        "0484642424",
+        "0674810760",
+        "0484643392"
+      ],
+      "note": "ул. Измаильская, 71. Дерматовенеролог Аврамова Тетяна; ЛОР Бааджи Юлія и детский ЛОР Карачебан Анастасія; гинекологи Борщ Світлана и Чекал Марія; эндокринолог Гавриленко Ганна; уролог Дішлі Василь; офтальмолог Докова Світлана; функциональная диагностика Завірюха Надія; терапевт Іордек Тетяна; невролог Михайленко Віталій; детский хирург Павлов Юрій. Также КТ и психологическая поддержка ветеранов. Общие контакты больницы; уточните запись к нужному специалисту.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-bolgrad"
+    },
+    {
+      "id": "web-tatar-hospital",
+      "city": "Татарбунары",
+      "name": "Татарбунарская многопрофильная больница",
+      "category": "96228",
+      "categories": [
+        "96228"
+      ],
+      "phones": [
+        "0976445111",
+        "0484431360"
+      ],
+      "note": "ул. Романа Гульченко, 16. Общие контакты учреждения: уточните доступного специалиста и запись.",
+      "phoneLabel": "Контакт больницы",
+      "source": "web-tatar-hospital"
+    },
+    {
+      "id": "web-tatar-family",
+      "city": "Татарбунары",
+      "name": "Татарбунарский ЦПМСП · дежурный врач",
+      "category": "96229",
+      "categories": [
+        "96229"
+      ],
+      "phones": [
+        "0689099865"
+      ],
+      "note": "На странице центра указан круглосуточный телефон дежурного врача, также Viber.",
+      "phoneLabel": "Дежурный врач центра",
+      "source": "web-tatar-family"
+    },
+    {
+      "id": "web-odesa-yanko",
+      "city": "Одесса",
+      "name": "Горчаг Денис Михайлович · невролог",
+      "category": "96275",
+      "categories": [
+        "96275"
+      ],
+      "phones": [
+        "0800101022",
+        "0684049463",
+        "0934049463",
+        "0954049463",
+        "0482320102"
+      ],
+      "note": "Yanko Medical, ул. Новосельского, 41. Телефоны единой справочной службы клиники для записи к врачу.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-odesa-yanko"
+    },
+    {
+      "id": "web-odesa-expert",
+      "city": "Одесса",
+      "name": "Expert Health · неврология и реабилитация",
+      "category": "96275",
+      "categories": [
+        "96275",
+        "96264",
+        "96259",
+        "96292"
+      ],
+      "phones": [
+        "0970671111"
+      ],
+      "note": "ул. Костецкая (Ватутина), 1. Неврологи Храмцов Денис, Вікаренко Марина, Козлова Галина; кардиолог Тихонова Сусанна; хирург Салинко Руслан; гинеколог Морозова Катерина. Запись через клинику.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-odesa-expert"
+    },
+    {
+      "id": "web-kyiv-heart",
+      "city": "Киев",
+      "name": "Институт сердца · консультации взрослых",
+      "category": "96264",
+      "categories": [
+        "96264",
+        "96285",
+        "96304",
+        "96231",
+        "96288",
+        "96295",
+        "96275",
+        "96305",
+        "96246",
+        "functional"
+      ],
+      "phones": [
+        "0442916131"
+      ],
+      "note": "ул. Братиславская, 5А. Кардиолог Анастасія Солонович; офтальмолог Анна Мартиненко; эндокринолог Галина Бабіна; стоматолог Ірина Матвєєва; ЛОР Максим Шуляк; уролог Олександр Рязанов; невролог Валерія Чорнобривець; гастроэнтеролог Віталій Дацько. Общая запись в консультативное отделение, также УЗИ и функциональная диагностика.",
+      "phoneLabel": "Запись через регистратуру, не личный номер",
+      "source": "web-kyiv-heart"
+    },
+    {
+      "id": "web-kyiv-heart-child",
+      "city": "Киев",
+      "name": "Институт сердца · детская кардиология",
+      "category": "96264",
+      "categories": [
+        "96264"
+      ],
+      "phones": [
+        "0442916160"
+      ],
+      "note": "ул. Братиславская, 5А. Запись на консультации в детское отделение.",
+      "phoneLabel": "Детское консультативное отделение",
+      "source": "web-kyiv-heart-child"
+    },
+    {
+      "id": "web-reni",
+      "city": "Рени",
+      "name": "Ренийская центральная городская больница",
+      "category": "96228",
+      "categories": [
+        "96228"
+      ],
+      "phones": [
+        "0983728742"
+      ],
+      "note": "ул. Дунайская, 15. Контакт медицинской помощи из официального каталога Одеської РДА за 2025 год (стр. 203), в разделе помощи пострадавшим от взрывоопасных предметов. Текущий приём и возможность записи уточните; более свежий публичный номер специалиста не подтверждён.",
+      "phoneLabel": "Контакт учреждения из каталога 2025 года",
+      "source": "web-reni"
     }
   ]
 }

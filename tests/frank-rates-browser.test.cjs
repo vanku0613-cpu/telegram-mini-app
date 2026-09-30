@@ -12,7 +12,7 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
   ]));
   for (const [file, original] of Object.entries(originals)) {
     const current = fs.readFileSync(path.join(root, file), 'utf8');
-    assert.deepEqual(current.match(/<style>[\s\S]*?<\/style>/g), original.match(/<style>[\s\S]*?<\/style>/g), 'all existing CSS is unchanged');
+    assert.deepEqual(current.replace(/\r\n/g,'\n').match(/<style>[\s\S]*?<\/style>/g), original.replace(/\r\n/g,'\n').match(/<style>[\s\S]*?<\/style>/g), 'all existing CSS is unchanged');
   }
   const server = http.createServer((req, res) => {
     let name = new URL(req.url, 'http://localhost').pathname;
@@ -53,8 +53,8 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       await page.waitForFunction(() => document.getElementById('usdRate').textContent === '44.70 / 45.20');
       assert.equal(await page.locator('#eurRate').textContent(), '51.00 / 51.70');
       assert.equal(await page.locator('#ratesUpdated').getAttribute('datetime'), new Date(data.fetchedAt).toISOString());
-      assert.equal(await page.locator('#ratesUpdated span').textContent(), new Intl.DateTimeFormat('ru-RU', {
-        timeZone: 'Europe/Kyiv', day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+      assert.equal(await page.locator('#ratesUpdated span').textContent(), 'на ' + new Intl.DateTimeFormat('ru-RU', {
+        timeZone: 'Europe/Kyiv', day: '2-digit', month: '2-digit', year: '2-digit'
       }).format(new Date(data.fetchedAt)));
       assert.equal(await page.locator('#currencyPanel a').getAttribute('href'), 'https://t.me/frankexange');
       const box = await page.locator('#currencyPanel').boundingBox();

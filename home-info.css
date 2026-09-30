@@ -23,3 +23,6 @@
 }
 #app .pressable:is(:active,.flash){transform:none!important;filter:none!important}
 #app .press-glow{display:none}
+
+/* Keep USD and EUR close together in the existing panel. */
+#app .currency-panel .rate{margin-top:1px!important;column-gap:3px!important}#app .currency-panel .rate + .rate{margin-top:1px!important}.rates-updated{margin-top:3px}

@@ -81,8 +81,8 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
       }
     }
     // Concrete mapping regressions: combined legacy folders are split by specialty.
-    await open('#city/'+encodeURIComponent('Килия')+'/category/96229');assert.equal(await page.locator('.contact').count(),11);
-    await open('#city/'+encodeURIComponent('Килия')+'/category/96228');assert.equal(await page.locator('.contact').count(),3);
+    await open('#city/'+encodeURIComponent('Килия')+'/category/96229');assert.equal(await page.locator('.contact').count(),12);
+    await open('#city/'+encodeURIComponent('Килия')+'/category/96228');assert.equal(await page.locator('.contact').count(),4);
     await open('#city/'+encodeURIComponent('Татарбунары')+'/category/20125');assert.equal(await page.locator('.contact').count(),3);
     assert.ok((await page.locator('#profileMedia img').last().getAttribute('src')).includes('96323'));
     await open('#city/'+encodeURIComponent('Киев')+'/category/96260');assert.equal(await page.locator('.contact').count(),1);assert.match(await page.locator('.contact h2').innerText(),/Филипчук/);
@@ -116,6 +116,11 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
       const boxes=await page.locator('.contact').evaluateAll(a=>a.slice(0,2).map(e=>({x:e.getBoundingClientRect().x,y:e.getBoundingClientRect().y})));assert.equal(boxes[0].y,boxes[1].y);assert.ok(boxes[1].x>boxes[0].x);
+      for(const selector of ['#topNav','#bottomNav']){
+        const links=page.locator(selector+' a');assert.deepEqual(await links.allTextContents(),['Назад в раздел','Вернуться в главное меню']);
+        const rects=await links.evaluateAll(es=>es.map(e=>({y:e.getBoundingClientRect().y,h:e.getBoundingClientRect().height,fits:e.scrollWidth<=e.clientWidth})));
+        assert.equal(rects[0].y,rects[1].y);assert.equal(rects[0].h,rects[1].h);assert.ok(rects.every(r=>r.fits));
+      }
       const nav=await page.locator('#topNav .back-btn, #bottomNav .back-btn').evaluateAll(a=>a.map(e=>({w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height})));assert.deepEqual(nav.slice(0,2),nav.slice(2));
     }
     await page.locator('#search').fill('099 533 83 11');assert.equal(await page.locator('.contact').count(),1);assert.match(await page.locator('.contact h2').innerText(),/Виктория/);
@@ -126,7 +131,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
       for(const img of await page.locator('.category-tile img:not(.visual-backdrop)').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0));}
       assert.equal(await page.locator('video').count(),0);
       await page.setViewportSize({width:320,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
-      assert.match(await page.locator('#topNav a').first().innerText(),/главное меню/);
+      assert.match(await page.locator('#topNav a:not(.secondary)').innerText(),/главное меню/);
     }
     assert.deepEqual(videos,[]);assert.deepEqual(failed,[]);assert.deepEqual(errors,[]);
   }finally{await browser.close();await new Promise(r=>server.close(r));}
@@ -162,4 +167,11 @@ test('workbook phones are complete, normalized and unique; specialty changes pre
     for(const id of r.categories)assert.ok(data.categories.some(c=>c.id===id));
     for(const id of r.additionalSources||[])assert.ok(data.sources[id]);
   }
+});
+
+test('reviewed city additions retain provenance and introduce no duplicate phones',()=>{
+ const additions=require('../health-care/research/city-additions-20260930.json');
+ for(const city of ['Киев','Одесса','Татарбунары','Рени','Болград','Килия'])assert.ok(data.records.some(r=>r.id.startsWith('web-')&&r.city===city));
+ for(const candidate of additions){const r=data.records.find(r=>r.id===candidate.id);assert.ok(r);assert.equal(data.sources[r.source].url,candidate.url);for(const p of r.phones)assert.equal(data.records.filter(other=>other.phones.includes(p)).length,1,p);}
+ assert.match(data.records.find(r=>r.id==='web-reni').note,/2025/);
 });

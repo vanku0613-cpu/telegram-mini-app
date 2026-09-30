@@ -26,7 +26,7 @@
    (!results.length&&!sections.some(c=>c.dataset.nav)?'<p>Ничего не найдено. Попробуйте имя, специальность, город или номер.</p>':'');
   position();
  }
- function load(){if(data||pending)return pending;pending=fetch(new URL('data.json?v=20260930-7',health),{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('contacts');return r.json()}).then(d=>{data=d;pending=null;render()}).catch(()=>{pending=null;if(!input.value.trim())return;panel.innerHTML='<p>Не удалось загрузить контакты.</p><button type="button" data-retry-search>Повторить</button>';position()});return pending}
+ function load(){if(data||pending)return pending;pending=fetch(new URL('data.json?v=20260930-8',health),{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('contacts');return r.json()}).then(d=>{data=d;pending=null;render()}).catch(()=>{pending=null;if(!input.value.trim())return;panel.innerHTML='<p>Не удалось загрузить контакты.</p><button type="button" data-retry-search>Повторить</button>';position()});return pending}
  input.addEventListener('focus',load);input.addEventListener('input',render);
  input.addEventListener('keydown',e=>{if(e.key==='Escape')close();if(e.key==='Enter'&&input.value.trim()){e.preventDefault();location.assign(health.href+'#search/'+encodeURIComponent(input.value.trim()))}});
  panel.addEventListener('click',e=>{if(e.target.closest('[data-clear-search]'))close();if(e.target.closest('[data-retry-search]')){panel.innerHTML='<p>Загружаем контакты…</p>';load()}});
