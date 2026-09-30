@@ -38,11 +38,13 @@ test('services and masters follow the source category hierarchy and keep contact
     await page.getByRole('button', { name: /Строительство \/ ремонт/ }).click();
     assert.equal(await page.locator('.subcat').count(), 16, 'construction and repair services remain individually selectable');
     assert.equal(await page.locator('.subcat img').count(), 0, 'specialization buttons contain no added photos');
+    assert.equal(await page.locator('[data-back]').textContent(), '← Вернуться к мастерам');
     await page.locator('[data-back]').click();
 
     await page.getByRole('button', { name: /Электрик \/ сантехник/ }).click();
     assert.deepEqual(await page.locator('.subcat strong').allTextContents(), ['Электрик','Сантехник','Чистка канализации']);
     await page.getByRole('button', { name: /Электрик/ }).last().click();
+    assert.equal(await page.locator('[data-back]').textContent(), '← Вернуться к мастерам');
     assert.equal(await page.locator('.contact h3').first().textContent(), 'Василий');
     assert.ok((await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(a => a.getAttribute('href')))).includes('tel:+380688481795'));
     assert.equal(await page.getByText('Афанасий', { exact: true }).count(), 0, 'contacts from other trade posts do not leak into this electrical list');
@@ -62,6 +64,7 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.equal(await page.locator('.category').count(), 9);
     assert.equal(await page.locator('.category img').count(), 0, 'service buttons have no photos');
     await page.getByRole('button', { name: /Ассенизатор/ }).click();
+    assert.equal(await page.locator('[data-back]').textContent(), '← Вернуться к услугам');
     assert.deepEqual(await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(a => a.getAttribute('href'))), ['tel:+380972212131']);
 
     for (const width of [320, 390, 768]) {
