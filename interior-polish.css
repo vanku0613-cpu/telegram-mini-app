@@ -1,0 +1,85 @@
+/* Shared visual language for interior pages. Main menu and return controls are intentionally excluded. */
+:root {
+  --interior-ink: #f5f9ff;
+  --interior-muted: #b7c9db;
+  --interior-line: rgba(100, 178, 222, .48);
+  --interior-line-strong: rgba(112, 211, 255, .9);
+  --interior-cyan: #83dcff;
+  --interior-green: #6ee0b0;
+  --interior-glow: 0 0 18px rgba(43, 143, 196, .16);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: #2b668e #061a30;
+}
+
+body {
+  color: var(--interior-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:is(.cover, .hero) {
+  border-color: var(--interior-line);
+  box-shadow: inset 0 1px rgba(255,255,255,.045), 0 14px 34px rgba(0,0,0,.22), var(--interior-glow);
+}
+
+:is(.cover, .hero) h1 {
+  text-wrap: balance;
+}
+
+:is(.cover, .hero) p,
+:is(.contact-note, .copy small, .panel-head p, .service-head p, .hint, .footer-note, .footer-brand) {
+  color: var(--interior-muted);
+}
+
+:is(.service, .panel, .contact, .shelter-card, .item, .section, .content) {
+  border-color: var(--interior-line);
+  box-shadow: inset 0 1px rgba(255,255,255,.035), 0 9px 24px rgba(0,0,0,.18);
+}
+
+:is(.service, .panel, .contact, .shelter-card, .item, .section) {
+  scroll-margin-block: 16px;
+}
+
+:is(.contact, .item, .shelter-card) {
+  transition: border-color .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+:is(.phone, .links a, .jump a, .tab, .section-tab, .category, .subcat, .map-heading button, .filters button, .toolbar button, .show-more, .call-primary, .telegram-btn) {
+  transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease, color .18s ease;
+}
+
+:where(a, button, [role="button"], [role="link"], input, summary):not(.home-back):not(.back-btn):not(.inner-back):not([data-main-back]):focus-visible {
+  outline: 2px solid var(--interior-cyan);
+  outline-offset: 3px;
+}
+
+:is(.tab[aria-selected="true"], .tab[aria-pressed="true"], .section-tab[aria-selected="true"], .section-tab[aria-pressed="true"], .filters button[aria-pressed="true"]) {
+  border-color: var(--interior-green);
+  box-shadow: inset 0 0 0 1px rgba(174,255,219,.12), 0 0 18px rgba(56,208,153,.18);
+}
+
+:is(.service-icon, .panel-icon, .avatar) {
+  border-color: rgba(131,220,255,.62);
+  box-shadow: 0 0 18px rgba(35,151,202,.22);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(.contact, .item, .shelter-card):hover {
+    border-color: var(--interior-line-strong);
+    box-shadow: inset 0 1px rgba(255,255,255,.06), 0 0 0 1px rgba(86,185,230,.16), 0 0 22px rgba(24,124,182,.2);
+  }
+
+  :is(.phone, .links a, .jump a, .tab, .section-tab, .category, .subcat, .map-heading button, .filters button, .toolbar button, .show-more):hover {
+    border-color: var(--interior-line-strong);
+    box-shadow: 0 0 15px rgba(39,140,204,.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

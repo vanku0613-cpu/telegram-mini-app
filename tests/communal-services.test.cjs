@@ -14,7 +14,7 @@ test('communal services page is reachable, organized, and uses unique callable c
       res.writeHead(404);
       return res.end();
     }
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.setHeader('Content-Type', path.extname(file) === '.css' ? 'text/css' : path.extname(file) === '.js' ? 'text/javascript' : 'text/html; charset=utf-8');
     res.end(fs.readFileSync(file));
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));

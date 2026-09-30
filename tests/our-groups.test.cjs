@@ -14,7 +14,7 @@ test('our groups page shows all verified community links and return buttons', as
       res.writeHead(404);
       return res.end();
     }
-    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : 'text/html; charset=utf-8');
+    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : 'text/html; charset=utf-8');
     res.end(fs.readFileSync(file));
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -36,6 +36,7 @@ test('our groups page shows all verified community links and return buttons', as
       'https://t.me/buro_nahodok_izmail'
     ]);
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
+    await page.locator('.avatar img').evaluateAll(items => items.forEach(item => { item.loading = 'eager'; }));
     await page.waitForFunction(() => document.querySelectorAll('.avatar.is-fallback').length === 7);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
     await page.setViewportSize({ width: 768, height: 900 });
