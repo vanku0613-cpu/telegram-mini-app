@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 _site/
+
+# Private local spreadsheet source and reconciliation details.
+health-care/research/workbook-20260930.json
+health-care/research/workbook-import-report.json

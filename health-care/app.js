@@ -7,10 +7,11 @@
   const savedKey='izmail.health.favorites.v1';
   const readSaved=()=>{try{const x=JSON.parse(localStorage.getItem(savedKey)||'[]');return new Set(Array.isArray(x)?x.filter(v=>typeof v==='string'):[])}catch{return new Set()}};
   let saved=readSaved();
-  const favoriteKey=(r,p)=>JSON.stringify([r.name,p]);
+  const favoriteKey=(r,p)=>JSON.stringify([r.favoriteName||r.name,p]);
   const cityNames=r=>r.city.split(' / ');
   const cities=()=>data.cityOrder;
   const categoryFor=r=>r.category==='96319'?(/Поликлиника/.test(r.name)?'96228':'96229'):r.category==='96323'?'20125':r.category;
+  const categoriesFor=r=>r.categories||[categoryFor(r)];
   const cityHref=city=>'#city/'+encodeURIComponent(city);
   const categoryHref=(c,city)=>c.branch==='doctors'?cityHref(city||'Измаил')+'/category/'+c.id:'#category/'+c.id;
   const isInCity=(r,city)=>cityNames(r).includes(city)||r.city==='Украина';
@@ -55,20 +56,19 @@
     return url?`<div class="visual"><img class="visual-backdrop" src="${escape(url)}" alt="" loading="lazy" aria-hidden="true"><img src="${escape(url)}" alt="" loading="lazy" width="320" height="216"></div>`:'';
   }
   function tile(c,city) {
-    const count=data.records.filter(r=>categoryFor(r)===c.id&&(!city||isInCity(r,city))).length;
+    const count=data.records.filter(r=>categoriesFor(r).includes(c.id)&&(!city||isInCity(r,city))).length;
     return `<a class="category-tile ${c.id==='20125'?'veterinary':''} ${count?'':'empty-category'}" href="${categoryHref(c,city)}">${thumb(c,city)}<span class="tile-body"><strong>${escape(c.id==='20125'?'Ветеринары':c.name)}</strong><small>${count?count+' контактов':'Контакты пока не найдены'} <span aria-hidden="true">›</span></small></span></a>`;
   }
   function cards(records) {
     return '<div class="contact-list">'+records.map(r=>{
       const c=data.categories.find(c=>c.id===categoryFor(r));
-      return `<article class="contact" data-record="${r.id}"><div class="contact-top"><span class="location ${r.city==='Измаил'?'':'other-city'}">⌖ ${escape(r.city)}</span></div><p class="specialty">${escape(c.id==='20125'?'Ветеринары':c.name)}</p><h2>${escape(r.name)}</h2>${r.note?`<p class="description">${escape(r.note)}</p>`:''}<p class="phone-label">${escape(r.phoneLabel)}</p>${r.phones.map(p=>`<div class="phone-row"><a class="phone-number" href="tel:${dial(p)}">${fmt(p)}</a><div class="phone-actions"><a class="call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${fmt(p)}">☎ Позвонить</a>${favoriteButton(r,p)}</div></div>`).join('')}${reviewPanel(r)}</article>`;
+      return `<article class="contact" data-record="${r.id}"><div class="contact-top"><span class="location ${r.city==='Измаил'?'':'other-city'}">⌖ ${escape(r.city)}</span></div><p class="specialty">${escape(r.specialties||(c.id==='20125'?'Ветеринары':c.name))}</p><h2>${escape(r.name)}</h2>${r.note?`<p class="description">${escape(r.note)}</p>`:''}<p class="phone-label">${escape(r.phoneLabel)}</p>${r.phones.map(p=>`<div class="phone-row"><a class="phone-number" href="tel:${dial(p)}">${fmt(p)}</a>${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}<div class="phone-actions"><a class="call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${fmt(p)}">☎ Позвонить</a>${favoriteButton(r,p)}</div></div>`).join('')}${reviewPanel(r)}</article>`;
     }).join('')+'</div>';
   }
   function media(c,city) {return '<section class="profile-banner">'+thumb(c,city)+'</section>'}
   let shellKey;
   function matched(r,q) {
-    const c=data.categories.find(c=>c.id===categoryFor(r));
-    const text=norm([r.name,r.note,r.city,c.name,...r.phones].join(' '));
+    const text=norm([r.name,r.note,r.city,r.specialties,...categoriesFor(r).map(id=>data.categories.find(c=>c.id===id).name),...r.phones].join(' '));
     const terms=norm(q).split(' ').filter(Boolean);
     const digits=q.replace(/\D/g,'');
     return terms.every(t=>text.includes(t)) || (digits.length>=3 && r.phones.some(p=>p.includes(digits)));
@@ -97,7 +97,7 @@
       $('content').innerHTML=cities().some(c=>norm(c).includes(norm(q)))?'':'<p class="empty"><strong>Город не найден</strong>Выберите город из списка или измените запрос.</p>';
       return;
     }
-    let scope=data.records.filter(r=>(!branch||data.categories.find(c=>c.id===r.category).branch===branch)&&(!category||categoryFor(r)===category.id)&&(!cityName||isInCity(r,cityName)));
+    let scope=data.records.filter(r=>(!branch||data.categories.find(c=>c.id===r.category).branch===branch)&&(!category||categoriesFor(r).includes(category.id))&&(!cityName||isInCity(r,cityName)));
     if(favorites){const seen=new Set();scope=scope.map(r=>({...r,phones:r.phones.filter(p=>{const k=favoriteKey(r,p);if(!saved.has(k)||seen.has(k))return false;seen.add(k);return true})})).filter(r=>r.phones.length)}
     if(q){
       const found=scope.filter(r=>matched(r,q));
@@ -109,7 +109,7 @@
       $('content').innerHTML=(category?.note?'<p class="empty">'+escape(category.note)+'</p>':'')+(scope.length?cards(sorted):favorites?'<div class="empty"><strong>Пока нет избранных номеров</strong>Нажмите ☆ рядом с номером, чтобы сохранить его здесь.</div>':'<div class="empty"><strong>Контакты пока не найдены</strong>Для этой специальности в выбранном городе пока нет проверенного публичного контакта.</div>');
     }else if(branch){
       const cats=data.categories.filter(c=>c.branch===branch&&!['96319','96323'].includes(c.id));
-      const local=c=>data.records.some(r=>categoryFor(r)===c.id&&cityNames(r).includes(cityName));
+      const local=c=>data.records.some(r=>categoriesFor(r).includes(c.id)&&cityNames(r).includes(cityName));
       const available=branch==='doctors'&&cityName!=='Измаил'?cats.filter(local):cats;
       $('resultStatus').textContent=(cityName?cityName+' · ':'')+available.length+' категорий';
       if(branch==='beauty')$('content').innerHTML='<div class="category-grid">'+available.map(c=>tile(c,null)).join('')+'</div>';
@@ -147,6 +147,6 @@
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null){saved=readSaved();if(data&&route().favorites)render();else syncFavorites()}});
   document.addEventListener('pointerdown',event=>{const el=event.target.closest('a,button');if(el){el.classList.add('tap-lit');setTimeout(()=>el.classList.remove('tap-lit'),680)}},{passive:true});
   window.addEventListener('hashchange',()=>{document.querySelector('.page').style.minHeight='';$('search').value='';render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
-  try{const response=await fetch('data.json?v=20260930-5',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
+  try{const response=await fetch('data.json?v=20260930-6',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
   catch{$('content').innerHTML='<p class="empty error">Не удалось загрузить контакты. Проверьте соединение и обновите страницу.</p>'; $('topNav').innerHTML=homeLink;$('bottomNav').innerHTML=homeLink;}
 })();

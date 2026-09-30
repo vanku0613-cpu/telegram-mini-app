@@ -87,9 +87,11 @@ for cat,name in [('96304','Мойсеєнко Альона Леонідівна 
  add(cat,name,'0800750070,0733750070',note='Смартлаб, ул. Верхнеторговая, 56, помещение 3. Наличие приёма уточните при записи.',source='smartlab',phoneLabel='Контакт-центр, не личный номер')
 from enrich import enrich
 enrich(records,categories,sources)
+from import_workbook import import_workbook
+records=import_workbook(records,sources)
 for i,c in enumerate(categories):
  c['order']=i
- c['count']=sum(r['category']==c['id'] for r in records)
+ c['count']=sum(c['id'] in r.get('categories',[r['category']]) for r in records)
  c['note']='Дополнительные немедицинские практики; не замена медицинской помощи.' if c['id']=='96054' else ''
 result={'cityOrder':['Измаил','Килия','Болград','Рени','Татарбунары','Одесса','Киев'],'updated':'2026-09-30','sources':sources,'categories':categories,'records':records}
 (ROOT.parent/'data.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
@@ -97,7 +99,7 @@ result={'cityOrder':['Измаил','Килия','Болград','Рени','Т
 missing=[]
 for c in data:
  original=set(re.findall(r'(?<!\d)0\d{9}(?!\d)',c.get('text','').replace(' ','').replace('\xa0','')))
- transferred={p for r in records if r['category']==c['id'] for p in r['phones']}
+ transferred={p for r in records if c['id'] in r.get('sourceCategories',r.get('categories',[r['category']])) for p in r['phones']}
  if original-transferred:missing.append((c['id'],list(original-transferred)))
 assert not missing,missing
 assert all(re.fullmatch(r'0\d{9}|1677',p) for r in records for p in r['phones'])
