@@ -33,6 +33,8 @@ test('communal services page is reachable, organized, and uses unique callable c
     assert.ok(phones.includes('tel:104'));
     assert.equal(await page.locator('a[href="https://t.me/DTEKOdeskiElektromerezhiBot"]').count(), 1);
     assert.equal(await page.locator('a[href="https://t.me/OdessaGasDistributionBot"]').count(), 1);
+    assert.equal(await page.locator('.unverified').count(), 0);
+    assert.doesNotMatch(await page.locator('main').innerText(), /из предоставленного списка|свежего подтверждения|не подтверждены/i);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
 
     const oldShelterText = fs.readFileSync(path.join(root, 'ukrytia', 'index.html'), 'utf8');

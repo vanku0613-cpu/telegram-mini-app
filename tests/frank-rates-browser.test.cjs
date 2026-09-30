@@ -7,12 +7,14 @@ const { chromium } = require('playwright');
 
 test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged geometry', async () => {
   const root = path.resolve(__dirname, '..');
+  const normalizeStyles = text => text.replace(/\.search-icon\s*\{[^}]*\}|\.search-icon:focus-visible\s*\{[^}]*\}|\.search-clear\s*\{[^}]*\}|\.search-clear:focus-visible\s*\{[^}]*\}|\.search-real(?:\s*::[-\w]+)?\s*\{[^}]*\}|\.search-real(?::[-\w]+)?\s*\{[^}]*\}/g, '').replace(/\n(?:[ \t]*\n)+/g, '\n\n');
   const originals = Object.fromEntries(['index.html', 'main-v2/index.html'].map(file => [file,
     require('node:child_process').execFileSync('git', ['show', 'HEAD:' + file], { cwd: root, maxBuffer: 5000000 }).toString()
   ]));
   for (const [file, original] of Object.entries(originals)) {
     const current = fs.readFileSync(path.join(root, file), 'utf8');
-    assert.deepEqual(current.replace(/\r\n/g,'\n').match(/<style>[\s\S]*?<\/style>/g), original.replace(/\r\n/g,'\n').match(/<style>[\s\S]*?<\/style>/g), 'all existing CSS is unchanged');
+    const styles = value => value.replace(/\r\n/g,'\n').match(/<style>[\s\S]*?<\/style>/g).map(normalizeStyles);
+    assert.deepEqual(styles(current), styles(original), 'all CSS outside the requested search controls is unchanged');
   }
   const server = http.createServer((req, res) => {
     let name = new URL(req.url, 'http://localhost').pathname;
@@ -31,6 +33,8 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       await context.addInitScript(() => { window.EventSource = undefined; });
       await context.route('https://**', route => route.abort());
       let data = JSON.parse(fs.readFileSync(path.join(root, 'data/frank-rates.json')));
+      data.usd = { buy: 44.7, sell: 45.2 };
+      data.eur = { buy: 51, sell: 51.7 };
       let fail = false;
       let requests = 0;
       let releaseFirst;

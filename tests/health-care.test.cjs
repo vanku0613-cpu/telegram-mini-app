@@ -12,6 +12,12 @@ test('all source categories, phone numbers and media are transferred with proven
   for(const city of ['Винница','Вилково','Шевченково','Львов','Татарбунары'])assert.ok(!data.cityOrder.includes(city));
   const original=require('../health-care/research/telegram.json');
   assert.equal(new Set(data.records.map(r=>r.id)).size,data.records.length);
+  const schoolPhone=data.records.filter(r=>r.phones.includes('0938302578'));
+  assert.equal(schoolPhone.length,1,'shared school/care number stays in one contact record');
+  for(const category of ['96211','96219','96221','96204'])assert.ok((schoolPhone[0].categories||[]).includes(category),'shared number remains in the right category '+category);
+  const kindergartenPhone=data.records.find(r=>r.phones.includes('0964353909'));
+  assert.ok(kindergartenPhone&&!kindergartenPhone.categories?.includes('96211'),'the separate childcare contact is not attached to the kindergarten/speech-therapy number');
+  assert.equal(fs.readFileSync(path.join(root,'health-care/index.html'),'utf8').includes('Дата просмотра источника не означает'),false);
   for(const c of original){
     if(c.id==='96323')continue;
     const category=data.categories.find(x=>x.id===c.id);assert.ok(category,c.id);
@@ -154,13 +160,12 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
       assert.match(await page.locator('#topNav a:not(.secondary)').innerText(),/главное меню/);
     }
     await open('#category/96211');
-    assert.equal(await page.locator('.contact').count(),4);
+    assert.equal(await page.locator('.contact').count(),3,'the separate education contact is not duplicated as an unrelated 96211 profile');
     const carePhones=await page.locator('.phone-number').evaluateAll(es=>es.map(e=>e.getAttribute('href')).sort());
-    assert.deepEqual(carePhones,['+380982328913','+380689346716','+380964353909','+380938302578','+380978430369'].map(p=>'tel:'+p).sort());
-    await page.locator('[data-record="r68"] [data-favorite]').click();
-    await open('#favorites');assert.equal(await page.locator('[data-record="r68"]').count(),1);
-    await page.locator('[data-record="r68"] [data-favorite]').click();
-    await open('#category/96211');assert.equal(await page.locator('[data-record="r68"] [data-favorite]').getAttribute('aria-pressed'),'false');
+    assert.deepEqual(carePhones,['+380982328913','+380689346716','+380938302578','+380978430369'].map(p=>'tel:'+p).sort());
+    assert.equal(await page.locator('[data-record="r68"]').count(),0,'kindergarten/speech-therapy number is not misfiled as childcare');
+    const sharedSchoolCare=data.records.find(r=>r.phones.includes('0938302578'));
+    assert.ok(sharedSchoolCare.categories.includes('96211')&&sharedSchoolCare.categories.includes('96219'),'the same public number remains searchable in both source categories without a duplicate record');
     assert.equal(await page.locator('#topNav .secondary').getAttribute('href'),'#');
     assert.deepEqual(videos,[]);assert.deepEqual(failed,[]);assert.deepEqual(errors,[]);
   }finally{await browser.close();await new Promise(r=>server.close(r));}

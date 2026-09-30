@@ -10,7 +10,7 @@ def apply_editorial(records, categories, sources):
     care = json.loads((Path(__file__).parent / 'care-96211.json').read_text(encoding='utf-8'))
     categories.append(care['category'])
     sources['care-telegram'] = care['source']
-    shared = next(r for r in records if '0964353909' in r['phones'])
+    shared = next(r for r in records if '0938302578' in r['phones'])
     shared['categories'] = list(dict.fromkeys(shared.get('categories', [shared['category']]) + ['96211']))
     shared['additionalSources'] = list(dict.fromkeys(shared.get('additionalSources', []) + ['care-telegram']))
     shared['categoryDetails'] = care['shared']

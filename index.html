@@ -89,18 +89,22 @@ button { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 }
 
 .search-icon {
-  position:absolute; left:3.2%; top:50%; transform:translateY(-50%); z-index:3;
+  position:absolute; right:3.2%; left:auto; top:50%; transform:translateY(-50%); z-index:3;
   width:8%; height:72%; display:grid; place-items:center; padding:0;
   border:0; border-radius:10px; background:transparent; color:#d9f7ff;
   font:clamp(26px,6.7vw,38px)/1 Arial,sans-serif; cursor:pointer;
   -webkit-tap-highlight-color:transparent; touch-action:manipulation;
 }
 .search-icon:focus-visible{outline:2px solid #83caff;outline-offset:0}
+.search-clear{position:absolute;left:3.2%;top:50%;transform:translateY(-50%);z-index:3;width:8%;height:72%;display:grid;place-items:center;padding:0;border:0;border-radius:10px;background:transparent;color:#d9f7ff;font:26px/1 Arial,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.search-clear:focus-visible{outline:2px solid #83caff;outline-offset:0}
+.search-real::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;display:none}
+
 
 .search-real {
   position:absolute; inset:0; width:100%; height:100%;
   border:1.7px solid var(--line); border-radius:17px; outline:none;
-  padding:0 7% 0 12%; color:#fff;
+  padding:0 12% 0 12%; color:#fff;
   background:linear-gradient(145deg,rgba(6,38,76,.98),rgba(3,25,56,.995));
   box-shadow:0 0 8px rgba(47,111,158,.28), inset 0 0 12px rgba(47,111,158,.07);
   font-size:16px; font-weight:800;
@@ -885,11 +889,11 @@ a.nav{ text-decoration:none; }
 
 <script src="./navigation.js?v=5" defer data-izmail-navigation="1"></script>
 <link rel="stylesheet" href="./home-weather.css?v=2">
-<link rel="stylesheet" href="./home-info.css?v=8">
+<link rel="stylesheet" href="./home-info.css?v=9">
 <script src="./home-feedback.js?v=1" defer></script>
 <script src="./weather-profile.js?v=2"></script>
 <script src="./weather-source.js?v=1"></script>
-<link rel="stylesheet" href="./directory-search.css?v=1">
+<link rel="stylesheet" href="./directory-search.css?v=2">
 </head>
 <body>
 <div id="app">
@@ -930,6 +934,7 @@ a.nav{ text-decoration:none; }
     </div>
 
     <div class="search-wrap">
+      <button class="search-clear" id="directorySearchClear" type="button" aria-label="Очистить поиск">×</button>
       <button class="search-icon" id="directorySearchToggle" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="directoryResults">⌕</button>
       <input
         id="directorySearch"
@@ -1583,6 +1588,6 @@ a.nav{ text-decoration:none; }
 })();
 
 </script>
-<script src="./directory-search.js?v=7"></script>
+<script src="./directory-search.js?v=8"></script>
 </body>
 </html>

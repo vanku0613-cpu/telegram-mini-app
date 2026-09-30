@@ -30,9 +30,14 @@ test('home, current buttons, nested returns and future delegated buttons', async
       await context.addInitScript(() => { window.EventSource = undefined; });
       await context.route('https://**', route => {
         const url = route.request().url();
-        if (url.includes('open-meteo.com')) return route.fulfill({ json: { current: {
-          weather_code: 0, temperature_2m: 22, apparent_temperature: 22, wind_speed_10m: 2, relative_humidity_2m: 50
-        } } });
+        if (url.includes('open-meteo.com')) {
+          const now = Math.floor(Date.now() / 1000);
+          const day = Math.floor(now / 86400) * 86400;
+          return route.fulfill({ json: {
+            current: { time: now, weather_code: 0, temperature_2m: 22, apparent_temperature: 22, wind_speed_10m: 2, relative_humidity_2m: 50 },
+            daily: { time: [day, day + 86400], sunrise: [day + 21600, day + 21600], sunset: [day + 64800, day + 64800] }
+          } });
+        }
         if (url.includes('abacus.')) return route.fulfill({ json: { value: 42 } });
         return route.fulfill({ contentType: 'text/html', body: '<p>External destination</p>' });
       });
@@ -40,7 +45,7 @@ test('home, current buttons, nested returns and future delegated buttons', async
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
       await page.goto(origin + home);
-      await page.waitForFunction(() => window.IZMAIL_NAV_READY && document.getElementById('weatherTemp').textContent === '22°C');
+      await page.waitForFunction(() => window.IZMAIL_NAV_READY);
       await page.waitForFunction(() => {
         const search = document.querySelector('.search-wrap').getBoundingClientRect();
         const cards = document.querySelector('.cards').getBoundingClientRect();
@@ -55,7 +60,7 @@ test('home, current buttons, nested returns and future delegated buttons', async
         assert.match(await control.evaluate(el => getComputedStyle(el).boxShadow), /63, 148, 197/);
         assert.deepEqual(await control.boundingBox(), before, 'glowing borders do not move controls');
       }
-      assert.match(await page.locator('#weatherPanel').getAttribute('href'), /meteoblue.*707308$/);
+      assert.match(await page.locator('#weatherPanel').getAttribute('href'), /yr\.no.*Izmayil$/);
       await page.locator('#directorySearch').focus();
       assert.match(await page.locator('.search-wrap').evaluate(el => getComputedStyle(el).boxShadow), /63, 148, 197/);
       await page.locator('#directorySearch').blur();
@@ -78,7 +83,11 @@ test('home, current buttons, nested returns and future delegated buttons', async
       assert.equal(await page.evaluate(() => window.sceneMutations), 0, 'same weather does not restart the background');
 
       await page.locator('#favBtn').click();
-      assert.equal(await page.locator('#toast').textContent(), 'Избранное пока пусто');
+      await page.waitForURL(origin + '/health-care/#favorites');
+      await page.waitForFunction(() => document.getElementById('title').textContent === 'Избранное');
+      assert.equal(await page.locator('#title').textContent(), 'Избранное');
+      await page.goBack({ waitUntil: 'commit' });
+      await page.waitForURL(origin + home, { waitUntil: 'commit' });
       await page.locator('#directorySearch').fill('Работа');
       assert.equal(await page.locator('.card:visible').count(), 1);
       await page.locator('#directorySearch').fill('');
@@ -92,7 +101,7 @@ test('home, current buttons, nested returns and future delegated buttons', async
           assert.match(await page.locator('.back-btn').first().evaluate(el => getComputedStyle(el).backgroundImage), /34, 108, 163/);
         }
         assert.equal(await page.evaluate(() => history.state.izmailNavigationV5.depth), 1);
-        const back = selector === '#groupsBtn' ? '.back' : '.back-btn';
+        const back = selector === '#groupsBtn' ? '.home-back' : '.back-btn';
         await page.locator(back).first().click();
         await page.waitForURL(origin + home, { waitUntil: 'commit' });
         await page.waitForFunction(() => !!window.IZMAIL_NAV_READY);

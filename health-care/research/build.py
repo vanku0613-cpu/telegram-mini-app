@@ -10,7 +10,7 @@ sources={'telegram':{'label':'Подборка справочника','checked'
  'ukrmedtrans':{'label':'Сайт «Укрмедтранс»','url':'https://ukrmedtrans.com/contacts','checked':'2026-09-30','kind':'official'},
  'lileya':{'label':'Сайт «Лілея»','url':'https://lileyamed.com.ua/contact/','checked':'2026-09-30','kind':'official'},
  'healthhub':{'label':'Каталог UZDInfo','url':'https://uzdinfo.com.ua/ru/health-hub-izmail-uzd-clinic-1301','checked':'2026-09-30','kind':'directory'}}
-def add(cat,name,phones,city='Измаил',note='',source='telegram',phoneLabel='Контакт из подборки'):
+def add(cat,name,phones,city='Измаил',note='',source='telegram',phoneLabel=''):
  next_id=max((int(r['id'][1:]) for r in records),default=0)+1
  records.append({'id':'r'+str(next_id),'category':cat,'name':name,'phones':list(dict.fromkeys(phones.split(','))),'city':city,'note':note,'source':source,'phoneLabel':phoneLabel})
 for line in (ROOT/'contacts.tsv').read_text(encoding='utf-8').splitlines():
@@ -81,7 +81,7 @@ add('96283','Городской центр социальных служб','048
 for cat,phone,src in [('96248','0970676991','eurotom'),('96230','0672984060','primary'),('96292','0962359085','hospital')]:
  records=[r for r in records if not (r['category']==cat and r['source']=='telegram' and r['phones']==[phone])]
 for r in records:
- if r['category']=='96292' and r['source']=='hospital':r['note']='Регистратура. В подборке указан адрес: ул. Коммерческая, 111; уточните при записи.'
+ if r['category']=='96292' and r['source']=='hospital':r['note']='Регистратура. Адрес: ул. Коммерческая, 111; уточните при записи.'
 sources['smartlab']={'label':'Смартлаб · отделение в Измаиле','url':'https://smartlab.ua/address/izmayil/izmayil-vul-verhnotorgova-56-primishennya-3','checked':'2026-09-30','kind':'official'}
 for cat,name in [('96304','Мойсеєнко Альона Леонідівна · эндокринолог'),('96264','Почтаренко Ігор В’ячеславович · кардиолог')]:
  add(cat,name,'0800750070,0733750070',note='Смартлаб, ул. Верхнеторговая, 56, помещение 3. Наличие приёма уточните при записи.',source='smartlab',phoneLabel='Контакт-центр, не личный номер')

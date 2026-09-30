@@ -847,9 +847,11 @@ function izmailWhenReady(
 
     viewer.style.setProperty(
       "--weather-button-width",
-      weatherRect.width.toFixed(2) + "px"
+      weather.offsetWidth.toFixed(2) + "px"
 
     );
+
+    viewer.style.setProperty("width", weather.offsetWidth.toFixed(2) + "px", "important");
 
 
     var currentLeft =
@@ -905,6 +907,8 @@ function izmailWhenReady(
 
     }
   );
+
+  window.addEventListener("load", alignViewerWithWeather, { once: true });
 
 
   /*

@@ -14,7 +14,7 @@ test('both actual entry pages load the shared counter without changing other mar
     let pathname = new URL(req.url, 'http://localhost').pathname;
     if (pathname.endsWith('/')) pathname += 'index.html';
     const file = path.join(root, pathname);
-    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : 'text/html');
+    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : 'text/html');
     res.end(fs.readFileSync(file));
   });
   const browser = await chromium.launch({ headless: true, channel: process.env.BROWSER_CHANNEL || undefined });
@@ -30,11 +30,31 @@ test('both actual entry pages load the shared counter without changing other mar
     });
     await context.route(/https:\/\/(?!abacus\.jasoncameron\.dev)/, route => route.abort());
     const page = await context.newPage();
+    await page.setViewportSize({ width: 390, height: 844 });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     for (const entry of ['/', '/main-v2/']) {
       await page.goto(origin + entry);
       await page.waitForFunction(() => document.getElementById('viewCount').textContent.replace(/\s/g, '') === '1234');
+      await page.waitForTimeout(100);
+      const widths = await page.evaluate(() => ({
+        innerWidth, clientWidth: document.documentElement.clientWidth, appWidth: document.querySelector('#app').offsetWidth, screenWidth: screen.width, dpr: devicePixelRatio,
+        viewer: document.querySelector('.viewer').getBoundingClientRect().width,
+        weather: document.querySelector('#weatherPanel').getBoundingClientRect().width,
+        viewerOffset: document.querySelector('.viewer').offsetWidth,
+        weatherOffset: document.querySelector('#weatherPanel').offsetWidth,
+        row: getComputedStyle(document.querySelector('.top-row')).gridTemplateColumns,
+        gridColumn: getComputedStyle(document.querySelector('#weatherPanel')).gridColumn,
+        weatherComputed: getComputedStyle(document.querySelector('#weatherPanel')).width,
+        viewerComputed: getComputedStyle(document.querySelector('.viewer')).width,
+        viewerInlineWidth: document.querySelector('.viewer').style.getPropertyValue('width'),
+        viewerInlinePriority: document.querySelector('.viewer').style.getPropertyPriority('width'),
+        viewerMax: getComputedStyle(document.querySelector('.viewer')).maxWidth,
+        rowWidth: document.querySelector('.top-row').offsetWidth,
+        viewerScale: getComputedStyle(document.querySelector('.viewer')).scale,
+        weatherScale: getComputedStyle(document.querySelector('#weatherPanel')).scale
+      }));
+      assert.ok(Math.abs(widths.viewer - widths.weather) < 1, JSON.stringify(widths));
       assert.ok(await page.locator('.card').count() > 0);
       assert.equal(await page.locator('#directorySearch').count(), 1);
     }

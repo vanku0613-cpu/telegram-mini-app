@@ -790,8 +790,10 @@ function izmailSearchIsActive() {
 
     viewer.style.setProperty(
       "--weather-button-width",
-      weatherRect.width.toFixed(2) + "px"
+      weather.offsetWidth.toFixed(2) + "px"
     );
+
+    viewer.style.setProperty("width", weather.offsetWidth.toFixed(2) + "px", "important");
 
 
     viewer.style.left =
@@ -822,6 +824,8 @@ function izmailSearchIsActive() {
 
     }
   );
+
+  window.addEventListener("load", alignViewerWithWeather, { once: true });
 
 
   /* Возвращение в приложение */

@@ -5,7 +5,7 @@ const path = require('node:path');
 const http = require('node:http');
 const { chromium } = require('playwright');
 
-test('food and delivery directory switches four sections and keeps contact links unique', async () => {
+test('food and delivery directory switches sections and keeps contact links unique', async () => {
   const root = path.resolve(__dirname, '..');
   const server = http.createServer((req, res) => {
     const pathname = new URL(req.url, 'http://localhost').pathname;
@@ -26,7 +26,7 @@ test('food and delivery directory switches four sections and keeps contact links
 
     assert.equal(await page.title(), 'Продукты питания — Справочник Измаил');
     assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className || item.tagName.toLowerCase())), ['cover', 'home-back', 'chooser']);
-    assert.equal(await page.locator('nav.tabs .tab[data-tab]').count(), 4);
+    assert.equal(await page.locator('nav.tabs .tab[data-tab]').count(), 5);
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
     assert.equal(await page.locator('#fastfood').isVisible(), true);
     assert.equal(await page.locator('input[type="search"]').count(), 0);
@@ -44,6 +44,10 @@ test('food and delivery directory switches four sections and keeps contact links
     assert.equal(await page.locator('#groceries').isVisible(), true);
     await page.locator('.tab[data-tab="basics"]').click();
     assert.equal(await page.locator('#basics').isVisible(), true);
+    await page.locator('.tab[data-tab="gifts"]').click();
+    assert.equal(await page.locator('#gifts').isVisible(), true);
+    assert.deepEqual(await page.locator('#gifts a.phone[href^="tel:"]').evaluateAll(items => items.map(item => item.getAttribute('href'))), ['tel:+380976143819', 'tel:+380971798587']);
+    assert.match(await page.locator('#gifts').innerText(), /Фрукты и клубника в шоколаде[\s\S]*Зефирные цветы/);
     await page.locator('nav.tabs .tab[data-tab="groceries"]').click();
 
     const phones = await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(item => item.getAttribute('href')));

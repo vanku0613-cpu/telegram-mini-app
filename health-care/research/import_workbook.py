@@ -74,11 +74,9 @@ def import_workbook(records,sources,use_local_source=True):
   target['note']=people[0]['Место работы / адрес']+'. '+(' '.join(d['ФИО']+' — '+d['Специальность']+'.' for d in people) if len(people)>1 else '')
   target['note']=target['note'].strip()
   target['phoneLabel']=('Сервис записи Likarni.com, не личный номер' if ids==['D002'] else contact['Тип контакта'])
-  if cid not in ONLINE:
-   target.setdefault('phoneNotes',{})[p]='Контакт из переданной базы; актуальность уточните перед визитом.'
   imported.append({'contact':cid,'phone':p,'record':target['id'],'action':'merged' if p in before else 'added'})
  # The remaining sheet supplies two numbers and six profiles without a phone.
- # Keep provenance/uncertainty visible instead of claiming the file was verified.
+ # Keep the provided entries searchable without adding source or warning copy to the contact card.
  for row in raw['sheets']['Требует_проверки']:
   if not row['Найденный телефон']:
    unknown.append({'id':row['ID'],'name':row['ФИО'],'reason':'В файле нет телефона'});continue
@@ -87,7 +85,7 @@ def import_workbook(records,sources,use_local_source=True):
   cat={'Q001':'96292','Q002':'96288'}[qid]
   source='workbook-'+qid
   sources[source]={'label':raw['file']+' · лист «Требует проверки», '+qid,'url':row['Источник'] or '', 'checked':'2026-09-30','kind':'provided','onlineMatched':False}
-  records.append({'id':source,'category':cat,'categories':[cat],'city':row['Город'],'name':row['ФИО'],'specialties':row['Предполагаемая специальность'],'phones':[p],'source':source,'phoneLabel':'Неподтверждённый контакт из переданной базы','note':'Принадлежность номера врачу и возможность записи требуют уточнения.','workbookContacts':[qid]})
+  records.append({'id':source,'category':cat,'categories':[cat],'city':row['Город'],'name':row['ФИО'],'specialties':row['Предполагаемая специальность'],'phones':[p],'source':source,'phoneLabel':'','note':'','workbookContacts':[qid]})
   imported.append({'contact':qid,'phone':p,'record':source,'action':'added','unconfirmed':True})
  for item in imported:
   assert sum(item['phone'] in r['phones'] for r in records)==1,item
