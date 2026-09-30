@@ -59,6 +59,8 @@ test('food and delivery directory switches four sections and keeps contact links
     await page.waitForFunction(() => document.querySelector('.card[data-title="Продукты питания"]')?.getAttribute('data-nav') === '../products-food/');
     assert.ok(await page.locator('.card-copy strong').evaluateAll(items=>items.every(el=>parseFloat(getComputedStyle(el).fontSize)>=11.5)),'home menu labels use a more readable type size');
     assert.ok(await page.locator('.card-copy strong').evaluateAll(items=>items.every(el=>getComputedStyle(el).whiteSpace==='nowrap')),'home menu labels remain on one line');
+    assert.ok(parseFloat(await page.locator('#shelterBtn .shelter-label').evaluate(el=>getComputedStyle(el).fontSize))>=13,'shelter label is enlarged');
+    assert.equal(await page.locator('#shelterBtn .shelter-label').evaluate(el=>getComputedStyle(el).textAlign),'center','shelter label is centered');
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));
