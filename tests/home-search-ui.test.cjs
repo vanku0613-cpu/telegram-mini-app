@@ -9,7 +9,7 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 test('home weather and currency stay readable inside their panels', () => {
   const html = read('main-v2/index.html');
   const css = read('home-info.css');
-  assert.match(html, /<div class="info-title">Погода Измаил<\/div>/);
+  assert.match(html, /<div class="info-title">Погода в Измаиле<\/div>/);
   assert.match(html, /class="weather-reading"><div class="weather-mini"[^>]*>[^<]+<\/div><div class="temp"/);
   assert.match(css, /\.weather-panel \.info-title,#app \.weather-panel \.condition\{[^}]*white-space:nowrap/);
   assert.match(css, /\.currency-panel \.info-title\{[^}]*font-size:[^}]*font-weight:950/);

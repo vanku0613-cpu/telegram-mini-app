@@ -72,7 +72,7 @@ test('desktop typography is capped without changing phone rules', () => {
   assert.match(css, /#app \.groups-row \.groups-title\{font-size:clamp\(12px,2\.75cqw,15px\)/);
   assert.match(infoCss, /Desktop-only fit/);
   assert.match(infoCss, /#app\{--info-growth:24px\}/);
-  assert.match(infoCss, /#app \.weather-panel \.info-title\{height:auto;min-height:0;font-size:9\.2px!important/);
+  assert.match(infoCss, /#app \.weather-panel \.info-title\{height:auto;min-height:0;font-size:8\.7px!important/);
   assert.match(infoCss, /#app \.currency-panel \.info-title\{font-size:8\.6px!important/);
 });
 
