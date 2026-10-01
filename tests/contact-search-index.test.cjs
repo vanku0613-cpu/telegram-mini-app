@@ -61,7 +61,8 @@ test('individual trips contains only the discussed trip contacts',()=>{
     '0982050354','0630483144','0962077144','0679426982','0638025435'
   ].map(normalize));
   assert.deepEqual([...actual].sort(),[...expected].sort());
-  assert.equal((panel.match(/← Вернуться в раздел/g)||[]).length,6);
+  assert.doesNotMatch(panel,/trip-back|← Вернуться в раздел/);
+  assert.match(transport,/backs\[1\]\.hidden=\!\(activeGroup\|\|activeContent\)\|\|Boolean\(activeTrip\)/);
   assert.doesNotMatch(panel,/Вернуться к поездкам|Назад в раздел/);
 });
 
@@ -75,8 +76,12 @@ test('transport cover follows the selected section and inner controls share neon
   assert.doesNotThrow(()=>new Function(script),'transport navigation script should parse');
   assert.match(script,/activeTrip[\s\S]*activeContent[\s\S]*activeGroup/);
   assert.match(script,/coverTitle\.textContent=title/);
-  assert.match(transport,/#taxi \.links a\{border-color:#54dda5;background:linear-gradient\(180deg,#159858,#0d7442\)/);
-  assert.match(food,/\.contact \.links a\{border-color:#54dda5;background:linear-gradient\(180deg,#159858,#0d7442\)/);
+  assert.match(transport,/#taxi \.links a\{border-color:#568da8;background:linear-gradient\(180deg,#24516d,#193a52\)/);
+  assert.match(transport,/#individual \[data-trip-detail="moldova"\] \.links a\{border-color:#568da8/);
+  assert.match(food,/\.contact \.links a\{border-color:#568da8;background:linear-gradient\(180deg,#24516d,#193a52\)/);
+  assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*data-content="stations">Расписание автобусов/);
+  assert.doesNotMatch(transport,/<nav class="tabs" data-submenu="schedule"/);
+  assert.match(script,/groupTabs\.hidden=Boolean\(activeGroup\|\|activeContent\|\|activeTrip\)/);
   const css=fs.readFileSync(path.join(root,'interior-polish.css'),'utf8');
   assert.match(css,/:is\(\.page, \.wrap\) :is\(button, a\[href\], \[role="button"\]\)/);
   assert.match(css,/:is\(\.page, \.wrap\) :is\(\.section-back, \.back-btn, \.inner-back, \.trip-back\)/);
