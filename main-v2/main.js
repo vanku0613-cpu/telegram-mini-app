@@ -555,3 +555,61 @@
 
 })();
 
+/* Keep every main-card title fully visible at browser and OS text zoom levels. */
+(function(){
+  "use strict";
+
+  var app=document.getElementById("app");
+  if(!app) return;
+
+  var frame=0;
+
+  function renderedScaleX(element){
+    var transform=getComputedStyle(element).transform;
+    if(!transform || transform==="none") return 1;
+    try{
+      return Math.abs(new DOMMatrixReadOnly(transform).a)||1;
+    }catch(error){
+      return 1;
+    }
+  }
+
+  function fitMainCardTitles(){
+    frame=0;
+    var titles=Array.prototype.slice.call(document.querySelectorAll(".card-copy strong,.groups-title"));
+
+    titles.forEach(function(title){title.style.fontSize="";});
+
+    titles.forEach(function(title){
+      var box=title.closest(".card-copy")||title.parentElement;
+      if(!box) return;
+
+      var available=Math.max(0,box.clientWidth-2);
+      var required=title.scrollWidth*renderedScaleX(title);
+      if(!available || required<=available) return;
+
+      var current=parseFloat(getComputedStyle(title).fontSize);
+      if(!isFinite(current) || current<=0) return;
+      title.style.fontSize=Math.max(8,current*(available/required)*.98).toFixed(2)+"px";
+    });
+  }
+
+  function scheduleFit(){
+    if(frame) cancelAnimationFrame(frame);
+    frame=requestAnimationFrame(fitMainCardTitles);
+  }
+
+  if("ResizeObserver" in window){
+    new ResizeObserver(scheduleFit).observe(app);
+  }
+  window.addEventListener("resize",scheduleFit,{passive:true});
+  if(window.visualViewport){
+    window.visualViewport.addEventListener("resize",scheduleFit,{passive:true});
+  }
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(scheduleFit);
+  }
+  scheduleFit();
+  setTimeout(scheduleFit,250);
+})();
+

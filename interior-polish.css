@@ -9,6 +9,22 @@
   --interior-glow: 0 0 18px rgba(43, 143, 196, .16);
 }
 
+/* Use the app's own glow without the browser's rectangular touch highlight. */
+:is(a, button, [role="button"], summary) {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+:is(a, button, [role="button"], summary):focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  :is(a, button, [role="button"], summary):focus {
+    outline: none !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-color: #2b668e #061a30;
