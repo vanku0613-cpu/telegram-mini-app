@@ -144,3 +144,12 @@ body[data-education=true] .back-row:not(:has(.secondary)) .back-btn{width:min(10
 .search-box input[type=search]::-webkit-search-decoration,.search-box input[type=search]::-webkit-search-cancel-button,.search-box input[type=search]::-webkit-search-results-button,.search-box input[type=search]::-webkit-search-results-decoration{display:none;-webkit-appearance:none}
 .search-box input[type=search]::-ms-clear{display:none}
 #search:focus-visible{outline:0!important;box-shadow:none}
+
+/* Mature first-screen cover for the health directory; deeper folders keep their compact cards. */
+.root-health-cover{position:relative;min-height:168px;overflow:hidden;border:1px solid rgba(105,205,235,.72);border-radius:18px;background:linear-gradient(145deg,#092a47,#06182f);box-shadow:inset 0 1px rgba(255,255,255,.09),0 12px 28px rgba(0,0,0,.28)}
+.root-health-cover svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.root-cover-copy{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;gap:5px;width:53%;min-height:168px;padding:18px;background:linear-gradient(90deg,rgba(3,20,38,.98),rgba(3,25,45,.86),transparent)}
+.root-cover-copy span{color:#86dffa;font-size:10px;font-weight:800;letter-spacing:.12em}
+.root-cover-copy strong{font-size:clamp(22px,5.3vw,34px);line-height:1.02;letter-spacing:-.04em}
+.root-cover-copy small{color:#b8d4e2;font-size:12px;font-weight:700;line-height:1.25}
+@media(max-width:350px){.root-health-cover,.root-cover-copy{min-height:148px}.root-cover-copy{padding:14px}.root-cover-copy small{font-size:11px}}
