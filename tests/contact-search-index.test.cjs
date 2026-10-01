@@ -61,6 +61,8 @@ test('individual trips contains only the discussed trip contacts',()=>{
     '0982050354','0630483144','0962077144','0679426982','0638025435'
   ].map(normalize));
   assert.deepEqual([...actual].sort(),[...expected].sort());
+  assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*data-group="schedule">Расписание автобусов[\s\S]*data-content="stations">Автостанции области/);
+  assert.doesNotMatch(transport,/<nav class="tabs" data-submenu="schedule"/);
   assert.doesNotMatch(panel,/trip-back|← Вернуться в раздел/);
   assert.match(transport,/backs\[1\]\.hidden=\!\(activeGroup\|\|activeContent\)\|\|Boolean\(activeTrip\)/);
   assert.doesNotMatch(panel,/Вернуться к поездкам|Назад в раздел/);
@@ -79,8 +81,7 @@ test('transport cover follows the selected section and inner controls share neon
   assert.match(transport,/#taxi \.links a\{border-color:#568da8;background:linear-gradient\(180deg,#24516d,#193a52\)/);
   assert.match(transport,/#individual \[data-trip-detail="moldova"\] \.links a\{border-color:#568da8/);
   assert.match(food,/\.contact \.links a\{border-color:#568da8;background:linear-gradient\(180deg,#24516d,#193a52\)/);
-  assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*data-content="stations">Расписание автобусов/);
-  assert.doesNotMatch(transport,/<nav class="tabs" data-submenu="schedule"/);
+  assert.match(transport,/chooser\.hidden=Boolean\(activeContent\|\|activeTrip\|\|activeGroup==='schedule'\)/);
   assert.match(script,/groupTabs\.hidden=Boolean\(activeGroup\|\|activeContent\|\|activeTrip\)/);
   const css=fs.readFileSync(path.join(root,'interior-polish.css'),'utf8');
   assert.match(css,/:is\(\.page, \.wrap\) :is\(button, a\[href\], \[role="button"\]\)/);

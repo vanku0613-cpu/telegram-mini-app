@@ -51,7 +51,7 @@
   <header class="cover"><div class="cover-copy"><div class="eyebrow"><span class="dot" aria-hidden="true"></span>Справочник Измаил</div><h1 id="coverTitle">Транспорт и поездки</h1><p id="coverDescription">Такси · индивидуальные поездки · автобусы · маршрутки</p></div><div class="cover-art" id="coverArt" aria-hidden="true"></div></header>
   <nav class="section-nav" aria-label="Навигация сверху"><button class="section-back" id="sectionBack" type="button" hidden>← Вернуться в раздел</button><a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
   <p class="chooser" id="chooser">Выберите направление</p>
-  <nav class="tabs" id="groupTabs" aria-label="Разделы транспорта"><button class="tab" type="button" data-group="taxi">Такси и индивидуальные поездки</button><button class="tab" type="button" data-content="stations">Расписание автобусов</button></nav>
+  <nav class="tabs" id="groupTabs" aria-label="Разделы транспорта"><button class="tab" type="button" data-group="taxi">Такси и индивидуальные поездки</button><button class="tab" type="button" data-group="schedule">Расписание автобусов</button><button class="tab" type="button" data-content="stations">Автостанции области</button></nav>
   <nav class="tabs taxi-options" data-submenu="taxi" aria-label="Такси и индивидуальные поездки" hidden>
     <button class="tab" type="button" data-content="taxi">Такси по городу</button>
     <button class="trip-folder" type="button" data-trip-folder="izmail-transfer"><strong>Трансфер по Измаилу</strong><span>Легковой автомобиль и микроавтобус · 3 номера</span><b aria-hidden="true">›</b></button>
@@ -146,7 +146,7 @@
       art=activeGroup==='schedule'?'bus':'taxi';
       description=activeGroup==='taxi'
         ?'Городское такси и индивидуальные поездки по направлениям.'
-        :'Автобусные маршруты, автостанции и междугородние поездки.';
+        :'';
     }
     coverTitle.textContent=title;
     coverDescription.textContent=description;
@@ -164,9 +164,9 @@
     groupTabs.hidden=Boolean(activeGroup||activeContent||activeTrip);
     submenus.forEach(nav=>nav.hidden=nav.dataset.submenu!==activeGroup||Boolean(activeContent||activeTrip));
     panels.forEach(panel=>panel.hidden=panel.id!==activeContent&&!(panel.id==='individual'&&Boolean(activeTrip)));
-    chooser.hidden=Boolean(activeContent||activeTrip);
+    chooser.hidden=Boolean(activeContent||activeTrip||activeGroup==='schedule');
     chooser.textContent=activeGroup?'Выберите подраздел':'Выберите направление';
-    document.querySelectorAll('.section-nav').forEach(nav=>nav.classList.toggle('has-section',Boolean(activeGroup)));
+    document.querySelectorAll('.section-nav').forEach(nav=>nav.classList.toggle('has-section',Boolean(activeGroup||activeContent||activeTrip)));
     backs[0].hidden=!(activeGroup||activeContent||activeTrip);
     backs[1].hidden=!(activeGroup||activeContent)||Boolean(activeTrip);
     tripFolders.forEach(button=>button.hidden=Boolean(activeTrip));

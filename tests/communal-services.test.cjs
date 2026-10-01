@@ -26,6 +26,8 @@ test('communal services page is reachable, organized, and uses unique callable c
 
     assert.equal(await page.title(), 'Коммунальные службы — Справочник Измаил');
     assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className)), ['cover', 'communal-nav', 'jump']);
+    assert.deepEqual(await page.locator('.cover').evaluate(el=>Array.from(el.children).map(child=>child.classList.contains('cover-art')?'image':child.classList.contains('cover-copy')?'text':'other')),['image','text'],'utility illustration sits above the text in the same cover');
+    assert.equal(await page.locator('.cover-art').evaluate(el=>el.getBoundingClientRect().bottom<document.querySelector('.cover-copy').getBoundingClientRect().top),true,'utility illustration is above its title and description');
     assert.deepEqual(await page.locator('.service').evaluateAll(items => items.map(item => item.id)), ['light', 'water', 'gas', 'heat', 'housing']);
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
     assert.equal(await page.locator('.service:visible').count(), 0, 'utility information remains closed until its category is opened');
