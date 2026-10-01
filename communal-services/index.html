@@ -28,7 +28,7 @@
 .communal-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px;margin:0 auto 14px}
 .communal-nav:not(.has-section) .home-back{grid-column:1/-1;width:min(100%,340px);justify-self:center}
 .communal-nav .home-back{width:100%;min-height:50px;height:auto;margin:0;padding:7px 8px;gap:5px;font-size:clamp(12px,3.3vw,14px);line-height:1.1;text-wrap:balance}
-.communal-nav .home-back:active,.communal-nav .home-back.tap-lit{border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
+.communal-nav .home-back:active,.communal-nav .home-back.tap-lit,.communal-nav .communal-back:active,.communal-nav .communal-back.tap-lit{border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
 .communal-nav .home-back .arrow{font-size:19px}
 .communal-back{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:50px;margin:0;padding:7px 5px;border:1px solid #54dda5;border-radius:15px;background:linear-gradient(180deg,#159858,#0d7442);box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244;color:#fff;font-size:clamp(10px,3.2vw,15px);line-height:1.1;font-weight:900;text-align:center;white-space:nowrap;text-wrap:nowrap;cursor:pointer}
 .communal-back[hidden],.jump[hidden]{display:none}
@@ -52,12 +52,25 @@
 <style>
 /* Enlarged first-level tiles, matching the Education directory layout. */
 .jump{grid-auto-rows:96px;gap:9px;margin:0 0 12px}
-.jump .communal-tab{grid-template-columns:44px minmax(0,1fr) 15px;column-gap:8px;padding:9px 10px;border:2px solid rgba(91,173,218,.92);border-radius:15px;background:linear-gradient(145deg,#0c426f 0%,#082d54 55%,#061e3b 100%);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15)}
+.jump .communal-tab{grid-template-columns:44px minmax(0,1fr) 15px;column-gap:8px;padding:9px 10px;border:2px solid rgba(91,173,218,.92);border-radius:15px;background:linear-gradient(145deg,#0c426f 0%,#082d54 55%,#061e3b 100%);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15);font-size:17px}
 .communal-icon{width:44px;height:44px;border-radius:13px}.communal-icon svg{width:27px;height:27px}
-.communal-copy{gap:5px}.communal-copy strong{font-size:clamp(14px,3.8vw,18px);font-weight:950;line-height:1.08;letter-spacing:-.025em}.communal-copy small{font-size:clamp(10px,2.8vw,12px);font-weight:800;line-height:1.1}.communal-tab .tab-arrow{font-size:27px}
+.communal-copy{gap:5px}.communal-copy strong{font-size:clamp(16px,4.2vw,19px);font-weight:950;line-height:1.08;letter-spacing:-.025em}.communal-copy small{font-size:clamp(10px,2.8vw,12px);font-weight:800;line-height:1.1}.communal-tab .tab-arrow{font-size:27px}
 @media(max-width:350px){.jump{grid-auto-rows:90px;gap:7px;margin-inline:0}.jump .communal-tab{grid-template-columns:39px minmax(0,1fr) 14px;padding:8px;column-gap:6px}.communal-icon{width:39px;height:39px;border-radius:12px}.communal-icon svg{width:24px;height:24px}.communal-copy strong{font-size:13px}.communal-copy small{font-size:10px}.communal-tab .tab-arrow{font-size:24px}}
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=7">
+<style>
+/* The cover uses the same proportions and seamless edge blend as «Услуги и мастера». */
+.cover{align-items:stretch;gap:0;padding:0}
+.cover-copy{position:relative;padding:16px 17px 18px;text-align:left}
+.eyebrow{justify-content:flex-start}
+.cover h1{margin:6px 0}
+.cover p{margin:0;max-width:none;text-align:left}
+.cover>.cover-art{position:relative;display:block;overflow:hidden;width:100%;height:156px;border-radius:18px;filter:none}
+.cover>.cover-art>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.82) saturate(.91) contrast(1.05)}
+.cover>.cover-art::after{position:absolute;inset:-1px;content:"";pointer-events:none;background:linear-gradient(90deg,rgba(7,39,73,.98) 0,rgba(7,39,73,.66) 5%,rgba(7,39,73,.16) 15%,transparent 27%,transparent 73%,rgba(7,39,73,.16) 85%,rgba(7,39,73,.66) 95%,rgba(7,39,73,.98) 100%),linear-gradient(180deg,rgba(7,39,73,.58) 0,transparent 18%,transparent 66%,rgba(7,39,73,.42) 83%,rgba(7,39,73,.96) 100%)}
+@media(min-width:580px){.cover-copy{padding:20px 22px}.cover>.cover-art{height:205px}}
+@media(max-width:350px){.cover-copy{padding:13px}.cover>.cover-art{height:130px}}
+</style>
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 <script src="../contact-details.js?v=1" defer></script>
 <link rel="stylesheet" href="../favorites.css?v=1">
@@ -65,11 +78,7 @@
 <body>
 <main class="wrap">
   <header class="cover">
-    <svg class="cover-art" viewBox="0 0 260 124" role="img" aria-label="Иллюстрация коммунальных служб: электричество, вода, газ и отопление">
-      <defs><linearGradient id="serviceLine" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#83dff5"/><stop offset="1" stop-color="#4e8fca"/></linearGradient><linearGradient id="serviceBuilding" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#12466b"/><stop offset="1" stop-color="#082440"/></linearGradient><filter id="serviceGlow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-      <path d="M13 111h234" stroke="#59b6da" stroke-opacity=".55" stroke-width="1.5"/><path d="M25 111V85h30v26m7 0V73h37v38m7 0V88h29v23m6 0V68h38v43m7 0V82h28v29m7 0V91h22v20" fill="url(#serviceBuilding)" stroke="#4a9bc1" stroke-opacity=".58" stroke-width="1.3"/><path d="M33 94h5m9 0h5m-19 9h5m9 0h5m14-22h5m9 0h7m-21 10h5m9 0h7m14-8h5m9 0h5m10 16h5m9 0h5m13-31h6m10 0h7m-23 10h6m10 0h7m-23 10h6m10 0h7m8 12h6m9 0h5m10-18h5m8 0h5" stroke="#91dff3" stroke-linecap="round" stroke-width="1.7" opacity=".84"/>
-      <path d="M40 57h180" stroke="url(#serviceLine)" stroke-opacity=".42" stroke-width="1.2" stroke-dasharray="3 5"/><g filter="url(#serviceGlow)"><circle cx="40" cy="34" r="19" fill="#0a2b48" stroke="#66bfdf" stroke-opacity=".82"/><path d="m43 19-12 17h9l-4 14 16-21h-9l5-10Z" fill="#a8eaff" stroke="#d8f7ff" stroke-width=".8"/><circle cx="100" cy="34" r="19" fill="#0a2b48" stroke="#66bfdf" stroke-opacity=".82"/><path d="M100 18c-6 9-9 13-9 18a9 9 0 0 0 18 0c0-5-3-9-9-18Z" fill="#4da9ce" stroke="#d1f2ff" stroke-width="1.2"/><circle cx="160" cy="34" r="19" fill="#0a2b48" stroke="#66bfdf" stroke-opacity=".82"/><path d="M160 19c-2 6-8 9-8 16a8 8 0 0 0 16 0c0-4-2-7-5-10 0 4-2 5-3 6 1-5 0-8 0-12Z" fill="#8adcf2" stroke="#d7f4ff" stroke-width="1"/><circle cx="220" cy="34" r="19" fill="#0a2b48" stroke="#66bfdf" stroke-opacity=".82"/><path d="M212 26h16m-16 6h16m-16 6h16m-16 6h16m-12-15v18m8-18v18" stroke="#a8eaff" stroke-linecap="round" stroke-width="1.5"/></g>
-    </svg>
+    <div class="cover-art"><img src="../assets/communal-services-cover-v1.webp?v=1" alt="Городская инфраструктура: электричество, вода, газ и теплоснабжение" width="1280" height="752" decoding="async"></div>
     <div class="cover-copy"><div class="eyebrow"><span class="dot" aria-hidden="true"></span>Справочник Измаил · полезные контакты</div><h1>Коммунальные службы</h1><p>Телефоны диспетчеров, официальные сайты и чат-боты города.</p></div>
   </header>
 
@@ -89,8 +98,9 @@
   <section class="service" id="water" aria-labelledby="water-title" hidden>
     <header class="service-head"><span class="service-icon" aria-hidden="true">💧</span><div><h2 id="water-title">Водоснабжение</h2><p>Аварийная служба и абонентский отдел</p></div></header>
     <div class="cards">
-      <article class="contact"><div class="contact-top"><h3>КП «ІВУВКГ» · аварийная служба</h3><span class="tag">город</span></div><p class="contact-note">Аварийные заявки принимают круглосуточно</p><div class="phones"><a class="phone" href="tel:+380484120137"><strong>+380 48 412 01 37</strong><span>Позвонить</span></a><a class="phone" href="tel:+380484120794"><strong>+380 48 412 07 94</strong><span>Позвонить</span></a><a class="phone" href="tel:+380933997242"><strong>+380 93 399 72 42</strong><span>Позвонить</span></a><a class="phone" href="tel:+380977389196"><strong>+380 97 738 91 96</strong><span>Позвонить</span></a></div><div class="links"><a href="https://izmail-mr.od.gov.ua/kp-ipuvkg/" target="_blank" rel="noopener"><span>↗</span> Сайт города</a></div></article>
-      <article class="contact"><div class="contact-top"><h3>Водоканал · абонентский отдел и показания</h3><span class="tag">город</span></div><div class="phones"><a class="phone" href="tel:+380639764896"><strong>+380 63 976 48 96</strong><span>Позвонить</span></a><a class="phone" href="tel:+380931053487"><strong>+380 93 105 34 87</strong><span>Позвонить</span></a><a class="phone" href="tel:+380931053508"><strong>+380 93 105 35 08</strong><span>Позвонить</span></a></div><p class="contact-note">Номер Viber для показаний: +380 93 105 35 08</p></article>
+      <article class="contact"><div class="contact-top"><h3>КП «ІВУВКГ» · контакты предприятия</h3><span class="tag">город</span></div><p class="contact-note">Измаил, ул. Дмитриевская, 65</p><div class="phones"><a class="phone" href="tel:+380484162657"><strong>+380 48 416 26 57</strong><span>Приёмная</span></a><a class="phone" href="tel:+380484121766"><strong>+380 48 412 17 66</strong><span>Технический и юридический отделы</span></a></div><div class="links"><a href="https://debt.crewingcrm.com/izmvk/" target="_blank" rel="noopener"><span>↗</span> Сайт водоканала</a><a href="https://communal.in.ua/izmvk/login" target="_blank" rel="noopener"><span>↗</span> Личный кабинет</a><a href="mailto:puvkh_izm@ukr.net"><span>✉</span> E-mail</a></div></article>
+      <article class="contact"><div class="contact-top"><h3>КП «ІВУВКГ» · аварийная служба</h3><span class="tag">город</span></div><p class="contact-note">Аварийные обращения по водоснабжению и канализации</p><div class="phones"><a class="phone" href="tel:+380484120137"><strong>+380 48 412 01 37</strong><span>Позвонить</span></a><a class="phone" href="tel:+380484120794"><strong>+380 48 412 07 94</strong><span>Позвонить</span></a><a class="phone" href="tel:+380933997242"><strong>+380 93 399 72 42</strong><span>Позвонить</span></a><a class="phone" href="tel:+380977389196"><strong>+380 97 738 91 96</strong><span>Позвонить</span></a></div><div class="links"><a href="https://izmail-mr.od.gov.ua/kp-ipuvkg/" target="_blank" rel="noopener"><span>↗</span> Страница предприятия</a></div></article>
+      <article class="contact"><div class="contact-top"><h3>Водоканал · абонентский отдел и показания</h3><span class="tag">город</span></div><div class="phones"><a class="phone" href="tel:+380484120125"><strong>+380 48 412 01 25</strong><span>Позвонить</span></a><a class="phone" href="tel:+380639764896"><strong>+380 63 976 48 96</strong><span>Позвонить</span></a><a class="phone" href="tel:+380931053487"><strong>+380 93 105 34 87</strong><span>Позвонить</span></a><a class="phone" href="tel:+380931053508"><strong>+380 93 105 35 08</strong><span>Позвонить</span></a></div><p class="contact-note">Viber для передачи показаний: +380 93 105 35 08</p></article>
     </div>
   </section>
 
@@ -134,10 +144,15 @@ document.addEventListener('DOMContentLoaded',function(){
     if(openingSection)return;
     openingSection=true;
     tab.classList.add('tap-lit');
-    setTimeout(function(){showSection(tab.dataset.open);openingSection=false;},420);
+    setTimeout(function(){showSection(tab.dataset.open);openingSection=false;},160);
   });});
   document.addEventListener('pointerdown',function(event){var button=event.target.closest('.communal-tab,.communal-back,.home-back');if(!button)return;button.classList.add('tap-lit');setTimeout(function(){button.classList.remove('tap-lit');},420);},{passive:true});
-  backs.forEach(function(back){back.addEventListener('click',function(){showSection(null);});});
+  backs.forEach(function(back){back.addEventListener('click',function(){
+    if(openingSection)return;
+    openingSection=true;
+    back.classList.add('tap-lit');
+    setTimeout(function(){showSection(null);openingSection=false;},160);
+  });});
   showSection(null);
 });
 </script>

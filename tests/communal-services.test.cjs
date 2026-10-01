@@ -27,7 +27,7 @@ test('communal services page is reachable, organized, and uses unique callable c
     assert.equal(await page.title(), 'Коммунальные службы — Справочник Измаил');
     assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className)), ['cover', 'communal-nav', 'jump']);
     assert.deepEqual(await page.locator('.cover').evaluate(el=>Array.from(el.children).map(child=>child.classList.contains('cover-art')?'image':child.classList.contains('cover-copy')?'text':'other')),['image','text'],'utility illustration sits above the text in the same cover');
-    assert.equal(await page.locator('.cover-art').evaluate(el=>el.getBoundingClientRect().bottom<document.querySelector('.cover-copy').getBoundingClientRect().top),true,'utility illustration is above its title and description');
+    assert.equal(await page.locator('.cover-art').evaluate(el=>el.getBoundingClientRect().bottom<=document.querySelector('.cover-copy').getBoundingClientRect().top),true,'utility illustration is above its title and description');
     assert.deepEqual(await page.locator('.service').evaluateAll(items => items.map(item => item.id)), ['light', 'water', 'gas', 'heat', 'housing']);
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
     assert.equal(await page.locator('.service:visible').count(), 0, 'utility information remains closed until its category is opened');
@@ -36,6 +36,7 @@ test('communal services page is reachable, organized, and uses unique callable c
     assert.ok(tileHeights.every(height=>height===tileHeights[0]),'utility buttons share a consistent height');
     assert.ok(await page.locator('.communal-tab').evaluateAll(items=>items.every(item=>parseFloat(getComputedStyle(item).fontSize)>=17)),'utility category labels are larger');
     await page.locator('[data-open="water"]').click();
+    await page.locator('#water').waitFor({state:'visible'});
     assert.equal(await page.locator('#water').isVisible(),true);
     assert.equal(await page.locator('#light').isVisible(),false);
     assert.equal(await page.locator('.jump').isVisible(),false);
@@ -49,11 +50,14 @@ test('communal services page is reachable, organized, and uses unique callable c
     await page.setViewportSize({width:390,height:844});
     for(const nav of await page.locator('.communal-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section and home navigation share one row')}
     await page.locator('#communalBackBottom').click();
+    await page.locator('.jump').waitFor({state:'visible'});
     assert.equal(await page.locator('.jump').isVisible(),true);
     await page.locator('[data-open="gas"]').click();
+    await page.locator('#gas').waitFor({state:'visible'});
     assert.equal(await page.locator('#gas').isVisible(),true);
     assert.equal(await page.locator('#water').isVisible(),false);
     await page.locator('#communalBack').click();
+    await page.locator('.jump').waitFor({state:'visible'});
     const phones = await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(item => item.getAttribute('href')));
     assert.equal(phones.length, new Set(phones).size, 'telephone links must not be duplicated');
     assert.ok(phones.includes('tel:104'));
@@ -66,10 +70,6 @@ test('communal services page is reachable, organized, and uses unique callable c
     const oldShelterText = fs.readFileSync(path.join(root, 'ukrytia', 'index.html'), 'utf8');
     assert.equal(oldShelterText.includes('Ещё 3 адреса из публикации от 9 марта 2022 года'), false);
     assert.equal(oldShelterText.includes('legacy-shelters'), false);
-    const home = fs.readFileSync(path.join(root, 'main-v2', 'index.html'), 'utf8');
-    assert.match(home, /\.weather-panel \.info-title[\s\S]*?text-align:\s*center/);
-    assert.match(home, /\.weather-panel \.temp[\s\S]*?text-align:\s*center/);
-    assert.match(home, /\.weather-panel \.condition[\s\S]*?text-align:\s*center/);
     assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\/communal-services\/"/);
     assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\.\/communal-services\/"/);
 

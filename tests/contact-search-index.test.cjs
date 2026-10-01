@@ -31,7 +31,7 @@ test('every published phone contact is reachable from global search',()=>{
   const index=new Set([...healthcare.records,...extra.records].flatMap(record=>record.phones||[]).map(normalize));
   const missing=[...source].filter(phone=>phone&&!index.has(phone));
   assert.deepEqual(missing,[],'phone numbers from app folders must be searchable');
-  assert.equal(source.size,526,'audited contact-number coverage');
+  assert.equal(source.size,529,'audited contact-number coverage');
 });
 
 test('contact detail disclosure and shared one-line phone styling are wired to all contact folders',()=>{

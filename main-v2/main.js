@@ -564,33 +564,40 @@
 
   var frame=0;
 
-  function renderedScaleX(element){
-    var transform=getComputedStyle(element).transform;
-    if(!transform || transform==="none") return 1;
-    try{
-      return Math.abs(new DOMMatrixReadOnly(transform).a)||1;
-    }catch(error){
-      return 1;
-    }
-  }
-
   function fitMainCardTitles(){
     frame=0;
-    var titles=Array.prototype.slice.call(document.querySelectorAll(".card-copy strong,.groups-title"));
+    var titles=Array.prototype.slice.call(document.querySelectorAll(".card:not(.expanded-label) .card-copy strong,.groups-title"));
+    var expanded=Array.prototype.slice.call(document.querySelectorAll(".card.expanded-label .card-copy strong"));
 
     titles.forEach(function(title){title.style.fontSize="";});
+    expanded.forEach(function(title){
+      var span=title.querySelector("span");
+      if(span) span.style.transform="none";
+    });
 
     titles.forEach(function(title){
       var box=title.closest(".card-copy")||title.parentElement;
       if(!box) return;
 
       var available=Math.max(0,box.clientWidth-2);
-      var required=title.scrollWidth*renderedScaleX(title);
+      var required=title.scrollWidth;
       if(!available || required<=available) return;
 
       var current=parseFloat(getComputedStyle(title).fontSize);
       if(!isFinite(current) || current<=0) return;
       title.style.fontSize=Math.max(8,current*(available/required)*.98).toFixed(2)+"px";
+    });
+
+    expanded.forEach(function(title){
+      var span=title.querySelector("span");
+      if(!span) return;
+
+      var available=Math.max(0,title.clientWidth-2);
+      var required=span.scrollWidth;
+      if(!available || !required) return;
+
+      var scale=Math.min(1,(available/required)*.985);
+      span.style.transform="scaleX("+scale.toFixed(4)+")";
     });
   }
 
