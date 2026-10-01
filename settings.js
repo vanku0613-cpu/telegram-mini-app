@@ -295,7 +295,7 @@ window.IZMAIL_SETTINGS = {
       "./products-food/",
 
     "Коммунальные службы":
-      "./communal-services/?v=utility-cards-4",
+      "./communal-services/?v=utility-cards-5",
 
     "Работа / Вакансии":
       "https://t.me/rabota_v_izmaile",
