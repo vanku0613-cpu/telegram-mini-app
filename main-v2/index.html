@@ -959,6 +959,17 @@ a.nav{ text-decoration:none; }
   box-shadow:0 0 10px rgba(65,154,205,.25);
 }
 
+/* The compact info tiles share the counter's translucent glass surface. */
+.weather-panel,
+.currency-panel {
+  background:rgba(1,14,30,.42) !important;
+  border-color:rgba(135,196,226,.32) !important;
+  box-shadow:0 2px 9px rgba(0,0,0,.24), inset 0 0 0 1px rgba(255,255,255,.05) !important;
+  -webkit-backdrop-filter:blur(3px);
+  backdrop-filter:blur(3px);
+}
+.weather-panel::after { background:transparent !important; }
+
 </style>
 
 <script>
@@ -1670,6 +1681,6 @@ a.nav{ text-decoration:none; }
 })();
 
 </script>
-<script src="../directory-search.js?v=11"></script>
+<script src="../directory-search.js?v=12"></script>
 </body>
 </html>
