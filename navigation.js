@@ -104,10 +104,12 @@
     }
     if (el.dataset.izmailGlowPending === "1") return;
     el.dataset.izmailGlowPending = "1";
+    el.classList.add("tap-lit");
     setTimeout(function () {
+      el.classList.remove("tap-lit");
       delete el.dataset.izmailGlowPending;
       action();
-    }, 120);
+    }, 260);
   }
   document.addEventListener("click", function (event) {
     if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
