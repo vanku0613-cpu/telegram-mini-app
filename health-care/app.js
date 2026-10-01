@@ -107,7 +107,7 @@
       $('topNav').innerHTML=back+homeLink;$('bottomNav').innerHTML=back+homeLink;
       $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';
-      $('profileMedia').innerHTML=category?media(category,cityName):branch?'<section class="profile-banner">'+branchCover(branch)+'</section>':favorites?favoritesCover():rootCover();
+      $('profileMedia').innerHTML=category?media(category,cityName):branch?'<section class="profile-banner">'+branchCover(branch)+'</section>':favorites?'':rootCover();
       const phoneFolder=Boolean(category&&!category.children&&data.records.some(r=>categoriesFor(r).includes(category.id)));
       document.querySelector('.finder').hidden=(!branch&&!favorites&&!globalSearch)||phoneFolder||branch==='education'||Boolean(contactId)||favorites;
       $('search').placeholder=branch==='doctors'?(cityName?'Поиск врачей по '+citySearch[cityName]:'Поиск врачей'):branch==='education'?'Предмет, имя или телефон':'Специальность, имя или телефон';
