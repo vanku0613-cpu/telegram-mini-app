@@ -92,6 +92,6 @@ test('all category arrows share one visible position', () => {
 });
 
 test('search and main card grid use compact professional vertical spacing', () => {
-  assert.match(css, /\.search-wrap\s*\{[\s\S]*?top:37\.25%/);
-  assert.match(css, /\.cards\s*\{[\s\S]*?top:42\.95%;[\s\S]*?height:37\.25%/);
+  assert.match(css, /\.search-wrap\s*\{[\s\S]*?top:36\.95%/);
+  assert.match(css, /\.cards\s*\{[\s\S]*?top:42\.75%;[\s\S]*?height:37\.45%/);
 });
