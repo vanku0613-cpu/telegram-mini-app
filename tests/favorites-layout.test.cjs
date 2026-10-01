@@ -21,6 +21,7 @@ test('favorites reuse the compact services phone card',async()=>{
     await page.waitForTimeout(500);
     const phone=page.locator('.favorite-phone').first();
     assert.deepEqual(await phone.evaluate(el=>{const style=getComputedStyle(el),number=el.querySelector('strong').getBoundingClientRect(),label=el.querySelector('span').getBoundingClientRect();return{background:style.backgroundColor,direction:style.flexDirection,labelOnRight:label.left>number.left}}),{background:'rgb(10, 41, 69)',direction:'row',labelOnRight:true});
+    assert.ok(await page.locator('.contact').first().evaluate(el=>el.getBoundingClientRect().height<220),'favorite contact follows its content instead of keeping the old fixed height');
     assert.equal(await page.locator('.contact').evaluateAll(items=>new Set(items.map(item=>Math.round(item.getBoundingClientRect().left))).size),1);
     const star=page.locator('.favorite-phone-action>.favorite-toggle').first();
     assert.equal(await phone.evaluate((el,star)=>{const phoneBox=el.getBoundingClientRect(),starBox=star.getBoundingClientRect();return Math.round(phoneBox.top+phoneBox.height/2)===Math.round(starBox.top+starBox.height/2)},await star.elementHandle()),true);
