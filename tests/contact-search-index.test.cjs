@@ -50,11 +50,13 @@ test('individual trips contains only the discussed trip contacts',()=>{
   const transport=fs.readFileSync(path.join(root,'transport/index.html'),'utf8');
   const taxiMenu=transport.match(/<nav class="tabs taxi-options"[\s\S]*?<\/nav>/)?.[0];
   assert.ok(taxiMenu,'taxi and individual trip folders should share one parent menu');
-  assert.match(taxiMenu,/data-content="taxi">Такси по городу/);
-  assert.match(taxiMenu,/class="tab direct-entry"[^>]*data-content="taxi"/);
+  assert.match(taxiMenu,/data-content="taxi"><strong>Такси по городу<\/strong><span>2 службы · 6 номеров<\/span>/);
+  assert.match(taxiMenu,/class="trip-folder direct-entry"[^>]*data-content="taxi"/);
   assert.match(transport,/class="[^"]*tab[^"]*has-children[^"]*"[^>]*data-group="taxi"/);
   assert.equal((taxiMenu.match(/class="trip-folder direct-entry"/g)||[]).length,6);
-  assert.equal((taxiMenu.match(/data-trip-folder=/g)||[]).length,6);
+  assert.equal((taxiMenu.match(/data-trip-folder=/g)||[]).length,5);
+  assert.match(taxiMenu,/data-trip-folder="izmail-transfer"[\s\S]*5 номеров/);
+  assert.doesNotMatch(taxiMenu,/family-move|Переезд семьи/);
   assert.doesNotMatch(taxiMenu,/data-content="individual"/);
   const panel=transport.match(/<section class="panel" id="individual"[\s\S]*?<\/section>\s*<\/section>/)?.[0];
   assert.ok(panel,'individual trips panel should exist');
@@ -65,6 +67,8 @@ test('individual trips contains only the discussed trip contacts',()=>{
     '0982050354','0630483144','0962077144','0679426982','0638025435'
   ].map(normalize));
   assert.deepEqual([...actual].sort(),[...expected].sort());
+  assert.doesNotMatch(panel,/data-trip-detail="family-move"/);
+  assert.match(panel,/Трансфер по Измаилу · Александр/);
   assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*data-group="taxi"[\s\S]*data-content="stations"[\s\S]*data-group="schedule"/);
   assert.match(transport,/data-submenu="schedule"[\s\S]*href="\.\/bus-schedule\/"[\s\S]*<strong>Измаил<\/strong>/);
   assert.match(transport,/Единая база расписаний Бессарабии/);
