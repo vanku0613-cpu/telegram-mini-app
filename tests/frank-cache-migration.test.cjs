@@ -29,7 +29,7 @@ test('old installed NBU page upgrades to Frank without manual refresh', async ()
     if (!fs.existsSync(file)) { res.writeHead(404); return res.end(); }
     res.end(fs.readFileSync(file));
   });
-  const browser = await chromium.launch({ headless: true, channel: process.env.BROWSER_CHANNEL || undefined });
+  const browser = await chromium.launch({ headless: true, channel: process.env.BROWSER_CHANNEL || 'msedge' });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const origin = `http://127.0.0.1:${server.address().port}`;
   try {

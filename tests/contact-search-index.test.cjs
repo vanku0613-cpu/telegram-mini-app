@@ -35,6 +35,18 @@ test('every published phone contact is reachable from global search',()=>{
   assert.equal(extra.records.filter(record=>(record.phones||[]).includes('0973388892')).length,1,'Dmitry\'s additional phone is indexed once');
 });
 
+test('global search combines contacts and the complete transport schedule index',()=>{
+  const healthcare=require('../health-care/data.json');
+  const extra=require('../directory-search-extra.json');
+  const schedule=require('../transport/schedule-search.json');
+  const search=fs.readFileSync(path.join(root,'directory-search.js'),'utf8');
+  assert.ok(healthcare.records.length+extra.records.length+schedule.records.length>=780,'combined search database size');
+  assert.ok(schedule.records.length>=280,'all generated route suggestions remain available');
+  assert.match(search,/schedule-search\.json/);
+  assert.match(search,/\.\.\.schedule\.records/);
+  assert.match(search,/Открыть расписание/);
+});
+
 test('contact detail disclosure and shared one-line phone styling are wired to all contact folders',()=>{
   const pages=['communal-services/index.html','products-food/index.html','recreation/index.html','services-masters/index.html','transport/index.html'];
   for(const file of pages)assert.match(fs.readFileSync(path.join(root,file),'utf8'),/contact-details\.js\?v=1/);

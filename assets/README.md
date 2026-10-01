@@ -4,10 +4,10 @@
 
 Файлы в этой папке:
 - izmail-home.jpg — исходная фотография / летний вечер.
-- izmail-home-winter.png — зимний вечер со снегом и включёнными фонарями.
-- izmail-home-autumn.png — поздняя осень, вечер.
-- izmail-home-summer-day.png, izmail-home-winter-day.png, izmail-home-autumn-day.png — день, фонари выключены.
-- izmail-home-summer-night.png, izmail-home-winter-night.png, izmail-home-autumn-night.png — настоящая ночная сцена с включёнными фонарями, без закатного солнца.
+- izmail-home-winter.webp — оптимизированный зимний вечер со снегом и включёнными фонарями.
+- izmail-home-autumn.webp — оптимизированная поздняя осень, вечер.
+- izmail-home-summer-day.webp, izmail-home-winter-day.webp, izmail-home-autumn-day.webp — оптимизированные дневные сцены, фонари выключены.
+- izmail-home-summer-night.webp, izmail-home-winter-night.webp, izmail-home-autumn-night.webp — оптимизированные ночные сцены с включёнными фонарями, без закатного солнца.
 
 Весна использует зелёный летний пейзаж. Снегопад выбирает заснеженный вариант независимо от месяца. Это декоративная визуализация: снег на земле и состояние растений не измеряются сервисом. Ночь, вечер и день выбираются по существующим настройкам часов Europe/Kyiv. Осадки, ветер, туман, гроза и град выбираются по тому же текущему ответу Open-Meteo, что и виджет погоды (интервал существующей настройки — 10 минут). Источник кодов: https://open-meteo.com/en/docs#weather_variable_documentation . Коды 96/99 включают град, 95/96/97/99 — грозу. Эффект молнии не является детектором реальных ударов.
 

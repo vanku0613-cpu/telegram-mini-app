@@ -27,5 +27,32 @@
 .scene-layer.fog .weather-shade{background:linear-gradient(180deg,rgba(201,213,221,.13),rgba(205,219,228,.27) 56%,rgba(205,219,228,.1) 85%,transparent)}
 @media(prefers-reduced-motion:reduce){.scene-layer .moving-clouds{animation:none!important;will-change:auto}}
 /* Night uses actual night artwork: keep its neon and lamps readable. */
-#app.time-night .bg-main{filter:brightness(.93) saturate(.96) contrast(1.02)!important}
-.scene-layer.night .time-filter{background:linear-gradient(180deg,rgba(3,12,42,.08),rgba(8,28,67,.04) 56%,transparent 100%)}
+#app.time-night .bg-main{filter:brightness(.78) saturate(.88) contrast(1.08) hue-rotate(4deg)!important}
+.scene-layer.night .time-filter{background:radial-gradient(circle at 79% 13%,rgba(154,190,235,.10),transparent 15%),linear-gradient(180deg,rgba(1,8,34,.25),rgba(5,22,58,.16) 58%,rgba(2,12,34,.03) 88%,transparent 100%)}
+.scene-layer.night.clear .stars-layer{opacity:1!important;filter:brightness(1.14)}
+.scene-layer.strong-wind .moving-clouds{animation-duration:9s!important;opacity:.56!important}
+.scene-layer.strong-wind.rain .moving-clouds{opacity:.76!important}
+
+/* A short daylight rainbow appears only after a recorded rain shower. */
+.rainbow-layer{z-index:4;opacity:0;transition:opacity 1.4s ease;overflow:hidden}
+.rainbow-layer::before{
+  content:"";position:absolute;right:5%;top:17%;width:34%;aspect-ratio:1.85/1;
+  border-radius:50% 50% 0 0;
+  background:radial-gradient(ellipse at 50% 100%,transparent 0 43%,rgba(117,92,202,.36) 44% 46%,rgba(67,127,219,.36) 47% 49%,rgba(61,173,151,.34) 50% 52%,rgba(235,203,83,.34) 53% 55%,rgba(233,136,70,.34) 56% 58%,rgba(211,83,91,.36) 59% 61%,transparent 62%);
+  filter:blur(.2px) drop-shadow(0 0 6px rgba(177,215,239,.18));
+  -webkit-mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.82) 18%,#000 50%,rgba(0,0,0,.72) 84%,transparent),linear-gradient(180deg,#000,rgba(0,0,0,.78) 70%,transparent);
+  mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.82) 18%,#000 50%,rgba(0,0,0,.72) 84%,transparent),linear-gradient(180deg,#000,rgba(0,0,0,.78) 70%,transparent);
+  animation:rainbowBreathe 7s ease-in-out infinite alternate;
+}
+.scene-layer.after-rain .rainbow-layer{opacity:.72}
+@keyframes rainbowBreathe{from{filter:blur(.25px) brightness(.92);transform:translateY(1px)}to{filter:blur(.1px) brightness(1.12);transform:translateY(-1px)}}
+
+/* Fog has depth, with a denser low morning layer. */
+.scene-layer.fog .moving-clouds{
+  opacity:.72!important;filter:blur(7px) brightness(1.16)!important;
+  background:radial-gradient(ellipse at 18% 34%,rgba(220,230,235,.38) 0 13%,transparent 42%),radial-gradient(ellipse at 66% 45%,rgba(210,225,232,.32) 0 16%,transparent 48%),linear-gradient(180deg,rgba(220,231,236,.12),rgba(202,219,227,.29) 60%,transparent)!important;
+  animation:fogDrift 26s ease-in-out infinite alternate!important;
+}
+.scene-layer.fog.morning .moving-clouds{opacity:.86!important;filter:blur(8px) brightness(1.18)!important}
+@keyframes fogDrift{from{transform:translate3d(-4%,1%,0)}to{transform:translate3d(5%,-1%,0)}}
+@media(prefers-reduced-motion:reduce){.rainbow-layer::before,.scene-layer.fog .moving-clouds{animation:none!important}}

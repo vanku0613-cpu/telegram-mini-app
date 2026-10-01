@@ -3,51 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover,interactive-widget=overlays-content">
-<script>
-(function(){
-  var root=document.documentElement,initialWidth=window.innerWidth;
-  function lockStage(){
-    var width=window.innerWidth,height=window.innerHeight;
-    root.style.setProperty('--stable-viewport-height',height+'px');
-    root.style.setProperty('--stage-w',Math.min(width,height*.488,600)+'px');
-    root.style.setProperty('--stage-h',Math.min(width*1.783,height*.87,1069.8)+'px');
-    initialWidth=width;
-  }
-  lockStage();
-  window.addEventListener('resize',function(){
-    if(Math.abs(window.innerWidth-initialWidth)>40&&!document.activeElement?.matches('#directorySearch, .search-real, input[type="search"]'))lockStage();
-  });
-  window.addEventListener('orientationchange',function(){setTimeout(lockStage,300)});
-})();
-</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.open-meteo.com https://abacus.jasoncameron.dev; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; worker-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<script src="./stage-lock.js?v=1"></script>
 <meta name="theme-color" content="#03172f">
 <title>Справочник Измаил</title>
 
-<link rel="stylesheet" href="./main.css?v=28">
+<link rel="stylesheet" href="./main.css?v=31">
 
-<script>
-  document.write('<script src="./settings.js?v=' + Date.now() + '"><\/script>');
-</script>
+<script src="./settings.js?v=20261002-2"></script>
 
 <script src="../navigation.js?v=6" defer data-izmail-navigation="1"></script>
 <script src="../search-hints.js?v=1" defer></script>
-<link rel="stylesheet" href="../home-weather.css?v=2">
-<link rel="stylesheet" href="../home-info.css?v=17">
+<link rel="stylesheet" href="../home-weather.css?v=5">
+<link rel="stylesheet" href="../home-info.css?v=19">
 <script src="../home-feedback.js?v=1" defer></script>
 <script src="../weather-profile.js?v=2"></script>
-<script src="../weather-source.js?v=1"></script>
+<script src="../weather-source.js?v=2"></script>
 <link rel="stylesheet" href="../directory-search.css?v=3">
 </head>
 <body>
 <div id="app">
-  <img class="bg-blur" id="bgBlur" src="../assets/izmail-home-summer-day.png" alt="">
-  <img class="bg-main" id="bgMain" src="../assets/izmail-home-summer-day.png" alt="">
+  <img class="bg-blur" id="bgBlur" src="../assets/izmail-home-summer-day.webp" alt="" decoding="async">
+  <img class="bg-main" id="bgMain" src="../assets/izmail-home-summer-day.webp" alt="" fetchpriority="high" decoding="async">
   <div class="fade"></div>
   <div class="scene-layer" id="sceneLayer" aria-hidden="true">
     <div class="time-filter" id="timeFilter"></div><div class="weather-shade" id="weatherShade"></div>
     <div class="moving-clouds" id="movingClouds"></div>
     <div class="sun-moon" id="sunMoon"></div>
     <div class="stars-layer" id="starsLayer"></div>
+    <div class="rainbow-layer" aria-hidden="true"></div>
     <canvas id="weatherCanvas"></canvas>
   </div>
 <section class="ui">
@@ -67,8 +52,8 @@
       <div class="panel info currency-panel pressable" id="currencyPanel" role="link" tabindex="0" aria-label="Курс валют">
         <div class="currency-watermark" aria-hidden="true">₴</div>
         <div class="info-title"><a href="https://t.me/frankexange" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline" title="Frank Exchange — покупка / продажа">FRANK EXCHANGE</a></div>
-        <div class="rate"><span>USD</span><span id="usdRate">— / —</span></div>
-        <div class="rate"><span>EUR</span><span id="eurRate">— / —</span></div>
+        <div class="rate"><span class="currency-code"><span class="currency-symbol" aria-hidden="true">$</span>USD</span><span id="usdRate">— / —</span></div>
+        <div class="rate"><span class="currency-code"><span class="currency-symbol" aria-hidden="true">€</span>EUR</span><span id="eurRate">— / —</span></div>
         <time class="rates-updated" id="ratesUpdated"><span>—</span></time>
       </div>
       <a class="shelter pressable" id="shelterBtn"
@@ -201,7 +186,7 @@
   </section>
 </div>
 
-<script src="./main.js?v=8"></script>
-<script src="../directory-search.js?v=15"></script>
+<script src="./main.js?v=11"></script>
+<script src="../directory-search.js?v=16"></script>
 </body>
 </html>

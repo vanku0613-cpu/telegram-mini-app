@@ -5,7 +5,7 @@ const path = require('node:path');
 const http = require('node:http');
 const { chromium } = require('playwright');
 
-test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged geometry', async () => {
+test('both pages: buy/sell, link, ten-minute refresh, offline cache, unchanged geometry', async () => {
   const root = path.resolve(__dirname, '..');
   const normalizeStyles = text => text.replace(/\.search-icon\s*\{[^}]*\}|\.search-icon:focus-visible\s*\{[^}]*\}|\.search-clear\s*\{[^}]*\}|\.search-clear:focus-visible\s*\{[^}]*\}|\.search-real(?:\s*::[-\w]+)?\s*\{[^}]*\}|\.search-real(?::[-\w]+)?\s*\{[^}]*\}/g, '').replace(/\n(?:[ \t]*\n)+/g, '\n\n');
   const originals = Object.fromEntries(['index.html', 'main-v2/index.html'].map(file => [file,
@@ -13,7 +13,7 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
   ]));
   for (const [file, original] of Object.entries(originals)) {
     const current = fs.readFileSync(path.join(root, file), 'utf8');
-    const styles = value => value.replace(/\r\n/g,'\n').match(/<style>[\s\S]*?<\/style>/g).map(normalizeStyles);
+    const styles = value => (value.replace(/\r\n/g,'\n').match(/<style>[\s\S]*?<\/style>/g) || []).map(normalizeStyles);
     assert.deepEqual(styles(current), styles(original), 'all CSS outside the requested search controls is unchanged');
   }
   const server = http.createServer((req, res) => {
@@ -24,7 +24,7 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
     res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : 'text/html');
     res.end(fs.readFileSync(file));
   });
-  const browser = await chromium.launch({ headless: true, channel: process.env.BROWSER_CHANNEL || undefined });
+  const browser = await chromium.launch({ headless: true, channel: process.env.BROWSER_CHANNEL || 'msedge' });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const origin = `http://127.0.0.1:${server.address().port}`;
   try {
@@ -39,11 +39,11 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       let requests = 0;
       let releaseFirst;
       const firstResponse = new Promise(resolve => { releaseFirst = resolve; });
-      await context.addInitScript(() => { if (!localStorage.getItem('izmail_frank_rates_v1')) localStorage.setItem('izmail_frank_rates_v1', JSON.stringify({
+      await context.addInitScript(() => { Math.random = () => .5; if (!localStorage.getItem('izmail_frank_rates_v1')) localStorage.setItem('izmail_frank_rates_v1', JSON.stringify({
         sourceUrl: 'https://t.me/frankexange', fetchedAt: '2026-01-01T00:00:00Z',
         usd: { buy: 40, sell: 41 }, eur: { buy: 42, sell: 43 }
       })); });
-      await context.route('**/data/frank-rates.json?*', async route => {
+      await context.route('**/data/frank-rates.json', async route => {
         requests++;
         if (requests === 1) await firstResponse;
         return fail ? route.abort() : route.fulfill({ json: data });
@@ -52,7 +52,7 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       await page.clock.install();
       await page.goto(origin + entry);
       await page.waitForFunction(() => document.querySelector('script[src*="frank-rates.js"]'));
-      assert.equal(await page.locator('#usdRate').textContent(), '— / —', 'do not flash obsolete local rates before the fresh response');
+      assert.equal(await page.locator('#usdRate').textContent(), '40.00 / 41.00', 'show the last validated rates while refreshing');
       releaseFirst();
       await page.waitForFunction(() => document.getElementById('usdRate').textContent === '44.70 / 45.20');
       assert.equal(await page.locator('#eurRate').textContent(), '51.00 / 51.70');
@@ -73,7 +73,7 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       data.usd.buy = 44.8;
       data.fetchedAt = new Date(Date.now() + 1000).toISOString();
       const before = requests;
-      await page.clock.fastForward(290000);
+      await page.clock.fastForward(590000);
       assert.equal(requests, before);
       await page.clock.fastForward(10000);
       await page.waitForFunction(() => document.getElementById('usdRate').textContent === '44.80 / 45.20');
@@ -86,7 +86,7 @@ test('both pages: buy/sell, link, five-minute refresh, offline cache, unchanged 
       fail = false;
       data.usd = { buy: 100, sell: 1 };
       await page.evaluate(() => window.dispatchEvent(new Event('online')));
-      await page.waitForResponse('**/data/frank-rates.json?*');
+      await page.waitForResponse('**/data/frank-rates.json');
       assert.equal(await page.locator('#usdRate').textContent(), '44.80 / 45.20');
       const unchanged = await page.locator('#currencyPanel').boundingBox();
       assert.deepEqual(unchanged, box);

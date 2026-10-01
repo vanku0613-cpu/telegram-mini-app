@@ -4,9 +4,9 @@
 
   var CFG = window.IZMAIL_SETTINGS || {};
 
-  var DEFAULT_SEASON_IMAGES = {"spring":"../assets/izmail-home.jpg","summer":"../assets/izmail-home.jpg","autumn":"../assets/izmail-home-autumn.png","winter":"../assets/izmail-home-winter.png"};
-  var NIGHT_SEASON_IMAGES = {"spring":"../assets/izmail-home-summer-night.png","summer":"../assets/izmail-home-summer-night.png","autumn":"../assets/izmail-home-autumn-night.png","winter":"../assets/izmail-home-winter-night.png"};
-  var DAY_SEASON_IMAGES = {"spring":"../assets/izmail-home-summer-day.png","summer":"../assets/izmail-home-summer-day.png","autumn":"../assets/izmail-home-autumn-day.png","winter":"../assets/izmail-home-winter-day.png"};
+  var DEFAULT_SEASON_IMAGES = {"spring":"../assets/izmail-home.jpg","summer":"../assets/izmail-home.jpg","autumn":"../assets/izmail-home-autumn.webp","winter":"../assets/izmail-home-winter.webp"};
+  var NIGHT_SEASON_IMAGES = {"spring":"../assets/izmail-home-summer-night.webp","summer":"../assets/izmail-home-summer-night.webp","autumn":"../assets/izmail-home-autumn-night.webp","winter":"../assets/izmail-home-winter-night.webp"};
+  var DAY_SEASON_IMAGES = {"spring":"../assets/izmail-home-summer-day.webp","summer":"../assets/izmail-home-summer-day.webp","autumn":"../assets/izmail-home-autumn-day.webp","winter":"../assets/izmail-home-winter-day.webp"};
   var SEASON_IMAGES = Object.assign({}, DEFAULT_SEASON_IMAGES, CFG.seasonImages || {});
 
   var app = document.getElementById("app");
@@ -40,6 +40,7 @@
 
   state.intensity=0;
   state.wind=0;
+  state.afterRain=false;
   state.thunder=false;state.hail=false;state.fog=false;
   var leaves=[],hailstones=[];
   var lightningAt=0;
@@ -126,14 +127,16 @@
   function seedWind(){
     if(state.wind<5 || state.weather==='rain' || state.weather==='snow') return;
     var r=sceneLayer.getBoundingClientRect();
-    for(var i=0;i<14;i++) particles.push({x:Math.random()*r.width,y:Math.random()*r.height,len:12+Math.random()*20,speed:35+state.wind*7,alpha:.04+Math.random()*.08});
+    var windCount=Math.min(36,18+Math.round(state.wind*.65));
+    for(var i=0;i<windCount;i++) particles.push({x:Math.random()*r.width,y:Math.random()*r.height,len:14+Math.random()*24,speed:45+state.wind*8,alpha:.07+Math.random()*.10});
   }
 
   function seedSeasonDetails(){
     leaves=[];hailstones=[];
     var r=sceneLayer.getBoundingClientRect();
     if(state.season==='autumn' && state.weather!=='snow' && !state.hail){
-      for(var i=0;i<5;i++)leaves.push({x:Math.random()*r.width,y:i===0?r.height*.18:-Math.random()*r.height*2,size:1.8+Math.random()*2.4,angle:Math.random()*6.28,speed:12+Math.random()*14,phase:Math.random()*6.28});
+      var leafCount=Math.min(28,10+Math.round(state.wind*.8));
+      for(var i=0;i<leafCount;i++)leaves.push({x:Math.random()*r.width,y:i<3?Math.random()*r.height*.55:-Math.random()*r.height*1.4,size:2.2+Math.random()*3.1,angle:Math.random()*6.28,speed:15+state.wind*.8+Math.random()*18,phase:Math.random()*6.28,alpha:.68+Math.random()*.24});
     }
     if(state.hail){
       for(var j=0;j<42;j++)hailstones.push({x:Math.random()*r.width,y:Math.random()*r.height,size:1+Math.random()*1.3,speed:220+Math.random()*120});
@@ -147,7 +150,7 @@
       if(leaf.y>r.height+12||leaf.x<-15){leaf.y=-20-Math.random()*r.height;leaf.x=Math.random()*r.width;}
       if(leaf.y<0)continue;
       ctx.save();ctx.translate(leaf.x,leaf.y);ctx.rotate(leaf.angle);ctx.scale(Math.cos(leaf.phase)*.35+.65,1);
-      ctx.beginPath();ctx.ellipse(0,0,leaf.size*.48,leaf.size,0,0,Math.PI*2);ctx.fillStyle='rgba(187,119,48,'+(.7*fadeByY(leaf.y,r.height))+')';ctx.fill();ctx.restore();
+      ctx.beginPath();ctx.ellipse(0,0,leaf.size*.48,leaf.size,0,0,Math.PI*2);ctx.fillStyle='rgba(204,126,44,'+(leaf.alpha*fadeByY(leaf.y,r.height))+')';ctx.fill();ctx.restore();
     }
     for(var j=0;j<hailstones.length;j++){
       var ice=hailstones[j];ice.y+=ice.speed*dt;ice.x-=state.wind*4*dt;
@@ -297,7 +300,7 @@
     var lightsOn=state.time==='evening'||state.time==='night';
     updateBackground((state.time==="night"?NIGHT_SEASON_IMAGES:lightsOn?SEASON_IMAGES:DAY_SEASON_IMAGES)[landscape]);
 
-    var sceneKey=[state.season,state.time,state.weather,state.intensity,Math.round(state.wind),state.thunder,state.hail,state.fog].join(":");
+    var sceneKey=[state.season,state.time,state.weather,state.intensity,Math.round(state.wind),state.thunder,state.hail,state.fog,state.afterRain].join(":");
     if(sceneKey===appliedScene) return;
     appliedScene=sceneKey;
     fxMode=state.weather;
@@ -310,7 +313,7 @@
     }
 
     if(sceneLayer){
-      sceneLayer.className="scene-layer "+state.time+" "+state.weather+(state.wind>=5?" windy":"")+(state.weather==="rain"&&state.intensity>=1.4?" heavy-rain":"")+(state.thunder?" thunder":"")+(state.hail?" hail":"")+(state.fog?" fog":"");
+      sceneLayer.className="scene-layer "+state.time+" "+state.weather+(state.wind>=5?" windy":"")+(state.wind>=10?" strong-wind":"")+(state.weather==="rain"&&state.intensity>=1.4?" heavy-rain":"")+(state.thunder?" thunder":"")+(state.hail?" hail":"")+(state.fog?" fog":"")+(state.afterRain?" after-rain":"");
       sceneLayer.dataset.intensity=String(state.intensity);
     }
 
@@ -411,7 +414,7 @@
 
   /* Shared view counter; loaded independently of other page features. */
   var viewCounterScript = document.createElement("script");
-  viewCounterScript.src = "../view-counter.js?v=4";
+  viewCounterScript.src = "../view-counter.js?v=6";
   document.head.appendChild(viewCounterScript);
 
   /* Search results are handled by directory-search.js. */
@@ -435,10 +438,10 @@
 
   /* LIVE WEATHER PANEL */
   var weatherPending=false;
-  function loadWeather(){
+  function loadWeather(force){
     if(weatherPending) return;
     weatherPending=true;
-    window.izmailWeatherSource.load()
+    window.izmailWeatherSource.load({force:force===true})
       .then(function(d){
         var c=d.current;
         weatherSolar=d.daily||null;
@@ -466,6 +469,16 @@
         var code=Number(c.weather_code);
         var profile=window.izmailWeatherProfile(code,c.wind_speed_10m);
         state.weather=profile.weather;state.intensity=profile.intensity;state.wind=profile.wind;state.thunder=profile.thunder;state.hail=profile.hail;state.fog=profile.fog;
+        var lastRain=0;
+        try{
+          lastRain=Number(localStorage.getItem("izmail.weather.last-rain.v1"))||0;
+          if(profile.weather==="rain"){
+            lastRain=Date.now();
+            localStorage.setItem("izmail.weather.last-rain.v1",String(lastRain));
+          }
+        }catch(_){if(profile.weather==="rain")lastRain=Date.now();}
+        var currentTime=realTimeOfDay();
+        state.afterRain=profile.weather!=="rain"&&profile.weather!=="snow"&&!profile.fog&&currentTime!=="night"&&Date.now()-lastRain<45*60*1000;
         syncRealScene();
         if(temp && isFinite(Number(c.temperature_2m))) temp.textContent=Math.round(Number(c.temperature_2m))+"°C";
         if(txt) txt.textContent=names[code]||"Погода";
@@ -482,16 +495,16 @@
 
   /* Frank Exchange rates from the shared, periodically updated JSON. */
   var frankRatesScript=document.createElement("script");
-  frankRatesScript.src="./frank-rates.js?v=6";
+  frankRatesScript.src="./frank-rates.js?v=8";
   document.head.appendChild(frankRatesScript);
 
   loadWeather();
   setInterval(function(){if(!document.hidden)loadWeather();},300000);
-  window.addEventListener("online",loadWeather);
+  window.addEventListener("online",function(){loadWeather(true);});
 
   window.addEventListener("izmail:refresh", function(){
     syncRealScene();
-    loadWeather();
+    loadWeather(true);
   });
 
   window.addEventListener("focus", function(){
@@ -583,7 +596,8 @@
       if(!box) return;
 
       var available=Math.max(0,box.clientWidth-2);
-      var required=title.scrollWidth;
+      var compression=title.closest(".expanded-label") ? .86 : 1;
+      var required=title.scrollWidth*compression;
       if(!available || required<=available) return;
 
       var current=parseFloat(getComputedStyle(title).fontSize);

@@ -868,7 +868,12 @@ function izmailWhenReady(
     );
 
     viewer.style.setProperty("min-width", alignedWidth.toFixed(2) + "px", "important");
-    viewer.style.setProperty("width", "max-content", "important");
+    viewer.style.setProperty("width", alignedWidth.toFixed(2) + "px", "important");
+    /* Normal totals match the weather tile. If a future long total no longer
+       fits, only then may the counter grow instead of clipping digits. */
+    if (viewer.scrollWidth > viewer.clientWidth + 1) {
+      viewer.style.setProperty("width", "max-content", "important");
+    }
 
 
     var viewerRect = viewer.getBoundingClientRect();
@@ -1312,34 +1317,20 @@ function izmailWhenReady(
       "load",
       function () {
 
-        navigator.serviceWorker
-
-          .register(
-            "./sw.js"
-          )
-
-          .then(
-            function (
-              registration
-            ) {
-
-              registration.update();
-
-            }
-          )
-
-          .catch(
-            function (
-              error
-            ) {
-
-              console.log(
-                "Service Worker:",
-                error
-              );
-
-            }
-          );
+        navigator.serviceWorker.getRegistrations()
+          .then(function (registrations) {
+            return Promise.all(registrations.map(function (registration) {
+              /* Remove the old home-only worker before enabling the
+                 application-wide offline cache. */
+              if (/\/main-v2\/$/.test(registration.scope)) return registration.unregister();
+              return false;
+            }));
+          })
+          .then(function () {
+            return navigator.serviceWorker.register("../sw.js", { scope: "../" });
+          })
+          .then(function (registration) { return registration.update(); })
+          .catch(function (error) { console.log("Service Worker:", error); });
 
       }
     );

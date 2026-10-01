@@ -1,9 +1,9 @@
 (function () {
   "use strict";
-  // Resolve from this script, so root and main-v2 use the same JSON.
   var DATA_URL = new URL("../data/frank-rates.json", document.currentScript.src).href;
   var CACHE_KEY = "izmail_frank_rates_v1";
-  var REFRESH_MS = 5 * 60 * 1000;
+  var CHECK_KEY = "izmail_frank_rates_checked_v2";
+  var REFRESH_MS = 10 * 60 * 1000;
   var loading = false;
   var last = null;
   var cached = null;
@@ -30,7 +30,6 @@
     panel.setAttribute("aria-label", panel.title);
     var updated = document.getElementById("ratesUpdated");
     if (updated) {
-      // fetchedAt is when the shared data was refreshed, not the channel post time.
       var date = new Date(data.fetchedAt);
       var stamp = new Intl.DateTimeFormat("ru-RU", {
         timeZone: "Europe/Kyiv", day: "2-digit", month: "2-digit", year: "2-digit"
@@ -44,21 +43,26 @@
     try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch (_) {}
   }
 
-  async function load() {
-    if (loading) return;
+  function recentlyChecked() {
+    try { return Date.now() - (Number(localStorage.getItem(CHECK_KEY)) || 0) < REFRESH_MS; }
+    catch (_) { return false; }
+  }
+
+  async function load(force) {
+    if (loading || (!force && recentlyChecked())) return;
     loading = true;
+    try { localStorage.setItem(CHECK_KEY, String(Date.now())); } catch (_) {}
     var controller = new AbortController();
-    var timeout = setTimeout(function () { controller.abort(); }, 15000);
+    var timeout = setTimeout(function () { controller.abort(); }, 10000);
     try {
-      var response = await fetch(DATA_URL + "?v=" + Date.now(), {
-        cache: "no-store", credentials: "same-origin", signal: controller.signal
+      var response = await fetch(DATA_URL, {
+        cache: "no-cache", credentials: "same-origin", signal: controller.signal
       });
       if (!response.ok) throw new Error("rates-http-" + response.status);
       var data = await response.json();
       if (!valid(data)) throw new Error("rates-invalid");
       render(data);
     } catch (_) {
-      // Keep the last validated rates; never replace them with NBU or zeros.
       if (!last) render(cached);
     } finally {
       clearTimeout(timeout);
@@ -66,14 +70,18 @@
     }
   }
 
-  // Prefer a fresh response on opening; use stored rates only if it fails.
+  function schedule() {
+    var jitter = Math.round(REFRESH_MS * (.9 + Math.random() * .2));
+    setTimeout(function () { if (!document.hidden) load(false); schedule(); }, jitter);
+  }
+
   try { cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null"); } catch (_) {}
-  if (!navigator.onLine) render(cached);
-  load();
-  setInterval(function () { if (!document.hidden) load(); }, REFRESH_MS);
-  document.addEventListener("visibilitychange", function () { if (!document.hidden) load(); });
-  window.addEventListener("focus", load);
-  window.addEventListener("online", load);
-  window.addEventListener("izmail:refresh", load);
-  window.addEventListener("pageshow", function (event) { if (event.persisted) load(); });
+  render(cached);
+  load(false);
+  schedule();
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) load(false); });
+  window.addEventListener("focus", function () { load(false); });
+  window.addEventListener("online", function () { load(true); });
+  window.addEventListener("izmail:refresh", function () { load(true); });
+  window.addEventListener("pageshow", function (event) { if (event.persisted) load(false); });
 })();
