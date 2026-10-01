@@ -44,6 +44,16 @@ test('Kyiv schedule is built from the official GTFS transport set', () => {
   assert.ok(counts.tram >= 17);
 });
 
+test('Vylkove schedule exposes the verified Bessarabia directions', () => {
+  const vilkove = readCity('vilkove');
+  const routes = vilkove.groups.flatMap(group => group.routes);
+  for (const expected of ['Килия', 'Измаил', 'Татарбунары', 'Сарата', 'Белгород-Днестровский', 'Одесса', 'Киев']) {
+    assert.ok(routes.some(route => route.id === expected), `${expected} is missing from Vylkove`);
+  }
+  assert.deepEqual(routes.find(route => route.id === 'Одесса').directions[0].departures, ['18:00']);
+  assert.deepEqual(routes.find(route => route.id === 'Килия').directions[0].departures, ['09:35']);
+});
+
 test('city schedule opens details as a separate view and returns to the schedule folder', () => {
   const html = fs.readFileSync(path.join(root, 'transport', 'city-schedule', 'index.html'), 'utf8');
   assert.match(html, /\.\.\/#schedule/);
@@ -53,4 +63,5 @@ test('city schedule opens details as a separate view and returns to the schedule
   assert.match(html, /data-view="schedule"/);
   assert.match(html, /data-view="map"/);
   assert.match(html, /data-view="stops"/);
+  assert.match(html, /schedule-cities\/\$\{safeCityKey\}\.jpg/);
 });

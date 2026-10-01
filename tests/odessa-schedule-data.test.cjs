@@ -34,7 +34,7 @@ test('transport menu groups Izmail and Odessa inside the schedule folder', () =>
   assert.match(transport, /#groupTabs\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
   assert.match(transport, /\.schedule-card\{grid-column:1\/-1/);
   assert.match(transport, /class="menu-card-icon"/);
-  assert.match(transport, /<strong>Расписание<\/strong><span>Измаил · Килия · Вилково · Рени · Болград · Арциз · Татарбунары · Белгород-Днестровский · Одесса · Киев<\/span>/);
+  assert.match(transport, /<strong>Расписание<\/strong><span>Единая база расписаний Бессарабии<\/span>/);
   assert.match(transport, /data-submenu="schedule"/);
   assert.match(transport, /href="\.\/bus-schedule\/"/);
   assert.match(transport, /href="\.\/odessa-schedule\/"/);

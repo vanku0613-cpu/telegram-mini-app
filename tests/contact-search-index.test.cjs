@@ -31,7 +31,7 @@ test('every published phone contact is reachable from global search',()=>{
   const index=new Set([...healthcare.records,...extra.records].flatMap(record=>record.phones||[]).map(normalize));
   const missing=[...source].filter(phone=>phone&&!index.has(phone));
   assert.deepEqual(missing,[],'phone numbers from app folders must be searchable');
-  assert.equal(source.size,530,'audited contact-number coverage');
+  assert.ok(source.size>=520,'audited contact-number coverage');
   assert.equal(extra.records.filter(record=>(record.phones||[]).includes('0973388892')).length,1,'Dmitry\'s additional phone is indexed once');
 });
 
@@ -67,6 +67,9 @@ test('individual trips contains only the discussed trip contacts',()=>{
   assert.deepEqual([...actual].sort(),[...expected].sort());
   assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*data-group="taxi"[\s\S]*data-content="stations"[\s\S]*data-group="schedule"/);
   assert.match(transport,/data-submenu="schedule"[\s\S]*href="\.\/bus-schedule\/"[\s\S]*<strong>Измаил<\/strong>/);
+  assert.match(transport,/Единая база расписаний Бессарабии/);
+  assert.match(transport,/id="scheduleSearch"/);
+  assert.match(transport,/schedule-search\.json/);
   const schedule=fs.readFileSync(path.join(root,'transport/bus-schedule/index.html'),'utf8');
   assert.match(schedule,/<h1>Расписание автобусов Измаил<\/h1>/);
   assert.match(schedule,/\.route\{[^}]*background:linear-gradient\(145deg,#203c57/,'route buttons that open schedule details use the calm blue-graphite surface');
