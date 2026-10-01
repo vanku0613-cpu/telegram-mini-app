@@ -50,12 +50,13 @@
 @media(max-width:350px){.jump{grid-auto-rows:86px;gap:5px;margin-inline:-2px}.jump .communal-tab{grid-template-columns:36px minmax(0,1fr) 13px;padding:7px;column-gap:5px;border-radius:14px}.communal-icon{width:36px;height:36px;border-radius:11px}.communal-icon svg{width:22px;height:22px}.communal-copy strong{font-size:11px}.communal-copy small{font-size:10px}.communal-tab .tab-arrow{font-size:22px}}
 </style>
 <style>
-/* Enlarged first-level tiles, matching the Education directory layout. */
-.jump{grid-auto-rows:96px;gap:9px;margin:0 0 12px}
-.jump .communal-tab{grid-template-columns:44px minmax(0,1fr) 15px;column-gap:8px;padding:9px 10px;border:2px solid rgba(91,173,218,.92);border-radius:15px;background:linear-gradient(145deg,#0c426f 0%,#082d54 55%,#061e3b 100%);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15);font-size:17px}
+/* Enlarged first-level tiles on the same directory surface as «Услуги и мастера». */
+.jump{grid-auto-rows:100px;gap:8px;margin:0 0 12px;padding:13px;border:1px solid rgba(67,134,178,.5);border-radius:20px;background:linear-gradient(145deg,rgba(7,35,65,.94),rgba(4,22,42,.97));box-shadow:0 9px 24px #0003}
+.jump .communal-tab{grid-template-columns:44px minmax(0,1fr) 15px;column-gap:8px;padding:9px;border:1.5px solid rgba(79,165,219,.8);border-radius:16px;background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15);font-size:17px}
 .communal-icon{width:44px;height:44px;border-radius:13px}.communal-icon svg{width:27px;height:27px}
 .communal-copy{gap:5px}.communal-copy strong{font-size:clamp(16px,4.2vw,19px);font-weight:950;line-height:1.08;letter-spacing:-.025em}.communal-copy small{font-size:clamp(10px,2.8vw,12px);font-weight:800;line-height:1.1}.communal-tab .tab-arrow{font-size:27px}
-@media(max-width:350px){.jump{grid-auto-rows:90px;gap:7px;margin-inline:0}.jump .communal-tab{grid-template-columns:39px minmax(0,1fr) 14px;padding:8px;column-gap:6px}.communal-icon{width:39px;height:39px;border-radius:12px}.communal-icon svg{width:24px;height:24px}.communal-copy strong{font-size:13px}.communal-copy small{font-size:10px}.communal-tab .tab-arrow{font-size:24px}}
+.wrap .favorite-toggle:active,.wrap .favorite-toggle.tap-lit{outline:0!important;border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 10px 3px #00a7ff,0 0 22px 6px rgba(0,110,255,.78),inset 0 0 15px rgba(18,156,255,.38)!important}
+@media(max-width:350px){.jump{grid-auto-rows:92px;gap:6px;margin-inline:0;padding:9px}.jump .communal-tab{grid-template-columns:39px minmax(0,1fr) 14px;padding:7px;column-gap:6px}.communal-icon{width:39px;height:39px;border-radius:12px}.communal-icon svg{width:24px;height:24px}.communal-copy strong{font-size:13px}.communal-copy small{font-size:10px}.communal-tab .tab-arrow{font-size:24px}}
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=7">
 <style>
@@ -146,7 +147,7 @@ document.addEventListener('DOMContentLoaded',function(){
     tab.classList.add('tap-lit');
     setTimeout(function(){showSection(tab.dataset.open);openingSection=false;},160);
   });});
-  document.addEventListener('pointerdown',function(event){var button=event.target.closest('.communal-tab,.communal-back,.home-back');if(!button)return;button.classList.add('tap-lit');setTimeout(function(){button.classList.remove('tap-lit');},420);},{passive:true});
+  document.addEventListener('pointerdown',function(event){var button=event.target.closest('.communal-tab,.communal-back,.home-back,.favorite-toggle');if(!button)return;button.classList.add('tap-lit');setTimeout(function(){button.classList.remove('tap-lit');},420);},{passive:true});
   backs.forEach(function(back){back.addEventListener('click',function(){
     if(openingSection)return;
     openingSection=true;

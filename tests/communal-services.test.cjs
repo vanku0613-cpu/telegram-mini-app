@@ -32,6 +32,7 @@ test('communal services page is reachable, organized, and uses unique callable c
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
     assert.equal(await page.locator('.service:visible').count(), 0, 'utility information remains closed until its category is opened');
     assert.equal(await page.locator('.jump').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2,'utility buttons use the two-column home grid');
+    assert.match(await page.locator('.jump').evaluate(el=>getComputedStyle(el).backgroundImage),/linear-gradient/,'utility menu uses the same framed directory surface');
     const tileHeights=await page.locator('.communal-tab').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().height));
     assert.ok(tileHeights.every(height=>height===tileHeights[0]),'utility buttons share a consistent height');
     assert.ok(await page.locator('.communal-tab').evaluateAll(items=>items.every(item=>parseFloat(getComputedStyle(item).fontSize)>=17)),'utility category labels are larger');
@@ -44,6 +45,10 @@ test('communal services page is reachable, organized, and uses unique callable c
     assert.equal(await page.locator('#communalBackBottom').isVisible(),true);
     assert.equal(await page.locator('#communalBack').textContent(),'← Вернуться в раздел');
     assert.equal(await page.locator('#communalBackBottom').textContent(),'← Вернуться в раздел');
+    const favoriteButton=page.locator('#water .favorite-toggle').first();
+    await favoriteButton.dispatchEvent('pointerdown');
+    await page.waitForTimeout(220);
+    assert.match(await favoriteButton.evaluate(el=>getComputedStyle(el).boxShadow),/rgba?\(0, (?:167|110), 255/,'favorite star uses the same electric-blue press rim');
     await page.setViewportSize({width:320,height:844});
     const returnLabel=await page.locator('#communalBack').evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return{whiteSpace:getComputedStyle(el).whiteSpace,lines:range.getClientRects().length}});
     assert.deepEqual(returnLabel,{whiteSpace:'nowrap',lines:1},'section-return label stays on one line on narrow phones');

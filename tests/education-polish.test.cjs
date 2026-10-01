@@ -37,7 +37,8 @@ test('education cover, navigation and hierarchy match the polished directory sty
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:844});
       const layout=await page.locator('.education-tile').evaluateAll(items=>items.map(item=>({height:item.getBoundingClientRect().height,fits:item.scrollWidth<=item.clientWidth})));
-      assert.ok(layout.every(item=>item.height===layout[0].height&&item.fits),width+'px: '+JSON.stringify(layout));
+      const expectedHeight=width<=350?86:90;
+      assert.ok(layout.every(item=>item.height===expectedHeight&&item.fits),width+'px: '+JSON.stringify(layout));
     }
     await page.goto(origin+'/health-care/#category/96216');
     await page.locator('.contact').first().waitFor();

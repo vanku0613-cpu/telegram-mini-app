@@ -31,6 +31,16 @@
 .recreation-nav .section-back:hover,.recreation-nav .section-back:focus-visible{border-color:#86f6c0;background:linear-gradient(180deg,#19a965,#0f824b);box-shadow:0 0 14px #34d98a55;outline:0}
 .recreation-nav .section-back[hidden]{display:none}
 </style>
+<style>
+/* Match the professional cover proportions used by the other directory sections. */
+.cover{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0}
+.cover-copy{position:relative;padding:16px 17px 18px}
+.cover>.cover-art{position:relative;display:block;overflow:hidden;width:100%;height:156px;border-radius:18px;filter:none}
+.cover>.cover-art>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.84) saturate(.92) contrast(1.05)}
+.cover>.cover-art:after{position:absolute;inset:-1px;content:"";pointer-events:none;background:linear-gradient(90deg,rgba(7,39,73,.98) 0,rgba(7,39,73,.66) 5%,rgba(7,39,73,.16) 15%,transparent 27%,transparent 73%,rgba(7,39,73,.16) 85%,rgba(7,39,73,.66) 95%,rgba(7,39,73,.98) 100%),linear-gradient(180deg,rgba(7,39,73,.58) 0,transparent 18%,transparent 66%,rgba(7,39,73,.42) 83%,rgba(7,39,73,.96) 100%)}
+@media(min-width:580px){.cover-copy{padding:20px 22px}.cover>.cover-art{height:205px}}
+@media(max-width:350px){.cover-copy{padding:13px}.cover>.cover-art{height:130px}}
+</style>
 <link rel="stylesheet" href="../interior-polish.css?v=7">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 <script src="../contact-details.js?v=1" defer></script>
@@ -39,8 +49,8 @@
 <body>
 <main class="wrap">
   <header class="cover">
-    <div><div class="eyebrow"><span class="dot" aria-hidden="true"></span>Справочник Измаил · отдых и море</div><h1>Отдых • Жильё • Море</h1><p>Базы отдыха, сауны, беседки и бассейны — выберите подходящий раздел.</p></div>
-    <svg class="cover-art" viewBox="0 0 180 130" role="img" aria-label="Морской берег, солнце и волны"><defs><linearGradient id="sea" x2="0" y2="1"><stop stop-color="#59c8ef"/><stop offset="1" stop-color="#116495"/></linearGradient><linearGradient id="sand" x2="0" y2="1"><stop stop-color="#ffe0a0"/><stop offset="1" stop-color="#d89a51"/></linearGradient></defs><circle cx="132" cy="35" r="19" fill="#ffd77b"/><path d="M0 70Q35 58 72 69T145 67L180 75V130H0Z" fill="url(#sea)"/><path d="M0 95Q38 83 76 95T180 91V130H0Z" fill="#147eaa" opacity=".8"/><path d="M0 110Q46 99 95 111T180 106V130H0Z" fill="url(#sand)"/><path d="M8 79q14-7 28 0m26 4q14-7 28 0m42-5q12-6 24 0" fill="none" stroke="#d7f8ff" stroke-width="3" stroke-linecap="round"/><path d="M35 86V44m0 0 22 12H13Z" fill="#ff8375" stroke="#ffe2b2" stroke-width="2"/><path d="M35 44V30" stroke="#ffe2b2" stroke-width="3"/><path d="M142 91v-23m-13-4 13 7 13-7m-20 12 7 5 8-5" stroke="#63d69e" stroke-width="5" stroke-linecap="round" fill="none"/></svg>
+    <div class="cover-art"><img src="../assets/recreation-cover-v1.webp?v=1" alt="Вечерний отдых у воды, современная гостиница и яхта" width="1672" height="941" decoding="async"></div>
+    <div class="cover-copy"><div class="eyebrow"><span class="dot" aria-hidden="true"></span>Справочник Измаил · отдых и море</div><h1>Отдых • Жильё • Море</h1><p>Базы отдыха, сауны, беседки и бассейны — выберите подходящий раздел.</p></div>
   </header>
   <nav class="recreation-nav" aria-label="Навигация сверху"><button class="section-back" id="sectionBack" type="button" hidden>← Вернуться в раздел</button><a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
   <p class="chooser">Выберите раздел</p>

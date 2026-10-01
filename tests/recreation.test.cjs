@@ -12,7 +12,7 @@ test('recreation directory includes the four numbered sections and fits mobile s
     if(file.endsWith('/'))file+='index.html';
     file=path.join(root,file);
     if(!file.startsWith(root+path.sep)||!fs.existsSync(file)){res.writeHead(404);return res.end();}
-    res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':'text/html; charset=utf-8');
+    res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.webp')?'image/webp':'text/html; charset=utf-8');
     res.end(fs.readFileSync(file));
   });
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
@@ -22,6 +22,10 @@ test('recreation directory includes the four numbered sections and fits mobile s
     await page.route('https://**',route=>route.abort());
     await page.goto(`http://127.0.0.1:${server.address().port}/recreation/`);
     assert.equal(await page.title(),'Отдых • Жильё • Море — Справочник Измаил');
+    const cover=page.locator('.cover-art img');
+    await cover.evaluate(img=>img.decode());
+    assert.match(await cover.getAttribute('src'),/recreation-cover-v1\.webp/);
+    assert.equal(await cover.evaluate(img=>img.naturalWidth>0),true);
     assert.deepEqual(await page.locator('[role=tab]').allTextContents(),['🏖️Базы отдыха','♨️Сауны • Бани','🌿Беседки • Комплексы','🏊Бассейны']);
     assert.equal(await page.locator('.home-back').count(),2);
     assert.equal(await page.locator('.panel:visible').count(),0,'activity details are hidden until a category opens');

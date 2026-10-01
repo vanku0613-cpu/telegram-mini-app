@@ -967,14 +967,14 @@ a.nav{ text-decoration:none; }
 
 /* One clear, readable system for the main menu without changing its layout. */
 .card-copy{left:4% !important;right:10% !important;text-align:center}
-.card-copy strong{font-size:min(4.4vw,24px);font-size:min(4.4cqw,24px);font-weight:950;letter-spacing:-.03em;line-height:1.05;white-space:nowrap;-webkit-text-stroke:.35px rgba(0,0,0,.8);paint-order:stroke fill;text-shadow:0 2px 4px rgba(0,0,0,.72),0 0 2px rgba(0,0,0,.68)}
+.card-copy strong{font-size:min(4.4vw,24px);font-size:min(4.4cqw,24px);font-weight:950;letter-spacing:-.03em;line-height:1.05;white-space:nowrap;-webkit-text-stroke:.45px rgba(0,0,0,.82);paint-order:stroke fill;text-shadow:0 2px 4px rgba(0,0,0,.72),0 0 2px rgba(0,0,0,.68)}
 .card-copy small{font-weight:800;text-align:center}
 .card.compact .card-copy strong{font-size:min(3.25vw,17.5px);font-size:min(3.25cqw,17.5px);font-weight:950;letter-spacing:-.07em;white-space:nowrap}
 .card.compact .card-copy{left:5.5%!important;right:10%!important;text-align:left}.card.compact .card-copy small{text-align:left}
-.card.compact.expanded-label .card-copy{left:4%!important;right:4%!important}.card.compact.expanded-label .card-copy strong{display:block;width:100%;max-width:100%;overflow:visible;font-size:clamp(16px,4.56vw,18px);font-size:clamp(16px,4.56cqw,18px);font-weight:950;letter-spacing:-.045em;transform:none;-webkit-text-stroke:.4px rgba(0,0,0,.82)}.card.compact.expanded-label .card-copy strong>span{display:inline-block;max-width:none;white-space:nowrap;transform-origin:left center;will-change:transform}.card.compact.expanded-label .card-arrow{display:none}
+.card.compact.expanded-label .card-copy{left:4%!important;right:4%!important}.card.compact.expanded-label .card-copy strong{display:block;width:100%;max-width:100%;overflow:visible;font-size:clamp(16px,4.56vw,18px);font-size:clamp(16px,4.56cqw,18px);font-weight:950;letter-spacing:-.045em;transform:none;-webkit-text-stroke:.5px rgba(0,0,0,.84)}.card.compact.expanded-label .card-copy strong>span{display:inline-block;max-width:none;white-space:nowrap;transform-origin:left center;will-change:transform}.card.compact.expanded-label .card-arrow{display:none}
 .cards .card{border-width:1.7px;border-color:var(--line)}
-.groups-title{font-size:min(4vw,18px);font-size:min(4cqw,18px);font-weight:950;line-height:1;white-space:nowrap;text-align:center;-webkit-text-stroke:.35px rgba(0,0,0,.8);paint-order:stroke fill;text-shadow:0 1px 3px rgba(0,0,0,.72),0 0 1px rgba(0,0,0,.72)}
-.nav{font-size:clamp(13.5px,3.45vw,18.5px);font-size:clamp(13.5px,3.45cqw,18.5px);font-weight:950;text-align:center;-webkit-text-stroke:.25px rgba(0,18,39,.92);paint-order:stroke fill}
+.groups-title{font-size:min(4vw,18px);font-size:min(4cqw,18px);font-weight:950;line-height:1;white-space:nowrap;text-align:center;-webkit-text-stroke:.45px rgba(0,0,0,.82);paint-order:stroke fill;text-shadow:0 1px 3px rgba(0,0,0,.72),0 0 1px rgba(0,0,0,.72)}
+.nav{font-size:clamp(13.5px,3.45vw,18.5px);font-size:clamp(13.5px,3.45cqw,18.5px);font-weight:950;text-align:center;-webkit-text-stroke:.35px rgba(0,18,39,.94);paint-order:stroke fill}
 /* A controlled electric-blue perimeter confirms taps without hiding the card art. */
 #app .pressable:active,
 #app .pressable.tap-lit{
