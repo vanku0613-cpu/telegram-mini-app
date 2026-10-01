@@ -71,7 +71,7 @@ window.IZMAIL_SETTINGS = {
 
 
     /* Пользовательское соглашение */
-    agreementTop: "105.00%",
+    agreementTop: "106.20%",
 
 
     /* Поля слева и справа */
@@ -289,13 +289,13 @@ window.IZMAIL_SETTINGS = {
       "./transport/",
 
     "Услуги и мастера":
-      "./services-masters/?v=call-right-2",
+      "./services-masters/?v=call-right-3",
 
     "Продукты питания":
       "./products-food/",
 
     "Коммунальные службы":
-      "./communal-services/?v=utility-cards-8",
+      "./communal-services/?v=utility-cards-9",
 
     "Работа / Вакансии":
       "https://t.me/rabota_v_izmaile",
@@ -650,7 +650,7 @@ window.IZMAIL_SETTINGS = {
     ".agreement{" +
 
       "top:calc(" +
-      (layout.agreementTop || "105.00%") +
+      (layout.agreementTop || "106.20%") +
       " + " +
       down +
       ") !important;" +

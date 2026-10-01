@@ -76,7 +76,7 @@
 </style>
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 <script src="../contact-details.js?v=1" defer></script>
-<link rel="stylesheet" href="../favorites.css?v=2">
+<link rel="stylesheet" href="../favorites.css?v=3">
 </head>
 <body>
 <main class="wrap">
@@ -179,6 +179,6 @@ function contactList(people,desc){return `<div class="list">${people.map(p=>`<ar
 tabs.forEach(t=>t.addEventListener('click',()=>{section=t.dataset.section;category=null;depth='categories';render()}));backButtons.forEach(button=>button.addEventListener('click',backOneLevel));document.addEventListener('pointerdown',event=>{const button=event.target.closest('.section-tab,.inner-back,.home-back,.category,.subcat,.favorite-toggle');if(!button)return;button.classList.add('tap-lit');setTimeout(()=>button.classList.remove('tap-lit'),420)},{passive:true});render();
 })();
 </script>
-<script src="../favorites.js?v=1" defer></script>
+<script src="../favorites.js?v=2" defer></script>
 </body>
 </html>

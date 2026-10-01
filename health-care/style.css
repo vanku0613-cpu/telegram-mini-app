@@ -178,6 +178,8 @@ body[data-education=true] .category-tile.education-tile:is(:active,.tap-lit){bor
 
 /* Favorites use the same electric-blue tap confirmation as «Услуги и мастера». */
 body[data-view=favorites] :is(.call,.favorite-toggle,.back-btn):is(:active,.tap-lit){outline:0!important;border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
+:is(.phone-number,.call,.favorite-toggle,.contact details a):is(:active,.tap-lit){outline:0!important;border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 10px 3px #00a7ff,0 0 22px 6px rgba(0,110,255,.78),inset 0 0 15px rgba(18,156,255,.38)!important}
+body[data-view=favorites] .contact-list{grid-template-columns:minmax(0,1fr);max-width:720px;margin-inline:auto}
 
 /* Education cards use the exact compact directory geometry from «Услуги и мастера». */
 body[data-education=true] .category-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:90px;gap:5px;align-content:start;margin-inline:-8px}

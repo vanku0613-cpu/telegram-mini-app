@@ -45,6 +45,12 @@
     try{localStorage.setItem(savedKey,JSON.stringify([...values]));localStorage.setItem(catalogKey,JSON.stringify(items))}catch{return}
     sync();
   });
+  document.addEventListener('pointerdown',event=>{
+    const control=event.target.closest('.phone-action>.phone,a.phone[href^="tel:"],.favorite-toggle,.links a');
+    if(!control)return;
+    control.classList.add('tap-lit');
+    setTimeout(()=>control.classList.remove('tap-lit'),420);
+  },{passive:true});
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null)sync()});
   sync();
 })();

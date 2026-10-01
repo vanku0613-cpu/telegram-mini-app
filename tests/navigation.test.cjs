@@ -171,6 +171,14 @@ test('home, current buttons, nested returns and future delegated buttons', async
     await context.route('https://**', route => route.abort());
     const direct = await context.newPage();
     await direct.goto(origin + '/soglashenie/');
+    const agreementCover = direct.locator('.cover-art img');
+    await agreementCover.evaluate(img => img.decode());
+    assert.match(await agreementCover.getAttribute('src'), /user-agreement-cover-v1\.webp/);
+    assert.equal(await agreementCover.evaluate(img => img.naturalWidth === 1280 && img.naturalHeight === 752), true);
+    const agreementBack = direct.locator('.back-btn').first();
+    await agreementBack.dispatchEvent('pointerdown');
+    await direct.waitForTimeout(220);
+    assert.match(await agreementBack.evaluate(el => getComputedStyle(el).boxShadow), /rgba?\(0, (?:167|110), 255/);
     await direct.locator('.back-btn').first().click();
     await direct.waitForURL(origin + '/main-v2/');
     await context.close();

@@ -7,3 +7,4 @@
 .favorite-toggle[aria-pressed="true"]{color:#b6ffe0;border-color:#5ee397;background:#107344;box-shadow:0 0 9px #36d89344}
 .favorite-toggle:focus-visible{outline:2px solid #70d3ff;outline-offset:2px}
 .phone-action .favorite-toggle{flex:0 0 40px}
+:is(.phone-action>.phone,a.phone[href^="tel:"],.favorite-toggle,.links a):is(:active,.tap-lit){outline:0!important;border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 10px 3px #00a7ff,0 0 22px 6px rgba(0,110,255,.78),inset 0 0 15px rgba(18,156,255,.38)!important}

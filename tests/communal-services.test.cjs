@@ -64,6 +64,13 @@ test('communal services page is reachable, organized, and uses unique callable c
     await favoriteButton.dispatchEvent('pointerdown');
     await page.waitForTimeout(220);
     assert.match(await favoriteButton.evaluate(el=>getComputedStyle(el).boxShadow),/rgba?\(0, (?:167|110), 255/,'favorite star uses the same electric-blue press rim');
+    await callButton.dispatchEvent('pointerdown');
+    await page.waitForTimeout(220);
+    assert.match(await callButton.evaluate(el=>getComputedStyle(el).boxShadow),/rgba?\(0, (?:167|110), 255/,'call action uses the electric-blue press rim');
+    const waterSiteButton=page.locator('#water .links a').first();
+    await waterSiteButton.dispatchEvent('pointerdown');
+    await page.waitForTimeout(220);
+    assert.match(await waterSiteButton.evaluate(el=>getComputedStyle(el).boxShadow),/rgba?\(0, (?:167|110), 255/,'site and app actions use the electric-blue press rim');
     await page.setViewportSize({width:320,height:844});
     const returnLabel=await page.locator('#communalBack').evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return{whiteSpace:getComputedStyle(el).whiteSpace,lines:range.getClientRects().length}});
     assert.deepEqual(returnLabel,{whiteSpace:'nowrap',lines:1},'section-return label stays on one line on narrow phones');
@@ -102,8 +109,8 @@ test('communal services page is reachable, organized, and uses unique callable c
     const oldShelterText = fs.readFileSync(path.join(root, 'ukrytia', 'index.html'), 'utf8');
     assert.equal(oldShelterText.includes('Ещё 3 адреса из публикации от 9 марта 2022 года'), false);
     assert.equal(oldShelterText.includes('legacy-shelters'), false);
-    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\/communal-services\/\?v=utility-cards-8"/);
-    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\.\/communal-services\/\?v=utility-cards-8"/);
+    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\/communal-services\/\?v=utility-cards-9"/);
+    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\.\/communal-services\/\?v=utility-cards-9"/);
 
     await page.goto(`http://127.0.0.1:${server.address().port}/main-v2/`);
     assert.equal(await page.locator('#weatherPanel .info-title').evaluate(el => getComputedStyle(el).textAlign), 'center');

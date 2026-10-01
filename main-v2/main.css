@@ -1012,3 +1012,12 @@ a.nav{ text-decoration:none; }
 }
 .currency-panel:focus:not(:focus-visible){outline:none!important}
 
+/* On desktop browser zoom the stage becomes short and the 1.09 visual scale can
+   make the compact counter and bottom navigation touch neighbouring rows. */
+@media (min-width:700px){
+  #app .viewer{top:calc(30.7% + 5.4%)!important;scale:1!important}
+  #app .bottom{scale:1!important}
+  #app .bottom .nav{gap:3%;font-size:clamp(10.5px,3.45cqw,18.5px)}
+  #app .bottom .nav-icon{font-size:clamp(16px,5.3cqw,29px)}
+}
+

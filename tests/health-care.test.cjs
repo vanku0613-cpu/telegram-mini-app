@@ -145,6 +145,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     await open('#category/96046');await page.locator('[data-favorite]').first().click();
     await page.reload();await page.locator('[data-favorite][aria-pressed=true]').waitFor();
     await open('#favorites');assert.equal(await page.locator('.contact').count(),2);
+    assert.equal(await page.locator('.contact').evaluateAll(items=>new Set(items.map(item=>Math.round(item.getBoundingClientRect().left))).size),1,'favorite contacts use one full-width column');
     while(await page.locator('[data-favorite]').count())await page.locator('[data-favorite]').first().click();
     assert.equal(await page.locator('.contact').count(),0);
     await open('#category/96046');

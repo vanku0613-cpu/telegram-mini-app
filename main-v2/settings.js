@@ -40,7 +40,7 @@ window.IZMAIL_SETTINGS = {
 
     bottomTop: "98.20%",
 
-    agreementTop: "105.00%",
+    agreementTop: "106.20%",
 
     menuLeft: "4.88%",
 
@@ -254,13 +254,13 @@ window.IZMAIL_SETTINGS = {
       "../transport/",
 
     "Услуги и мастера":
-      "../services-masters/?v=call-right-2",
+      "../services-masters/?v=call-right-3",
 
     "Продукты питания":
       "../products-food/",
 
     "Коммунальные службы":
-      "../communal-services/?v=utility-cards-8",
+      "../communal-services/?v=utility-cards-9",
 
     "Работа / Вакансии":
       "https://t.me/rabota_v_izmaile",
@@ -655,7 +655,7 @@ if (
       "top:calc(" +
       (
         layout.agreementTop ||
-        "105.00%"
+        "106.20%"
       ) +
       " + " +
       down +
