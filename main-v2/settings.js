@@ -32,9 +32,9 @@ window.IZMAIL_SETTINGS = {
 
     topRowTop: "36.60%",
 
-    searchTop: "43.50%",
+    searchTop: "42.18%",
 
-    cardsTop: "51.00%",
+    cardsTop: "50.46%",
 
     groupsTop: "91.20%",
 
