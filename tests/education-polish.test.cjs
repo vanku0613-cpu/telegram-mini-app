@@ -32,14 +32,24 @@ test('education cover, navigation and hierarchy match the polished directory sty
     assert.equal(await cover.evaluate(img=>img.naturalWidth>0),true);
     assert.equal(await page.locator('.education-tile').count(),4);
     assert.equal(await page.locator('.education-tile-icon').count(),4);
+    assert.equal(await page.locator('body').getAttribute('data-education-level'),'root');
+    assert.ok(await page.locator('#topNav .back-btn').evaluate(el=>el.getBoundingClientRect().width>=330),'single home button uses the wide directory size');
+    assert.match(await page.locator('#content').evaluate(el=>getComputedStyle(el).backgroundImage),/linear-gradient/,'education categories sit on the shared directory surface');
     const colors=await page.locator('.education-tile').evaluateAll(items=>items.map(item=>getComputedStyle(item).backgroundImage));
     assert.ok(new Set(colors).size>1,'folders and direct contact buttons use distinct surfaces');
+    const directColor=await page.locator('.education-tile.direct-entry').first().evaluate(el=>getComputedStyle(el).backgroundImage);
+    const folderColor=await page.locator('.education-tile.has-children').first().evaluate(el=>getComputedStyle(el).backgroundImage);
+    assert.notEqual(directColor,folderColor,'a folder with another level has a different background');
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:844});
       const layout=await page.locator('.education-tile').evaluateAll(items=>items.map(item=>({height:item.getBoundingClientRect().height,fits:item.scrollWidth<=item.clientWidth})));
       const expectedHeight=width<=350?86:90;
       assert.ok(layout.every(item=>item.height===expectedHeight&&item.fits),width+'px: '+JSON.stringify(layout));
     }
+    await page.goto(origin+'/health-care/#category/96204');
+    await page.locator('.education-tile').first().waitFor();
+    assert.equal(await page.locator('body').getAttribute('data-education-level'),'nested');
+    assert.equal(await page.locator('.education-tile').first().evaluate(el=>getComputedStyle(el).backgroundImage),directColor,'tutor subjects use the direct-to-contacts color');
     await page.goto(origin+'/health-care/#category/96216');
     await page.locator('.contact').first().waitFor();
     assert.equal(await page.locator('.education-phone-action').count(),await page.locator('.phone-number').count());

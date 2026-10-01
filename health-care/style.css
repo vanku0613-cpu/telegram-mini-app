@@ -126,7 +126,8 @@ body[data-doctors=true] .city-tabs .city-tab span{display:block;align-self:stret
 @media(max-height:700px){body[data-doctors=true] .city-tabs .city-tab{height:60px;min-height:60px}}
 @media(max-height:620px){body[data-doctors=true] .city-tabs .city-tab{height:42px;min-height:42px}}
 
-body[data-education=true] .back-row:not(:has(.secondary)) .back-btn{width:min(100%,250px);min-width:0;max-width:100%}
+body[data-education=true] .back-row:not(:has(.secondary)){width:100%;align-items:stretch}
+body[data-education=true] .back-row:not(:has(.secondary)) .back-btn{width:min(100%,340px);min-width:0;max-width:100%;margin-inline:auto;align-self:center}
 
 /* Education follows the same hierarchy and card language as «Услуги и мастера». */
 body[data-education=true] .profile-banner{border-color:rgba(77,166,218,.55);background:linear-gradient(120deg,rgba(7,39,73,.98),rgba(3,21,43,.97));box-shadow:inset 0 1px #ffffff0d,0 12px 30px #0004}
@@ -134,9 +135,11 @@ body[data-education=true] .profile-banner .education-cover{position:relative;hei
 body[data-education=true] .profile-banner .education-cover>img{width:100%;height:100%;object-fit:cover;object-position:center 57%;filter:brightness(.82) saturate(.91) contrast(1.05)}
 body[data-education=true] .profile-banner .education-cover:after{position:absolute;inset:-1px;content:"";pointer-events:none;background:linear-gradient(90deg,rgba(7,39,73,.92),rgba(7,39,73,.18) 14%,transparent 28%,transparent 72%,rgba(7,39,73,.18) 86%,rgba(7,39,73,.92)),linear-gradient(180deg,rgba(7,39,73,.34),transparent 21%,transparent 67%,rgba(7,39,73,.88))}
 body[data-education=true] .category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+body[data-education=true] #content:has(>.category-grid){padding:13px;border:1px solid rgba(67,134,178,.5);border-radius:20px;background:linear-gradient(145deg,rgba(7,35,65,.94),rgba(4,22,42,.97));box-shadow:0 9px 24px rgba(0,0,0,.2)}
 body[data-education=true] .category-tile.education-tile{display:grid;grid-template-columns:42px minmax(0,1fr) 14px;grid-template-rows:1fr;align-items:center;column-gap:8px;min-height:88px;padding:8px;border-width:1.5px;border-radius:16px;overflow:hidden}
 body[data-education=true] .category-tile.education-tile.has-children{background:linear-gradient(145deg,#1c4566,#112d48 72%,#0b2035);border-color:rgba(119,165,198,.82);box-shadow:inset 0 1px rgba(235,247,255,.09),0 6px 18px rgba(0,0,0,.27),0 0 12px rgba(75,141,184,.15)}
 body[data-education=true] .category-tile.education-tile.direct-entry{background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);border-color:rgba(79,165,219,.8);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15)}
+body[data-education-level=nested] .category-tile.education-tile{background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);border-color:rgba(79,165,219,.8);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15)}
 body[data-education=true] .education-tile-icon{display:grid;place-items:center;grid-column:1;grid-row:1;width:42px;height:42px;border:1px solid rgba(83,178,230,.38);border-radius:12px;background:linear-gradient(145deg,rgba(19,96,148,.78),rgba(7,49,88,.82));box-shadow:inset 0 1px rgba(230,250,255,.12),0 0 9px rgba(67,183,238,.22);color:#8fe4ff}
 body[data-education=true] .education-tile-icon svg{width:26px;height:26px;filter:drop-shadow(0 0 5px rgba(119,225,255,.56))}
 body[data-education=true] .category-tile.education-tile .tile-body{display:flex;grid-column:2;grid-row:1;min-width:0;height:100%;padding:0;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px}

@@ -119,6 +119,7 @@
     if(favorites&&externalRecords===null)loadExternalFavorites();
     let q=$('search').value.trim();
     document.body.dataset.education=String(branch==='education');
+    document.body.dataset.educationLevel=branch==='education'?(category?.children?'nested':category?'contacts':'root'):'none';
     document.body.dataset.doctors=String(branch==='doctors'&&!category);
     document.body.dataset.cityPicker=String(branch==='doctors'&&!cityName&&!q);
     document.body.dataset.view=favorites?'favorites':globalSearch?'search':category?'category':branch?'branch':'home';
