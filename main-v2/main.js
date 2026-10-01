@@ -576,7 +576,7 @@
     });
 
     titles.forEach(function(title){
-      var box=title.closest(".card-copy")||title.parentElement;
+      var box=title.classList.contains("groups-title") ? title : (title.closest(".card-copy")||title.parentElement);
       if(!box) return;
 
       var available=Math.max(0,box.clientWidth-2);

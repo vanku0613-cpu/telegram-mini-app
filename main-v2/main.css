@@ -967,33 +967,33 @@ a.nav{ text-decoration:none; }
 
 /* One clear, readable system for the main menu without changing its layout. */
 .card-copy{left:4% !important;right:10% !important;text-align:center}
-.card-copy strong{font-size:min(4.4vw,24px);font-size:min(4.4cqw,24px);font-weight:950;letter-spacing:-.03em;line-height:1.05;white-space:nowrap;-webkit-text-stroke:.3px rgba(0,18,39,.92);paint-order:stroke fill;text-shadow:0 2px 4px rgba(0,0,0,.72),0 0 2px rgba(3,24,47,.78)}
+.card-copy strong{font-size:min(4.4vw,24px);font-size:min(4.4cqw,24px);font-weight:950;letter-spacing:-.03em;line-height:1.05;white-space:nowrap;-webkit-text-stroke:.35px rgba(0,0,0,.8);paint-order:stroke fill;text-shadow:0 2px 4px rgba(0,0,0,.72),0 0 2px rgba(0,0,0,.68)}
 .card-copy small{font-weight:800;text-align:center}
 .card.compact .card-copy strong{font-size:min(3.25vw,17.5px);font-size:min(3.25cqw,17.5px);font-weight:950;letter-spacing:-.07em;white-space:nowrap}
 .card.compact .card-copy{left:5.5%!important;right:10%!important;text-align:left}.card.compact .card-copy small{text-align:left}
-.card.compact.expanded-label .card-copy{left:4%!important;right:4%!important}.card.compact.expanded-label .card-copy strong{display:block;width:100%;max-width:100%;overflow:visible;font-size:clamp(16px,4.56vw,18px);font-size:clamp(16px,4.56cqw,18px);font-weight:950;letter-spacing:-.045em;transform:none;-webkit-text-stroke:.38px rgba(0,18,39,.92)}.card.compact.expanded-label .card-copy strong>span{display:inline-block;max-width:none;white-space:nowrap;transform-origin:left center;will-change:transform}.card.compact.expanded-label .card-arrow{display:none}
+.card.compact.expanded-label .card-copy{left:4%!important;right:4%!important}.card.compact.expanded-label .card-copy strong{display:block;width:100%;max-width:100%;overflow:visible;font-size:clamp(16px,4.56vw,18px);font-size:clamp(16px,4.56cqw,18px);font-weight:950;letter-spacing:-.045em;transform:none;-webkit-text-stroke:.4px rgba(0,0,0,.82)}.card.compact.expanded-label .card-copy strong>span{display:inline-block;max-width:none;white-space:nowrap;transform-origin:left center;will-change:transform}.card.compact.expanded-label .card-arrow{display:none}
 .cards .card{border-width:1.7px;border-color:var(--line)}
-.groups-title{font-size:min(4vw,18px);font-size:min(4cqw,18px);font-weight:950;line-height:1;white-space:nowrap;text-align:center;-webkit-text-stroke:.3px rgba(0,18,39,.92);paint-order:stroke fill;text-shadow:0 1px 3px rgba(0,0,0,.72)}
+.groups-title{font-size:min(4vw,18px);font-size:min(4cqw,18px);font-weight:950;line-height:1;white-space:nowrap;text-align:center;-webkit-text-stroke:.35px rgba(0,0,0,.8);paint-order:stroke fill;text-shadow:0 1px 3px rgba(0,0,0,.72),0 0 1px rgba(0,0,0,.72)}
 .nav{font-size:clamp(13.5px,3.45vw,18.5px);font-size:clamp(13.5px,3.45cqw,18.5px);font-weight:950;text-align:center;-webkit-text-stroke:.25px rgba(0,18,39,.92);paint-order:stroke fill}
 /* A controlled electric-blue perimeter confirms taps without hiding the card art. */
 #app .pressable:active,
 #app .pressable.tap-lit{
-  border-color:#4ccff1!important;
-  box-shadow:0 0 0 1px rgba(42,203,244,.82),0 0 9px 2px rgba(0,157,235,.66),0 0 19px 5px rgba(0,91,214,.34),inset 0 0 13px rgba(18,156,255,.25)!important;
+  border-color:#57e8ff!important;
+  box-shadow:0 0 0 1px rgba(28,207,255,.82),0 0 7px 1px rgba(0,167,255,.58),0 0 13px 3px rgba(0,110,255,.3),inset 0 0 9px rgba(18,156,255,.2)!important;
 }
 .pressable:active .press-glow,
 .pressable.flash .press-glow,
 .pressable.tap-lit .press-glow{
   opacity:1!important;
-  border-color:#4cd9f6!important;
-  box-shadow:0 0 0 1px rgba(42,203,244,.78),0 0 9px 2px rgba(0,157,235,.62),0 0 20px 5px rgba(0,91,214,.32),inset 0 0 13px rgba(18,156,255,.24)!important;
+  border-color:#57e8ff!important;
+  box-shadow:0 0 0 1px rgba(28,207,255,.78),0 0 7px 1px rgba(0,167,255,.55),0 0 14px 3px rgba(0,110,255,.28),inset 0 0 9px rgba(18,156,255,.19)!important;
 }
 .pressable.flash .press-glow,.pressable.tap-lit .press-glow{animation:mainElectricFlash .68s ease-out both!important}
 .pressable.tap-lit{transform:scale(.968);filter:brightness(1.13)}
 #app .pressable:active,#app .pressable.tap-lit,#app .pressable.flash{transform:none!important}
 @keyframes mainElectricFlash{
-  0%{opacity:1;border-color:#58dff8;box-shadow:0 0 0 1px rgba(42,203,244,.82),0 0 10px 2px rgba(0,166,241,.68),0 0 21px 6px rgba(0,91,214,.34),inset 0 0 14px rgba(18,156,255,.27)}
-  58%{opacity:.64;border-color:#2baed5;box-shadow:0 0 7px 2px rgba(0,143,218,.50),0 0 15px 4px rgba(0,80,184,.25),inset 0 0 10px rgba(18,156,255,.18)}
+  0%{opacity:1;border-color:#57e8ff;box-shadow:0 0 0 1px rgba(28,207,255,.82),0 0 7px 1px rgba(0,167,255,.58),0 0 13px 3px rgba(0,110,255,.3),inset 0 0 9px rgba(18,156,255,.2)}
+  58%{opacity:.6;border-color:#2baed5;box-shadow:0 0 5px 1px rgba(0,143,218,.44),0 0 10px 2px rgba(0,80,184,.22),inset 0 0 7px rgba(18,156,255,.16)}
   100%{opacity:0;border-color:transparent;box-shadow:none}
 }
 #directorySearchToggle:active,
@@ -1007,7 +1007,8 @@ a.nav{ text-decoration:none; }
 .search-wrap.tap-lit .search-real{
   outline:none!important;
   outline-offset:0;
-  box-shadow:0 0 0 1px rgba(28,184,225,.48),0 0 8px 2px rgba(0,142,218,.44),0 0 16px 4px rgba(0,79,188,.25)!important;
+  border-color:#57e8ff!important;
+  box-shadow:0 0 0 1px rgba(28,207,255,.6),0 0 6px 1px rgba(0,167,255,.45),0 0 12px 3px rgba(0,110,255,.24)!important;
 }
 .currency-panel:focus:not(:focus-visible){outline:none!important}
 

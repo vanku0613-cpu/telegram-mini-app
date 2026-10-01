@@ -23,7 +23,7 @@
 <meta name="theme-color" content="#03172f">
 <title>Справочник Измаил</title>
 
-<link rel="stylesheet" href="./main.css?v=11">
+<link rel="stylesheet" href="./main.css?v=12">
 
 <script>
   document.write('<script src="./settings.js?v=' + Date.now() + '"><\/script>');
@@ -58,13 +58,13 @@
 
     <div class="viewer"><span class="viewer-eye">👁</span><span class="viewer-label">Просмотрено:</span><span id="viewCount">1</span></div>
     <div class="top-row">
-      <a class="panel info weather-panel" id="weatherPanel" href="https://www.yr.no/en/forecast/daily-table/2-707308/Ukraine/Odesa%20Oblast/Izmail%20Raion/Izmayil" target="_blank" rel="noopener noreferrer" aria-label="Подробный прогноз погоды в Измаиле">
+      <a class="panel info weather-panel pressable" id="weatherPanel" href="https://www.yr.no/en/forecast/daily-table/2-707308/Ukraine/Odesa%20Oblast/Izmail%20Raion/Izmayil" target="_blank" rel="noopener noreferrer" aria-label="Подробный прогноз погоды в Измаиле">
         <div class="weather-mini" id="weatherIcon">🌤️</div>
         <div class="info-title">Погода</div>
         <div class="temp" id="weatherTemp">—°C</div>
         <div class="condition" id="weatherText">Загружаем погоду…</div>
       </a>
-      <div class="panel info currency-panel" id="currencyPanel" role="link" tabindex="0" aria-label="Курс валют">
+      <div class="panel info currency-panel pressable" id="currencyPanel" role="link" tabindex="0" aria-label="Курс валют">
         <div class="currency-watermark" aria-hidden="true">₴</div>
         <div class="info-title"><a href="https://t.me/frankexange" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline" title="Frank Exchange — покупка / продажа">FRANK EXCHANGE</a></div>
         <div class="rate"><span>USD</span><span id="usdRate">— / —</span></div>
@@ -193,7 +193,7 @@
   </section>
 </div>
 
-<script src="./main.js?v=3"></script>
+<script src="./main.js?v=4"></script>
 <script src="../directory-search.js?v=13"></script>
 </body>
 </html>

@@ -39,7 +39,7 @@ test('our groups page shows all verified community links and return buttons', as
     await page.locator('.avatar img').evaluateAll(items => items.forEach(item => { item.loading = 'eager'; }));
     await page.waitForFunction(() => document.querySelectorAll('.avatar.is-fallback').length === 6);
     const workAvatar = page.locator('a[href="https://t.me/rabota_v_izmaile"] .avatar img');
-    assert.match(await workAvatar.getAttribute('src'), /group-avatar-work\.svg/);
+    assert.match(await workAvatar.getAttribute('src'), /group-avatar-work-v2\.png/);
     assert.ok(await workAvatar.evaluate(img => img.complete && img.naturalWidth > 0), 'work group avatar is stored locally and remains available');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
     await page.setViewportSize({ width: 768, height: 900 });
