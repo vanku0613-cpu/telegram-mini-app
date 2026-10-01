@@ -74,6 +74,7 @@ test('individual trips contains only the discussed trip contacts',()=>{
   assert.match(schedule,/<h1>Расписание автобусов Измаил<\/h1>/);
   assert.match(schedule,/\.route\{[^}]*background:linear-gradient\(145deg,#203c57/,'route buttons that open schedule details use the calm blue-graphite surface');
   assert.match(schedule,/schedule-data\.json/,'the schedule is loaded from the local application data');
+  assert.match(schedule,/enterSchedule\(\);if\(route\)showRoute\(route\)/,'Izmail opens the route list without an intermediate folder');
   assert.doesNotMatch(schedule,/izzzzi\.info|Открыть источник/,'the schedule does not expose the source website');
   const scheduleData=JSON.parse(fs.readFileSync(path.join(root,'transport/bus-schedule/schedule-data.json'),'utf8'));
   assert.deepEqual(scheduleData.map(route=>route.id),['1','3','5','7','10','10-А','11','12','14','15','16','17','18','19','22','23']);

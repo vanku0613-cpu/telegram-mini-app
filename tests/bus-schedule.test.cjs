@@ -5,7 +5,7 @@ const path = require('node:path');
 const http = require('node:http');
 const { chromium } = require('playwright');
 
-test('bus schedule is local, complete, and grouped behind one folder', async () => {
+test('bus schedule is local, complete, and opens its routes immediately', async () => {
   const root = path.resolve(__dirname, '..');
   const data = JSON.parse(fs.readFileSync(path.join(root, 'transport/bus-schedule/schedule-data.json'), 'utf8'));
   assert.deepEqual(data.map(route => route.id), ['1','3','5','7','10','10-А','11','12','14','15','16','17','18','19','22','23']);
@@ -29,11 +29,10 @@ test('bus schedule is local, complete, and grouped behind one folder', async () 
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await page.route('https://**', route => route.abort());
     await page.goto(`http://127.0.0.1:${server.address().port}/transport/bus-schedule/`);
-    assert.equal(await page.getByRole('button', { name: /Автобусы Измаил — расписание/ }).count(), 1);
-    assert.equal(await page.locator('.route:visible').count(), 0, 'old route folders are hidden from the section landing');
-    assert.equal(await page.getByText('Открыть источник', { exact: false }).count(), 0, 'source links are not exposed');
-    await page.getByRole('button', { name: /Автобусы Измаил — расписание/ }).click();
     await page.locator('.route').first().waitFor();
+    assert.equal(await page.getByRole('button', { name: /Автобусы Измаил — расписание/ }).isVisible(), false);
+    assert.equal(await page.locator('.route:visible').count(), 16, 'routes open immediately after choosing Izmail');
+    assert.equal(await page.getByText('Открыть источник', { exact: false }).count(), 0, 'source links are not exposed');
     assert.equal(await page.locator('.route').count(), 16);
     const routeLayout = await page.locator('.route').evaluateAll(items => ({
       columns: new Set(items.map(item => Math.round(item.getBoundingClientRect().left))).size,
