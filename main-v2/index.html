@@ -302,8 +302,10 @@ button { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
   position:relative;
   overflow:hidden;
   background:
-    radial-gradient(circle at 82% 24%, rgba(105,183,232,.28), transparent 34%),
-    linear-gradient(145deg, rgba(14,65,107,.97), rgba(4,31,62,.99)) !important;
+    radial-gradient(circle at 82% 24%, rgba(105,183,232,.20), transparent 34%),
+    linear-gradient(145deg, rgba(14,65,107,.74), rgba(4,31,62,.78)) !important;
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
 }
 .weather-panel::after {
   content:"";
@@ -479,8 +481,10 @@ a.nav{ text-decoration:none; }
   padding:4px 8px !important;
   justify-content:center !important;
   background:
-    radial-gradient(circle at 84% 28%, rgba(71,147,202,.18), transparent 35%),
-    linear-gradient(145deg,rgba(7,43,81,.97),rgba(3,26,56,.99)) !important;
+    radial-gradient(circle at 84% 28%, rgba(71,147,202,.14), transparent 35%),
+    linear-gradient(145deg,rgba(7,43,81,.74),rgba(3,26,56,.78)) !important;
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
 }
 
 .currency-panel .info-title{
