@@ -128,7 +128,13 @@ document.addEventListener('DOMContentLoaded',function(){
   var tabs=Array.prototype.slice.call(document.querySelectorAll('[data-open]'));
   var sections=Array.prototype.slice.call(document.querySelectorAll('.service'));
   function showSection(id){menu.hidden=Boolean(id);document.querySelectorAll('.communal-nav').forEach(function(nav){nav.classList.toggle('has-section',Boolean(id));});backs.forEach(function(back){back.hidden=!id;});tabs.forEach(function(tab){tab.setAttribute('aria-pressed',String(tab.dataset.open===id));});sections.forEach(function(section){section.hidden=section.id!==id;});}
-  tabs.forEach(function(tab){tab.addEventListener('click',function(){showSection(tab.dataset.open);});});
+  var openingSection=false;
+  tabs.forEach(function(tab){tab.addEventListener('click',function(){
+    if(openingSection)return;
+    openingSection=true;
+    tab.classList.add('tap-lit');
+    setTimeout(function(){showSection(tab.dataset.open);openingSection=false;},220);
+  });});
   document.addEventListener('pointerdown',function(event){var button=event.target.closest('.communal-tab,.communal-back,.home-back');if(!button)return;button.classList.add('tap-lit');setTimeout(function(){button.classList.remove('tap-lit');},420);},{passive:true});
   backs.forEach(function(back){back.addEventListener('click',function(){showSection(null);});});
   showSection(null);
