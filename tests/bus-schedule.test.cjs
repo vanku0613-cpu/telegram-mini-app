@@ -35,8 +35,24 @@ test('bus schedule is local, complete, and grouped behind one folder', async () 
     await page.getByRole('button', { name: /Автобусы Измаил — расписание/ }).click();
     await page.locator('.route').first().waitFor();
     assert.equal(await page.locator('.route').count(), 16);
+    const routeLayout = await page.locator('.route').evaluateAll(items => ({
+      columns: new Set(items.map(item => Math.round(item.getBoundingClientRect().left))).size,
+      rows: new Set(items.map(item => Math.round(item.getBoundingClientRect().top))).size,
+      maxHeight: Math.max(...items.map(item => item.getBoundingClientRect().height))
+    }));
+    assert.deepEqual(routeLayout, { columns: 4, rows: 4, maxHeight: 48 });
+    assert.equal(await page.locator('#routeDetail').isVisible(), false);
+    await page.getByRole('button', { name: 'Маршрут №1', exact: true }).click();
+    assert.equal(await page.locator('.route:visible').count(), 0, 'route choices disappear while one schedule is open');
+    assert.equal(await page.locator('#routeDetail').isVisible(), true);
+    assert.equal(await page.getByRole('button', { name: 'К расписанию', exact: true }).isVisible(), true);
     assert.deepEqual(await page.locator('.day-tab').allTextContents(), ['Рабочие дни','Выходные дни','Карта']);
     assert.equal(await page.locator('.schedule-table tbody tr').count(), 47);
+    const backWidth = await page.getByRole('button', { name: 'К расписанию', exact: true }).evaluate(item => item.getBoundingClientRect().width);
+    const detailWidth = await page.locator('#routeDetail').evaluate(item => item.getBoundingClientRect().width);
+    assert.ok(backWidth < detailWidth / 2, 'the schedule return is a compact separate button');
+    await page.getByRole('button', { name: 'К расписанию', exact: true }).click();
+    assert.equal(await page.locator('.route:visible').count(), 16);
     await page.getByRole('button', { name: 'Маршрут №17', exact: true }).click();
     assert.deepEqual(await page.locator('.day-tab').allTextContents(), ['Рабочие дни','Понедельник','Выходные дни','Карта']);
     await page.getByRole('button', { name: 'Выходные дни', exact: true }).click();
