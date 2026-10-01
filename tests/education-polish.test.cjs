@@ -26,10 +26,10 @@ test('education cover, navigation and hierarchy match the polished directory sty
     await page.locator('.education-tile').first().waitFor();
     assert.deepEqual(await page.locator('#topNav a').allTextContents(),['Вернуться в главное меню']);
     assert.deepEqual(await page.locator('#bottomNav a').allTextContents(),['Вернуться в главное меню']);
-    const cover=page.locator('.education-cover img');
+    const cover=page.locator('.health-cover img');
     await cover.evaluate(img=>img.decode());
-    assert.match(await cover.getAttribute('src'),/education-development-cover-v1\.webp/);
-    assert.equal(await cover.evaluate(img=>img.naturalWidth>0),true);
+    assert.match(await cover.getAttribute('src'),/health-care-cover-v1\.webp/);
+    assert.deepEqual(await cover.evaluate(img=>[img.naturalWidth,img.naturalHeight]),[1280,752]);
     assert.equal(await page.locator('.education-tile').count(),4);
     assert.equal(await page.locator('.education-tile-icon').count(),4);
     assert.equal(await page.locator('body').getAttribute('data-education-level'),'root');
@@ -42,11 +42,11 @@ test('education cover, navigation and hierarchy match the polished directory sty
     assert.match(folderColor,/rgb\(12, 66, 111\)/,'buttons that open another folder use the saturated dark-blue surface');
     assert.match(directColor,/rgb\(32, 60, 87\)/,'buttons that open contacts use the calm blue-graphite surface');
     assert.notEqual(directColor,folderColor,'a folder with another level has a different background');
-    for(const route of ['#category/96203','#category/96204','#category/96208','#category/96215','#category/96216']){
+    for(const route of ['','#doctors','#beauty','#education','#city/'+encodeURIComponent('Измаил'),'#category/96203','#category/96204','#category/96208','#category/96215','#category/96216','#category/96211']){
       await page.goto(origin+'/health-care/'+route);
-      const fixedCover=page.locator('.education-cover img');
+      const fixedCover=page.locator('.health-cover img');
       await fixedCover.evaluate(img=>img.decode());
-      assert.match(await fixedCover.getAttribute('src'),/education-development-cover-v1\.webp/,'education categories keep one fixed profile cover');
+      assert.match(await fixedCover.getAttribute('src'),/health-care-cover-v1\.webp/,'health categories keep one fixed profile cover');
       assert.equal(await page.locator('.profile-banner img[src*="cover-962"]').count(),0,'old category photos are not rendered in the profile header');
     }
     await page.goto(origin+'/health-care/#education');
@@ -56,6 +56,10 @@ test('education cover, navigation and hierarchy match the polished directory sty
       const expectedHeight=width<=350?86:90;
       assert.ok(layout.every(item=>item.height===expectedHeight&&item.fits),width+'px: '+JSON.stringify(layout));
     }
+    await page.goto(origin+'/health-care/#beauty');
+    assert.equal(await page.locator('.directory-tile-icon').count(),await page.locator('.directory-tile').count(),'all beauty buttons have meaningful directory icons');
+    await page.goto(origin+'/health-care/');
+    assert.equal(await page.locator('.directory-branch .branch-tile-icon').count(),3,'all first-level health buttons have icons');
     await page.goto(origin+'/health-care/#category/96204');
     await page.locator('.education-tile').first().waitFor();
     assert.equal(await page.locator('body').getAttribute('data-education-level'),'nested');

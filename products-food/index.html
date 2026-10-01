@@ -39,6 +39,26 @@
 .section-back[hidden]{display:none}
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=9">
+<style>
+/* Products use the same professional directory structure as Services and Masters. */
+.cover{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0}
+.cover-copy{position:relative;padding:16px 17px 18px}
+.cover>.cover-art{position:relative;display:block;overflow:hidden;width:100%;height:156px;border-radius:18px;filter:none}
+.cover>.cover-art>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 53%;filter:brightness(.82) saturate(.91) contrast(1.05)}
+.cover>.cover-art:after{position:absolute;inset:-1px;content:"";pointer-events:none;background:linear-gradient(90deg,rgba(7,39,73,.98) 0,rgba(7,39,73,.66) 5%,rgba(7,39,73,.16) 15%,transparent 27%,transparent 73%,rgba(7,39,73,.16) 85%,rgba(7,39,73,.66) 95%,rgba(7,39,73,.98) 100%),linear-gradient(180deg,rgba(7,39,73,.58) 0,transparent 18%,transparent 66%,rgba(7,39,73,.42) 83%,rgba(7,39,73,.96) 100%)}
+.tabs{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:90px;gap:5px;margin:0 0 12px;padding:5px;border:1px solid rgba(67,134,178,.5);border-radius:20px;background:linear-gradient(145deg,rgba(7,35,65,.94),rgba(4,22,42,.97));box-shadow:0 9px 24px #0003}
+.tabs>.tab{display:grid;grid-template-columns:40px minmax(0,1fr) 14px;grid-template-rows:1fr;align-items:center;column-gap:6px;width:100%;height:100%;min-height:0;padding:8px;border:1.5px solid rgba(123,153,180,.78);border-radius:16px;background:linear-gradient(145deg,#203c57 0%,#172b41 60%,#101e2e 100%);box-shadow:inset 0 1px rgba(232,243,252,.07),0 7px 18px rgba(0,0,0,.25),0 0 12px rgba(86,130,165,.12);color:#f2fbff;text-align:left;transition:border-color .12s ease,box-shadow .12s ease}
+.tab-icon{display:grid;place-items:center;grid-column:1;grid-row:1;width:40px;height:40px;border:1px solid rgba(83,178,230,.38);border-radius:12px;background:linear-gradient(145deg,rgba(19,96,148,.78),rgba(7,49,88,.82));box-shadow:inset 0 1px rgba(230,250,255,.12),0 0 9px rgba(67,183,238,.22)}
+.tab-icon svg,.panel-icon svg{width:25px;height:25px;fill:none;stroke:#91e7ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(119,225,255,.56))}
+.tab-copy{display:flex;grid-column:2;grid-row:1;min-width:0;height:100%;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px}
+.tab-copy strong{font-size:clamp(11px,3vw,15px);font-weight:900;line-height:1.13;letter-spacing:-.02em;color:#f2fbff;text-align:left;word-break:normal;overflow-wrap:normal;hyphens:none;text-wrap:pretty}
+.tab-copy small{color:#aacce0;font-size:clamp(10px,2.7vw,12px);font-weight:700;line-height:1.08;white-space:nowrap}
+.tab-arrow{grid-column:3;grid-row:1;justify-self:end;align-self:center;color:#c7efff;font-size:25px;font-weight:300;line-height:1;text-shadow:0 0 9px rgba(89,201,255,.52)}
+.cards{align-items:start}.contact{height:auto;min-height:0;align-self:start;overflow:visible}
+.tabs>.tab:is(:active,.tap-lit),.section-nav :is(.section-back,.home-back):is(:active,.tap-lit){outline:0;border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
+@media(min-width:580px){.cover-copy{padding:20px 22px}.cover>.cover-art{height:205px}}
+@media(max-width:350px){.cover-copy{padding:13px}.cover>.cover-art{height:130px}.tabs{grid-auto-rows:86px}.tabs>.tab{grid-template-columns:36px minmax(0,1fr) 13px;padding:7px;column-gap:5px;border-radius:14px}.tab-icon{width:36px;height:36px;border-radius:11px}.tab-icon svg{width:22px;height:22px}.tab-copy strong{font-size:11px}.tab-copy small{font-size:10px}.tab-arrow{font-size:22px}}
+</style>
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 <script src="../contact-details.js?v=1" defer></script>
 <link rel="stylesheet" href="../favorites.css?v=4">
@@ -52,24 +72,21 @@
 <body>
 <main class="wrap">
   <header class="cover">
-    <div><div class="eyebrow"><span class="dot" aria-hidden="true"></span>Справочник Измаил · доставка и покупки</div><h1>Продукты питания</h1><p>Доставка готовой еды и продуктов по Измаилу — контакты и меню заведений.</p></div>
-    <svg class="cover-art" viewBox="0 0 150 112" role="img" aria-label="Еда и доставка продуктов">
-      <defs><linearGradient id="food" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#8fe4ff"/><stop offset="1" stop-color="#50d39b"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="2.3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-      <path d="M19 84h112l-8 12H27z" fill="#0b3151" stroke="#4aaee0" stroke-opacity=".75"/><path d="M39 83c0-22 16-39 36-39s36 17 36 39" fill="#0a2c4c" stroke="url(#food)" stroke-width="2"/><path d="M48 68h54M54 58h42M60 49h30" stroke="#8fe4ff" stroke-opacity=".75" stroke-width="2" stroke-linecap="round"/><path d="M75 12c-12 15-18 23-18 33a18 18 0 0 0 36 0c0-10-6-18-18-33Z" fill="#167cb4" stroke="#91e5ff" stroke-width="1.7" filter="url(#glow)"/><path d="M75 30v25m-10-12h20" stroke="#ddffd4" stroke-width="3" stroke-linecap="round"/>
-    </svg>
+    <div class="cover-copy"><div class="eyebrow"><span class="dot" aria-hidden="true"></span>Справочник Измаил · доставка и покупки</div><h1>Продукты питания</h1><p>Доставка готовой еды и продуктов по Измаилу — контакты и меню заведений.</p></div>
+    <div class="cover-art"><img src="../assets/products-food-cover-v1.webp?v=1" alt="Продукты, ресторанное блюдо, доставка еды и съедобные подарки" width="1280" height="752" decoding="async"></div>
   </header>
 
   <nav class="section-nav" aria-label="Навигация сверху"><button class="section-back" id="sectionBack" type="button" hidden>← Вернуться в раздел</button><a class="home-back" href="../main-v2/" data-main-back><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
   <p class="chooser">Выберите нужный раздел</p>
   <nav class="tabs" aria-label="Категории продуктов и доставки">
-    <button class="tab direct-entry" type="button" data-tab="fastfood" aria-pressed="false">🍔 Доставка фастфуда</button>
-    <button class="tab direct-entry" type="button" data-tab="restaurants" aria-pressed="false">🍽️ Доставка из ресторанов</button>
-    <button class="tab direct-entry" type="button" data-tab="groceries" aria-pressed="false">🛒 Доставка продуктов</button>
-    <button class="tab direct-entry" type="button" data-tab="basics" aria-pressed="false">🥗 Основные продукты</button>
-    <button class="tab direct-entry" type="button" data-tab="gifts" aria-pressed="false">🎁 Съедобные подарки</button>
+    <button class="tab direct-entry" type="button" data-tab="fastfood" aria-pressed="false"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11h16M5 11a7 7 0 0 1 14 0M4 15h16M5 15v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2M7 7h.01M12 5h.01M17 7h.01"/></svg></span><span class="tab-copy"><strong>Доставка фастфуда</strong><small>6 контактов</small></span><span class="tab-arrow" aria-hidden="true">›</span></button>
+    <button class="tab direct-entry" type="button" data-tab="restaurants" aria-pressed="false"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 16h16M6 16a6 6 0 0 1 12 0M12 7v3M3 20h18"/><circle cx="12" cy="5" r="1"/></svg></span><span class="tab-copy"><strong>Доставка из ресторанов</strong><small>3 контакта</small></span><span class="tab-arrow" aria-hidden="true">›</span></button>
+    <button class="tab direct-entry" type="button" data-tab="groceries" aria-pressed="false"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2 11h10l3-7H6M9 19a1 1 0 1 0 0 .1M17 19a1 1 0 1 0 0 .1"/></svg></span><span class="tab-copy"><strong>Доставка продуктов</strong><small>1 контакт</small></span><span class="tab-arrow" aria-hidden="true">›</span></button>
+    <button class="tab direct-entry" type="button" data-tab="basics" aria-pressed="false"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h16l-2 9H6l-2-9ZM8 10l4-6 4 6M8 14h.01M12 14h.01M16 14h.01"/></svg></span><span class="tab-copy"><strong>Основные продукты</strong><small>Каталог продуктов</small></span><span class="tab-arrow" aria-hidden="true">›</span></button>
+    <button class="tab direct-entry" type="button" data-tab="gifts" aria-pressed="false"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7H8a2 2 0 1 1 2-3c1 1 2 3 2 3Zm0 0h4a2 2 0 1 0-2-3c-1 1-2 3-2 3Z"/></svg></span><span class="tab-copy"><strong>Съедобные подарки</strong><small>2 контакта</small></span><span class="tab-arrow" aria-hidden="true">›</span></button>
   </nav>
   <section class="panel" id="fastfood" aria-labelledby="fastfood-title" hidden>
-    <header class="panel-head"><span class="panel-icon" aria-hidden="true">🍔</span><div><h2 id="fastfood-title">Доставка фастфуда</h2><p>Бургеры, хот-доги, шаурма, пицца и роллы</p></div></header>
+    <header class="panel-head"><span class="panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11h16M5 11a7 7 0 0 1 14 0M4 15h16M5 15v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2M7 7h.01M12 5h.01M17 7h.01"/></svg></span><div><h2 id="fastfood-title">Доставка фастфуда</h2><p>Бургеры, хот-доги, шаурма, пицца и роллы</p></div></header>
     <div class="cards">
       <article class="contact edovsky-card"><div class="contact-top"><h3>Mr. Edovsky · бургеры, пицца и роллы</h3><span class="tag">меню онлайн</span></div><p class="contact-note">Доставка по городу.</p><div class="phones"><a class="phone" href="tel:+380684919192"><strong>+380 68 491 91 92</strong><span>Позвонить</span></a><a class="phone" href="tel:+380994919192"><strong>+380 99 491 91 92</strong><span>Позвонить</span></a></div><div class="links"><a href="https://edovsky.od.ua/menu-dostavki/burgery-i-hot-dogi/" target="_blank" rel="noopener"><span>↗</span> Бургеры</a><a href="https://edovsky.od.ua/menu-dostavki/piczcza/" target="_blank" rel="noopener"><span>↗</span> Пицца</a><a href="https://edovsky.od.ua/menu-dostavki/rolly/" target="_blank" rel="noopener"><span>↗</span> Роллы</a></div></article>
       <article class="contact"><div class="contact-top"><h3>Два Тандыра · бургеры, шаурма и роллы</h3></div><p class="contact-note">Проспект Независимости, 44. Доставка по Измаилу.</p><div class="phones"><a class="phone" href="tel:+380970032200"><strong>+380 97 003 22 00</strong><span>Позвонить</span></a></div><div class="links"><a href="https://dostavochka.in.ua/catalog/restaurants" target="_blank" rel="noopener"><span>↗</span> Заказ и меню у Доставочки</a></div></article>
@@ -81,7 +98,7 @@
   </section>
 
   <section class="panel" id="restaurants" aria-labelledby="restaurants-title" hidden>
-    <header class="panel-head"><span class="panel-icon" aria-hidden="true">🍽️</span><div><h2 id="restaurants-title">Доставка из ресторанов</h2><p>Заказ напрямую в заведении</p></div></header>
+    <header class="panel-head"><span class="panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 16h16M6 16a6 6 0 0 1 12 0M12 7v3M3 20h18"/><circle cx="12" cy="5" r="1"/></svg></span><div><h2 id="restaurants-title">Доставка из ресторанов</h2><p>Заказ напрямую в заведении</p></div></header>
     <div class="cards">
       <article class="contact"><div class="contact-top"><h3>Челентано · доставка</h3><span class="tag">заказ онлайн</span></div><p class="contact-note">Проспект Мира, 25Б. Доставка по городу.</p><div class="phones"><a class="phone" href="tel:+380988884884"><strong>+380 98 888 48 84</strong><span>Позвонить</span></a></div><div class="links"><a href="https://delta.celentano.delivery/" target="_blank" rel="noopener"><span>↗</span> Сайт и меню</a></div></article>
       <article class="contact"><div class="contact-top"><h3>Chin Chin · доставка</h3><span class="tag">меню онлайн</span></div><p class="contact-note">Улица Независимости, 33А. Доставка по Измаилу.</p><div class="phones"><a class="phone" href="tel:+380972233232"><strong>+380 97 223 32 32</strong><span>Позвонить</span></a></div><div class="links"><a href="https://chinchin-iz.choiceqr.com/" target="_blank" rel="noopener"><span>↗</span> Открыть меню</a></div></article>
@@ -90,21 +107,21 @@
   </section>
 
   <section class="panel" id="groceries" aria-labelledby="groceries-title" hidden>
-    <header class="panel-head"><span class="panel-icon" aria-hidden="true">🛒</span><div><h2 id="groceries-title">Доставка продуктов</h2><p>Заказ из магазинов и рынков Измаила</p></div></header>
+    <header class="panel-head"><span class="panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2 11h10l3-7H6M9 19a1 1 0 1 0 0 .1M17 19a1 1 0 1 0 0 .1"/></svg></span><div><h2 id="groceries-title">Доставка продуктов</h2><p>Заказ из магазинов и рынков Измаила</p></div></header>
     <div class="cards">
       <article class="contact"><div class="contact-top"><h3>DOSTAVOCHKA.IZM</h3><span class="tag">сайт работает</span></div><p class="contact-note">Доставка по Измаилу и району: супермаркеты, магазины и рынки. На сайте указаны заявки ежедневно 10:00–21:45 и актуальный каталог.</p><div class="phones"><a class="phone" href="tel:+380639993132"><strong>+380 63 999 31 32</strong><span>Позвонить · диспетчер</span></a><a class="phone" href="tel:+380986630867"><strong>+380 98 663 08 67</strong><span>Позвонить · заказ</span></a></div><div class="links"><a href="https://dostavochka.in.ua/catalog" target="_blank" rel="noopener"><span>↗</span> Каталог и меню</a></div></article>
     </div>
   </section>
 
   <section class="panel" id="basics" aria-labelledby="basics-title" hidden>
-    <header class="panel-head"><span class="panel-icon" aria-hidden="true">🥗</span><div><h2 id="basics-title">Основные продукты</h2><p>Выберите, что хотите заказать</p></div></header>
+    <header class="panel-head"><span class="panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h16l-2 9H6l-2-9ZM8 10l4-6 4 6M8 14h.01M12 14h.01M16 14h.01"/></svg></span><div><h2 id="basics-title">Основные продукты</h2><p>Выберите, что хотите заказать</p></div></header>
     <div class="subtypes" aria-label="Категории продуктов"><span>🍎 Фрукты</span><span>🥦 Овощи</span><span>🥩 Мясо</span><span>🥛 Молочные продукты</span><span>🥚 Яйца</span><span>🐟 Рыба</span></div>
     <div class="cards" style="margin-top:9px"><article class="contact"><div class="contact-top"><h3>Магазины, супермаркеты и рынки</h3></div><p class="contact-note">Выберите магазин и нужные товары в каталоге.</p><div class="links"><a href="https://dostavochka.in.ua/catalog" target="_blank" rel="noopener"><span>↗</span> Открыть каталог</a><button class="tab" type="button" data-tab="groceries" style="min-height:34px;padding:7px 9px">Показать доставку и телефон</button></div></article></div>
 
   </section>
 
   <section class="panel" id="gifts" aria-labelledby="gifts-title" hidden>
-    <header class="panel-head"><span class="panel-icon" aria-hidden="true">🎁</span><div><h2 id="gifts-title">Съедобные подарки</h2><p>Сладкие подарки ручной работы в Измаиле</p></div></header>
+    <header class="panel-head"><span class="panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7H8a2 2 0 1 1 2-3c1 1 2 3 2 3Zm0 0h4a2 2 0 1 0-2-3c-1 1-2 3-2 3Z"/></svg></span><div><h2 id="gifts-title">Съедобные подарки</h2><p>Сладкие подарки ручной работы в Измаиле</p></div></header>
     <div class="cards">
       <article class="contact"><div class="contact-top"><h3>Фрукты и клубника в шоколаде</h3></div><p class="contact-note">Приём заказов на ягоды и фрукты в шоколаде.</p><div class="phones"><a class="phone" href="tel:+380976143819"><strong>+380 97 614 38 19</strong><span>Позвонить</span></a></div></article>
       <article class="contact"><div class="contact-top"><h3>Зефирные цветы</h3></div><p class="contact-note">Зефирные букеты и сладкие композиции на заказ.</p><div class="phones"><a class="phone" href="tel:+380971798587"><strong>+380 97 179 85 87</strong><span>Позвонить</span></a></div></article>
@@ -126,6 +143,7 @@ document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('.section-nav').forEach(function(nav){nav.classList.toggle('has-section',Boolean(name));});
   }
   document.querySelectorAll('[data-tab]').forEach(function(tab){tab.addEventListener('click',function(){select(tab.dataset.tab);});});
+  document.addEventListener('pointerdown',function(event){var control=event.target.closest('.tabs>.tab,.section-back,.home-back');if(!control)return;control.classList.add('tap-lit');setTimeout(function(){control.classList.remove('tap-lit');},420);},{passive:true});
   document.getElementById('sectionBack').addEventListener('click',function(){select(null);});
   document.getElementById('sectionBackBottom').addEventListener('click',function(){select(null);});
   select(null);

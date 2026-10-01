@@ -54,8 +54,7 @@
     ['Другие специалисты',['96313','96314','96318']],
     ['Ветеринарная помощь',['20125']]
   ];
-  function branchCover(id){const education=id==='education';const file=id==='doctors'?'media/doctors-cover.jpg':id==='beauty'?'media/beauty-cover.jpg':'../assets/education-development-cover-v1.webp?v=1';return '<div class="visual generated-cover'+(education?' education-cover':'')+'"><img src="'+file+'" alt="Справочник Измаил — '+branches[id]+'" width="1280" height="752" draggable="false"></div>'}
-  function rootCover(){return `<section class="root-health-cover" role="img" aria-label="Справочник Измаил: здоровье и уход. Городская медицинская служба."><div class="root-cover-copy"><span>СПРАВОЧНИК ИЗМАИЛ</span><strong>Здоровье и уход</strong><small>Врачи · красота · помощь</small></div><svg viewBox="0 0 720 230" aria-hidden="true" focusable="false"><defs><linearGradient id="healthSky" x1="0" x2="1"><stop stop-color="#061b34"/><stop offset=".55" stop-color="#0c4169"/><stop offset="1" stop-color="#082643"/></linearGradient><linearGradient id="healthGlass" x1="0" x2="0" y2="1"><stop stop-color="#5dd3ed" stop-opacity=".72"/><stop offset="1" stop-color="#0f5477" stop-opacity=".3"/></linearGradient></defs><rect width="720" height="230" fill="url(#healthSky)"/><path d="M0 188h720v42H0z" fill="#061a2d"/><path d="M0 188c138-17 246-8 354 2 150 13 230-14 366-4v44H0z" fill="#071f35"/><g opacity=".42" stroke="#69d4ef" stroke-width="1"><path d="M18 40h212M33 57h144M493 31h180M543 49h141"/><circle cx="672" cy="84" r="28" fill="none"/></g><g transform="translate(280 43)"><path d="M13 145V30c0-9 7-16 16-16h198c9 0 16 7 16 16v115" fill="#0a3454" stroke="#75dbf4" stroke-width="3"/><path d="M37 41h151v82H37z" fill="url(#healthGlass)"/><g fill="#b8f3ff" opacity=".68"><path d="M56 53h23v18H56zM94 53h23v18H94zM132 53h23v18H132zM56 86h23v18H56zM94 86h23v18H94zM132 86h23v18H132z"/></g><path d="M199 70h18v17h17v18h-17v17h-18v-17h-17V87h17z" fill="#55e3b0"/><path d="M86 145v-33c0-7 6-13 13-13h39c7 0 13 6 13 13v33" fill="#071e35" stroke="#79d9ed" stroke-width="2"/><path d="M24 145h207" stroke="#a9efff" stroke-width="3"/></g><g fill="none" stroke="#66e2b4" stroke-width="3"><path d="M33 146h73l11-22 18 43 18-32 12 11h69"/><path d="M493 155h33l10-19 14 36 16-28 9 11h101"/></g><g fill="#a4efff"><circle cx="87" cy="112" r="4"/><circle cx="204" cy="91" r="3"/><circle cx="623" cy="124" r="4"/><circle cx="662" cy="141" r="2"/></g></svg></section>`}
+  function rootCover(){return '<section class="profile-banner health-profile-banner"><div class="visual generated-cover health-cover"><img src="../assets/health-care-cover-v1.webp?v=1" alt="Врачи, диагностика, красота и помощь — здоровье и уход в Измаиле" width="1280" height="752" draggable="false" decoding="async"></div></section>'}
   function favoritesCover(){return `<section class="favorites-cover" role="img" aria-label="Справочник Измаил: избранные контакты."><img class="favorites-cover-art" src="../assets/favorites-cover-v1.webp?v=1" alt="" width="1280" height="751" decoding="async"><div class="favorites-cover-copy"><span>СПРАВОЧНИК ИЗМАИЛ</span><strong>Избранное</strong><small>Сохранённые контакты</small></div></section>`}
   function cityTabs(city,q=''){const options=cities(),tab=c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'><img src="media/city-'+cityImages[c]+'.jpg" alt="" width="330" height="220"><span>'+escape(c)+'</span></a>';const picker=city?'<div class="city-selection">'+tab(city)+'<button id="cityListToggle" type="button" aria-expanded="'+String(cityListOpen)+'">'+(cityListOpen?'Скрыть города ↑':'Другие города ↓')+'</button></div>':'';const others=city?options.filter(c=>c!==city):options;return '<h2 class="city-heading">'+(city?'Выбран город: '+escape(city):'Выберите город')+'</h2>'+picker+'<nav class="city-tabs" aria-label="Город приёма" '+(city&&!cityListOpen?'hidden':'')+'>'+(city&&!cityListOpen?'':others.map(tab).join(''))+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
   function reviewPanel(r){if(!r.review)return '';const v=r.review;return '<details class="reviews"><summary>Отзывы <span class="review-hide">· скрыть</span></summary><p>'+escape(v.summary)+'</p><small>'+escape(v.label)+' · '+escape(v.checked)+'</small><a href="'+escape(v.url)+'" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a></details>'}
@@ -77,11 +76,29 @@
     '96221':'<path d="M5 18h14M7 18V8l5-4 5 4v10M9 11h6M9 14h6"/>'
   };
   function educationIcon(id){return '<span class="education-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+(educationIcons[id]||educationIcons['96204'])+'</svg></span>'}
+  const iconPaths={
+    medical:'<path d="M6 3h4v4h4V3h4v4a6 6 0 0 1-12 0V3Z"/><path d="M12 13v2a4 4 0 0 0 8 0v-1"/><circle cx="20" cy="12" r="2"/>',
+    hospital:'<path d="M5 21V5h14v16M9 21v-4h6v4M8 9h8M12 7v4M8 14h8"/>',
+    tooth:'<path d="M7 3c-3 1-4 4-3 8 1 4 3 9 5 9 2 0 1-5 3-5s1 5 3 5 4-5 5-9c1-4 0-7-3-8-2-1-3 1-5 1S9 2 7 3Z"/>',
+    eye:'<path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+    heart:'<path d="M20.8 5.7a5.5 5.5 0 0 0-7.8 0L12 6.8l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 22l8.8-8.5a5.5 5.5 0 0 0 0-7.8Z"/><path d="M4 12h4l2-3 3 6 2-3h5"/>',
+    diagnostic:'<path d="M3 4h18v14H3zM8 21h8M12 18v3"/><path d="M6 11h3l2-4 3 8 2-4h2"/>',
+    paw:'<circle cx="8" cy="7" r="2"/><circle cx="16" cy="7" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M8 19c-2-2 0-6 4-6s6 4 4 6c-2 2-6 2-8 0Z"/>',
+    beauty:'<path d="M12 3c1.5 4 3 5.5 7 7-4 1.5-5.5 3-7 7-1.5-4-3-5.5-7-7 4-1.5 5.5-3 7-7Z"/><path d="M18 15c.7 2 1.5 2.8 3 3.5-1.5.7-2.3 1.5-3 3.5-.7-2-1.5-2.8-3-3.5 1.5-.7 2.3-1.5 3-3.5Z"/>',
+    scissors:'<circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><path d="m8.5 8.5 11 7.5M8.5 15.5 20 8"/>',
+    care:'<path d="M4 13c3-2 5-2 8 1 3-3 5-3 8-1M4 13v5l8 3 8-3v-5"/><path d="M12 11 8.5 7.5a2.5 2.5 0 0 1 3.5-3.5 2.5 2.5 0 0 1 3.5 3.5L12 11Z"/>'
+  };
+  function categoryIcon(c){
+    if(c.branch==='education')return educationIcon(c.id).replace(/education-tile-icon/g,'education-tile-icon directory-tile-icon');
+    const name=norm(c.name),kind=c.id==='20125'||/ветерин/.test(name)?'paw':/стомат|зуб/.test(name)?'tooth':/офталь|зрен|глаз|бров|ресниц/.test(name)?'eye':/кардио|серд|сосуд/.test(name)?'heart':/диагност|анализ|узи|мрт|рентген|томограф/.test(name)?'diagnostic':/больниц|клиник|поликлиник|центр/.test(name)?'hospital':/волос|парик|барбер/.test(name)?'scissors':c.branch==='beauty'?'beauty':c.branch==='care'?'care':'medical';
+    return '<span class="directory-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+iconPaths[kind]+'</svg></span>';
+  }
+  function branchIcon(kind){return '<span class="directory-tile-icon branch-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+iconPaths[kind]+'</svg></span>'}
   function tile(c,city,noPhoto=true) {
     const count=data.records.filter(r=>categoriesFor(r).includes(c.id)&&(!city||isInCity(r,city))).length;
     const media=noPhoto?'':thumb(c,city);
     const education=c.branch==='education'&&noPhoto;
-    return `<a class="category-tile ${c.children?.length?'has-children':'direct-entry'} ${noPhoto?'plain-tile':''} ${education?'education-tile':''} ${c.id==='20125'?'veterinary':''} ${count?'':'empty-category'}" href="${categoryHref(c,city)}">${media}${education?educationIcon(c.id):''}<span class="tile-body"><strong>${escape(c.id==='20125'?'Ветеринары':c.name)}</strong><small>${c.children?.length?c.children.length+' разделов':count?count+' контактов':'Контакты пока не найдены'}</small></span>${noPhoto?'<span class="tile-arrow" aria-hidden="true">›</span>':''}</a>`;
+    return `<a class="category-tile ${c.children?.length?'has-children':'direct-entry'} ${noPhoto?'plain-tile directory-tile':''} ${education?'education-tile':''} ${c.id==='20125'?'veterinary':''} ${count?'':'empty-category'}" href="${categoryHref(c,city)}">${media}${noPhoto?categoryIcon(c):''}<span class="tile-body"><strong>${escape(c.id==='20125'?'Ветеринары':c.name)}</strong><small>${c.children?.length?c.children.length+' разделов':count?count+' контактов':'Нет контактов'}</small></span>${noPhoto?'<span class="tile-arrow" aria-hidden="true">›</span>':''}</a>`;
   }
   function cards(records) {
     return '<div class="contact-list">'+records.map(original=>{
@@ -96,11 +113,8 @@
           const visible=fmt(p);
           return `<div class="favorite-phone-action"><a class="favorite-phone phone-number call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${visible}"><strong>${visible}</strong><span>Позвонить</span></a>${favoriteButton(r,p)}${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}</div>`;
         }
-        if(current.branch==='education'){
-          const visible=p.length===10?'+380 '+p.slice(1,3)+' '+p.slice(3,6)+' '+p.slice(6,8)+' '+p.slice(8):p;
-          return `<div class="education-phone-action"><a class="education-phone phone-number call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${visible}"><strong>${visible}</strong><span>Позвонить</span></a>${favoriteButton(r,p)}${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}</div>`;
-        }
-        return `<div class="phone-row"><a class="phone-number" href="tel:${dial(p)}">${fmt(p)}</a>${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}<div class="phone-actions"><a class="call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${fmt(p)}">☎ Позвонить</a>${favoriteButton(r,p)}</div></div>`;
+        const visible=p.length===10?'+380 '+p.slice(1,3)+' '+p.slice(3,6)+' '+p.slice(6,8)+' '+p.slice(8):p;
+        return `<div class="directory-phone-action education-phone-action phone-row"><a class="directory-phone education-phone phone-number call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${visible}"><strong>${visible}</strong><span>Позвонить</span></a>${favoriteButton(r,p)}${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}</div>`;
       }).join('');
       return `<article class="contact" data-record="${r.id}"><div class="contact-top"><span class="location ${r.city==='Измаил'?'':'other-city'}">⌖ ${escape(r.city)}</span></div><p class="specialty">${escape(r.specialties||(c.id==='20125'?'Ветеринары':c.name))}</p><h2>${escape(r.name)}</h2>${r.note?`<details class="contact-description"><summary>Подробнее</summary><p class="description">${escape(r.note)}</p></details>`:''}${phoneLabel?`<p class="phone-label">${escape(phoneLabel)}</p>`:''}${phones}${reviewPanel(r)}</article>`;
     }).join('')+'</div>';
@@ -133,7 +147,7 @@
       $('topNav').innerHTML=back+homeLink;$('bottomNav').innerHTML=back+homeLink;
       $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';
-      $('profileMedia').innerHTML=branch==='education'?'<section class="profile-banner">'+branchCover('education')+'</section>':category?media(category,cityName):branch?'<section class="profile-banner">'+branchCover(branch)+'</section>':favorites?favoritesCover():rootCover();
+      $('profileMedia').innerHTML=favorites?favoritesCover():rootCover();
       const phoneFolder=Boolean(category&&!category.children&&data.records.some(r=>categoriesFor(r).includes(category.id)));
       document.querySelector('.finder').hidden=(!branch&&!favorites&&!globalSearch)||phoneFolder||branch==='education'||Boolean(contactId)||favorites;
       $('search').placeholder=branch==='doctors'?(cityName?'Поиск врачей по '+citySearch[cityName]:'Поиск врачей'):branch==='education'?'Предмет, имя или телефон':'Специальность, имя или телефон';
@@ -171,7 +185,7 @@
       else $('content').innerHTML=groups.map(([title,ids])=>{const members=ids.map(id=>available.find(c=>c.id===id)).filter(Boolean);return members.length?'<h2 class="group-title">'+title+'</h2><div class="category-grid">'+members.map(c=>tile(c,cityName)).join('')+'</div>':''}).join('')||'<div class="empty"><strong>Список этого города готовится</strong>Пока нет подтверждённых местных контактов.</div>';
     }else{
       $('resultStatus').textContent='Три направления';
-      $('content').innerHTML='<div class="branches">'+[['doctors','Врачи · Клиники · Диагностика · Ветеринары'],['beauty','Маникюр · Волосы · Брови · Уход']].map(([id,desc])=>'<a class="branch-card plain-branch has-children '+id+'" href="#'+id+'"><div class="branch-copy"><h2>'+branches[id]+'</h2><p>'+desc+'</p><span class="tile-arrow" aria-hidden="true">›</span></div></a>').join('')+(()=>{const c=data.categories.find(c=>c.id==='96211');return '<a class="branch-card plain-branch direct-entry care" href="#category/96211"><div class="branch-copy"><h2>'+escape(c.name)+'</h2><p>Сиделки · Няни · Пансионат</p><span class="tile-arrow" aria-hidden="true">›</span></div></a>'})()+'</div>';
+      $('content').innerHTML='<div class="branches">'+[['doctors','medical','Врачи · Клиники · Диагностика · Ветеринары'],['beauty','beauty','Маникюр · Волосы · Брови · Уход']].map(([id,icon,desc])=>'<a class="branch-card directory-branch plain-branch has-children '+id+'" href="#'+id+'">'+branchIcon(icon)+'<div class="branch-copy"><h2>'+branches[id]+'</h2><p>'+desc+'</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>').join('')+(()=>{const c=data.categories.find(c=>c.id==='96211');return '<a class="branch-card directory-branch plain-branch direct-entry care" href="#category/96211">'+branchIcon('care')+'<div class="branch-copy"><h2>'+escape(c.name)+'</h2><p>Сиделки · Няни · Пансионат</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'})()+'</div>';
     }
   }
   document.addEventListener('dragstart',event=>{if(event.target.closest('.branch-card,.category-tile,.city-tab'))event.preventDefault()});

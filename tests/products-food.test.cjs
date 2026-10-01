@@ -14,7 +14,7 @@ test('food and delivery directory switches sections and keeps contact links uniq
       res.writeHead(404);
       return res.end();
     }
-    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : 'text/html; charset=utf-8');
+    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : file.endsWith('.webp') ? 'image/webp' : 'text/html; charset=utf-8');
     res.end(fs.readFileSync(file));
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -27,6 +27,12 @@ test('food and delivery directory switches sections and keeps contact links uniq
     assert.equal(await page.title(), 'Продукты питания — Справочник Измаил');
     assert.deepEqual(await page.locator('main > *').evaluateAll(items => items.slice(0, 3).map(item => item.className || item.tagName.toLowerCase())), ['cover', 'section-nav', 'chooser']);
     assert.equal(await page.locator('nav.tabs .tab[data-tab]').count(), 5);
+    const cover=page.locator('.cover-art img');
+    await cover.evaluate(img=>img.decode());
+    assert.match(await cover.getAttribute('src'),/products-food-cover-v1\.webp/);
+    assert.deepEqual(await cover.evaluate(img=>[img.naturalWidth,img.naturalHeight]),[1280,752]);
+    assert.equal(await page.locator('.tabs>.tab .tab-icon svg').count(),5,'each food category has a meaningful line icon');
+    assert.match(await page.locator('.tabs').evaluate(el=>getComputedStyle(el).backgroundImage),/linear-gradient/,'food categories sit on the shared directory surface');
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
     assert.equal(await page.locator('.tabs').isVisible(), true);
     assert.equal(await page.locator('.panel:visible').count(), 0, 'category details stay closed until a button is selected');
@@ -40,6 +46,12 @@ test('food and delivery directory switches sections and keeps contact links uniq
     assert.equal(/публикац|публичн(?:ого)? справочник|телефоны заведений/.test(pageText), false, 'source and phone-origin explanations are omitted');
     const supportingTextSizes=await page.locator('.contact-note, .phone span, .tag, .links a, .subtypes span').evaluateAll(items=>items.map(item=>({text:item.textContent.trim(),size:parseFloat(getComputedStyle(item).fontSize)})));
     assert.ok(supportingTextSizes.every(item=>item.size>=12),'supporting text and actions remain comfortably readable: '+JSON.stringify(supportingTextSizes.filter(item=>item.size<12)));
+    for(const width of [320,390,768]){
+      await page.setViewportSize({width,height:844});
+      const labels=await page.locator('.tabs>.tab .tab-copy strong').evaluateAll(items=>items.map(el=>({fits:el.scrollWidth<=el.clientWidth+1,size:parseFloat(getComputedStyle(el).fontSize)})));
+      assert.ok(labels.every(label=>label.fits&&label.size>=11),width+'px food labels: '+JSON.stringify(labels));
+    }
+    await page.setViewportSize({width:390,height:844});
 
     await page.locator('.tab[data-tab="restaurants"]').click();
     assert.equal(await page.locator('#restaurants').isVisible(), true);
