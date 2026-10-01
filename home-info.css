@@ -44,3 +44,13 @@
 #app .currency-panel .rate span:first-child{font-weight:950!important;opacity:1!important}
 #app .search-real::placeholder{color:rgba(205,226,240,.52)!important;opacity:.68;transition:opacity .12s ease,color .12s ease}
 #app .search-real:focus::placeholder{color:transparent!important;opacity:0!important}
+
+/* Keep the exchange panel legible on desktop and under browser zoom without
+   changing the phone layout. */
+@media (min-width:700px), (hover:hover) and (pointer:fine){
+  #app .currency-panel{background:rgba(2,22,43,.62)!important;padding:4px 6px!important}
+  #app .currency-panel .info-title{font-size:clamp(8.8px,2.05cqw,10.8px)!important;line-height:1!important}
+  #app .currency-panel .rate{font-size:clamp(8.5px,1.95cqw,10.4px)!important;line-height:1!important;transform:translateY(1px)}
+  #app .currency-panel .rates-updated{margin-top:2px;font-size:clamp(6.8px,1.45cqw,8px);line-height:1!important}
+  #app .currency-watermark{color:rgba(115,191,235,.13)}
+}

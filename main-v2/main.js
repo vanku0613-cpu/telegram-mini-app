@@ -568,8 +568,10 @@
     frame=0;
     var titles=Array.prototype.slice.call(document.querySelectorAll(".card:not(.expanded-label) .card-copy strong,.groups-title"));
     var expanded=Array.prototype.slice.call(document.querySelectorAll(".card.expanded-label .card-copy strong"));
+    var navLabels=Array.prototype.slice.call(document.querySelectorAll(".bottom .nav > span:not(.nav-icon):not(.press-glow)"));
 
     titles.forEach(function(title){title.style.fontSize="";});
+    navLabels.forEach(function(label){label.style.fontSize="";});
     expanded.forEach(function(title){
       var span=title.querySelector("span");
       if(span) span.style.transform="none";
@@ -598,6 +600,18 @@
 
       var scale=Math.min(1,(available/required)*.985);
       span.style.transform="scaleX("+scale.toFixed(4)+")";
+    });
+
+    navLabels.forEach(function(label){
+      var nav=label.closest(".nav");
+      if(!nav) return;
+      var icon=nav.querySelector(".nav-icon");
+      var available=Math.max(0,nav.clientWidth-(icon ? icon.getBoundingClientRect().width : 0)-12);
+      var required=label.scrollWidth;
+      if(!available || required<=available) return;
+      var current=parseFloat(getComputedStyle(label).fontSize);
+      if(!isFinite(current) || current<=0) return;
+      label.style.fontSize=Math.max(9,current*(available/required)*.96).toFixed(2)+"px";
     });
   }
 
