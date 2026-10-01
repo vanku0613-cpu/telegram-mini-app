@@ -45,4 +45,7 @@ test('transport menu groups Izmail and Odessa inside the schedule folder', () =>
   assert.match(schedule, /data-view="map"/);
   assert.match(schedule, /data-view="stops"/);
   assert.match(schedule, /К расписанию/);
+  assert.match(schedule, /data-schedule-back/);
+  assert.match(schedule, /setSectionBack\('Виды транспорта'\)/);
+  assert.doesNotMatch(schedule, /id="backToTypes"/);
 });

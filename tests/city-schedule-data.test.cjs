@@ -64,4 +64,7 @@ test('city schedule opens details as a separate view and returns to the schedule
   assert.match(html, /data-view="map"/);
   assert.match(html, /data-view="stops"/);
   assert.match(html, /schedule-cities\/\$\{safeCityKey\}\.jpg/);
+  assert.match(html, /usesTransportTypes=safeCityKey==='kyiv'/);
+  assert.match(html, /usesTransportTypes\?'Виды транспорта':'Вернуться в раздел'/);
+  assert.match(html, /<button class="route-return"[^>]*id="backToRoutes"[^>]*>[\s\S]*?К расписанию<\/button>/);
 });
