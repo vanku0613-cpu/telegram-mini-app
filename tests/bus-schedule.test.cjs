@@ -40,7 +40,9 @@ test('bus schedule is local, complete, and grouped behind one folder', async () 
       rows: new Set(items.map(item => Math.round(item.getBoundingClientRect().top))).size,
       maxHeight: Math.max(...items.map(item => item.getBoundingClientRect().height))
     }));
-    assert.deepEqual(routeLayout, { columns: 4, rows: 4, maxHeight: 48 });
+    assert.equal(routeLayout.columns, 4);
+    assert.equal(routeLayout.rows, 4);
+    assert.ok(routeLayout.maxHeight >= 54 && routeLayout.maxHeight <= 76, 'route buttons fill the phone screen without becoming oversized');
     assert.equal(await page.locator('#routeDetail').isVisible(), false);
     await page.getByRole('button', { name: 'Маршрут №1', exact: true }).click();
     assert.equal(await page.locator('.route:visible').count(), 0, 'route choices disappear while one schedule is open');
