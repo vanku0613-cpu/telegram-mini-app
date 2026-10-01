@@ -40,6 +40,7 @@ test('communal services page is reachable, organized, and uses unique callable c
     assert.deepEqual({width:communalTile.width,height:communalTile.height},{width:172.5,height:90},'utility tiles match the services and masters card dimensions');
     assert.match(communalTile.background,/rgb\(12, 66, 111\).*rgb\(8, 45, 84\).*rgb\(6, 30, 59\)/,'utility tiles keep the services and masters blue surface');
     assert.equal(communalTile.border,'rgba(79, 165, 219, 0.8)');
+    assert.ok(await page.locator('.communal-copy strong').evaluateAll(items=>items.every(item=>parseFloat(getComputedStyle(item).fontSize)>=17)),'utility names stay large and readable');
     await page.locator('[data-open="water"]').click();
     await page.locator('#water').waitFor({state:'visible'});
     assert.equal(await page.locator('#water').isVisible(),true);
@@ -95,8 +96,8 @@ test('communal services page is reachable, organized, and uses unique callable c
     const oldShelterText = fs.readFileSync(path.join(root, 'ukrytia', 'index.html'), 'utf8');
     assert.equal(oldShelterText.includes('Ещё 3 адреса из публикации от 9 марта 2022 года'), false);
     assert.equal(oldShelterText.includes('legacy-shelters'), false);
-    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\/communal-services\/"/);
-    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\.\/communal-services\/"/);
+    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\/communal-services\/\?v=utility-cards-4"/);
+    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Коммунальные службы":\s*"\.\.\/communal-services\/\?v=utility-cards-4"/);
 
     await page.goto(`http://127.0.0.1:${server.address().port}/main-v2/`);
     assert.equal(await page.locator('#weatherPanel .info-title').evaluate(el => getComputedStyle(el).textAlign), 'center');
