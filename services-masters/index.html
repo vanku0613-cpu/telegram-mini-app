@@ -91,7 +91,7 @@
 </main>
 <script>
 (()=>{
-const contacts=(pairs)=>pairs.map(([phone,name='',note=''])=>({phone,name,note}));
+const contacts=(pairs)=>pairs.map(([phone,name='',note='',additionalPhones=[]])=>({phone,name,note,phones:[phone,...additionalPhones].filter((value,index,list)=>list.indexOf(value)===index)}));
 const masters=[
  {title:'Электрик / сантехник',icon:'wrench',sub:[
   {title:'Электрик',icon:'bolt',desc:'Электромонтаж, ремонт и подключение оборудования.',source:'Публикация «Электрик»',people:contacts([['0688481795','Василий'],['0668153612','Александр','Инверторы и солнечные панели'],['0980298547','Злата'],['0977084305','','Электромонтажные работы'],['0972259606','Олег'],['0730405980','Виорел'],['0964173665','Юрий'],['0962389009','Иван']])},
@@ -119,8 +119,8 @@ const masters=[
  ]},
  {title:'Услуги по дому / участку',icon:'garden',sub:[
   {title:'Чистка ковров',icon:'carpet',desc:'Чистка ковров.',source:'Публикация «Чистка ковров»',people:contacts([['0980298547','Злата']])},
-  {title:'Покос травы',icon:'grass',desc:'Работы на участке.',source:'Публикация «Покос травы»',people:contacts([['0637563046','Дмитрий']])},
-  {title:'Спил деревьев',icon:'tree',desc:'Спил деревьев, в том числе сложный.',source:'Публикация «Спил деревьев»',people:contacts([['0637563046','Дмитрий'],['0931552062','Сергей']])}
+  {title:'Покос травы',icon:'grass',desc:'Работы на участке.',source:'Публикация «Покос травы»',people:contacts([['0637563046','Дмитрий','',['0973388892']]])},
+  {title:'Спил деревьев',icon:'tree',desc:'Спил деревьев, в том числе сложный.',source:'Публикация «Спил деревьев»',people:contacts([['0637563046','Дмитрий','',['0973388892']],['0931552062','Сергей']])}
  ]},
  {title:'Бытовая техника',icon:'appliance',sub:[
   {title:'Газовые котлы и колонки',icon:'boiler',desc:'Ремонт, обслуживание и установка газового оборудования.',source:'Публикация «Газовые котлы / колонки»',people:contacts([['0982641444','Владимир'],['0988959769','Ваш мастер']])},
@@ -188,7 +188,7 @@ function render(){const data=section==='masters'?masters:services,hasBack=sectio
  }
  const sub=category.selected;viewIcon.innerHTML=icon(sub.icon);title.textContent=sub.title;hint.textContent=category.title+' · '+sub.people.length+' контактов';view.innerHTML=contactList(sub.people,sub.desc);
 }
-function contactList(people,desc){return `<div class="list">${people.map(p=>`<article class="contact"><h3>${p.name||'Контакт услуги'}</h3><p>${p.note||desc||'Уточните детали услуги при звонке.'}</p><div class="phones"><div class="phone-action"><a class="phone" href="tel:+380${p.phone.slice(1)}"><strong>+380 ${p.phone.slice(1,3)} ${p.phone.slice(3,6)} ${p.phone.slice(6,8)} ${p.phone.slice(8)}</strong><span>Позвонить</span></a><button type="button" class="favorite-toggle" data-favorite="" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное">☆</button></div></div></article>`).join('')}</div>`}
+function contactList(people,desc){return `<div class="list">${people.map(p=>`<article class="contact"><h3>${p.name||'Контакт услуги'}</h3><p>${p.note||desc||'Уточните детали услуги при звонке.'}</p><div class="phones">${(p.phones||[p.phone]).map(phone=>`<div class="phone-action"><a class="phone" href="tel:+380${phone.slice(1)}"><strong>+380 ${phone.slice(1,3)} ${phone.slice(3,6)} ${phone.slice(6,8)} ${phone.slice(8)}</strong><span>Позвонить</span></a><button type="button" class="favorite-toggle" data-favorite="" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное">☆</button></div>`).join('')}</div></article>`).join('')}</div>`}
 tabs.forEach(t=>t.addEventListener('click',()=>{section=t.dataset.section;category=null;depth='categories';render()}));backButtons.forEach(button=>button.addEventListener('click',backOneLevel));document.addEventListener('pointerdown',event=>{const button=event.target.closest('.section-tab,.inner-back,.home-back,.category,.subcat,.phone,.favorite-toggle');if(!button)return;button.classList.add('tap-lit');setTimeout(()=>button.classList.remove('tap-lit'),420)},{passive:true});render();
 })();
 </script>

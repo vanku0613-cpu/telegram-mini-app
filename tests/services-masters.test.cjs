@@ -81,6 +81,11 @@ test('services and masters follow the source category hierarchy and keep contact
       assert.ok((await page.locator('#coverImage').getAttribute('src')).includes(expectedCovers[categoryName]),`${categoryName} uses its own cover`);
       assert.ok(await page.locator('.subcat').count() > 0, `${categoryName} has selectable specializations`);
       assert.equal(await page.locator('.subcat img').count(), 0, `${categoryName} buttons have no photos`);
+      if(categoryName==='Услуги по дому / участку'){
+        await page.getByRole('button',{name:/Покос травы/}).click();
+        assert.deepEqual(await page.locator('a.phone[href^="tel:"]').evaluateAll(items=>items.map(a=>a.getAttribute('href'))),['tel:+380637563046','tel:+380973388892'],'Dmitry has two unique phones in one service card');
+        await page.locator('[data-back]').first().click();
+      }
       await page.locator('[data-back]').first().click();
     }
 
@@ -97,8 +102,8 @@ test('services and masters follow the source category hierarchy and keep contact
       await page.setViewportSize({ width, height: 800 });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `no horizontal overflow at ${width}px`);
     }
-    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=contextual-covers-1"/);
-    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=contextual-covers-1"/);
+    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=contextual-covers-2"/);
+    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=contextual-covers-2"/);
     assert.equal(fs.existsSync(path.join(root,'services-masters','photos')),false,'downloaded category photos were removed');
     assert.equal(fs.existsSync(path.join(root,'services-masters','repair-underway.jpg')),false,'the remaining category photo was removed too');
   } finally {

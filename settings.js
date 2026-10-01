@@ -289,7 +289,7 @@ window.IZMAIL_SETTINGS = {
       "./transport/?v=contextual-covers-1",
 
     "Услуги и мастера":
-      "./services-masters/?v=contextual-covers-1",
+      "./services-masters/?v=contextual-covers-2",
 
     "Продукты питания":
       "./products-food/",

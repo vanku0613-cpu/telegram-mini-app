@@ -31,7 +31,8 @@ test('every published phone contact is reachable from global search',()=>{
   const index=new Set([...healthcare.records,...extra.records].flatMap(record=>record.phones||[]).map(normalize));
   const missing=[...source].filter(phone=>phone&&!index.has(phone));
   assert.deepEqual(missing,[],'phone numbers from app folders must be searchable');
-  assert.equal(source.size,529,'audited contact-number coverage');
+  assert.equal(source.size,530,'audited contact-number coverage');
+  assert.equal(extra.records.filter(record=>(record.phones||[]).includes('0973388892')).length,1,'Dmitry\'s additional phone is indexed once');
 });
 
 test('contact detail disclosure and shared one-line phone styling are wired to all contact folders',()=>{
@@ -68,8 +69,10 @@ test('individual trips contains only the discussed trip contacts',()=>{
   const schedule=fs.readFileSync(path.join(root,'transport/bus-schedule/index.html'),'utf8');
   assert.match(schedule,/<h1>Расписание автобусов Измаил<\/h1>/);
   assert.match(schedule,/\.route\{[^}]*background:linear-gradient\(145deg,#203c57/,'route buttons that open schedule details use the calm blue-graphite surface');
-  assert.match(schedule,/https:\/\/izzzzi\.info\/marshrutka-1\//);
-  assert.match(schedule,/https:\/\/izzzzi\.info\/marshrutka-23\//);
+  assert.match(schedule,/schedule-data\.json/,'the schedule is loaded from the local application data');
+  assert.doesNotMatch(schedule,/izzzzi\.info|Открыть источник/,'the schedule does not expose the source website');
+  const scheduleData=JSON.parse(fs.readFileSync(path.join(root,'transport/bus-schedule/schedule-data.json'),'utf8'));
+  assert.deepEqual(scheduleData.map(route=>route.id),['1','3','5','7','10','10-А','11','12','14','15','16','17','18','19','22','23']);
   assert.doesNotMatch(panel,/trip-back|← Вернуться в раздел/);
   assert.match(transport,/backs\[1\]\.hidden=\!\(activeGroup\|\|activeContent\)\|\|Boolean\(activeTrip\)/);
   assert.doesNotMatch(panel,/Вернуться к поездкам|Назад в раздел/);

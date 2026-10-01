@@ -39,7 +39,7 @@
   initialize();
 
   function softRefresh() {
-    // Repeated taps neither reload the document nor start overlapping refreshes.
+    // Repeated taps should not restart weather and other heavier refresh work.
     if (Date.now() - lastRefresh < 1000) return;
     lastRefresh = Date.now();
     window.dispatchEvent(new CustomEvent("izmail:refresh", { detail: { source: "home" } }));
@@ -116,7 +116,13 @@
     var el = elementFor(event);
     if (!el || el.disabled || el.getAttribute("aria-disabled") === "true") return;
     if (el.hasAttribute("download") || (el.target && el.target !== "_self")) return;
-    if (homeButton(el)) { stop(event); runWithMainMenuGlow(el, returnHome); return; }
+    if (homeButton(el)) {
+      stop(event);
+      // Lightweight page state (for example search) resets immediately, before the glow ends.
+      window.dispatchEvent(new CustomEvent("izmail:home", { detail: { source: "home" } }));
+      runWithMainMenuGlow(el, returnHome);
+      return;
+    }
     var url = targetUrl(el);
     if (!url) return;
     // Native external anchors retain new-tab, Telegram and browser behavior.
