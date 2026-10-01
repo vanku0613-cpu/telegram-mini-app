@@ -72,6 +72,12 @@ test('communal services page is reachable, organized, and uses unique callable c
     await page.locator('#gas').waitFor({state:'visible'});
     assert.equal(await page.locator('#gas').isVisible(),true);
     assert.equal(await page.locator('#water').isVisible(),false);
+    for(const links of await page.locator('#gas .links').all()){
+      const positions=await links.locator('a').evaluateAll(items=>items.map(item=>Math.round(item.getBoundingClientRect().top)));
+      assert.equal(new Set(positions).size,1,'gas app and website buttons share one compact row');
+    }
+    assert.equal(await page.locator('#gas .phone span').first().textContent(),'Позвонить');
+    assert.deepEqual(await page.locator('#gas .phone').first().evaluate(el=>{const style=getComputedStyle(el);return{minHeight:style.minHeight,padding:style.padding,borderRadius:style.borderRadius,background:style.backgroundColor}}),{minHeight:'48px',padding:'7px 8px',borderRadius:'11px',background:'rgb(10, 41, 69)'},'gas call buttons keep the shared services and masters style');
     await page.locator('#communalBack').click();
     await page.locator('.jump').waitFor({state:'visible'});
     const phones = await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(item => item.getAttribute('href')));
