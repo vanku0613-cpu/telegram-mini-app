@@ -59,3 +59,17 @@ test('individual trips contains only the discussed trip contacts',()=>{
   assert.equal((panel.match(/← Вернуться в раздел/g)||[]).length,6);
   assert.doesNotMatch(panel,/Вернуться к поездкам|Назад в раздел/);
 });
+
+test('transport cover follows the selected section and inner controls share neon feedback',()=>{
+  const transport=fs.readFileSync(path.join(root,'transport/index.html'),'utf8');
+  assert.match(transport,/<h1 id="coverTitle">/);
+  assert.match(transport,/<p id="coverDescription">/);
+  const script=[...transport.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-1)?.[1];
+  assert.ok(script,'transport navigation script should exist');
+  assert.doesNotThrow(()=>new Function(script),'transport navigation script should parse');
+  assert.match(script,/activeTrip[\s\S]*activeContent[\s\S]*activeGroup/);
+  assert.match(script,/coverTitle\.textContent=title/);
+  const css=fs.readFileSync(path.join(root,'interior-polish.css'),'utf8');
+  assert.match(css,/:is\(\.page, \.wrap\) :is\(button, a\[href\], \[role="button"\]\)/);
+  assert.match(css,/:is\(\.page, \.wrap\) :is\(\.section-back, \.back-btn, \.inner-back, \.trip-back\)/);
+});

@@ -270,6 +270,28 @@ body {
   height: clamp(150px, 42vw, 210px);
 }
 
+/* Keep a restrained neon response on controls throughout interior folders. */
+:is(.page, .wrap) :is(button, a[href], [role="button"]) {
+  transition: border-color .18s ease, box-shadow .18s ease, filter .18s ease;
+  box-shadow: 0 0 11px rgba(58, 166, 221, .16);
+}
+
+:is(.page, .wrap) :is(button, a[href], [role="button"]):is(:hover, :focus-visible, :active) {
+  box-shadow: 0 0 0 1px rgba(112, 211, 255, .16), 0 0 17px rgba(49, 177, 232, .38);
+}
+
+:is(.page, .wrap) :is(.section-back, .back-btn, .inner-back, .trip-back) {
+  box-shadow: 0 0 11px rgba(56, 208, 153, .2);
+}
+
+:is(.page, .wrap) :is(.section-back, .back-btn, .inner-back, .trip-back):is(:hover, :focus-visible, :active) {
+  box-shadow: 0 0 0 1px rgba(174, 255, 219, .2), 0 0 17px rgba(56, 208, 153, .4);
+}
+
+:is(.page, .wrap) .favorite-toggle[aria-pressed="true"] {
+  box-shadow: 0 0 0 1px rgba(174, 255, 219, .18), 0 0 15px rgba(56, 208, 153, .34);
+}
+
 /* Category and action tiles share one surface language across folders. */
 :is(.section-tab, .tab, .category, .subcat, .item, .branch-card, .category-tile, .city-tab, .jump a) {
   border-color: var(--interior-line);
