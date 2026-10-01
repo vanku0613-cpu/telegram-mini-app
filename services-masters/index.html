@@ -22,6 +22,19 @@
 #view .grid>.category>strong,#view .grid>.subcat>strong{font-size:clamp(12px,3.8vw,16px);word-break:normal;overflow-wrap:normal;hyphens:none;text-wrap:balance}
 #view .grid>.category>.tile-arrow,#view .grid>.subcat>.tile-arrow{position:absolute;right:9px;bottom:9px;grid-column:auto;grid-row:auto;font-size:25px}
 #view .grid>.category>small,#view .grid>.subcat>small{padding-right:18px}
+
+/* Directory cards: clear icon, title and contact count in one professional row. */
+#view .grid{gap:10px}
+#view .grid>.category,#view .grid>.subcat{display:grid;grid-template-columns:52px minmax(0,1fr) 24px;grid-template-rows:minmax(0,1fr) auto;align-items:center;column-gap:10px;height:94px;min-height:94px;padding:9px 10px;border:1.5px solid rgba(79,165,219,.8);border-radius:18px;background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);box-shadow:inset 0 1px rgba(220,246,255,.13),0 7px 18px rgba(0,0,0,.29),0 0 12px rgba(34,143,207,.16);transition:border-color .12s ease,box-shadow .12s ease}
+#view .grid>.category:before,#view .grid>.subcat:before{display:none}
+#view .grid>.category>.art,#view .grid>.subcat>.art{position:static;grid-column:1;grid-row:1/3;width:52px;height:52px;margin:0;padding:10px;border:1px solid rgba(83,178,230,.36);border-radius:15px;background:linear-gradient(145deg,rgba(19,96,148,.76),rgba(7,49,88,.78));filter:drop-shadow(0 0 8px rgba(67,183,238,.38));opacity:1}
+#view .grid>.category>.category-copy,#view .grid>.subcat>.category-copy{display:contents}
+#view .grid>.category>strong,#view .grid>.subcat>strong{grid-column:2;grid-row:1;align-self:end;margin:0;padding:0;font-size:clamp(14px,3.75vw,18px);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:#f2fbff;text-wrap:balance}
+#view .grid>.category>small,#view .grid>.subcat>small{grid-column:2;grid-row:2;align-self:start;margin:4px 0 0;padding:0;color:#aacce0;font-size:12px;font-weight:700;line-height:1.1}
+#view .grid>.category>.tile-arrow,#view .grid>.subcat>.tile-arrow{position:static;grid-column:3;grid-row:1/3;justify-self:end;align-self:center;margin:0;color:#c7efff;font-size:34px;font-weight:300;line-height:1;text-shadow:0 0 10px rgba(89,201,255,.52)}
+/* Saturated blue perimeter feedback on every tappable control in this directory. */
+.section-tab:active,.section-tab.tap-lit,.inner-back:active,.inner-back.tap-lit,.home-back:active,.home-back.tap-lit,#view .grid>.category:active,#view .grid>.category.tap-lit,#view .grid>.subcat:active,#view .grid>.subcat.tap-lit{border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
+@media(max-width:350px){#view .grid{gap:8px}#view .grid>.category,#view .grid>.subcat{grid-template-columns:44px minmax(0,1fr) 18px;height:86px;min-height:86px;padding:8px;column-gap:7px;border-radius:15px}#view .grid>.category>.art,#view .grid>.subcat>.art{width:44px;height:44px;padding:8px;border-radius:13px}#view .grid>.category>strong,#view .grid>.subcat>strong{font-size:13px}#view .grid>.category>small,#view .grid>.subcat>small{font-size:11px}#view .grid>.category>.tile-arrow,#view .grid>.subcat>.tile-arrow{font-size:28px}}
 </style>
 <style>
 .paired-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px;margin:0 auto 13px}
@@ -121,7 +134,7 @@ const drawings={
 const icon=(key)=>`<svg class="art" viewBox="0 0 24 24" fill="none" stroke="#8fe4ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${drawings[key]||drawings.wrench}</svg>`;
 const view=document.getElementById('view'),title=document.getElementById('viewTitle'),hint=document.getElementById('viewHint'),viewIcon=document.getElementById('viewIcon'),tabs=[...document.querySelectorAll('[data-section]')],backButtons=[...document.querySelectorAll('[data-back]')];let section='services',category=null,depth='categories';
 function backOneLevel(){if(section==='services'){depth='categories';category=null}else if(depth==='contacts'){delete category.selected;depth='subcategories'}else if(depth==='subcategories'){depth='categories';category=null}render()}
-function categoryCard(item,index,sub=false){const n=sub?item.people.length:0;const meta=sub?`${n} ${n===1?'контакт':'контакта'}`:item.sub?.length?`${item.sub.length} заполненных раздела`:`${item.people.length} контактов`;const level=sub||section==='services'?'direct-entry':'has-children';return `<button type="button" class="${sub?'subcat':'category'} ${level}" data-item="${index}"><strong>${item.title}</strong><small>${meta}</small><span class="tile-arrow" aria-hidden="true">›</span></button>`}
+function categoryCard(item,index,sub=false){const n=sub?item.people.length:0;const meta=sub?`${n} ${n===1?'контакт':'контакта'}`:item.sub?.length?`${item.sub.length} заполненных раздела`:`${item.people.length} контактов`;const level=sub||section==='services'?'direct-entry':'has-children';const fallback=section==='services'?'truck':'wrench';return `<button type="button" class="${sub?'subcat':'category'} ${level}" data-item="${index}">${icon(item.icon||fallback)}<strong>${item.title}</strong><small>${meta}</small><span class="tile-arrow" aria-hidden="true">›</span></button>`}
 function render(){const data=section==='masters'?masters:services,hasBack=section==='services'?depth==='phones':depth!=='categories';view.dataset.section=section;view.dataset.level=depth;tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.section===section)));backButtons.forEach(button=>button.hidden=!hasBack);document.querySelectorAll('.paired-nav').forEach(nav=>nav.classList.toggle('has-section',hasBack));view.innerHTML='';
  if(section==='services'){
   viewIcon.textContent='У';title.textContent='Услуги';hint.textContent='Выберите направление';
@@ -137,7 +150,7 @@ function render(){const data=section==='masters'?masters:services,hasBack=sectio
  const sub=category.selected;viewIcon.innerHTML=icon(sub.icon);title.textContent=sub.title;hint.textContent=category.title+' · '+sub.people.length+' контактов';view.innerHTML=contactList(sub.people,sub.desc);
 }
 function contactList(people,desc){return `<div class="list">${people.map(p=>`<article class="contact"><h3>${p.name||'Контакт услуги'}</h3><p>${p.note||desc||'Уточните детали услуги при звонке.'}</p><div class="phones"><a class="phone" href="tel:+380${p.phone.slice(1)}"><strong>+380 ${p.phone.slice(1,3)} ${p.phone.slice(3,6)} ${p.phone.slice(6,8)} ${p.phone.slice(8)}</strong><span>Позвонить</span></a></div></article>`).join('')}</div>`}
-tabs.forEach(t=>t.addEventListener('click',()=>{section=t.dataset.section;category=null;depth='categories';render()}));backButtons.forEach(button=>button.addEventListener('click',backOneLevel));render();
+tabs.forEach(t=>t.addEventListener('click',()=>{section=t.dataset.section;category=null;depth='categories';render()}));backButtons.forEach(button=>button.addEventListener('click',backOneLevel));document.addEventListener('pointerdown',event=>{const button=event.target.closest('.section-tab,.inner-back,.home-back,.category,.subcat');if(!button)return;button.classList.add('tap-lit');setTimeout(()=>button.classList.remove('tap-lit'),420)},{passive:true});render();
 })();
 </script>
 <script src="../favorites.js?v=1" defer></script>
