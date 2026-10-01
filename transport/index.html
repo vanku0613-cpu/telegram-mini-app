@@ -83,6 +83,13 @@
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=9">
 <link rel="stylesheet" href="../favorites.css?v=4">
+<style>
+/* Keep search feedback on the rounded field; suppress the browser's inner focus rectangle. */
+.schedule-search input,.schedule-search input:focus,.schedule-search input:focus-visible{outline:0!important;outline-offset:0!important;box-shadow:none!important;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent}
+.schedule-search-label:focus-within,.schedule-search-label.tap-lit{border-color:#57e8ff!important;box-shadow:0 0 0 1px #1ccfff,0 0 10px 2px rgba(0,167,255,.72),0 0 21px rgba(0,110,255,.5),inset 0 0 14px rgba(18,156,255,.3)!important}
+.schedule-search-clear:focus,.schedule-search-clear:focus-visible{outline:0!important}
+.schedule-search-clear:active,.schedule-search-clear.tap-lit,.schedule-search-result:active,.schedule-search-result.tap-lit{border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 10px 3px #00a7ff,0 0 22px 6px rgba(0,110,255,.68),inset 0 0 15px rgba(18,156,255,.36)!important;outline:0!important}
+</style>
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
 <script src="../contact-details.js?v=1" defer></script>
 <script src="../favorites.js?v=2" defer></script>
@@ -186,7 +193,7 @@
     if(activeTrip){
       const folder=tripFolders.find(button=>button.dataset.tripFolder===activeTrip);
       title=folder?.querySelector('strong')?.textContent.trim()||title;
-      description=folder?.querySelector('span')?.textContent.trim()||description;
+      description=folder?.querySelector('.trip-copy > span')?.textContent.trim()||description;
       image=['../assets/transport-transfer-cover-v1.webp?v=1','Индивидуальный трансфер и поездки'];
     }else if(activeContent){
       const panel=panels.find(item=>item.id===activeContent);
@@ -236,7 +243,7 @@
   scheduleSearch.addEventListener('input',renderScheduleSearch);
   scheduleSearch.addEventListener('keydown',event=>{if(event.key==='Escape'){scheduleSearch.value='';renderScheduleSearch();scheduleSearch.blur()}});
   scheduleSearchClear.addEventListener('click',()=>{scheduleSearch.value='';renderScheduleSearch();scheduleSearch.focus()});
-  document.addEventListener('pointerdown',event=>{const control=event.target.closest('.tab,.trip-folder,.section-back,.home-back,.phone,.links a,.favorite-toggle,.schedule-search-result');if(!control)return;control.classList.add('tap-lit');setTimeout(()=>control.classList.remove('tap-lit'),420)},{passive:true});
+  document.addEventListener('pointerdown',event=>{const control=event.target.closest('.tab,.trip-folder,.section-back,.home-back,.phone,.links a,.favorite-toggle,.schedule-search-label,.schedule-search-clear,.schedule-search-result');if(!control)return;control.classList.add('tap-lit');setTimeout(()=>control.classList.remove('tap-lit'),420)},{passive:true});
   if(location.hash==='#schedule')activeGroup='schedule';
   render();
 })();

@@ -98,10 +98,14 @@ test('transport cover follows the selected section and inner controls share neon
   assert.ok(script,'transport navigation script should exist');
   assert.doesNotThrow(()=>new Function(script),'transport navigation script should parse');
   assert.match(script,/activeTrip[\s\S]*activeContent[\s\S]*activeGroup/);
+  assert.match(script,/querySelector\(\x27\.trip-copy > span\x27\)/);
   assert.match(script,/coverTitle\.textContent=title/);
   assert.match(transport,/#taxi \.links a\{border-color:#568da8;background:linear-gradient\(180deg,#24516d,#193a52\)/);
   assert.match(transport,/\.taxi-options\{grid-auto-rows:112px[\s\S]*background:linear-gradient\(145deg,rgba\(7,35,65,.94\),rgba\(4,22,42,.97\)\)/);
   assert.match(transport,/\.taxi-options \.trip-folder\{display:grid;grid-template-columns:42px minmax\(0,1fr\) 14px/);
+  assert.match(transport,/\.schedule-search input:focus-visible\{outline:0!important/);
+  assert.match(transport,/\.schedule-search-label:focus-within,\.schedule-search-label\.tap-lit\{border-color:#57e8ff!important/);
+  assert.match(transport,/\.schedule-search-label,\.schedule-search-clear,\.schedule-search-result/);
   assert.match(transport,/#individual \[data-trip-detail="moldova"\] \.links a\{border-color:#568da8/);
   assert.match(food,/\.contact \.links a\{border-color:#568da8;background:linear-gradient\(180deg,#24516d,#193a52\)/);
   assert.match(transport,/chooser\.hidden=Boolean\(activeContent\|\|activeTrip\|\|activeGroup==='schedule'\)/);
