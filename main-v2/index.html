@@ -3,14 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover,interactive-widget=overlays-content">
+<script>
+(function(){
+  var root=document.documentElement,initialWidth=window.innerWidth;
+  function lockStage(){
+    var width=window.innerWidth,height=window.innerHeight;
+    root.style.setProperty('--stable-viewport-height',height+'px');
+    root.style.setProperty('--stage-w',Math.min(width,height*.488,600)+'px');
+    root.style.setProperty('--stage-h',Math.min(width*1.783,height*.87,1069.8)+'px');
+    initialWidth=width;
+  }
+  lockStage();
+  window.addEventListener('resize',function(){
+    if(Math.abs(window.innerWidth-initialWidth)>40&&!document.activeElement?.matches('#directorySearch, .search-real, input[type="search"]'))lockStage();
+  });
+  window.addEventListener('orientationchange',function(){setTimeout(lockStage,300)});
+})();
+</script>
 <meta name="theme-color" content="#03172f">
 <title>Справочник Измаил</title>
 
 <style>
 :root {
-  --stage-w:min(100vw,48.80vh,600px);
   --stage-w:min(100vw,48.80svh,600px);
-  --stage-h:min(178.3vw,87.00vh,1069.8px);
   --stage-h:min(178.3vw,87.00svh,1069.8px);
   --navy:#051b37;
   --navy2:#03142b;
@@ -21,16 +36,16 @@
 }
 * { box-sizing:border-box; }
 html, body {
-  margin:0; width:100%; height:100%; min-height:100vh; min-height:100svh;
+  margin:0; width:100%; height:var(--stable-viewport-height,100svh); min-height:var(--stable-viewport-height,100svh);
   overflow:hidden !important; overscroll-behavior:none;
   background:var(--navy2); color:var(--text);
   font-family:Arial, Helvetica, sans-serif; -webkit-text-size-adjust:100%;
 }
-body { position:fixed; inset:0; width:100vw; height:100vh; height:100svh; display:grid; justify-items:center; align-content:start; }
+body { position:fixed; inset:0; width:100vw; height:var(--stable-viewport-height,100svh); display:grid; justify-items:center; align-content:start; }
 button, input { font:inherit; }
 button { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 #app {
-  position:relative; left:auto; top:auto; width:var(--stage-w); height:var(--stage-h); max-width:100vw; max-height:100vh; max-height:100svh;
+  position:relative; left:auto; top:auto; width:var(--stage-w); height:var(--stage-h); max-width:100vw; max-height:var(--stable-viewport-height,100svh);
   overflow:hidden; background:var(--navy2); container-type:inline-size; transform:translate3d(0,0,0);
 }
 .bg-blur {
@@ -1655,6 +1670,6 @@ a.nav{ text-decoration:none; }
 })();
 
 </script>
-<script src="../directory-search.js?v=10"></script>
+<script src="../directory-search.js?v=11"></script>
 </body>
 </html>

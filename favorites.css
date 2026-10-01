@@ -1,0 +1,6 @@
+.phone-action{display:grid;grid-template-columns:minmax(0,1fr) 40px;gap:6px;align-items:stretch;min-width:0}
+.phone-action>.phone{width:100%;min-width:0}
+.favorite-toggle{display:grid;place-items:center;width:40px;min-width:40px;min-height:40px;align-self:center;padding:0;border:1px solid #50708a;border-radius:11px;background:#102c45;color:#c6deec;font-size:25px;line-height:1;cursor:pointer}
+.favorite-toggle[aria-pressed="true"]{color:#b6ffe0;border-color:#5ee397;background:#107344;box-shadow:0 0 9px #36d89344}
+.favorite-toggle:focus-visible{outline:2px solid #70d3ff;outline-offset:2px}
+.phone-action .favorite-toggle{flex:0 0 40px}

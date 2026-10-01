@@ -6,6 +6,7 @@
   let data,externalRecords=null,externalPending=null;
   const savedKey='izmail.health.favorites.v1';
   const readSaved=()=>{try{const x=JSON.parse(localStorage.getItem(savedKey)||'[]');return new Set(Array.isArray(x)?x.filter(v=>typeof v==='string'):[])}catch{return new Set()}};
+  const readLocalFavoriteCatalog=()=>{try{const x=JSON.parse(localStorage.getItem('izmail.favorites.catalog.v1')||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?Object.values(x).filter(r=>r&&typeof r.name==='string'&&Array.isArray(r.phones)):[]}catch{return []}};
   let saved=readSaved();
   const favoriteKey=(r,p)=>JSON.stringify([r.favoriteName||r.name,p]);
   const cityNames=r=>r.city.split(' / ');
@@ -19,7 +20,7 @@
   const isInCity=(r,city)=>cityNames(r).includes(city)||r.city==='Украина';
   function favoriteButton(r,p){const key=favoriteKey(r,p),active=saved.has(key);return '<button type="button" class="favorite-toggle" data-favorite="'+escape(key)+'" aria-pressed="'+active+'" aria-label="'+(active?'Убрать из избранного':'Добавить в избранное')+': '+escape(r.name)+' '+fmt(p)+'" title="'+(active?'Убрать из избранного':'Добавить в избранное')+'">'+(active?'★':'☆')+'</button>'}
   function syncFavorites(){document.querySelectorAll('[data-favorite]').forEach(b=>{const active=saved.has(b.dataset.favorite),label=active?'Убрать из избранного':'Добавить в избранное';b.setAttribute('aria-pressed',String(active));b.textContent=active?'★':'☆';b.setAttribute('aria-label',label+': '+JSON.parse(b.dataset.favorite).join(' '));b.title=label})}
-  function loadExternalFavorites(){if(externalRecords)return Promise.resolve(externalRecords);if(externalPending)return externalPending;externalPending=fetch('../directory-search-extra.json?v=20261001-3',{cache:'no-cache'}).then(response=>{if(!response.ok)throw Error('favorites');return response.json()}).then(json=>{externalRecords=Array.isArray(json.records)?json.records:[];externalPending=null;if(data&&route().favorites)render();return externalRecords}).catch(()=>{externalRecords=[];externalPending=null;return externalRecords});return externalPending}
+  function loadExternalFavorites(){if(externalRecords)return Promise.resolve(externalRecords);if(externalPending)return externalPending;externalPending=fetch('../directory-search-extra.json?v=20261001-5',{cache:'no-cache'}).then(response=>{if(!response.ok)throw Error('favorites');return response.json()}).then(json=>{externalRecords=Array.isArray(json.records)?json.records:[];externalPending=null;if(data&&route().favorites)render();return externalRecords}).catch(()=>{externalRecords=[];externalPending=null;return externalRecords});return externalPending}
 
   const norm = value => String(value).toLocaleLowerCase().replace(/[ёє]/g,'е').replace(/[ії]/g,'и').replace(/[’'`]/g,'').replace(/\s+/g,' ').trim();
   const fmt = p => p.length === 10 ? p.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/,'$1 $2 $3 $4') : p;
@@ -120,7 +121,7 @@
       return;
     }
     let scope=data.records.filter(r=>(!branch||category||categoriesFor(r).some(id=>data.categories.find(c=>c.id===id)?.branch===branch))&&(!category||categoriesFor(r).includes(category.id))&&(!contactId||r.id===contactId)&&(!cityName||isInCity(r,cityName))&&(branch!=='doctors'||cityName||cities().some(city=>isInCity(r,city))));
-    if(favorites){const seen=new Set();scope=[...scope,...(externalRecords||[])].map(r=>({...r,phones:r.phones.filter(p=>{const k=favoriteKey(r,p);if(!saved.has(k)||seen.has(k))return false;seen.add(k);return true})})).filter(r=>r.phones.length)}
+    if(favorites){const seen=new Set();scope=[...scope,...(externalRecords||[]),...readLocalFavoriteCatalog()].map(r=>({...r,phones:r.phones.filter(p=>{const k=favoriteKey(r,p);if(!saved.has(k)||seen.has(k))return false;seen.add(k);return true})})).filter(r=>r.phones.length)}
     if(q){
       const found=scope.filter(r=>matched(r,q));
       $('resultStatus').textContent=(cityName?cityName+' · ':'')+'Найдено: '+found.length;

@@ -33,6 +33,7 @@
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=4">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
+<link rel="stylesheet" href="../favorites.css?v=1">
 </head>
 <body>
 <main class="wrap">
@@ -82,5 +83,6 @@
 <script>
 (()=>{const tabs=[...document.querySelectorAll('[data-tab]')];const panels=[...document.querySelectorAll('[role="tabpanel"]')];const menu=document.querySelector('.tabs');const chooser=document.querySelector('.chooser');const backs=[document.getElementById('sectionBack'),document.getElementById('sectionBackBottom')];function select(name){for(const item of tabs)item.setAttribute('aria-selected',String(item.dataset.tab===name));for(const panel of panels)panel.hidden=panel.id!==name;menu.hidden=Boolean(name);chooser.hidden=Boolean(name);document.querySelectorAll('.recreation-nav').forEach(nav=>nav.classList.toggle('has-section',Boolean(name)));backs.forEach(back=>back.hidden=!name);}for(const tab of tabs)tab.addEventListener('click',()=>select(tab.dataset.tab));backs.forEach(back=>back.addEventListener('click',()=>select(null)));select(null);})();
 </script>
+<script src="../favorites.js?v=1" defer></script>
 </body>
 </html>

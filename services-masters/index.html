@@ -37,6 +37,7 @@
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=4">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
+<link rel="stylesheet" href="../favorites.css?v=1">
 </head>
 <body>
 <main class="wrap">
@@ -139,5 +140,6 @@ function contactList(people,desc){return `<div class="list">${people.map(p=>`<ar
 tabs.forEach(t=>t.addEventListener('click',()=>{section=t.dataset.section;category=null;depth='categories';render()}));backButtons.forEach(button=>button.addEventListener('click',backOneLevel));render();
 })();
 </script>
+<script src="../favorites.js?v=1" defer></script>
 </body>
 </html>
