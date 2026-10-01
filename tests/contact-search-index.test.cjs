@@ -47,6 +47,11 @@ test('contact detail disclosure and shared one-line phone styling are wired to a
 
 test('individual trips contains only the discussed trip contacts',()=>{
   const transport=fs.readFileSync(path.join(root,'transport/index.html'),'utf8');
+  const taxiMenu=transport.match(/<nav class="tabs taxi-options"[\s\S]*?<\/nav>/)?.[0];
+  assert.ok(taxiMenu,'taxi and individual trip folders should share one parent menu');
+  assert.match(taxiMenu,/data-content="taxi">Такси по городу/);
+  assert.equal((taxiMenu.match(/data-trip-folder=/g)||[]).length,6);
+  assert.doesNotMatch(taxiMenu,/data-content="individual"/);
   const panel=transport.match(/<section class="panel" id="individual"[\s\S]*?<\/section>\s*<\/section>/)?.[0];
   assert.ok(panel,'individual trips panel should exist');
   const actual=new Set([...panel.matchAll(/href="tel:\+?([^\"]+)"/g)].map(match=>normalize(match[1])));
@@ -62,6 +67,7 @@ test('individual trips contains only the discussed trip contacts',()=>{
 
 test('transport cover follows the selected section and inner controls share neon feedback',()=>{
   const transport=fs.readFileSync(path.join(root,'transport/index.html'),'utf8');
+  const food=fs.readFileSync(path.join(root,'products-food/index.html'),'utf8');
   assert.match(transport,/<h1 id="coverTitle">/);
   assert.match(transport,/<p id="coverDescription">/);
   const script=[...transport.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-1)?.[1];
@@ -69,6 +75,8 @@ test('transport cover follows the selected section and inner controls share neon
   assert.doesNotThrow(()=>new Function(script),'transport navigation script should parse');
   assert.match(script,/activeTrip[\s\S]*activeContent[\s\S]*activeGroup/);
   assert.match(script,/coverTitle\.textContent=title/);
+  assert.match(transport,/#taxi \.links a\{border-color:#54dda5;background:linear-gradient\(180deg,#159858,#0d7442\)/);
+  assert.match(food,/\.contact \.links a\{border-color:#54dda5;background:linear-gradient\(180deg,#159858,#0d7442\)/);
   const css=fs.readFileSync(path.join(root,'interior-polish.css'),'utf8');
   assert.match(css,/:is\(\.page, \.wrap\) :is\(button, a\[href\], \[role="button"\]\)/);
   assert.match(css,/:is\(\.page, \.wrap\) :is\(\.section-back, \.back-btn, \.inner-back, \.trip-back\)/);
