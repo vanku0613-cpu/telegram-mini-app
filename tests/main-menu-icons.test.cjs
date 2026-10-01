@@ -78,11 +78,20 @@ test('desktop typography is capped without changing phone rules', () => {
 
 test('every main card description remains fully visible', () => {
   const js = fs.readFileSync(path.join(root, 'main-v2', 'main.js'), 'utf8');
-  assert.match(css, /\.cards \.card-copy small\{[\s\S]*?width:125%;[\s\S]*?text-overflow:clip/);
+  assert.match(css, /#app \.cards \.card-copy small\{[\s\S]*?width:118%;[\s\S]*?font-size:clamp\(9px,2\.2cqw,11px\);[\s\S]*?font-weight:900/);
   assert.match(js, /var subtitles=/);
-  assert.match(js, /subtitle\.style\.fontSize=Math\.max\(6\.8,/);
+  assert.match(js, /subtitle\.style\.fontSize=Math\.max\(7\.2,/);
   assert.match(html, /Свет • Вода • Газ • Интернет/);
   assert.doesNotMatch(html, /Найти работу • Разместить вакансию/);
+});
+
+test('long main-card titles keep natural letter proportions', () => {
+  const js = fs.readFileSync(path.join(root, 'main-v2', 'main.js'), 'utf8');
+  assert.match(js, /querySelectorAll\("\.card-copy strong,\.groups-title"\)/);
+  assert.doesNotMatch(js, /span\.style\.transform="scaleX/);
+  assert.match(css, /#app \.cards \.card\.compact\.expanded-label \.card-copy strong>span\{[\s\S]*?transform:none!important/);
+  assert.match(html, /main\.css\?v=28/);
+  assert.match(html, /main\.js\?v=8/);
 });
 
 test('all category arrows share one visible position', () => {

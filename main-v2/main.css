@@ -1126,3 +1126,41 @@ a.nav{ text-decoration:none; }
   display:grid!important;place-items:center;right:3.5%;top:50%;width:clamp(15px,4cqw,19px);height:clamp(15px,4cqw,19px);transform:translateY(-50%);font-size:clamp(17px,4.3cqw,21px);line-height:1;color:#d8e9f2;opacity:.88;text-shadow:0 1px 3px rgba(0,0,0,.78);
 }
 
+/* Give menu labels their natural proportions. The icon stays in the upper
+   corner, while the text receives the full readable lane up to the arrow. */
+#app .cards .card-copy,
+#app .cards .card.compact .card-copy,
+#app .cards .card.compact.expanded-label .card-copy{
+  left:5.5%!important;
+  right:14%!important;
+  bottom:8%;
+}
+#app .cards .card-corner-icon{
+  top:5%;
+  width:clamp(15px,3.8cqw,19px);
+  height:clamp(15px,3.8cqw,19px);
+}
+#app .cards .card-copy strong,
+#app .cards .card.compact .card-copy strong,
+#app .cards .card.compact.expanded-label .card-copy strong{
+  max-width:100%;
+  overflow:hidden;
+  letter-spacing:-.02em;
+  -webkit-text-stroke:.24px rgba(0,8,20,.76);
+}
+#app .cards .card.compact.expanded-label .card-copy strong>span{
+  display:inline;
+  max-width:100%;
+  white-space:nowrap;
+  transform:none!important;
+}
+#app .cards .card-copy small{
+  width:118%;
+  margin-top:3px;
+  overflow:hidden;
+  transform:translateX(-5.5%);
+  font-size:clamp(9px,2.2cqw,11px);
+  font-weight:900;
+  letter-spacing:-.01em;
+}
+

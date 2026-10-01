@@ -566,15 +566,14 @@
 
   function fitMainCardTitles(){
     frame=0;
-    var titles=Array.prototype.slice.call(document.querySelectorAll(".card:not(.expanded-label) .card-copy strong,.groups-title"));
-    var expanded=Array.prototype.slice.call(document.querySelectorAll(".card.expanded-label .card-copy strong"));
+    var titles=Array.prototype.slice.call(document.querySelectorAll(".card-copy strong,.groups-title"));
     var subtitles=Array.prototype.slice.call(document.querySelectorAll(".card-copy small"));
     var navLabels=Array.prototype.slice.call(document.querySelectorAll(".bottom .nav > span:not(.nav-icon):not(.press-glow)"));
 
     titles.forEach(function(title){title.style.fontSize="";});
     subtitles.forEach(function(subtitle){subtitle.style.fontSize="";});
     navLabels.forEach(function(label){label.style.fontSize="";});
-    expanded.forEach(function(title){
+    titles.forEach(function(title){
       var span=title.querySelector("span");
       if(span) span.style.transform="none";
     });
@@ -589,19 +588,7 @@
 
       var current=parseFloat(getComputedStyle(title).fontSize);
       if(!isFinite(current) || current<=0) return;
-      title.style.fontSize=Math.max(8,current*(available/required)*.98).toFixed(2)+"px";
-    });
-
-    expanded.forEach(function(title){
-      var span=title.querySelector("span");
-      if(!span) return;
-
-      var available=Math.max(0,title.clientWidth-2);
-      var required=span.scrollWidth;
-      if(!available || !required) return;
-
-      var scale=Math.min(1,(available/required)*.985);
-      span.style.transform="scaleX("+scale.toFixed(4)+")";
+      title.style.fontSize=Math.max(7.4,current*(available/required)*.985).toFixed(2)+"px";
     });
 
     subtitles.forEach(function(subtitle){
@@ -610,7 +597,7 @@
       if(!available || required<=available) return;
       var current=parseFloat(getComputedStyle(subtitle).fontSize);
       if(!isFinite(current) || current<=0) return;
-      subtitle.style.fontSize=Math.max(6.8,current*(available/required)*.98).toFixed(2)+"px";
+      subtitle.style.fontSize=Math.max(7.2,current*(available/required)*.985).toFixed(2)+"px";
     });
 
     navLabels.forEach(function(label){
