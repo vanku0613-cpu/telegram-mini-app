@@ -230,6 +230,9 @@ window.IZMAIL_SETTINGS = {
     groups:
       "../our-groups-menu/",
 
+    zags:
+      "../zags/",
+
     /* Главная — текущий MAIN-V2 */
 
     home:
@@ -248,7 +251,7 @@ window.IZMAIL_SETTINGS = {
       "../health-care/",
 
     "Транспорт / Такси":
-      "",
+      "../transport/",
 
     "Услуги и мастера":
       "../services-masters/",
@@ -473,8 +476,6 @@ if (
       scale +
       ";" +
 
-      "transform:translateX(-50%);" +
-
       "transform-origin:center center;" +
 
     "}",
@@ -588,7 +589,7 @@ if (
       " !important;" +
 
       "width:" +
-      menuWidth +
+      "40.5%" +
       " !important;" +
 
       "top:calc(" +
@@ -607,6 +608,19 @@ if (
       "transform-origin:center center;" +
 
       "translate:0 var(--cards-section-shift, 0px);" +
+
+    "}",
+
+
+    ".groups.zags-shortcut{" +
+
+      "left:auto !important;" +
+
+      "right:" +
+      menuLeft +
+      " !important;" +
+
+      "width:40.5% !important;" +
 
     "}",
 
@@ -862,21 +876,18 @@ function izmailWhenReady(
 
     );
 
-    viewer.style.setProperty("width", alignedWidth.toFixed(2) + "px", "important");
+    viewer.style.setProperty("min-width", alignedWidth.toFixed(2) + "px", "important");
+    viewer.style.setProperty("width", "max-content", "important");
 
-
-    viewer.style.setProperty("left", centerX.toFixed(2) + "px", "important");
 
     var viewerRect = viewer.getBoundingClientRect();
 
-    var renderedCenterX =
-      viewerRect.left -
-      appRect.left +
-      viewerRect.width / 2;
-
-    var correctedLeft = centerX + centerX - renderedCenterX;
-
-    viewer.style.setProperty("left", correctedLeft.toFixed(2) + "px", "important");
+    // Keep long counts fully inside the app frame on narrow phones.
+    centerX = Math.max(
+      viewerRect.width / 2,
+      Math.min(centerX, appRect.width - viewerRect.width / 2)
+    );
+    viewer.style.setProperty("left", (centerX - viewerRect.width / viewerScale / 2).toFixed(2) + "px", "important");
 
 
     try {

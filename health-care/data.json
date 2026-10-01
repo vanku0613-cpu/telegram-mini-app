@@ -1306,7 +1306,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96305",
       "order": 32,
-      "count": 11,
+      "count": 10,
       "note": ""
     },
     {
@@ -2945,10 +2945,12 @@
       "category": "96305",
       "name": "Стоянов Евгений Васильевич",
       "phones": [
-        "0962309866"
+        "0962309866",
+        "0665649866",
+        "0984947315"
       ],
       "city": "Измаил",
-      "note": "пр. Незалежності, 141А (бывш. Суворова), угол ул. Репина",
+      "note": "Измаильская районная поликлиника, просп. Независимости (бывш. Суворова), 141А, кабинет 1",
       "source": "telegram"
     },
     {
@@ -5040,12 +5042,12 @@
     {
       "id": "dovidka-yankovska-tetyana-mykolayivna",
       "category": "96231",
-      "name": "Янковська Тетяна Миколаївна",
+      "name": "Янковская Татьяна Николаевна",
       "phones": [
         "0687930526"
       ],
       "city": "Измаил",
-      "note": "Контакт опубликован в городском каталоге; приём уточните по телефону",
+      "note": "Детский стоматолог · ул. Садовая",
       "source": "directory-yankovska-tetyana-mykolayivna",
       "phoneLabel": "Контакт для записи из каталога"
     },
@@ -6182,21 +6184,6 @@
       "note": "Педиатр · детская городская поликлиника № 6, Таирова",
       "city": "Одесса",
       "source": "user-supplied-odessa-konoval",
-      "additionalSources": []
-    },
-    {
-      "id": "user-izmail-stoyanov",
-      "name": "Стоянов Евгений Васильевич",
-      "phones": [
-        "0984947315"
-      ],
-      "categories": [
-        "96305"
-      ],
-      "category": "96305",
-      "note": "Гастроэнтеролог",
-      "city": "Измаил",
-      "source": "user-supplied-izmail-stoyanov",
       "additionalSources": []
     },
     {
