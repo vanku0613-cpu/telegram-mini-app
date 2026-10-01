@@ -56,6 +56,7 @@ test('individual trips contains only the discussed trip contacts',()=>{
   assert.equal((taxiMenu.match(/class="trip-folder direct-entry"/g)||[]).length,6);
   assert.equal((taxiMenu.match(/data-trip-folder=/g)||[]).length,5);
   assert.match(taxiMenu,/data-trip-folder="izmail-transfer"[\s\S]*5 номеров/);
+  assert.match(taxiMenu,/data-trip-folder="izmail-transfer"[\s\S]*Индивидуальные трансферы[\s\S]*По Измаилу · 5 номеров/);
   assert.doesNotMatch(taxiMenu,/family-move|Переезд семьи/);
   assert.equal((taxiMenu.match(/class="trip-icon"/g)||[]).length,6);
   assert.doesNotMatch(taxiMenu,/data-content="individual"/);
