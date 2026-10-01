@@ -92,6 +92,10 @@
       const c=data.categories.find(c=>c.id===categoryFor(r));
       const phoneLabel=String(r.phoneLabel||'').trim();
       const phones=r.phones.map(p=>{
+        if(current.favorites){
+          const visible=fmt(p);
+          return `<div class="favorite-phone-action"><a class="favorite-phone phone-number call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${visible}"><strong>${visible}</strong><span>Позвонить</span></a>${favoriteButton(r,p)}${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}</div>`;
+        }
         if(current.branch==='education'){
           const visible=p.length===10?'+380 '+p.slice(1,3)+' '+p.slice(3,6)+' '+p.slice(6,8)+' '+p.slice(8):p;
           return `<div class="education-phone-action"><a class="education-phone phone-number call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${visible}"><strong>${visible}</strong><span>Позвонить</span></a>${favoriteButton(r,p)}${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}</div>`;

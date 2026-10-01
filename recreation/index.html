@@ -18,11 +18,19 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 <style>
-.tabs .tab{height:92px;min-height:92px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;border-radius:15px;font-size:clamp(15px,4.25vw,19px);line-height:1.12}
+.tabs{grid-auto-rows:90px;gap:5px;margin-inline:-8px}
+.tabs .tab{display:grid;grid-template-columns:40px minmax(0,1fr) 14px;align-items:center;column-gap:6px;height:90px;min-height:90px;padding:8px;border:1.5px solid rgba(79,165,219,.8);border-radius:16px;background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15);color:#fff;text-align:left;transition:border-color .12s ease,box-shadow .12s ease}
+.tabs .tab:before{display:none}
+.tab-icon{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(83,178,230,.38);border-radius:12px;background:linear-gradient(145deg,rgba(19,96,148,.78),rgba(7,49,88,.82));box-shadow:inset 0 1px rgba(230,250,255,.12),0 0 9px rgba(67,183,238,.22)}
+.tab-icon svg{width:25px;height:25px;fill:none;stroke:#91e7ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(119,225,255,.56))}
+.tab-label{min-width:0;font-size:clamp(12px,3.8vw,16px);font-weight:900;line-height:1.13;letter-spacing:-.02em;color:#f2fbff;text-wrap:pretty}
+.tab-arrow{justify-self:end;color:#c7efff;font-size:25px;font-weight:300;line-height:1;text-shadow:0 0 9px rgba(89,201,255,.52)}
 .section-back{display:flex;align-items:center;justify-content:center;width:min(100%,340px);min-height:48px;margin:0 auto 12px;padding:8px 14px;border:1px solid #6ac7f3;border-radius:15px;background:linear-gradient(180deg,#226ca3,#174b79);box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433;color:#fff;font-size:17px;font-weight:900;cursor:pointer}
 .section-back[hidden],.tabs[hidden],.chooser[hidden]{display:none}
-.tabs .tab{background:linear-gradient(145deg,#0c3b68 0%,#082749 58%,#061c36 100%);border-color:rgba(91,173,218,.82);box-shadow:inset 0 1px #ffffff12,0 5px 16px rgba(0,0,0,.32),0 0 11px rgba(42,142,199,.18);font-size:clamp(13px,3.8vw,16px);word-break:normal;overflow-wrap:normal;hyphens:none;text-wrap:balance}
+.tabs .tab{word-break:normal;overflow-wrap:normal;hyphens:none}
 .tabs .tab[aria-selected="true"]{background:linear-gradient(145deg,#126655,#0b443f);border-color:#63e5b2}
+.tabs .tab:active,.tabs .tab.tap-lit{outline:0;border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
+.recreation-nav .home-back:active,.recreation-nav .home-back.tap-lit,.recreation-nav .section-back:active,.recreation-nav .section-back.tap-lit{outline:0;border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
 .recreation-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px;margin:0 auto 14px}
 .recreation-nav:not(.has-section) .home-back{grid-column:1/-1;width:min(100%,340px);justify-self:center}
 .recreation-nav .home-back{width:100%;min-height:50px;height:auto;margin:0;padding:7px 8px;gap:5px;font-size:clamp(12px,3.3vw,14px);line-height:1.1;text-wrap:balance}
@@ -30,6 +38,7 @@
 .recreation-nav .section-back{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:50px;margin:0;padding:7px 5px;border:1px solid #54dda5;border-radius:15px;background:linear-gradient(180deg,#159858,#0d7442);box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244;color:#fff;font-size:clamp(10px,3.2vw,15px);line-height:1.1;font-weight:900;text-align:center;white-space:nowrap;text-wrap:nowrap;cursor:pointer}
 .recreation-nav .section-back:hover,.recreation-nav .section-back:focus-visible{border-color:#86f6c0;background:linear-gradient(180deg,#19a965,#0f824b);box-shadow:0 0 14px #34d98a55;outline:0}
 .recreation-nav .section-back[hidden]{display:none}
+@media(max-width:350px){.tabs{grid-auto-rows:86px;margin-inline:-4px}.tabs .tab{grid-template-columns:36px minmax(0,1fr) 13px;height:86px;min-height:86px;padding:7px;column-gap:5px;border-radius:14px}.tab-icon{width:36px;height:36px;border-radius:11px}.tab-icon svg{width:22px;height:22px}.tab-label{font-size:12px}.tab-arrow{font-size:22px}}
 </style>
 <style>
 /* Match the professional cover proportions used by the other directory sections. */
@@ -55,10 +64,10 @@
   <nav class="recreation-nav" aria-label="Навигация сверху"><button class="section-back" id="sectionBack" type="button" hidden>← Вернуться в раздел</button><a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
   <p class="chooser">Выберите раздел</p>
   <nav class="tabs" aria-label="Разделы отдыха" role="tablist">
-    <button class="tab direct-entry" type="button" role="tab" aria-selected="false" aria-controls="bases" data-tab="bases"><span class="tab-art" aria-hidden="true">🏖️</span>Базы отдыха</button>
-    <button class="tab direct-entry" type="button" role="tab" aria-selected="false" aria-controls="saunas" data-tab="saunas"><span class="tab-art" aria-hidden="true">♨️</span>Сауны • Бани</button>
-    <button class="tab direct-entry" type="button" role="tab" aria-selected="false" aria-controls="gazebos" data-tab="gazebos"><span class="tab-art" aria-hidden="true">🌿</span>Беседки • Комплексы</button>
-    <button class="tab direct-entry" type="button" role="tab" aria-selected="false" aria-controls="pools" data-tab="pools"><span class="tab-art" aria-hidden="true">🏊</span>Бассейны</button>
+    <button class="tab direct-entry" type="button" role="tab" aria-selected="false" aria-controls="bases" data-tab="bases"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 18h18M5 18l3-7h8l3 7M8 11V7h8v4M12 7V3M9 3h6"/></svg></span><span class="tab-label">Базы отдыха</span><span class="tab-arrow" aria-hidden="true">›</span></button>
+    <button class="tab direct-entry" type="button" role="tab" aria-selected="false" aria-controls="saunas" data-tab="saunas"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14h16v6H4zM7 14v-3h10v3M8 8c-2-2 2-3 0-5M12 8c-2-2 2-3 0-5M16 8c-2-2 2-3 0-5"/></svg></span><span class="tab-label">Сауны • Бани</span><span class="tab-arrow" aria-hidden="true">›</span></button>
+    <button class="tab direct-entry" type="button" role="tab" aria-selected="false" aria-controls="gazebos" data-tab="gazebos"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 10 9-6 9 6M5 10h14M7 10v10m10-10v10M4 20h16M9 14h6"/></svg></span><span class="tab-label">Беседки • Комплексы</span><span class="tab-arrow" aria-hidden="true">›</span></button>
+    <button class="tab direct-entry" type="button" role="tab" aria-selected="false" aria-controls="pools" data-tab="pools"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 2-2M3 19c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 2-2M8 13V6a3 3 0 0 1 6 0M8 9h6"/></svg></span><span class="tab-label">Бассейны</span><span class="tab-arrow" aria-hidden="true">›</span></button>
   </nav>
   <section class="panel" id="bases" role="tabpanel" aria-label="Базы отдыха" hidden>
     <header class="panel-head"><span class="panel-icon" aria-hidden="true">🏖️</span><div><h2>Базы отдыха</h2><p>Приморское · бронирование напрямую</p></div></header>
@@ -92,7 +101,7 @@
   <nav class="recreation-nav bottom-actions" aria-label="Навигация снизу"><button class="section-back" id="sectionBackBottom" type="button" hidden>← Вернуться в раздел</button><a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
 </main>
 <script>
-(()=>{const tabs=[...document.querySelectorAll('[data-tab]')];const panels=[...document.querySelectorAll('[role="tabpanel"]')];const menu=document.querySelector('.tabs');const chooser=document.querySelector('.chooser');const backs=[document.getElementById('sectionBack'),document.getElementById('sectionBackBottom')];function select(name){for(const item of tabs)item.setAttribute('aria-selected',String(item.dataset.tab===name));for(const panel of panels)panel.hidden=panel.id!==name;menu.hidden=Boolean(name);chooser.hidden=Boolean(name);document.querySelectorAll('.recreation-nav').forEach(nav=>nav.classList.toggle('has-section',Boolean(name)));backs.forEach(back=>back.hidden=!name);}for(const tab of tabs)tab.addEventListener('click',()=>select(tab.dataset.tab));backs.forEach(back=>back.addEventListener('click',()=>select(null)));select(null);})();
+(()=>{const tabs=[...document.querySelectorAll('[data-tab]')];const panels=[...document.querySelectorAll('[role="tabpanel"]')];const menu=document.querySelector('.tabs');const chooser=document.querySelector('.chooser');const backs=[document.getElementById('sectionBack'),document.getElementById('sectionBackBottom')];function select(name){for(const item of tabs)item.setAttribute('aria-selected',String(item.dataset.tab===name));for(const panel of panels)panel.hidden=panel.id!==name;menu.hidden=Boolean(name);chooser.hidden=Boolean(name);document.querySelectorAll('.recreation-nav').forEach(nav=>nav.classList.toggle('has-section',Boolean(name)));backs.forEach(back=>back.hidden=!name);}for(const tab of tabs)tab.addEventListener('click',()=>select(tab.dataset.tab));backs.forEach(back=>back.addEventListener('click',()=>select(null)));document.addEventListener('pointerdown',event=>{const button=event.target.closest('.tab,.section-back,.home-back,.phone,.favorite-toggle');if(!button)return;button.classList.add('tap-lit');setTimeout(()=>button.classList.remove('tap-lit'),420)},{passive:true});select(null);})();
 </script>
 <script src="../favorites.js?v=2" defer></script>
 </body>
