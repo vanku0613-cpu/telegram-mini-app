@@ -10,6 +10,13 @@
 </style>
 <link rel="stylesheet" href="../interior-polish.css?v=6">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
+<style>
+/* Keep the favourite control on the exact same row as the phone on this page. */
+.phones.phone-action{display:grid!important;grid-template-columns:minmax(0,1fr) 46px!important;grid-template-rows:46px!important;gap:7px!important;align-items:center!important}
+.phones.phone-action>.phone{grid-column:1;grid-row:1;width:100%;min-width:0;height:46px;min-height:46px}
+.phones.phone-action>.favorite-toggle{display:grid!important;place-items:center;grid-column:2;grid-row:1;width:46px!important;min-width:46px!important;height:46px!important;min-height:46px!important;align-self:center!important;margin:0!important}
+@media(max-width:350px){.phones.phone-action{grid-template-columns:minmax(0,1fr) 42px!important;gap:6px!important}.phones.phone-action>.favorite-toggle{width:42px!important;min-width:42px!important}}
+</style>
 </head>
 <body>
 <main class="wrap">
