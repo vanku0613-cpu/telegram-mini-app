@@ -84,6 +84,81 @@ body {
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
 
+/* Keep contact numbers readable on one line while retaining each section's colors. */
+.phones {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.phones > .phone {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.phones > .phone > strong {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(13px, 3.8vw, 16px);
+  font-variant-numeric: tabular-nums;
+}
+
+.phones > .phone > span {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: clamp(12px, 3.4vw, 14px);
+}
+
+.phone-number {
+  min-width: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(10px, 3.25vw, 14px);
+}
+
+.phone-row {
+  min-width: 0;
+}
+
+.phone-row .phone-number {
+  flex: 0 1 auto;
+}
+
+.contact-more {
+  margin-top: 7px;
+  color: var(--interior-muted, #b7c9db);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.contact-more > summary {
+  width: fit-content;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--interior-cyan, #83dcff);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.contact-more > summary::marker {
+  color: var(--interior-green, #6ee0b0);
+}
+
+.contact-more[open] > .contact-note,
+.contact-more[open] > p {
+  margin: 5px 0 0;
+}
+
 /* Keep each inner page in the same order: artwork, title, navigation, content. */
 :is(.wrap, .page) {
   width: min(100%, 760px);

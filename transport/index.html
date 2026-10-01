@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06182f">
-<title>Транспорт / Такси — Справочник Измаил</title>
+<title>Такси и поездки · автобусы и маршрутки — Справочник Измаил</title>
 <style>
 :root{color-scheme:dark;--bg:#041326;--panel:#08213d;--line:#3478a8;--cyan:#71d5ff;--muted:#a8bfd4;--green:#47d49a}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100%;background:radial-gradient(ellipse at 50% -8%,rgba(43,145,209,.24),transparent 48%),linear-gradient(180deg,#071a33,#031225 78%);color:#fff;font-family:Arial,sans-serif}
 .wrap{width:min(100%,760px);margin:auto;padding:calc(14px + env(safe-area-inset-top)) 14px calc(28px + env(safe-area-inset-bottom))}
 .cover{position:relative;overflow:hidden;margin:0 0 14px;padding:18px;border:1px solid rgba(77,166,218,.55);border-radius:22px;background:linear-gradient(120deg,rgba(7,39,73,.98),rgba(3,21,43,.97));box-shadow:inset 0 1px #ffffff0d,0 12px 30px #0004}.cover:before{position:absolute;inset:0;content:"";pointer-events:none;background:radial-gradient(circle at 90% 20%,#1683bc30,transparent 34%)}
-.eyebrow{display:flex;align-items:center;gap:7px;color:#92d7fa;font-size:10px;letter-spacing:.13em;font-weight:800;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:#69d7ff;box-shadow:0 0 10px #69d7ff}.cover h1{margin:8px 0 5px;font-size:clamp(22px,6vw,30px);line-height:1.05;letter-spacing:-.025em}.cover p{margin:0;max-width:520px;color:#b0c6d9;font-size:13px;line-height:1.45}
+.eyebrow{display:flex;align-items:center;gap:7px;color:#92d7fa;font-size:10px;letter-spacing:.13em;font-weight:800;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:#69d7ff;box-shadow:0 0 10px #69d7ff}.cover h1{margin:8px 0 5px;font-size:clamp(19px,5.5vw,29px);line-height:1.12;letter-spacing:-.025em;text-wrap:balance}.cover p{margin:0;max-width:520px;color:#b0c6d9;font-size:13px;line-height:1.45}
 .home-back{min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;width:min(100%,340px);margin:0 auto 14px;padding:0 14px;border:1px solid #6ac7f3;border-radius:15px;background:linear-gradient(180deg,#226ca3,#174b79);box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433,0 0 16px #268fd033;color:#fff;text-decoration:none;font-size:16px;font-weight:900;line-height:1.15;transition:filter .15s,box-shadow .15s}.home-back:hover,.home-back:focus-visible{filter:brightness(1.12);box-shadow:inset 0 0 0 1px #ffffff20,0 8px 24px #145d9455,0 0 20px #268fd055;outline:none}.home-back:active{filter:brightness(1.2)}.arrow{font-size:21px;line-height:1}
 .chooser{margin:0 0 11px;color:#b0c6d9;font-size:13px;text-align:center}.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 12px}.tab{height:88px;min-height:88px;display:flex;align-items:center;justify-content:center;padding:8px 12px;border:1px solid rgba(91,173,218,.82);border-radius:15px;background:linear-gradient(145deg,#0c3b68 0%,#082749 58%,#061c36 100%);box-shadow:inset 0 1px #ffffff12,0 5px 16px rgba(0,0,0,.32),0 0 11px rgba(42,142,199,.18);color:#c7eaff;font-size:clamp(15px,4vw,18px);font-weight:900;line-height:1.12;text-align:center;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,color .15s}.tab:hover,.tab:focus-visible{border-color:#70d3ff;box-shadow:0 0 13px #278ccc55;outline:0}.tab[aria-pressed="true"]{background:linear-gradient(145deg,#126655,#0b443f);border-color:#63e5b2;color:#e1fff2}
 .section-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px;margin:0 auto 14px}.section-nav:not(.has-section) .home-back{grid-column:1/-1;width:min(100%,340px);justify-self:center}.section-nav .home-back{width:100%;min-height:50px;height:auto;margin:0;padding:7px 8px;gap:5px;font-size:clamp(12px,3.3vw,14px);line-height:1.1;text-wrap:balance}.section-nav .home-back .arrow{font-size:19px}.section-back{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:50px;margin:0;padding:7px 5px;border:1px solid #54dda5;border-radius:15px;background:linear-gradient(180deg,#159858,#0d7442);box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244;color:#fff;font-size:clamp(12px,3.3vw,15px);line-height:1.1;font-weight:900;text-align:center;white-space:nowrap;cursor:pointer}.section-back:hover,.section-back:focus-visible{border-color:#86f6c0;background:linear-gradient(180deg,#19a965,#0f824b);box-shadow:0 0 14px #34d98a55;outline:0}.section-back[hidden],.tabs[hidden],.chooser[hidden]{display:none}
@@ -32,18 +32,19 @@
 #stations .phone strong{white-space:nowrap;overflow-wrap:normal;word-break:normal;font-size:clamp(12px,3.4vw,15px);letter-spacing:0}
 #stations .phone span{white-space:nowrap;flex:0 0 auto}
 </style>
-<link rel="stylesheet" href="../interior-polish.css?v=4">
+<link rel="stylesheet" href="../interior-polish.css?v=5">
 <link rel="stylesheet" href="../favorites.css?v=1">
 <script src="../navigation.js?v=5" defer data-izmail-navigation="1"></script>
+<script src="../contact-details.js?v=1" defer></script>
 <script src="../favorites.js?v=1" defer></script>
 </head>
 <body>
 <main class="wrap">
-  <header class="cover"><div><div class="eyebrow"><span class="dot" aria-hidden="true"></span>Справочник Измаил</div><h1>Транспорт / Такси</h1><p>Контакты такси и ссылки для заказа поездки по Измаилу.</p></div></header>
+  <header class="cover"><div><div class="eyebrow"><span class="dot" aria-hidden="true"></span>Справочник Измаил</div><h1>Такси · индивидуальные поездки · автобусы · маршрутки</h1><p>Городские поездки, междугородние маршруты и контакты автостанций.</p></div></header>
   <nav class="section-nav" aria-label="Навигация сверху"><button class="section-back" id="sectionBack" type="button" hidden>← Вернуться в раздел</button><a class="home-back" data-main-back href="../main-v2/"><span class="arrow" aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
   <p class="chooser" id="chooser">Выберите направление</p>
-  <nav class="tabs" id="groupTabs" aria-label="Разделы транспорта"><button class="tab" type="button" data-group="schedule">Расписание и автостанции</button><button class="tab" type="button" data-group="taxi">Такси и индивидуальные поездки</button></nav>
-  <nav class="tabs" data-submenu="schedule" aria-label="Расписание и автостанции" hidden><button class="tab" type="button" data-content="stations">Автостанции области</button></nav>
+  <nav class="tabs" id="groupTabs" aria-label="Разделы транспорта"><button class="tab" type="button" data-group="taxi">Такси и индивидуальные поездки</button><button class="tab" type="button" data-group="schedule">Автобусы и маршрутки</button></nav>
+  <nav class="tabs" data-submenu="schedule" aria-label="Автобусы и маршрутки" hidden><button class="tab" type="button" data-content="stations">Автостанции области</button></nav>
   <nav class="tabs" data-submenu="taxi" aria-label="Такси и индивидуальные поездки" hidden><button class="tab" type="button" data-content="taxi">Такси по городу</button><button class="tab" type="button" data-content="individual">Индивидуальные поездки</button></nav>
   <section class="panel" id="taxi" aria-labelledby="taxi-title" hidden>
     <header class="panel-head"><span class="panel-icon" aria-hidden="true">Т</span><div><h2 id="taxi-title">Такси по городу</h2><p>Измаил · заказ по телефону или через приложение</p></div></header>
@@ -81,27 +82,27 @@
       <button class="trip-folder" type="button" data-trip-folder="parcels"><strong>Передачи и посылки</strong><span>Галац · Болгария · Одесса—Измаил—Болгария · 4 номера</span><b aria-hidden="true">›</b></button>
     </div>
     <section class="trip-detail" data-trip-detail="izmail-transfer" hidden>
-      <button class="trip-back" type="button">← Вернуться к поездкам</button>
+      <button class="trip-back" type="button">← Вернуться в раздел</button>
       <div class="cards"><article class="contact"><h3>Индивидуальный трансфер · легковой автомобиль</h3><div class="phones"><a class="phone" href="tel:+380974793137"><strong>+380 97 479 31 37</strong><span>Позвонить</span></a></div></article><article class="contact"><h3>Индивидуальный трансфер · микроавтобус</h3><div class="phones"><a class="phone" href="tel:+380982643819"><strong>+380 98 264 38 19</strong><span>Позвонить</span></a><a class="phone" href="tel:+380990165202"><strong>+380 99 016 52 02</strong><span>Позвонить</span></a></div></article></div>
     </section>
     <section class="trip-detail" data-trip-detail="family-move" hidden>
-      <button class="trip-back" type="button">← Вернуться к поездкам</button>
+      <button class="trip-back" type="button">← Вернуться в раздел</button>
       <div class="cards"><article class="contact"><h3>Переезд семьи с автомобилем</h3><p class="contact-note">Индивидуальная перевозка · заказ заблаговременно · Александр.</p><div class="phones"><a class="phone" href="tel:+380684572215"><strong>+380 68 457 22 15</strong><span>Позвонить</span></a><a class="phone" href="tel:+380734572215"><strong>+380 73 457 22 15</strong><span>Позвонить</span></a></div></article></div>
     </section>
     <section class="trip-detail" data-trip-detail="moldova" hidden>
-      <button class="trip-back" type="button">← Вернуться к поездкам</button>
+      <button class="trip-back" type="button">← Вернуться в раздел</button>
       <div class="cards"><article class="contact"><h3>Измаил ↔ Кишинёв · Анатолий</h3><p class="contact-note">В обе стороны · с адреса на адрес · встреча в аэропорту. Связь через Viber, WhatsApp и Telegram.</p><div class="phones"><a class="phone" href="tel:+380934282021"><strong>+380 93 428 20 21</strong><span>Позвонить</span></a></div></article><article class="contact"><h3>Украина · Молдова · Румыния · Болгария</h3><p class="contact-note">Поездки с адреса до адреса · без предоплаты и пересадок · можно с животными.</p><div class="phones"><a class="phone" href="tel:+380963365739"><strong>+380 96 336 57 39</strong><span>Позвонить</span></a></div><div class="links"><a href="https://www.instagram.com/_alinqqq__/" target="_blank" rel="noopener noreferrer"><span>↗</span> Instagram</a></div></article></div>
     </section>
     <section class="trip-detail" data-trip-detail="romania" hidden>
-      <button class="trip-back" type="button">← Вернуться к поездкам</button>
+      <button class="trip-back" type="button">← Вернуться в раздел</button>
       <div class="cards"><article class="contact"><h3>Измаил ↔ Галац · Луиза и Алла</h3><p class="contact-note">Ежедневно · выезд из Измаила в 06:00 и 16:00 · микроавтобус 8+1 · посылки и индивидуальные поездки.</p><div class="phones"><a class="phone" href="tel:+380680489381"><strong>+380 68 048 93 81 · Луиза</strong><span>Позвонить</span></a><a class="phone" href="tel:+380988412988"><strong>+380 98 841 29 88 · Алла</strong><span>Позвонить</span></a></div></article><article class="contact"><h3>Измаил—Галац—Брэила · Жанна</h3><p class="contact-note">Маршрут в обе стороны · перевозка с адреса на адрес · комфортабельный Mazda CX-7 · можно с животными · принимает посылки.</p><div class="phones"><a class="phone" href="tel:+380672958217"><strong>+380 67 295 82 17</strong><span>Позвонить</span></a></div></article></div>
     </section>
     <section class="trip-detail" data-trip-detail="bulgaria" hidden>
-      <button class="trip-back" type="button">← Вернуться к поездкам</button>
+      <button class="trip-back" type="button">← Вернуться в раздел</button>
       <div class="cards"><article class="contact"><h3>Одесса—Варна—Солнечный берег—Поморие—Бургас · Иван</h3><p class="contact-note">Ежедневные выезды · Mercedes Sprinter на 8 мест.</p><div class="phones"><a class="phone" href="tel:+380982050354"><strong>+380 98 205 03 54</strong><span>Позвонить</span></a></div></article><article class="contact"><h3>Измаил—Болград—София/Варна · Николай</h3><p class="contact-note">Сёла района · с адреса до адреса · без предоплаты и пересадок · принимает передачи · Mercedes Sprinter.</p><div class="phones"><a class="phone" href="tel:+380630483144"><strong>+380 63 048 31 44</strong><span>Позвонить</span></a></div></article><article class="contact"><h3>BalkanTour · Одесса ⇄ София/Пловдив</h3><p class="contact-note">Рейсы каждую неделю · комфортабельный 8-местный микроавтобус · предоплата 1000 грн.</p><div class="phones"><a class="phone" href="tel:+380962077144"><strong>+380 96 207 71 44</strong><span>Позвонить</span></a><a class="phone" href="tel:+380679426982"><strong>+380 67 942 69 82</strong><span>Позвонить</span></a></div></article><article class="contact"><h3>Одесса—Измаил—Варна—Солнечный берег—Бургас · Виталий</h3><p class="contact-note">Ежедневные выезды · пассажиры и посылки · Mercedes Vito/Sprinter.</p><div class="phones"><a class="phone" href="tel:+380638025435"><strong>+380 63 802 54 35</strong><span>Позвонить</span></a></div></article></div>
     </section>
     <section class="trip-detail" data-trip-detail="parcels" hidden>
-      <button class="trip-back" type="button">← Вернуться к поездкам</button>
+      <button class="trip-back" type="button">← Вернуться в раздел</button>
       <div class="cards"><article class="contact"><h3>Измаил ↔ Галац · Луиза и Алла</h3><p class="contact-note">Ежедневно · отправление в 06:00 и 16:00 · микроавтобус 8+1 · принимают передачи и посылки.</p><div class="phones"><a class="phone" href="tel:+380680489381"><strong>+380 68 048 93 81 · Луиза</strong><span>Позвонить</span></a><a class="phone" href="tel:+380988412988"><strong>+380 98 841 29 88 · Алла</strong><span>Позвонить</span></a></div></article><article class="contact"><h3>Измаил—Болград—София/Варна · Николай</h3><p class="contact-note">Сёла района · принимает передачи · Mercedes Sprinter.</p><div class="phones"><a class="phone" href="tel:+380630483144"><strong>+380 63 048 31 44</strong><span>Позвонить</span></a></div></article><article class="contact"><h3>Одесса—Измаил—Варна—Солнечный берег—Бургас · Виталий</h3><p class="contact-note">Ежедневные выезды · пассажиры и посылки · Mercedes Vito/Sprinter.</p><div class="phones"><a class="phone" href="tel:+380638025435"><strong>+380 63 802 54 35</strong><span>Позвонить</span></a></div></article></div>
     </section>
   </section>
