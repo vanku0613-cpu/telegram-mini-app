@@ -254,7 +254,7 @@ window.IZMAIL_SETTINGS = {
       "../transport/",
 
     "Услуги и мастера":
-      "../services-masters/?v=call-right-3",
+      "../services-masters/?v=hierarchy-colors-1",
 
     "Продукты питания":
       "../products-food/",
