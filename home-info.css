@@ -2,20 +2,18 @@
    The row's existing scale is 1.09 around its centre. */
 #app{--info-growth:clamp(16px,4vw,20px);--info-growth:clamp(16px,4cqw,20px)}
 #app .top-row{height:calc(4.75% + var(--info-growth));margin-top:calc(var(--info-growth) * -1.045);grid-template-columns:repeat(3,minmax(0,1fr))}
-#app .viewer{margin-top:calc(var(--info-growth) * -1.09)}
+#app .viewer{margin-top:calc(var(--info-growth) * -1.72)}
 #app .viewer{transform:none;width:max-content;max-width:92%;justify-content:center;white-space:nowrap}
 #app .viewer{min-height:22px;height:auto;gap:6px;padding:3px 8px;align-items:center;font-size:clamp(10px,2.35vw,13px);font-size:clamp(10px,2.35cqw,13px);font-weight:900;line-height:1}
 #app .viewer-eye{font-size:clamp(12px,2.7vw,15px);font-size:clamp(12px,2.7cqw,15px);line-height:1}
 #app #viewCount{font-size:1.12em;font-weight:900;font-variant-numeric:tabular-nums}
-#app .weather-panel{padding:4px 6px!important}
-#app .weather-panel{align-items:center!important;justify-content:center!important}
-#app .weather-panel .info-title,#app .weather-panel .temp,#app .weather-panel .condition{display:block;flex:none;width:calc(100% - 29px);max-width:calc(100% - 29px)!important;margin-left:auto!important;margin-right:auto!important;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#app .weather-panel .info-title{height:9px;min-height:9px;line-height:9px!important}
-#app .weather-panel .temp{height:18px;min-height:18px;line-height:18px!important;margin-top:2px!important}
-#app .weather-panel .condition{height:9px;min-height:9px;line-height:9px!important;margin-top:2px!important}
-#app .weather-panel .temp{font-size:clamp(12px,3.05vw,16px)!important;font-size:clamp(12px,3.05cqw,16px)!important;line-height:1!important}
-#app .weather-panel .condition{max-width:calc(100% - 29px)!important;white-space:nowrap!important;font-size:clamp(7px,1.8vw,9px)!important;font-size:clamp(7px,1.8cqw,9px)!important;line-height:9px!important;overflow:hidden!important}
-#app .weather-mini{top:5px;transform:none;width:20px!important;height:20px!important;font-size:13px!important}
+#app .weather-panel{display:grid!important;grid-template-rows:auto auto auto;align-content:center;justify-items:center;padding:4px 6px!important}
+#app .weather-panel .info-title,#app .weather-panel .condition{display:block;width:100%;max-width:100%!important;margin-left:auto!important;margin-right:auto!important;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#app .weather-panel .info-title{height:11px;min-height:11px;font-size:clamp(8.6px,2.18vw,10.7px)!important;font-size:clamp(8.6px,2.18cqw,10.7px)!important;font-weight:950!important;line-height:11px!important;letter-spacing:-.025em;text-transform:none!important}
+#app .weather-reading{display:flex;min-width:0;align-items:center;justify-content:center;gap:4px;margin-top:2px}
+#app .weather-panel .temp{width:auto!important;max-width:none!important;height:18px;min-height:18px;margin:0!important;font-size:clamp(12px,3.05vw,16px)!important;font-size:clamp(12px,3.05cqw,16px)!important;line-height:18px!important;text-align:left;white-space:nowrap}
+#app .weather-panel .condition{height:9px;min-height:9px;margin-top:1px!important;font-size:clamp(7px,1.8vw,9px)!important;font-size:clamp(7px,1.8cqw,9px)!important;line-height:9px!important}
+#app .weather-mini{position:static!important;transform:none!important;width:19px!important;height:19px!important;font-size:13px!important;flex:0 0 19px}
 #app .currency-panel{padding:4px 6px!important}
 .rates-updated{position:relative;z-index:3;display:block;margin-top:4px;color:#c6dce9;font-size:clamp(6.5px,1.65vw,8px);font-size:clamp(6.5px,1.65cqw,8px);line-height:1.12;white-space:nowrap;font-variant-numeric:tabular-nums}
 .rates-updated span{display:block}
@@ -41,3 +39,8 @@
 /* A single central axis for the exchange title, numbers and date. */
 #app .currency-panel .info-title{justify-content:center!important;text-align:center;width:100%}
 #app .currency-panel .rates-updated{text-align:center;width:100%}
+#app .currency-panel .info-title{font-size:clamp(8.8px,2.18vw,11.4px)!important;font-size:clamp(8.8px,2.18cqw,11.4px)!important;font-weight:950!important;letter-spacing:-.015em;line-height:1.05!important}
+#app .currency-panel .rate{font-size:clamp(8.5px,2.08vw,11.2px)!important;font-size:clamp(8.5px,2.08cqw,11.2px)!important;font-weight:900!important;line-height:1.05!important}
+#app .currency-panel .rate span:first-child{font-weight:950!important;opacity:1!important}
+#app .search-real::placeholder{color:rgba(205,226,240,.52)!important;opacity:.68;transition:opacity .12s ease,color .12s ease}
+#app .search-real:focus::placeholder{color:transparent!important;opacity:0!important}

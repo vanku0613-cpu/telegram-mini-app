@@ -37,6 +37,17 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Search hints stay quiet and disappear as soon as the user starts interacting. */
+input::placeholder {
+  opacity: .58;
+  transition: opacity .12s ease, color .12s ease;
+}
+
+input:focus::placeholder {
+  color: transparent !important;
+  opacity: 0 !important;
+}
+
 /* Every interior-page return to the main menu follows the services directory size. */
 body [data-main-back][data-main-back] {
   box-sizing: border-box !important;

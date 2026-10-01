@@ -63,8 +63,31 @@ test('city schedule opens details as a separate view and returns to the schedule
   assert.match(html, /data-view="schedule"/);
   assert.match(html, /data-view="map"/);
   assert.match(html, /data-view="stops"/);
-  assert.match(html, /schedule-cities\/\$\{safeCityKey\}\.jpg/);
+  assert.match(html, /safeCityKey==='villages'\?`\$\{safeCityKey\}\.jpg\?v=1`:`\$\{safeCityKey\}-v2\.webp\?v=2`/);
   assert.match(html, /usesTransportTypes=safeCityKey==='kyiv'/);
   assert.match(html, /usesTransportTypes\?'Виды транспорта':'Вернуться в раздел'/);
   assert.match(html, /<button class="route-return"[^>]*id="backToRoutes"[^>]*>[\s\S]*?К расписанию<\/button>/);
+});
+
+test('schedule cards use the refreshed city and village artwork', () => {
+  const directory = fs.readFileSync(path.join(root, 'transport', 'index.html'), 'utf8');
+  const cityPage = fs.readFileSync(path.join(root, 'transport', 'city-schedule', 'index.html'), 'utf8');
+  const cityAssets = ['izmail', 'odesa', 'kiliya', 'vilkove', 'reni', 'bolgrad', 'artsyz', 'tatarbunary', 'bilhorod', 'kyiv'];
+  for (const city of cityAssets) {
+    assert.ok(fs.existsSync(path.join(root, 'assets', 'schedule-cities', `${city}-v2.webp`)), `${city} cover is missing`);
+    assert.match(directory, new RegExp(`schedule-cities/${city}-v2\\.webp\\?v=2`));
+  }
+
+  const villages = readCity('villages').groups.flatMap(group => group.routes).map(route => route.id);
+  const mappingSource = cityPage.match(/const villagePhotos=(\{[^;]+\});/)?.[1];
+  assert.ok(mappingSource, 'village photo mapping is missing');
+  const mapping = Function(`return ${mappingSource}`)();
+  assert.deepEqual(Object.keys(mapping).sort(), villages.sort());
+  assert.equal(new Set(Object.values(mapping)).size, villages.length, 'every village needs its own image');
+  for (const slug of Object.values(mapping)) {
+    assert.ok(fs.existsSync(path.join(root, 'assets', 'schedule-villages', `${slug}.webp`)), `${slug} artwork is missing`);
+  }
+  assert.match(cityPage, /class="village-route-photo"/);
+  assert.match(cityPage, /class="village-route-icon"/);
+  assert.match(cityPage, /\.village-route-name\{[^}]*top:50%[^}]*text-align:center/);
 });
