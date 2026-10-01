@@ -35,6 +35,7 @@ test('communal services page is reachable, organized, and uses unique callable c
     assert.match(await page.locator('.jump').evaluate(el=>getComputedStyle(el).backgroundImage),/linear-gradient/,'utility menu uses the same framed directory surface');
     const tileHeights=await page.locator('.communal-tab').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().height));
     assert.ok(tileHeights.every(height=>height===tileHeights[0]),'utility buttons share a consistent height');
+    assert.ok(await page.locator('.communal-tab').first().evaluate(item=>item.getBoundingClientRect().width>=170),'utility buttons use the same full card width as services and masters');
     assert.ok(await page.locator('.communal-tab').evaluateAll(items=>items.every(item=>parseFloat(getComputedStyle(item).fontSize)>=17)),'utility category labels are larger');
     await page.locator('[data-open="water"]').click();
     await page.locator('#water').waitFor({state:'visible'});
@@ -45,7 +46,11 @@ test('communal services page is reachable, organized, and uses unique callable c
     assert.equal(await page.locator('#communalBackBottom').isVisible(),true);
     assert.equal(await page.locator('#communalBack').textContent(),'← Вернуться в раздел');
     assert.equal(await page.locator('#communalBackBottom').textContent(),'← Вернуться в раздел');
+    const waterActions=await page.locator('#water .contact').first().locator('.links a').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().top));
+    assert.equal(new Set(waterActions.map(top=>Math.round(top))).size,1,'water service actions share one row');
     const favoriteButton=page.locator('#water .favorite-toggle').first();
+    const callButton=page.locator('#water .phone').first();
+    assert.deepEqual(await callButton.evaluate(el=>{const style=getComputedStyle(el);return{minHeight:style.minHeight,padding:style.padding,borderRadius:style.borderRadius,background:style.backgroundColor}}),{minHeight:'48px',padding:'7px 8px',borderRadius:'11px',background:'rgb(10, 41, 69)'},'call buttons match the services and masters visual style');
     await favoriteButton.dispatchEvent('pointerdown');
     await page.waitForTimeout(220);
     assert.match(await favoriteButton.evaluate(el=>getComputedStyle(el).boxShadow),/rgba?\(0, (?:167|110), 255/,'favorite star uses the same electric-blue press rim');
@@ -55,6 +60,12 @@ test('communal services page is reachable, organized, and uses unique callable c
     await page.setViewportSize({width:390,height:844});
     for(const nav of await page.locator('.communal-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section and home navigation share one row')}
     await page.locator('#communalBackBottom').click();
+    await page.locator('.jump').waitFor({state:'visible'});
+    await page.locator('[data-open="light"]').click();
+    await page.locator('#light').waitFor({state:'visible'});
+    const dtekActions=await page.locator('#light .contact').filter({hasText:'ДТЕК Одеські електромережі'}).locator('.links a').evaluateAll(items=>items.map(item=>Math.round(item.getBoundingClientRect().top)));
+    assert.equal(new Set(dtekActions).size,2,'DTEK actions use a balanced two-by-two grid');
+    await page.locator('#communalBack').click();
     await page.locator('.jump').waitFor({state:'visible'});
     assert.equal(await page.locator('.jump').isVisible(),true);
     await page.locator('[data-open="gas"]').click();
