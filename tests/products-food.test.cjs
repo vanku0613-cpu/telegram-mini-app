@@ -38,7 +38,8 @@ test('food and delivery directory switches sections and keeps contact links uniq
     assert.equal(await page.locator('.footer-note').count(), 0, 'unneeded footer disclaimer is omitted');
     const pageText = (await page.locator('main').innerText()).toLocaleLowerCase('ru');
     assert.equal(/публикац|публичн(?:ого)? справочник|телефоны заведений/.test(pageText), false, 'source and phone-origin explanations are omitted');
-    assert.ok(await page.locator('.contact-note, .phone span, .tag, .links a, .subtypes span').evaluateAll(items => items.every(item => parseFloat(getComputedStyle(item).fontSize) >= 12)), 'supporting text and actions remain comfortably readable');
+    const supportingTextSizes=await page.locator('.contact-note, .phone span, .tag, .links a, .subtypes span').evaluateAll(items=>items.map(item=>({text:item.textContent.trim(),size:parseFloat(getComputedStyle(item).fontSize)})));
+    assert.ok(supportingTextSizes.every(item=>item.size>=12),'supporting text and actions remain comfortably readable: '+JSON.stringify(supportingTextSizes.filter(item=>item.size<12)));
 
     await page.locator('.tab[data-tab="restaurants"]').click();
     assert.equal(await page.locator('#restaurants').isVisible(), true);

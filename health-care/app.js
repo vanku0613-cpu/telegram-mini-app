@@ -39,7 +39,7 @@
     if(category?.branch==='doctors'&&!cityName)cityName='Измаил';
     return {category,cityName,branch,contactId:contact?.id,globalSearch,query:parts[1]||'',favorites:parts[0]==='favorites'};
   };
-  const homeLink = '<a class="back-btn" href="../main-v2/">Вернуться в главное меню</a>';
+  const homeLink = '<a class="back-btn" href="../main-v2/" data-main-back>Вернуться в главное меню</a>';
   const groups = [
     ['С чего начать',['96228','96229','96230','96231']],
     ['Диагностика и анализы',['96246','96248','ct','lab','functional','xray']],
@@ -133,7 +133,7 @@
       $('topNav').innerHTML=back+homeLink;$('bottomNav').innerHTML=back+homeLink;
       $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';
-      $('profileMedia').innerHTML=category?media(category,cityName):branch?'<section class="profile-banner">'+branchCover(branch)+'</section>':favorites?favoritesCover():rootCover();
+      $('profileMedia').innerHTML=branch==='education'?'<section class="profile-banner">'+branchCover('education')+'</section>':category?media(category,cityName):branch?'<section class="profile-banner">'+branchCover(branch)+'</section>':favorites?favoritesCover():rootCover();
       const phoneFolder=Boolean(category&&!category.children&&data.records.some(r=>categoriesFor(r).includes(category.id)));
       document.querySelector('.finder').hidden=(!branch&&!favorites&&!globalSearch)||phoneFolder||branch==='education'||Boolean(contactId)||favorites;
       $('search').placeholder=branch==='doctors'?(cityName?'Поиск врачей по '+citySearch[cityName]:'Поиск врачей'):branch==='education'?'Предмет, имя или телефон':'Специальность, имя или телефон';

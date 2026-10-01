@@ -42,6 +42,14 @@ test('education cover, navigation and hierarchy match the polished directory sty
     assert.match(folderColor,/rgb\(12, 66, 111\)/,'buttons that open another folder use the saturated dark-blue surface');
     assert.match(directColor,/rgb\(32, 60, 87\)/,'buttons that open contacts use the calm blue-graphite surface');
     assert.notEqual(directColor,folderColor,'a folder with another level has a different background');
+    for(const route of ['#category/96203','#category/96204','#category/96208','#category/96215','#category/96216']){
+      await page.goto(origin+'/health-care/'+route);
+      const fixedCover=page.locator('.education-cover img');
+      await fixedCover.evaluate(img=>img.decode());
+      assert.match(await fixedCover.getAttribute('src'),/education-development-cover-v1\.webp/,'education categories keep one fixed profile cover');
+      assert.equal(await page.locator('.profile-banner img[src*="cover-962"]').count(),0,'old category photos are not rendered in the profile header');
+    }
+    await page.goto(origin+'/health-care/#education');
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:844});
       const layout=await page.locator('.education-tile').evaluateAll(items=>items.map(item=>({height:item.getBoundingClientRect().height,fits:item.scrollWidth<=item.clientWidth})));
@@ -55,6 +63,10 @@ test('education cover, navigation and hierarchy match the polished directory sty
     await page.goto(origin+'/health-care/#category/96216');
     await page.locator('.contact').first().waitFor();
     assert.equal(await page.locator('.education-phone-action').count(),await page.locator('.phone-number').count());
+    assert.equal(await page.locator('.education-phone').first().evaluate(el=>{const number=el.querySelector('strong').getBoundingClientRect(),action=el.querySelector('span').getBoundingClientRect();return action.left>number.left}),true,'education call action stays to the right of its number');
+    const contactSizes=await page.locator('.contact').evaluateAll(items=>items.map(item=>({height:item.getBoundingClientRect().height,scroll:item.scrollHeight,client:item.clientHeight})));
+    assert.ok(contactSizes.every(item=>item.scroll<=item.client+1),'education contacts grow with their content instead of becoming scroll boxes');
+    assert.ok(contactSizes.some(item=>item.height<240),'short education contacts do not keep a large empty fixed height');
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:844});
       const phones=await page.locator('.education-phone strong').evaluateAll(items=>items.map(item=>({whiteSpace:getComputedStyle(item).whiteSpace,fits:item.scrollWidth<=item.clientWidth})));

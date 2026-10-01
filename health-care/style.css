@@ -203,14 +203,14 @@ body[data-education=true] .category-tile.education-tile small{font-size:clamp(10
 @media(max-width:350px){body[data-education=true] .category-grid{grid-auto-rows:86px;gap:5px;margin-inline:-4px}body[data-education=true] .category-tile.education-tile{grid-template-columns:36px minmax(0,1fr) 13px;padding:7px;column-gap:5px;border-radius:14px}body[data-education=true] .education-tile-icon{width:36px;height:36px;border-radius:11px}body[data-education=true] .education-tile-icon svg{width:22px;height:22px}body[data-education=true] .category-tile.education-tile strong{font-size:11px}body[data-education=true] .category-tile.education-tile small{font-size:10px}body[data-education=true] .category-tile.education-tile .tile-arrow{font-size:22px}}
 
 /* Education contact cards reuse the compact phone pattern from «Услуги и мастера». */
-body[data-education=true] .contact-list{grid-template-columns:1fr;gap:8px;align-items:stretch}
-body[data-education=true] .contact{padding:11px;border:1px solid rgba(57,116,157,.5);border-radius:14px;background:linear-gradient(145deg,#0a2a4b,#071d36);box-shadow:inset 0 1px rgba(255,255,255,.035),0 7px 18px rgba(0,0,0,.18)}
+body[data-education=true] .contact-list{grid-template-columns:1fr;gap:8px;align-items:start}
+body[data-education=true] .contact{height:auto;min-height:0;align-self:start;overflow:visible;padding:11px;border:1px solid rgba(57,116,157,.5);border-radius:14px;background:linear-gradient(145deg,#0a2a4b,#071d36);box-shadow:inset 0 1px rgba(255,255,255,.035),0 7px 18px rgba(0,0,0,.18)}
 body[data-education=true] .contact h2{margin:0 0 7px;font-size:clamp(14px,3.8vw,16px);line-height:1.25}
 body[data-education=true] .contact .specialty{margin-bottom:5px;color:#85cbed;font-size:10px;font-weight:700}
 body[data-education=true] .education-phone-action{display:grid;grid-template-columns:minmax(0,1fr) 40px;gap:6px;align-items:stretch;min-width:0;margin-top:9px}
-body[data-education=true] .education-phone{display:flex;min-width:0;min-height:48px;width:100%;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;padding:7px 8px;border:1px solid rgba(67,142,184,.47);border-radius:11px;background:#0a2945;color:#fff;text-decoration:none;box-shadow:none}
+body[data-education=true] .education-phone{display:flex;min-width:0;min-height:48px;width:100%;flex-direction:row;align-items:center;justify-content:space-between;gap:7px;padding:7px 8px;border:1px solid rgba(67,142,184,.47);border-radius:11px;background:#0a2945;color:#fff;text-decoration:none;box-shadow:none}
 body[data-education=true] .education-phone strong{max-width:100%;font-size:clamp(11px,3.2vw,14px);font-weight:800;line-height:1.15;white-space:nowrap;font-variant-numeric:tabular-nums}
-body[data-education=true] .education-phone span{display:flex;align-items:center;gap:4px;color:#80ddb4;font-size:12px;font-weight:800}
+body[data-education=true] .education-phone span{display:flex;flex:0 0 auto;align-items:center;gap:4px;color:#80ddb4;font-size:12px;font-weight:800;white-space:nowrap}
 body[data-education=true] .education-phone span:before{content:"☎";font-size:12px}
 body[data-education=true] .education-phone-action>.favorite-toggle{align-self:center}
 body[data-education=true] .education-phone-action>.phone-label{grid-column:1/-1;margin:0 2px;color:#96b3c7}

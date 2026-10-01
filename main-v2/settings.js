@@ -38,9 +38,9 @@ window.IZMAIL_SETTINGS = {
 
     groupsTop: "91.20%",
 
-    bottomTop: "98.20%",
+    bottomTop: "99.20%",
 
-    agreementTop: "106.20%",
+    agreementTop: "107.20%",
 
     menuLeft: "4.88%",
 
