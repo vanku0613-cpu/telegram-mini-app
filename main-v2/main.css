@@ -1079,3 +1079,25 @@ a.nav{ text-decoration:none; }
   box-shadow:0 0 0 1px rgba(81,196,233,.58),0 0 8px rgba(30,158,213,.42),inset 0 0 8px rgba(40,148,197,.15)!important;
 }
 
+/* The two secondary destinations use restrained thematic surfaces rather than
+   unrelated photographs, keeping them distinct but part of the same system. */
+.groups-row .groups{isolation:isolate;overflow:hidden}
+.groups-row .groups>*{position:relative;z-index:2}
+.groups-row .groups::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;opacity:.72;
+}
+#zagsBtn{
+  background:radial-gradient(circle at 15% 20%,rgba(121,208,241,.18),transparent 34%),linear-gradient(145deg,rgba(8,55,88,.97),rgba(3,29,55,.99));
+}
+#zagsBtn::before{
+  background:linear-gradient(180deg,rgba(214,243,255,.07),transparent 42%),repeating-linear-gradient(90deg,transparent 0 11%,rgba(116,190,224,.075) 11.5% 12.2%,transparent 12.7% 24%);
+  -webkit-mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.25) 58%,transparent 82%);mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.25) 58%,transparent 82%);
+}
+#groupsBtn{
+  background:radial-gradient(circle at 17% 30%,rgba(105,201,240,.22),transparent 30%),linear-gradient(145deg,rgba(7,50,84,.97),rgba(3,28,54,.99));
+}
+#groupsBtn::before{
+  background:radial-gradient(circle at 16% 27%,rgba(183,233,252,.20) 0 2px,transparent 3px),radial-gradient(circle at 28% 70%,rgba(110,199,238,.16) 0 2px,transparent 3px),radial-gradient(circle at 42% 31%,rgba(110,199,238,.11) 0 1.5px,transparent 2.5px),linear-gradient(120deg,transparent 0 19%,rgba(120,205,239,.07) 20% 20.8%,transparent 22% 100%);
+  -webkit-mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.32) 54%,transparent 82%);mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.32) 54%,transparent 82%);
+}
+

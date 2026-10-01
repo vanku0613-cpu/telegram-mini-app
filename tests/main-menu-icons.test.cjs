@@ -54,3 +54,13 @@ test('menu cards use a calm resting border and a readable label scrim', () => {
   assert.match(css, /\.groups-row \.groups\{[\s\S]*?border-width:1\.25px/);
   assert.match(css, /\.cards \.card:focus-visible,\.groups-row \.groups:focus-visible/);
 });
+
+test('group shortcuts and information panels share restrained professional surfaces', () => {
+  const infoCss = fs.readFileSync(path.join(root, 'home-info.css'), 'utf8');
+  assert.match(css, /#zagsBtn\{[\s\S]*?radial-gradient/);
+  assert.match(css, /#groupsBtn\{[\s\S]*?radial-gradient/);
+  assert.match(infoCss, /#app \.weather-panel\{[\s\S]*?rgba\(118,181,211,\.50\)/);
+  assert.match(infoCss, /#app \.currency-panel\{[\s\S]*?rgba\(118,181,211,\.50\)/);
+  assert.match(infoCss, /#app \.search-real\{[\s\S]*?rgba\(126,148,162,\.48\)/);
+  assert.match(infoCss, /#app \.search-real::placeholder\{[\s\S]*?rgba\(232,236,239,\.76\)/);
+});

@@ -54,3 +54,38 @@
   #app .currency-panel .rates-updated{margin-top:2px;font-size:clamp(6.8px,1.45cqw,8px);line-height:1!important}
   #app .currency-watermark{color:rgba(115,191,235,.13)}
 }
+
+/* Professional information surfaces: controlled contrast, restrained colour
+   and no bright resting ring around the search field. */
+#app .weather-panel{
+  border:1px solid rgba(118,181,211,.50)!important;
+  background:radial-gradient(circle at 84% 22%,rgba(240,202,130,.18) 0 8%,transparent 29%),radial-gradient(circle at 18% 78%,rgba(78,166,213,.16),transparent 42%),linear-gradient(145deg,rgba(8,54,88,.88),rgba(3,29,57,.94))!important;
+  box-shadow:inset 0 1px rgba(236,250,255,.08),0 4px 10px rgba(0,0,0,.25),0 0 5px rgba(45,129,176,.12)!important;
+}
+#app .weather-panel::after{
+  background:linear-gradient(180deg,rgba(233,249,255,.04),transparent 48%),linear-gradient(115deg,transparent 48%,rgba(132,205,234,.045) 49% 51%,transparent 52%)!important;
+}
+#app .currency-panel{
+  border:1px solid rgba(118,181,211,.50)!important;
+  background:radial-gradient(circle at 84% 26%,rgba(79,175,207,.15),transparent 34%),linear-gradient(145deg,rgba(7,48,78,.90),rgba(3,27,53,.95))!important;
+  box-shadow:inset 0 1px rgba(236,250,255,.08),0 4px 10px rgba(0,0,0,.25),0 0 5px rgba(45,129,176,.12)!important;
+}
+#app .currency-panel .info-title{color:#e9f7fd!important;text-decoration-color:rgba(168,217,238,.48)!important}
+#app .currency-panel .rate{color:#f5fbff!important}
+#app .currency-panel .rate span:first-child{color:#b9d9e8!important}
+#app .currency-panel .rates-updated{color:#a9c5d4!important}
+#app .search-real{
+  border:1px solid rgba(126,148,162,.48)!important;
+  color:#f1f4f6!important;
+  background:radial-gradient(circle at 92% 28%,rgba(83,113,132,.10),transparent 28%),linear-gradient(145deg,rgba(12,31,48,.95),rgba(5,18,32,.98))!important;
+  box-shadow:inset 0 1px rgba(230,248,255,.055),0 4px 10px rgba(0,0,0,.24)!important;
+}
+#app .search-real::placeholder{color:rgba(232,236,239,.76)!important;opacity:1!important;font-weight:800;letter-spacing:0}
+#app .search-icon,#app .search-clear{color:#c9d3d9!important}
+#app .search-wrap:is(.tap-lit,:focus-within) .search-real{
+  border-color:rgba(113,190,222,.74)!important;
+  box-shadow:0 0 0 1px rgba(94,177,211,.20),0 0 7px rgba(42,142,190,.26),inset 0 1px rgba(235,250,255,.07)!important;
+}
+#app :is(#weatherPanel,#currencyPanel):is(:active,.tap-lit,:focus-visible){
+  outline:none!important;border-color:rgba(116,204,235,.82)!important;box-shadow:0 0 0 1px rgba(86,183,220,.28),0 0 8px rgba(33,145,195,.30),inset 0 1px rgba(236,250,255,.08)!important;
+}
