@@ -1,7 +1,13 @@
 /* Grow the information row upwards, preserving the search and menu positions.
    The row's existing scale is 1.09 around its centre. */
 #app{--info-growth:clamp(16px,4vw,20px);--info-growth:clamp(16px,4cqw,20px)}
-#app .top-row{height:calc(4.75% + var(--info-growth));margin-top:calc(var(--info-growth) * -1.045);grid-template-columns:repeat(3,minmax(0,1fr))}
+#app .top-row{
+  height:calc(4.75% + var(--info-growth));
+  margin-top:calc(var(--info-growth) * -1.045);
+  /* Match the large-card spacing while preserving the shelter track exactly. */
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) calc((100% - 2.3%) / 3);
+  column-gap:.75vw;
+}
 #app .viewer{margin-top:calc(var(--info-growth) * -1.72)}
 #app .viewer{transform:none;width:max-content;max-width:92%;justify-content:center;white-space:nowrap}
 #app .viewer{min-height:22px;height:auto;gap:6px;padding:3px 8px;align-items:center;font-size:clamp(10px,2.35vw,13px);font-size:clamp(10px,2.35cqw,13px);font-weight:900;line-height:1}

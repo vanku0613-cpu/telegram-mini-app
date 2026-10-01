@@ -100,3 +100,9 @@ test('search and main card grid use compact professional vertical spacing', () =
   assert.match(settings, /groupsTop: "93\.01%"/);
   assert.match(settings, /bottomTop: "100\.23%"/);
 });
+
+test('weather and currency use the main-card gap without moving shelter', () => {
+  const infoCss = fs.readFileSync(path.join(root, 'home-info.css'), 'utf8');
+  assert.match(infoCss, /#app \.top-row\{[\s\S]*?grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\) calc\(\(100% - 2\.3%\) \/ 3\);[\s\S]*?column-gap:\.75vw/);
+  assert.match(html, /home-info\.css\?v=17/);
+});
