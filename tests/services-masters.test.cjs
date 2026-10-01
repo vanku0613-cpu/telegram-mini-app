@@ -80,8 +80,8 @@ test('services and masters follow the source category hierarchy and keep contact
       await page.setViewportSize({ width, height: 800 });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `no horizontal overflow at ${width}px`);
     }
-    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/"/);
-    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/"/);
+    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=call-right-2"/);
+    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=call-right-2"/);
     assert.equal(fs.existsSync(path.join(root,'services-masters','photos')),false,'downloaded category photos were removed');
     assert.equal(fs.existsSync(path.join(root,'services-masters','repair-underway.jpg')),false,'the remaining category photo was removed too');
   } finally {

@@ -289,13 +289,13 @@ window.IZMAIL_SETTINGS = {
       "./transport/",
 
     "Услуги и мастера":
-      "./services-masters/",
+      "./services-masters/?v=call-right-2",
 
     "Продукты питания":
       "./products-food/",
 
     "Коммунальные службы":
-      "./communal-services/?v=utility-cards-6",
+      "./communal-services/?v=utility-cards-7",
 
     "Работа / Вакансии":
       "https://t.me/rabota_v_izmaile",

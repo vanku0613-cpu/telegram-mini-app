@@ -87,6 +87,8 @@ test('main labels fit and service favorites show the same neon press feedback',a
     await page.goto(origin+'/services-masters/');
     await page.locator('.section-tab[data-section="services"]').click();
     await page.locator('#view .category').first().click();
+    const servicePhone=page.locator('#view .phone-action>.phone').first();
+    assert.deepEqual(await servicePhone.evaluate(el=>{const style=getComputedStyle(el),number=el.querySelector('strong').getBoundingClientRect(),label=el.querySelector('span').getBoundingClientRect();return{direction:style.flexDirection,align:style.alignItems,labelOnRight:label.left>number.left}}),{direction:'row',align:'center',labelOnRight:true},'services phone action stays on the right');
     const star=page.locator('#view .favorite-toggle').first();
     await star.dispatchEvent('pointerdown');
     assert.equal(await star.evaluate(el=>el.classList.contains('tap-lit')),true);
