@@ -1044,3 +1044,38 @@ a.nav{ text-decoration:none; }
   #app .agreement{top:95.45%}
 }
 
+/* Calm, high-contrast menu treatment: a quiet resting border and a stronger
+   local scrim behind labels keep photo cards readable without visual glare. */
+.cards .card{
+  border-width:1.25px;
+  border-color:rgba(116,181,216,.60);
+  box-shadow:inset 0 1px rgba(232,249,255,.09),inset 0 0 0 1px rgba(133,202,235,.025),0 4px 11px rgba(0,0,0,.30),0 0 5px rgba(47,132,181,.13);
+}
+.cards .card-overlay{
+  background:linear-gradient(180deg,rgba(2,15,32,.13),rgba(2,15,32,.22) 35%,rgba(1,12,28,.72) 100%),linear-gradient(90deg,rgba(2,20,42,.48),rgba(2,20,42,.17) 74%,rgba(2,20,42,.10));
+}
+.cards .card-copy strong{
+  color:#f7fbff;
+  -webkit-text-stroke:.18px rgba(0,8,20,.72);
+  text-shadow:0 1px 2px rgba(0,0,0,.88),0 0 5px rgba(0,12,28,.52);
+}
+.cards .card-copy small{
+  color:#d9e7f0;
+  text-shadow:0 1px 2px rgba(0,0,0,.88);
+}
+.groups-row .groups{
+  border-width:1.25px;
+  border-color:rgba(116,181,216,.60);
+  background:linear-gradient(145deg,rgba(7,43,78,.94),rgba(3,26,53,.98));
+  box-shadow:inset 0 1px rgba(232,249,255,.08),0 4px 11px rgba(0,0,0,.28),0 0 5px rgba(47,132,181,.13);
+}
+.cards .card:focus-visible,.groups-row .groups:focus-visible{
+  outline:2px solid rgba(145,217,247,.88);
+  outline-offset:2px;
+}
+#app .cards .card:is(:active,.tap-lit,.flash),
+#app .groups-row .groups:is(:active,.tap-lit,.flash){
+  border-color:#70d5f3!important;
+  box-shadow:0 0 0 1px rgba(81,196,233,.58),0 0 8px rgba(30,158,213,.42),inset 0 0 8px rgba(40,148,197,.15)!important;
+}
+

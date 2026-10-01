@@ -46,3 +46,11 @@ test('secondary menu actions use one vector icon system while favorite stays int
   assert.match(html, /id="favBtn"><span class="nav-icon">☆<\/span>/);
   assert.match(css, /\.menu-action-icon\{[\s\S]*?color:#b8ecff/);
 });
+
+test('menu cards use a calm resting border and a readable label scrim', () => {
+  assert.match(css, /\.cards \.card\{[\s\S]*?border-width:1\.25px;[\s\S]*?border-color:rgba\(116,181,216,\.60\)/);
+  assert.match(css, /\.cards \.card-overlay\{[\s\S]*?rgba\(1,12,28,\.72\)/);
+  assert.match(css, /\.cards \.card-copy strong\{[\s\S]*?color:#f7fbff/);
+  assert.match(css, /\.groups-row \.groups\{[\s\S]*?border-width:1\.25px/);
+  assert.match(css, /\.cards \.card:focus-visible,\.groups-row \.groups:focus-visible/);
+});
