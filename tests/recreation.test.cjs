@@ -28,9 +28,12 @@ test('recreation directory includes the four numbered sections and fits mobile s
     assert.equal(await cover.evaluate(img=>img.naturalWidth>0),true);
     assert.deepEqual(await page.locator('[role=tab] .tab-label').allTextContents(),['Базы отдыха','Сауны • Бани','Беседки • Комплексы','Бассейны']);
     assert.equal(await page.locator('[role=tab] .tab-icon svg').count(),4,'every recreation category has a line icon');
+    assert.equal(await page.locator('#bases .panel-icon svg, #gazebos .panel-icon svg, #pools .panel-icon svg').count(),3,'contact panels use matching professional line icons');
     assert.equal(await page.locator('.home-back').count(),2);
     assert.equal(await page.locator('.panel:visible').count(),0,'activity details are hidden until a category opens');
     assert.equal(await page.locator('.tabs').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2);
+    assert.match(await page.locator('.tabs').evaluate(el=>getComputedStyle(el).backgroundImage),/linear-gradient/,'recreation category grid uses the same framed directory surface');
+    assert.equal(await page.locator('.tabs').evaluate(el=>getComputedStyle(el).borderRadius),'20px');
     const tileHeights=await page.locator('[role=tab]').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().height));
     assert.ok(tileHeights.every(height=>height===90),'recreation buttons share the compact directory size');
     assert.match(await page.locator('[role=tab]').first().evaluate(el=>getComputedStyle(el).backgroundImage),/rgb\(32, 60, 87\)/,'recreation categories that open contacts use the calm blue-graphite surface');
