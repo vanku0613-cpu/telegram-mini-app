@@ -21,6 +21,7 @@
 .wrap .home-back{border:1px solid #6ac7f3;background:linear-gradient(180deg,#226ca3,#174b79);box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433,0 0 16px #268fd033;transition:filter .15s,box-shadow .15s}
 .wrap .home-back:hover,.wrap .home-back:focus-visible{filter:brightness(1.12);box-shadow:inset 0 0 0 1px #ffffff20,0 8px 24px #145d9455,0 0 20px #268fd055;outline:none}
 .wrap .home-back:active,.wrap .home-back.tap-lit{filter:brightness(1.2);border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
+.phone:active,.phone.tap-lit,.favorite-toggle:active,.favorite-toggle.tap-lit{border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
 @media(max-width:350px){.phones.phone-action{grid-template-columns:minmax(0,1fr) 42px!important;gap:6px!important}.phones.phone-action>.favorite-toggle{width:42px!important;min-width:42px!important}}
 </style>
 </head>
@@ -48,6 +49,7 @@
   document.querySelectorAll('.phone').forEach(link=>{const name=link.closest('.contact').querySelector('h3').textContent.trim(),phone=normalizePhone(link.getAttribute('href')),button=document.createElement('button');button.type='button';button.className='favorite-toggle';button.dataset.favorite=JSON.stringify([name,phone]);button.title='Добавить в избранное';link.parentNode.classList.add('phone-action');link.parentNode.insertBefore(button,link.nextSibling)});
   document.addEventListener('click',event=>{const button=event.target.closest('[data-favorite]');if(!button)return;const values=read(),key=button.dataset.favorite;if(values.has(key))values.delete(key);else values.add(key);try{localStorage.setItem(keyName,JSON.stringify([...values]))}catch{return}sync()});
   window.addEventListener('storage',event=>{if(event.key===keyName||event.key===null)sync()});
+  document.addEventListener('pointerdown',event=>{const control=event.target.closest('.home-back,.phone,.favorite-toggle');if(!control)return;control.classList.add('tap-lit');setTimeout(()=>control.classList.remove('tap-lit'),420)},{passive:true});
   sync();
 })();
 </script>

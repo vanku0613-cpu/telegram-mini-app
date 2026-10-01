@@ -1617,6 +1617,14 @@ a.nav{ text-decoration:none; }
 
   // Keep the saturated blue perimeter visible after a tap, like the service directories.
   document.addEventListener("pointerdown",function(event){
+    var searchControl=event.target.closest && event.target.closest("#directorySearchToggle,#directorySearchClear,.search-real");
+    if(searchControl){
+      var searchWrap=searchControl.closest(".search-wrap");
+      if(searchWrap){
+        searchWrap.classList.add("tap-lit");
+        setTimeout(function(){searchWrap.classList.remove("tap-lit");},420);
+      }
+    }
     var control=event.target.closest && event.target.closest("#app .pressable");
     if(!control) return;
     control.classList.add("tap-lit");
