@@ -92,4 +92,6 @@ test('schedule cards use the refreshed city and village artwork', () => {
   assert.match(cityPage, /\.village-route-name\{[^}]*top:50%[^}]*text-align:center/);
   assert.match(directory, /\.schedule-city-photo\{[^}]*brightness\(\.96\)/, 'city photos should stay clearly visible');
   assert.match(directory, /\.schedule-city-card:after\{[^}]*rgba\(2,15,31,\.48\)/, 'text overlay must not black out the city');
+  assert.match(directory, /city=bilhorod[^}]*\.schedule-city-copy\{left:43px;right:23px\}/, 'Bilhorod label should clear the icon');
+  assert.match(directory, /city=tatarbunary[^}]*\.schedule-city-copy\{transform:translateY\(6px\)\}/, 'Tatarbunary label should sit below the icon');
 });
