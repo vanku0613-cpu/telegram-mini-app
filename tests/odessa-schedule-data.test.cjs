@@ -30,6 +30,10 @@ test('transport menu groups Izmail and Odessa inside the schedule folder', () =>
   const transport = fs.readFileSync(path.join(root, 'transport', 'index.html'), 'utf8');
   const schedule = fs.readFileSync(path.join(root, 'transport', 'odessa-schedule', 'index.html'), 'utf8');
   assert.match(transport, /data-group="schedule"/);
+  assert.match(transport, /id="groupTabs"[\s\S]*data-group="taxi"[\s\S]*data-content="stations"[\s\S]*class="tab directory-tab schedule-card has-children"/);
+  assert.match(transport, /#groupTabs\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(transport, /\.schedule-card\{grid-column:1\/-1/);
+  assert.match(transport, /class="menu-card-icon"/);
   assert.match(transport, /<strong>Расписание<\/strong><span>Измаил · Килия · Вилково · Рени · Болград · Арциз · Татарбунары · Белгород-Днестровский · Одесса · Киев<\/span>/);
   assert.match(transport, /data-submenu="schedule"/);
   assert.match(transport, /href="\.\/bus-schedule\/"/);

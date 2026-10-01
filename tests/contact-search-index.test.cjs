@@ -52,7 +52,7 @@ test('individual trips contains only the discussed trip contacts',()=>{
   assert.ok(taxiMenu,'taxi and individual trip folders should share one parent menu');
   assert.match(taxiMenu,/data-content="taxi">Такси по городу/);
   assert.match(taxiMenu,/class="tab direct-entry"[^>]*data-content="taxi"/);
-  assert.match(transport,/class="tab has-children"[^>]*data-group="taxi"/);
+  assert.match(transport,/class="[^"]*tab[^"]*has-children[^"]*"[^>]*data-group="taxi"/);
   assert.equal((taxiMenu.match(/class="trip-folder direct-entry"/g)||[]).length,6);
   assert.equal((taxiMenu.match(/data-trip-folder=/g)||[]).length,6);
   assert.doesNotMatch(taxiMenu,/data-content="individual"/);
@@ -65,7 +65,7 @@ test('individual trips contains only the discussed trip contacts',()=>{
     '0982050354','0630483144','0962077144','0679426982','0638025435'
   ].map(normalize));
   assert.deepEqual([...actual].sort(),[...expected].sort());
-  assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*data-group="schedule"[\s\S]*data-content="stations">Автостанции области/);
+  assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*data-group="taxi"[\s\S]*data-content="stations"[\s\S]*data-group="schedule"/);
   assert.match(transport,/data-submenu="schedule"[\s\S]*href="\.\/bus-schedule\/"[\s\S]*<strong>Измаил<\/strong>/);
   const schedule=fs.readFileSync(path.join(root,'transport/bus-schedule/index.html'),'utf8');
   assert.match(schedule,/<h1>Расписание автобусов Измаил<\/h1>/);
