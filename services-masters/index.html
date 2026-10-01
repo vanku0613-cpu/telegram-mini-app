@@ -24,7 +24,7 @@
 #view .grid>.category>small,#view .grid>.subcat>small{padding-right:18px}
 
 /* Directory cards: clear icon, title and contact count in one professional row. */
-#view .grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:90px;gap:9px;align-content:start}
+#view .grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:90px;gap:9px;align-content:start;margin-inline:-4px}
 #view .grid>.category,#view .grid>.subcat{display:grid;grid-template-columns:40px minmax(0,1fr) 14px;grid-template-rows:1fr;align-items:center;column-gap:6px;height:100%;min-height:0;padding:8px;border:1.5px solid rgba(79,165,219,.8);border-radius:16px;background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15);transition:border-color .12s ease,box-shadow .12s ease}
 #view .grid>.category:before,#view .grid>.subcat:before{display:none}
 #view .grid>.category>.card-icon,#view .grid>.subcat>.card-icon{display:grid;place-items:center;grid-column:1;grid-row:1;width:40px;height:40px;border:1px solid rgba(83,178,230,.38);border-radius:12px;background:linear-gradient(145deg,rgba(19,96,148,.78),rgba(7,49,88,.82));box-shadow:inset 0 1px rgba(230,250,255,.12),0 0 9px rgba(67,183,238,.22)}
@@ -35,7 +35,7 @@
 #view .grid>.category>.tile-arrow,#view .grid>.subcat>.tile-arrow{position:static;grid-column:3;grid-row:1;justify-self:end;align-self:center;margin:0;color:#c7efff;font-size:25px;font-weight:300;line-height:1;text-shadow:0 0 9px rgba(89,201,255,.52)}
 /* Saturated blue perimeter feedback on every tappable control in this directory. */
 .section-tab:active,.section-tab.tap-lit,.inner-back:active,.inner-back.tap-lit,.home-back:active,.home-back.tap-lit,#view .grid>.category:active,#view .grid>.category.tap-lit,#view .grid>.subcat:active,#view .grid>.subcat.tap-lit{border-color:#57e8ff!important;box-shadow:0 0 0 2px #1ccfff,0 0 11px 3px #00a7ff,0 0 27px 8px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important}
-@media(max-width:350px){#view .grid{grid-auto-rows:86px;gap:7px}#view .grid>.category,#view .grid>.subcat{grid-template-columns:36px minmax(0,1fr) 13px;padding:7px;column-gap:5px;border-radius:14px}#view .grid>.category>.card-icon,#view .grid>.subcat>.card-icon{width:36px;height:36px;border-radius:11px}#view .grid>.category>.card-icon>.art,#view .grid>.subcat>.card-icon>.art{width:22px;height:22px}#view .grid>.category>.card-copy>strong,#view .grid>.subcat>.card-copy>strong{font-size:11px}#view .grid>.category>.card-copy>small,#view .grid>.subcat>.card-copy>small{font-size:10px}#view .grid>.category>.tile-arrow,#view .grid>.subcat>.tile-arrow{font-size:22px}}
+@media(max-width:350px){#view .grid{grid-auto-rows:86px;gap:7px;margin-inline:-2px}#view .grid>.category,#view .grid>.subcat{grid-template-columns:36px minmax(0,1fr) 13px;padding:7px;column-gap:5px;border-radius:14px}#view .grid>.category>.card-icon,#view .grid>.subcat>.card-icon{width:36px;height:36px;border-radius:11px}#view .grid>.category>.card-icon>.art,#view .grid>.subcat>.card-icon>.art{width:22px;height:22px}#view .grid>.category>.card-copy>strong,#view .grid>.subcat>.card-copy>strong{font-size:11px}#view .grid>.category>.card-copy>small,#view .grid>.subcat>.card-copy>small{font-size:10px}#view .grid>.category>.tile-arrow,#view .grid>.subcat>.tile-arrow{font-size:22px}}
 </style>
 <style>
 .paired-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px;margin:0 auto 13px}
