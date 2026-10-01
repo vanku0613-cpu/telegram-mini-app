@@ -90,4 +90,6 @@ test('schedule cards use the refreshed city and village artwork', () => {
   assert.match(cityPage, /class="village-route-photo"/);
   assert.match(cityPage, /class="village-route-icon"/);
   assert.match(cityPage, /\.village-route-name\{[^}]*top:50%[^}]*text-align:center/);
+  assert.match(directory, /\.schedule-city-photo\{[^}]*brightness\(\.96\)/, 'city photos should stay clearly visible');
+  assert.match(directory, /\.schedule-city-card:after\{[^}]*rgba\(2,15,31,\.48\)/, 'text overlay must not black out the city');
 });
