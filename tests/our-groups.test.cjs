@@ -14,7 +14,7 @@ test('our groups page shows all verified community links and return buttons', as
       res.writeHead(404);
       return res.end();
     }
-    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : file.endsWith('.svg') ? 'image/svg+xml' : file.endsWith('.webp') ? 'image/webp' : 'text/html; charset=utf-8');
+    res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : file.endsWith('.svg') ? 'image/svg+xml' : file.endsWith('.webp') ? 'image/webp' : /\.jpe?g$/i.test(file) ? 'image/jpeg' : 'text/html; charset=utf-8');
     res.end(fs.readFileSync(file));
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -37,10 +37,17 @@ test('our groups page shows all verified community links and return buttons', as
     ]);
     assert.deepEqual(await page.locator('.home-back').evaluateAll(items => items.map(item => item.getAttribute('data-main-back') !== null)), [true, true]);
     await page.locator('.avatar img').evaluateAll(items => items.forEach(item => { item.loading = 'eager'; }));
-    await page.waitForFunction(() => document.querySelectorAll('.avatar.is-fallback').length === 6);
-    const workAvatar = page.locator('a[href="https://t.me/rabota_v_izmaile"] .avatar img');
-    assert.match(await workAvatar.getAttribute('src'), /group-avatar-work-v2\.png/);
-    assert.ok(await workAvatar.evaluate(img => img.complete && img.naturalWidth > 0), 'work group avatar is stored locally and remains available');
+    await page.waitForFunction(() => [...document.querySelectorAll('.avatar img')].every(img => img.complete && img.naturalWidth > 0));
+    assert.deepEqual(await page.locator('.avatar img').evaluateAll(items => items.map(img => img.getAttribute('src'))), [
+      '../assets/group-avatar-directory.jpg?v=1',
+      '../assets/group-avatar-market.jpg?v=1',
+      '../assets/group-avatar-auto.jpg?v=1',
+      '../assets/group-avatar-work.jpg?v=1',
+      '../assets/group-avatar-zoo.jpg?v=1',
+      '../assets/group-avatar-utilities.jpg?v=1',
+      '../assets/group-avatar-lost-found.jpg?v=1'
+    ]);
+    assert.equal(await page.locator('.avatar.is-fallback').count(), 0);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
     await page.setViewportSize({ width: 768, height: 900 });
     assert.equal(await page.locator('.grid').evaluate(el => getComputedStyle(el).gridTemplateColumns.split(' ').length), 2);
