@@ -47,8 +47,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     async function open(hash){await page.goto(origin+'?test='+(++navigation)+hash);await page.waitForFunction(()=>document.querySelector('#content .empty strong, .branch-card, .category-tile, .contact, .city-tab'));}
     await open('');assert.equal(await page.locator('.branch-card').count(),3);
     assert.deepEqual(await page.locator('.branch-copy h2').allTextContents(),['Врачи и здоровье','Красота и уход','Помощь и уход']);
-    assert.equal(await page.locator('.branch-card.doctors h2').evaluate(e=>getComputedStyle(e).whiteSpace),'nowrap','Врачи и здоровье stays on one line');
-    for(const width of [320,390,768]){await page.setViewportSize({width,height:844});const fit=await page.locator('.branch-card.doctors h2').evaluate(e=>({width:e.clientWidth,scroll:e.scrollWidth}));assert.ok(fit.scroll<=fit.width,`Врачи и здоровье fits in one line at ${width}px: ${JSON.stringify(fit)}`)}
+    for(const width of [320,390,768]){await page.setViewportSize({width,height:844});const layout=await page.locator('.branch-card').evaluateAll(items=>items.map(e=>({height:e.getBoundingClientRect().height,fit:e.scrollWidth<=e.clientWidth})));assert.ok(layout.every(item=>item.height===(width<=350?86:90)&&item.fit),`health buttons match the shared directory grid at ${width}px: ${JSON.stringify(layout)}`)}
     await page.setViewportSize({width:390,height:844});
     await page.locator('.branch-card.doctors').click();await page.locator('.city-tab').first().waitFor();
     assert.equal(await page.locator('.city-tab[aria-current=true]').count(),0);
