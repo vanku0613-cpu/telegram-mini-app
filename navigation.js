@@ -95,19 +95,33 @@
     event.preventDefault();
     event.stopImmediatePropagation();
   }
+  function runWithMainMenuGlow(el, action) {
+    // Inner menus redraw in place, while the main menu opens another document.
+    // Let its tap-lit outline paint once before that document transition.
+    if (!(el.classList.contains("pressable") && el.closest && el.closest("#app"))) {
+      action();
+      return;
+    }
+    if (el.dataset.izmailGlowPending === "1") return;
+    el.dataset.izmailGlowPending = "1";
+    setTimeout(function () {
+      delete el.dataset.izmailGlowPending;
+      action();
+    }, 120);
+  }
   document.addEventListener("click", function (event) {
     if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     var el = elementFor(event);
     if (!el || el.disabled || el.getAttribute("aria-disabled") === "true") return;
     if (el.hasAttribute("download") || (el.target && el.target !== "_self")) return;
-    if (homeButton(el)) { stop(event); returnHome(); return; }
+    if (homeButton(el)) { stop(event); runWithMainMenuGlow(el, returnHome); return; }
     var url = targetUrl(el);
     if (!url) return;
     // Native external anchors retain new-tab, Telegram and browser behavior.
     if (!inside(url) && el.tagName === "A") return;
     if (url.hash && samePage(url, new URL(location.href))) return;
     stop(event);
-    navigate(url);
+    runWithMainMenuGlow(el, function () { navigate(url); });
   }, true);
 
   // Declarative future buttons receive keyboard activation as well as taps.
