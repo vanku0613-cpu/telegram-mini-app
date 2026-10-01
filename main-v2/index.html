@@ -970,6 +970,37 @@ a.nav{ text-decoration:none; }
 }
 .weather-panel::after { background:transparent !important; }
 
+/* One clear, readable system for the main menu without changing its layout. */
+.card-copy{left:4% !important;right:10% !important;text-align:center}
+.card-copy strong{font-size:clamp(14px,3.9vw,21px);font-size:clamp(14px,3.9cqw,21px);font-weight:950;letter-spacing:-.025em;line-height:1.05;white-space:nowrap}
+.card-copy small{font-weight:800;text-align:center}
+.card.compact .card-copy strong{font-size:clamp(11.7px,3.15vw,16.8px);font-size:clamp(11.7px,3.15cqw,16.8px);font-weight:950;white-space:nowrap}
+.groups-title{font-size:clamp(14px,3.85vw,20px);font-size:clamp(14px,3.85cqw,20px);font-weight:950;line-height:1;white-space:nowrap;text-align:center}
+.nav{font-size:clamp(13px,3.35vw,18px);font-size:clamp(13px,3.35cqw,18px);font-weight:950;text-align:center}
+.shelter-label{font-size:clamp(11px,3.25vw,17px);font-size:clamp(11px,3.25cqw,17px);font-weight:950;line-height:1;white-space:nowrap;text-align:center}
+
+/* A vivid electric-blue perimeter confirms every tap on the main-menu controls. */
+.pressable:active .press-glow,
+.pressable.flash .press-glow{
+  opacity:1!important;
+  border-color:#55edff!important;
+  box-shadow:0 0 0 2px #1ccfff,0 0 12px 4px #00a7ff,0 0 28px 9px #006eff,inset 0 0 18px rgba(18,156,255,.42)!important;
+}
+.pressable.flash .press-glow{animation:mainElectricFlash .68s ease-out both!important}
+@keyframes mainElectricFlash{
+  0%{opacity:1;border-color:#66f0ff;box-shadow:0 0 0 2px #1ccfff,0 0 13px 4px #00aeff,0 0 30px 10px #006dff,inset 0 0 18px rgba(18,156,255,.44)}
+  58%{opacity:.72;border-color:#28bde8;box-shadow:0 0 0 1px #12b9e8,0 0 9px 3px #008ff0,0 0 21px 7px #0059c8,inset 0 0 13px rgba(18,156,255,.28)}
+  100%{opacity:0;border-color:transparent;box-shadow:none}
+}
+#directorySearchToggle:active,
+#directorySearchClear:active,
+.weather-panel:active,
+.currency-panel:active{
+  outline:2px solid #31dbff;
+  outline-offset:2px;
+  box-shadow:0 0 0 2px rgba(28,207,255,.72),0 0 12px 4px rgba(0,167,255,.8),0 0 25px 8px rgba(0,94,255,.55)!important;
+}
+
 </style>
 
 <script>
@@ -1019,7 +1050,7 @@ a.nav{ text-decoration:none; }
         <time class="rates-updated" id="ratesUpdated"><span>—</span></time>
       </div>
       <a class="shelter pressable" id="shelterBtn"
-      href="./ukrytia/" aria-label="Укрытия Измаила"><span class="shield">⌂</span><span class="shelter-label">Укрытие<br>Измаил</span><span class="chev">›</span><span class="press-glow"></span></a>
+      href="./ukrytia/" aria-label="Укрытия Измаила"><span class="shield">⌂</span><span class="shelter-label">Укрытие Измаил</span><span class="chev">›</span><span class="press-glow"></span></a>
     </div>
 
     <div class="search-wrap">
