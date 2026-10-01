@@ -97,4 +97,6 @@ test('search and main card grid use compact professional vertical spacing', () =
   assert.match(css, /\.cards\s*\{[\s\S]*?top:40\.80%;[\s\S]*?height:39\.40%/);
   assert.match(settings, /searchTop: "42\.18%"/);
   assert.match(settings, /cardsTop: "50\.46%"/);
+  assert.match(settings, /groupsTop: "93\.01%"/);
+  assert.match(settings, /bottomTop: "100\.23%"/);
 });

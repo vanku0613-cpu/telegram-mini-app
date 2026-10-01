@@ -36,9 +36,9 @@ window.IZMAIL_SETTINGS = {
 
     cardsTop: "50.46%",
 
-    groupsTop: "91.20%",
+    groupsTop: "93.01%",
 
-    bottomTop: "99.20%",
+    bottomTop: "100.23%",
 
     agreementTop: "107.20%",
 
