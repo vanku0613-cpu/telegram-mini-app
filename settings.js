@@ -283,13 +283,13 @@ window.IZMAIL_SETTINGS = {
   categoryLinks: {
 
     "Здоровье и уход":
-      "./health-care/",
+      "./health-care/?v=contextual-covers-1",
 
     "Транспорт / Такси":
-      "./transport/",
+      "./transport/?v=contextual-covers-1",
 
     "Услуги и мастера":
-      "./services-masters/?v=hierarchy-colors-2",
+      "./services-masters/?v=contextual-covers-1",
 
     "Продукты питания":
       "./products-food/",

@@ -28,7 +28,7 @@ test('education cover, navigation and hierarchy match the polished directory sty
     assert.deepEqual(await page.locator('#bottomNav a').allTextContents(),['Вернуться в главное меню']);
     const cover=page.locator('.health-cover img');
     await cover.evaluate(img=>img.decode());
-    assert.match(await cover.getAttribute('src'),/health-care-cover-v1\.webp/);
+    assert.match(await cover.getAttribute('src'),/health-education-cover-v1\.webp/);
     assert.deepEqual(await cover.evaluate(img=>[img.naturalWidth,img.naturalHeight]),[1280,752]);
     assert.equal(await page.locator('.education-tile').count(),4);
     assert.equal(await page.locator('.education-tile-icon').count(),4);
@@ -42,11 +42,24 @@ test('education cover, navigation and hierarchy match the polished directory sty
     assert.match(folderColor,/rgb\(12, 66, 111\)/,'buttons that open another folder use the saturated dark-blue surface');
     assert.match(directColor,/rgb\(32, 60, 87\)/,'buttons that open contacts use the calm blue-graphite surface');
     assert.notEqual(directColor,folderColor,'a folder with another level has a different background');
-    for(const route of ['','#doctors','#beauty','#education','#city/'+encodeURIComponent('Измаил'),'#category/96203','#category/96204','#category/96208','#category/96215','#category/96216','#category/96211']){
+    const coverRoutes=new Map([
+      ['',/health-care-cover-v1\.webp/],
+      ['#doctors',/health-doctors-cover-v1\.webp/],
+      ['#beauty',/health-beauty-cover-v1\.webp/],
+      ['#education',/health-education-cover-v1\.webp/],
+      ['#city/'+encodeURIComponent('Измаил'),/health-doctors-cover-v1\.webp/],
+      ['#category/96203',/health-education-cover-v1\.webp/],
+      ['#category/96204',/health-education-cover-v1\.webp/],
+      ['#category/96208',/health-education-cover-v1\.webp/],
+      ['#category/96215',/health-education-cover-v1\.webp/],
+      ['#category/96216',/health-education-cover-v1\.webp/],
+      ['#category/96211',/health-care-help-cover-v1\.webp/]
+    ]);
+    for(const [route,expectedCover] of coverRoutes){
       await page.goto(origin+'/health-care/'+route);
       const fixedCover=page.locator('.health-cover img');
       await fixedCover.evaluate(img=>img.decode());
-      assert.match(await fixedCover.getAttribute('src'),/health-care-cover-v1\.webp/,'health categories keep one fixed profile cover');
+      assert.match(await fixedCover.getAttribute('src'),expectedCover,'each health branch keeps its meaningful cover through nested folders');
       assert.equal(await page.locator('.profile-banner img[src*="cover-962"]').count(),0,'old category photos are not rendered in the profile header');
     }
     await page.goto(origin+'/health-care/#education');

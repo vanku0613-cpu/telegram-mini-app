@@ -40,6 +40,7 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.match(menuBackground,/rgb\(12, 66, 111\)/,'buttons that open another folder use the saturated dark-blue surface');
     assert.ok(await page.locator('#view .category').evaluateAll(items=>items.every(item=>item.classList.contains('has-children'))),'buttons that open more folders use the folder color');
     await page.getByRole('button', { name: /Строительство \/ ремонт/ }).click();
+    assert.match(await page.locator('#coverImage').getAttribute('src'),/masters-construction-cover-v1\.webp/,'the selected master folder gets its own meaningful cover');
     assert.equal(await page.locator('.subcat').count(), 16, 'construction and repair services remain individually selectable');
     assert.equal(await page.locator('.subcat img').count(), 0, 'specialization buttons contain no added photos');
     assert.equal(await page.locator('[data-back]').first().textContent(), '← Вернуться в раздел');
@@ -56,8 +57,10 @@ test('services and masters follow the source category hierarchy and keep contact
     await page.locator('[data-back]').first().click();
 
     await page.getByRole('button', { name: /Электрик \/ сантехник/ }).click();
+    assert.match(await page.locator('#coverImage').getAttribute('src'),/masters-electric-plumbing-cover-v1\.webp/);
     assert.deepEqual(await page.locator('.subcat strong').allTextContents(), ['Электрик','Сантехник','Чистка канализации']);
     await page.getByRole('button', { name: /Электрик/ }).last().click();
+    assert.match(await page.locator('#coverImage').getAttribute('src'),/masters-electric-plumbing-cover-v1\.webp/,'contacts retain the selected parent-folder cover');
     assert.equal(await page.locator('[data-back]').first().textContent(), '← Вернуться в раздел');
     assert.equal(await page.locator('.contact h3').first().textContent(), 'Василий');
     assert.ok((await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(a => a.getAttribute('href')))).includes('tel:+380688481795'));
@@ -66,8 +69,16 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.equal(await page.locator('.subcat').count(), 3);
     await page.locator('[data-back]').first().click();
 
-    for (const categoryName of ['Услуги по дому / участку','Бытовая техника','Окна и двери','Авто / мототехника','IT и техника']) {
+    const expectedCovers={
+      'Услуги по дому / участку':'masters-home-yard-cover-v1.webp',
+      'Бытовая техника':'masters-appliances-cover-v1.webp',
+      'Окна и двери':'masters-windows-doors-cover-v1.webp',
+      'Авто / мототехника':'masters-auto-moto-cover-v1.webp',
+      'IT и техника':'masters-it-tech-cover-v1.webp'
+    };
+    for (const categoryName of Object.keys(expectedCovers)) {
       await page.getByRole('button', { name: new RegExp(categoryName) }).click();
+      assert.ok((await page.locator('#coverImage').getAttribute('src')).includes(expectedCovers[categoryName]),`${categoryName} uses its own cover`);
       assert.ok(await page.locator('.subcat').count() > 0, `${categoryName} has selectable specializations`);
       assert.equal(await page.locator('.subcat img').count(), 0, `${categoryName} buttons have no photos`);
       await page.locator('[data-back]').first().click();
@@ -86,8 +97,8 @@ test('services and masters follow the source category hierarchy and keep contact
       await page.setViewportSize({ width, height: 800 });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `no horizontal overflow at ${width}px`);
     }
-    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=hierarchy-colors-2"/);
-    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=hierarchy-colors-2"/);
+    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=contextual-covers-1"/);
+    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=contextual-covers-1"/);
     assert.equal(fs.existsSync(path.join(root,'services-masters','photos')),false,'downloaded category photos were removed');
     assert.equal(fs.existsSync(path.join(root,'services-masters','repair-underway.jpg')),false,'the remaining category photo was removed too');
   } finally {

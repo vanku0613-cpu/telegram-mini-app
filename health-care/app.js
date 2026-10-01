@@ -54,7 +54,13 @@
     ['Другие специалисты',['96313','96314','96318']],
     ['Ветеринарная помощь',['20125']]
   ];
-  function rootCover(){return '<section class="profile-banner health-profile-banner"><div class="visual generated-cover health-cover"><img src="../assets/health-care-cover-v1.webp?v=1" alt="Врачи, диагностика, красота и помощь — здоровье и уход в Измаиле" width="1280" height="752" draggable="false" decoding="async"></div></section>'}
+  const healthCovers={
+    doctors:['../assets/health-doctors-cover-v1.webp?v=1','Врачи и диагностика'],
+    beauty:['../assets/health-beauty-cover-v1.webp?v=1','Красота и профессиональный уход'],
+    care:['../assets/health-care-help-cover-v1.webp?v=1','Помощь и заботливый уход'],
+    education:['../assets/health-education-cover-v1.webp?v=1','Образование и развитие']
+  };
+  function rootCover(branch){const cover=healthCovers[branch]||['../assets/health-care-cover-v1.webp?v=1','Врачи, диагностика, красота и помощь — здоровье и уход в Измаиле'];return '<section class="profile-banner health-profile-banner"><div class="visual generated-cover health-cover"><img src="'+cover[0]+'" alt="'+cover[1]+'" width="1280" height="752" draggable="false" decoding="async"></div></section>'}
   function favoritesCover(){return `<section class="favorites-cover" role="img" aria-label="Справочник Измаил: избранные контакты."><img class="favorites-cover-art" src="../assets/favorites-cover-v1.webp?v=1" alt="" width="1280" height="751" decoding="async"><div class="favorites-cover-copy"><span>СПРАВОЧНИК ИЗМАИЛ</span><strong>Избранное</strong><small>Сохранённые контакты</small></div></section>`}
   function cityTabs(city,q=''){const options=cities(),tab=c=>'<a class="city-tab" href="'+cityHref(c)+'" '+(city===c?'aria-current="true"':'')+'><img src="media/city-'+cityImages[c]+'.jpg" alt="" width="330" height="220"><span>'+escape(c)+'</span></a>';const picker=city?'<div class="city-selection">'+tab(city)+'<button id="cityListToggle" type="button" aria-expanded="'+String(cityListOpen)+'">'+(cityListOpen?'Скрыть города ↑':'Другие города ↓')+'</button></div>':'';const others=city?options.filter(c=>c!==city):options;return '<h2 class="city-heading">'+(city?'Выбран город: '+escape(city):'Выберите город')+'</h2>'+picker+'<nav class="city-tabs" aria-label="Город приёма" '+(city&&!cityListOpen?'hidden':'')+'>'+(city&&!cityListOpen?'':others.map(tab).join(''))+'</nav>'+(city==='Измаил'?'<a class="city-vet veterinary chip" href="'+cityHref(city)+'/category/20125"><span aria-hidden="true">🐾</span> Ветеринары Измаила</a>':'')}
   function reviewPanel(r){if(!r.review)return '';const v=r.review;return '<details class="reviews"><summary>Отзывы <span class="review-hide">· скрыть</span></summary><p>'+escape(v.summary)+'</p><small>'+escape(v.label)+' · '+escape(v.checked)+'</small><a href="'+escape(v.url)+'" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a></details>'}
@@ -147,7 +153,7 @@
       $('topNav').innerHTML=back+homeLink;$('bottomNav').innerHTML=back+homeLink;
       $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';
-      $('profileMedia').innerHTML=favorites?favoritesCover():rootCover();
+      $('profileMedia').innerHTML=favorites?favoritesCover():rootCover(branch);
       const phoneFolder=Boolean(category&&!category.children&&data.records.some(r=>categoriesFor(r).includes(category.id)));
       document.querySelector('.finder').hidden=(!branch&&!favorites&&!globalSearch)||phoneFolder||branch==='education'||Boolean(contactId)||favorites;
       $('search').placeholder=branch==='doctors'?(cityName?'Поиск врачей по '+citySearch[cityName]:'Поиск врачей'):branch==='education'?'Предмет, имя или телефон':'Специальность, имя или телефон';
