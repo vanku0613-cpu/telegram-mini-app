@@ -65,7 +65,8 @@ test('individual trips contains only the discussed trip contacts',()=>{
     '0982050354','0630483144','0962077144','0679426982','0638025435'
   ].map(normalize));
   assert.deepEqual([...actual].sort(),[...expected].sort());
-  assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*href="\.\/bus-schedule\/">Расписание автобусов Измаил[\s\S]*data-content="stations">Автостанции области/);
+  assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*data-group="schedule"[\s\S]*data-content="stations">Автостанции области/);
+  assert.match(transport,/data-submenu="schedule"[\s\S]*href="\.\/bus-schedule\/"[\s\S]*<strong>Измаил<\/strong>/);
   const schedule=fs.readFileSync(path.join(root,'transport/bus-schedule/index.html'),'utf8');
   assert.match(schedule,/<h1>Расписание автобусов Измаил<\/h1>/);
   assert.match(schedule,/\.route\{[^}]*background:linear-gradient\(145deg,#203c57/,'route buttons that open schedule details use the calm blue-graphite surface');

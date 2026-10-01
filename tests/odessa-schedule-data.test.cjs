@@ -26,10 +26,16 @@ test('Odessa schedule contains the three requested transport sections', () => {
   }
 });
 
-test('transport menu links to the standalone Odessa schedule', () => {
+test('transport menu groups Izmail and Odessa inside the schedule folder', () => {
   const transport = fs.readFileSync(path.join(root, 'transport', 'index.html'), 'utf8');
   const schedule = fs.readFileSync(path.join(root, 'transport', 'odessa-schedule', 'index.html'), 'utf8');
-  assert.match(transport, /href="\.\/odessa-schedule\/">Расписание Одессы/);
+  assert.match(transport, /data-group="schedule"/);
+  assert.match(transport, /<strong>Расписание<\/strong><span>Измаил · Килия · Вилково · Рени · Болград · Арциз · Татарбунары · Белгород-Днестровский · Одесса · Киев<\/span>/);
+  assert.match(transport, /data-submenu="schedule"/);
+  assert.match(transport, /href="\.\/bus-schedule\/"/);
+  assert.match(transport, /href="\.\/odessa-schedule\/"/);
+  assert.match(transport, /city=villages/);
+  assert.match(transport, /Сёла Измаильского района/);
   assert.match(schedule, /Автобусы · троллейбусы · трамваи/);
   assert.match(schedule, /data-view="schedule"/);
   assert.match(schedule, /data-view="map"/);
