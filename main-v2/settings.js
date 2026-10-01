@@ -380,6 +380,9 @@ if (
   var menuWidth =
     layout.menuWidth || "90.24%";
 
+  var cardsGap =
+    layout.cardsGap || "0.75vw";
+
 
   var savedViewerCss =
     "";
@@ -563,10 +566,7 @@ if (
       ") !important;" +
 
       "gap:" +
-      (
-        layout.cardsGap ||
-        "0.75vw"
-      ) +
+      cardsGap +
       " !important;" +
 
       "scale:" +
@@ -582,14 +582,18 @@ if (
 
     /* НАШИ ГРУППЫ */
 
-    ".groups{" +
+    ".groups-row{" +
 
       "left:" +
       menuLeft +
       " !important;" +
 
       "width:" +
-      "40.5%" +
+      menuWidth +
+      " !important;" +
+
+      "gap:" +
+      cardsGap +
       " !important;" +
 
       "top:calc(" +
@@ -608,19 +612,6 @@ if (
       "transform-origin:center center;" +
 
       "translate:0 var(--cards-section-shift, 0px);" +
-
-    "}",
-
-
-    ".groups.zags-shortcut{" +
-
-      "left:auto !important;" +
-
-      "right:" +
-      menuLeft +
-      " !important;" +
-
-      "width:40.5% !important;" +
 
     "}",
 
