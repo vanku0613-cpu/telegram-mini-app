@@ -64,3 +64,29 @@ test('group shortcuts and information panels share restrained professional surfa
   assert.match(infoCss, /#app \.search-real\{[\s\S]*?rgba\(126,148,162,\.48\)/);
   assert.match(infoCss, /#app \.search-real::placeholder\{[\s\S]*?rgba\(232,236,239,\.76\)/);
 });
+
+test('desktop typography is capped without changing phone rules', () => {
+  const infoCss = fs.readFileSync(path.join(root, 'home-info.css'), 'utf8');
+  assert.match(css, /Desktop typography is intentionally capped/);
+  assert.match(css, /#app \.cards \.card-copy strong\{font-size:clamp\(13px,3cqw,16px\)/);
+  assert.match(css, /#app \.groups-row \.groups-title\{font-size:clamp\(12px,2\.75cqw,15px\)/);
+  assert.match(infoCss, /Desktop-only fit/);
+  assert.match(infoCss, /#app\{--info-growth:24px\}/);
+  assert.match(infoCss, /#app \.weather-panel \.info-title\{height:auto;min-height:0;font-size:9\.2px!important/);
+  assert.match(infoCss, /#app \.currency-panel \.info-title\{font-size:8\.6px!important/);
+});
+
+test('every main card description remains fully visible', () => {
+  const js = fs.readFileSync(path.join(root, 'main-v2', 'main.js'), 'utf8');
+  assert.match(css, /\.cards \.card-copy small\{[\s\S]*?width:125%;[\s\S]*?text-overflow:clip/);
+  assert.match(js, /var subtitles=/);
+  assert.match(js, /subtitle\.style\.fontSize=Math\.max\(6\.8,/);
+  assert.match(html, /Свет • Вода • Газ • Интернет/);
+  assert.doesNotMatch(html, /Найти работу • Разместить вакансию/);
+});
+
+test('all category arrows share one visible position', () => {
+  assert.equal((html.match(/class="card-arrow"/g) || []).length, 8);
+  assert.match(css, /#app \.cards \.card-arrow\{[\s\S]*?display:grid!important;[\s\S]*?right:3\.5%;top:50%/);
+  assert.match(css, /#app \.cards \.card\.compact\.expanded-label \.card-copy\{right:14%!important\}/);
+});

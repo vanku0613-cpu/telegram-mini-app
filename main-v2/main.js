@@ -568,9 +568,11 @@
     frame=0;
     var titles=Array.prototype.slice.call(document.querySelectorAll(".card:not(.expanded-label) .card-copy strong,.groups-title"));
     var expanded=Array.prototype.slice.call(document.querySelectorAll(".card.expanded-label .card-copy strong"));
+    var subtitles=Array.prototype.slice.call(document.querySelectorAll(".card-copy small"));
     var navLabels=Array.prototype.slice.call(document.querySelectorAll(".bottom .nav > span:not(.nav-icon):not(.press-glow)"));
 
     titles.forEach(function(title){title.style.fontSize="";});
+    subtitles.forEach(function(subtitle){subtitle.style.fontSize="";});
     navLabels.forEach(function(label){label.style.fontSize="";});
     expanded.forEach(function(title){
       var span=title.querySelector("span");
@@ -600,6 +602,15 @@
 
       var scale=Math.min(1,(available/required)*.985);
       span.style.transform="scaleX("+scale.toFixed(4)+")";
+    });
+
+    subtitles.forEach(function(subtitle){
+      var available=Math.max(0,subtitle.clientWidth-2);
+      var required=subtitle.scrollWidth;
+      if(!available || required<=available) return;
+      var current=parseFloat(getComputedStyle(subtitle).fontSize);
+      if(!isFinite(current) || current<=0) return;
+      subtitle.style.fontSize=Math.max(6.8,current*(available/required)*.98).toFixed(2)+"px";
     });
 
     navLabels.forEach(function(label){

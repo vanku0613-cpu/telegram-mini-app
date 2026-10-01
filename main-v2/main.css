@@ -1061,6 +1061,12 @@ a.nav{ text-decoration:none; }
 }
 .cards .card-copy small{
   color:#d9e7f0;
+  width:125%;
+  overflow:visible;
+  text-overflow:clip;
+  transform:translateX(-18%);
+  white-space:nowrap;
+  text-align:center;
   text-shadow:0 1px 2px rgba(0,0,0,.88);
 }
 .groups-row .groups{
@@ -1099,5 +1105,24 @@ a.nav{ text-decoration:none; }
 #groupsBtn::before{
   background:radial-gradient(circle at 16% 27%,rgba(183,233,252,.20) 0 2px,transparent 3px),radial-gradient(circle at 28% 70%,rgba(110,199,238,.16) 0 2px,transparent 3px),radial-gradient(circle at 42% 31%,rgba(110,199,238,.11) 0 1.5px,transparent 2.5px),linear-gradient(120deg,transparent 0 19%,rgba(120,205,239,.07) 20% 20.8%,transparent 22% 100%);
   -webkit-mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.32) 54%,transparent 82%);mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.32) 54%,transparent 82%);
+}
+
+/* Desktop typography is intentionally capped. The phone keeps the larger
+   responsive type while wide screens retain compact, even proportions. */
+@media (min-width:700px), (hover:hover) and (pointer:fine){
+  #app .cards .card-copy strong{font-size:clamp(13px,3cqw,16px);letter-spacing:-.025em}
+  #app .cards .card-copy small{margin-top:3px;font-size:clamp(8.5px,1.72cqw,10px);letter-spacing:0}
+  #app .cards .card.compact .card-copy strong{font-size:clamp(12px,2.65cqw,14px);letter-spacing:-.045em}
+  #app .cards .card.compact.expanded-label .card-copy strong{font-size:clamp(12px,2.65cqw,14px)}
+  #app .groups-row .groups-title{font-size:clamp(12px,2.75cqw,15px);letter-spacing:0}
+  #app .card-corner-icon{width:clamp(17px,4.1cqw,21px);height:clamp(17px,4.1cqw,21px)}
+}
+
+/* Every category uses one navigation cue in the same right-centre position. */
+#app .cards .card-copy{right:14%!important}
+#app .cards .card.compact .card-copy,
+#app .cards .card.compact.expanded-label .card-copy{right:14%!important}
+#app .cards .card-arrow{
+  display:grid!important;place-items:center;right:3.5%;top:50%;width:clamp(15px,4cqw,19px);height:clamp(15px,4cqw,19px);transform:translateY(-50%);font-size:clamp(17px,4.3cqw,21px);line-height:1;color:#d8e9f2;opacity:.88;text-shadow:0 1px 3px rgba(0,0,0,.78);
 }
 

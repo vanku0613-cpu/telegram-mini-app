@@ -89,3 +89,20 @@
 #app :is(#weatherPanel,#currencyPanel):is(:active,.tap-lit,:focus-visible){
   outline:none!important;border-color:rgba(116,204,235,.82)!important;box-shadow:0 0 0 1px rgba(86,183,220,.28),0 0 8px rgba(33,145,195,.30),inset 0 1px rgba(236,250,255,.08)!important;
 }
+
+/* Desktop-only fit: avoid oversized browser text and keep every information
+   line inside its panel. Mobile typography remains exactly as above. */
+@media (min-width:700px), (hover:hover) and (pointer:fine){
+  #app{--info-growth:24px}
+  #app .weather-panel{padding:5px 6px!important;row-gap:1px}
+  #app .weather-panel .info-title{height:auto;min-height:0;font-size:9.2px!important;line-height:1.1!important;letter-spacing:-.02em;text-overflow:clip}
+  #app .weather-reading{margin-top:0;gap:3px}
+  #app .weather-panel .temp{height:auto;min-height:0;font-size:14px!important;line-height:1.05!important}
+  #app .weather-mini{width:18px!important;height:18px!important;flex-basis:18px;font-size:12px!important}
+  #app .weather-panel .condition{height:auto;min-height:0;margin-top:0!important;font-size:7.5px!important;line-height:1.05!important;text-overflow:clip}
+  #app .currency-panel{padding:5px 6px!important}
+  #app .currency-panel .info-title{font-size:8.6px!important;line-height:1.05!important;letter-spacing:-.035em;white-space:nowrap;overflow:visible}
+  #app .currency-panel .info-title a{display:block;max-width:100%;white-space:nowrap}
+  #app .currency-panel .rate{margin-top:1px!important;font-size:8.8px!important;line-height:1.02!important;transform:none}
+  #app .currency-panel .rates-updated{margin-top:2px;font-size:7px!important;line-height:1!important}
+}
