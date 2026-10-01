@@ -43,3 +43,15 @@
 .back-btn{gap:7px;min-height:48px;font-size:15px}
 
 @media(max-width:350px){.filters{gap:4px}.filters button{padding:7px 2px;font-size:10px}}
+
+/* Professional shelter cover with the same seamless image-to-menu transition. */
+.shelter-cover{position:relative;isolation:isolate;overflow:hidden;margin:0 0 14px;border:1px solid rgba(77,166,218,.55);border-radius:22px;background:linear-gradient(120deg,rgba(7,39,73,.98),rgba(3,21,43,.97));box-shadow:inset 0 1px rgba(255,255,255,.05),0 12px 30px rgba(0,0,0,.27)}
+.shelter-cover:before{position:absolute;z-index:-1;inset:0;content:"";background:radial-gradient(circle at 82% 35%,rgba(27,164,211,.18),transparent 38%)}
+.shelter-cover-art{position:relative;overflow:hidden;width:100%;height:156px;border-radius:18px}
+.shelter-cover-art>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:brightness(.82) saturate(.91) contrast(1.05)}
+.shelter-cover-art:after{position:absolute;inset:-1px;content:"";pointer-events:none;background:linear-gradient(90deg,rgba(7,39,73,.98) 0,rgba(7,39,73,.66) 5%,rgba(7,39,73,.16) 15%,transparent 27%,transparent 73%,rgba(7,39,73,.16) 85%,rgba(7,39,73,.66) 95%,rgba(7,39,73,.98) 100%),linear-gradient(180deg,rgba(7,39,73,.5) 0,transparent 19%,transparent 64%,rgba(7,39,73,.42) 82%,rgba(7,39,73,.98) 100%)}
+.shelter-cover-copy{position:relative;padding:16px 17px 18px}
+.shelter-cover .hero-heading{margin:10px 0 0}
+.shelter-cover .hero-heading p{margin:8px 0 0}
+@media(min-width:580px){.shelter-cover-art{height:205px}.shelter-cover-copy{padding:20px 22px}}
+@media(max-width:350px){.shelter-cover-art{height:130px}.shelter-cover-copy{padding:13px}.shelter-cover .hero-heading{margin-top:7px}}
