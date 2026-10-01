@@ -36,7 +36,10 @@ test('communal services page is reachable, organized, and uses unique callable c
     const tileHeights=await page.locator('.communal-tab').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().height));
     assert.ok(tileHeights.every(height=>height===tileHeights[0]),'utility buttons share a consistent height');
     assert.ok(await page.locator('.communal-tab').first().evaluate(item=>item.getBoundingClientRect().width>=170),'utility buttons use the same full card width as services and masters');
-    assert.ok(await page.locator('.communal-tab').evaluateAll(items=>items.every(item=>parseFloat(getComputedStyle(item).fontSize)>=17)),'utility category labels are larger');
+    const communalTile=await page.locator('.communal-tab').first().evaluate(item=>{const style=getComputedStyle(item);const rect=item.getBoundingClientRect();return{width:rect.width,height:rect.height,background:style.backgroundImage,border:style.borderColor,shadow:style.boxShadow}});
+    assert.deepEqual({width:communalTile.width,height:communalTile.height},{width:172.5,height:90},'utility tiles match the services and masters card dimensions');
+    assert.match(communalTile.background,/rgb\(12, 66, 111\).*rgb\(8, 45, 84\).*rgb\(6, 30, 59\)/,'utility tiles keep the services and masters blue surface');
+    assert.equal(communalTile.border,'rgba(79, 165, 219, 0.8)');
     await page.locator('[data-open="water"]').click();
     await page.locator('#water').waitFor({state:'visible'});
     assert.equal(await page.locator('#water').isVisible(),true);
