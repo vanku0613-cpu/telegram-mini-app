@@ -50,13 +50,14 @@ test('individual trips contains only the discussed trip contacts',()=>{
   const transport=fs.readFileSync(path.join(root,'transport/index.html'),'utf8');
   const taxiMenu=transport.match(/<nav class="tabs taxi-options"[\s\S]*?<\/nav>/)?.[0];
   assert.ok(taxiMenu,'taxi and individual trip folders should share one parent menu');
-  assert.match(taxiMenu,/data-content="taxi"><strong>Такси по городу<\/strong><span>2 службы · 6 номеров<\/span>/);
+  assert.match(taxiMenu,/data-content="taxi">[\s\S]*class="trip-icon"[\s\S]*<strong>Такси по городу<\/strong><span>2 службы · 6 номеров<\/span>/);
   assert.match(taxiMenu,/class="trip-folder direct-entry"[^>]*data-content="taxi"/);
   assert.match(transport,/class="[^"]*tab[^"]*has-children[^"]*"[^>]*data-group="taxi"/);
   assert.equal((taxiMenu.match(/class="trip-folder direct-entry"/g)||[]).length,6);
   assert.equal((taxiMenu.match(/data-trip-folder=/g)||[]).length,5);
   assert.match(taxiMenu,/data-trip-folder="izmail-transfer"[\s\S]*5 номеров/);
   assert.doesNotMatch(taxiMenu,/family-move|Переезд семьи/);
+  assert.equal((taxiMenu.match(/class="trip-icon"/g)||[]).length,6);
   assert.doesNotMatch(taxiMenu,/data-content="individual"/);
   const panel=transport.match(/<section class="panel" id="individual"[\s\S]*?<\/section>\s*<\/section>/)?.[0];
   assert.ok(panel,'individual trips panel should exist');
@@ -83,7 +84,7 @@ test('individual trips contains only the discussed trip contacts',()=>{
   const scheduleData=JSON.parse(fs.readFileSync(path.join(root,'transport/bus-schedule/schedule-data.json'),'utf8'));
   assert.deepEqual(scheduleData.map(route=>route.id),['1','3','5','7','10','10-А','11','12','14','15','16','17','18','19','22','23']);
   assert.doesNotMatch(panel,/trip-back|← Вернуться в раздел/);
-  assert.match(transport,/backs\[1\]\.hidden=\!\(activeGroup\|\|activeContent\)\|\|Boolean\(activeTrip\)/);
+  assert.match(transport,/backs\[1\]\.hidden=\!\(activeGroup\|\|activeContent\|\|activeTrip\)/);
   assert.doesNotMatch(panel,/Вернуться к поездкам|Назад в раздел/);
 });
 
@@ -98,6 +99,8 @@ test('transport cover follows the selected section and inner controls share neon
   assert.match(script,/activeTrip[\s\S]*activeContent[\s\S]*activeGroup/);
   assert.match(script,/coverTitle\.textContent=title/);
   assert.match(transport,/#taxi \.links a\{border-color:#568da8;background:linear-gradient\(180deg,#24516d,#193a52\)/);
+  assert.match(transport,/\.taxi-options\{grid-auto-rows:112px[\s\S]*background:linear-gradient\(145deg,rgba\(7,35,65,.94\),rgba\(4,22,42,.97\)\)/);
+  assert.match(transport,/\.taxi-options \.trip-folder\{display:grid;grid-template-columns:42px minmax\(0,1fr\) 14px/);
   assert.match(transport,/#individual \[data-trip-detail="moldova"\] \.links a\{border-color:#568da8/);
   assert.match(food,/\.contact \.links a\{border-color:#568da8;background:linear-gradient\(180deg,#24516d,#193a52\)/);
   assert.match(transport,/chooser\.hidden=Boolean\(activeContent\|\|activeTrip\|\|activeGroup==='schedule'\)/);
