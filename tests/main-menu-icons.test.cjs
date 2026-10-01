@@ -90,3 +90,8 @@ test('all category arrows share one visible position', () => {
   assert.match(css, /#app \.cards \.card-arrow\{[\s\S]*?display:grid!important;[\s\S]*?right:3\.5%;top:50%/);
   assert.match(css, /#app \.cards \.card\.compact\.expanded-label \.card-copy\{right:14%!important\}/);
 });
+
+test('search and main card grid use compact professional vertical spacing', () => {
+  assert.match(css, /\.search-wrap\s*\{[\s\S]*?top:37\.25%/);
+  assert.match(css, /\.cards\s*\{[\s\S]*?top:42\.95%;[\s\S]*?height:37\.25%/);
+});
