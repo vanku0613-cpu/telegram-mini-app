@@ -39,6 +39,8 @@ test('education cover, navigation and hierarchy match the polished directory sty
     assert.ok(new Set(colors).size>1,'folders and direct contact buttons use distinct surfaces');
     const directColor=await page.locator('.education-tile.direct-entry').first().evaluate(el=>getComputedStyle(el).backgroundImage);
     const folderColor=await page.locator('.education-tile.has-children').first().evaluate(el=>getComputedStyle(el).backgroundImage);
+    assert.match(folderColor,/rgb\(12, 66, 111\)/,'buttons that open another folder use the saturated dark-blue surface');
+    assert.match(directColor,/rgb\(32, 60, 87\)/,'buttons that open contacts use the calm blue-graphite surface');
     assert.notEqual(directColor,folderColor,'a folder with another level has a different background');
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:844});

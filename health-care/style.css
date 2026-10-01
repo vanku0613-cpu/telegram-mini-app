@@ -105,8 +105,8 @@ body[data-education=true] h1{font-size:clamp(23px,6vw,34px);letter-spacing:-.6px
 body[data-view=search] .back-row:not(:has(.secondary)) .back-btn{width:auto!important;max-width:min(100%,250px);align-self:flex-start}
 .back-row .back-btn.secondary{border-color:#54dda5;background:linear-gradient(180deg,#159858,#0d7442);color:#fff;box-shadow:inset 0 0 0 1px #ffffff18,0 7px 20px #117b4244}
 .back-row .back-btn:not(.secondary){border-color:#6ac7f3;background:linear-gradient(180deg,#226ca3,#174b79);color:#fff;box-shadow:inset 0 0 0 1px #ffffff10,0 8px 24px #145d9433}
-.category-tile.has-children{background:linear-gradient(145deg,#1c4566,#112d48 72%,#0b2035);border-color:rgba(119,165,198,.82);box-shadow:inset 0 1px rgba(235,247,255,.09),0 6px 18px rgba(0,0,0,.27),0 0 12px rgba(75,141,184,.15)}
-.category-tile:not(.has-children){background:linear-gradient(145deg,#172b40,#101d2e 72%,#0b1725);border-color:rgba(88,119,148,.72)}
+.category-tile.has-children{background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);border-color:rgba(79,165,219,.8);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15)}
+.category-tile:not(.has-children){background:linear-gradient(145deg,#203c57 0%,#172b41 60%,#101e2e 100%);border-color:rgba(123,153,180,.78);box-shadow:inset 0 1px rgba(232,243,252,.07),0 7px 18px rgba(0,0,0,.25),0 0 12px rgba(86,130,165,.12)}
 
 /* A selected city stays visible; its alternatives are tucked behind one control. */
 .city-selection{display:flex;align-items:stretch;gap:9px;margin:0 0 10px;max-width:480px}
@@ -137,9 +137,9 @@ body[data-education=true] .profile-banner .education-cover:after{position:absolu
 body[data-education=true] .category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 body[data-education=true] #content:has(>.category-grid){padding:13px;border:1px solid rgba(67,134,178,.5);border-radius:20px;background:linear-gradient(145deg,rgba(7,35,65,.94),rgba(4,22,42,.97));box-shadow:0 9px 24px rgba(0,0,0,.2)}
 body[data-education=true] .category-tile.education-tile{display:grid;grid-template-columns:42px minmax(0,1fr) 14px;grid-template-rows:1fr;align-items:center;column-gap:8px;min-height:88px;padding:8px;border-width:1.5px;border-radius:16px;overflow:hidden}
-body[data-education=true] .category-tile.education-tile.has-children{background:linear-gradient(145deg,#1c4566,#112d48 72%,#0b2035);border-color:rgba(119,165,198,.82);box-shadow:inset 0 1px rgba(235,247,255,.09),0 6px 18px rgba(0,0,0,.27),0 0 12px rgba(75,141,184,.15)}
-body[data-education=true] .category-tile.education-tile.direct-entry{background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);border-color:rgba(79,165,219,.8);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15)}
-body[data-education-level=nested] .category-tile.education-tile{background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);border-color:rgba(79,165,219,.8);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15)}
+body[data-education=true] .category-tile.education-tile.has-children{background:linear-gradient(135deg,#0c426f 0%,#082d54 55%,#061e3b 100%);border-color:rgba(79,165,219,.8);box-shadow:inset 0 1px rgba(220,246,255,.13),0 6px 15px rgba(0,0,0,.27),0 0 10px rgba(34,143,207,.15)}
+body[data-education=true] .category-tile.education-tile.direct-entry{background:linear-gradient(145deg,#203c57 0%,#172b41 60%,#101e2e 100%);border-color:rgba(123,153,180,.78);box-shadow:inset 0 1px rgba(232,243,252,.07),0 7px 18px rgba(0,0,0,.25),0 0 12px rgba(86,130,165,.12)}
+body[data-education-level=nested] .category-tile.education-tile{background:linear-gradient(145deg,#203c57 0%,#172b41 60%,#101e2e 100%);border-color:rgba(123,153,180,.78);box-shadow:inset 0 1px rgba(232,243,252,.07),0 7px 18px rgba(0,0,0,.25),0 0 12px rgba(86,130,165,.12)}
 body[data-education=true] .education-tile-icon{display:grid;place-items:center;grid-column:1;grid-row:1;width:42px;height:42px;border:1px solid rgba(83,178,230,.38);border-radius:12px;background:linear-gradient(145deg,rgba(19,96,148,.78),rgba(7,49,88,.82));box-shadow:inset 0 1px rgba(230,250,255,.12),0 0 9px rgba(67,183,238,.22);color:#8fe4ff}
 body[data-education=true] .education-tile-icon svg{width:26px;height:26px;filter:drop-shadow(0 0 5px rgba(119,225,255,.56))}
 body[data-education=true] .category-tile.education-tile .tile-body{display:flex;grid-column:2;grid-row:1;min-width:0;height:100%;padding:0;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px}

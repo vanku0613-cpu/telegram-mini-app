@@ -50,6 +50,9 @@ test('individual trips contains only the discussed trip contacts',()=>{
   const taxiMenu=transport.match(/<nav class="tabs taxi-options"[\s\S]*?<\/nav>/)?.[0];
   assert.ok(taxiMenu,'taxi and individual trip folders should share one parent menu');
   assert.match(taxiMenu,/data-content="taxi">Такси по городу/);
+  assert.match(taxiMenu,/class="tab direct-entry"[^>]*data-content="taxi"/);
+  assert.match(transport,/class="tab has-children"[^>]*data-group="taxi"/);
+  assert.equal((taxiMenu.match(/class="trip-folder direct-entry"/g)||[]).length,6);
   assert.equal((taxiMenu.match(/data-trip-folder=/g)||[]).length,6);
   assert.doesNotMatch(taxiMenu,/data-content="individual"/);
   const panel=transport.match(/<section class="panel" id="individual"[\s\S]*?<\/section>\s*<\/section>/)?.[0];
@@ -64,6 +67,7 @@ test('individual trips contains only the discussed trip contacts',()=>{
   assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*href="\.\/bus-schedule\/">Расписание автобусов Измаил[\s\S]*data-content="stations">Автостанции области/);
   const schedule=fs.readFileSync(path.join(root,'transport/bus-schedule/index.html'),'utf8');
   assert.match(schedule,/<h1>Расписание автобусов Измаил<\/h1>/);
+  assert.match(schedule,/\.route\{[^}]*background:linear-gradient\(145deg,#203c57/,'route buttons that open schedule details use the calm blue-graphite surface');
   assert.match(schedule,/https:\/\/izzzzi\.info\/marshrutka-1\//);
   assert.match(schedule,/https:\/\/izzzzi\.info\/marshrutka-23\//);
   assert.doesNotMatch(panel,/trip-back|← Вернуться в раздел/);

@@ -39,8 +39,8 @@ test('communal services page is reachable, organized, and uses unique callable c
     const communalTile=await page.locator('.communal-tab').first().evaluate(item=>{const style=getComputedStyle(item);const rect=item.getBoundingClientRect();return{width:rect.width,height:rect.height,background:style.backgroundImage,border:style.borderColor,shadow:style.boxShadow}});
     assert.deepEqual({width:communalTile.width,height:communalTile.height},{width:172.5,height:90},'utility tiles match the services and masters card dimensions');
     assert.equal(await page.locator('.jump').evaluate(el=>Math.round(el.querySelector('.communal-tab').getBoundingClientRect().left-el.getBoundingClientRect().left)),6,'the frame sits as close to the utility tiles as in services and masters');
-    assert.match(communalTile.background,/rgb\(12, 66, 111\).*rgb\(8, 45, 84\).*rgb\(6, 30, 59\)/,'utility tiles keep the services and masters blue surface');
-    assert.equal(communalTile.border,'rgba(79, 165, 219, 0.8)');
+    assert.match(communalTile.background,/rgb\(32, 60, 87\).*rgb\(23, 43, 65\).*rgb\(16, 30, 46\)/,'utility tiles that open contacts use the calm blue-graphite surface');
+    assert.equal(communalTile.border,'rgba(123, 153, 180, 0.78)');
     assert.ok(await page.locator('.communal-copy strong').evaluateAll(items=>items.every(item=>parseFloat(getComputedStyle(item).fontSize)>=17)),'utility names stay large and readable');
     await page.locator('[data-open="water"]').click();
     await page.locator('#water').waitFor({state:'visible'});

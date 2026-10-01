@@ -33,7 +33,7 @@ test('recreation directory includes the four numbered sections and fits mobile s
     assert.equal(await page.locator('.tabs').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2);
     const tileHeights=await page.locator('[role=tab]').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().height));
     assert.ok(tileHeights.every(height=>height===90),'recreation buttons share the compact directory size');
-    assert.match(await page.locator('[role=tab]').first().evaluate(el=>getComputedStyle(el).backgroundImage),/linear-gradient/,'recreation cards use the directory background');
+    assert.match(await page.locator('[role=tab]').first().evaluate(el=>getComputedStyle(el).backgroundImage),/rgb\(32, 60, 87\)/,'recreation categories that open contacts use the calm blue-graphite surface');
     await page.locator('.home-back').first().evaluate(el=>el.classList.add('tap-lit'));
     await page.waitForTimeout(160);
     assert.match(await page.locator('.home-back').first().evaluate(el=>getComputedStyle(el).boxShadow),/0, 167, 255/,'the home button gets the shared blue press glow');

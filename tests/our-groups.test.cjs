@@ -48,6 +48,7 @@ test('our groups page shows all verified community links and return buttons', as
       '../assets/group-avatar-lost-found.jpg?v=1'
     ]);
     assert.equal(await page.locator('.avatar.is-fallback').count(), 0);
+    assert.match(await groups.first().evaluate(el=>getComputedStyle(el).backgroundImage),/rgb\(32, 60, 87\)/,'direct group destinations use the calm blue-graphite surface');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
     await page.setViewportSize({ width: 768, height: 900 });
     assert.equal(await page.locator('.grid').evaluate(el => getComputedStyle(el).gridTemplateColumns.split(' ').length), 2);

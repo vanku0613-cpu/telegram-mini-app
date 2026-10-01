@@ -37,6 +37,7 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.ok(coverOrder.art < coverOrder.title && coverOrder.title < coverOrder.home, 'cover artwork appears before title and return navigation');
 
     const menuBackground=await page.locator('#view[data-section="masters"][data-level="categories"] .category').first().evaluate(el=>getComputedStyle(el).backgroundImage);
+    assert.match(menuBackground,/rgb\(12, 66, 111\)/,'buttons that open another folder use the saturated dark-blue surface');
     assert.ok(await page.locator('#view .category').evaluateAll(items=>items.every(item=>item.classList.contains('has-children'))),'buttons that open more folders use the folder color');
     await page.getByRole('button', { name: /Строительство \/ ремонт/ }).click();
     assert.equal(await page.locator('.subcat').count(), 16, 'construction and repair services remain individually selectable');
@@ -48,8 +49,9 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.deepEqual(returnLabel,{whiteSpace:'nowrap',lines:1},'section-return label stays on one line on narrow phones');
     await page.setViewportSize({width:390,height:844});
     const submenuBackground=await page.locator('#view[data-section="masters"][data-level="subcategories"] .subcat').first().evaluate(el=>getComputedStyle(el).backgroundImage);
+    assert.match(submenuBackground,/rgb\(32, 60, 87\)/,'buttons that open contacts use the calm blue-graphite surface');
     assert.notEqual(menuBackground,submenuBackground,'master categories and their specialization menu use distinct professional color surfaces');
-    assert.ok(await page.locator('#view .subcat').evaluateAll(items=>items.every(item=>item.classList.contains('direct-entry'))),'buttons that open contacts use the saturated direct-entry color');
+    assert.ok(await page.locator('#view .subcat').evaluateAll(items=>items.every(item=>item.classList.contains('direct-entry'))),'buttons that open contacts use the direct-entry color');
     for(const nav of await page.locator('.paired-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section and home navigation share one row')}
     await page.locator('[data-back]').first().click();
 
@@ -84,8 +86,8 @@ test('services and masters follow the source category hierarchy and keep contact
       await page.setViewportSize({ width, height: 800 });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `no horizontal overflow at ${width}px`);
     }
-    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=hierarchy-colors-1"/);
-    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=hierarchy-colors-1"/);
+    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=hierarchy-colors-2"/);
+    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=hierarchy-colors-2"/);
     assert.equal(fs.existsSync(path.join(root,'services-masters','photos')),false,'downloaded category photos were removed');
     assert.equal(fs.existsSync(path.join(root,'services-masters','repair-underway.jpg')),false,'the remaining category photo was removed too');
   } finally {
