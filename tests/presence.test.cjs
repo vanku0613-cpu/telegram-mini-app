@@ -2,7 +2,7 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const http=require('node:http');
 const crypto=require('node:crypto');
-test('public badge stays small above views, layout fits',async()=>{
+test('public badge stays small above shelter, layout fits',async()=>{
   const fs=require('node:fs'),path=require('node:path'),{chromium}=require('playwright');
   const root=path.resolve(__dirname,'..');
   const site=http.createServer((req,res)=>{let name=new URL(req.url,'http://localhost').pathname;if(name.endsWith('/'))name+='index.html';const file=path.join(root,name);if(!fs.existsSync(file)){res.writeHead(404);return res.end();}res.setHeader('Content-Type',name.endsWith('.js')?'text/javascript':name.endsWith('.css')?'text/css':'text/html; charset=utf-8');res.end(fs.readFileSync(file));});
@@ -26,9 +26,9 @@ test('public badge stays small above views, layout fits',async()=>{
     for(const width of [320,390,430,1024]){
       await page.setViewportSize({width,height:844});
       await page.waitForFunction(()=>{const gap=document.querySelector('.weather-panel').getBoundingClientRect().top-document.querySelector('.viewer').getBoundingClientRect().bottom;return gap>=1&&gap<=5;});
-      const rects=await page.evaluate(()=>{const r=s=>{const b=document.querySelector(s).getBoundingClientRect();return {left:b.left,right:b.right,top:b.top,bottom:b.bottom,width:b.width,height:b.height};};return {badge:r('.presence-badge'),viewer:r('.viewer'),weather:r('.weather-panel')};});
+      const rects=await page.evaluate(()=>{const r=s=>{const b=document.querySelector(s).getBoundingClientRect();return {left:b.left,right:b.right,top:b.top,bottom:b.bottom,width:b.width,height:b.height};};return {badge:r('.presence-badge'),viewer:r('.viewer'),weather:r('.weather-panel'),shelter:r('#shelterBtn')};});
       assert.ok(rects.badge.height<=18&&rects.badge.width<45,'compact badge');
-      assert.ok(rects.badge.bottom<=rects.viewer.top,'strictly above view count');
+      assert.ok(rects.badge.bottom<=rects.shelter.top,'above shelter');assert.ok(Math.abs(rects.badge.right-rects.shelter.right)<=6,'aligned with shelter right edge');
       assert.ok(rects.weather.top-rects.viewer.bottom>=1 && rects.weather.top-rects.viewer.bottom<=5,'small gap above weather at '+width+': '+JSON.stringify(rects));
       assert.ok(rects.badge.bottom<=rects.weather.top,'does not overlap weather at '+width+': '+JSON.stringify(rects));
     }

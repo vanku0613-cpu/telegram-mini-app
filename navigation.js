@@ -8,7 +8,7 @@
   presenceConfig.onload = function () {
     if (!window.IZMAIL_PRESENCE_URL) return;
     var presenceScript = document.createElement('script');
-    presenceScript.src = new URL('presence.js?v=1', root).href;
+    presenceScript.src = new URL('presence.js?v=2', root).href;
     document.head.appendChild(presenceScript);
   };
   document.head.appendChild(presenceConfig);
