@@ -1,7 +1,7 @@
 /* Application-wide resilience cache for the static GitHub Pages build. */
 const CACHE_PREFIX = "izmail-directory-";
-const STATIC_CACHE = CACHE_PREFIX + "static-v14";
-const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v14";
+const STATIC_CACHE = CACHE_PREFIX + "static-v15";
+const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v15";
 const OFFLINE_HOME = "./main-v2/index.html";
 
 const APP_SHELL = [
@@ -9,7 +9,7 @@ const APP_SHELL = [
   OFFLINE_HOME,
   "./main-v2/main.css?v=31",
   "./main-v2/main.js?v=12",
-  "./welcome.js?v=1",
+  "./welcome.js?v=2",
   "./main-v2/settings.js?v=20261002-2",
   "./main-v2/stage-lock.js?v=1",
   "./home-info.css?v=19",
