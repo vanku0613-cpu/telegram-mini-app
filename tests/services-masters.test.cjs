@@ -82,7 +82,7 @@ test('services and masters follow the source category hierarchy and keep contact
       assert.ok(await page.locator('.subcat').count() > 0, `${categoryName} has selectable specializations`);
       assert.equal(await page.locator('.subcat img').count(), 0, `${categoryName} buttons have no photos`);
       if(categoryName==='Услуги по дому / участку'){
-        await page.getByRole('button',{name:/Покос травы/}).click();
+        await page.getByRole('button',{name:/Уход за садом/}).click();
         assert.deepEqual(await page.locator('a.phone[href^="tel:"]').evaluateAll(items=>items.map(a=>a.getAttribute('href'))),['tel:+380637563046','tel:+380973388892'],'Dmitry has two unique phones in one service card');
         await page.locator('[data-back]').first().click();
       }
