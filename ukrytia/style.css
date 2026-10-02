@@ -29,7 +29,7 @@
 .hero-heading h1{font-size:clamp(25px,7vw,42px);white-space:nowrap;letter-spacing:-.8px;padding-right:40px}
 .hero-heading>div{min-width:0}
 .hero-heading .shield{position:absolute;right:0;top:0;width:32px;height:36px}
-.hero-heading p{white-space:nowrap;font-size:clamp(9px,2.55vw,14px);letter-spacing:-.15px}
+.hero-heading p{max-width:calc(100% - 42px);padding-right:4px;white-space:normal;font-size:clamp(12px,3.25vw,15px);line-height:1.35;letter-spacing:0;text-wrap:balance}
 
 .hero-heading h1 span{display:inline}
 

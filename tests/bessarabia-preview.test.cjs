@@ -28,11 +28,12 @@ test('main menu remains untouched by the preview',()=>{
   assert.doesNotMatch(html,/bessarabia-online|Граница и паром|Дунай сегодня|Доступные лекарства/);
 });
 
-test('global search includes every new feature',()=>{
+test('global search includes every ferry and border contact',()=>{
   const search=JSON.parse(read('bessarabia-online/search.json'));
-  assert.equal(search.records.length,1);
-  assert.equal(search.records[0].id,'live-border');
+  assert.equal(search.records.length,4);
+  assert.deepEqual(search.records.map(record=>record.id),['ferry-orlivka-isaccea','ukraine-border-service','isaccea-border-police','moldova-border-police']);
   assert.ok(search.records.every(record=>record.href&&record.name&&record.category));
+  assert.equal(new Set(search.records.flatMap(record=>record.phones)).size,6);
 });
 
 test('new phone numbers support the shared favorites design',()=>{

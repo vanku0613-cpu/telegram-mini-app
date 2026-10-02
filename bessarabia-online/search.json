@@ -1,12 +1,39 @@
 {
   "records": [
     {
-      "id": "live-border",
-      "name": "Паромы и границы",
-      "city": "Бессарабия",
-      "category": "Транспорт",
-      "specialties": "Орловка Исакча паром переправа Румыния граница пограничная служба Рени Джурджулешты Молдова",
-      "phones": ["+380484062516", "+380631298488", "1598", "+380445276363", "+40240540768", "+37322259717"],
+      "id": "ferry-orlivka-isaccea",
+      "name": "Паром Орловка — Исакча",
+      "city": "Орловка · Исакча",
+      "category": "Паромы и границы",
+      "specialties": "паром переправа Дунай Украина Румыния расписание",
+      "phones": ["+380484062516", "+380631298488"],
+      "href": "bessarabia-online/?section=border&from=transport"
+    },
+    {
+      "id": "ukraine-border-service",
+      "name": "Пограничная служба Украины",
+      "city": "Украина",
+      "category": "Паромы и границы",
+      "specialties": "горячая линия пересечение государственной границы",
+      "phones": ["1598", "+380445276363"],
+      "href": "bessarabia-online/?section=border&from=transport"
+    },
+    {
+      "id": "isaccea-border-police",
+      "name": "Пограничная полиция Исакчи",
+      "city": "Исакча · Румыния",
+      "category": "Паромы и границы",
+      "specialties": "пункт пропуска сектор пограничной полиции",
+      "phones": ["+40240540768"],
+      "href": "bessarabia-online/?section=border&from=transport"
+    },
+    {
+      "id": "moldova-border-police",
+      "name": "Пограничная полиция Молдовы",
+      "city": "Рени · Джурджулешты",
+      "category": "Паромы и границы",
+      "specialties": "зелёная линия пересечение границы Молдова",
+      "phones": ["+37322259717"],
       "href": "bessarabia-online/?section=border&from=transport"
     }
   ]
