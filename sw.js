@@ -1,7 +1,7 @@
 /* Application-wide resilience cache for the static GitHub Pages build. */
 const CACHE_PREFIX = "izmail-directory-";
-const STATIC_CACHE = CACHE_PREFIX + "static-v7";
-const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v7";
+const STATIC_CACHE = CACHE_PREFIX + "static-v8";
+const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v8";
 const OFFLINE_HOME = "./main-v2/index.html";
 
 const APP_SHELL = [
@@ -16,20 +16,10 @@ const APP_SHELL = [
   "./navigation.js?v=6",
   "./directory-search.js?v=16",
   "./directory-search.css?v=3",
-  "./health-care/data.json?v=20261001-16",
-  "./directory-search-extra.json?v=20261002-1",
-  "./transport/schedule-search.json?v=20261002-1",
   "./weather-source.js?v=2",
   "./view-counter.js?v=6",
   "./main-v2/frank-rates.js?v=8",
   "./assets/izmail-home-summer-day.webp",
-  "./assets/izmail-home-summer-night.webp",
-  "./assets/izmail-home-autumn.webp",
-  "./assets/izmail-home-autumn-day.webp",
-  "./assets/izmail-home-autumn-night.webp",
-  "./assets/izmail-home-winter.webp",
-  "./assets/izmail-home-winter-day.webp",
-  "./assets/izmail-home-winter-night.webp"
 ];
 
 function cacheKey(request) {

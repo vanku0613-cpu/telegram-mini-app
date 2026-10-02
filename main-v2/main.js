@@ -525,10 +525,10 @@
   if(logo) logo.href=((CFG.links && CFG.links.mainGroup) || "https://t.me/SPRAVOCHNIK_IZMAIL");
 
   var shelter=document.getElementById("shelterBtn");
-  if(shelter) shelter.href=((CFG.links && CFG.links.shelter) || "./ukrytia/");
+  if(shelter) shelter.href=((CFG.links && CFG.links.shelter) || "../ukrytia/");
 
   var agreement=document.getElementById("agreement");
-  if(agreement) agreement.href=((CFG.links && CFG.links.agreement) || "./soglashenie/");
+  if(agreement) agreement.href=((CFG.links && CFG.links.agreement) || "../soglashenie/");
 
   var ads=document.getElementById("adsBtn");
   if(ads) ads.href=((CFG.links && CFG.links.ads) || "https://t.me/Vanku13");
