@@ -3,12 +3,22 @@
   if (window.IZMAIL_NAV_READY) return;
   window.IZMAIL_NAV_READY = true;
   var root = new URL("./", document.currentScript.src);
+  var presenceConfig = document.createElement('script');
+  presenceConfig.src = new URL('presence-config.js?v=1', root).href;
+  presenceConfig.onload = function () {
+    if (!window.IZMAIL_PRESENCE_URL) return;
+    var presenceScript = document.createElement('script');
+    presenceScript.src = new URL('presence.js?v=1', root).href;
+    document.head.appendChild(presenceScript);
+  };
+  document.head.appendChild(presenceConfig);
   var main = new URL("main-v2/", root);
   var PENDING = "izmail_navigation_pending_v5";
   var STATE = "izmailNavigationV5";
   var leaving = false;
   var lastRefresh = 0;
   var prefetched = new Set();
+  var pendingGlows = new Map();
 
   function path(url) { return url.pathname.replace(/index\.html$/i, "").replace(/\/$/, ""); }
   function inside(url) { return url.origin === root.origin && url.pathname.startsWith(root.pathname); }
@@ -105,11 +115,13 @@
     if (el.dataset.izmailGlowPending === "1") return;
     el.dataset.izmailGlowPending = "1";
     el.classList.add("tap-lit");
-    setTimeout(function () {
+    var timer = setTimeout(function () {
+      pendingGlows.delete(el);
       el.classList.remove("tap-lit");
       delete el.dataset.izmailGlowPending;
       action();
     }, 260);
+    pendingGlows.set(el, timer);
   }
   document.addEventListener("click", function (event) {
     if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -157,6 +169,14 @@
   document.addEventListener("pointerdown", prefetch, { passive: true });
   document.addEventListener("focusin", prefetch);
   window.addEventListener("pageshow", function () { leaving = false; });
+  window.addEventListener("pagehide", function () {
+    pendingGlows.forEach(function (timer, el) {
+      clearTimeout(timer);
+      el.classList.remove('tap-lit');
+      delete el.dataset.izmailGlowPending;
+    });
+    pendingGlows.clear();
+  });
 
   var style = document.createElement("style");
   style.textContent = "a,button,[role=button],[role=link],[data-nav]{touch-action:manipulation}";

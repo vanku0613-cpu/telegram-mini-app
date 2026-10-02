@@ -10,6 +10,26 @@
   var SEASON_IMAGES = Object.assign({}, DEFAULT_SEASON_IMAGES, CFG.seasonImages || {});
 
   var app = document.getElementById("app");
+  // Keep a small visible gap above the weather panel at every app scale.
+  function placeViewCounter() {
+    var viewer = document.querySelector('.viewer');
+    var weather = document.querySelector('.weather-panel');
+    if (!viewer || !weather) return;
+    viewer.style.translate = '0 0';
+    var box = viewer.getBoundingClientRect();
+    var scale = box.height / viewer.offsetHeight || 1;
+    var shift = (weather.getBoundingClientRect().top - box.bottom - 3) / scale;
+    viewer.style.translate = '0 ' + Math.max(0, shift) + 'px';
+  }
+  window.addEventListener('resize', function () { requestAnimationFrame(function () { requestAnimationFrame(placeViewCounter); }); });
+  if (window.ResizeObserver) {
+    var counterLayoutObserver = new ResizeObserver(placeViewCounter);
+    counterLayoutObserver.observe(app);
+    counterLayoutObserver.observe(document.querySelector('.viewer'));
+    counterLayoutObserver.observe(document.querySelector('.weather-panel'));
+  }
+  window.addEventListener('load', placeViewCounter);
+  requestAnimationFrame(placeViewCounter);
   var bgMain = document.getElementById("bgMain");
   var bgBlur = document.getElementById("bgBlur");
   var sceneLayer = document.getElementById("sceneLayer");

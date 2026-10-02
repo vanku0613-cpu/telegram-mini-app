@@ -67,6 +67,7 @@ jobs:
             --exclude='.github' \
             --exclude='_site' \
             --exclude='tests' \
+            --exclude='services' \
             --exclude='tools' \
             --exclude='scripts' \
             --exclude='health-care/research' \
