@@ -1,0 +1,59 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const root=path.resolve(__dirname,'..');
+const read=file=>fs.readFileSync(path.join(root,file),'utf8');
+
+test('preview data keeps only the approved ferry and border section',()=>{
+  const data=JSON.parse(read('bessarabia-online/data.json'));
+  assert.deepEqual(Object.keys(data.sections),['border']);
+  for(const section of Object.values(data.sections)){
+    assert.ok(section.title&&section.subtitle&&section.cards.length);
+  }
+  assert.deepEqual(Object.keys(data.sourceChecks).sort(),['borderQueue','ferry']);
+});
+
+test('only transport links to the ferry and border section',()=>{
+  assert.match(read('transport/index.html'),/section=border/);
+  for(const file of ['transport/index.html','communal-services/index.html','recreation/index.html','health-care/app.js','zags/index.html']){
+    assert.doesNotMatch(read(file),/section=(?:trains|danube|resilience|monitoring|medicines|beaches|cnap)/);
+  }
+});
+
+test('main menu remains untouched by the preview',()=>{
+  const html=read('main-v2/index.html');
+  assert.doesNotMatch(html,/bessarabia-online|Граница и паром|Дунай сегодня|Доступные лекарства/);
+});
+
+test('global search includes every new feature',()=>{
+  const search=JSON.parse(read('bessarabia-online/search.json'));
+  assert.equal(search.records.length,1);
+  assert.equal(search.records[0].id,'live-border');
+  assert.ok(search.records.every(record=>record.href&&record.name&&record.category));
+});
+
+test('new phone numbers support the shared favorites design',()=>{
+  const html=read('bessarabia-online/index.html');
+  assert.match(html,/favorites\.css/);
+  assert.match(html,/favorites\.js/);
+  assert.match(read('bessarabia-online/app.js'),/class="card contact"/);
+});
+
+test('ferry section embeds its map inside the application',()=>{
+  const data=JSON.parse(read('bessarabia-online/data.json'));
+  const html=read('bessarabia-online/index.html');
+  const app=read('bessarabia-online/app.js');
+  assert.match(data.sections.border.map.embed,/^https:\/\/www\.openstreetmap\.org\/export\/embed\.html/);
+  assert.match(html,/frame-src https:\/\/www\.openstreetmap\.org/);
+  assert.match(html,/id="mapFrame"/);
+  assert.match(app,/mapPanel\.hidden=!section\.map/);
+});
+
+test('Izmail route maps are embedded and allow map zoom controls',()=>{
+  const html=read('transport/bus-schedule/index.html');
+  const routes=JSON.parse(read('transport/bus-schedule/schedule-data.json'));
+  assert.match(html,/frame-src[^>]+https:\/\/www\.google\.com/);
+  assert.ok(routes.every(route=>route.maps.length>0));
+  assert.ok(routes.flatMap(route=>route.maps).every(map=>/^https:\/\/www\.google\.com\/maps\/d\/embed/.test(map.url)));
+});

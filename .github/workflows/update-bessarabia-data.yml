@@ -1,0 +1,72 @@
+name: Update ferry and border information
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 5 1 * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ferry-border-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - name: Verify sources and update the safe snapshot
+        run: node scripts/update-bessarabia-data.mjs
+      - name: Validate the updated snapshot
+        run: node --test tests/bessarabia-preview.test.cjs
+      - name: Commit only a valid change
+        shell: bash
+        run: |
+          if git diff --quiet -- bessarabia-online/data.json; then
+            echo "Information did not change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bessarabia-online/data.json
+          git commit -m "Update ferry and border information"
+          git pull --rebase origin main
+          git push
+      - uses: actions/configure-pages@v5
+      - name: Prepare public site
+        run: |
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.gitignore' \
+            --exclude='.github' \
+            --exclude='_site' \
+            --exclude='tests' \
+            --exclude='tools' \
+            --exclude='scripts' \
+            --exclude='health-care/research' \
+            --exclude='__pycache__' \
+            --exclude='*.md' \
+            --exclude='*.txt' \
+            --exclude='*.py' \
+            --exclude='*.cjs' \
+            --exclude='*.mjs' \
+            ./ _site/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: '_site'
+      - uses: actions/deploy-pages@v4
+        id: deployment

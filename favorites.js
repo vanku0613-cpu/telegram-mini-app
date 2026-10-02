@@ -31,6 +31,8 @@
     let button=row.querySelector('[data-favorite]');
     if(!button){button=document.createElement('button');button.type='button';button.className='favorite-toggle';row.append(button)}
     button.dataset.favorite=info.key;button.dataset.favoriteRecord=JSON.stringify(info.record);
+    const active=saved().has(info.key),text=active?'Убрать из избранного':'Добавить в избранное';
+    button.setAttribute('aria-pressed',String(active));button.textContent=active?'★':'☆';button.setAttribute('aria-label',text+': '+JSON.parse(info.key).join(' '));button.title=text;
   }
   function scan(root=document){root.querySelectorAll?.('a[href^="tel:"]').forEach(attach);if(root.matches?.('a[href^="tel:"]'))attach(root)}
   scan();
