@@ -1,4 +1,4 @@
-name: Update ferry and border information
+name: Update ferry information
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: ferry-border-data
+  group: ferry-data
   cancel-in-progress: false
 
 jobs:
@@ -43,7 +43,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add bessarabia-online/data.json
-          git commit -m "Update ferry and border information"
+          git commit -m "Update ferry information"
           git pull --rebase origin main
           git push
       - uses: actions/configure-pages@v5

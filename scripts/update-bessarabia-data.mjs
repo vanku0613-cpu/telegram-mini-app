@@ -4,8 +4,7 @@ import path from 'node:path';
 const root=path.resolve(import.meta.dirname,'..');
 const file=path.join(root,'bessarabia-online','data.json');
 const sources=[
-  ['ferry','https://www.porom.org/schedule'],
-  ['borderQueue','https://www.politiadefrontiera.ro/en/traficonline/?vw=1']
+  ['ferry','https://www.porom.org/schedule']
 ];
 
 async function readSource([id,url]){

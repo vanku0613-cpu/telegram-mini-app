@@ -5,13 +5,15 @@ const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 
-test('preview data keeps only the approved ferry and border section',()=>{
+test('ferry and border section contains verified contact cards without queue data',()=>{
   const data=JSON.parse(read('bessarabia-online/data.json'));
   assert.deepEqual(Object.keys(data.sections),['border']);
   for(const section of Object.values(data.sections)){
     assert.ok(section.title&&section.subtitle&&section.cards.length);
   }
-  assert.deepEqual(Object.keys(data.sourceChecks).sort(),['borderQueue','ferry']);
+  assert.deepEqual(Object.keys(data.sourceChecks),['ferry']);
+  assert.equal(data.sections.border.cards.length,4);
+  assert.doesNotMatch(JSON.stringify(data),/Очереди на границе|traficonline|openstreetmap\.org\/export/);
 });
 
 test('only transport links to the ferry and border section',()=>{
@@ -40,14 +42,27 @@ test('new phone numbers support the shared favorites design',()=>{
   assert.match(read('bessarabia-online/app.js'),/class="card contact"/);
 });
 
-test('ferry section embeds its map inside the application',()=>{
+test('ferry section does not render a queue or map',()=>{
   const data=JSON.parse(read('bessarabia-online/data.json'));
   const html=read('bessarabia-online/index.html');
   const app=read('bessarabia-online/app.js');
-  assert.match(data.sections.border.map.embed,/^https:\/\/www\.openstreetmap\.org\/export\/embed\.html/);
-  assert.match(html,/frame-src https:\/\/www\.openstreetmap\.org/);
-  assert.match(html,/id="mapFrame"/);
-  assert.match(app,/mapPanel\.hidden=!section\.map/);
+  assert.equal(data.sections.border.map,undefined);
+  assert.doesNotMatch(html,/mapPanel|mapFrame|openstreetmap/);
+  assert.doesNotMatch(app,/mapPanel|mapFrame|section\.map/);
+});
+
+test('shared city route map uses lightweight embedded tiles and route controls',()=>{
+  const routeMap=read('transport/route-map.js');
+  for(const file of ['transport/odessa-schedule/index.html','transport/city-schedule/index.html']){
+    assert.match(read(file),/\.\.\/route-map\.js\?v=2/);
+    assert.match(read(file),/IzmailRouteMap\.mount/);
+  }
+  assert.match(routeMap,/basemaps\.cartocdn\.com\/light_all/);
+  assert.match(routeMap,/Приблизить карту/);
+  assert.match(routeMap,/Отдалить карту/);
+  assert.match(routeMap,/live-route-line/);
+  assert.match(routeMap,/live-route-start/);
+  assert.match(routeMap,/live-route-end/);
 });
 
 test('Izmail route maps are embedded and allow map zoom controls',()=>{
