@@ -90,8 +90,8 @@ test('long main-card titles keep natural letter proportions', () => {
   assert.match(js, /querySelectorAll\("\.card-copy strong,\.groups-title"\)/);
   assert.match(js, /var compression=title\.closest\("\.expanded-label"\) \? \.86 : 1/);
   assert.match(css, /#app \.cards \.card\.compact\.expanded-label \.card-copy strong>span\{[\s\S]*?transform:scaleX\(\.86\)!important/);
-  assert.match(html, /main\.css\?v=31/);
-  assert.match(html, /main\.js\?v=11/);
+  assert.match(html, /main\.css\?v=32/);
+  assert.match(html, /main\.js\?v=12/);
 });
 
 test('all category arrows share one visible position', () => {
@@ -113,5 +113,5 @@ test('search and main card grid use compact professional vertical spacing', () =
 test('weather and currency use the main-card gap without moving shelter', () => {
   const infoCss = fs.readFileSync(path.join(root, 'home-info.css'), 'utf8');
   assert.match(infoCss, /#app \.top-row\{[\s\S]*?grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\) calc\(\(100% - 2\.3%\) \/ 3\);[\s\S]*?column-gap:\.75vw/);
-  assert.match(html, /home-info\.css\?v=19/);
+  assert.match(html, /home-info\.css\?v=21/);
 });
