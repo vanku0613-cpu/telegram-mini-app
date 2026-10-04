@@ -12,7 +12,7 @@ const recordsForPhone = phone => health.records.filter(record =>
 );
 
 const newlyPublishedDoctors = [
-  '0677230363', '0937468376', '0637867626', '0979460740', '0667502560',
+  '0677230363', '0937468376', '0637867626', '0979460740',
   '0675589585', '0973481001', '0686873292', '0968125974', '0672505326',
   '0973905390', '0991416756', '0631216013', '0632033290', '0679575960',
   '0950600898', '0665649849', '0967966038', '0964351990', '0971143380',
@@ -38,6 +38,7 @@ test('archive doctors and veterinarians are published once and assigned to a cit
   assert.match(kiliyaUltrasound[0].note, /имя специалиста.*не указано/i);
 
   assert.equal(recordsForPhone('0680746169').length, 0, 'uncertain Bolgrad location is not guessed');
+  assert.equal(recordsForPhone('0667502560')[0].city, 'Одесса', 'Гринченко is assigned to Odesa GKB No. 10');
 });
 
 test('new utility contacts are visible and included in global search', () => {
@@ -57,9 +58,42 @@ test('contact databases and cache versions point to the new release', () => {
   const healthApp = fs.readFileSync(path.join(root, 'health-care/app.js'), 'utf8');
   const healthPage = fs.readFileSync(path.join(root, 'health-care/index.html'), 'utf8');
   const home = fs.readFileSync(path.join(root, 'main-v2/index.html'), 'utf8');
-  assert.match(search, /data\.json\?v=20261004-1/);
+  assert.match(search, /data\.json\?v=20261004-2/);
   assert.match(search, /directory-search-extra\.json\?v=20261004-1/);
-  assert.match(healthApp, /data\.json\?v=20261004-1/);
-  assert.match(healthPage, /app\.js\?v=20261004-1/);
-  assert.match(home, /directory-search\.js\?v=20/);
+  assert.match(healthApp, /data\.json\?v=20261004-2/);
+  assert.match(healthPage, /app\.js\?v=20261004-2/);
+  assert.match(home, /directory-search\.js\?v=21/);
+});
+
+test('clean doctor draft is merged by identity and grouped by city without duplicate cards', () => {
+  const sourceId = 'archive-20261004-doctors';
+  const imported = health.records.filter(record =>
+    record.source === sourceId || (record.additionalSources || []).includes(sourceId)
+  );
+  assert.equal(imported.length, 66, 'all clean-draft rows must resolve to one doctor card');
+  assert.equal(imported.filter(record => record.city === 'Одесса').length, 60);
+  assert.equal(imported.filter(record => record.city === 'Измаил').length, 6);
+
+  const yakimova = recordsForPhone('0504250303');
+  assert.equal(yakimova.length, 1);
+  assert.equal(yakimova[0].name, 'Якимова Валерия Владимировна');
+  const grinchenko = recordsForPhone('0667502560');
+  assert.equal(grinchenko.length, 1);
+  assert.equal(grinchenko[0].city, 'Одесса');
+  assert.ok(grinchenko[0].categories.includes('96259'));
+
+  assert.equal(recordsForPhone('0482309002').length, 3, 'shared Likarium reception belongs to three doctor cards');
+  assert.equal(recordsForPhone('0949173422').length, 2, 'shared clinic reception belongs to two doctor cards');
+  assert.equal(recordsForPhone('0963881899').length, 2, 'shared clinic phone is not mistaken for one doctor');
+
+  const cardKeys = health.records.map(record => [
+    record.city,
+    record.name.toLocaleLowerCase().replace(/[^a-zа-яёіїєґ0-9]/g, ''),
+    [...new Set(record.phones.map(normalize))].sort().join(',')
+  ].join('|'));
+  assert.equal(new Set(cardKeys).size, cardKeys.length, 'identical contact cards are merged');
+  for (const record of health.records) {
+    assert.equal(new Set(record.phones.map(normalize)).size, record.phones.length, `${record.id} repeats a phone`);
+  }
+  assert.ok(imported.every(record => !/данные понятны|нужно уточнить ФИО|имя нормализовано/i.test(record.note || '')));
 });

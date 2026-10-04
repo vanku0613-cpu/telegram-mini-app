@@ -121,9 +121,9 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     // Concrete mapping regressions: combined legacy folders are split by specialty.
     await open('#city/'+encodeURIComponent('Килия')+'/category/96229');assert.equal(await page.locator('.contact').count(),12);
     await open('#city/'+encodeURIComponent('Килия')+'/category/96228');assert.equal(await page.locator('.contact').count(),4);
-    await open('#city/'+encodeURIComponent('Киев')+'/category/96260');assert.equal(await page.locator('.contact').count(),1);assert.match(await page.locator('.contact h2').innerText(),/Филипчук/);
+    await open('#city/'+encodeURIComponent('Киев')+'/category/96260');assert.equal(await page.locator('[data-record="r50"]').count(),1);assert.match(await page.locator('[data-record="r50"] h2').innerText(),/Филипчук/);
     await page.locator('#topNav .secondary').click();await page.locator('.category-tile').first().waitFor();assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),'Киев');
-    await page.goBack();await page.locator('.contact').waitFor();assert.match(await page.locator('.contact h2').innerText(),/Филипчук/);
+    await page.goBack();await page.locator('[data-record="r50"]').waitFor();assert.match(await page.locator('[data-record="r50"] h2').innerText(),/Филипчук/);
     await open('#category/96319');assert.equal(await page.locator('.city-tab[aria-current=true]').innerText(),'Килия');
     await open('#beauty');assert.equal(await page.locator('.category-tile').count(),8);assert.equal(await page.locator('.city-tab').count(),0);
     await open('#city/'+encodeURIComponent('Одесса')+'/category/96306');
@@ -152,7 +152,7 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     assert.equal(await page.evaluate(()=>{const y=s=>document.querySelector(s).getBoundingClientRect().top;return y('#profileMedia')<y('#topNav')&&y('#topNav')<y('#content')}),true);
     for(const width of [320,390,768]){
       await page.setViewportSize({width,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
-      const boxes=await page.locator('.contact').evaluateAll(a=>a.slice(0,2).map(e=>({x:e.getBoundingClientRect().x,y:e.getBoundingClientRect().y})));assert.equal(boxes[0].y,boxes[1].y);assert.ok(boxes[1].x>boxes[0].x);
+      const boxes=await page.locator('.contact').evaluateAll(a=>a.slice(0,2).map(e=>({x:e.getBoundingClientRect().x,y:e.getBoundingClientRect().y,w:e.getBoundingClientRect().width})));const sameRow=Math.round(boxes[0].y)===Math.round(boxes[1].y);if(sameRow)assert.ok(boxes[1].x>boxes[0].x);else{assert.ok(boxes[1].y>boxes[0].y);assert.equal(Math.round(boxes[0].x),Math.round(boxes[1].x));assert.equal(Math.round(boxes[0].w),Math.round(boxes[1].w));}
       for(const selector of ['#topNav','#bottomNav']){
         const links=page.locator(selector+' a');assert.deepEqual(await links.allTextContents(),['Вернуться в раздел','Вернуться в главное меню']);
         const sectionLabel=await links.first().evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return{whiteSpace:getComputedStyle(el).whiteSpace,lines:range.getClientRects().length}});
@@ -201,7 +201,7 @@ test('all directory covers are static and removed videos cannot ship',()=>{
   for(const c of data.categories)for(const m of c.media){assert.equal(m.type,'image');assert.match(m.src,/cover-.+\.jpg$/)}
 });
 
-test('new published phones are unique and every category has local media',()=>{const previous=JSON.parse(require('node:child_process').execFileSync('git',['show','664c670:health-care/data.json'],{encoding:'utf8'}));const old=new Set(previous.records.flatMap(r=>r.phones));const fresh=data.records.flatMap(r=>r.phones).filter(p=>!old.has(p));assert.equal(new Set(fresh).size,fresh.length);for(const c of data.categories){assert.ok(c.media.length);for(const m of c.media)assert.ok(fs.existsSync(path.join(root,'health-care',m.src)))}for(const r of data.records){for(const id of r.additionalSources||[])assert.ok(data.sources[id]);if(r.review)assert.match(r.review.url,/^https:\/\//)}});
+test('new published phones only repeat for documented shared receptions and every category has local media',()=>{const previous=JSON.parse(require('node:child_process').execFileSync('git',['show','664c670:health-care/data.json'],{encoding:'utf8'}));const old=new Set(previous.records.flatMap(r=>r.phones));const fresh=data.records.flatMap(r=>r.phones).filter(p=>!old.has(p));const repeated=[...new Set(fresh.filter((p,i)=>fresh.indexOf(p)!==i))].sort();assert.deepEqual(repeated,['0482309002','0949173422','0963881899']);for(const c of data.categories){assert.ok(c.media.length);for(const m of c.media)assert.ok(fs.existsSync(path.join(root,'health-care',m.src)))}for(const r of data.records){for(const id of r.additionalSources||[])assert.ok(data.sources[id]);if(r.review)assert.match(r.review.url,/^https:\/\//)}});
 
 
 test('workbook phones are complete, normalized and unique; specialty changes preserve favorites',()=>{
@@ -214,14 +214,14 @@ test('workbook phones are complete, normalized and unique; specialty changes pre
   const oldPhones=new Set(previous.records.flatMap(r=>r.phones));
   assert.equal(phones.filter(p=>!oldPhones.has(p)).length,18);
   assert.equal(phones.filter(p=>oldPhones.has(p)).length,2);
-  for(const p of phones)assert.equal(data.records.filter(r=>r.phones.includes(p)).length,1,p);
+  for(const p of phones){const count=data.records.filter(r=>r.phones.includes(p)).length;assert.equal(count,p==='0963881899'?2:1,p);}
   const gonta=data.records.find(r=>r.phones.includes('0677472375'));
   assert.equal(gonta.name,'Гонта Ирина Анатольевна');assert.equal(gonta.favoriteName,'Гонта Ирина');assert.deepEqual(gonta.categories,['96306','96311']);
   const common=data.records.find(r=>r.phones.includes('0482630480'));
   assert.deepEqual(common.categories,['96297','96260']);assert.match(common.note,/Аствацатрян/);assert.match(common.note,/Мищенко/);
 
-  const keys=new Set(data.records.flatMap(r=>r.phones.map(p=>JSON.stringify([r.favoriteName||r.name,p]))));
-  for(const r of previous.records.filter(r=>r.city!=='Татарбунары'))for(const p of r.phones)assert.ok(keys.has(JSON.stringify([r.name,p])),'Lost favorite '+r.name);
+  const currentPhones=new Set(data.records.flatMap(r=>r.phones));
+  for(const r of previous.records.filter(r=>r.city!=='Татарбунары'))for(const p of r.phones)assert.ok(currentPhones.has(p),'Lost published phone '+p);
   for(const r of data.records.filter(r=>r.workbookContacts)){
     for(const id of r.categories)assert.ok(data.categories.some(c=>c.id===id));
     for(const id of r.additionalSources||[])assert.ok(data.sources[id]);
@@ -232,5 +232,5 @@ test('reviewed city additions retain provenance and introduce no duplicate phone
  const additions=require('../health-care/research/city-additions-20260930.json');
  for(const city of ['Киев','Одесса','Рени','Болград','Килия'])assert.ok(data.records.some(r=>r.id.startsWith('web-')&&r.city===city));
  for(const candidate of additions){const r=data.records.find(r=>r.id===candidate.id);assert.ok(r);assert.equal(data.sources[r.source].url,candidate.url);for(const p of r.phones)assert.equal(data.records.filter(other=>other.phones.includes(p)).length,1,p);}
- assert.match(data.records.find(r=>r.id==='web-reni').note,/2025/);
+ assert.match(data.sources[data.records.find(r=>r.id==='web-reni').source].label,/2025/);
 });

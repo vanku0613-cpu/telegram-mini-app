@@ -874,6 +874,11 @@
       "url": "https://med.kyivcity.gov.ua/medportal/medview/150.html",
       "checked": "2026-10-01",
       "kind": "official"
+    },
+    "archive-20261004-doctors": {
+      "label": "Подборка врачей из предоставленной переписки",
+      "checked": "2026-10-04",
+      "kind": "provided"
     }
   },
   "categories": [
@@ -890,7 +895,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96228",
       "order": 0,
-      "count": 19,
+      "count": 30,
       "note": ""
     },
     {
@@ -906,7 +911,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96229",
       "order": 1,
-      "count": 10,
+      "count": 14,
       "note": ""
     },
     {
@@ -922,7 +927,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96230",
       "order": 2,
-      "count": 17,
+      "count": 19,
       "note": ""
     },
     {
@@ -938,7 +943,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96231",
       "order": 3,
-      "count": 40,
+      "count": 47,
       "note": ""
     },
     {
@@ -954,7 +959,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96246",
       "order": 4,
-      "count": 13,
+      "count": 18,
       "note": ""
     },
     {
@@ -986,7 +991,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96259",
       "order": 6,
-      "count": 19,
+      "count": 35,
       "note": ""
     },
     {
@@ -1002,7 +1007,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96260",
       "order": 7,
-      "count": 14,
+      "count": 25,
       "note": ""
     },
     {
@@ -1018,7 +1023,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96261",
       "order": 8,
-      "count": 2,
+      "count": 3,
       "note": ""
     },
     {
@@ -1050,7 +1055,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96263",
       "order": 10,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
@@ -1066,7 +1071,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96264",
       "order": 11,
-      "count": 10,
+      "count": 19,
       "note": ""
     },
     {
@@ -1082,7 +1087,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96269",
       "order": 12,
-      "count": 2,
+      "count": 4,
       "note": ""
     },
     {
@@ -1098,7 +1103,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96274",
       "order": 13,
-      "count": 2,
+      "count": 3,
       "note": ""
     },
     {
@@ -1114,7 +1119,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96275",
       "order": 14,
-      "count": 16,
+      "count": 26,
       "note": ""
     },
     {
@@ -1130,7 +1135,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96282",
       "order": 15,
-      "count": 0,
+      "count": 7,
       "note": ""
     },
     {
@@ -1146,7 +1151,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96283",
       "order": 16,
-      "count": 8,
+      "count": 11,
       "note": ""
     },
     {
@@ -1162,7 +1167,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96284",
       "order": 17,
-      "count": 0,
+      "count": 8,
       "note": ""
     },
     {
@@ -1178,7 +1183,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96285",
       "order": 18,
-      "count": 11,
+      "count": 17,
       "note": ""
     },
     {
@@ -1194,7 +1199,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96288",
       "order": 19,
-      "count": 13,
+      "count": 22,
       "note": ""
     },
     {
@@ -1226,7 +1231,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96291",
       "order": 21,
-      "count": 2,
+      "count": 3,
       "note": ""
     },
     {
@@ -1242,7 +1247,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96292",
       "order": 22,
-      "count": 21,
+      "count": 35,
       "note": ""
     },
     {
@@ -1274,7 +1279,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96294",
       "order": 24,
-      "count": 3,
+      "count": 4,
       "note": ""
     },
     {
@@ -1290,7 +1295,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96295",
       "order": 25,
-      "count": 4,
+      "count": 9,
       "note": ""
     },
     {
@@ -1322,7 +1327,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96297",
       "order": 27,
-      "count": 6,
+      "count": 11,
       "note": ""
     },
     {
@@ -1338,7 +1343,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96299",
       "order": 28,
-      "count": 2,
+      "count": 3,
       "note": ""
     },
     {
@@ -1354,7 +1359,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96300",
       "order": 29,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
@@ -1386,7 +1391,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96304",
       "order": 31,
-      "count": 10,
+      "count": 15,
       "note": ""
     },
     {
@@ -1402,7 +1407,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96305",
       "order": 32,
-      "count": 10,
+      "count": 15,
       "note": ""
     },
     {
@@ -1418,7 +1423,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96306",
       "order": 33,
-      "count": 2,
+      "count": 3,
       "note": ""
     },
     {
@@ -1466,7 +1471,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96310",
       "order": 36,
-      "count": 3,
+      "count": 4,
       "note": ""
     },
     {
@@ -1482,7 +1487,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96311",
       "order": 37,
-      "count": 3,
+      "count": 5,
       "note": ""
     },
     {
@@ -1514,7 +1519,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96313",
       "order": 39,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
@@ -1530,7 +1535,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96314",
       "order": 40,
-      "count": 1,
+      "count": 2,
       "note": ""
     },
     {
@@ -1594,7 +1599,7 @@
       ],
       "source": "https://t.me/Izmail_CHAT_24_7/20125",
       "order": 44,
-      "count": 13,
+      "count": 14,
       "note": ""
     },
     {
@@ -1737,7 +1742,7 @@
         }
       ],
       "order": 53,
-      "count": 5,
+      "count": 7,
       "note": ""
     },
     {
@@ -1752,7 +1757,7 @@
         }
       ],
       "order": 54,
-      "count": 2,
+      "count": 4,
       "note": ""
     },
     {
@@ -1797,7 +1802,7 @@
         }
       ],
       "order": 57,
-      "count": 4,
+      "count": 7,
       "note": ""
     },
     {
@@ -1827,7 +1832,7 @@
         }
       ],
       "order": 59,
-      "count": 2,
+      "count": 6,
       "note": ""
     },
     {
@@ -1858,7 +1863,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96211",
       "order": 61,
-      "count": 4,
+      "count": 3,
       "note": ""
     },
     {
@@ -2130,7 +2135,15 @@
       ],
       "city": "Измаил",
       "note": "пр. Незалежності, 141, угол ул. Репина",
-      "source": "telegram"
+      "source": "telegram",
+      "specialties": "Регистратура/приемная кардиолога",
+      "categories": [
+        "96228",
+        "96264"
+      ],
+      "additionalSources": [
+        "archive-20261004-doctors"
+      ]
     },
     {
       "id": "r8",
@@ -2366,7 +2379,12 @@
       "note": "Детский стоматолог. «Аліна», ул. Кишинёвская, напротив «Диагност» проспект Миру, 48 вхід з Кишинівської. Контакт опубликован в городском каталоге; приём уточните по телефону",
       "source": "telegram",
       "additionalSources": [
-        "directory-kozhukhar-marianna-vadymivna"
+        "directory-kozhukhar-marianna-vadymivna",
+        "archive-20261004-doctors"
+      ],
+      "specialties": "Детский стоматолог",
+      "categories": [
+        "96231"
       ]
     },
     {
@@ -2444,7 +2462,14 @@
       ],
       "city": "Измаил",
       "note": "пр. Незалежності (бывш. Суворова)",
-      "source": "telegram"
+      "source": "telegram",
+      "specialties": "УЗИ сердца детям",
+      "categories": [
+        "96246"
+      ],
+      "additionalSources": [
+        "archive-20261004-doctors"
+      ]
     },
     {
       "id": "r35",
@@ -2455,7 +2480,14 @@
       ],
       "city": "Измаил",
       "note": "ул. Кутузова / пр. Незалежності — уточнить кабинет",
-      "source": "telegram"
+      "source": "telegram",
+      "specialties": "Врач УЗИ",
+      "categories": [
+        "96246"
+      ],
+      "additionalSources": [
+        "archive-20261004-doctors"
+      ]
     },
     {
       "id": "r36",
@@ -2470,7 +2502,12 @@
       "note": "пр. Незалежності, 141",
       "source": "telegram",
       "additionalSources": [
-        "user-supplied-izmail-ultrasound-kids"
+        "user-supplied-izmail-ultrasound-kids",
+        "archive-20261004-doctors"
+      ],
+      "specialties": "Кабинет УЗИ",
+      "categories": [
+        "96246"
       ]
     },
     {
@@ -2567,7 +2604,11 @@
       ],
       "city": "Измаил",
       "note": "Хирург-онколог",
-      "source": "telegram"
+      "source": "telegram",
+      "categories": [
+        "96259",
+        "96314"
+      ]
     },
     {
       "id": "r45",
@@ -2601,7 +2642,11 @@
       ],
       "city": "Киев",
       "note": "Хирург-эндокринолог, ул. Рейтарская",
-      "source": "telegram"
+      "source": "telegram",
+      "categories": [
+        "96259",
+        "96304"
+      ]
     },
     {
       "id": "r48",
@@ -2612,7 +2657,11 @@
       ],
       "city": "Одесса",
       "note": "Травматолог-ортопед, хирург. Клиника Св. Екатерины",
-      "source": "telegram"
+      "source": "telegram",
+      "categories": [
+        "96259",
+        "96260"
+      ]
     },
     {
       "id": "r49",
@@ -2666,17 +2715,6 @@
         "0965844794"
       ],
       "city": "Измаил",
-      "source": "telegram"
-    },
-    {
-      "id": "r54",
-      "category": "96260",
-      "name": "Заин Артур Игоревич",
-      "phones": [
-        "0955002034"
-      ],
-      "city": "Одесса",
-      "note": "Травматолог-ортопед, хирург. Клиника Св. Екатерины",
       "source": "telegram"
     },
     {
@@ -3032,17 +3070,6 @@
       ],
       "city": "Измаил",
       "note": "Районная поликлиника",
-      "source": "telegram"
-    },
-    {
-      "id": "r85",
-      "category": "96304",
-      "name": "Мазур Олег Васильович",
-      "phones": [
-        "0681313068"
-      ],
-      "city": "Киев",
-      "note": "Хирург-эндокринолог, ул. Рейтарская",
       "source": "telegram"
     },
     {
@@ -3713,42 +3740,12 @@
       "city": "Измаил",
       "note": "Консультация трихолога. ул. Гетмана Мазепы (Чернышевского), 24",
       "source": "laserhouse",
-      "phoneLabel": "Запись в центр"
-    },
-    {
-      "id": "r145",
-      "category": "96048",
-      "name": "Лазерхауз · запись",
-      "phones": [
-        "0731771631"
-      ],
-      "city": "Измаил",
-      "note": "Консультация косметолога. ул. Гетмана Мазепы (Чернышевского), 24",
-      "source": "laserhouse",
-      "phoneLabel": "Запись в центр"
-    },
-    {
-      "id": "r146",
-      "category": "96052",
-      "name": "Лазерхауз · запись",
-      "phones": [
-        "0731771631"
-      ],
-      "city": "Измаил",
-      "note": "Уходовые процедуры. ул. Гетмана Мазепы (Чернышевского), 24",
-      "source": "laserhouse",
-      "phoneLabel": "Запись в центр"
-    },
-    {
-      "id": "r147",
-      "category": "96314",
-      "name": "Томев Иван Иванович",
-      "phones": [
-        "0672929451"
-      ],
-      "city": "Измаил",
-      "note": "Хирург-онколог. Перенесён также из категории «Хирург»",
-      "source": "telegram"
+      "phoneLabel": "Запись в центр",
+      "categories": [
+        "96300",
+        "96048",
+        "96052"
+      ]
     },
     {
       "id": "r148",
@@ -4599,19 +4596,11 @@
       "city": "Измаил",
       "note": "Лікар акушер гінеколог. Женская консультация. Уточните текущий приём через регистратуру",
       "source": "doctors",
-      "phoneLabel": "Регистратура, не личный номер"
-    },
-    {
-      "id": "r217",
-      "category": "96318",
-      "name": "Маріогло Вікторія Георгіївна",
-      "phones": [
-        "0962359085"
-      ],
-      "city": "Измаил",
-      "note": "Лікар генетик. Женская консультация. Уточните текущий приём через регистратуру",
-      "source": "doctors",
-      "phoneLabel": "Регистратура, не личный номер"
+      "phoneLabel": "Регистратура, не личный номер",
+      "categories": [
+        "96292",
+        "96318"
+      ]
     },
     {
       "id": "r218",
@@ -5242,7 +5231,14 @@
       "city": "Измаил",
       "note": "вул. Телеграфна, 182. Контакт опубликован в городском каталоге; приём уточните по телефону",
       "source": "directory-kushnirenko-ruslan-volodymyrovych",
-      "phoneLabel": "Контакт для записи из каталога"
+      "phoneLabel": "Контакт для записи из каталога",
+      "specialties": "Невропатолог",
+      "categories": [
+        "96275"
+      ],
+      "additionalSources": [
+        "archive-20261004-doctors"
+      ]
     },
     {
       "id": "dovidka-likar-nevroloh-aleksandrova-alla-oleksiyivna",
@@ -5369,14 +5365,15 @@
       "workbookDoctorIds": [
         "D003"
       ],
-      "specialties": "Сосудистый хирург, флеболог, УЗИ-специалист",
+      "specialties": "Флеболог",
       "additionalSources": [
-        "workbook-C005"
+        "workbook-C005",
+        "archive-20261004-doctors"
       ],
       "workbookContacts": [
         "C005"
       ],
-      "note": "ОНМедУ / ул. Пастера, 9",
+      "note": "Клиника «Медина», ул. Пастера, 9",
       "phoneLabel": "Профессиональный контакт"
     },
     {
@@ -5407,7 +5404,7 @@
     },
     {
       "id": "workbook-D006",
-      "name": "Якимова Валерия",
+      "name": "Якимова Валерия Владимировна",
       "city": "Одесса",
       "phones": [
         "0504250303"
@@ -5422,7 +5419,8 @@
       ],
       "specialties": "Невролог",
       "additionalSources": [
-        "workbook-C008"
+        "workbook-C008",
+        "archive-20261004-doctors"
       ],
       "workbookContacts": [
         "C008"
@@ -5653,14 +5651,17 @@
       ],
       "city": "Одесса",
       "name": "Авакимов Артем Артурович",
-      "specialties": "Акушер-гинеколог",
+      "specialties": "Гинеколог",
       "phones": [
         "0669684554"
       ],
       "source": "workbook-Q001",
-      "note": "Принадлежность номера врачу и возможность записи требуют уточнения",
+      "note": "Железнодорожная больница, район площади Толбухина",
       "workbookContacts": [
         "Q001"
+      ],
+      "additionalSources": [
+        "archive-20261004-doctors"
       ]
     },
     {
@@ -6269,13 +6270,17 @@
         "0964805120"
       ],
       "categories": [
-        "96261"
+        "96261",
+        "96259"
       ],
       "category": "96261",
       "note": "Детский нейрохирург · Детская областная больница",
       "city": "Одесса",
       "source": "telegram-vrachi-odessa-9305",
-      "additionalSources": []
+      "additionalSources": [
+        "archive-20261004-doctors"
+      ],
+      "specialties": "Нейрохирург"
     },
     {
       "id": "telegram-odessa-uzd-slobodka-7459",
@@ -6889,9 +6894,16 @@
       "phones": [
         "0667502560"
       ],
-      "city": "Измаил",
-      "note": "Проктолог",
-      "source": "telegram"
+      "city": "Одесса",
+      "note": "Заведующий проктологией ГКБ №10",
+      "source": "telegram",
+      "specialties": "Проктолог",
+      "categories": [
+        "96259"
+      ],
+      "additionalSources": [
+        "archive-20261004-doctors"
+      ]
     },
     {
       "id": "archive-20261004-marakhovets",
@@ -7116,6 +7128,843 @@
       "city": "Измаил",
       "note": "Ветеринар",
       "source": "telegram"
+    },
+    {
+      "id": "archive-20261004-odessa-001",
+      "category": "96306",
+      "categories": [
+        "96306",
+        "96311"
+      ],
+      "name": "Весилык Наталья Леонидовна",
+      "phones": [
+        "0503169816",
+        "0986241938"
+      ],
+      "city": "Одесса",
+      "specialties": "Пульмонолог-аллерголог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-002",
+      "category": "96305",
+      "categories": [
+        "96305"
+      ],
+      "name": "Залевская Ирина Александровна",
+      "phones": [
+        "0687958672"
+      ],
+      "city": "Одесса",
+      "specialties": "Гастроэнтеролог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-003",
+      "category": "96305",
+      "categories": [
+        "96305",
+        "96310"
+      ],
+      "name": "Павловская Марианна Александровна",
+      "phones": [
+        "0504788478"
+      ],
+      "city": "Одесса",
+      "specialties": "Инфекционист, гастроэнтеролог",
+      "note": "Клиника «Одрекс»",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-004",
+      "category": "96305",
+      "categories": [
+        "96305"
+      ],
+      "name": "Чайка Анна Александровна",
+      "phones": [
+        "0482309002"
+      ],
+      "city": "Одесса",
+      "specialties": "Гастроэнтеролог",
+      "note": "Клиника «Ликариум», Генуэзская, 1/2 · запись в клинику",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-006",
+      "category": "96292",
+      "categories": [
+        "96292"
+      ],
+      "name": "Журавлева Валентина Анатольевна",
+      "phones": [
+        "0965585625"
+      ],
+      "city": "Одесса",
+      "specialties": "Гинеколог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-007",
+      "category": "96292",
+      "categories": [
+        "96292"
+      ],
+      "name": "Грибков Владимир Павлович",
+      "phones": [
+        "0984816999"
+      ],
+      "city": "Одесса",
+      "specialties": "Гинеколог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-008",
+      "category": "96292",
+      "categories": [
+        "96292"
+      ],
+      "name": "Избаш Олег Иванович",
+      "phones": [
+        "0674806462"
+      ],
+      "city": "Одесса",
+      "specialties": "Гинеколог",
+      "note": "«Медицинский дом Одесса» и клиника «Мега Сана»",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-009",
+      "category": "96292",
+      "categories": [
+        "96292",
+        "96304"
+      ],
+      "name": "Лихачева Лариса Евгеньевна",
+      "phones": [
+        "0634975942"
+      ],
+      "city": "Одесса",
+      "specialties": "Гинеколог-эндокринолог",
+      "note": "Клиника «Ликариум»",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-010",
+      "category": "96292",
+      "categories": [
+        "96292"
+      ],
+      "name": "Старущенко Татьяна Евгеньевна",
+      "phones": [
+        "0932057775"
+      ],
+      "city": "Одесса",
+      "specialties": "Гинеколог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-011",
+      "category": "96292",
+      "categories": [
+        "96292"
+      ],
+      "name": "Гарбузенко Наталья Дмитриевна",
+      "phones": [
+        "0660081932"
+      ],
+      "city": "Одесса",
+      "specialties": "Гинеколог",
+      "note": "ЖК №3; в более позднем сообщении — AIRMED, ул. Космонавтов, 11",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-012",
+      "category": "96292",
+      "categories": [
+        "96292"
+      ],
+      "name": "Мищенко Ольга Афанасьевна",
+      "phones": [
+        "0482309002"
+      ],
+      "city": "Одесса",
+      "specialties": "Гинеколог",
+      "note": "Клиника «Ликариум» · запись в клинику",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-013",
+      "category": "96300",
+      "categories": [
+        "96300",
+        "96297"
+      ],
+      "name": "Дмитренко Алла Михайловна",
+      "phones": [
+        "0679049003"
+      ],
+      "city": "Одесса",
+      "specialties": "Дерматолог-трихолог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-014",
+      "category": "96297",
+      "categories": [
+        "96297"
+      ],
+      "name": "Прокута Анатолий Данилович",
+      "phones": [
+        "0504164403"
+      ],
+      "city": "Одесса",
+      "specialties": "Дерматолог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-015",
+      "category": "96297",
+      "categories": [
+        "96297"
+      ],
+      "name": "Украинец Ирина Дмитриевна",
+      "phones": [
+        "0505027358"
+      ],
+      "city": "Одесса",
+      "specialties": "Дерматолог",
+      "note": "1-я поликлиника",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-016",
+      "category": "96288",
+      "categories": [
+        "96288"
+      ],
+      "name": "Безусов Николай Викторович",
+      "phones": [
+        "0949173422"
+      ],
+      "city": "Одесса",
+      "specialties": "ЛОР",
+      "note": "Клиника «Ликариум» · запись в клинику",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-017",
+      "category": "96288",
+      "categories": [
+        "96288"
+      ],
+      "name": "Новошицкий Станислав Вячеславович",
+      "phones": [
+        "0661960411"
+      ],
+      "city": "Одесса",
+      "specialties": "ЛОР",
+      "note": "Клиника «Медина», ул. Пастера, 9",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-018",
+      "category": "96288",
+      "categories": [
+        "96288"
+      ],
+      "name": "Драганюк Александр Анатольевич",
+      "phones": [
+        "0977000064"
+      ],
+      "city": "Одесса",
+      "specialties": "Детский ЛОР",
+      "note": "Заведующий ЛОР-отделением детской областной больницы",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-019",
+      "category": "96288",
+      "categories": [
+        "96288"
+      ],
+      "name": "Гурская Тамара",
+      "phones": [
+        "0482309002"
+      ],
+      "city": "Одесса",
+      "specialties": "ЛОР",
+      "note": "Клиника «Ликариум» · запись в клинику",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-020",
+      "category": "96264",
+      "categories": [
+        "96264"
+      ],
+      "name": "Павлов Сергей Владимирович",
+      "phones": [
+        "0963881899"
+      ],
+      "city": "Одесса",
+      "specialties": "Кардиолог",
+      "note": "Клиника «Ликариум» · запись в клинику",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-021",
+      "category": "96264",
+      "categories": [
+        "96264"
+      ],
+      "name": "Кобелева Елена Михайловна",
+      "phones": [
+        "0675592464"
+      ],
+      "city": "Одесса",
+      "specialties": "Кардиолог",
+      "note": "заведующей кардиологией на Пастера",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-022",
+      "category": "96264",
+      "categories": [
+        "96264",
+        "96274"
+      ],
+      "name": "Арапу Марина Ивановна",
+      "phones": [
+        "0962933237"
+      ],
+      "city": "Одесса",
+      "specialties": "Кардиолог-ревматолог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-023",
+      "category": "96275",
+      "categories": [
+        "96275"
+      ],
+      "name": "Патрашку Екатерина Викторовна",
+      "phones": [
+        "0934815955"
+      ],
+      "city": "Одесса",
+      "specialties": "Невропатолог-вертебролог",
+      "note": "1-я поликлиника, ул. Болгарская, 38; взрослые",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-024",
+      "category": "96275",
+      "categories": [
+        "96275"
+      ],
+      "name": "Хубетова Ирина Вильявна",
+      "phones": [
+        "0680972020"
+      ],
+      "city": "Одесса",
+      "specialties": "Невропатолог",
+      "note": "Клиника «Риномед»",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-026",
+      "category": "96275",
+      "categories": [
+        "96275"
+      ],
+      "name": "Калюжная Татьяна Евгеньевна",
+      "phones": [
+        "0949173422"
+      ],
+      "city": "Одесса",
+      "specialties": "Невропатолог-эпилептолог",
+      "note": "Клиника «Ликариум»; взрослые · запись в клинику",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-028",
+      "category": "96261",
+      "categories": [
+        "96261",
+        "96259"
+      ],
+      "name": "Коновалов Егор Сергеевич",
+      "phones": [
+        "0674879050"
+      ],
+      "city": "Одесса",
+      "specialties": "Нейрохирург",
+      "note": "Одесская областная больница",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-029",
+      "category": "96260",
+      "categories": [
+        "96260"
+      ],
+      "name": "Иожица Вячеслав Вячеславович",
+      "phones": [
+        "0934105280"
+      ],
+      "city": "Одесса",
+      "specialties": "Детский ортопед-травматолог",
+      "note": "Принимает на Воробьева и в «Одрексе»",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-030",
+      "category": "96260",
+      "categories": [
+        "96260"
+      ],
+      "name": "Корж Евгений Викторович",
+      "phones": [
+        "0503953151"
+      ],
+      "city": "Одесса",
+      "specialties": "Ортопед-травматолог",
+      "note": "ГКБ №11 и Университетская клиника",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-031",
+      "category": "96260",
+      "categories": [
+        "96260"
+      ],
+      "name": "Тимошенко Вадим Владимирович",
+      "phones": [
+        "0974789915"
+      ],
+      "city": "Одесса",
+      "specialties": "Ортопед-травматолог",
+      "note": "Одесская областная больница; взрослые",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-032",
+      "category": "96260",
+      "categories": [
+        "96260"
+      ],
+      "name": "Есипенко Вячеслав Сергеевич",
+      "phones": [
+        "0639966031"
+      ],
+      "city": "Одесса",
+      "specialties": "Травматолог",
+      "note": "ГКБ №11, ул. Воробьева",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-033",
+      "category": "96260",
+      "categories": [
+        "96260"
+      ],
+      "name": "Новиков Михаил Олегович",
+      "phones": [
+        "0980283618"
+      ],
+      "city": "Одесса",
+      "specialties": "Травматолог",
+      "note": "Заведующий травматологией ГКБ №10",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-034",
+      "category": "96260",
+      "categories": [
+        "96260"
+      ],
+      "name": "Гуриенко Александр Валентинович",
+      "phones": [
+        "0674856995"
+      ],
+      "city": "Одесса",
+      "specialties": "Травматолог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-035",
+      "category": "96260",
+      "categories": [
+        "96260"
+      ],
+      "name": "Засыпка Константин Валерьевич",
+      "phones": [
+        "0502956707"
+      ],
+      "city": "Одесса",
+      "specialties": "Ортопед-травматолог",
+      "note": "ГКБ №11 и Университетская клиника",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-036",
+      "category": "96295",
+      "categories": [
+        "96295"
+      ],
+      "name": "Колосов Александр Николаевич",
+      "phones": [
+        "0967424737"
+      ],
+      "city": "Одесса",
+      "specialties": "Уролог",
+      "note": "ГКБ №10, ул. Малиновского, 61",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-037",
+      "category": "96295",
+      "categories": [
+        "96295"
+      ],
+      "name": "Ставничий Алексей Сергеевич",
+      "phones": [
+        "0961258886"
+      ],
+      "city": "Одесса",
+      "specialties": "Уролог",
+      "note": "Амбулатория семейного врача и «Эксперт Хелс»",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-039",
+      "category": "96269",
+      "categories": [
+        "96269"
+      ],
+      "name": "Чайка Михаил Александрович",
+      "phones": [
+        "0976447223"
+      ],
+      "city": "Одесса",
+      "specialties": "Флеболог",
+      "note": "ГКБ №10, ул. Малиновского, 61а",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-040",
+      "category": "96259",
+      "categories": [
+        "96259"
+      ],
+      "name": "Бадион Сергей Юрьевич",
+      "phones": [
+        "0939841525"
+      ],
+      "city": "Одесса",
+      "specialties": "Хирург",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-041",
+      "category": "96259",
+      "categories": [
+        "96259"
+      ],
+      "name": "Коновалов Егор Сергеевич",
+      "phones": [
+        "0949499601"
+      ],
+      "city": "Одесса",
+      "specialties": "Хирург",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-042",
+      "category": "96259",
+      "categories": [
+        "96259"
+      ],
+      "name": "Колотвин Александр Борисович",
+      "phones": [
+        "0677988952"
+      ],
+      "city": "Одесса",
+      "specialties": "Хирург",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-044",
+      "category": "96259",
+      "categories": [
+        "96259"
+      ],
+      "name": "Воропанов Олег Михайлович",
+      "phones": [
+        "0661568300"
+      ],
+      "city": "Одесса",
+      "specialties": "Проктолог",
+      "note": "Отделение проктологии ГКБ №10",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-045",
+      "category": "96259",
+      "categories": [
+        "96259",
+        "96314"
+      ],
+      "name": "Комаров Сергей Иванович",
+      "phones": [
+        "0672933363"
+      ],
+      "city": "Одесса",
+      "specialties": "Хирург-онколог",
+      "note": "Кожно-венерологическое отделение ГКБ №11",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-046",
+      "category": "96282",
+      "categories": [
+        "96282"
+      ],
+      "name": "Косенко Корнелия Артуровна",
+      "phones": [
+        "0674848814"
+      ],
+      "city": "Одесса",
+      "specialties": "Психиатр",
+      "note": "Ул. Воробьева, 9; заведующая 17-м отделением",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-047",
+      "category": "96283",
+      "categories": [
+        "96283",
+        "96284"
+      ],
+      "name": "Фендюра Мария Олеговна",
+      "phones": [
+        "0635360647"
+      ],
+      "city": "Одесса",
+      "specialties": "Психолог-психотерапевт",
+      "note": "Клиника «Ликариум»",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-048",
+      "category": "96283",
+      "categories": [
+        "96283",
+        "96284"
+      ],
+      "name": "Зубов Константин Викторович",
+      "phones": [
+        "0639964658"
+      ],
+      "city": "Одесса",
+      "specialties": "Психолог-психотерапевт",
+      "note": "выездные и онлайн-консультации",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-049",
+      "category": "96284",
+      "categories": [
+        "96284"
+      ],
+      "name": "Буга Наталья Анатольевна",
+      "phones": [
+        "0662812663"
+      ],
+      "city": "Одесса",
+      "specialties": "Психотерапевт",
+      "note": "Детская поликлиника в районе Привоза",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-050",
+      "category": "96282",
+      "categories": [
+        "96282"
+      ],
+      "name": "Мороз Василий Владимирович",
+      "phones": [
+        "0487222990"
+      ],
+      "city": "Одесса",
+      "specialties": "Психиатр",
+      "note": "Одесский областной центр психического здоровья, ул. Канатная, 27",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-051",
+      "category": "96260",
+      "categories": [
+        "96260",
+        "96231"
+      ],
+      "name": "Дизик Евгений Анатольевич",
+      "phones": [
+        "0677003055"
+      ],
+      "city": "Одесса",
+      "specialties": "Стоматолог-ортопед",
+      "note": "Клиника «Триодент»",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-052",
+      "category": "96231",
+      "categories": [
+        "96231"
+      ],
+      "name": "Трояненко Лариса Николаевна",
+      "phones": [
+        "0503950382"
+      ],
+      "city": "Одесса",
+      "specialties": "Стоматолог",
+      "note": "Институт стоматологии, ул. Ришельевская",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-053",
+      "category": "96231",
+      "categories": [
+        "96231"
+      ],
+      "name": "Свинцицкий Борис Владимирович",
+      "phones": [
+        "0995545825"
+      ],
+      "city": "Одесса",
+      "specialties": "Ортодонт",
+      "note": "Номер клиники",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-054",
+      "category": "96285",
+      "categories": [
+        "96285"
+      ],
+      "name": "Меркулова Наталия Васильевна",
+      "phones": [
+        "0991034087",
+        "0960322080"
+      ],
+      "city": "Одесса",
+      "specialties": "Офтальмолог",
+      "note": "Клиника «Соната», пер. Маяковского, 4",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-055",
+      "category": "96285",
+      "categories": [
+        "96285"
+      ],
+      "name": "Шишман Ольга Владимировна",
+      "phones": [
+        "0978724811"
+      ],
+      "city": "Одесса",
+      "specialties": "Офтальмолог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-056",
+      "category": "96304",
+      "categories": [
+        "96304"
+      ],
+      "name": "Чехлова Елена Викторовна",
+      "phones": [
+        "0667741581"
+      ],
+      "city": "Одесса",
+      "specialties": "Эндокринолог",
+      "note": "Ул. Тенистая, 8",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-057",
+      "category": "96297",
+      "categories": [
+        "96297"
+      ],
+      "name": "Диденко Денис",
+      "phones": [
+        "0686900540"
+      ],
+      "city": "Одесса",
+      "specialties": "Подолог",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-058",
+      "category": "96229",
+      "categories": [
+        "96229"
+      ],
+      "name": "Сухаренко Владислав Владиславович",
+      "phones": [
+        "0931662622"
+      ],
+      "city": "Одесса",
+      "specialties": "Семейный врач",
+      "note": "",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-059",
+      "category": "96246",
+      "categories": [
+        "96246"
+      ],
+      "name": "Жарик Елена Ивановна",
+      "phones": [
+        "0502120220"
+      ],
+      "city": "Одесса",
+      "specialties": "Врач УЗИ",
+      "note": "УЗИ почек, мочевого пузыря и других органов",
+      "source": "archive-20261004-doctors"
+    },
+    {
+      "id": "archive-20261004-odessa-060",
+      "category": "96291",
+      "categories": [
+        "96291"
+      ],
+      "name": "Дарья Валерьевна",
+      "phones": [
+        "0977802684"
+      ],
+      "city": "Одесса",
+      "specialties": "Логопед",
+      "note": "",
+      "source": "archive-20261004-doctors"
     }
   ]
 }
