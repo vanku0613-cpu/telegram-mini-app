@@ -18,7 +18,7 @@
 #app .weather-panel .info-title,#app .weather-panel .condition{display:block;width:100%;max-width:100%!important;margin-left:auto!important;margin-right:auto!important;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #app .weather-panel .info-title{height:11px;min-height:11px;font-size:clamp(8.6px,2.18vw,10.7px)!important;font-size:clamp(8.6px,2.18cqw,10.7px)!important;font-weight:950!important;line-height:11px!important;letter-spacing:-.025em;text-transform:none!important}
 #app .weather-reading{display:flex;min-width:0;align-items:center;justify-content:center;gap:4px;margin-top:2px}
-#app .weather-panel .temp{width:auto!important;max-width:none!important;height:18px;min-height:18px;margin:0!important;font-size:clamp(12px,3.05vw,16px)!important;font-size:clamp(12px,3.05cqw,16px)!important;line-height:18px!important;text-align:left;white-space:nowrap}
+#app .weather-panel .temp{width:auto!important;max-width:none!important;height:18px;min-height:18px;margin:0!important;font-size:clamp(12px,3.05vw,16px)!important;font-size:clamp(12px,3.05cqw,16px)!important;line-height:18px!important;text-align:center;white-space:nowrap}
 #app .weather-panel .condition{height:9px;min-height:9px;margin-top:1px!important;font-size:clamp(7px,1.8vw,9px)!important;font-size:clamp(7px,1.8cqw,9px)!important;line-height:9px!important}
 #app .weather-mini{position:static!important;transform:none!important;width:19px!important;height:19px!important;font-size:13px!important;flex:0 0 19px}
 #app .currency-panel{padding:4px 6px!important}
