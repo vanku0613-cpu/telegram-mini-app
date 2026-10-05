@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = path.join(root, 'transport', 'city-schedule', 'data');
 const sourceFiles = fs.readdirSync(dataDir)
-  .filter(name => name.endsWith('.json') && !['kyiv.json', 'regional-routes.json'].includes(name))
+  .filter(name => name.endsWith('.json') && !['kyiv.json', 'regional-routes.json', 'regional-direction-overrides.json'].includes(name))
   .sort();
 
 const aliases = new Map([
@@ -92,6 +92,51 @@ for (const file of sourceFiles) {
       if (!item.fare && group.fare) item.fare = group.fare;
       mergeDirections(item.directions, route.directions);
     }
+  }
+}
+
+const overrideFile = path.join(dataDir, 'regional-direction-overrides.json');
+if (fs.existsSync(overrideFile)) {
+  const overrides = JSON.parse(fs.readFileSync(overrideFile, 'utf8'));
+  for (const override of overrides.directions || []) {
+    const places = [cleanPlace(override.from), cleanPlace(override.to)];
+    const key = places.map(norm).sort().join('|');
+    let item = merged.get(key);
+    if (!item) {
+      item = {
+        id: places.slice().sort((a, b) => a.localeCompare(b, 'ru')).join(' ↔ '),
+        name: places.join(' — '),
+        places: [...places],
+        days: override.days || 'По расписанию',
+        fare: '',
+        directions: [],
+        sources: []
+      };
+      merged.set(key, item);
+    }
+    const coordinates = new Map();
+    for (const direction of item.directions) {
+      for (const stop of direction.stops || []) coordinates.set(norm(stop.name), { lat: stop.lat, lng: stop.lng });
+    }
+    const fromPoint = override.fromPoint || coordinates.get(norm(override.from));
+    const toPoint = override.toPoint || coordinates.get(norm(override.to));
+    const stops = [
+      { name: places[0], ...(fromPoint || {}) },
+      { name: places[1], ...(toPoint || {}) }
+    ];
+    const shape = fromPoint && toPoint ? [[fromPoint.lat, fromPoint.lng], [toPoint.lat, toPoint.lng]] : [];
+    mergeDirections(item.directions, [{
+      label: `Из ${places[0]}`,
+      name: `${places[0]} → ${places[1]}`,
+      hours: override.hours || '',
+      interval: override.interval || '',
+      departures: override.departures || [],
+      extra: override.extra || '',
+      stops,
+      shape
+    }]);
+    item.places = [...new Set([...item.places, ...places])];
+    item.sources.push(`verified:${override.source || 'open-schedule'}`);
   }
 }
 

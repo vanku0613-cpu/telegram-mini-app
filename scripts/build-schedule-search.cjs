@@ -6,7 +6,7 @@ const records = [];
 const add = (title, meta, href, keywords = '') => records.push({ title, meta, href, keywords });
 
 const cityDir = path.join(root, 'transport', 'city-schedule', 'data');
-for (const file of fs.readdirSync(cityDir).filter(name => name.endsWith('.json') && name !== 'regional-routes.json')) {
+for (const file of fs.readdirSync(cityDir).filter(name => name.endsWith('.json') && !['regional-routes.json', 'regional-direction-overrides.json'].includes(name))) {
   const cityKey = path.basename(file, '.json');
   const data = JSON.parse(fs.readFileSync(path.join(cityDir, file), 'utf8'));
   const cityName = data.title.replace(/^Расписание\s+/u, '');
@@ -20,15 +20,21 @@ const cityKeys = new Map([
 ]);
 const regional = JSON.parse(fs.readFileSync(path.join(cityDir, 'regional-routes.json'), 'utf8'));
 for (const route of regional.routes) {
-  const city = route.places.map(place => cityKeys.get(place.toLocaleLowerCase('ru'))).find(Boolean) || 'villages';
-  const stops = route.directions.flatMap(direction => direction.stops.map(stop => stop.name));
-  const times = route.directions.flatMap(direction => direction.departures).slice(0, 12);
-  add(
-    route.name,
-    `Региональное расписание · ${route.places.join(' ↔ ')}`,
-    `./city-schedule/?city=${city}&group=regional&route=${encodeURIComponent(route.id)}`,
-    [route.days, ...route.places, ...stops, ...times].join(' ')
-  );
+  for (const direction of route.directions) {
+    const origin = direction.stops?.[0]?.name;
+    if (!origin) continue;
+    const city = cityKeys.get(origin.toLocaleLowerCase('ru'));
+    const query = city
+      ? `city=${city}&group=regional&route=${encodeURIComponent(route.id)}`
+      : `city=villages&place=${encodeURIComponent(origin)}&group=village-routes&route=${encodeURIComponent(route.id)}`;
+    const stops = direction.stops.map(stop => stop.name);
+    add(
+      direction.name,
+      `Отправление из ${origin}`,
+      `./city-schedule/?${query}`,
+      [route.days, direction.hours, direction.interval, ...stops, ...direction.departures].join(' ')
+    );
+  }
 }
 
 const izmail = JSON.parse(fs.readFileSync(path.join(root, 'transport', 'bus-schedule', 'schedule-data.json'), 'utf8'));

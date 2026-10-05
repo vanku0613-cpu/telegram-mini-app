@@ -1,0 +1,27 @@
+{
+  "updated": "2026-10-05",
+  "directions": [
+    {"from":"Измаил","to":"Арциз","departures":["11:00"],"source":"izmail-bus-station","fromPoint":{"lat":45.3507,"lng":28.8378}},
+    {"from":"Измаил","to":"Белгород-Днестровский","departures":["06:30","14:30"],"source":"izmail-bus-station","fromPoint":{"lat":45.3507,"lng":28.8378}},
+    {"from":"Измаил","to":"Болград","departures":["07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","17:00"],"source":"izmail-bus-station","fromPoint":{"lat":45.3507,"lng":28.8378}},
+    {"from":"Измаил","to":"Вилково","departures":["08:00","15:30","17:30"],"source":"izmail-bus-station","fromPoint":{"lat":45.3507,"lng":28.8378}},
+    {"from":"Измаил","to":"Килия","departures":["07:00","08:30","10:00","11:00","12:20","13:30","14:30","17:00"],"source":"izmail-bus-station","fromPoint":{"lat":45.3507,"lng":28.8378}},
+    {"from":"Измаил","to":"Рени","departures":["05:30","08:20","09:30","10:40","11:20","13:00","14:00","15:00","15:40","17:10","18:10"],"source":"izmail-bus-station","fromPoint":{"lat":45.3507,"lng":28.8378}},
+    {"from":"Измаил","to":"Одесса","hours":"03:30–19:15","interval":"45","departures":["03:30","04:15","05:00","05:45","06:30","07:15","08:00","08:45","09:30","10:15","11:00","11:45","12:30","13:15","14:00","14:45","15:30","16:15","17:00","17:45","18:30","19:15"],"source":"izmail-bus-station","fromPoint":{"lat":45.3507,"lng":28.8378},"toPoint":{"lat":46.4825,"lng":30.7233}},
+    {"from":"Одесса","to":"Измаил","hours":"03:30–20:00","interval":"30–60","departures":[],"extra":"Около 22 рейсов в сутки","source":"maiak-odesa","fromPoint":{"lat":46.4825,"lng":30.7233},"toPoint":{"lat":45.3507,"lng":28.8378}},
+
+    {"from":"Новая Некрасовка","to":"Измаил","departures":["08:50","11:20","13:20","15:00","17:20","19:10","21:10"],"source":"izmail-district-schedule-2019"},
+    {"from":"Матроска","to":"Измаил","departures":["07:55"],"source":"izmail-district-schedule-2019"},
+    {"from":"Броска","to":"Измаил","departures":["09:00","10:00","12:00"],"source":"izmail-district-schedule-2019"},
+    {"from":"Ларжанка","to":"Измаил","departures":["06:40","08:15"],"source":"izmail-district-schedule-2019"},
+    {"from":"Сафьяны","to":"Измаил","departures":["07:00","12:30","16:50"],"source":"izmail-district-schedule-2019"},
+    {"from":"Богатое","to":"Измаил","departures":["08:00"],"days":"По будням","source":"izmail-district-schedule-2019"},
+    {"from":"Новокаланчак","to":"Измаил","departures":["06:30"],"source":"izmail-district-schedule-2019"},
+    {"from":"Первомайское","to":"Измаил","departures":["06:05"],"source":"izmail-district-schedule-2019"},
+    {"from":"Кислица","to":"Измаил","departures":["06:10"],"source":"izmail-district-schedule-2019"},
+    {"from":"Муравлёвка","to":"Измаил","departures":["06:50"],"days":"По будням","source":"izmail-district-schedule-2019"},
+    {"from":"Камышовка","to":"Измаил","departures":["07:00"],"source":"izmail-district-schedule-2019"},
+    {"from":"Озёрное","to":"Измаил","departures":["06:00","16:00"],"source":"izmail-district-schedule-2019"},
+    {"from":"Утконосовка","to":"Измаил","departures":["06:45","10:40"],"source":"utkonosovka-schedule-2022"}
+  ]
+}

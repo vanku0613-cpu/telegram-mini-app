@@ -12,6 +12,7 @@
 .route-grid.named-routes{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(68px,auto)}.route-grid.named-routes .route{padding:8px 6px;font-size:clamp(13px,3.8vw,17px);line-height:1.12;overflow-wrap:anywhere}.direction-tabs:has(.direction:only-child){display:none}@media(min-width:580px){.route-grid.named-routes{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .route-grid.village-routes{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:122px;gap:8px}.route-grid.village-routes .village-route{position:relative;isolation:isolate;overflow:hidden;display:block;height:122px;padding:0;border-color:rgba(80,172,226,.78);background:#082a4e;text-align:center}.village-route-photo{position:absolute;z-index:-3;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.06) brightness(.74);transform:scale(1.015)}.village-route-shade{position:absolute;z-index:-2;inset:0;background:linear-gradient(180deg,rgba(2,15,31,.12),rgba(2,15,31,.36) 38%,rgba(2,15,31,.69) 100%)}.village-route-icon{position:absolute;top:8px;left:8px;display:grid;width:35px;height:35px;place-items:center;border:1px solid rgba(112,218,255,.68);border-radius:11px;background:linear-gradient(145deg,rgba(10,82,132,.92),rgba(5,42,79,.94));box-shadow:inset 0 1px rgba(255,255,255,.14),0 0 12px rgba(41,179,236,.32);color:#a8efff}.village-route-icon svg{width:21px;height:21px;stroke:currentColor;filter:drop-shadow(0 0 5px rgba(105,219,255,.52))}.village-route-name{position:absolute;top:50%;right:28px;left:28px;transform:translateY(-50%);display:grid;min-height:45px;place-items:center;color:#fff;font-size:clamp(17px,4.9vw,21px);font-weight:950;line-height:1.03;letter-spacing:-.025em;text-align:center;text-shadow:0 2px 8px #000,0 0 12px rgba(0,0,0,.88);text-wrap:balance}.village-route-arrow{position:absolute;top:50%;right:9px;transform:translateY(-50%);color:#c9f1ff;font-size:25px;font-weight:300;line-height:1;text-shadow:0 0 8px rgba(89,201,255,.62)}@media(min-width:580px){.route-grid.village-routes{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:142px}.route-grid.village-routes .village-route{height:142px}.village-route-name{font-size:22px}}
 .type-card{text-decoration:none}
+.route-empty{grid-column:1/-1;margin:0;padding:18px 14px;border:1px solid rgba(77,166,218,.42);border-radius:15px;background:rgba(7,35,65,.76);color:#c6d9e7;font-size:15px;font-weight:750;line-height:1.4;text-align:center}
 </style>
 <script src="../../navigation.js?v=7" defer data-izmail-navigation="1"></script>
 </head>
@@ -25,6 +26,6 @@
   <nav class="nav-row bottom" aria-label="Навигация снизу"><button class="back" data-schedule-back type="button"><span aria-hidden="true">←</span><span data-schedule-back-label>Вернуться в раздел</span></button><a class="home-back" data-main-back href="../../main-v2/"><span aria-hidden="true">←</span><span>Вернуться в главное меню</span></a></nav>
 </main>
 <script src="../route-map.js?v=2"></script>
-<script src="./app.js?v=20261005-1"></script>
+<script src="./app.js?v=20261005-2"></script>
 </body>
 </html>

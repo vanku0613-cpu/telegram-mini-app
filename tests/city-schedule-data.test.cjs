@@ -6,7 +6,7 @@ const test = require('node:test');
 const root = path.resolve(__dirname, '..');
 const dataDir = path.join(root, 'transport', 'city-schedule', 'data');
 const readCity = id => JSON.parse(fs.readFileSync(path.join(dataDir, `${id}.json`), 'utf8'));
-const cityIds = fs.readdirSync(dataDir).filter(file => file.endsWith('.json') && file !== 'regional-routes.json').map(file => path.basename(file, '.json'));
+const cityIds = fs.readdirSync(dataDir).filter(file => file.endsWith('.json') && !['regional-routes.json', 'regional-direction-overrides.json'].includes(file)).map(file => path.basename(file, '.json'));
 
 test('schedule directory contains every requested confirmed city and Izmail district villages', () => {
   assert.deepEqual(cityIds.sort(), [
@@ -64,18 +64,23 @@ test('city schedule opens details as a separate view and returns to the schedule
   assert.match(html, /data-view="schedule"/);
   assert.match(html, /data-view="map"/);
   assert.match(html, /data-view="stops"/);
-  assert.match(app, /regional-routes\.json\?v=20261005-1/);
+  assert.match(app, /regional-routes\.json\?v=20261005-2/);
   assert.match(app, /usesTransportTypes=safeCityKey==='kyiv'/);
   assert.match(app, /usesTransportTypes\?'Виды транспорта':'Вернуться в раздел'/);
   assert.match(html, /<button class="route-return"[^>]*id="backToRoutes"[^>]*>[\s\S]*?К расписанию<\/button>/);
 });
 
-test('regional routes are unique and visible from every matching city or village', () => {
+test('regional routes are unique and keep departures attached to their real origin', () => {
   const regional = readCity('regional-routes').routes;
-  assert.equal(regional.length, 61);
+  assert.equal(regional.length, 62);
   assert.equal(new Set(regional.map(route => route.id)).size, regional.length, 'regional route pairs must not repeat');
   const izmailUtkonosivka = regional.filter(route => route.places.includes('Измаил') && route.places.includes('Утконосовка'));
   assert.equal(izmailUtkonosivka.length, 1, 'Izmail and Utkonosivka share one route record');
+  assert.deepEqual(izmailUtkonosivka[0].directions.map(direction => direction.name), ['Измаил → Утконосовка', 'Утконосовка → Измаил']);
+  const izmailArtsyz = regional.find(route => route.places.includes('Измаил') && route.places.includes('Арциз'));
+  assert.ok(izmailArtsyz.directions.some(direction => direction.name === 'Измаил → Арциз' && direction.departures.includes('11:00')));
+  const odesaIzmail = regional.find(route => route.places.includes('Одесса') && route.places.includes('Измаил'));
+  assert.ok(odesaIzmail.directions.some(direction => direction.name === 'Одесса → Измаил' && direction.hours === '03:30–20:00'));
   const novoselivka = regional.filter(route => route.places.includes('Новосёловка'));
   assert.deepEqual(novoselivka.map(route => route.places.slice().sort()).sort(), [
     ['Измаил', 'Новосёловка'].sort(),
