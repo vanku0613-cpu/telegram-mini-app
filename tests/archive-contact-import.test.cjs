@@ -59,10 +59,10 @@ test('contact databases and cache versions point to the new release', () => {
   const healthPage = fs.readFileSync(path.join(root, 'health-care/index.html'), 'utf8');
   const home = fs.readFileSync(path.join(root, 'main-v2/index.html'), 'utf8');
   assert.match(search, /data\.json\?v=20261004-2/);
-  assert.match(search, /directory-search-extra\.json\?v=20261004-1/);
+  assert.match(search, /directory-search-extra\.json\?v=20261005-1/);
   assert.match(healthApp, /data\.json\?v=20261004-2/);
-  assert.match(healthPage, /app\.js\?v=20261004-2/);
-  assert.match(home, /directory-search\.js\?v=21/);
+  assert.match(healthPage, /app\.js\?v=20261005-1/);
+  assert.match(home, /directory-search\.js\?v=22/);
 });
 
 test('clean doctor draft is merged by identity and grouped by city without duplicate cards', () => {

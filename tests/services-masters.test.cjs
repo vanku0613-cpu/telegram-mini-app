@@ -94,6 +94,11 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.equal(await page.locator('.category').count(), 9);
     assert.ok(await page.locator('.category').evaluateAll(items=>items.every(item=>item.classList.contains('direct-entry'))),'service buttons that open contacts use the direct-entry color');
     assert.equal(await page.locator('.category img').count(), 0, 'service buttons have no photos');
+    for (const categoryName of ['Стройматериалы','Сыпучие материалы','Пиломатериалы','Дрова, уголь, брикеты']) {
+      await page.getByRole('button', { name: new RegExp(categoryName) }).click();
+      assert.equal(await page.locator('a.phone[href="tel:+380988959769"]').count(),1,`${categoryName} contains the requested phone once`);
+      await page.locator('[data-back]').first().click();
+    }
     await page.getByRole('button', { name: /Ассенизатор/ }).click();
     assert.equal(await page.locator('[data-back]').first().textContent(), '← Вернуться в раздел');
     assert.deepEqual(await page.locator('a.phone[href^="tel:"]').evaluateAll(items => items.map(a => a.getAttribute('href'))), ['tel:+380972212131']);
@@ -102,8 +107,10 @@ test('services and masters follow the source category hierarchy and keep contact
       await page.setViewportSize({ width, height: 800 });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `no horizontal overflow at ${width}px`);
     }
-    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=contextual-covers-2"/);
-    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=contextual-covers-2"/);
+    assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=materials-contact-1"/);
+    assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=materials-contact-1"/);
+    const indexed=JSON.parse(fs.readFileSync(path.join(root,'directory-search-extra.json'),'utf8')).records.find(record=>record.id==='global-0988959769');
+    for(const categoryName of ['Стройматериалы','Сыпучие материалы','Пиломатериалы','Дрова, уголь, брикеты'])assert.match(indexed.category,new RegExp(categoryName));
     assert.equal(fs.existsSync(path.join(root,'services-masters','photos')),false,'downloaded category photos were removed');
     assert.equal(fs.existsSync(path.join(root,'services-masters','repair-underway.jpg')),false,'the remaining category photo was removed too');
   } finally {
