@@ -40,8 +40,8 @@ test('global search combines contacts and the complete transport schedule index'
   const extra=require('../directory-search-extra.json');
   const schedule=require('../transport/schedule-search.json');
   const search=fs.readFileSync(path.join(root,'directory-search.js'),'utf8');
-  assert.ok(healthcare.records.length+extra.records.length+schedule.records.length>=780,'combined search database size');
-  assert.ok(schedule.records.length>=280,'all generated route suggestions remain available');
+  assert.ok(healthcare.records.length+extra.records.length+schedule.records.length>=600,'combined search database size');
+  assert.ok(schedule.records.length>=110,'deduplicated route suggestions remain available');
   assert.match(search,/schedule-search\.json/);
   assert.match(search,/\.\.\.schedule\.records/);
   assert.match(search,/Открыть расписание/);
@@ -84,7 +84,7 @@ test('individual trips contains only the discussed trip contacts',()=>{
   assert.doesNotMatch(panel,/data-trip-detail="family-move"/);
   assert.match(panel,/Трансфер по Измаилу · Александр/);
   assert.match(transport,/id="groupTabs"[^>]*>[\s\S]*data-group="taxi"[\s\S]*data-content="stations"[\s\S]*data-group="schedule"/);
-  assert.match(transport,/data-submenu="schedule"[\s\S]*href="\.\/bus-schedule\/"[\s\S]*<strong>Измаил<\/strong>/);
+  assert.match(transport,/data-submenu="schedule"[\s\S]*href="\.\/city-schedule\/\?city=izmail"[\s\S]*<strong>Измаил<\/strong>/);
   assert.match(transport,/Единая база расписаний Бессарабии/);
   assert.match(transport,/id="scheduleSearch"/);
   assert.match(transport,/schedule-search\.json/);

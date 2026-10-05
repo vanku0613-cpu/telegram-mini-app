@@ -251,7 +251,7 @@ window.IZMAIL_SETTINGS = {
       "../health-care/?v=contextual-covers-1",
 
     "Транспорт / Такси":
-      "../transport/?v=contextual-covers-1",
+      "../transport/?v=regional-crosslinks-1",
 
     "Услуги и мастера":
       "../services-masters/?v=materials-contact-1",

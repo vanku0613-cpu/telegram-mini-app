@@ -52,7 +52,8 @@ test('every interior main-menu return uses the services directory dimensions',as
     assert.ok(Math.abs(reference.lineHeight-reference.fontSize*1.1)<.02,'return text keeps the shared compact line height');
 
     await page.goto(origin+'/transport/bus-schedule/',{waitUntil:'domcontentloaded'});
-    const schedule=await page.locator('[data-main-back]').first().evaluate(item=>{const style=getComputedStyle(item),rect=item.getBoundingClientRect();return{height:Math.round(rect.height),padding:style.padding,borderRadius:style.borderRadius,fontSize:parseFloat(style.fontSize),lineHeight:parseFloat(style.lineHeight)};});
+    await page.locator('[data-main-back]:visible').first().waitFor();
+    const schedule=await page.locator('[data-main-back]:visible').first().evaluate(item=>{const style=getComputedStyle(item),rect=item.getBoundingClientRect();return{height:Math.round(rect.height),padding:style.padding,borderRadius:style.borderRadius,fontSize:parseFloat(style.fontSize),lineHeight:parseFloat(style.lineHeight)};});
     assert.deepEqual(schedule,{height:reference.height,padding:reference.padding,borderRadius:reference.borderRadius,fontSize:reference.fontSize,lineHeight:reference.lineHeight},'the paired bus-schedule return keeps the same height and typography');
   }finally{
     await browser.close();

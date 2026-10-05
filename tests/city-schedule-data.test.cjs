@@ -6,7 +6,7 @@ const test = require('node:test');
 const root = path.resolve(__dirname, '..');
 const dataDir = path.join(root, 'transport', 'city-schedule', 'data');
 const readCity = id => JSON.parse(fs.readFileSync(path.join(dataDir, `${id}.json`), 'utf8'));
-const cityIds = fs.readdirSync(dataDir).filter(file => file.endsWith('.json')).map(file => path.basename(file, '.json'));
+const cityIds = fs.readdirSync(dataDir).filter(file => file.endsWith('.json') && file !== 'regional-routes.json').map(file => path.basename(file, '.json'));
 
 test('schedule directory contains every requested confirmed city and Izmail district villages', () => {
   assert.deepEqual(cityIds.sort(), [
@@ -56,22 +56,37 @@ test('Vylkove schedule exposes the verified Bessarabia directions', () => {
 
 test('city schedule opens details as a separate view and returns to the schedule folder', () => {
   const html = fs.readFileSync(path.join(root, 'transport', 'city-schedule', 'index.html'), 'utf8');
-  assert.match(html, /\.\.\/#schedule/);
-  assert.match(html, /safeCityKey==='villages'/);
-  assert.match(html, /\.\/data\/\$\{safeCityKey\}\.json/);
-  assert.match(html, /routeMenu\.hidden=true;routeDetail\.hidden=false/);
+  const app = fs.readFileSync(path.join(root, 'transport', 'city-schedule', 'app.js'), 'utf8');
+  assert.match(app, /\.\.\/#schedule/);
+  assert.match(app, /safeCityKey==='villages'/);
+  assert.match(app, /\.\/data\/\$\{safeCityKey\}\.json/);
+  assert.match(app, /routeMenu\.hidden=true;routeDetail\.hidden=false/);
   assert.match(html, /data-view="schedule"/);
   assert.match(html, /data-view="map"/);
   assert.match(html, /data-view="stops"/);
-  assert.match(html, /safeCityKey==='villages'\?`\$\{safeCityKey\}\.jpg\?v=1`:`\$\{safeCityKey\}-v2\.webp\?v=2`/);
-  assert.match(html, /usesTransportTypes=safeCityKey==='kyiv'/);
-  assert.match(html, /usesTransportTypes\?'Виды транспорта':'Вернуться в раздел'/);
+  assert.match(app, /regional-routes\.json\?v=20261005-1/);
+  assert.match(app, /usesTransportTypes=safeCityKey==='kyiv'/);
+  assert.match(app, /usesTransportTypes\?'Виды транспорта':'Вернуться в раздел'/);
   assert.match(html, /<button class="route-return"[^>]*id="backToRoutes"[^>]*>[\s\S]*?К расписанию<\/button>/);
+});
+
+test('regional routes are unique and visible from every matching city or village', () => {
+  const regional = readCity('regional-routes').routes;
+  assert.equal(regional.length, 61);
+  assert.equal(new Set(regional.map(route => route.id)).size, regional.length, 'regional route pairs must not repeat');
+  const izmailUtkonosivka = regional.filter(route => route.places.includes('Измаил') && route.places.includes('Утконосовка'));
+  assert.equal(izmailUtkonosivka.length, 1, 'Izmail and Utkonosivka share one route record');
+  const novoselivka = regional.filter(route => route.places.includes('Новосёловка'));
+  assert.deepEqual(novoselivka.map(route => route.places.slice().sort()).sort(), [
+    ['Измаил', 'Новосёловка'].sort(),
+    ['Килия', 'Новосёловка'].sort()
+  ].sort());
 });
 
 test('schedule cards use the refreshed city and village artwork', () => {
   const directory = fs.readFileSync(path.join(root, 'transport', 'index.html'), 'utf8');
   const cityPage = fs.readFileSync(path.join(root, 'transport', 'city-schedule', 'index.html'), 'utf8');
+  const cityApp = fs.readFileSync(path.join(root, 'transport', 'city-schedule', 'app.js'), 'utf8');
   const cityAssets = ['izmail', 'odesa', 'kiliya', 'vilkove', 'reni', 'bolgrad', 'artsyz', 'tatarbunary', 'bilhorod', 'kyiv'];
   for (const city of cityAssets) {
     assert.ok(fs.existsSync(path.join(root, 'assets', 'schedule-cities', `${city}-v2.webp`)), `${city} cover is missing`);
@@ -79,7 +94,7 @@ test('schedule cards use the refreshed city and village artwork', () => {
   }
 
   const villages = readCity('villages').groups.flatMap(group => group.routes).map(route => route.id);
-  const mappingSource = cityPage.match(/const villagePhotos=(\{[^;]+\});/)?.[1];
+  const mappingSource = cityApp.match(/const villagePhotos=(\{[^;]+\});/)?.[1];
   assert.ok(mappingSource, 'village photo mapping is missing');
   const mapping = Function(`return ${mappingSource}`)();
   assert.deepEqual(Object.keys(mapping).sort(), villages.sort());
@@ -87,8 +102,8 @@ test('schedule cards use the refreshed city and village artwork', () => {
   for (const slug of Object.values(mapping)) {
     assert.ok(fs.existsSync(path.join(root, 'assets', 'schedule-villages', `${slug}.webp`)), `${slug} artwork is missing`);
   }
-  assert.match(cityPage, /class="village-route-photo"/);
-  assert.match(cityPage, /class="village-route-icon"/);
+  assert.match(cityApp, /class=\"village-route-photo\"/);
+  assert.match(cityApp, /class=\"village-route-icon\"/);
   assert.match(cityPage, /\.village-route-name\{[^}]*top:50%[^}]*text-align:center/);
   assert.match(directory, /\.schedule-city-photo\{[^}]*brightness\(\.96\)/, 'city photos should stay clearly visible');
   assert.match(directory, /\.schedule-city-card:after\{[^}]*rgba\(2,15,31,\.48\)/, 'text overlay must not black out the city');

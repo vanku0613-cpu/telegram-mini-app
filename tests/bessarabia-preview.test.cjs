@@ -54,10 +54,12 @@ test('ferry section does not render a queue or map',()=>{
 
 test('shared city route map uses lightweight embedded tiles and route controls',()=>{
   const routeMap=read('transport/route-map.js');
-  for(const file of ['transport/odessa-schedule/index.html','transport/city-schedule/index.html']){
-    assert.match(read(file),/\.\.\/route-map\.js\?v=2/);
-    assert.match(read(file),/IzmailRouteMap\.mount/);
-  }
+  const odessa=read('transport/odessa-schedule/index.html');
+  const city=read('transport/city-schedule/index.html');
+  const cityApp=read('transport/city-schedule/app.js');
+  for(const html of [odessa,city])assert.match(html,/\.\.\/route-map\.js\?v=2/);
+  assert.match(odessa,/IzmailRouteMap\.mount/);
+  assert.match(cityApp,/IzmailRouteMap\.mount/);
   assert.match(routeMap,/basemaps\.cartocdn\.com\/light_all/);
   assert.match(routeMap,/Приблизить карту/);
   assert.match(routeMap,/Отдалить карту/);

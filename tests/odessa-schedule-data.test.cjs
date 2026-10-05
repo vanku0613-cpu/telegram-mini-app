@@ -36,8 +36,8 @@ test('transport menu groups Izmail and Odessa inside the schedule folder', () =>
   assert.match(transport, /class="menu-card-icon"/);
   assert.match(transport, /<strong>Расписание<\/strong><span>Единая база расписаний Бессарабии<\/span>/);
   assert.match(transport, /data-submenu="schedule"/);
-  assert.match(transport, /href="\.\/bus-schedule\/"/);
-  assert.match(transport, /href="\.\/odessa-schedule\/"/);
+  assert.match(transport, /href="\.\/city-schedule\/\?city=izmail"/);
+  assert.match(transport, /href="\.\/city-schedule\/\?city=odesa"/);
   assert.match(transport, /city=villages/);
   assert.match(transport, /Сёла Измаильского района/);
   assert.match(schedule, /Автобусы · троллейбусы · трамваи/);
