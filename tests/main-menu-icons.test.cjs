@@ -90,8 +90,8 @@ test('long main-card titles keep natural letter proportions', () => {
   assert.match(js, /querySelectorAll\("\.card-copy strong,\.groups-title"\)/);
   assert.match(js, /var compression=title\.closest\("\.expanded-label"\) \? \.86 : 1/);
   assert.match(css, /#app \.cards \.card\.compact\.expanded-label \.card-copy strong>span\{[\s\S]*?transform:scaleX\(\.86\)!important/);
-  assert.match(html, /main\.css\?v=36/);
-  assert.match(html, /main\.js\?v=13/);
+  assert.match(html, /main\.css\?v=39/);
+  assert.match(html, /main\.js\?v=14/);
 });
 
 test('all category arrows share one visible position', () => {
@@ -122,5 +122,5 @@ test('main destinations are present before scripts and have a navigation fallbac
   assert.match(html, /id="zagsBtn" data-nav="\.\.\/zags\/"/);
   assert.match(html, /id="groupsBtn" data-nav="\.\.\/our-groups-menu\/"/);
   assert.match(js, /function guaranteeButtonNavigation/);
-  assert.match(js, /window\.setTimeout\(function\(\)\{/);
+  assert.match(js, /control\.setAttribute\("data-nav",target\)/);
 });

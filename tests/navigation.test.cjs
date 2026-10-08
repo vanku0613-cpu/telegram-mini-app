@@ -55,9 +55,12 @@ test('home, current buttons, nested returns and future delegated buttons', async
       for (const selector of ['#weatherPanel', '#currencyPanel', '#homeBtn', '#adsBtn', '#favBtn', '.search-wrap', '.card']) {
         const control = page.locator(selector).first();
         const before = await control.boundingBox();
-        await control.dispatchEvent('pointerdown', { button: 0 });
-        assert.equal(await control.evaluate(el => el.classList.contains('tap-lit')), true);
-        assert.notEqual(await control.evaluate(el => getComputedStyle(el).boxShadow), 'none', `${selector} keeps its press glow`);
+        const pressed = await control.evaluate(el => {
+          el.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, button: 0 }));
+          return { lit: el.classList.contains('tap-lit'), shadow: getComputedStyle(el).boxShadow };
+        });
+        assert.equal(pressed.lit, true);
+        assert.notEqual(pressed.shadow, 'none', `${selector} keeps its press glow`);
         assert.deepEqual(await control.boundingBox(), before, 'glowing borders do not move controls');
       }
       assert.match(await page.locator('#weatherPanel').getAttribute('href'), /yr\.no.*Izmayil$/);
@@ -157,8 +160,8 @@ test('home, current buttons, nested returns and future delegated buttons', async
           const external = externalOrigin + '/external-destination';
           await page.locator(selector).evaluate((el, url) => { el.dataset.nav = url; }, external);
           await page.locator(selector).click();
-          await page.waitForURL(external, { waitUntil: 'commit' });
-          await page.goBack({ waitUntil: 'commit' });
+          await page.waitForURL(external, { waitUntil: 'load' });
+          await page.evaluate(() => history.back());
           await page.waitForURL(origin + (home === '/' ? '/main-v2/' : home), { waitUntil: 'commit' });
         }
       }

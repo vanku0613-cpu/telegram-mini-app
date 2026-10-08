@@ -1373,3 +1373,65 @@ a.nav{ text-decoration:none; }
   #app .bottom .nav{font-size:clamp(13px,1.05vw,15px)}
 }
 
+/* Professional wide-screen workspace. The established touch layout is kept
+   intact; a mouse-driven monitor gets a real two-column dashboard instead of
+   a stretched phone canvas. */
+@media (min-width:1000px) and (hover:hover) and (pointer:fine){
+  html body #app{overflow:hidden!important}
+  #app::after{
+    content:"";position:absolute;z-index:3;right:1.5%;top:2%;width:61.5%;height:96%;
+    border:1px solid rgba(93,174,216,.34);border-radius:22px;
+    background:linear-gradient(155deg,rgba(4,30,56,.91),rgba(2,18,37,.96));
+    box-shadow:inset 0 1px rgba(232,249,255,.055),0 18px 48px rgba(0,0,0,.28);
+    pointer-events:none
+  }
+  #app .bg-main{
+    left:2cqw;top:2%;width:auto;height:96%;max-height:none;
+    object-fit:contain;object-position:center top;transform:none;scale:1!important;
+    border-radius:22px;filter:brightness(.88) saturate(.94) contrast(1.04);
+    box-shadow:0 18px 52px rgba(0,0,0,.38),0 0 0 1px rgba(99,178,220,.28)
+  }
+  #app .bg-blur{filter:blur(18px) brightness(.28) saturate(.74);opacity:.74}
+  #app .fade{
+    left:2cqw;right:auto;top:2%;bottom:2%;width:min(36%,calc((var(--stable-viewport-height,100svh) - 16px)*.54));border-radius:22px;
+    background:linear-gradient(180deg,transparent 0 58%,rgba(2,16,34,.12) 72%,rgba(2,16,34,.58) 100%)
+  }
+  #app .scene-layer{
+    left:2cqw!important;top:2%!important;width:min(36%,calc((var(--stable-viewport-height,100svh) - 16px)*.54))!important;height:47%!important;
+    border-radius:22px 22px 14px 14px!important;scale:1!important
+  }
+  #app #mainLogoHotspot{left:calc(2cqw + 5cqh);top:8.4cqh;width:15.5cqh}
+  #app .top-row,
+  #app .search-wrap,
+  #app .cards,
+  #app .groups-row,
+  #app .bottom{
+    left:38%!important;width:60%!important;translate:none!important
+  }
+  #app .viewer{top:3.4%!important;max-width:58%;padding:5px 10px;font-size:11px}
+  #app .viewer{left:38%!important}
+  #app .top-row{top:12.5%!important;height:min(12%,90px)!important}
+  #app .search-wrap{top:23%!important;height:min(7%,52px)!important}
+  #app .cards{
+    top:32%!important;height:43%!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:repeat(4,minmax(0,1fr))!important;
+    gap:10px 12px!important
+  }
+  #app .cards .card{
+    border-radius:14px;background-color:#062846;
+    box-shadow:inset 0 1px rgba(232,249,255,.08),0 7px 17px rgba(0,0,0,.24),0 0 8px rgba(39,133,185,.12)
+  }
+  #app .cards .card:hover{
+    transform:translateY(-2px);border-color:rgba(117,205,242,.82);
+    box-shadow:inset 0 1px rgba(242,252,255,.12),0 10px 22px rgba(0,0,0,.30),0 0 12px rgba(55,168,218,.22)
+  }
+  #app .cards .card-copy strong,
+  #app .cards .card.compact .card-copy strong,
+  #app .cards .card.compact.expanded-label .card-copy strong{font-size:clamp(16px,1.25vw,20px)}
+  #app .cards .card-copy small{font-size:clamp(11px,.82vw,13px)}
+  #app .groups-row{top:77%!important;height:min(8%,58px)!important;gap:12px!important}
+  #app .bottom{top:86.5%!important;height:min(7%,52px)!important;gap:12px!important}
+  #app .agreement{left:47%!important;right:10%!important;top:94.1%!important;height:2.5%!important}
+}
+
