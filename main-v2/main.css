@@ -1346,7 +1346,7 @@ a.nav{ text-decoration:none; }
   }
   #app .groups-row{top:82.5%!important;height:min(7%,56px)!important;gap:12px!important}
   #app .bottom{top:90.5%!important;width:min(1000px,92%)!important;height:min(6%,50px)!important;gap:12px!important}
-  #app .agreement{top:95.4%!important;height:2%!important}
+  #app .agreement{top:97.3%!important;height:2%!important}
 }
 
 @media (min-width:700px) and (max-width:899px) and (hover:hover) and (pointer:fine){
@@ -1354,5 +1354,22 @@ a.nav{ text-decoration:none; }
   #app .cards .card.compact .card-copy strong,
   #app .cards .card.compact.expanded-label .card-copy strong{font-size:12px}
   #app .cards .card-copy small{font-size:8.5px}
+}
+
+/* Computer presentation: use the extra card area for readable type. This is
+   deliberately mouse-only so the established phone layout is untouched. */
+@media (min-width:700px) and (hover:hover) and (pointer:fine){
+  #app .cards .card-copy strong,
+  #app .cards .card.compact .card-copy strong,
+  #app .cards .card.compact.expanded-label .card-copy strong{
+    font-size:clamp(16px,1.42vw,20px);
+    line-height:1.08;
+  }
+  #app .cards .card-copy small{
+    font-size:clamp(12px,.95vw,14px);
+    line-height:1.08;
+  }
+  #app .groups-row .groups-title{font-size:clamp(16px,1.28vw,18px)}
+  #app .bottom .nav{font-size:clamp(13px,1.05vw,15px)}
 }
 

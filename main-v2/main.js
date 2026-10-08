@@ -562,11 +562,25 @@
     });
   }
 
+  function guaranteeButtonNavigation(control,target){
+    if(!control || !target) return;
+    control.setAttribute("data-nav",target);
+    control.addEventListener("click",function(event){
+      if(event.button && event.button!==0) return;
+      var pageBefore=window.location.href;
+      window.setTimeout(function(){
+        if(window.location.href===pageBefore && document.visibilityState!=="hidden"){
+          window.location.href=target;
+        }
+      },450);
+    });
+  }
+
   var groups=document.getElementById("groupsBtn");
-  if(groups) groups.setAttribute("data-nav",((CFG.links && CFG.links.groups) || "./our-groups-menu/"));
+  guaranteeButtonNavigation(groups,((CFG.links && CFG.links.groups) || "../our-groups-menu/"));
 
   var zags=document.getElementById("zagsBtn");
-  if(zags) zags.setAttribute("data-nav",((CFG.links && CFG.links.zags) || "../zags/"));
+  guaranteeButtonNavigation(zags,((CFG.links && CFG.links.zags) || "../zags/"));
 
   var home=document.getElementById("homeBtn");
   if(home) home.addEventListener("click",function(){
@@ -583,7 +597,7 @@
     var title=card.getAttribute("data-title")||"";
     var target=(CFG.categoryLinks || {})[title] || "";
     if(!target && title==="Работа / Вакансии") target="https://t.me/rabota_v_izmaile";
-    if(target) card.setAttribute("data-nav",target);
+    guaranteeButtonNavigation(card,target);
   }
 
 })();
@@ -606,6 +620,10 @@
     titles.forEach(function(title){title.style.fontSize="";});
     subtitles.forEach(function(subtitle){subtitle.style.fontSize="";});
     navLabels.forEach(function(label){label.style.fontSize="";});
+    var desktop=window.matchMedia("(min-width:700px) and (hover:hover) and (pointer:fine)").matches;
+    var titleFloor=desktop ? 14 : 7.4;
+    var subtitleFloor=desktop ? 11 : 7.2;
+
     titles.forEach(function(title){
       var span=title.querySelector("span");
       if(span) span.style.transform="none";
@@ -622,7 +640,7 @@
 
       var current=parseFloat(getComputedStyle(title).fontSize);
       if(!isFinite(current) || current<=0) return;
-      title.style.fontSize=Math.max(7.4,current*(available/required)*.985).toFixed(2)+"px";
+      title.style.fontSize=Math.max(titleFloor,current*(available/required)*.985).toFixed(2)+"px";
     });
 
     subtitles.forEach(function(subtitle){
@@ -631,7 +649,7 @@
       if(!available || required<=available) return;
       var current=parseFloat(getComputedStyle(subtitle).fontSize);
       if(!isFinite(current) || current<=0) return;
-      subtitle.style.fontSize=Math.max(7.2,current*(available/required)*.985).toFixed(2)+"px";
+      subtitle.style.fontSize=Math.max(subtitleFloor,current*(available/required)*.985).toFixed(2)+"px";
     });
 
     navLabels.forEach(function(label){

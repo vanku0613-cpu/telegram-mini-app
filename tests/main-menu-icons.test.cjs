@@ -65,22 +65,22 @@ test('group shortcuts and information panels share restrained professional surfa
   assert.match(infoCss, /#app \.search-real::placeholder\{[\s\S]*?rgba\(232,236,239,\.76\)/);
 });
 
-test('desktop typography is capped without changing phone rules', () => {
+test('desktop typography is readable without changing phone rules', () => {
   const infoCss = fs.readFileSync(path.join(root, 'home-info.css'), 'utf8');
-  assert.match(css, /Desktop typography is intentionally capped/);
-  assert.match(css, /#app \.cards \.card-copy strong\{font-size:clamp\(13px,3cqw,16px\)/);
-  assert.match(css, /#app \.groups-row \.groups-title\{font-size:clamp\(12px,2\.75cqw,15px\)/);
-  assert.match(infoCss, /Desktop-only fit/);
-  assert.match(infoCss, /#app\{--info-growth:24px\}/);
-  assert.match(infoCss, /#app \.weather-panel \.info-title\{height:auto;min-height:0;font-size:8\.7px!important/);
-  assert.match(infoCss, /#app \.currency-panel \.info-title\{font-size:8\.6px!important/);
+  assert.match(css, /Computer presentation: use the extra card area for readable type/);
+  assert.match(css, /font-size:clamp\(16px,1\.42vw,20px\)/);
+  assert.match(css, /#app \.groups-row \.groups-title\{font-size:clamp\(16px,1\.28vw,18px\)/);
+  assert.match(infoCss, /Readable computer information row/);
+  assert.match(infoCss, /font-size:clamp\(12px,\.95vw,14px\)!important/);
+  assert.match(infoCss, /font-size:clamp\(13px,1\.02vw,15px\)!important/);
 });
 
 test('every main card description remains fully visible', () => {
   const js = fs.readFileSync(path.join(root, 'main-v2', 'main.js'), 'utf8');
   assert.match(css, /#app \.cards \.card-copy small\{[\s\S]*?width:118%;[\s\S]*?font-size:clamp\(9px,2\.2cqw,11px\);[\s\S]*?font-weight:900/);
   assert.match(js, /var subtitles=/);
-  assert.match(js, /subtitle\.style\.fontSize=Math\.max\(7\.2,/);
+  assert.match(js, /var subtitleFloor=desktop \? 11 : 7\.2/);
+  assert.match(js, /subtitle\.style\.fontSize=Math\.max\(subtitleFloor,/);
   assert.match(html, /Свет • Вода • Газ • Интернет/);
   assert.doesNotMatch(html, /Найти работу • Разместить вакансию/);
 });
@@ -90,8 +90,8 @@ test('long main-card titles keep natural letter proportions', () => {
   assert.match(js, /querySelectorAll\("\.card-copy strong,\.groups-title"\)/);
   assert.match(js, /var compression=title\.closest\("\.expanded-label"\) \? \.86 : 1/);
   assert.match(css, /#app \.cards \.card\.compact\.expanded-label \.card-copy strong>span\{[\s\S]*?transform:scaleX\(\.86\)!important/);
-  assert.match(html, /main\.css\?v=32/);
-  assert.match(html, /main\.js\?v=12/);
+  assert.match(html, /main\.css\?v=36/);
+  assert.match(html, /main\.js\?v=13/);
 });
 
 test('all category arrows share one visible position', () => {
@@ -113,5 +113,14 @@ test('search and main card grid use compact professional vertical spacing', () =
 test('weather and currency use the main-card gap without moving shelter', () => {
   const infoCss = fs.readFileSync(path.join(root, 'home-info.css'), 'utf8');
   assert.match(infoCss, /#app \.top-row\{[\s\S]*?grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\) calc\(\(100% - 2\.3%\) \/ 3\);[\s\S]*?column-gap:\.75vw/);
-  assert.match(html, /home-info\.css\?v=21/);
+  assert.match(html, /home-info\.css\?v=22/);
+});
+
+test('main destinations are present before scripts and have a navigation fallback', () => {
+  const js = fs.readFileSync(path.join(root, 'main-v2', 'main.js'), 'utf8');
+  assert.equal((html.match(/class="card pressable[^\"]*"[^>]*data-nav=/g) || []).length, 8);
+  assert.match(html, /id="zagsBtn" data-nav="\.\.\/zags\/"/);
+  assert.match(html, /id="groupsBtn" data-nav="\.\.\/our-groups-menu\/"/);
+  assert.match(js, /function guaranteeButtonNavigation/);
+  assert.match(js, /window\.setTimeout\(function\(\)\{/);
 });

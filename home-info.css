@@ -174,3 +174,36 @@
   #app .currency-panel .rate .currency-code{justify-content:center;font-size:7px;line-height:1}
   #app .currency-panel .rate span:last-child{text-align:center}
 }
+
+/* Readable computer information row. Earlier compact rules were tuned for a
+   phone-sized stage and made Frank Exchange 7–9px on a monitor. */
+@media (min-width:700px) and (hover:hover) and (pointer:fine) and (min-height:551px){
+  #app .weather-panel{padding:7px 12px!important;row-gap:2px}
+  #app .weather-panel .info-title{
+    height:auto;min-height:0;font-size:clamp(12px,.95vw,14px)!important;
+    line-height:1.05!important;letter-spacing:-.01em
+  }
+  #app .weather-panel .temp{
+    height:auto;min-height:0;font-size:clamp(20px,1.75vw,25px)!important;
+    line-height:1!important
+  }
+  #app .weather-mini{width:23px!important;height:23px!important;flex-basis:23px;font-size:15px!important}
+  #app .weather-panel .condition{
+    height:auto;min-height:0;font-size:clamp(10px,.82vw,12px)!important;
+    line-height:1.05!important
+  }
+  #app .currency-panel{padding:7px 14px!important;justify-content:center!important}
+  #app .currency-panel .info-title{
+    font-size:clamp(12px,.95vw,14px)!important;line-height:1.05!important;
+    letter-spacing:.01em;overflow:hidden;text-overflow:ellipsis
+  }
+  #app .currency-panel .rate{
+    grid-template-columns:minmax(44px,auto) minmax(0,1fr);
+    column-gap:9px!important;margin-top:4px!important;
+    font-size:clamp(13px,1.02vw,15px)!important;line-height:1.05!important;
+    transform:none
+  }
+  #app .currency-panel .rate + .rate{margin-top:4px!important}
+  #app .currency-panel .currency-symbol{display:grid!important;width:15px;height:15px;flex-basis:15px;font-size:10px}
+  #app .currency-panel .rates-updated{margin-top:4px;font-size:clamp(9px,.72vw,11px)!important;line-height:1!important}
+}
