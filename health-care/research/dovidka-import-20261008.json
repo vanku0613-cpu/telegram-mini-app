@@ -1,0 +1,413 @@
+{
+  "date": "2026-10-08",
+  "source": "https://dovidka.in.ua",
+  "added": [
+    {
+      "id": "dovidka-20261008-korenchuk-dina-oleksandrivna-uz-diahnostyka",
+      "name": "Коренчук Діна Олександрівна",
+      "category": "96246",
+      "phones": [
+        "0637468376",
+        "0967145622"
+      ],
+      "url": "https://dovidka.in.ua/korenchuk-dina-oleksandrivna-uz-diahnostyka",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r169",
+      "additionalSources": [
+        "lileya"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-likar-nevroloh-suprunets-dmytro-viktorovych",
+      "name": "Супрунець Дмитро Вікторович",
+      "category": "96275",
+      "phones": [
+        "0675581452",
+        "0968823554"
+      ],
+      "url": "https://dovidka.in.ua/likar-nevroloh-suprunets-dmytro-viktorovych",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "berehynya",
+      "additionalSources": [
+        "directory-berehynya"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-batkilin-serhiy-lvovych",
+      "name": "Баткілін Сергій Львович",
+      "category": "96282",
+      "phones": [
+        "0965892698"
+      ],
+      "url": "https://dovidka.in.ua/batkilin-serhiy-lvovych",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r151",
+      "additionalSources": [
+        "hospital"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-konovalova-larysa-dmytrivna",
+      "name": "Коновалова Лариса Дмитрівна",
+      "category": "xray",
+      "phones": [
+        "0989434806"
+      ],
+      "url": "https://dovidka.in.ua/konovalova-larysa-dmytrivna",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r152",
+      "additionalSources": [
+        "hospital"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-kurtyeva-tetyana-vasylivna",
+      "name": "Куртєва Тетяна Василівна",
+      "category": "xray",
+      "phones": [
+        "0965892698"
+      ],
+      "url": "https://dovidka.in.ua/kurtyeva-tetyana-vasylivna",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r151",
+      "additionalSources": [
+        "hospital"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-zhalkovska-mariya-hennadiyivna",
+      "name": "Жалковська Марія Геннадіївна",
+      "category": "96229",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "url": "https://dovidka.in.ua/zhalkovska-mariya-hennadiyivna",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r162",
+      "additionalSources": [
+        "primary"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-ion-vira-oleksandrivna",
+      "name": "Іон Віра Олександрівна",
+      "category": "96229",
+      "phones": [
+        "0682744885"
+      ],
+      "url": "https://dovidka.in.ua/ion-vira-oleksandrivna",
+      "contactType": "published-appointment-contact",
+      "contactSourceRecord": null,
+      "additionalSources": []
+    },
+    {
+      "id": "dovidka-20261008-kalcheva-viktoriya-dmytrivna",
+      "name": "Кальчева Вікторія Дмитрівна",
+      "category": "96229",
+      "phones": [
+        "0672984060"
+      ],
+      "url": "https://dovidka.in.ua/kalcheva-viktoriya-dmytrivna",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r163",
+      "additionalSources": [
+        "primary"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-kinyeva-natalya-vasylivna-2",
+      "name": "Кінєва Наталя Василівна",
+      "category": "96229",
+      "phones": [
+        "0672984060"
+      ],
+      "url": "https://dovidka.in.ua/kinyeva-natalya-vasylivna-2",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r163",
+      "additionalSources": [
+        "primary"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-kravchenko-yuliya-oleksandrivna",
+      "name": "Кравченко Юлія Олександрівна",
+      "category": "96229",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "url": "https://dovidka.in.ua/kravchenko-yuliya-oleksandrivna",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r162",
+      "additionalSources": [
+        "primary"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-tahayeva-nadiya-porfyrivna-3",
+      "name": "Тагаєва Надія Порфирівна",
+      "category": "96229",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "url": "https://dovidka.in.ua/tahayeva-nadiya-porfyrivna-3",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r162",
+      "additionalSources": [
+        "primary"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-talovskyy-denys-dmytrovych",
+      "name": "Таловський Денис Дмитрович",
+      "category": "96259",
+      "phones": [
+        "0965892698"
+      ],
+      "url": "https://dovidka.in.ua/talovskyy-denys-dmytrovych",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r151",
+      "additionalSources": [
+        "hospital"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-mykhaylov-oleksandr-dmytrovych-likar-stomatoloh",
+      "name": "Михайлов Олександр Дмитрович",
+      "category": "96231",
+      "phones": [
+        "0677630927",
+        "0689138447"
+      ],
+      "url": "https://dovidka.in.ua/mykhaylov-oleksandr-dmytrovych-likar-stomatoloh",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "dovidka-dental",
+      "additionalSources": [
+        "directory-dental"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-maksymenkova-viola-leonidivna",
+      "name": "Максименкова Віола Леонідівна",
+      "category": "96231",
+      "phones": [
+        "0635359009"
+      ],
+      "url": "https://dovidka.in.ua/maksymenkova-viola-leonidivna",
+      "contactType": "published-appointment-contact",
+      "contactSourceRecord": null,
+      "additionalSources": []
+    },
+    {
+      "id": "dovidka-20261008-popov-valeriy-volodymyrovych-2",
+      "name": "Попов Валерій Володимирович",
+      "category": "96231",
+      "phones": [
+        "0679119756",
+        "0930205505"
+      ],
+      "url": "https://dovidka.in.ua/popov-valeriy-volodymyrovych-2",
+      "contactType": "published-appointment-contact",
+      "contactSourceRecord": null,
+      "additionalSources": []
+    },
+    {
+      "id": "dovidka-20261008-stomatolohiya-drsamokish",
+      "name": "Самокиш Володимир Васильович",
+      "category": "96231",
+      "phones": [
+        "0967267015",
+        "0949565418"
+      ],
+      "url": "https://dovidka.in.ua/stomatolohiya-drsamokish",
+      "contactType": "published-appointment-contact",
+      "contactSourceRecord": null,
+      "additionalSources": []
+    },
+    {
+      "id": "dovidka-20261008-tymchuk-nataliya-mykhaylivna",
+      "name": "Тимчук Наталія Михайлівна",
+      "category": "96275",
+      "phones": [
+        "0965892698"
+      ],
+      "url": "https://dovidka.in.ua/tymchuk-nataliya-mykhaylivna",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r151",
+      "additionalSources": [
+        "hospital"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-hladkova-liliya-yuriyivna",
+      "name": "Гладкова Лілія Юріївна",
+      "category": "96282",
+      "phones": [
+        "0965892698"
+      ],
+      "url": "https://dovidka.in.ua/hladkova-liliya-yuriyivna",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r151",
+      "additionalSources": [
+        "hospital"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-boyko-konstyantyn-vyacheslavovych",
+      "name": "Бойко Констянтин В'ячеславович",
+      "category": "96230",
+      "phones": [
+        "0672984060"
+      ],
+      "url": "https://dovidka.in.ua/boyko-konstyantyn-vyacheslavovych",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r163",
+      "additionalSources": [
+        "primary"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-likar-pediatr-moldovan-lyubov-yevhenivna",
+      "name": "Молдован Любов Євгенівна",
+      "category": "96230",
+      "phones": [
+        "0637468376",
+        "0967145622"
+      ],
+      "url": "https://dovidka.in.ua/likar-pediatr-moldovan-lyubov-yevhenivna",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r169",
+      "additionalSources": [
+        "lileya"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-likar-akusher-hinekoloh-berezina-svitlana-andriyivna",
+      "name": "Березіна Світлана Андріївна",
+      "category": "96292",
+      "phones": [
+        "0637468376",
+        "0967145622"
+      ],
+      "url": "https://dovidka.in.ua/likar-akusher-hinekoloh-berezina-svitlana-andriyivna",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r169",
+      "additionalSources": [
+        "lileya"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-likar-stefanchuk",
+      "name": "Стефанчук Андрій Андрійович",
+      "category": "96264",
+      "phones": [
+        "0686170893"
+      ],
+      "url": "https://dovidka.in.ua/likar-stefanchuk",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r5",
+      "additionalSources": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "dovidka-20261008-nuhen-ba-lin",
+      "name": "Нуген Ба Лінь",
+      "category": "96264",
+      "phones": [
+        "0686170893"
+      ],
+      "url": "https://dovidka.in.ua/nuhen-ba-lin",
+      "contactType": "institution-reception",
+      "contactSourceRecord": "r5",
+      "additionalSources": [
+        "telegram"
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Жечкова Поліна Панасівна",
+      "url": "https://dovidka.in.ua/miska-poliklinika-mammohrafiya",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Нейчева Ганна Іванівна",
+      "url": "https://dovidka.in.ua/masazhyst-neycheva-hanna-ivanivna",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Газін Ірина Георгієвна",
+      "url": "https://dovidka.in.ua/berehynya",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Галацяну Юрій Анатолійович",
+      "url": "https://dovidka.in.ua/masazhyst-reabilitoloh-halatsyanu-yuriy-anatoliyovych",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "САГІНОВА ОЛЕКСАНДРА ДАВИДІВНА",
+      "url": "https://dovidka.in.ua/sahinova-oleksandra-davydivna-2",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Коробейникова Ірина Олексіївна",
+      "url": "https://dovidka.in.ua/korobeynykova-i-o",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Маламен Роман Іванович",
+      "url": "https://dovidka.in.ua/malamen-roman-ivanovych",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Чувальський Сергій Петрович",
+      "url": "https://dovidka.in.ua/chuvalskyy-serhiy-petrovych",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Анісковець Андрій Сергійович",
+      "url": "https://dovidka.in.ua/aniskovets-andriy-serhiyovych",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Томм Денис Ігоревич",
+      "url": "https://dovidka.in.ua/tomm-denys-ihorevych-likar-stomatoloh",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Бальчева Лідія Іванівна",
+      "url": "https://dovidka.in.ua/balcheva-lidiya-ivanivna",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Котлованова Світлана Миколаївна",
+      "url": "https://dovidka.in.ua/likar-endokrynoloh-kotlovanova-svitlana-mykolayivna",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Лавінюкова В. І",
+      "url": "https://dovidka.in.ua/lavinyukova-v-i",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Почтаренко А. І.",
+      "url": "https://dovidka.in.ua/pochtarenko-a-i",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Балютова О. С.",
+      "url": "https://dovidka.in.ua/balyutova-o-s",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    },
+    {
+      "name": "Газін Іван",
+      "url": "https://dovidka.in.ua/likar-manualnyy-terapevt-hazin-ivan",
+      "reason": "Услуги массажа/реабилитации либо нет подтверждённого контакта для записи / точного профиля."
+    }
+  ],
+  "rule": "Named doctors only; no massage/rehabilitation services. No administrative office or colleague phone assigned as a personal doctor contact."
+}
