@@ -1,0 +1,905 @@
+{
+  "updated": "2026-10-08",
+  "sources": {
+    "dovidka-pharmacies-izmail": {
+      "label": "Dovidka.in.ua · аптеки Измаила",
+      "url": "https://dovidka.in.ua/medycyna/pharmacy",
+      "checked": "2026-10-08",
+      "kind": "directory"
+    }
+  },
+  "categories": [
+    {
+      "id": "pharmacies-izmail",
+      "branch": "pharmacies",
+      "name": "Аптеки Измаила",
+      "order": 0,
+      "count": 44,
+      "note": "Аптеки и аптечные пункты города Измаил"
+    }
+  ],
+  "records": [
+    {
+      "id": "pharmacy-farmacia",
+      "category": "pharmacies-izmail",
+      "name": "Farmacia",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Мира, 12",
+      "note": "Адрес: проспект Мира, 12",
+      "image": "media/pharmacies/farmacia.webp",
+      "coordinates": {
+        "lat": 45.35731156,
+        "lng": 28.81918788
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/farmacia",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69fc90b80c4673.01596129.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-farmacia-2",
+      "category": "pharmacies-izmail",
+      "name": "Farmacia",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 181 · «Таврия-В»",
+      "note": "Адрес: проспект Независимости, 181 · «Таврия-В»",
+      "image": "media/pharmacies/farmacia-2.webp",
+      "coordinates": {
+        "lat": 45.36551903,
+        "lng": 28.83853734
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/farmacia-2",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1d4c70de86.89987058.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-farmacia-3",
+      "category": "pharmacies-izmail",
+      "name": "Farmacia",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Торговая, 64",
+      "note": "Адрес: ул. Торговая, 64",
+      "image": "media/pharmacies/farmacia-3.webp",
+      "coordinates": {
+        "lat": 45.34175275,
+        "lng": 28.84183377
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/farmacia-3",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1d7daf17c6.03732442.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-bazhayemo-zdorov-ya",
+      "category": "pharmacies-izmail",
+      "name": "Бажаємо здоров’я",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Мира, 5",
+      "note": "Адрес: проспект Мира, 5",
+      "image": "media/pharmacies/bazhayemo-zdorov-ya.webp",
+      "coordinates": {
+        "lat": 45.35863275,
+        "lng": 28.81725937
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/bazhayemo-zdorov-ya",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab0bdc8c3558.97541901.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-bazhayemo-zdorov-ya-2",
+      "category": "pharmacies-izmail",
+      "name": "Бажаємо здоров’я",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Коммерческая, 58",
+      "note": "Адрес: ул. Коммерческая, 58",
+      "image": "media/pharmacies/bazhayemo-zdorov-ya-2.webp",
+      "coordinates": {
+        "lat": 45.34185456,
+        "lng": 28.83704066
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/bazhayemo-zdorov-ya-2",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab0cf6d8d9b0.15621942.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-bazhayemo-zdorov-ya-5",
+      "category": "pharmacies-izmail",
+      "name": "Бажаємо здоров’я",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 72П",
+      "note": "Адрес: проспект Независимости, 72П",
+      "image": "media/pharmacies/bazhayemo-zdorov-ya-5.webp",
+      "coordinates": {
+        "lat": 45.35267867,
+        "lng": 28.83651227
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/bazhayemo-zdorov-ya-5",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1079474c37.30450572.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-dobroho-dnya",
+      "category": "pharmacies-izmail",
+      "name": "Доброго дня",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 40А · «Таврия»",
+      "note": "Адрес: проспект Независимости, 40А · «Таврия»",
+      "image": "media/pharmacies/dobroho-dnya.webp",
+      "coordinates": {
+        "lat": 45.34610942,
+        "lng": 28.83595973
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/dobroho-dnya",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab118a32bc52.04110362.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-kopiyka",
+      "category": "pharmacies-izmail",
+      "name": "Копійка",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 54А · гостиница «Измаил»",
+      "note": "Адрес: проспект Независимости, 54А · гостиница «Измаил»",
+      "image": "media/pharmacies/kopiyka.webp",
+      "coordinates": {
+        "lat": 45.34801336,
+        "lng": 28.8363272
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/kopiyka",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab11c329c120.68529079.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-kopiyka-2",
+      "category": "pharmacies-izmail",
+      "name": "Копійка",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Авраамовская, 57/2",
+      "note": "Адрес: ул. Авраамовская, 57/2",
+      "image": "media/pharmacies/kopiyka-2.webp",
+      "coordinates": {
+        "lat": 45.34172824,
+        "lng": 28.83841395
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/kopiyka-2",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab11efb63da6.17520694.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Торговая, 47А",
+      "note": "Адрес: ул. Торговая, 47А",
+      "image": "media/pharmacies/optovykh-tsin.webp",
+      "coordinates": {
+        "lat": 45.34213923,
+        "lng": 28.83853197
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1cbabe2198.06093440.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-4",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Торговая, 62",
+      "note": "Адрес: ул. Торговая, 62",
+      "image": "media/pharmacies/optovykh-tsin-4.webp",
+      "coordinates": {
+        "lat": 45.3417339,
+        "lng": 28.84155482
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-4",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab13055e6c68.56871519.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-5",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Торговая, 70",
+      "note": "Адрес: ул. Торговая, 70",
+      "image": "media/pharmacies/optovykh-tsin-5.webp",
+      "coordinates": {
+        "lat": 45.34174107,
+        "lng": 28.84156093
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-5",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab168f188a52.47663188.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-11",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 68",
+      "note": "Адрес: проспект Независимости, 68",
+      "image": "media/pharmacies/optovykh-tsin-11.webp",
+      "coordinates": {
+        "lat": 45.35211886,
+        "lng": 28.83730888
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-11",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab18f81430f7.03545931.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-podorozhnyk-3",
+      "category": "pharmacies-izmail",
+      "name": "Подорожник",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Торговая, 58",
+      "note": "Адрес: ул. Торговая, 58",
+      "image": "media/pharmacies/podorozhnyk-3.webp",
+      "coordinates": {
+        "lat": 45.3418489,
+        "lng": 28.84095669
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/podorozhnyk-3",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab19b60b85f5.48868692.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-sonechko-farm",
+      "category": "pharmacies-izmail",
+      "name": "Сонечко фарм",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Клушина, 6 · поликлиника",
+      "note": "Адрес: ул. Клушина, 6 · поликлиника",
+      "image": "media/pharmacies/sonechko-farm.webp",
+      "coordinates": {
+        "lat": 45.35200199,
+        "lng": 28.82402122
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/sonechko-farm",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1a162c1827.67759478.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-sonechko-farm-2",
+      "category": "pharmacies-izmail",
+      "name": "Сонечко фарм",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Мира, 24/1",
+      "note": "Адрес: проспект Мира, 24/1",
+      "image": "media/pharmacies/sonechko-farm-2.webp",
+      "coordinates": {
+        "lat": 45.3554626,
+        "lng": 28.82475883
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/sonechko-farm-2",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1a4b621918.54467322.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-sonechko-farm-3",
+      "category": "pharmacies-izmail",
+      "name": "Сонечко фарм",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Мира, 40А",
+      "note": "Адрес: проспект Мира, 40А",
+      "image": "media/pharmacies/sonechko-farm-3.webp",
+      "coordinates": {
+        "lat": 45.35547579,
+        "lng": 28.82476151
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/sonechko-farm-3",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1a74844f67.90462705.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-sonechko-farm-4",
+      "category": "pharmacies-izmail",
+      "name": "Сонечко фарм",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Михайловская, 23/2",
+      "note": "Адрес: ул. Михайловская, 23/2",
+      "image": "media/pharmacies/sonechko-farm-4.webp",
+      "coordinates": {
+        "lat": 45.34966841,
+        "lng": 28.8183859
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/sonechko-farm-4",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1a9acdbb07.06406342.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-sonechko-farm-5",
+      "category": "pharmacies-izmail",
+      "name": "Сонечко фарм",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 72",
+      "note": "Адрес: проспект Независимости, 72",
+      "image": "media/pharmacies/sonechko-farm-5.webp",
+      "coordinates": {
+        "lat": 45.35276915,
+        "lng": 28.83708626
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/sonechko-farm-5",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1ae1ae1c54.00836102.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-sonechko-farm-6",
+      "category": "pharmacies-izmail",
+      "name": "Сонечко фарм",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 141",
+      "note": "Адрес: проспект Независимости, 141",
+      "image": "media/pharmacies/sonechko-farm-6.webp",
+      "coordinates": {
+        "lat": 45.3607285,
+        "lng": 28.8369897
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/sonechko-farm-6",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1b5d2a91e6.15388220.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-sonechko-farm-7",
+      "category": "pharmacies-izmail",
+      "name": "Сонечко фарм",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Патриотов, 1",
+      "note": "Адрес: ул. Патриотов, 1",
+      "image": "media/pharmacies/sonechko-farm-7.webp",
+      "coordinates": {
+        "lat": 45.3532121,
+        "lng": 28.82107079
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/sonechko-farm-7",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1b813d53e1.94988289.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-sonechko-farm-8",
+      "category": "pharmacies-izmail",
+      "name": "Сонечко фарм",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Репина, 22",
+      "note": "Адрес: ул. Репина, 22",
+      "image": "media/pharmacies/sonechko-farm-8.webp",
+      "coordinates": {
+        "lat": 45.36139189,
+        "lng": 28.82389784
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/sonechko-farm-8",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1bb1d1bbe0.59875112.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-sonechko-farm-9",
+      "category": "pharmacies-izmail",
+      "name": "Сонечко фарм",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Свято-Никольская, 52К",
+      "note": "Адрес: ул. Свято-Никольская, 52К",
+      "image": "media/pharmacies/sonechko-farm-9.webp",
+      "coordinates": {
+        "lat": 45.33480514,
+        "lng": 28.83351088
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/sonechko-farm-9",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1be6901273.31820562.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-blaho-sotsialna-apteka-3",
+      "category": "pharmacies-izmail",
+      "name": "Благо · социальная аптека №3",
+      "phones": [
+        "0484161631"
+      ],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Ивана Франко, 5",
+      "note": "Адрес: ул. Ивана Франко, 5",
+      "image": "media/pharmacies/blaho-sotsialna-apteka-3.webp",
+      "coordinates": {
+        "lat": 45.3537606,
+        "lng": 28.8195312
+      },
+      "hours": "Пн–Пт: 08:00–18:00; суббота и воскресенье — выходные",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/blaho-sotsialna-apteka-3",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69b6de30967b81.54066071.jpg",
+      "phoneLabel": "Телефон аптеки"
+    },
+    {
+      "id": "pharmacy-med-servis",
+      "category": "pharmacies-izmail",
+      "name": "Мед-Сервис",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 56",
+      "note": "Адрес: проспект Независимости, 56",
+      "image": "media/pharmacies/med-servis.webp",
+      "coordinates": {
+        "lat": 45.34904636,
+        "lng": 28.83646131
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/med-servis",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69b431a9e79fa7.64219396.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-tsiny-vid-skladu",
+      "category": "pharmacies-izmail",
+      "name": "Ціни від складу",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "Адрес на источнике не указан",
+      "note": "Адрес: Адрес на источнике не указан",
+      "image": "media/pharmacies/tsiny-vid-skladu.webp",
+      "coordinates": {
+        "lat": 45.35163517,
+        "lng": 28.83557081
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/tsiny-vid-skladu",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1ee76e7c43.37359085.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-apteka-tvoho-mista",
+      "category": "pharmacies-izmail",
+      "name": "Аптека твого міста",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Украинского фронта, 65-А",
+      "note": "Адрес: ул. Украинского фронта, 65-А",
+      "image": "media/pharmacies/apteka-tvoho-mista.webp",
+      "coordinates": {
+        "lat": 45.34282919,
+        "lng": 28.84145533
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/apteka-tvoho-mista",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab036320a477.15971484.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-bazhayemo-zdorov-ya-3",
+      "category": "pharmacies-izmail",
+      "name": "Бажаємо здоров’я",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Патриотов, 10А",
+      "note": "Адрес: ул. Патриотов, 10А",
+      "image": "media/pharmacies/bazhayemo-zdorov-ya-3.webp",
+      "coordinates": {
+        "lat": 45.35149306,
+        "lng": 28.8227874
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/bazhayemo-zdorov-ya-3",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab100ddc6fa1.22614166.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-bazhayemo-zdorov-ya-4",
+      "category": "pharmacies-izmail",
+      "name": "Бажаємо здоров’я",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Покровская, 77А",
+      "note": "Адрес: ул. Покровская, 77А",
+      "image": "media/pharmacies/bazhayemo-zdorov-ya-4.webp",
+      "coordinates": {
+        "lat": 45.34119094,
+        "lng": 28.84290934
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/bazhayemo-zdorov-ya-4",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1045051951.65124744.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-blaho",
+      "category": "pharmacies-izmail",
+      "name": "Благо",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Мира, 27",
+      "note": "Адрес: проспект Мира, 27",
+      "image": "media/pharmacies/blaho.webp",
+      "coordinates": {
+        "lat": 45.35369651,
+        "lng": 28.83150995
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/blaho",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab10af37b4e1.79915778.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-2",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Авраамовская, 62/64",
+      "note": "Адрес: ул. Авраамовская, 62/64",
+      "image": "media/pharmacies/optovykh-tsin-2.webp",
+      "coordinates": {
+        "lat": 45.34172636,
+        "lng": 28.83844346
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-2",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab128679fd63.35291544.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-3",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Торговая, 48",
+      "note": "Адрес: ул. Торговая, 48",
+      "image": "media/pharmacies/optovykh-tsin-3.webp",
+      "coordinates": {
+        "lat": 45.34173201,
+        "lng": 28.84153873
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-3",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab12c578a487.97168678.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-6",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Телеграфная, 165",
+      "note": "Адрес: ул. Телеграфная, 165",
+      "image": "media/pharmacies/optovykh-tsin-6.webp",
+      "coordinates": {
+        "lat": 45.33602692,
+        "lng": 28.85445088
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-6",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab16c90710c5.97539072.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-7",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Мира, 7",
+      "note": "Адрес: проспект Мира, 7",
+      "image": "media/pharmacies/optovykh-tsin-7.webp",
+      "coordinates": {
+        "lat": 45.35835382,
+        "lng": 28.8182196
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-7",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab16f65920a4.48529075.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-8",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Торговая, 41А",
+      "note": "Адрес: ул. Торговая, 41А",
+      "image": "media/pharmacies/optovykh-tsin-8.webp",
+      "coordinates": {
+        "lat": 45.34211095,
+        "lng": 28.83851588
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-8",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1728423748.26421439.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-9",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 22",
+      "note": "Адрес: проспект Независимости, 22",
+      "image": "media/pharmacies/optovykh-tsin-9.webp",
+      "coordinates": {
+        "lat": 45.33818195,
+        "lng": 28.83455962
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-9",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab17707e4b99.02827770.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-10",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Покровская, 71А",
+      "note": "Адрес: ул. Покровская, 71А",
+      "image": "media/pharmacies/optovykh-tsin-10.webp",
+      "coordinates": {
+        "lat": 45.3416566,
+        "lng": 28.83843809
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-10",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab18bc061c60.90526488.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-optovykh-tsin-12",
+      "category": "pharmacies-izmail",
+      "name": "Оптових цін",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Придунайская, 403",
+      "note": "Адрес: ул. Придунайская, 403",
+      "image": "media/pharmacies/optovykh-tsin-12.webp",
+      "coordinates": {
+        "lat": 45.31602628,
+        "lng": 28.88228685
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/optovykh-tsin-12",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab1928a1a4c5.24817567.webp",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-podorozhnyk",
+      "category": "pharmacies-izmail",
+      "name": "Подорожник",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 77А",
+      "note": "Адрес: проспект Независимости, 77А",
+      "image": "media/pharmacies/podorozhnyk.webp",
+      "coordinates": {
+        "lat": 45.35118393,
+        "lng": 28.83553326
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/podorozhnyk",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab19647ab877.28616670.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-podorozhnyk-2",
+      "category": "pharmacies-izmail",
+      "name": "Подорожник",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 46",
+      "note": "Адрес: проспект Независимости, 46",
+      "image": "media/pharmacies/podorozhnyk-2.webp",
+      "coordinates": {
+        "lat": 45.34710853,
+        "lng": 28.83609653
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/podorozhnyk-2",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab198ae4e174.89202382.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-apteka-ants",
+      "category": "pharmacies-izmail",
+      "name": "Аптека АНЦ",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Болградская · центр",
+      "note": "Адрес: ул. Болградская · центр",
+      "image": "media/pharmacies/apteka-ants.webp",
+      "coordinates": {
+        "lat": 45.34271423,
+        "lng": 28.83841395
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/apteka-ants",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab0a50e86ae8.54242694.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-apteka-dimirova",
+      "category": "pharmacies-izmail",
+      "name": "Аптека Димитрова",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "проспект Независимости, 37",
+      "note": "Адрес: проспект Независимости, 37",
+      "image": "media/pharmacies/apteka-dimirova.webp",
+      "coordinates": {
+        "lat": 45.34303063,
+        "lng": 28.83425066
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/apteka-dimirova",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69b43aa0b55468.75213320.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-budem-zdorovi-vmeste-aptechnyy-punkt",
+      "category": "pharmacies-izmail",
+      "name": "Будем здоровы вместе",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Греческая, 7",
+      "note": "Адрес: ул. Греческая, 7",
+      "image": "media/pharmacies/budem-zdorovi-vmeste-aptechnyy-punkt.webp",
+      "coordinates": {
+        "lat": 45.3401634,
+        "lng": 28.8283848
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/budem-zdorovi-vmeste-aptechnyy-punkt",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69cbd7d874fd08.83815893.jpg",
+      "phoneLabel": ""
+    },
+    {
+      "id": "pharmacy-med-servis1",
+      "category": "pharmacies-izmail",
+      "name": "Мед-Сервис",
+      "phones": [],
+      "city": "Измаил",
+      "specialties": "Аптека",
+      "address": "ул. Авраамовская · пересечение с Торговой",
+      "note": "Адрес: ул. Авраамовская · пересечение с Торговой",
+      "image": "media/pharmacies/med-servis1.webp",
+      "coordinates": {
+        "lat": 45.34223597,
+        "lng": 28.83834665
+      },
+      "hours": "",
+      "source": "dovidka-pharmacies-izmail",
+      "sourceUrl": "https://dovidka.in.ua/med-servis1",
+      "imageSource": "https://dovidka.in.ua/uploads/logos/img_69ab25baaf7424.11337093.jpg",
+      "phoneLabel": ""
+    }
+  ]
+}

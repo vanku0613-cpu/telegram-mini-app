@@ -45,8 +45,8 @@ test('city directory: scoped specialties, stable favorites, static covers and mo
     const origin='http://127.0.0.1:'+server.address().port+'/health-care/';
     let navigation=0;
     async function open(hash){await page.goto(origin+'?test='+(++navigation)+hash);await page.waitForFunction(()=>document.querySelector('#content .empty strong, .branch-card, .category-tile, .contact, .city-tab'));}
-    await open('');assert.equal(await page.locator('.branch-card').count(),3);
-    assert.deepEqual(await page.locator('.branch-copy h2').allTextContents(),['Врачи и здоровье','Красота и уход','Помощь и уход']);
+    await open('');assert.equal(await page.locator('.branch-card').count(),4);
+    assert.deepEqual(await page.locator('.branch-copy h2').allTextContents(),['Врачи и здоровье','Аптеки Измаила','Красота и уход','Помощь и уход']);
     for(const width of [320,390,768]){await page.setViewportSize({width,height:844});const layout=await page.locator('.branch-card').evaluateAll(items=>items.map(e=>({height:e.getBoundingClientRect().height,fit:e.scrollWidth<=e.clientWidth})));assert.ok(layout.every(item=>item.height===(width<=350?86:90)&&item.fit),`health buttons match the shared directory grid at ${width}px: ${JSON.stringify(layout)}`)}
     await page.setViewportSize({width:390,height:844});
     await page.locator('.branch-card.doctors').click();await page.locator('.city-tab').first().waitFor();

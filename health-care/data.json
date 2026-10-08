@@ -29,7 +29,7 @@
     "primary": {
       "label": "Сайт городского центра ПМСП",
       "url": "https://izm.pmsd.org.ua/kontaktna-informatsiya/",
-      "checked": "2026-09-30",
+      "checked": "2026-10-08",
       "kind": "official"
     },
     "eurotom": {
@@ -927,6 +927,36 @@
       "url": "https://ohoronapraci.kiev.ua/article/news/konsultacii-ditacih-likariv",
       "checked": "2026-10-08",
       "kind": "publication"
+    },
+    "primary-ambulatory-1": {
+      "label": "Центр ПМСП · амбулатория № 1",
+      "url": "https://izm.pmsd.org.ua/ambulatoriia-1/",
+      "checked": "2026-10-08",
+      "kind": "official"
+    },
+    "primary-ambulatory-2": {
+      "label": "Центр ПМСП · амбулатория № 2",
+      "url": "https://izm.pmsd.org.ua/ambulatoriia-2/",
+      "checked": "2026-10-08",
+      "kind": "official"
+    },
+    "primary-ambulatory-3": {
+      "label": "Центр ПМСП · амбулатория № 3",
+      "url": "https://izm.pmsd.org.ua/ambulatoriia-3/",
+      "checked": "2026-10-08",
+      "kind": "official"
+    },
+    "primary-ambulatory-4": {
+      "label": "Центр ПМСП · амбулатория № 4",
+      "url": "https://izm.pmsd.org.ua/ambulatoriia-4/",
+      "checked": "2026-10-08",
+      "kind": "official"
+    },
+    "primary-ambulatory-5": {
+      "label": "Центр ПМСП · амбулатория № 5",
+      "url": "https://izm.pmsd.org.ua/ambulatoriia-5/",
+      "checked": "2026-10-08",
+      "kind": "official"
     }
   },
   "categories": [
@@ -943,7 +973,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96228",
       "order": 0,
-      "count": 30,
+      "count": 29,
       "note": ""
     },
     {
@@ -959,7 +989,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96229",
       "order": 1,
-      "count": 14,
+      "count": 33,
       "note": ""
     },
     {
@@ -1599,7 +1629,7 @@
       ],
       "source": "https://t.me/SPRAVOCHNIK_IZMAIL/96315",
       "order": 41,
-      "count": 3,
+      "count": 4,
       "note": ""
     },
     {
@@ -2252,6 +2282,338 @@
       "city": "Измаил",
       "note": "",
       "source": "telegram"
+    },
+    {
+      "id": "dovidka-pmsd-bronytska",
+      "category": "96229",
+      "name": "Броницька Надія Борисівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 1, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-1",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-bohatska",
+      "category": "96229",
+      "name": "Богацька Людмила Олександрівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 1, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-1",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-timchenko",
+      "category": "96229",
+      "name": "Тімченко Галина Миколаївна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 1, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-1",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-sokolova",
+      "category": "96229",
+      "name": "Соколова Тетяна Миколаївна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 1, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-1",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-stepanova",
+      "category": "96229",
+      "name": "Степанова Тетяна Петрівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 1, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-1",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-bazhak",
+      "category": "96229",
+      "name": "Бажак Тетяна Богданівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 1, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-1",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-bulharu",
+      "category": "96229",
+      "name": "Булгару Георгій Васильович",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Терапевт",
+      "note": "Терапевт. Амбулатория № 1, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-1",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-trystan",
+      "category": "96229",
+      "name": "Тристан Людмила Михайлівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 2, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-2",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-kozachenko",
+      "category": "96229",
+      "name": "Козаченко Людмила Григорівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 2, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-2",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-paraian",
+      "category": "96229",
+      "name": "Параян Наталія Петрівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 2, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-2",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-minkovska",
+      "category": "96229",
+      "name": "Мінковська Тетяна Олександрівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 2, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-2",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-yermolenko",
+      "category": "96229",
+      "name": "Єрмоленко Алла Михайлівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Терапевт",
+      "note": "Терапевт. Амбулатория № 2, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-2",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-khlievniuk",
+      "category": "96229",
+      "name": "Хлєвнюк Світлана Андріївна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 3, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-3",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-harieieva",
+      "category": "96229",
+      "name": "Гарєєва Юлія Адамівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 3, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-3",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-kozlova",
+      "category": "96229",
+      "name": "Козлова Євгенія Петрівна",
+      "phones": [
+        "0672984090",
+        "0962847096"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 3, ул. Клушина, 6. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-3",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-antonenko",
+      "category": "96229",
+      "name": "Антоненко Олексій Олексійович",
+      "phones": [
+        "0673801006"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 4. Прямой номер опубликован городской поликлиникой; время приёма уточните по телефону.",
+      "source": "directory-izmayilska-miska-poliklinika",
+      "phoneLabel": "Телефон врача",
+      "additionalSources": [
+        "primary-ambulatory-4"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-tkachenko",
+      "category": "96229",
+      "name": "Ткаченко Олександр Федотович",
+      "phones": [
+        "0672984060"
+      ],
+      "city": "Измаил",
+      "specialties": "Терапевт",
+      "note": "Терапевт. Амбулатория № 4, ул. Шевченко, 8. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-4",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-moskaltseva",
+      "category": "96229",
+      "name": "Москальцева Марія Панасівна",
+      "phones": [
+        "0672984060"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 5, ул. Шевченко, 8. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-5",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-pmsd-patriki",
+      "category": "96229",
+      "name": "Патрікі Вікторія Олександрівна",
+      "phones": [
+        "0672984060"
+      ],
+      "city": "Измаил",
+      "specialties": "Семейный врач",
+      "note": "Семейный врач. Амбулатория № 5, ул. Шевченко, 8. Время приёма уточните по телефону.",
+      "source": "primary-ambulatory-5",
+      "phoneLabel": "Регистратура, не личный номер",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
+    },
+    {
+      "id": "dovidka-city-poliklinika-narcology-office",
+      "category": "96315",
+      "name": "Кабинет нарколога · городская поликлиника",
+      "phones": [
+        "0972492753"
+      ],
+      "city": "Измаил",
+      "specialties": "Нарколог",
+      "note": "Прямой контакт кабинета. ФИО специалиста в источнике не указано; время приёма уточните по телефону.",
+      "source": "directory-izmayilska-miska-poliklinika",
+      "phoneLabel": "Телефон кабинета"
     },
     {
       "id": "r13",
@@ -6407,21 +6769,6 @@
       "note": "МРТ",
       "city": "Измаил",
       "source": "user-supplied-izmail-vodnikov",
-      "additionalSources": []
-    },
-    {
-      "id": "user-izmail-klushina-specialists-registry",
-      "name": "Регистратура врачей-специалистов · ул. Клушина",
-      "phones": [
-        "0968592698"
-      ],
-      "categories": [
-        "96228"
-      ],
-      "category": "96228",
-      "note": "ул. Клушина, 6",
-      "city": "Измаил",
-      "source": "user-supplied-izmail-klushina",
       "additionalSources": []
     },
     {

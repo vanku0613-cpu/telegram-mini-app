@@ -58,11 +58,30 @@ test('contact databases and cache versions point to the new release', () => {
   const healthApp = fs.readFileSync(path.join(root, 'health-care/app.js'), 'utf8');
   const healthPage = fs.readFileSync(path.join(root, 'health-care/index.html'), 'utf8');
   const home = fs.readFileSync(path.join(root, 'main-v2/index.html'), 'utf8');
-  assert.match(search, /data\.json\?v=20261008-1/);
+  assert.match(search, /data\.json\?v=20261008-2/);
+  assert.match(search, /pharmacies\.json\?v=20261008-1/);
   assert.match(search, /directory-search-extra\.json\?v=20261005-1/);
-  assert.match(healthApp, /data\.json\?v=20261008-1/);
-  assert.match(healthPage, /app\.js\?v=20261008-1/);
-  assert.match(home, /directory-search\.js\?v=24/);
+  assert.match(healthApp, /data\.json\?v=20261008-2/);
+  assert.match(healthPage, /app\.js\?v=20261008-3/);
+  assert.match(home, /directory-search\.js\?v=26/);
+});
+
+test('reviewed city polyclinic specialists use verified contacts only', () => {
+  const imported = health.records.filter(record =>
+    String(record.id).startsWith('dovidka-pmsd-') ||
+    record.id === 'dovidka-city-poliklinika-narcology-office'
+  );
+  assert.equal(imported.length, 20);
+  assert.ok(imported.some(record =>
+    record.name === 'Антоненко Олексій Олексійович' &&
+    record.phones.includes('0673801006')
+  ));
+  assert.ok(imported.some(record =>
+    record.name === 'Кабинет нарколога · городская поликлиника' &&
+    record.phones.includes('0972492753')
+  ));
+  assert.equal(health.records.some(record => record.phones.includes('0968592698')), false);
+  assert.ok(imported.every(record => record.city === 'Измаил'));
 });
 
 test('clean doctor draft is merged by identity and grouped by city without duplicate cards', () => {

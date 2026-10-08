@@ -2,7 +2,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const branches = {doctors:'Врачи и здоровье',beauty:'Красота и уход',education:'Образование и развитие'};
+  const branches = {doctors:'Врачи и здоровье',pharmacies:'Аптеки Измаила',beauty:'Красота и уход',education:'Образование и развитие'};
   let data,externalRecords=null,externalPending=null;
   const savedKey='izmail.health.favorites.v1';
   const readSaved=()=>{try{const x=JSON.parse(localStorage.getItem(savedKey)||'[]');return new Set(Array.isArray(x)?x.filter(v=>typeof v==='string'):[])}catch{return new Set()}};
@@ -24,7 +24,7 @@
   function loadExternalFavorites(){if(externalRecords)return Promise.resolve(externalRecords);if(externalPending)return externalPending;externalPending=fetch('../directory-search-extra.json?v=20261005-1',{cache:'no-cache'}).then(response=>{if(!response.ok)throw Error('favorites');return response.json()}).then(json=>{externalRecords=Array.isArray(json.records)?json.records:[];externalPending=null;if(data&&route().favorites)render();return externalRecords}).catch(()=>{externalRecords=[];externalPending=null;return externalRecords});return externalPending}
 
   const norm = value => String(value).toLocaleLowerCase().replace(/[ёє]/g,'е').replace(/[ії]/g,'и').replace(/[’'`]/g,'').replace(/\s+/g,' ').trim();
-  const fmt = p => p.length === 10 ? p.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/,'$1 $2 $3 $4') : p;
+  const fmt = p => /^04841\d{5}$/.test(p) ? p.replace(/(04841)(\d)(\d{2})(\d{2})/,'$1 $2 $3 $4') : p.length === 10 ? p.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/,'$1 $2 $3 $4') : p;
   const dial = p => p.length === 10 ? '+38'+p : p;
   const route = () => {
     let parts;try{parts=location.hash.slice(1).split('/').map(decodeURIComponent)}catch{parts=[]}
@@ -57,6 +57,7 @@
   ];
   const healthCovers={
     doctors:['../assets/health-doctors-cover-v1.webp?v=1','Врачи и диагностика'],
+    pharmacies:['../assets/health-pharmacies-cover-v1.webp?v=1','Аптеки Измаила'],
     beauty:['../assets/health-beauty-cover-v1.webp?v=1','Красота и профессиональный уход'],
     care:['../assets/health-care-help-cover-v1.webp?v=1','Помощь и заботливый уход'],
     education:['../assets/health-education-cover-v1.webp?v=1','Образование и развитие']
@@ -93,7 +94,8 @@
     paw:'<circle cx="8" cy="7" r="2"/><circle cx="16" cy="7" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M8 19c-2-2 0-6 4-6s6 4 4 6c-2 2-6 2-8 0Z"/>',
     beauty:'<path d="M12 3c1.5 4 3 5.5 7 7-4 1.5-5.5 3-7 7-1.5-4-3-5.5-7-7 4-1.5 5.5-3 7-7Z"/><path d="M18 15c.7 2 1.5 2.8 3 3.5-1.5.7-2.3 1.5-3 3.5-.7-2-1.5-2.8-3-3.5 1.5-.7 2.3-1.5 3-3.5Z"/>',
     scissors:'<circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><path d="m8.5 8.5 11 7.5M8.5 15.5 20 8"/>',
-    care:'<path d="M4 13c3-2 5-2 8 1 3-3 5-3 8-1M4 13v5l8 3 8-3v-5"/><path d="M12 11 8.5 7.5a2.5 2.5 0 0 1 3.5-3.5 2.5 2.5 0 0 1 3.5 3.5L12 11Z"/>'
+    care:'<path d="M4 13c3-2 5-2 8 1 3-3 5-3 8-1M4 13v5l8 3 8-3v-5"/><path d="M12 11 8.5 7.5a2.5 2.5 0 0 1 3.5-3.5 2.5 2.5 0 0 1 3.5 3.5L12 11Z"/>',
+    pharmacy:'<path d="M5 3h14l1 5a3 3 0 0 1-2 2.8V21H6V10.8A3 3 0 0 1 4 8l1-5Z"/><path d="M8 14h8M12 10v8M5 7h14"/>'
   };
   function categoryIcon(c){
     if(c.branch==='education')return educationIcon(c.id).replace(/education-tile-icon/g,'education-tile-icon directory-tile-icon');
@@ -114,16 +116,19 @@
       const details=current.category?detailsByCategory[current.category.id]:context?.[1];
       const r=details?{...original,...details,favoriteName:original.favoriteName||original.name}:original;
       const c=data.categories.find(c=>c.id===categoryFor(r));
+      const pharmacy=c?.branch==='pharmacies';
       const phoneLabel=String(r.phoneLabel||'').trim();
       const phones=r.phones.map(p=>{
         if(current.favorites){
           const visible=fmt(p);
           return `<div class="favorite-phone-action"><a class="favorite-phone phone-number call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${visible}"><strong>${visible}</strong><span>Позвонить</span></a>${favoriteButton(r,p)}${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}</div>`;
         }
-        const visible=p.length===10?'+380 '+p.slice(1,3)+' '+p.slice(3,6)+' '+p.slice(6,8)+' '+p.slice(8):p;
+        const visible=/^04841\d{5}$/.test(p)?'+380 4841 '+p.slice(5,6)+' '+p.slice(6,8)+' '+p.slice(8):p.length===10?'+380 '+p.slice(1,3)+' '+p.slice(3,6)+' '+p.slice(6,8)+' '+p.slice(8):p;
         return `<div class="directory-phone-action education-phone-action phone-row"><a class="directory-phone education-phone phone-number call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${visible}"><strong>${visible}</strong><span>Позвонить</span></a>${favoriteButton(r,p)}${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}</div>`;
       }).join('');
-      return `<article class="contact" data-record="${r.id}"><div class="contact-top"><span class="location ${r.city==='Измаил'?'':'other-city'}">⌖ ${escape(r.city)}</span></div><p class="specialty">${escape(r.specialties||(c.id==='20125'?'Ветеринары':c.name))}</p><h2>${escape(r.name)}</h2>${r.note?`<details class="contact-description"><summary>Подробнее</summary><p class="description">${escape(r.note)}</p></details>`:''}${phoneLabel?`<p class="phone-label">${escape(phoneLabel)}</p>`:''}${phones}${reviewPanel(r)}</article>`;
+      const pharmacyImage=pharmacy&&r.image?`<div class="pharmacy-card-image"><img src="${escape(r.image)}?v=1" alt="${escape(r.name)}" width="720" height="420" loading="lazy" decoding="async"></div>`:'';
+      const pharmacyDetails=pharmacy?`${r.address?`<p class="pharmacy-address"><span aria-hidden="true">⌖</span> ${escape(r.address)}</p>`:''}${r.hours?`<p class="pharmacy-hours"><span aria-hidden="true">◷</span> ${escape(r.hours)}</p>`:''}${r.sourceUrl?`<a class="pharmacy-source" href="${escape(r.sourceUrl)}" target="_blank" rel="noopener noreferrer">Подробности об аптеке ↗</a>`:''}`:'';
+      return `<article class="contact ${pharmacy?'pharmacy-contact':''}" data-record="${r.id}">${pharmacyImage}<div class="contact-top"><span class="location ${r.city==='Измаил'?'':'other-city'}">⌖ ${escape(r.city)}</span></div><p class="specialty">${escape(r.specialties||(c.id==='20125'?'Ветеринары':c.name))}</p><h2>${escape(r.name)}</h2>${pharmacyDetails}${!pharmacy&&r.note?`<details class="contact-description"><summary>Подробнее</summary><p class="description">${escape(r.note)}</p></details>`:''}${phoneLabel?`<p class="phone-label">${escape(phoneLabel)}</p>`:''}${phones}${reviewPanel(r)}</article>`;
     }).join('')+'</div>';
   }
   function media(c,city) {return '<section class="profile-banner">'+thumb(c,city)+'</section>'}
@@ -142,6 +147,7 @@
     document.body.dataset.education=String(branch==='education');
     document.body.dataset.educationLevel=branch==='education'?(category?.children?'nested':category?'contacts':'root'):'none';
     document.body.dataset.doctors=String(branch==='doctors'&&!category);
+    document.body.dataset.pharmacies=String(branch==='pharmacies');
     document.body.dataset.cityPicker=String(branch==='doctors'&&!cityName&&!q);
     document.body.dataset.view=favorites?'favorites':globalSearch?'search':category?'category':branch?'branch':'home';
     const key=[category?.id,cityName,branch,favorites,globalSearch,contactId,globalSearch?query:''].join('|');
@@ -157,7 +163,7 @@
       $('profileMedia').innerHTML=favorites?favoritesCover():rootCover(branch);
       const phoneFolder=Boolean(category&&!category.children&&data.records.some(r=>categoriesFor(r).includes(category.id)));
       document.querySelector('.finder').hidden=(!branch&&!favorites&&!globalSearch)||phoneFolder||branch==='education'||Boolean(contactId)||favorites;
-      $('search').placeholder=branch==='doctors'?(cityName?'Поиск врачей по '+citySearch[cityName]:'Поиск врачей'):branch==='education'?'Предмет, имя или телефон':'Специальность, имя или телефон';
+      $('search').placeholder=branch==='doctors'?(cityName?'Поиск врачей по '+citySearch[cityName]:'Поиск врачей'):branch==='pharmacies'?'Название или адрес аптеки':branch==='education'?'Предмет, имя или телефон':'Специальность, имя или телефон';
     }
     $('search').setAttribute('aria-label',$('search').placeholder);
     $('searchToggle').setAttribute('aria-expanded',String(searchOpen));
@@ -184,6 +190,11 @@
       const sorted=scope.slice().sort((a,b)=>(data.sources[b.source]?.kind==='official')-(data.sources[a.source]?.kind==='official'));
       $('content').innerHTML=(category?.note?'<p class="empty">'+escape(category.note)+'</p>':'')+(scope.length?cards(sorted):favorites?'<div class="empty"><strong>Пока нет избранных номеров</strong>Нажмите ☆ рядом с номером, чтобы сохранить его здесь.</div>':'<div class="empty"><strong>Контакты пока не найдены</strong>В этой категории пока нет опубликованных контактов.</div>');
     }else if(branch){
+      if(branch==='pharmacies'){
+        $('resultStatus').textContent='Измаил · '+scope.length+' аптеки';
+        $('content').innerHTML=scope.length?cards(scope.slice().sort((a,b)=>a.name.localeCompare(b.name,'ru')||a.address.localeCompare(b.address,'ru'))):'<div class="empty"><strong>Аптеки пока не найдены</strong>Обновите страницу немного позже.</div>';
+        return;
+      }
       const cats=data.categories.filter(c=>c.branch===branch&&!c.parent&&!['96319','96323'].includes(c.id));
       const local=c=>data.records.some(r=>categoriesFor(r).includes(c.id)&&cityNames(r).includes(cityName));
       const available=branch==='doctors'&&cityName!=='Измаил'?cats.filter(local):cats;
@@ -191,8 +202,8 @@
       if(branch==='beauty'||branch==='education')$('content').innerHTML='<div class="category-grid">'+available.map(c=>tile(c,null,true)).join('')+'</div>';
       else $('content').innerHTML=groups.map(([title,ids])=>{const members=ids.map(id=>available.find(c=>c.id===id)).filter(Boolean);return members.length?'<h2 class="group-title">'+title+'</h2><div class="category-grid">'+members.map(c=>tile(c,cityName)).join('')+'</div>':''}).join('')||'<div class="empty"><strong>Список этого города готовится</strong>Пока нет подтверждённых местных контактов.</div>';
     }else{
-      $('resultStatus').textContent='Три направления';
-      $('content').innerHTML='<div class="branches">'+[['doctors','medical'],['beauty','beauty']].map(([id,icon])=>{const count=data.categories.filter(c=>c.branch===id&&!c.parent&&!['96319','96323'].includes(c.id)).length;return '<a class="branch-card directory-branch plain-branch has-children '+id+'" href="#'+id+'">'+branchIcon(icon)+'<div class="branch-copy card-copy"><h2>'+branches[id]+'</h2><p>'+count+' разделов</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'}).join('')+(()=>{const c=data.categories.find(c=>c.id==='96211'),count=data.records.filter(r=>categoriesFor(r).includes(c.id)).length;return '<a class="branch-card directory-branch plain-branch direct-entry care" href="#category/96211">'+branchIcon('care')+'<div class="branch-copy card-copy"><h2>'+escape(c.name)+'</h2><p>'+count+' контактов</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'})()+'</div>';
+      $('resultStatus').textContent='Четыре направления';
+      $('content').innerHTML='<div class="branches">'+[['doctors','medical'],['pharmacies','pharmacy'],['beauty','beauty']].map(([id,icon])=>{const count=id==='pharmacies'?data.records.filter(r=>data.categories.find(c=>c.id===r.category)?.branch==='pharmacies').length:data.categories.filter(c=>c.branch===id&&!c.parent&&!['96319','96323'].includes(c.id)).length;const unit=id==='pharmacies'?'аптеки':'разделов';return '<a class="branch-card directory-branch plain-branch has-children '+id+'" href="#'+id+'">'+branchIcon(icon)+'<div class="branch-copy card-copy"><h2>'+branches[id]+'</h2><p>'+count+' '+unit+'</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'}).join('')+(()=>{const c=data.categories.find(c=>c.id==='96211'),count=data.records.filter(r=>categoriesFor(r).includes(c.id)).length;return '<a class="branch-card directory-branch plain-branch direct-entry care" href="#category/96211">'+branchIcon('care')+'<div class="branch-copy card-copy"><h2>'+escape(c.name)+'</h2><p>'+count+' контактов</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'})()+'</div>';
     }
   }
   document.addEventListener('dragstart',event=>{if(event.target.closest('.branch-card,.category-tile,.city-tab'))event.preventDefault()});
@@ -233,6 +244,6 @@
   window.addEventListener('storage',event=>{if(event.key===savedKey||event.key===null){saved=readSaved();if(data&&route().favorites)render();else syncFavorites()}});
   document.addEventListener('pointerdown',event=>{const el=event.target.closest('a,button');if(el){el.classList.add('tap-lit');setTimeout(()=>el.classList.remove('tap-lit'),680)}},{passive:true});
   window.addEventListener('hashchange',()=>{document.querySelector('.page').style.minHeight='';searchOpen=false;cityListOpen=false;$('search').value='';$('search').blur();render();window.scrollTo(0,0);$('title').focus({preventScroll:true})});
-  try{const response=await fetch('data.json?v=20261008-1',{cache:'no-cache'});if(!response.ok)throw Error();data=await response.json();render()}
+  try{const responses=await Promise.all([fetch('data.json?v=20261008-2',{cache:'no-cache'}),fetch('pharmacies.json?v=20261008-1',{cache:'no-cache'})]);if(responses.some(response=>!response.ok))throw Error();const [base,pharmacies]=await Promise.all(responses.map(response=>response.json()));data={...base,sources:{...base.sources,...pharmacies.sources},categories:[...base.categories,...pharmacies.categories],records:[...base.records,...pharmacies.records]};render()}
   catch{$('content').innerHTML='<p class="empty error">Не удалось загрузить контакты. Проверьте соединение и обновите страницу.</p>'; $('topNav').innerHTML=homeLink;$('bottomNav').innerHTML=homeLink;}
 })();
