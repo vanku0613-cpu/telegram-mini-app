@@ -14,8 +14,8 @@
     if(!drag||event.pointerId!==drag.pointerId)return;
     var maxWidth=Math.max(0,window.innerWidth-12);
     var maxHeight=Math.max(0,viewportHeight()-8);
-    var minWidth=Math.min(340,maxWidth);
-    var minHeight=Math.min(520,maxHeight);
+    var minWidth=Math.min(window.innerWidth>=900?900:640,maxWidth);
+    var minHeight=Math.min(650,maxHeight);
     app.style.width=Math.min(maxWidth,Math.max(minWidth,drag.width+event.clientX-drag.x))+'px';
     app.style.height=Math.min(maxHeight,Math.max(minHeight,drag.height+event.clientY-drag.y))+'px';
   }

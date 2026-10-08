@@ -34,7 +34,7 @@ test('interior directories remain readable without changing their responsive gri
       for (const directory of directories) {
         await page.goto(origin + directory, { waitUntil: 'domcontentloaded' });
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true, `${directory} has no horizontal overflow at ${width}px`);
-        assert.match(await page.locator('link[href*="interior-polish.css"]').getAttribute('href'), /v=11$/, `${directory} loads the current shared interior styles`);
+        assert.match(await page.locator('link[href*="interior-polish.css"]').getAttribute('href'), /v=12$/, `${directory} loads the current shared interior styles`);
       }
       await page.close();
     }

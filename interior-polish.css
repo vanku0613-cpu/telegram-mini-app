@@ -559,3 +559,13 @@ body .back-row:has(.secondary) > [data-main-back][data-main-back] {
   :is(.phone > strong, .phone-number, .directory-phone strong, .education-phone strong, .favorite-phone strong) { font-size: 13px !important; }
   :is(.phone > span, .call, .directory-phone span, .education-phone span, .favorite-phone span) { font-size: 12px !important; }
 }
+
+/* Every inner section uses the monitor width on a computer. This rule is
+   deliberately pointer-gated so tablet and phone layouts keep their current
+   dimensions, spacing and card grids. */
+@media (min-width:900px) and (hover:hover) and (pointer:fine) {
+  :is(.wrap, .page) {
+    width: min(100%, 1280px);
+    max-width: 1280px;
+  }
+}

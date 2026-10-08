@@ -32,10 +32,11 @@ test('desktop app can be resized while the phone layout stays fixed',async()=>{
     const handle=desktop.locator('#desktopResizeHandle');
     await handle.hover();
     await desktop.mouse.down();
-    await desktop.mouse.move(desktopBefore.x+desktopBefore.width+180,desktopBefore.y+desktopBefore.height+70,{steps:10});
+    await desktop.mouse.move(desktopBefore.x+desktopBefore.width-180,desktopBefore.y+desktopBefore.height-40,{steps:10});
     await desktop.mouse.up();
     const desktopAfter=await desktop.locator('#app').boundingBox();
-    assert.ok(desktopAfter.width>desktopBefore.width+100,'desktop width should accept a larger user-selected size');
+    assert.ok(desktopAfter.width<desktopBefore.width-100,'desktop width should accept a smaller user-selected size');
+    assert.ok(desktopAfter.width>=900&&desktopAfter.height>=650,'desktop resizing keeps the directory professionally usable');
     assert.ok(desktopAfter.width<=1268&&desktopAfter.height<=712,'desktop resizing must stay inside the viewport');
     const desktopOverflow=await desktop.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth}));
     assert.ok(desktopOverflow.width<=desktopOverflow.viewport,'resizing must not create page-level horizontal overflow');
