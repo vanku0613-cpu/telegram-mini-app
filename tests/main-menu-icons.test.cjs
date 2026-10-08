@@ -91,7 +91,7 @@ test('long main-card titles keep natural letter proportions', () => {
   assert.match(js, /var compression=title\.closest\("\.expanded-label"\) \? \.86 : 1/);
   assert.match(css, /#app \.cards \.card\.compact\.expanded-label \.card-copy strong>span\{[\s\S]*?transform:scaleX\(\.86\)!important/);
   assert.match(html, /main\.css\?v=43/);
-  assert.match(html, /main\.js\?v=15/);
+  assert.match(html, /main\.js\?v=16/);
 });
 
 test('all category arrows share one visible position', () => {
@@ -113,14 +113,16 @@ test('search and main card grid use compact professional vertical spacing', () =
 test('weather and currency use the main-card gap without moving shelter', () => {
   const infoCss = fs.readFileSync(path.join(root, 'home-info.css'), 'utf8');
   assert.match(infoCss, /#app \.top-row\{[\s\S]*?grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\) calc\(\(100% - 2\.3%\) \/ 3\);[\s\S]*?column-gap:\.75vw/);
-  assert.match(html, /home-info\.css\?v=22/);
+  assert.match(html, /home-info\.css\?v=24/);
 });
 
 test('main destinations are present before scripts and have a navigation fallback', () => {
   const js = fs.readFileSync(path.join(root, 'main-v2', 'main.js'), 'utf8');
   assert.equal((html.match(/class="card pressable[^\"]*"[^>]*data-nav=/g) || []).length, 8);
-  assert.match(html, /id="zagsBtn" data-nav="\.\.\/zags\/"/);
-  assert.match(html, /id="groupsBtn" data-nav="\.\.\/our-groups-menu\/"/);
+  assert.match(html, /id="zagsBtn" data-nav="https:\/\/vanku0613-cpu\.github\.io\/telegram-mini-app\/zags\/"/);
+  assert.match(html, /id="groupsBtn" data-nav="https:\/\/vanku0613-cpu\.github\.io\/telegram-mini-app\/our-groups-menu\/"/);
+  assert.match(js, /var PUBLIC_APP_ROOT="https:\/\/vanku0613-cpu\.github\.io\/telegram-mini-app\/"/);
+  assert.match(js, /target=publicAppUrl\(target\)/);
   assert.match(js, /function guaranteeButtonNavigation/);
   assert.match(js, /control\.setAttribute\("data-nav",target\)/);
   assert.match(js, /window\.setTimeout\(function\(\)\{/);

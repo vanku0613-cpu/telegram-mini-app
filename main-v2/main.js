@@ -541,14 +541,25 @@
 
 
   /* LINKS */
+  var PUBLIC_APP_ROOT="https://vanku0613-cpu.github.io/telegram-mini-app/";
+  var PUBLIC_MAIN_URL=PUBLIC_APP_ROOT+"main-v2/";
+  function publicAppUrl(target){
+    if(!target) return "";
+    try{
+      var url=new URL(target,PUBLIC_MAIN_URL);
+      if(url.origin===new URL(PUBLIC_APP_ROOT).origin && url.pathname.indexOf("/telegram-mini-app/")===0) return url.href;
+    }catch(_){ }
+    return target;
+  }
+
   var logo=document.getElementById("mainLogoHotspot");
   if(logo) logo.href=((CFG.links && CFG.links.mainGroup) || "https://t.me/SPRAVOCHNIK_IZMAIL");
 
   var shelter=document.getElementById("shelterBtn");
-  if(shelter) shelter.href=((CFG.links && CFG.links.shelter) || "../ukrytia/");
+  if(shelter) shelter.href=publicAppUrl((CFG.links && CFG.links.shelter) || "../ukrytia/");
 
   var agreement=document.getElementById("agreement");
-  if(agreement) agreement.href=((CFG.links && CFG.links.agreement) || "../soglashenie/");
+  if(agreement) agreement.href=publicAppUrl((CFG.links && CFG.links.agreement) || "../soglashenie/");
 
   var ads=document.getElementById("adsBtn");
   if(ads) ads.href=((CFG.links && CFG.links.ads) || "https://t.me/Vanku13");
@@ -564,6 +575,7 @@
 
   function guaranteeButtonNavigation(control,target){
     if(!control || !target) return;
+    target=publicAppUrl(target);
     control.setAttribute("data-nav",target);
     control.addEventListener("click",function(event){
       if((event.button && event.button!==0) || event.defaultPrevented) return;
@@ -589,7 +601,7 @@
 
   var fav=document.getElementById("favBtn");
   if(fav) fav.addEventListener("click",function(){
-    window.location.href="../health-care/#favorites";
+    window.location.href=PUBLIC_APP_ROOT+"health-care/#favorites";
   });
 
   for(var ci=0;ci<cards.length;ci++){
