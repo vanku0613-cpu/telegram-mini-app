@@ -11,7 +11,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: transport-schedules
+  # Share the existing publisher's lock so two Pages deployments never overlap.
+  group: frank-rates-pages
   cancel-in-progress: false
 
 jobs:
@@ -45,7 +46,9 @@ jobs:
           fi
       - name: Refresh city council timetable
         run: |
-          if curl --fail --silent --show-error --max-time 45 https://izmail-mr.od.gov.ua/rozklad-ruhu-miskyh-avtobusnyh-marshrutiv/ -o /tmp/izmail-timetable.html; then
+          # The council server omits its intermediate certificate. This public CA
+          # chain was validated against Windows' trusted roots; TLS stays enabled.
+          if curl --fail --silent --show-error --cacert scripts/certificates/izmail-council-ca.pem --max-time 45 https://izmail-mr.od.gov.ua/rozklad-ruhu-miskyh-avtobusnyh-marshrutiv/ -o /tmp/izmail-timetable.html; then
             python scripts/import-izmail-city-schedule.py /tmp/izmail-timetable.html || echo '::warning::Izmail import rejected; previous timetable retained.'
           else
             echo '::warning::Izmail source unavailable; previous timetable retained.'

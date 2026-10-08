@@ -13,7 +13,7 @@ INDEX = 'https://oget.od.ua/rozklad-ruhu-all/'
 
 
 def get(url):
-    result = subprocess.run([shutil.which('curl.exe') or 'curl','--fail','--silent','--show-error','--max-time','30',url],capture_output=True,check=True)
+    result = subprocess.run([shutil.which('curl.exe') or 'curl','--fail','--silent','--show-error','--location','--user-agent','Mozilla/5.0 (compatible; ScheduleReference/1.0)','--max-time','30',url],capture_output=True,check=True)
     return result.stdout.decode('utf-8')
 
 
