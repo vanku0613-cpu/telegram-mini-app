@@ -1307,3 +1307,52 @@ a.nav{ text-decoration:none; }
   #app .top-row .shelter-label{font-size:22px}
 }
 
+/* Refined desktop composition: preserve the portrait artwork and its round
+   emblem, then place the interface in a centred content column so cards do
+   not become unnaturally wide on large monitors. */
+@media (min-width:700px) and (hover:hover) and (pointer:fine){
+  #app{container-type:size}
+  #app .bg-main{
+    left:50%;top:0;width:56.28cqh;height:100cqh;max-height:none;
+    object-fit:contain;object-position:center top;
+    transform:translateX(-50%);
+  }
+  #app .bg-blur{
+    inset:-3%;width:106%;height:106%;
+    object-fit:cover;object-position:center 18%;
+    filter:blur(13px) brightness(.52) saturate(.9);
+  }
+  #app .fade{inset:25% 0 0}
+  #app #mainLogoHotspot{
+    left:calc(50% - 23.9cqh);top:8.35cqh;width:17.4cqh;
+  }
+  #app .viewer{left:max(4%,calc(50% - 590px))!important;top:28.8%!important}
+  #app .top-row,
+  #app .search-wrap,
+  #app .cards,
+  #app .groups-row,
+  #app .bottom{
+    left:50%!important;
+    width:min(1180px,92%)!important;
+    translate:-50% 0!important;
+  }
+  #app .top-row{top:31.5%!important;width:min(1050px,92%)!important;height:min(10.5%,84px)!important}
+  #app .search-wrap{top:43.5%!important;height:min(6.5%,50px)!important}
+  #app .cards{
+    top:52%!important;height:min(29%,260px)!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-rows:repeat(2,minmax(0,1fr))!important;
+    gap:10px 12px!important;
+  }
+  #app .groups-row{top:82.5%!important;height:min(7%,56px)!important;gap:12px!important}
+  #app .bottom{top:90.5%!important;width:min(1000px,92%)!important;height:min(6%,50px)!important;gap:12px!important}
+  #app .agreement{top:95.4%!important;height:2%!important}
+}
+
+@media (min-width:700px) and (max-width:899px) and (hover:hover) and (pointer:fine){
+  #app .cards .card-copy strong,
+  #app .cards .card.compact .card-copy strong,
+  #app .cards .card.compact.expanded-label .card-copy strong{font-size:12px}
+  #app .cards .card-copy small{font-size:8.5px}
+}
+
