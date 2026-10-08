@@ -18,7 +18,7 @@ test('desktop exchange title, both rates and date stay readable inside the tile'
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const browser=await chromium.launch({headless:true,channel:'msedge'});
   try{
-    for(const viewport of [{width:1280,height:720},{width:800,height:600},{width:1024,height:768},{width:1366,height:768}]){
+    for(const viewport of [{width:1280,height:720},{width:800,height:600},{width:1024,height:768},{width:1366,height:768},{width:1366,height:500},{width:1920,height:1080}]){
       const page=await browser.newPage({viewport,serviceWorkers:'block'});
       await page.route('https://**',route=>route.abort());
       await page.goto(`http://127.0.0.1:${server.address().port}/main-v2/`);
@@ -26,10 +26,16 @@ test('desktop exchange title, both rates and date stay readable inside the tile'
       const layout=await page.evaluate(()=>{
         const box=element=>{const r=element.getBoundingClientRect();return{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height};};
         const panel=document.querySelector('.currency-panel');
-        return {panel:box(panel),parts:[...panel.querySelectorAll('.info-title,.rate,.rates-updated')].filter(element=>getComputedStyle(element).display!=='none').map(box),rates:[...panel.querySelectorAll('.rate')].map(row=>[...row.children].map(box)),values:[...panel.querySelectorAll('#usdRate,#eurRate')].map(element=>({width:element.clientWidth,scroll:element.scrollWidth}))};
+        const viewer=document.querySelector('.viewer'),title=panel.querySelector('.info-title');
+        return {panel:box(panel),title:{...box(title),display:getComputedStyle(title).display},viewer:box(viewer),viewerFont:parseFloat(getComputedStyle(document.querySelector('.viewer-label')).fontSize),logo:box(document.querySelector('#mainLogoHotspot')),search:box(document.querySelector('.search-wrap')),parts:[...panel.querySelectorAll('.info-title,.rate,.rates-updated')].map(box),rates:[...panel.querySelectorAll('.rate')].map(row=>[...row.children].map(box)),values:[...panel.querySelectorAll('#usdRate,#eurRate')].map(element=>({width:element.clientWidth,scroll:element.scrollWidth}))};
       });
       if(process.env.CURRENCY_PREVIEW&&viewport.width===1280)await page.screenshot({path:process.env.CURRENCY_PREVIEW});
       const p=layout.parts;
+      assert.ok(layout.title.display!=='none'&&layout.title.height>=11,'exchange title must stay visible, including short desktop windows');
+      assert.ok(layout.viewerFont>=12,'view counter label must be readable on a computer');
+      assert.ok(layout.viewer.bottom+3<=layout.search.top,'view counter must not touch the search field');
+      const v=layout.viewer,l=layout.logo;
+      assert.ok(v.bottom<=l.top||v.top>=l.bottom||v.right<=l.left||v.left>=l.right,`view counter overlaps the logo at ${viewport.width}x${viewport.height}: ${JSON.stringify({v,l})}`);
       for(let i=0;i<p.length;i++){
         assert.ok(p[i].top>=layout.panel.top+2&&p[i].bottom<=layout.panel.bottom-2,`part ${i} outside currency tile ${viewport.width}x${viewport.height}: ${JSON.stringify(layout)}`);
         if(i)assert.ok(p[i].top>=p[i-1].bottom+1,`parts ${i-1},${i} touch at ${viewport.width}x${viewport.height}: ${JSON.stringify(layout)}`);
