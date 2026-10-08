@@ -2,7 +2,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const branches = {doctors:'Врачи и здоровье',pharmacies:'Аптеки Измаила',beauty:'Красота и уход',education:'Образование и развитие'};
+  const branches = {medical:'Врачи и здоровье',doctors:'Врачи',pharmacies:'Аптеки Измаила',beauty:'Красота и уход',education:'Образование и развитие'};
   let data,externalRecords=null,externalPending=null;
   const savedKey='izmail.health.favorites.v1';
   const readSaved=()=>{try{const x=JSON.parse(localStorage.getItem(savedKey)||'[]');return new Set(Array.isArray(x)?x.filter(v=>typeof v==='string'):[])}catch{return new Set()}};
@@ -56,6 +56,7 @@
     ['Ветеринарная помощь',['20125']]
   ];
   const healthCovers={
+    medical:['../assets/health-doctors-cover-v1.webp?v=1','Врачи и здоровье'],
     doctors:['../assets/health-doctors-cover-v1.webp?v=1','Врачи и диагностика'],
     pharmacies:['../assets/health-pharmacies-cover-v1.webp?v=1','Аптеки Измаила'],
     beauty:['../assets/health-beauty-cover-v1.webp?v=1','Красота и профессиональный уход'],
@@ -127,7 +128,7 @@
         return `<div class="directory-phone-action education-phone-action phone-row"><a class="directory-phone education-phone phone-number call" href="tel:${dial(p)}" aria-label="Позвонить ${escape(r.name)}: ${visible}"><strong>${visible}</strong><span>Позвонить</span></a>${favoriteButton(r,p)}${r.phoneNotes?.[p]?`<small class="phone-label">${escape(r.phoneNotes[p])}</small>`:''}</div>`;
       }).join('');
       const pharmacyImage=pharmacy&&r.image?`<div class="pharmacy-card-image"><img src="${escape(r.image)}?v=1" alt="${escape(r.name)}" width="720" height="420" loading="lazy" decoding="async"></div>`:'';
-      const pharmacyDetails=pharmacy?`${r.address?`<p class="pharmacy-address"><span aria-hidden="true">⌖</span> ${escape(r.address)}</p>`:''}${r.hours?`<p class="pharmacy-hours"><span aria-hidden="true">◷</span> ${escape(r.hours)}</p>`:''}${r.sourceUrl?`<a class="pharmacy-source" href="${escape(r.sourceUrl)}" target="_blank" rel="noopener noreferrer">Подробности об аптеке ↗</a>`:''}`:'';
+      const pharmacyDetails=pharmacy?`${r.address?`<p class="pharmacy-address"><span aria-hidden="true">⌖</span> ${escape(r.address)}</p>`:''}<details class="pharmacy-details"><summary>Подробнее об аптеке</summary><div><p><strong>Адрес:</strong> ${escape(r.address||'не указан')}</p>${r.hours?`<p><strong>График:</strong> ${escape(r.hours)}</p>`:''}${r.phones.length?`<p><strong>Телефон:</strong> ${escape(r.phones.map(fmt).join(', '))}</p>`:''}<small>Информация проверена 08.10.2026</small></div></details>`:'';
       return `<article class="contact ${pharmacy?'pharmacy-contact':''}" data-record="${r.id}">${pharmacyImage}<div class="contact-top"><span class="location ${r.city==='Измаил'?'':'other-city'}">⌖ ${escape(r.city)}</span></div><p class="specialty">${escape(r.specialties||(c.id==='20125'?'Ветеринары':c.name))}</p><h2>${escape(r.name)}</h2>${pharmacyDetails}${!pharmacy&&r.note?`<details class="contact-description"><summary>Подробнее</summary><p class="description">${escape(r.note)}</p></details>`:''}${phoneLabel?`<p class="phone-label">${escape(phoneLabel)}</p>`:''}${phones}${reviewPanel(r)}</article>`;
     }).join('')+'</div>';
   }
@@ -156,13 +157,14 @@
       if(globalSearch){$('search').value=query;q=query}
       const title=globalSearch?'Поиск по справочнику':category?(category.id==='20125'?'Ветеринары':category.name):favorites?'Избранное':branches[branch]||'Здоровье и уход';
       $('title').textContent=title;document.title=title+(cityName?' · '+cityName:' · Измаил');
-      const back=favorites||globalSearch?'':category?'<a class="back-btn secondary" href="'+(category.parent?'#category/'+category.parent:branch==='doctors'?cityHref(cityName):branch==='beauty'?'#beauty':branch==='education'?'#education':'#')+'">Вернуться в раздел</a>':branch&&branch!=='education'?'<a class="back-btn secondary" href="#">Вернуться в раздел</a>':'';
+      const branchBack=branch==='doctors'||branch==='pharmacies'?'#medical':'#';
+      const back=favorites||globalSearch?'':category?'<a class="back-btn secondary" href="'+(category.parent?'#category/'+category.parent:branch==='doctors'?cityHref(cityName):branch==='beauty'?'#beauty':branch==='education'?'#education':'#')+'">Вернуться в раздел</a>':branch&&branch!=='education'?'<a class="back-btn secondary" href="'+branchBack+'">Вернуться в раздел</a>':'';
       $('topNav').innerHTML=back+homeLink;$('bottomNav').innerHTML=back+homeLink;
       $('cityNavigation').innerHTML='';
       $('cityNavigation').hidden=branch!=='doctors';
       $('profileMedia').innerHTML=favorites?favoritesCover():rootCover(branch);
       const phoneFolder=Boolean(category&&!category.children&&data.records.some(r=>categoriesFor(r).includes(category.id)));
-      document.querySelector('.finder').hidden=(!branch&&!favorites&&!globalSearch)||phoneFolder||branch==='education'||Boolean(contactId)||favorites;
+      document.querySelector('.finder').hidden=(!branch&&!favorites&&!globalSearch)||phoneFolder||branch==='medical'||branch==='education'||Boolean(contactId)||favorites;
       $('search').placeholder=branch==='doctors'?(cityName?'Поиск врачей по '+citySearch[cityName]:'Поиск врачей'):branch==='pharmacies'?'Название или адрес аптеки':branch==='education'?'Предмет, имя или телефон':'Специальность, имя или телефон';
     }
     $('search').setAttribute('aria-label',$('search').placeholder);
@@ -190,6 +192,11 @@
       const sorted=scope.slice().sort((a,b)=>(data.sources[b.source]?.kind==='official')-(data.sources[a.source]?.kind==='official'));
       $('content').innerHTML=(category?.note?'<p class="empty">'+escape(category.note)+'</p>':'')+(scope.length?cards(sorted):favorites?'<div class="empty"><strong>Пока нет избранных номеров</strong>Нажмите ☆ рядом с номером, чтобы сохранить его здесь.</div>':'<div class="empty"><strong>Контакты пока не найдены</strong>В этой категории пока нет опубликованных контактов.</div>');
     }else if(branch){
+      if(branch==='medical'){
+        $('resultStatus').textContent='Два раздела';
+        $('content').innerHTML='<div class="branches medical-branches">'+[['doctors','medical'],['pharmacies','pharmacy']].map(([id,icon])=>{const count=id==='pharmacies'?data.records.filter(r=>data.categories.find(c=>c.id===r.category)?.branch==='pharmacies').length:data.categories.filter(c=>c.branch===id&&!c.parent&&!['96319','96323'].includes(c.id)).length;const unit=id==='pharmacies'?'аптеки':'разделов';return '<a class="branch-card directory-branch plain-branch has-children '+id+'" href="#'+id+'">'+branchIcon(icon)+'<div class="branch-copy card-copy"><h2>'+branches[id]+'</h2><p>'+count+' '+unit+'</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'}).join('')+'</div>';
+        return;
+      }
       if(branch==='pharmacies'){
         $('resultStatus').textContent='Измаил · '+scope.length+' аптеки';
         $('content').innerHTML=scope.length?cards(scope.slice().sort((a,b)=>a.name.localeCompare(b.name,'ru')||a.address.localeCompare(b.address,'ru'))):'<div class="empty"><strong>Аптеки пока не найдены</strong>Обновите страницу немного позже.</div>';
@@ -202,8 +209,8 @@
       if(branch==='beauty'||branch==='education')$('content').innerHTML='<div class="category-grid">'+available.map(c=>tile(c,null,true)).join('')+'</div>';
       else $('content').innerHTML=groups.map(([title,ids])=>{const members=ids.map(id=>available.find(c=>c.id===id)).filter(Boolean);return members.length?'<h2 class="group-title">'+title+'</h2><div class="category-grid">'+members.map(c=>tile(c,cityName)).join('')+'</div>':''}).join('')||'<div class="empty"><strong>Список этого города готовится</strong>Пока нет подтверждённых местных контактов.</div>';
     }else{
-      $('resultStatus').textContent='Четыре направления';
-      $('content').innerHTML='<div class="branches">'+[['doctors','medical'],['pharmacies','pharmacy'],['beauty','beauty']].map(([id,icon])=>{const count=id==='pharmacies'?data.records.filter(r=>data.categories.find(c=>c.id===r.category)?.branch==='pharmacies').length:data.categories.filter(c=>c.branch===id&&!c.parent&&!['96319','96323'].includes(c.id)).length;const unit=id==='pharmacies'?'аптеки':'разделов';return '<a class="branch-card directory-branch plain-branch has-children '+id+'" href="#'+id+'">'+branchIcon(icon)+'<div class="branch-copy card-copy"><h2>'+branches[id]+'</h2><p>'+count+' '+unit+'</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'}).join('')+(()=>{const c=data.categories.find(c=>c.id==='96211'),count=data.records.filter(r=>categoriesFor(r).includes(c.id)).length;return '<a class="branch-card directory-branch plain-branch direct-entry care" href="#category/96211">'+branchIcon('care')+'<div class="branch-copy card-copy"><h2>'+escape(c.name)+'</h2><p>'+count+' контактов</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'})()+'</div>';
+      $('resultStatus').textContent='Три направления';
+      $('content').innerHTML='<div class="branches">'+[['medical','medical'],['beauty','beauty']].map(([id,icon])=>{const count=id==='medical'?2:data.categories.filter(c=>c.branch===id&&!c.parent&&!['96319','96323'].includes(c.id)).length;const unit=id==='medical'?'раздела':'разделов';return '<a class="branch-card directory-branch plain-branch has-children '+id+'" href="#'+id+'">'+branchIcon(icon)+'<div class="branch-copy card-copy"><h2>'+branches[id]+'</h2><p>'+count+' '+unit+'</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'}).join('')+(()=>{const c=data.categories.find(c=>c.id==='96211'),count=data.records.filter(r=>categoriesFor(r).includes(c.id)).length;return '<a class="branch-card directory-branch plain-branch direct-entry care" href="#category/96211">'+branchIcon('care')+'<div class="branch-copy card-copy"><h2>'+escape(c.name)+'</h2><p>'+count+' контактов</p></div><span class="tile-arrow" aria-hidden="true">›</span></a>'})()+'</div>';
     }
   }
   document.addEventListener('dragstart',event=>{if(event.target.closest('.branch-card,.category-tile,.city-tab'))event.preventDefault()});

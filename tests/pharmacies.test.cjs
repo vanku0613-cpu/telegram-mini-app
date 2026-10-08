@@ -26,8 +26,13 @@ test('Izmail pharmacy catalog keeps complete sourced cards and local imagery', (
 test('pharmacies are connected to the health folder and global search', () => {
   const app = fs.readFileSync(path.join(root, 'health-care/app.js'), 'utf8');
   const search = fs.readFileSync(path.join(root, 'directory-search.js'), 'utf8');
-  assert.match(app, /pharmacies:'Аптеки Измаила'/);
+  assert.match(app, /medical:'Врачи и здоровье',doctors:'Врачи',pharmacies:'Аптеки Измаила'/);
+  assert.match(app, /branchBack=branch==='doctors'\|\|branch==='pharmacies'\?'#medical':'#'/);
   assert.match(app, /pharmacies\.json\?v=20261008-1/);
+  assert.match(app, /<details class="pharmacy-details">/);
+  assert.doesNotMatch(app, /class="pharmacy-source"/);
   assert.match(search, /pharmacies\.json\?v=20261008-1/);
+  const style = fs.readFileSync(path.join(root, 'health-care/style.css'), 'utf8');
+  assert.match(style, /body\[data-pharmacies=true\] \.contact-list\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
   assert.ok(fs.statSync(path.join(root, 'assets', 'health-pharmacies-cover-v1.webp')).size > 1000);
 });

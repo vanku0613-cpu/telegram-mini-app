@@ -62,7 +62,7 @@ test('contact databases and cache versions point to the new release', () => {
   assert.match(search, /pharmacies\.json\?v=20261008-1/);
   assert.match(search, /directory-search-extra\.json\?v=20261005-1/);
   assert.match(healthApp, /data\.json\?v=20261008-2/);
-  assert.match(healthPage, /app\.js\?v=20261008-3/);
+  assert.match(healthPage, /app\.js\?v=20261008-4/);
   assert.match(home, /directory-search\.js\?v=26/);
 });
 
