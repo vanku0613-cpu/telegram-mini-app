@@ -1,7 +1,7 @@
 /* Application-wide resilience cache for the static GitHub Pages build. */
 const CACHE_PREFIX = "izmail-directory-";
-const STATIC_CACHE = CACHE_PREFIX + "static-v40";
-const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v40";
+const STATIC_CACHE = CACHE_PREFIX + "static-v42";
+const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v42";
 const OFFLINE_HOME = "./main-v2/index.html";
 
 /* Store every user-facing document under its own folder URL. Serving the
@@ -31,7 +31,7 @@ const APP_SHELL = [
   OFFLINE_HOME,
   "./main-v2/main.css?v=43",
   "./main-v2/desktop-resize.js?v=2",
-  "./main-v2/main.js?v=15",
+  "./main-v2/main.js?v=16",
   "./welcome.js?v=2",
   "./main-v2/settings.js?v=20261008-5",
   "./main-v2/stage-lock.js?v=1",
@@ -39,7 +39,7 @@ const APP_SHELL = [
   "./home-weather.css?v=5",
   "./brand-watermark.css?v=1",
   "./navigation.js?v=7",
-  "./directory-search.js?v=29",
+  "./directory-search.js?v=30",
   "./directory-search.css?v=3",
   "./weather-source.js?v=2",
   "./view-counter.js?v=6",
@@ -94,6 +94,18 @@ async function networkFirst(request) {
   }
 }
 
+/* Search must receive current contacts on its first online request. Preserve
+   the last successful catalog only as a fallback when the network fails. */
+async function currentCatalog(request) {
+  try {
+    const response = await networkWithTimeout(request, 4500);
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    return await put(RUNTIME_CACHE, request, response);
+  } catch (_) {
+    return (await cached(request)) || Response.error();
+  }
+}
+
 async function staleWhileRevalidate(request, event) {
   const hit = await cached(request);
   const update = fetch(request, { cache: "no-cache" })
@@ -144,6 +156,10 @@ self.addEventListener("fetch", event => {
   }
 
   if (url.pathname.endsWith(".json")) {
+    if (/\/(?:health-care\/(?:data|pharmacies)|directory-search-extra|transport\/intercity)\.json$/.test(url.pathname)) {
+      event.respondWith(currentCatalog(request));
+      return;
+    }
     event.respondWith(staleWhileRevalidate(request, event));
     return;
   }
