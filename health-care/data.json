@@ -7,7 +7,7 @@
     "Одесса",
     "Киев"
   ],
-  "updated": "2026-10-04",
+  "updated": "2026-10-08",
   "sources": {
     "telegram": {
       "label": "Подборка справочника",
@@ -879,6 +879,54 @@
       "label": "Подборка врачей из предоставленной переписки",
       "checked": "2026-10-04",
       "kind": "provided"
+    },
+    "directory-izmayilska-miska-poliklinika": {
+      "label": "Dovidka.in.ua · городская поликлиника Измаила",
+      "url": "https://dovidka.in.ua/izmayilska-miska-poliklinika",
+      "checked": "2026-10-08",
+      "kind": "directory"
+    },
+    "directory-hanzha-anastasiya-vitaliyivna": {
+      "label": "Dovidka.in.ua · Ганжа Анастасія Віталіївна",
+      "url": "https://dovidka.in.ua/hanzha-anastasiya-vitaliyivna",
+      "checked": "2026-10-08",
+      "kind": "directory"
+    },
+    "directory-izmayilska-rayonna-poliklinika": {
+      "label": "Dovidka.in.ua · районная поликлиника Измаила",
+      "url": "https://dovidka.in.ua/izmayilska-rayonna-poliklinika",
+      "checked": "2026-10-08",
+      "kind": "directory"
+    },
+    "web-h24-vysotska-vira-viktorivna": {
+      "label": "Health24 · Висоцька Віра Вікторівна",
+      "url": "https://h24.ua/doctor/147071-vysocka-vira-viktorivna",
+      "checked": "2026-10-08",
+      "kind": "registry"
+    },
+    "directory-tovmasyan-likar-khirurh": {
+      "label": "Dovidka.in.ua · хирург Товмасян",
+      "url": "https://dovidka.in.ua/tovmasyan-likar-khirurh",
+      "checked": "2026-10-08",
+      "kind": "directory"
+    },
+    "media-yug-tovmasyan": {
+      "label": "Південь сьогодні · Ернест Норайрович Товмасян",
+      "url": "https://yug.today/narodnyy-reytynh-top-likar-ukraina-pidtrymaiemo-khirurha-tsentralnoi-rayonnoi-likarni-saf-ianivskoi-hromady/",
+      "checked": "2026-10-08",
+      "kind": "media"
+    },
+    "directory-danube-hospital-urology": {
+      "label": "Dovidka.in.ua · поликлиника Дунайской больницы",
+      "url": "https://dovidka.in.ua/poliklinika-oblasnoyi-dunayskoyiyi-likarni-2",
+      "checked": "2026-10-08",
+      "kind": "directory"
+    },
+    "publication-child-doctors-2022": {
+      "label": "Публичный список врачей-консультантов · 17.03.2022",
+      "url": "https://ohoronapraci.kiev.ua/article/news/konsultacii-ditacih-likariv",
+      "checked": "2026-10-08",
+      "kind": "publication"
     }
   },
   "categories": [
@@ -2148,13 +2196,17 @@
     {
       "id": "r8",
       "category": "96229",
-      "name": "Алферова",
+      "name": "Алфьорова Галина Валентинівна",
       "phones": [
         "0962988744"
       ],
       "city": "Измаил",
-      "note": "",
-      "source": "telegram"
+      "note": "Семейный врач. Городская поликлиника, ул. Клушина, 6. Приём уточните по телефону.",
+      "source": "telegram",
+      "favoriteName": "Алферова",
+      "additionalSources": [
+        "directory-izmayilska-miska-poliklinika"
+      ]
     },
     {
       "id": "r9",
@@ -2248,13 +2300,17 @@
     {
       "id": "r17",
       "category": "96230",
-      "name": "Ганжа Анастасія",
+      "name": "Ганжа Анастасія Віталіївна",
       "phones": [
         "0984903133"
       ],
       "city": "Измаил",
-      "note": "Клиника «Ваш доктор»",
-      "source": "telegram"
+      "note": "Педиатр. Принимает в медицинском центре «Ваш лікар». Адрес и время приёма уточните по телефону.",
+      "source": "telegram",
+      "favoriteName": "Ганжа Анастасія",
+      "additionalSources": [
+        "directory-hanzha-anastasiya-vitaliyivna"
+      ]
     },
     {
       "id": "r18",
@@ -2576,13 +2632,18 @@
     {
       "id": "r42",
       "category": "96259",
-      "name": "Товмасян",
+      "name": "Товмасян Ернест Норайрович",
       "phones": [
         "0979349988"
       ],
       "city": "Измаил",
-      "note": "Хирургия районной больницы",
-      "source": "telegram"
+      "note": "Хирург высшей категории. Центральная районная больница Сафьяновской громады, ул. Белгород-Днестровская, 31. Приём уточните по телефону.",
+      "source": "telegram",
+      "favoriteName": "Товмасян",
+      "additionalSources": [
+        "directory-tovmasyan-likar-khirurh",
+        "media-yug-tovmasyan"
+      ]
     },
     {
       "id": "r43",
@@ -2731,13 +2792,18 @@
     {
       "id": "r56",
       "category": "96264",
-      "name": "Висоцька",
+      "name": "Висоцька Віра Вікторівна",
       "phones": [
         "0973012409"
       ],
       "city": "Измаил",
-      "note": "Детский кардиолог",
-      "source": "telegram"
+      "note": "Детский кардиоревматолог высшей категории. Измаильская городская центральная больница, ул. Шевченко, 8. Запись уточните по телефону.",
+      "source": "telegram",
+      "favoriteName": "Висоцька",
+      "additionalSources": [
+        "doctors",
+        "web-h24-vysotska-vira-viktorivna"
+      ]
     },
     {
       "id": "r57",
@@ -2958,8 +3024,11 @@
         "0679459028"
       ],
       "city": "Измаил",
-      "note": "Поликлиника Водников",
-      "source": "telegram"
+      "note": "Уролог. Поликлиника областной Дунайской больницы, ул. Портовая, 11А. Приём уточните по телефону.",
+      "source": "telegram",
+      "additionalSources": [
+        "directory-danube-hospital-urology"
+      ]
     },
     {
       "id": "r76",
@@ -3064,13 +3133,17 @@
     {
       "id": "r84",
       "category": "96304",
-      "name": "Лиля Анатольевна",
+      "name": "Лилия Анатольевна",
       "phones": [
         "0682924268"
       ],
       "city": "Измаил",
-      "note": "Районная поликлиника",
-      "source": "telegram"
+      "note": "Эндокринолог. Районная поликлиника, просп. Независимости, 141А. Приём уточните по телефону.",
+      "source": "telegram",
+      "favoriteName": "Лиля Анатольевна",
+      "additionalSources": [
+        "directory-izmayilska-rayonna-poliklinika"
+      ]
     },
     {
       "id": "r86",
@@ -3185,13 +3258,17 @@
     {
       "id": "r94",
       "category": "96307",
-      "name": "Старова Евгения",
+      "name": "Старова Евгения Витальевна",
       "phones": [
         "0939917385"
       ],
       "city": "Измаил",
-      "note": "",
-      "source": "telegram"
+      "note": "Нефролог. Консультирует детей и взрослых. Текущее место и время приёма уточните по телефону.",
+      "source": "telegram",
+      "favoriteName": "Старова Евгения",
+      "additionalSources": [
+        "publication-child-doctors-2022"
+      ]
     },
     {
       "id": "r95",
@@ -3228,13 +3305,18 @@
     {
       "id": "r98",
       "category": "96315",
-      "name": "Любовь Васильевна",
+      "name": "Анікіна Любов Василівна",
       "phones": [
         "0989277518"
       ],
       "city": "Измаил",
-      "note": "Нарколог",
-      "source": "telegram"
+      "note": "Нарколог. Городская поликлиника, ул. Клушина, 6. Приём уточните по телефону.",
+      "source": "telegram",
+      "favoriteName": "Любовь Васильевна",
+      "additionalSources": [
+        "doctors",
+        "directory-izmayilska-miska-poliklinika"
+      ]
     },
     {
       "id": "r99",
