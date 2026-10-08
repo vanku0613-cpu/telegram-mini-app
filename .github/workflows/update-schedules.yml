@@ -1,0 +1,78 @@
+name: Refresh transport schedules
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 1,13 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: transport-schedules
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Check parsers
+        run: python tests/schedule-source-parser.test.py
+      - name: Refresh dated intercity departures
+        run: python scripts/collect-schedule-sources.py
+      - name: Refresh Kyiv official service calendars
+        run: |
+          if curl --fail --silent --show-error --max-time 60 http://193.23.225.211:8002/export-gtfs-static -o /tmp/kyiv-gtfs.zip; then
+            python scripts/import-kyiv-schedule.py /tmp/kyiv-gtfs.zip || echo '::warning::Kyiv import rejected; previous dated data retained.'
+          else
+            echo '::warning::Kyiv source unavailable; previous dated data retained.'
+          fi
+      - name: Refresh city council timetable
+        run: |
+          if curl --fail --silent --show-error --max-time 45 https://izmail-mr.od.gov.ua/rozklad-ruhu-miskyh-avtobusnyh-marshrutiv/ -o /tmp/izmail-timetable.html; then
+            python scripts/import-izmail-city-schedule.py /tmp/izmail-timetable.html || echo '::warning::Izmail import rejected; previous timetable retained.'
+          else
+            echo '::warning::Izmail source unavailable; previous timetable retained.'
+          fi
+      - name: Check Odessa operator baseline
+        run: python scripts/audit-odesa-city-schedule.py || echo '::warning::Odessa audit unavailable; previous source review retained.'
+      - name: Build and validate public data
+        run: |
+          node scripts/build-regional-routes.mjs
+          node scripts/build-schedule-search.cjs
+          node --test tests/schedule-freshness.test.cjs
+      - name: Commit schedule data only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add transport/schedule-sources.json transport/schedule-search.json transport/city-schedule/data/regional-routes.json transport/city-schedule/data/kyiv.json transport/bus-schedule/schedule-data.json transport/odessa-schedule/schedule-data.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh dated transport schedules'
+            git pull --rebase origin main
+            git push
+          fi
+      - uses: actions/configure-pages@v5
+      - name: Prepare public site
+        run: |
+          rsync -a --exclude='.git' --exclude='.gitignore' --exclude='.github' --exclude='_site' --exclude='tests' --exclude='services' --exclude='tools' --exclude='scripts' --exclude='output' --exclude='tmp' --exclude='health-care/research' --exclude='__pycache__' --exclude='*.md' --exclude='*.txt' --exclude='*.py' --exclude='*.cjs' --exclude='*.mjs' ./ _site/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: '_site'
+      - uses: actions/deploy-pages@v4
+        id: deployment

@@ -1,7 +1,7 @@
 /* Application-wide resilience cache for the static GitHub Pages build. */
 const CACHE_PREFIX = "izmail-directory-";
-const STATIC_CACHE = CACHE_PREFIX + "static-v44";
-const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v44";
+const STATIC_CACHE = CACHE_PREFIX + "static-v45" + "-schedules-20261008";
+const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v45" + "-schedules-20261008";
 const OFFLINE_HOME = "./main-v2/index.html";
 
 /* Store every user-facing document under its own folder URL. Serving the
@@ -39,7 +39,7 @@ const APP_SHELL = [
   "./home-weather.css?v=5",
   "./brand-watermark.css?v=1",
   "./navigation.js?v=7",
-  "./directory-search.js?v=30",
+  "./directory-search.js?v=31",
   "./directory-search.css?v=3",
   "./weather-source.js?v=2",
   "./view-counter.js?v=6",
@@ -106,6 +106,17 @@ async function currentCatalog(request) {
   }
 }
 
+// Dated schedules must not return yesterday's cache before checking the network.
+async function currentSchedule(request) {
+  try {
+    const response = await networkWithTimeout(request, 8000);
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    return await put(RUNTIME_CACHE, request, response);
+  } catch (_) {
+    return (await cached(request)) || Response.error();
+  }
+}
+
 async function staleWhileRevalidate(request, event) {
   const hit = await cached(request);
   const update = fetch(request, { cache: "no-cache" })
@@ -156,6 +167,11 @@ self.addEventListener("fetch", event => {
   }
 
   if (url.pathname.endsWith(".json")) {
+    if (/\/transport\/(?:schedule-search|city-schedule\/data\/(?:regional-routes|kyiv|villages)|(?:bus|odessa)-schedule\/schedule-data)\.json$/.test(url.pathname)) {
+      event.respondWith(currentSchedule(request));
+      return;
+    }
+
     if (/\/(?:health-care\/(?:data|pharmacies)|directory-search-extra|transport\/intercity)\.json$/.test(url.pathname)) {
       event.respondWith(currentCatalog(request));
       return;

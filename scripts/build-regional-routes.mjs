@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import model from '../transport/city-schedule/schedule-model.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = path.join(root, 'transport', 'city-schedule', 'data');
@@ -31,7 +32,7 @@ const norm = value => String(value || '')
 
 const cleanPlace = value => {
   const trimmed = String(value || '').trim();
-  return aliases.get(norm(trimmed)) || trimmed;
+  return model.canonical(aliases.get(norm(trimmed)) || trimmed);
 };
 
 function routePlaces(route) {
@@ -136,16 +137,68 @@ if (fs.existsSync(overrideFile)) {
       shape
     }]);
     item.places = [...new Set([...item.places, ...places])];
-    item.sources.push(`verified:${override.source || 'open-schedule'}`);
+    item.sources.push(`legacy:${override.source || 'open-schedule'}`);
   }
 }
 
+// Keep discovered folders when a service is temporarily unavailable for sale.
+// Only route identity is carried forward, never yesterday's departure times.
+const previousFile = path.join(dataDir, 'regional-routes.json');
+if (fs.existsSync(previousFile)) {
+  for (const old of JSON.parse(fs.readFileSync(previousFile, 'utf8')).routes || []) {
+    const places = old.places.map(cleanPlace);
+    const key = places.map(norm).sort().join('|');
+    if (!merged.has(key)) merged.set(key, {...old,places});
+    else mergeDirections(merged.get(key).directions,old.directions);
+  }
+}
+
+// Earlier snapshots mixed 2014/2019 publications with generated update dates.
+// Keep the route catalogue, but never offer those times as a current timetable.
+for (const item of merged.values()) {
+  item.days = 'Даты и наличие рейсов уточняются';
+  item.fare = '';
+  item.directions = item.directions.map(d => ({
+    ...d, hours: '', interval: '', departures: [], extra: '',
+    status: 'unconfirmed', trips: [], references: [],
+  }));
+}
+
+const sourceFile = path.join(root, 'transport', 'schedule-sources.json');
+const snapshot = JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
+for (const source of snapshot.sources) {
+  for (const trip of source.trips || []) {
+    const from = model.canonical(trip.from), to = model.canonical(trip.to);
+    if (!from || !to || from === to || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/.test(trip.departure)) continue;
+    const places = [from, to], key = places.map(norm).sort().join('|');
+    let item = merged.get(key);
+    if (!item) {
+      item = {id: places.slice().sort((a,b) => a.localeCompare(b,'ru')).join(' ↔ '), name: places.join(' — '), places, days:'Рейсы на указанные даты', fare:'', directions:[], sources:[]};
+      merged.set(key, item);
+    }
+    let direction = item.directions.find(d => model.canonical(d.stops?.[0]?.name) === from && model.canonical(d.stops?.at(-1)?.name) === to);
+    if (!direction) {
+      direction = {label:`Из ${from}`,name:`${from} → ${to}`,hours:'',interval:'',departures:[],extra:'',stops:[{name:from},{name:to}],shape:[],trips:[],references:[]};
+      item.directions.push(direction);
+    }
+    direction.status = 'dated';
+    const time = trip.departure.slice(11,19).replace(/:00$/, '');
+    const row = {date:trip.departure.slice(0,10),time,arrival:trip.arrival,station:trip.fromStop,address:trip.fromAddress,arrivalStation:trip.toStop,carrier:trip.carrier,service:trip.service,transfer:Boolean(trip.transfer),source:source.url,checkedAt:source.checkedAt};
+    if (!direction.trips.some(t => JSON.stringify(t) === JSON.stringify(row))) direction.trips.push(row);
+    if (!direction.references.some(r => r.url === source.url)) direction.references.push({url:source.url,label:source.url.includes('likebus.ua')?'LikeBus · перевозчик':source.url.includes('ticket.bus.com.ua')?'BUS.COM.UA · билеты автостанций':'АС «Привокзальная»',checkedAt:source.checkedAt});
+    item.days = 'Рейсы на указанные даты';
+  }
+}
+
+const villages = JSON.parse(fs.readFileSync(path.join(dataDir,'villages.json'),'utf8')).groups.flatMap(g=>g.routes.map(r=>r.id));
 const routes = [...merged.values()]
+  .map(route => ({...route, category:model.category(route,villages), directions:route.directions.map(d=>({...d,trips:d.trips.sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time))}))}))
   .map(route => ({ ...route, sources: [...new Set(route.sources)] }))
   .sort((a, b) => a.name.localeCompare(b.name, 'ru'));
 
 const output = {
   updated: new Date().toISOString().slice(0, 10),
+  sourceCheckedAt: snapshot.collectedAt,
   sourceFiles,
   routes
 };

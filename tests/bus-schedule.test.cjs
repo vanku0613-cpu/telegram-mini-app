@@ -10,7 +10,7 @@ test('bus schedule is local, complete, and opens its routes immediately', async 
   const data = JSON.parse(fs.readFileSync(path.join(root, 'transport/bus-schedule/schedule-data.json'), 'utf8'));
   assert.deepEqual(data.map(route => route.id), ['1','3','5','7','10','10-А','11','12','14','15','16','17','18','19','22','23']);
   assert.ok(data.every(route => route.schedules.length && route.maps.length), 'every route includes schedule and map data');
-  assert.deepEqual(data.find(route => route.id === '17').schedules.map(item => item.label), ['Рабочие дни','Понедельник','Выходные дни']);
+  assert.deepEqual(data.find(route => route.id === '17').schedules.map(item => item.label), ['Вторник, среда, четверг, пятница, суббота','Воскресенье, понедельник и праздники','Льготные рейсы']);
 
   const server = http.createServer((req, res) => {
     let pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
@@ -47,17 +47,17 @@ test('bus schedule is local, complete, and opens its routes immediately', async 
     assert.equal(await page.locator('.route:visible').count(), 0, 'route choices disappear while one schedule is open');
     assert.equal(await page.locator('#routeDetail').isVisible(), true);
     assert.equal(await page.getByRole('button', { name: 'К расписанию', exact: true }).isVisible(), true);
-    assert.deepEqual(await page.locator('.day-tab').allTextContents(), ['Рабочие дни','Выходные дни','Карта']);
-    assert.equal(await page.locator('.schedule-table tbody tr').count(), 47);
+    assert.deepEqual(await page.locator('.day-tab').allTextContents(), ['Рабочие дни','Выходные и праздники','Льготные рейсы','Карта']);
+    assert.equal(await page.locator('.schedule-table tbody tr').count(), 70);
     const backWidth = await page.getByRole('button', { name: 'К расписанию', exact: true }).evaluate(item => item.getBoundingClientRect().width);
     const detailWidth = await page.locator('#routeDetail').evaluate(item => item.getBoundingClientRect().width);
     assert.ok(backWidth < detailWidth / 2, 'the schedule return is a compact separate button');
     await page.getByRole('button', { name: 'К расписанию', exact: true }).click();
     assert.equal(await page.locator('.route:visible').count(), 16);
     await page.getByRole('button', { name: 'Маршрут №17', exact: true }).click();
-    assert.deepEqual(await page.locator('.day-tab').allTextContents(), ['Рабочие дни','Понедельник','Выходные дни','Карта']);
-    await page.getByRole('button', { name: 'Выходные дни', exact: true }).click();
-    assert.equal(await page.locator('.schedule-table tbody tr').count(), 77);
+    assert.deepEqual(await page.locator('.day-tab').allTextContents(), ['Вторник, среда, четверг, пятница, суббота','Воскресенье, понедельник и праздники','Льготные рейсы','Карта']);
+    await page.getByRole('button', { name: 'Воскресенье, понедельник и праздники', exact: true }).click();
+    assert.equal(await page.locator('.schedule-table tbody tr').count(), 54);
     await page.getByRole('button', { name: 'Карта', exact: true }).click();
     assert.equal(await page.locator('.map-card').count(), 2);
     assert.equal(await page.locator('a[href*="izzzzi.info"]').count(), 0);

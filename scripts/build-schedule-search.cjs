@@ -30,7 +30,7 @@ for (const route of regional.routes) {
     const stops = direction.stops.map(stop => stop.name);
     add(
       direction.name,
-      `Отправление из ${origin}`,
+      `Отправление из ${origin} · ${direction.trips?.length ? 'Расписание на указанные даты' : 'Время уточняется'}`,
       `./city-schedule/?${query}`,
       [route.days, direction.hours, direction.interval, ...stops, ...direction.departures].join(' ')
     );
@@ -60,5 +60,5 @@ for (const group of odessa.groups) {
 }
 
 const unique = [...new Map(records.map(record => [`${record.href}|${record.title}`, record])).values()];
-fs.writeFileSync(path.join(root, 'transport', 'schedule-search.json'), JSON.stringify({ updated: '05.10.2026', records: unique }));
+fs.writeFileSync(path.join(root, 'transport', 'schedule-search.json'), JSON.stringify({ updated: regional.updated, records: unique }));
 console.log(`Wrote ${unique.length} searchable schedule records`);
