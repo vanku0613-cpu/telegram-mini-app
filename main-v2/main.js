@@ -565,6 +565,15 @@
   function guaranteeButtonNavigation(control,target){
     if(!control || !target) return;
     control.setAttribute("data-nav",target);
+    control.addEventListener("click",function(event){
+      if((event.button && event.button!==0) || event.defaultPrevented) return;
+      var pageBefore=window.location.href;
+      window.setTimeout(function(){
+        if(window.location.href===pageBefore && document.visibilityState!=="hidden"){
+          window.location.href=target;
+        }
+      },450);
+    });
   }
 
   var groups=document.getElementById("groupsBtn");

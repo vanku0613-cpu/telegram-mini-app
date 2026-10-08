@@ -1432,7 +1432,7 @@ a.nav{ text-decoration:none; }
     left:4%!important;width:92%!important;translate:none!important
   }
   #app .viewer{left:4%!important;top:16%!important;max-width:31%;margin:0!important;padding:4px 10px;font-size:11px}
-  #app .top-row{left:39%!important;top:4.6%!important;width:57%!important;height:min(12%,86px)!important}
+  #app .top-row{left:39%!important;top:4.6%!important;width:57%!important;height:min(12%,86px)!important;margin:0!important}
   #app .search-wrap{top:20.8%!important;height:min(7.5%,54px)!important}
   #app .cards{
     top:29%!important;height:43%!important;
