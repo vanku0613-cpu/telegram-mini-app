@@ -840,6 +840,13 @@ function izmailWhenReady(
     var appRect =
       app.getBoundingClientRect();
 
+    if (window.matchMedia("(min-width:1000px) and (hover:hover) and (pointer:fine)").matches) {
+      viewer.style.setProperty("min-width", "0", "important");
+      viewer.style.setProperty("width", "max-content", "important");
+      viewer.style.setProperty("left", (appRect.width * 0.04).toFixed(2) + "px", "important");
+      return;
+    }
+
 
     var centerX =
 

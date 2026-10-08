@@ -90,7 +90,7 @@ test('long main-card titles keep natural letter proportions', () => {
   assert.match(js, /querySelectorAll\("\.card-copy strong,\.groups-title"\)/);
   assert.match(js, /var compression=title\.closest\("\.expanded-label"\) \? \.86 : 1/);
   assert.match(css, /#app \.cards \.card\.compact\.expanded-label \.card-copy strong>span\{[\s\S]*?transform:scaleX\(\.86\)!important/);
-  assert.match(html, /main\.css\?v=39/);
+  assert.match(html, /main\.css\?v=42/);
   assert.match(html, /main\.js\?v=14/);
 });
 

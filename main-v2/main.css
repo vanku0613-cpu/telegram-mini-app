@@ -1373,54 +1373,76 @@ a.nav{ text-decoration:none; }
   #app .bottom .nav{font-size:clamp(13px,1.05vw,15px)}
 }
 
+.desktop-brand{display:none}
+
 /* Professional wide-screen workspace. The established touch layout is kept
-   intact; a mouse-driven monitor gets a real two-column dashboard instead of
-   a stretched phone canvas. */
+   intact; a mouse-driven monitor gets a full-width city dashboard instead of
+   a stretched phone canvas or a detached portrait poster. */
 @media (min-width:1000px) and (hover:hover) and (pointer:fine){
   html body #app{overflow:hidden!important}
+  #app::before{
+    content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:linear-gradient(180deg,rgba(1,12,25,.18),rgba(1,13,28,.66)),linear-gradient(90deg,rgba(1,14,29,.32),rgba(1,14,29,.12) 45%,rgba(1,14,29,.32));
+  }
   #app::after{
-    content:"";position:absolute;z-index:3;right:1.5%;top:2%;width:61.5%;height:96%;
-    border:1px solid rgba(93,174,216,.34);border-radius:22px;
-    background:linear-gradient(155deg,rgba(4,30,56,.91),rgba(2,18,37,.96));
-    box-shadow:inset 0 1px rgba(232,249,255,.055),0 18px 48px rgba(0,0,0,.28);
+    content:"";position:absolute;z-index:3;left:2%;top:2%;width:96%;height:96%;
+    border:1px solid rgba(116,194,230,.38);border-radius:24px;
+    background:linear-gradient(155deg,rgba(4,29,53,.63),rgba(2,16,33,.79));
+    box-shadow:inset 0 1px rgba(232,249,255,.075),0 20px 60px rgba(0,0,0,.32);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
     pointer-events:none
   }
+  #app .bg-blur,
   #app .bg-main{
-    left:2cqw;top:2%;width:auto;height:96%;max-height:none;
-    object-fit:contain;object-position:center top;transform:none;scale:1!important;
-    border-radius:22px;filter:brightness(.88) saturate(.94) contrast(1.04);
-    box-shadow:0 18px 52px rgba(0,0,0,.38),0 0 0 1px rgba(99,178,220,.28)
+    content:url("../assets/izmail-desktop-blue-hour.webp");
+    left:0;top:0;inset:0;width:100%;height:100%;max-height:none;
+    object-fit:cover;object-position:center 54%;transform:none;scale:1!important;border-radius:0
   }
-  #app .bg-blur{filter:blur(18px) brightness(.28) saturate(.74);opacity:.74}
-  #app .fade{
-    left:2cqw;right:auto;top:2%;bottom:2%;width:min(36%,calc((var(--stable-viewport-height,100svh) - 16px)*.54));border-radius:22px;
-    background:linear-gradient(180deg,transparent 0 58%,rgba(2,16,34,.12) 72%,rgba(2,16,34,.58) 100%)
-  }
+  #app .bg-blur{inset:-2%;width:104%;height:104%;filter:blur(18px) brightness(.33) saturate(.78);opacity:.75}
+  #app .bg-main{filter:brightness(.58) saturate(.88) contrast(1.05)}
+  #app .fade{display:none}
   #app .scene-layer{
-    left:2cqw!important;top:2%!important;width:min(36%,calc((var(--stable-viewport-height,100svh) - 16px)*.54))!important;height:47%!important;
-    border-radius:22px 22px 14px 14px!important;scale:1!important
+    left:0!important;top:0!important;width:100%!important;height:100%!important;
+    border-radius:24px!important;scale:1!important;opacity:.44
   }
-  #app #mainLogoHotspot{left:calc(2cqw + 5cqh);top:8.4cqh;width:15.5cqh}
+  #app #mainLogoHotspot.logo-click{
+    left:4%;top:4.6%;width:72px;height:72px;aspect-ratio:1;transform:none!important;
+    background-image:url("../assets/group-avatar-directory.jpg")!important;
+    background-size:cover!important;background-position:center!important;
+    border:2px solid rgba(117,218,255,.78)!important;
+    box-shadow:0 0 0 4px rgba(9,42,70,.74),0 0 24px rgba(76,192,239,.38)!important
+  }
+  #app .desktop-brand{
+    position:absolute;display:flex;left:calc(4% + 92px);top:5.1%;height:66px;max-width:31%;
+    flex-direction:column;justify-content:center;pointer-events:none;color:#fff;text-align:left
+  }
+  #app .desktop-brand strong{
+    font-size:clamp(19px,1.85vw,26px);line-height:1;font-weight:950;letter-spacing:-.025em;white-space:nowrap;
+    text-shadow:0 2px 9px rgba(0,0,0,.82),0 0 14px rgba(52,176,232,.28)
+  }
+  #app .desktop-brand span{
+    margin-top:7px;font-size:clamp(12px,1vw,15px);font-weight:750;color:rgba(226,245,255,.90);
+    letter-spacing:.01em;text-shadow:0 2px 6px rgba(0,0,0,.82)
+  }
   #app .top-row,
   #app .search-wrap,
   #app .cards,
   #app .groups-row,
   #app .bottom{
-    left:38%!important;width:60%!important;translate:none!important
+    left:4%!important;width:92%!important;translate:none!important
   }
-  #app .viewer{top:3.4%!important;max-width:58%;padding:5px 10px;font-size:11px}
-  #app .viewer{left:38%!important}
-  #app .top-row{top:12.5%!important;height:min(12%,90px)!important}
-  #app .search-wrap{top:23%!important;height:min(7%,52px)!important}
+  #app .viewer{left:4%!important;top:16%!important;max-width:31%;margin:0!important;padding:4px 10px;font-size:11px}
+  #app .top-row{left:39%!important;top:4.6%!important;width:57%!important;height:min(12%,86px)!important}
+  #app .search-wrap{top:20.8%!important;height:min(7.5%,54px)!important}
   #app .cards{
-    top:32%!important;height:43%!important;
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    grid-template-rows:repeat(4,minmax(0,1fr))!important;
+    top:29%!important;height:43%!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-rows:repeat(2,minmax(0,1fr))!important;
     gap:10px 12px!important
   }
   #app .cards .card{
-    border-radius:14px;background-color:#062846;
-    box-shadow:inset 0 1px rgba(232,249,255,.08),0 7px 17px rgba(0,0,0,.24),0 0 8px rgba(39,133,185,.12)
+    border-radius:16px;background-color:#062846;
+    box-shadow:inset 0 1px rgba(232,249,255,.11),0 9px 22px rgba(0,0,0,.31),0 0 10px rgba(39,133,185,.15)
   }
   #app .cards .card:hover{
     transform:translateY(-2px);border-color:rgba(117,205,242,.82);
@@ -1430,8 +1452,8 @@ a.nav{ text-decoration:none; }
   #app .cards .card.compact .card-copy strong,
   #app .cards .card.compact.expanded-label .card-copy strong{font-size:clamp(16px,1.25vw,20px)}
   #app .cards .card-copy small{font-size:clamp(11px,.82vw,13px)}
-  #app .groups-row{top:77%!important;height:min(8%,58px)!important;gap:12px!important}
-  #app .bottom{top:86.5%!important;height:min(7%,52px)!important;gap:12px!important}
-  #app .agreement{left:47%!important;right:10%!important;top:94.1%!important;height:2.5%!important}
+  #app .groups-row{top:74.5%!important;height:min(8%,58px)!important;gap:12px!important}
+  #app .bottom{top:84.5%!important;height:min(7%,52px)!important;gap:12px!important}
+  #app .agreement{left:30%!important;right:30%!important;top:93.2%!important;height:2.8%!important}
 }
 
