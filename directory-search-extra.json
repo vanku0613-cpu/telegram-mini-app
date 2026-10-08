@@ -1967,19 +1967,6 @@
       ],
       "href": "./transport/#buses-odesa",
       "route": "/transport/"
-    },
-    {
-      "id": "intercity-ukrbustour-odesa",
-      "name": "UKRBUSTOUR · Дмитрий · Измаил — Одесса",
-      "city": "Измаил",
-      "category": "Междугородние автобусы",
-      "specialties": "Бронирование билетов на автобус Измаил — Одесса. Контакты перевозчика.",
-      "keywords": "Одеса Одесса Измаил Ізмаїл автобус маршрутка билеты бронирование перевозчик",
-      "phones": [
-        "0971418797"
-      ],
-      "href": "./transport/#buses-odesa",
-      "route": "/transport/"
     }
   ],
   "updated": "2026-10-08"

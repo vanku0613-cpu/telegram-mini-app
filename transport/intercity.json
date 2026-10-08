@@ -65,20 +65,6 @@
       "sources": [
         "https://dovidka.in.ua/vip-marshrutka"
       ]
-    },
-    {
-      "id": "ukrbustour",
-      "name": "UKRBUSTOUR · Дмитрий",
-      "directions": [
-        "odesa"
-      ],
-      "phones": [
-        "0971418797"
-      ],
-      "description": "Бронирование рейсов через Измаил и Одессу. Наличие мест на нужный участок маршрута уточните у перевозчика.",
-      "sources": [
-        "https://dovidka.in.ua/org-7"
-      ]
     }
   ],
   "excluded": [

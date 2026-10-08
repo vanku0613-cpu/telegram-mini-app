@@ -28,8 +28,8 @@ test('doctor import preserves existing contacts and separates reception numbers 
 });
 
 test('intercity contacts are deduplicated, locally scoped and have source evidence',()=>{
- assert.equal(buses.carriers.length,4);
- assert.equal(new Set(buses.carriers.flatMap(c=>c.phones)).size,11);
+ assert.equal(buses.carriers.length,3);
+ assert.equal(new Set(buses.carriers.flatMap(c=>c.phones)).size,10);
  assert.equal(buses.carriers.filter(c=>c.id==='diamant').length,1);
  assert.ok(!buses.carriers.flatMap(c=>c.phones).includes('0681211123'));
  for(const c of buses.carriers){
@@ -68,7 +68,7 @@ test('new doctors and bus directions open from global search and fit phone scree
    await page.setViewportSize({width,height:900});await page.goto(base+'/transport/');
    await page.locator('[data-group="intercity"]').click();
    await page.locator('[data-content="buses-odesa"]').click();
-   assert.equal(await page.locator('#buses-odesa [data-carrier]').count(),4);
+   assert.equal(await page.locator('#buses-odesa [data-carrier]').count(),3);
    const phones=await page.locator('#buses-odesa .phone').evaluateAll(es=>es.map(e=>e.getAttribute('href')));
    assert.equal(phones.length,new Set(phones).size,'No duplicated phone in one direction');
    for(const p of phones)assert.match(p,/^tel:\+380\d{9}$/);
