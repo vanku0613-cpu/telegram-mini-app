@@ -1,11 +1,33 @@
 /* Application-wide resilience cache for the static GitHub Pages build. */
 const CACHE_PREFIX = "izmail-directory-";
-const STATIC_CACHE = CACHE_PREFIX + "static-v38";
-const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v38";
+const STATIC_CACHE = CACHE_PREFIX + "static-v39";
+const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v39";
 const OFFLINE_HOME = "./main-v2/index.html";
 
-const APP_SHELL = [
+/* Store every user-facing document under its own folder URL. Serving the
+   home document for a failed folder request breaks relative CSS and scripts
+   and makes the desktop browser display a file-like, unstyled page. */
+const OFFLINE_DOCUMENTS = [
   "./",
+  "./main-v2/",
+  "./health-care/",
+  "./transport/",
+  "./transport/bus-schedule/",
+  "./transport/city-schedule/",
+  "./transport/odessa-schedule/",
+  "./services-masters/",
+  "./products-food/",
+  "./communal-services/",
+  "./recreation/",
+  "./zags/",
+  "./our-groups-menu/",
+  "./bessarabia-online/",
+  "./ukrytia/",
+  "./soglashenie/",
+];
+
+const APP_SHELL = [
+  ...OFFLINE_DOCUMENTS,
   OFFLINE_HOME,
   "./main-v2/main.css?v=43",
   "./main-v2/desktop-resize.js?v=2",
@@ -63,7 +85,12 @@ async function networkFirst(request) {
     if (!response.ok) throw new Error("HTTP " + response.status);
     return await put(RUNTIME_CACHE, request, response);
   } catch (_) {
-    return (await cached(request)) || (await caches.match(OFFLINE_HOME));
+    const exactDocument = await cached(request);
+    if (exactDocument) return exactDocument;
+
+    /* Keep URL and document base aligned. Never inject main-v2/index.html
+       into another folder address. */
+    return Response.redirect(new URL(OFFLINE_HOME, self.registration.scope).href, 302);
   }
 }
 
