@@ -34,6 +34,10 @@ test('new contacts are searchable on touch phones and computers, with fresh onli
    for(const query of ['автобусы Киев','автобусы Одесса']){
     await input.fill(query);await page.locator('.directory-result[href*="#buses-"]').first().waitFor();
    }
+   await page.evaluate(()=>window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:false})));
+   assert.equal(await input.inputValue(),'автобусы Одесса','Finishing the initial page load must not erase a typed query');
+   await page.evaluate(()=>window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true})));
+   assert.equal(await input.inputValue(),'','Restoring a cached home page must reset the old search');
    await input.fill('0971418797');assert.equal(await page.locator('.directory-result').count(),0,'Removed Dmitry contact must not return');
    await input.fill(doctors[0].name);await page.locator('.directory-result').first().click();await page.locator('.contact').waitFor();
    assert.ok(await page.locator('.call').count());

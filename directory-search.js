@@ -40,7 +40,7 @@
  clearButton?.addEventListener('click',()=>close(true));
  window.addEventListener('izmail:home',resetForHome);
  window.addEventListener('izmail:refresh',resetForHome);
- window.addEventListener('pageshow',resetForHome);
+ window.addEventListener('pageshow',event=>{if(event.persisted)resetForHome()});
  panel.addEventListener('click',e=>{if(e.target.closest('[data-clear-search]'))close();if(e.target.closest('[data-show-all]')){showAll=true;render()}if(e.target.closest('[data-retry-search]')){panel.innerHTML='<p>Загружаем контакты…</p>';load()}});
  addEventListener('resize',position);addEventListener('scroll',position,{passive:true});window.visualViewport?.addEventListener('resize',position);window.visualViewport?.addEventListener('scroll',position);
 })();
