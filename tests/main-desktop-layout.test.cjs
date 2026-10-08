@@ -11,7 +11,7 @@ test('desktop zoom keeps the counter and bottom navigation clear of adjacent row
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const browser=await chromium.launch({headless:true,channel:process.env.BROWSER_CHANNEL||'chrome'});
   try{
-    for(const viewport of [{width:1280,height:720},{width:800,height:600}]){
+    for(const viewport of [{width:1280,height:720},{width:800,height:600},{width:1366,height:500}]){
       const page=await browser.newPage({viewport});
       await page.addInitScript(()=>{window.EventSource=undefined});
       await page.route('https://**',route=>route.abort());
@@ -34,6 +34,7 @@ test('desktop zoom keeps the counter and bottom navigation clear of adjacent row
       assert.ok(layout.groups.bottom<=layout.bottom.top,`bottom navigation overlaps group shortcuts at ${viewport.width}x${viewport.height}`);
       assert.ok(layout.bottom.top-layout.groups.bottom>=5,`bottom navigation needs visible air above it at ${viewport.width}x${viewport.height}`);
       assert.ok(layout.bottom.bottom<=layout.agreement.top,`agreement overlaps bottom navigation at ${viewport.width}x${viewport.height}`);
+      assert.ok(layout.agreement.bottom<=layout.app.bottom-5,`agreement must remain visible above the app edge at ${viewport.width}x${viewport.height}`);
       for(let index=1;index<layout.bottomItems.length;index++)assert.ok(layout.bottomItems[index-1].right<=layout.bottomItems[index].left,`bottom navigation buttons overlap at ${viewport.width}x${viewport.height}`);
       assert.ok(layout.bottomItems.every(item=>item.scroll<=item.client+1),`bottom navigation text is clipped at ${viewport.width}x${viewport.height}`);
       await page.close();
