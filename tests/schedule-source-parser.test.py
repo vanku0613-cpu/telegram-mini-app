@@ -28,6 +28,14 @@ class ScheduleSources(unittest.TestCase):
         self.assertEqual(schedule['rows'][0],['Новий цвинтар','Центр · отправление'])
         self.assertEqual(schedule['rows'][1],['06:30','06:58'])
 
+    def test_city_abbreviated_arrival_heading_uses_departure_only(self):
+        markup='''<p>Міський автобусний маршрут № 7 (Неділя)</p><table>
+        <tr><td>Центр приб.-відправ.</td><td>ІМРБП</td></tr>
+        <tr><td>08:37-08:41</td><td>08:04</td></tr></table>'''
+        schedule=city.extract(markup)['7'][0]
+        self.assertEqual(schedule['rows'][0],['Центр · отправление','ІМРБП'])
+        self.assertEqual(schedule['rows'][1],['08:41','08:04'])
+
     def test_city_benefit_stops_are_not_merged_into_banner(self):
         markup='''<p>МІСЬКИЙ АВТОБУСНИЙ МАРШРУТ № 12 У ЗВИЧАЙНОМУ РЕЖИМІ</p><table>
         <tr><td colspan="2">ВІДПРАВЛЕННЯ З:</td></tr><tr><td>ВУЛ. ЧОРНОВОЛА</td><td>ЦЕНТР</td></tr>
@@ -50,6 +58,24 @@ class ScheduleSources(unittest.TestCase):
         <td><p>А – <strong>21</strong><strong>:30</strong></p><p>Б – 22.01</p></td><td>20-21</td></tr></table>'''
         table=odesa.extract(markup)
         self.assertEqual(table['terminals'][0],{'terminal':'А','first':'06:00','last':'21:30'})
+
+    def test_odesa_keeps_depot_departures_separate(self):
+        markup='''<table><tr><td>Маршрут</td><td>12</td>
+        <td><p>А - 5.49</p><p>Б - 6.25</p></td>
+        <td><p>А до Б – 20.08</p><p>А до депо – 22.26</p>
+        <p>Б до А – 21.11</p><p>Б до депо – 21.54</p></td><td>13-14</td></tr></table>'''
+        table=odesa.extract(markup)
+        self.assertEqual(table['terminals'],[])
+        self.assertEqual(table['lastDepartures'],[
+            {'label':'А до Б','time':'20:08'},{'label':'А до депо','time':'22:26'},
+            {'label':'Б до А','time':'21:11'},{'label':'Б до депо','time':'21:54'}])
+
+    def test_city_separates_multiple_departures_in_one_cell(self):
+        markup='''<p>Міський автобусний маршрут № 7 (Робочі дні)</p><table>
+        <tr><td>Новий цвинтар</td><td>Центр</td></tr>
+        <tr><td>09:55 10:05*</td><td>10:30</td></tr></table>'''
+        schedule=city.extract(markup)['7'][0]
+        self.assertEqual(schedule['rows'][1:], [['09:55','10:30'],['10:05*','—']])
 
     def test_jsonld_preserves_service_date_and_boarding_station(self):
         trip = {'@type':'BusTrip','departureTime':'2026-10-09T06:20:00+03:00',

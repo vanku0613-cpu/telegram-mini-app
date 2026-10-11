@@ -3,7 +3,7 @@ name: Refresh transport schedules
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 1,13 * * *'
+    - cron: '17 1,13,22 * * *'
 
 permissions:
   contents: write

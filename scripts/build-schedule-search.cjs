@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
+const model = require('../transport/city-schedule/schedule-model.js');
 const records = [];
 const add = (title, meta, href, keywords = '') => records.push({ title, meta, href, keywords });
 
@@ -30,7 +31,7 @@ for (const route of regional.routes) {
     const stops = direction.stops.map(stop => stop.name);
     add(
       direction.name,
-      `Отправление из ${origin} · ${direction.trips?.length ? 'Расписание на указанные даты' : 'Время уточняется'}`,
+      `Отправление из ${origin} · ${model.status(direction)==='dated' ? 'Расписание на указанные даты' : 'Время уточняется'}`,
       `./city-schedule/?${query}`,
       [route.days, direction.hours, direction.interval, ...stops, ...direction.departures].join(' ')
     );

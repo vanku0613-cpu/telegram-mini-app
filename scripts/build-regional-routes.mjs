@@ -190,6 +190,27 @@ for (const source of snapshot.sources) {
   }
 }
 
+// Record checked sources even when they publish no departure for this pair.
+// Unavailable booking forms remain unavailable, not confirmed cancellations.
+const bookingPoints = new Map([
+  ['UA5110100000','Одесса'],['UA5110600000','Измаил'],['UA5122310100','Килия'],
+  ['UA5122310300','Вилково'],['UA5124110100','Рени'],['UA5121410100','Болград'],
+  ['UA5120410100','Арциз'],['UA5125010100','Татарбунары'],['UA5110300000','Белгород-Днестровский'],
+  ['UA8000000000','Киев'],['UA5124555100','Сарата'],['UA6510100000','Херсон'],
+  ['MD0101000000','Кишинёв'],['UA5122080701','Броска'],['UA5125084703','Спасское'],['UA5110800000','Черноморск']
+]);
+for (const source of snapshot.sources.filter(s=>s.url.startsWith('https://ticket.bus.com.ua/'))) {
+  const params = new URL(source.url).searchParams;
+  const from = model.canonical(bookingPoints.get(params.get('point_from')));
+  const to = model.canonical(bookingPoints.get(params.get('point_to')));
+  if (!from || !to) continue;
+  const item=merged.get([from,to].map(norm).sort().join('|'));
+  const direction=item?.directions.find(d=>model.canonical(d.stops?.[0]?.name)===from && model.canonical(d.stops?.at(-1)?.name)===to);
+  if (!direction) continue;
+  direction.audit={checkedAt:source.attemptedAt||source.checkedAt, result:source.error||source.lastError?'unavailable':source.trips.length?'published':'no-departures'};
+  if (!(source.error||source.lastError) && !direction.references.some(r=>r.url===source.url)) direction.references.push({url:source.url,label:'BUS.COM.UA · билеты автостанций',checkedAt:source.checkedAt});
+}
+
 const villages = JSON.parse(fs.readFileSync(path.join(dataDir,'villages.json'),'utf8')).groups.flatMap(g=>g.routes.map(r=>r.id));
 const routes = [...merged.values()]
   .map(route => ({...route, category:model.category(route,villages), directions:route.directions.map(d=>({...d,trips:d.trips.sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time))}))}))

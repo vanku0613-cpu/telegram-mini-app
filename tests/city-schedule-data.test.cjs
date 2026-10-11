@@ -38,10 +38,21 @@ test('every regional route has readable times and usable map endpoints', () => {
 });
 
 test('Kyiv schedule is built from the official GTFS transport set', () => {
-  const counts = Object.fromEntries(readCity('kyiv').groups.map(group => [group.id, group.routes.length]));
-  assert.ok(counts.bus >= 100);
-  assert.ok(counts.trolleybus >= 40);
-  assert.ok(counts.tram >= 17);
+  const data=readCity('kyiv');
+  const counts=Object.fromEntries(data.groups.map(group=>[group.id,group.routes.length]));
+  assert.deepEqual(Object.keys(counts),['bus','trolleybus','tram']);
+  // Only routes operating on the official feed dates are offered. Sunday
+  // legitimately has fewer routes than a weekday; inactive services stay hidden.
+  assert.ok(Object.values(counts).every(count=>count>0));
+  assert.ok(Object.values(counts).reduce((a,b)=>a+b,0)>=120);
+  for(const group of data.groups)for(const route of group.routes)for(const direction of route.directions){
+    assert.ok(Object.keys(direction.serviceDates).length);
+    for(const [date,times] of Object.entries(direction.serviceDates)){
+      assert.ok(date>=data.source.validFrom && date<=data.source.validTo);
+      assert.ok(times.length);
+      assert.ok(times.every(time=>/^\d{2}:[0-5]\d$/.test(time)));
+    }
+  }
 });
 
 test('Vylkove retains the route catalogue pending current source verification', () => {
@@ -64,7 +75,7 @@ test('city schedule opens details as a separate view and returns to the schedule
   assert.match(html, /data-view="schedule"/);
   assert.match(html, /data-view="map"/);
   assert.match(html, /data-view="stops"/);
-  assert.match(app, /regional-routes\.json\?v=20261008-4/);
+  assert.match(app, /regional-routes\.json\?v=20261011-1/);
   assert.match(app, /usesTransportTypes=safeCityKey==='kyiv'/);
   assert.match(app, /usesTransportTypes\?'Виды транспорта':'Вернуться в раздел'/);
   assert.match(html, /<button class="route-return"[^>]*id="backToRoutes"[^>]*>[\s\S]*?К расписанию<\/button>/);

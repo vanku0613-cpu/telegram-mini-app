@@ -44,18 +44,19 @@ def extract(document):
             continue
         columns = collections.OrderedDict()
         for col, name in enumerate(rows[0]):
-            arrival_departure = 'прибуття' in name.lower() and 'відправлення' in name.lower()
+            arrival_departure = 'приб' in name.lower() and 'відправ' in name.lower()
             if arrival_departure:
-                name = re.sub(r'прибуття\s*-\s*відправлення', '· отправление',name,flags=re.I)
+                name = re.sub(r'приб(?:уття|\.)?\s*[-–—]\s*відправ(?:лення|\.)?', '· отправление',name,flags=re.I)
             columns.setdefault(name,set())
             for row in rows[1:]:
                 if col<len(row):
                     # Preserve the footnote star; never infer a time from narrative text.
                     if re.match(r'^\d{1,2}:\d{2}',row[col]):
-                        value = row[col]
+                        values = re.findall(r'\d{1,2}:\d{2}\*?', row[col])
                         if arrival_departure:
-                            value = re.findall(r'\d{1,2}:\d{2}', value)[-1]
-                        columns[name].add(re.sub(r'^(\d):',r'0\1:',value))
+                            values = values[-1:]
+                        for value in values:
+                            columns[name].add(re.sub(r'^(\d):',r'0\1:',value))
         columns = {name:sorted(times) for name,times in columns.items() if times}
         if not columns:
             continue

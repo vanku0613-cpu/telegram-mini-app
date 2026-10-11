@@ -24,6 +24,7 @@ BUS_POINTS = {
     'Одесса':'UA5110100000','Измаил':'UA5110600000','Килия':'UA5122310100',
     'Вилково':'UA5122310300','Рени':'UA5124110100','Болград':'UA5121410100',
     'Арциз':'UA5120410100','Татарбунары':'UA5125010100','Белгород-Днестровский':'UA5110300000',
+    'Броска':'UA5122080701','Спасское':'UA5125084703','Черноморск':'UA5110800000',
     'Киев':'UA8000000000','Сарата':'UA5124555100','Херсон':'UA6510100000','Кишинёв':'MD0101000000',
 }
 
@@ -73,7 +74,7 @@ def bus_urls():
     # Verify both travel directions independently; no reverse timetable is inferred.
     pairs |= {(b,a) for a,b in list(pairs)}
     pairs |= {('Одесса',name) for name in BUS_POINTS if name!='Одесса'}
-    return {f'https://ticket.bus.com.ua/order/forming_bn?point_from={BUS_POINTS[a]}&point_to={BUS_POINTS[b]}&date_add=1&fn=round_search&lang=ua'
+    return {f'https://ticket.bus.com.ua/order/forming_bn?point_from={BUS_POINTS[a]}&point_to={BUS_POINTS[b]}&date_add=3&fn=round_search&lang=ua'
             for a,b in pairs if a in BUS_POINTS and b in BUS_POINTS}
 
 
@@ -151,6 +152,9 @@ def fetch(url):
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (schedule reference audit)'})
         with urllib.request.urlopen(req, timeout=35) as response:
             document = response.read(10_000_000).decode('utf-8')
+        # A rejected route form is not a successful empty timetable.
+        if url.startswith('https://ticket.bus.com.ua/') and 'Помилка формату' in document:
+            raise ValueError('Route not available in the booking catalogue')
         links = set()
         for origin, dest in re.findall(r'href=["\'](?:https://likebus.ua)?/route/([a-z-]+)/([a-z-]+)/', document):
             if origin in ORIGINS:
@@ -164,7 +168,10 @@ def fetch(url):
 def main():
     previous = {}
     if OUT.exists():
-        previous = {s['url']: s for s in json.loads(OUT.read_text(encoding='utf-8'))['sources']}
+        for record in json.loads(OUT.read_text(encoding='utf-8'))['sources']:
+            # Migrate the old two-day query to the four-day query once.
+            url=record['url'].replace('&date_add=1&fn=round_search','&date_add=3&fn=round_search')
+            previous[url]={**record,'url':url}
     results, discovered = {}, set()
     def batch(urls):
         with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:

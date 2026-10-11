@@ -26,7 +26,8 @@ test('cities and villages show every matching regional route without duplicate c
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await page.route('https://**', route => route.abort());
 
-    await page.clock.setFixedTime(new Date('2026-10-08T12:00:00+03:00'));
+    const day=JSON.parse(fs.readFileSync(path.join(root,'transport/city-schedule/data/kyiv.json'),'utf8')).source.validFrom;
+    await page.clock.setFixedTime(new Date(day+'T12:00:00+03:00'));
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base+'/transport/city-schedule/?city=izmail');
     assert.equal(await page.locator('.type-card').count(),4);
@@ -41,12 +42,14 @@ test('cities and villages show every matching regional route without duplicate c
     await page.getByRole('button',{name:'Расписание Одесса — Киев'}).click();
     assert.ok(await page.locator('.departure').count()>5);
     assert.ok(await page.locator('.station-card').count()>0);
-    assert.equal(await page.locator('#departureDate').inputValue(),'2026-10-08');
-    await page.locator('#departureDate').selectOption('2026-10-09');
+    const dates=await page.locator('#departureDate option').evaluateAll(items=>items.map(item=>item.value));
+    assert.ok(dates.length>=2);
+    assert.equal(await page.locator('#departureDate').inputValue(),dates[0]);
+    await page.locator('#departureDate').selectOption(dates[1]);
     assert.match(await page.locator('#schedulePanel').innerText(),/LikeBus/);
     assert.ok(await page.locator('.schedule-sources a').count()>0);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
-    await page.screenshot({path:'output/schedule-audit-20261008/odesa-kyiv-mobile.png',fullPage:true});
+    await page.screenshot({path:'output/schedule-audit-20261011/odesa-kyiv-mobile.png',fullPage:true});
     await page.goto(base+'/transport/city-schedule/?city=villages');
     await page.getByRole('button',{name:'Расписание Каменка',exact:true}).click();
     await page.getByRole('button',{name:'Расписание Каменка — Измаил'}).click();
@@ -54,11 +57,11 @@ test('cities and villages show every matching regional route without duplicate c
     await page.goto(base+'/transport/city-schedule/?city=kyiv');
     await page.getByRole('button',{name:/Автобусы/}).first().click();
     await page.locator('#routes .route').first().click();
-    assert.equal(await page.locator('#urbanDate').inputValue(),'2026-10-08');
+    assert.equal(await page.locator('#urbanDate').inputValue(),day);
     assert.ok(await page.locator('.departure').count()>0);
     await page.goto(base+'/transport/city-schedule/?city=izmail');
     await page.setViewportSize({width:1280,height:900});
-    await page.screenshot({path:'output/schedule-audit-20261008/izmail-folders-desktop.png',fullPage:true});
+    await page.screenshot({path:'output/schedule-audit-20261011/izmail-folders-desktop.png',fullPage:true});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
     assert.deepEqual(errors,[]);
   } finally {

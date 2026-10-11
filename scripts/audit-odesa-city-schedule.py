@@ -33,15 +33,31 @@ def extract(document):
             # Last three cells: first departure by terminus, last departure, interval.
             first = [plain(p) for p in re.findall(r'<p\b[^>]*>(.*?)</p>',cells[-3],re.S)]
             last = [plain(p) for p in re.findall(r'<p\b[^>]*>(.*?)</p>',cells[-2],re.S)]
-            entries=[]
-            for a,b in zip(first,last):
-                start,end=re.findall(r'\d{1,2}[.:]\d{2}',a),re.findall(r'\d{1,2}[.:]\d{2}',b)
-                if len(start)==len(end)==1:
-                    terminal=re.sub(r'\s*[–—-]?\s*\d{1,2}[.:]\d{2}.*$','',a).strip()
-                    end_terminal=re.sub(r'\s*[–—-]?\s*\d{1,2}[.:]\d{2}.*$','',b).strip()
-                    if terminal and terminal==end_terminal:entries.append({'terminal':terminal,'first':start[0].replace('.',':').zfill(5),'last':end[0].replace('.',':').zfill(5)})
-            if len(entries)>=2:
-                return {'terminals':entries,'interval':plain(cells[-1])}
+            # Terminal labels can include a destination or a depot. Do not pair
+            # those with an unrelated first departure by their row position.
+            def departures(lines):
+                entries = []
+                pending = ''
+                for line in lines:
+                    times = re.findall(r'\d{1,2}[.:]\d{2}',line)
+                    if not times:
+                        pending = (pending+' '+line).strip()
+                        continue
+                    if len(times) != 1:
+                        continue
+                    label = re.sub(r'\s*[–—-]?\s*\d{1,2}[.:]\d{2}.*$','',line).strip()
+                    label = (pending+' '+label).strip()
+                    pending = ''
+                    time = times[0].replace('.',':').zfill(5)
+                    if label and re.fullmatch(r'(?:[01]\d|2[0-3]):[0-5]\d',time):
+                        entries.append({'label':label,'time':time})
+                return entries
+            starts, ends = departures(first), departures(last)
+            if len(starts)>=2 and len(ends)>=2:
+                terminals = [{'terminal':a['label'],'first':a['time'],'last':b['time']}
+                             for a in starts for b in ends if a['label']==b['label']]
+                return {'terminals':terminals,'firstDepartures':starts,'lastDepartures':ends,
+                        'interval':plain(cells[-1])}
     return None
 
 
@@ -68,9 +84,10 @@ def main():
         raise ValueError('Too few parsed timetables; review before replacing')
     file=ROOT/'transport/odessa-schedule/schedule-data.json'
     data=json.loads(file.read_text(encoding='utf-8'))
+    social = json.loads((ROOT/'transport/odessa-schedule/social-timetable.json').read_text(encoding='utf-8'))['routes']
     for group in data['groups']:
         for route in group['routes']:
-            record=checked.get((group['id'],route['id']))
+            record = social.get(route['id']) if group['id']=='bus' else checked.get((group['id'],route['id']))
             route['sourceReview']=record or {'url':INDEX,'status':'unconfirmed'}
     data['auditDate']=dt.date.today().isoformat()
     file.write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
