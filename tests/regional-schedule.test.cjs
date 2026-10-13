@@ -37,6 +37,11 @@ test('cities and villages show every matching regional route without duplicate c
     assert.equal(await page.locator('.departure').count(),0);
     await page.getByRole('button',{name:'К расписанию',exact:true}).click();
     assert.equal(await page.getByRole('button',{name:'Расписание Измаил — Каменка'}).isVisible(),true);
+    await page.getByRole('button',{name:'Расписание Измаил — Кислица'}).click();
+    assert.match(await page.locator('#schedulePanel').innerText(),/Официальное базовое расписание/);
+    assert.match(await page.locator('#schedulePanel').innerText(),/Вторник–воскресенье/);
+    assert.ok(await page.locator('.departure').count()>=10);
+    assert.equal(await page.locator('.schedule-sources a').count(),2);
     await page.goto(base+'/transport/city-schedule/?city=odesa');
     await page.getByRole('button',{name:/По Украине/}).click();
     await page.getByRole('button',{name:'Расписание Одесса — Киев'}).click();

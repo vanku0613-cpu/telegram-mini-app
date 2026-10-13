@@ -31,9 +31,9 @@ for (const route of regional.routes) {
     const stops = direction.stops.map(stop => stop.name);
     add(
       direction.name,
-      `Отправление из ${origin} · ${model.status(direction)==='dated' ? 'Расписание на указанные даты' : 'Время уточняется'}`,
+      `Отправление из ${origin} · ${model.status(direction)==='dated' ? 'Расписание на указанные даты' : model.status(direction)==='reference' ? 'Официальное базовое расписание' : 'Время уточняется'}`,
       `./city-schedule/?${query}`,
-      [route.days, direction.hours, direction.interval, ...stops, ...direction.departures].join(' ')
+      [route.days, direction.hours, direction.interval, ...stops, ...direction.departures, ...(direction.referenceSchedules||[]).flatMap(schedule=>[schedule.days,schedule.mode,schedule.hours,schedule.interval,...(schedule.departures||[])])].join(' ')
     );
   }
 }

@@ -54,6 +54,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:17+00:00",
             "result": "unavailable"
@@ -91,6 +93,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:09+00:00",
             "result": "unavailable"
@@ -145,6 +149,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:18+00:00",
             "result": "unavailable"
@@ -182,6 +188,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:12+00:00",
             "result": "unavailable"
@@ -236,6 +244,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:17+00:00",
             "result": "unavailable"
@@ -894,7 +904,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:01+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -944,6 +956,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:19+00:00",
             "result": "unavailable"
@@ -952,6 +966,110 @@
       ],
       "sources": [
         "artsyz:routes:Татарбунары"
+      ],
+      "category": "nearby"
+    },
+    {
+      "id": "Арциз ↔ Теплица",
+      "name": "Арциз — Теплица",
+      "places": [
+        "Арциз",
+        "Теплица"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Арциз",
+          "name": "Арциз → Теплица",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Арциз"
+            },
+            {
+              "name": "Теплица"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:15",
+                "14:00"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-26",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2025/01/Nakaz-Departamentu-vid-26.12.2024-30-O-2024.pdf",
+              "label": "Решение о перевозчике"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Теплица",
+          "name": "Теплица → Арциз",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Теплица"
+            },
+            {
+              "name": "Арциз"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:40",
+                "14:30"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-26",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2025/01/Nakaz-Departamentu-vid-26.12.2024-30-O-2024.pdf",
+              "label": "Решение о перевозчике"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:Без номера"
       ],
       "category": "nearby"
     },
@@ -997,6 +1115,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:18+00:00",
             "result": "unavailable"
@@ -1049,7 +1169,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -1099,6 +1221,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:09+00:00",
             "result": "unavailable"
@@ -1136,6 +1260,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:20+00:00",
             "result": "unavailable"
@@ -1155,7 +1281,7 @@
         "Белгород-Днестровский",
         "Весёлый Кут"
       ],
-      "days": "Даты и наличие рейсов уточняются",
+      "days": "Официальное базовое расписание",
       "fare": "",
       "directions": [
         {
@@ -1187,15 +1313,97 @@
               29.47
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "11:30",
+                "15:45"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Весёлый Кут",
+          "name": "Весёлый Кут → Белгород-Днестровский",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Весёлый Кут",
+              "lat": 45.9,
+              "lng": 29.47
+            },
+            {
+              "name": "Белгород-Днестровский",
+              "lat": 46.1855,
+              "lng": 30.3415
+            }
+          ],
+          "shape": [
+            [
+              45.9,
+              29.47
+            ],
+            [
+              46.1855,
+              30.3415
+            ]
+          ],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "06:40",
+                "13:15"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
         }
       ],
       "sources": [
-        "bilhorod:villages:Весёлый Кут"
+        "bilhorod:villages:Весёлый Кут",
+        "official-reference:Без номера"
       ],
-      "category": "ukraine"
+      "category": "nearby"
     },
     {
       "id": "Белгород-Днестровский ↔ Вилково",
@@ -1239,6 +1447,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:10+00:00",
             "result": "unavailable"
@@ -1276,6 +1486,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:25+00:00",
             "result": "unavailable"
@@ -1329,13 +1541,161 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
         "bilhorod:villages:Дивизия"
       ],
       "category": "ukraine"
+    },
+    {
+      "id": "Белгород-Днестровский ↔ Затока",
+      "name": "Белгород-Днестровский — Затока",
+      "places": [
+        "Белгород-Днестровский",
+        "Затока"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Белгород-Днестровский",
+          "name": "Белгород-Днестровский → Затока",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Белгород-Днестровский"
+            },
+            {
+              "name": "Затока"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрут №6 · обычный режим",
+              "departures": [
+                "07:30",
+                "18:00"
+              ]
+            },
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрут №6 · маршрутное такси",
+              "hours": "05:50–19:10",
+              "interval": "23 мин"
+            },
+            {
+              "days": "1 мая–15 сентября",
+              "mode": "Маршрут №6А · обычный режим",
+              "departures": [
+                "07:00",
+                "10:00",
+                "14:00"
+              ]
+            },
+            {
+              "days": "1 мая–15 сентября",
+              "mode": "Маршрут №6А · маршрутное такси",
+              "hours": "05:20–19:50",
+              "interval": "20 мин"
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "6 / 6А",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Затока",
+          "name": "Затока → Белгород-Днестровский",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Затока"
+            },
+            {
+              "name": "Белгород-Днестровский"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрут №6 · обычный режим",
+              "departures": [
+                "09:00",
+                "19:30"
+              ]
+            },
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрут №6 · маршрутное такси",
+              "hours": "06:30–20:00",
+              "interval": "23 мин"
+            },
+            {
+              "days": "1 мая–15 сентября",
+              "mode": "Маршрут №6А · обычный режим",
+              "departures": [
+                "06:10",
+                "10:10",
+                "15:10"
+              ]
+            },
+            {
+              "days": "1 мая–15 сентября",
+              "mode": "Маршрут №6А · маршрутное такси",
+              "hours": "06:00–21:00",
+              "interval": "20 мин"
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "6 / 6А",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:6 / 6А"
+      ],
+      "category": "nearby"
     },
     {
       "id": "Белгород-Днестровский ↔ Измаил",
@@ -1379,6 +1739,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:07+00:00",
             "result": "unavailable"
@@ -1416,6 +1778,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:12+00:00",
             "result": "unavailable"
@@ -1529,6 +1893,8 @@
               "checkedAt": "2026-10-13T01:39:12+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:12+00:00",
             "result": "published"
@@ -1615,7 +1981,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:35+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -1665,6 +2033,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:10+00:00",
             "result": "unavailable"
@@ -1717,7 +2087,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -1767,6 +2139,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:11+00:00",
             "result": "unavailable"
@@ -1777,6 +2151,110 @@
         "bilhorod:regional:Херсон"
       ],
       "category": "ukraine"
+    },
+    {
+      "id": "Белгород-Днестровский ↔ Благодатное",
+      "name": "Благодатное — Белгород-Днестровский",
+      "places": [
+        "Благодатное",
+        "Белгород-Днестровский"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Благодатное",
+          "name": "Благодатное → Белгород-Днестровский",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Благодатное"
+            },
+            {
+              "name": "Белгород-Днестровский"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "06:00",
+                "15:00"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Белгород-Днестровский",
+          "name": "Белгород-Днестровский → Благодатное",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Белгород-Днестровский"
+            },
+            {
+              "name": "Благодатное"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "05:00",
+                "14:00"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:Без номера"
+      ],
+      "category": "nearby"
     },
     {
       "id": "Александровка ↔ Болград",
@@ -1819,7 +2297,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -1855,11 +2335,119 @@
           "shape": [],
           "trips": [],
           "references": [],
-          "status": "unconfirmed"
+          "status": "unconfirmed",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
       "category": "ukraine"
+    },
+    {
+      "id": "Банновка ↔ Болград",
+      "name": "Болград — Банновка",
+      "places": [
+        "Болград",
+        "Банновка"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Болград",
+          "name": "Болград → Банновка",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Болград"
+            },
+            {
+              "name": "Банновка"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:30",
+                "10:30",
+                "13:10"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Банновка",
+          "name": "Банновка → Болград",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Банновка"
+            },
+            {
+              "name": "Болград"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "08:00",
+                "11:30",
+                "13:50"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:Без номера"
+      ],
+      "category": "nearby"
     },
     {
       "id": "Белая Церковь ↔ Болград",
@@ -1909,7 +2497,9 @@
               "checkedAt": "2026-10-13T01:38:36+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -1976,7 +2566,9 @@
               "checkedAt": "2026-10-13T01:38:36+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -2030,7 +2622,9 @@
               "checkedAt": "2026-10-13T01:38:37+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -2077,7 +2671,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -2127,6 +2723,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:20+00:00",
             "result": "unavailable"
@@ -2164,6 +2762,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:13+00:00",
             "result": "unavailable"
@@ -2217,7 +2817,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -2266,7 +2868,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -2335,7 +2939,9 @@
               "checkedAt": "2026-10-13T01:38:30+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -2403,6 +3009,8 @@
               "checkedAt": "2026-10-13T01:38:36+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:19+00:00",
             "result": "unavailable"
@@ -2463,7 +3071,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:01+00:00",
             "result": "unavailable"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -2519,7 +3129,9 @@
               "checkedAt": "2026-10-13T01:38:36+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -2567,6 +3179,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:20+00:00",
             "result": "unavailable"
@@ -2604,6 +3218,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:29+00:00",
             "result": "unavailable"
@@ -2664,7 +3280,9 @@
               "checkedAt": "2026-10-13T01:38:36+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -2698,7 +3316,9 @@
           "shape": [],
           "trips": [],
           "references": [],
-          "status": "unconfirmed"
+          "status": "unconfirmed",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -2752,7 +3372,9 @@
               "checkedAt": "2026-10-13T01:38:37+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -2806,7 +3428,9 @@
               "checkedAt": "2026-10-13T01:38:37+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -2854,6 +3478,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:25+00:00",
             "result": "unavailable"
@@ -2891,6 +3517,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:15+00:00",
             "result": "unavailable"
@@ -3004,6 +3632,8 @@
               "checkedAt": "2026-10-13T01:39:28+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:28+00:00",
             "result": "published"
@@ -3090,7 +3720,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:35+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -3199,6 +3831,8 @@
               "checkedAt": "2026-10-13T01:39:24+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:24+00:00",
             "result": "published"
@@ -3272,7 +3906,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:03+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -3322,6 +3958,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:26+00:00",
             "result": "unavailable"
@@ -3375,6 +4013,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:27+00:00",
             "result": "unavailable"
@@ -3428,6 +4068,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:26+00:00",
             "result": "unavailable"
@@ -3436,6 +4078,108 @@
       ],
       "sources": [
         "vilkove:bessarabia:Татарбунары"
+      ],
+      "category": "nearby"
+    },
+    {
+      "id": "Болград ↔ Голица",
+      "name": "Голица — Болград",
+      "places": [
+        "Голица",
+        "Болград"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Голица",
+          "name": "Голица → Болград",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Голица"
+            },
+            {
+              "name": "Болград"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:00"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Болград",
+          "name": "Болград → Голица",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Болград"
+            },
+            {
+              "name": "Голица"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "12:50"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:Без номера"
       ],
       "category": "nearby"
     },
@@ -3480,7 +4224,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Богатое",
@@ -3513,7 +4259,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -3564,6 +4312,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:14+00:00",
             "result": "unavailable"
@@ -3601,6 +4351,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:21+00:00",
             "result": "unavailable"
@@ -3700,7 +4452,9 @@
               "checkedAt": "2026-10-13T01:38:38+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -3767,7 +4521,9 @@
               "checkedAt": "2026-10-13T01:38:40+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -3814,7 +4570,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -3883,7 +4641,9 @@
               "checkedAt": "2026-10-13T01:38:38+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -3930,7 +4690,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -3966,7 +4728,9 @@
           "shape": [],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Каменка",
@@ -3986,7 +4750,9 @@
           "shape": [],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4035,7 +4801,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Камышовка",
@@ -4068,7 +4836,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4105,7 +4875,9 @@
           "shape": [],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Кирнички",
@@ -4125,7 +4897,9 @@
           "shape": [],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4140,7 +4914,7 @@
         "Измаил",
         "Кислица"
       ],
-      "days": "Даты и наличие рейсов уточняются",
+      "days": "Официальное базовое расписание",
       "fare": "",
       "directions": [
         {
@@ -4172,9 +4946,59 @@
               29.118
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Понедельник",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:15",
+                "09:50",
+                "12:10",
+                "16:50",
+                "20:00"
+              ]
+            },
+            {
+              "days": "Вторник–воскресенье",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:15",
+                "08:40",
+                "09:50",
+                "11:30",
+                "12:10",
+                "13:30",
+                "15:30",
+                "16:50",
+                "18:10",
+                "20:00"
+              ]
+            },
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "14:10"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "1127",
+          "referenceCheckedAt": "2026-10-13"
         },
         {
           "label": "Из Кислица",
@@ -4205,14 +5029,65 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Понедельник",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:50",
+                "10:50",
+                "12:55",
+                "15:00",
+                "18:00"
+              ]
+            },
+            {
+              "days": "Вторник–воскресенье",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "06:50",
+                "07:50",
+                "09:30",
+                "10:50",
+                "12:15",
+                "12:55",
+                "14:20",
+                "15:00",
+                "16:10",
+                "18:00"
+              ]
+            },
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "06:10"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "1127",
+          "referenceCheckedAt": "2026-10-13"
         }
       ],
       "sources": [
         "villages:villages:Кислица",
-        "legacy:izmail-district-schedule-2019"
+        "legacy:izmail-district-schedule-2019",
+        "official-reference:1127"
       ],
       "category": "nearby"
     },
@@ -4277,7 +5152,9 @@
               "checkedAt": "2026-10-13T01:38:39+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -4324,7 +5201,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4373,7 +5252,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Ларжанка",
@@ -4406,7 +5287,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4456,7 +5339,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4505,7 +5390,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Матроска",
@@ -4538,7 +5425,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4588,7 +5477,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Муравлёвка",
@@ -4621,7 +5512,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4691,7 +5584,9 @@
               "checkedAt": "2026-10-13T01:38:39+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -4738,7 +5633,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Новая Некрасовка",
@@ -4771,7 +5668,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4821,7 +5720,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Новокаланчак",
@@ -4854,7 +5755,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -4904,7 +5807,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -5012,7 +5917,9 @@
               "label": "LikeBus · перевозчик",
               "checkedAt": "2026-10-13T01:38:31+00:00"
             }
-          ]
+          ],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Одесса",
@@ -5487,6 +6394,8 @@
               "checkedAt": "2026-10-13T01:38:59+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:38:59+00:00",
             "result": "published"
@@ -5540,7 +6449,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Озёрное",
@@ -5573,7 +6484,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -5623,7 +6536,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Первомайское",
@@ -5656,7 +6571,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -5713,7 +6630,9 @@
               "checkedAt": "2026-10-13T01:38:39+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -5726,7 +6645,7 @@
         "Измаил",
         "Сафьяны"
       ],
-      "days": "Даты и наличие рейсов уточняются",
+      "days": "Официальное базовое расписание",
       "fare": "",
       "directions": [
         {
@@ -5758,9 +6677,43 @@
               28.876
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:00",
+                "08:00",
+                "09:30",
+                "13:00",
+                "17:05"
+              ]
+            },
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "14:30"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "1130",
+          "referenceCheckedAt": "2026-10-13"
         },
         {
           "label": "Из Сафьяны",
@@ -5791,14 +6744,50 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "06:30",
+                "08:30",
+                "10:00",
+                "13:30",
+                "15:00",
+                "18:00"
+              ]
+            },
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "07:30"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "1130",
+          "referenceCheckedAt": "2026-10-13"
         }
       ],
       "sources": [
         "villages:villages:Сафьяны",
-        "legacy:izmail-district-schedule-2019"
+        "legacy:izmail-district-schedule-2019",
+        "official-reference:1130"
       ],
       "category": "nearby"
     },
@@ -5863,7 +6852,9 @@
               "checkedAt": "2026-10-13T01:38:40+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -5917,7 +6908,9 @@
               "checkedAt": "2026-10-13T01:38:40+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -5964,7 +6957,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -6013,7 +7008,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Утконосовка",
@@ -6046,7 +7043,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -6116,7 +7115,9 @@
               "checkedAt": "2026-10-13T01:38:38+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -6443,7 +7444,9 @@
               "checkedAt": "2026-10-13T01:38:40+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -6679,7 +7682,9 @@
               "checkedAt": "2026-10-13T01:38:41+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -6850,7 +7855,9 @@
               "checkedAt": "2026-10-13T01:38:45+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -6956,7 +7963,9 @@
               "checkedAt": "2026-10-13T01:38:45+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -7049,7 +8058,9 @@
               "checkedAt": "2026-10-13T01:38:46+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -7246,7 +8257,9 @@
               "checkedAt": "2026-10-13T01:38:46+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -7326,7 +8339,9 @@
               "checkedAt": "2026-10-13T01:38:32+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Измаил",
@@ -7470,7 +8485,9 @@
               "checkedAt": "2026-10-13T01:38:39+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -7823,7 +8840,9 @@
               "checkedAt": "2026-10-13T01:38:42+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -8059,7 +9078,9 @@
               "checkedAt": "2026-10-13T01:38:42+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -8126,7 +9147,9 @@
               "checkedAt": "2026-10-13T01:38:43+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -8206,7 +9229,9 @@
               "checkedAt": "2026-10-13T01:38:44+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Рени",
@@ -8272,7 +9297,9 @@
               "checkedAt": "2026-10-13T01:38:53+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -8638,7 +9665,9 @@
               "checkedAt": "2026-10-13T01:38:44+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -8705,7 +9734,9 @@
               "checkedAt": "2026-10-13T01:38:41+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -8718,7 +9749,7 @@
         "Килия",
         "Вилково"
       ],
-      "days": "Даты и наличие рейсов уточняются",
+      "days": "Официальное базовое расписание",
       "fare": "",
       "directions": [
         {
@@ -8750,9 +9781,32 @@
               29.586
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "12:00"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "610",
+          "referenceCheckedAt": "2026-10-13",
           "audit": {
             "checkedAt": "2026-10-13T01:39:23+00:00",
             "result": "unavailable"
@@ -8787,9 +9841,32 @@
               29.2637
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "07:00"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "610",
+          "referenceCheckedAt": "2026-10-13",
           "audit": {
             "checkedAt": "2026-10-13T01:39:26+00:00",
             "result": "unavailable"
@@ -8798,7 +9875,8 @@
       ],
       "sources": [
         "kiliya:routes:Вилково",
-        "vilkove:bessarabia:Килия"
+        "vilkove:bessarabia:Килия",
+        "official-reference:610"
       ],
       "category": "nearby"
     },
@@ -8844,6 +9922,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:23+00:00",
             "result": "unavailable"
@@ -8881,6 +9961,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:14+00:00",
             "result": "unavailable"
@@ -8994,6 +10076,8 @@
               "checkedAt": "2026-10-13T01:39:23+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:23+00:00",
             "result": "published"
@@ -9132,7 +10216,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:35+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -9182,6 +10268,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:22+00:00",
             "result": "unavailable"
@@ -9234,7 +10322,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -9343,6 +10433,8 @@
               "checkedAt": "2026-10-13T01:39:22+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:22+00:00",
             "result": "published"
@@ -9624,11 +10716,333 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:03+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
         "kiliya:routes:Одесса"
+      ],
+      "category": "nearby"
+    },
+    {
+      "id": "Килия ↔ Старые Трояны",
+      "name": "Килия — Старые Трояны",
+      "places": [
+        "Килия",
+        "Старые Трояны"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Килия",
+          "name": "Килия → Старые Трояны",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Килия"
+            },
+            {
+              "name": "Старые Трояны"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "12:15"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "611",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Старые Трояны",
+          "name": "Старые Трояны → Килия",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Старые Трояны"
+            },
+            {
+              "name": "Килия"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Обычный режим",
+              "departures": [
+                "07:15"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "611",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:611"
+      ],
+      "category": "nearby"
+    },
+    {
+      "id": "Болград ↔ Кубей",
+      "name": "Кубей — Болград",
+      "places": [
+        "Кубей",
+        "Болград"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Кубей",
+          "name": "Кубей → Болград",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Кубей"
+            },
+            {
+              "name": "Болград"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:10",
+                "08:00",
+                "08:40",
+                "09:40",
+                "10:50",
+                "11:50",
+                "12:50",
+                "15:20"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Болград",
+          "name": "Болград → Кубей",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Болград"
+            },
+            {
+              "name": "Кубей"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "08:50",
+                "10:00",
+                "10:50",
+                "11:30",
+                "12:20",
+                "13:00",
+                "14:00",
+                "17:10"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:Без номера"
+      ],
+      "category": "nearby"
+    },
+    {
+      "id": "Болград ↔ Новые Трояны",
+      "name": "Новые Трояны — Болград",
+      "places": [
+        "Новые Трояны",
+        "Болград"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Новые Трояны",
+          "name": "Новые Трояны → Болград",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Новые Трояны"
+            },
+            {
+              "name": "Болград"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Вторник–воскресенье",
+              "mode": "Обычный режим",
+              "departures": [
+                "07:10"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Болград",
+          "name": "Болград → Новые Трояны",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Болград"
+            },
+            {
+              "name": "Новые Трояны"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Вторник–воскресенье",
+              "mode": "Обычный режим",
+              "departures": [
+                "12:45"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:Без номера"
       ],
       "category": "nearby"
     },
@@ -9680,7 +11094,9 @@
               "checkedAt": "2026-10-13T01:38:33+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -9714,7 +11130,9 @@
           "shape": [],
           "trips": [],
           "references": [],
-          "status": "unconfirmed"
+          "status": "unconfirmed",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -9989,7 +11407,9 @@
               "checkedAt": "2026-10-13T01:38:46+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -10100,7 +11520,9 @@
               "checkedAt": "2026-10-13T01:38:47+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -10245,7 +11667,9 @@
               "checkedAt": "2026-10-13T01:38:47+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -10338,7 +11762,9 @@
               "checkedAt": "2026-10-13T01:38:50+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -10392,7 +11818,9 @@
               "checkedAt": "2026-10-13T01:38:33+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -10511,7 +11939,9 @@
               "checkedAt": "2026-10-13T01:38:50+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -10726,7 +12156,9 @@
               "checkedAt": "2026-10-13T01:38:48+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -10915,7 +12347,9 @@
               "checkedAt": "2026-10-13T01:38:51+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -14116,7 +15550,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:07+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         },
         {
           "label": "Из Киев",
@@ -14507,7 +15943,9 @@
               "checkedAt": "2026-10-13T01:38:42+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -18670,7 +20108,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:38:57+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -18841,7 +20281,9 @@
               "checkedAt": "2026-10-13T01:38:49+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -18895,7 +20337,9 @@
               "checkedAt": "2026-10-13T01:38:33+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -18949,7 +20393,9 @@
               "checkedAt": "2026-10-13T01:38:33+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -19003,7 +20449,9 @@
               "checkedAt": "2026-10-13T01:38:33+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -19088,7 +20536,9 @@
               "checkedAt": "2026-10-13T01:38:49+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -19199,7 +20649,9 @@
               "checkedAt": "2026-10-13T01:38:50+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -20336,7 +21788,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:05+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -20403,7 +21857,9 @@
               "checkedAt": "2026-10-13T01:38:33+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -20812,7 +22268,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:05+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -20879,7 +22337,9 @@
               "checkedAt": "2026-10-13T01:38:33+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -20959,7 +22419,9 @@
               "checkedAt": "2026-10-13T01:38:33+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -21849,7 +23311,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:05+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -22228,7 +23692,9 @@
               "checkedAt": "2026-10-13T01:38:50+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -22404,7 +23870,9 @@
               "checkedAt": "2026-10-13T01:38:48+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -22670,7 +24138,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:07+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -22724,7 +24194,9 @@
               "checkedAt": "2026-10-13T01:38:51+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -22778,7 +24250,9 @@
               "checkedAt": "2026-10-13T01:38:52+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -22845,7 +24319,9 @@
               "checkedAt": "2026-10-13T01:38:52+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -22899,7 +24375,9 @@
               "checkedAt": "2026-10-13T01:38:52+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -22947,6 +24425,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:29+00:00",
             "result": "unavailable"
@@ -22984,6 +24464,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:15+00:00",
             "result": "unavailable"
@@ -23037,7 +24519,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -23093,7 +24577,9 @@
               "checkedAt": "2026-10-13T01:38:53+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -23161,6 +24647,8 @@
               "checkedAt": "2026-10-13T01:38:53+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:28+00:00",
             "result": "unavailable"
@@ -23221,7 +24709,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:03+00:00",
             "result": "unavailable"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -23271,6 +24761,8 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:29+00:00",
             "result": "unavailable"
@@ -23330,7 +24822,9 @@
               "checkedAt": "2026-10-13T01:38:54+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -23384,11 +24878,225 @@
               "checkedAt": "2026-10-13T01:38:54+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
       "category": "ukraine"
+    },
+    {
+      "id": "Арциз ↔ Садовое",
+      "name": "Садовое — Арциз",
+      "places": [
+        "Садовое",
+        "Арциз"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Садовое",
+          "name": "Садовое → Арциз",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Садовое"
+            },
+            {
+              "name": "Арциз"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "07:00",
+                "10:00",
+                "13:00"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Арциз",
+          "name": "Арциз → Садовое",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Арциз"
+            },
+            {
+              "name": "Садовое"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "08:00",
+                "12:00",
+                "14:00"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "Без номера",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:Без номера"
+      ],
+      "category": "nearby"
+    },
+    {
+      "id": "Измаил ↔ Суворово",
+      "name": "Суворово — Измаил",
+      "places": [
+        "Суворово",
+        "Измаил"
+      ],
+      "days": "Официальное базовое расписание",
+      "fare": "",
+      "directions": [
+        {
+          "label": "Из Измаил",
+          "name": "Измаил → Суворово",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Измаил"
+            },
+            {
+              "name": "Суворово"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "08:10",
+                "12:50",
+                "17:15"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "487",
+          "referenceCheckedAt": "2026-10-13"
+        },
+        {
+          "label": "Из Суворово",
+          "name": "Суворово → Измаил",
+          "hours": "",
+          "interval": "",
+          "departures": [],
+          "extra": "",
+          "stops": [
+            {
+              "name": "Суворово"
+            },
+            {
+              "name": "Измаил"
+            }
+          ],
+          "shape": [],
+          "status": "reference",
+          "trips": [],
+          "references": [],
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно",
+              "mode": "Маршрутное такси",
+              "departures": [
+                "06:50",
+                "09:30",
+                "15:30"
+              ]
+            }
+          ],
+          "officialReferences": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ],
+          "referenceRouteCode": "487",
+          "referenceCheckedAt": "2026-10-13"
+        }
+      ],
+      "sources": [
+        "official-reference:487"
+      ],
+      "category": "nearby"
     },
     {
       "id": "Бургас ↔ Татарбунары",
@@ -23451,7 +25159,9 @@
               "checkedAt": "2026-10-13T01:38:54+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -23544,7 +25254,9 @@
               "checkedAt": "2026-10-13T01:38:54+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -23611,7 +25323,9 @@
               "checkedAt": "2026-10-13T01:38:56+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -23718,6 +25432,8 @@
               "checkedAt": "2026-10-13T01:39:32+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:32+00:00",
             "result": "published"
@@ -24064,7 +25780,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:16+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -24529,6 +26247,8 @@
               "checkedAt": "2026-10-13T01:39:33+00:00"
             }
           ],
+          "referenceSchedules": [],
+          "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:33+00:00",
             "result": "published"
@@ -25062,7 +26782,9 @@
           "audit": {
             "checkedAt": "2026-10-13T01:39:36+00:00",
             "result": "published"
-          }
+          },
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -25131,7 +26853,9 @@
               "checkedAt": "2026-10-13T01:38:54+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -25185,7 +26909,9 @@
               "checkedAt": "2026-10-13T01:38:55+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -25232,7 +26958,9 @@
           ],
           "status": "unconfirmed",
           "trips": [],
-          "references": []
+          "references": [],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -25301,7 +27029,9 @@
               "checkedAt": "2026-10-13T01:38:56+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -25368,7 +27098,9 @@
               "label": "LikeBus · перевозчик",
               "checkedAt": "2026-10-13T01:38:56+00:00"
             }
-          ]
+          ],
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [
@@ -25424,7 +27156,9 @@
               "checkedAt": "2026-10-13T01:38:56+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],
@@ -25504,7 +27238,9 @@
               "checkedAt": "2026-10-13T01:38:56+00:00"
             }
           ],
-          "status": "dated"
+          "status": "dated",
+          "referenceSchedules": [],
+          "officialReferences": []
         }
       ],
       "sources": [],

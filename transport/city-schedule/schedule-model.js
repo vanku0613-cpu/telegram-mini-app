@@ -26,6 +26,7 @@
   }
   function status(direction, day = today()) {
     if (usableTrips(direction, day).length) return 'dated';
+    if (direction.referenceSchedules?.length) return 'reference';
     return direction.trips?.length ? 'expired' : 'unconfirmed';
   }
   const api = {canonical, category, today, dateLabel, usableTrips, status};

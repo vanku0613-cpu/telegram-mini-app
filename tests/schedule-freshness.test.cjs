@@ -9,6 +9,7 @@ test('dated trips expire instead of silently becoming daily departures',()=>{
   assert.equal(model.status(d,'2026-10-10'),'expired');
   assert.deepEqual(model.usableTrips(d,'2026-10-10'),[]);
   assert.equal(model.status({trips:[]},'2026-10-08'),'unconfirmed');
+  assert.equal(model.status({trips:[],referenceSchedules:[{days:'Ежедневно',departures:['07:00']}]},'2026-10-08'),'reference');
 });
 test('every published departure has a service date, source and boarding location',()=>{
   assert.equal(new Set(routes.map(r=>r.id)).size,routes.length);
@@ -23,6 +24,22 @@ test('every published departure has a service date, source and boarding location
       assert.ok(d.references.some(s=>s.url===t.source));
     }
   }
+});
+test('official reference schedules remain separate from date-confirmed ticket trips',()=>{
+  const referenceRoutes=routes.filter(route=>route.directions.some(direction=>direction.referenceSchedules?.length));
+  assert.equal(referenceRoutes.length,14);
+  assert.equal(referenceRoutes.flatMap(route=>route.directions).filter(direction=>direction.referenceSchedules?.length).length,28);
+  for(const route of referenceRoutes)for(const direction of route.directions.filter(item=>item.referenceSchedules?.length)){
+    assert.equal(direction.departures.length,0,`${direction.name}: reference times leaked into current departures`);
+    assert.ok(direction.officialReferences.length>=2,`${direction.name}: official references are missing`);
+    assert.ok(direction.officialReferences.every(source=>source.url.startsWith('https://morhoz.od.gov.ua/')));
+    for(const schedule of direction.referenceSchedules){
+      assert.ok(schedule.days&&schedule.mode);
+      for(const time of schedule.departures||[])assert.match(time,/^(?:[01]\d|2[0-3]):[0-5]\d$/);
+    }
+  }
+  const izmailKyslytsia=referenceRoutes.find(route=>route.places.includes('Измаил')&&route.places.includes('Кислица'));
+  assert.ok(izmailKyslytsia.directions.some(direction=>direction.name==='Измаил → Кислица'&&direction.referenceSchedules.some(schedule=>schedule.departures.includes('20:00'))));
 });
 test('route folders distinguish international and local destinations',()=>{
   assert.equal(model.category({places:['Одесса','Кишинёв']}),'international');

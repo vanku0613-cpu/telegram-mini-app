@@ -161,7 +161,69 @@ for (const item of merged.values()) {
   item.directions = item.directions.map(d => ({
     ...d, hours: '', interval: '', departures: [], extra: '',
     status: 'unconfirmed', trips: [], references: [],
+    referenceSchedules: [], officialReferences: [],
   }));
+}
+
+// Official competition schedules are useful when a route is not currently
+// offered by the ticket systems. Keep them in a separate reference layer: they
+// must never be mistaken for a confirmed departure on a particular date.
+const officialReferenceFile = path.join(root, 'transport', 'schedule-official-references.json');
+const officialReferenceData = JSON.parse(fs.readFileSync(officialReferenceFile, 'utf8'));
+const officialReferencePlaces = new Set();
+for (const route of officialReferenceData.routes || []) {
+  const places = [cleanPlace(route.from), cleanPlace(route.to)];
+  places.forEach(place => officialReferencePlaces.add(place));
+  const key = places.map(norm).sort().join('|');
+  let item = merged.get(key);
+  if (!item) {
+    item = {
+      id: places.slice().sort((a, b) => a.localeCompare(b, 'ru')).join(' ↔ '),
+      name: places.join(' — '),
+      places: [...places],
+      days: 'Официальное базовое расписание',
+      fare: '',
+      directions: [],
+      sources: []
+    };
+    merged.set(key, item);
+  }
+  const coordinates = new Map();
+  for (const direction of item.directions) {
+    for (const stop of direction.stops || []) {
+      if (Number.isFinite(stop.lat) && Number.isFinite(stop.lng)) {
+        coordinates.set(norm(stop.name), {lat: stop.lat, lng: stop.lng});
+      }
+    }
+  }
+  for (const referenceDirection of route.directions || []) {
+    const from = cleanPlace(referenceDirection.from);
+    const to = cleanPlace(referenceDirection.to);
+    let direction = item.directions.find(candidate => {
+      const stops = candidate.stops || [];
+      return cleanPlace(stops[0]?.name) === from && cleanPlace(stops.at(-1)?.name) === to;
+    });
+    if (!direction) {
+      const fromPoint = coordinates.get(norm(from));
+      const toPoint = coordinates.get(norm(to));
+      direction = {
+        label: `Из ${from}`,
+        name: `${from} → ${to}`,
+        hours: '', interval: '', departures: [], extra: '',
+        stops: [{name: from, ...(fromPoint || {})}, {name: to, ...(toPoint || {})}],
+        shape: fromPoint && toPoint ? [[fromPoint.lat, fromPoint.lng], [toPoint.lat, toPoint.lng]] : [],
+        status: 'reference', trips: [], references: []
+      };
+      item.directions.push(direction);
+    }
+    direction.referenceSchedules = referenceDirection.schedules || [];
+    direction.officialReferences = [route.publication, route.award].filter(Boolean);
+    direction.referenceRouteCode = route.routeCode || '';
+    direction.referenceCheckedAt = officialReferenceData.updated;
+    direction.status = 'reference';
+  }
+  item.days = 'Официальное базовое расписание';
+  item.sources.push(`official-reference:${route.routeCode || key}`);
 }
 
 const sourceFile = path.join(root, 'transport', 'schedule-sources.json');
@@ -212,8 +274,9 @@ for (const source of snapshot.sources.filter(s=>s.url.startsWith('https://ticket
 }
 
 const villages = JSON.parse(fs.readFileSync(path.join(dataDir,'villages.json'),'utf8')).groups.flatMap(g=>g.routes.map(r=>r.id));
+const nearbyPlaces = [...new Set([...villages, ...officialReferencePlaces])];
 const routes = [...merged.values()]
-  .map(route => ({...route, category:model.category(route,villages), directions:route.directions.map(d=>({...d,trips:d.trips.sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time))}))}))
+  .map(route => ({...route, category:model.category(route,nearbyPlaces), directions:route.directions.map(d=>({...d,trips:d.trips.sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time))}))}))
   .map(route => ({ ...route, sources: [...new Set(route.sources)] }))
   .sort((a, b) => a.name.localeCompare(b.name, 'ru'));
 

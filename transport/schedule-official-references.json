@@ -1,0 +1,185 @@
+{
+  "updated": "2026-10-13",
+  "description": "Базовые графики автобусных маршрутов из официальных условий конкурсов Одесской области, для которых опубликованы результаты определения перевозчика. Это справочное расписание, а не подтверждение выполнения рейса на выбранную дату.",
+  "routes": [
+    {
+      "routeCode": "1127",
+      "from": "Измаил",
+      "to": "Кислица",
+      "publication": {
+        "date": "2023-03-09",
+        "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+        "label": "Официальный график маршрута"
+      },
+      "award": {
+        "date": "2023-05-03",
+        "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+        "label": "Результаты конкурса перевозчиков"
+      },
+      "directions": [
+        {
+          "from": "Измаил",
+          "to": "Кислица",
+          "schedules": [
+            {"days": "Понедельник", "mode": "Маршрутное такси", "departures": ["07:15", "09:50", "12:10", "16:50", "20:00"]},
+            {"days": "Вторник–воскресенье", "mode": "Маршрутное такси", "departures": ["07:15", "08:40", "09:50", "11:30", "12:10", "13:30", "15:30", "16:50", "18:10", "20:00"]},
+            {"days": "Ежедневно", "mode": "Обычный режим", "departures": ["14:10"]}
+          ]
+        },
+        {
+          "from": "Кислица",
+          "to": "Измаил",
+          "schedules": [
+            {"days": "Понедельник", "mode": "Маршрутное такси", "departures": ["07:50", "10:50", "12:55", "15:00", "18:00"]},
+            {"days": "Вторник–воскресенье", "mode": "Маршрутное такси", "departures": ["06:50", "07:50", "09:30", "10:50", "12:15", "12:55", "14:20", "15:00", "16:10", "18:00"]},
+            {"days": "Ежедневно", "mode": "Обычный режим", "departures": ["06:10"]}
+          ]
+        }
+      ]
+    },
+    {
+      "routeCode": "610",
+      "from": "Килия",
+      "to": "Вилково",
+      "publication": {"date": "2023-03-09", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2023-05-03", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Килия", "to": "Вилково", "schedules": [{"days": "Ежедневно", "mode": "Обычный режим", "departures": ["12:00"]}]},
+        {"from": "Вилково", "to": "Килия", "schedules": [{"days": "Ежедневно", "mode": "Обычный режим", "departures": ["07:00"]}]}
+      ]
+    },
+    {
+      "routeCode": "611",
+      "from": "Килия",
+      "to": "Старые Трояны",
+      "publication": {"date": "2023-03-09", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2023-05-03", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Килия", "to": "Старые Трояны", "schedules": [{"days": "Ежедневно", "mode": "Обычный режим", "departures": ["12:15"]}]},
+        {"from": "Старые Трояны", "to": "Килия", "schedules": [{"days": "Ежедневно", "mode": "Обычный режим", "departures": ["07:15"]}]}
+      ]
+    },
+    {
+      "routeCode": "1130",
+      "from": "Измаил",
+      "to": "Сафьяны",
+      "publication": {"date": "2023-03-09", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2023-05-03", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Измаил", "to": "Сафьяны", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["07:00", "08:00", "09:30", "13:00", "17:05"]}, {"days": "Ежедневно", "mode": "Обычный режим", "departures": ["14:30"]}]},
+        {"from": "Сафьяны", "to": "Измаил", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["06:30", "08:30", "10:00", "13:30", "15:00", "18:00"]}, {"days": "Ежедневно", "mode": "Обычный режим", "departures": ["07:30"]}]}
+      ]
+    },
+    {
+      "routeCode": "487",
+      "from": "Суворово",
+      "to": "Измаил",
+      "publication": {"date": "2023-03-09", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2023-05-03", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Измаил", "to": "Суворово", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["08:10", "12:50", "17:15"]}]},
+        {"from": "Суворово", "to": "Измаил", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["06:50", "09:30", "15:30"]}]}
+      ]
+    },
+    {
+      "routeCode": "6 / 6А",
+      "from": "Белгород-Днестровский",
+      "to": "Затока",
+      "publication": {"date": "2024-10-31", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2024-12-11", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Белгород-Днестровский", "to": "Затока", "schedules": [{"days": "Ежедневно", "mode": "Маршрут №6 · обычный режим", "departures": ["07:30", "18:00"]}, {"days": "Ежедневно", "mode": "Маршрут №6 · маршрутное такси", "hours": "05:50–19:10", "interval": "23 мин"}, {"days": "1 мая–15 сентября", "mode": "Маршрут №6А · обычный режим", "departures": ["07:00", "10:00", "14:00"]}, {"days": "1 мая–15 сентября", "mode": "Маршрут №6А · маршрутное такси", "hours": "05:20–19:50", "interval": "20 мин"}]},
+        {"from": "Затока", "to": "Белгород-Днестровский", "schedules": [{"days": "Ежедневно", "mode": "Маршрут №6 · обычный режим", "departures": ["09:00", "19:30"]}, {"days": "Ежедневно", "mode": "Маршрут №6 · маршрутное такси", "hours": "06:30–20:00", "interval": "23 мин"}, {"days": "1 мая–15 сентября", "mode": "Маршрут №6А · обычный режим", "departures": ["06:10", "10:10", "15:10"]}, {"days": "1 мая–15 сентября", "mode": "Маршрут №6А · маршрутное такси", "hours": "06:00–21:00", "interval": "20 мин"}]}
+      ]
+    },
+    {
+      "routeCode": "Без номера",
+      "from": "Благодатное",
+      "to": "Белгород-Днестровский",
+      "publication": {"date": "2024-10-31", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2024-12-11", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Благодатное", "to": "Белгород-Днестровский", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["06:00", "15:00"]}]},
+        {"from": "Белгород-Днестровский", "to": "Благодатное", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["05:00", "14:00"]}]}
+      ]
+    },
+    {
+      "routeCode": "Без номера",
+      "from": "Новые Трояны",
+      "to": "Болград",
+      "publication": {"date": "2024-10-31", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2024-12-11", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Новые Трояны", "to": "Болград", "schedules": [{"days": "Вторник–воскресенье", "mode": "Обычный режим", "departures": ["07:10"]}]},
+        {"from": "Болград", "to": "Новые Трояны", "schedules": [{"days": "Вторник–воскресенье", "mode": "Обычный режим", "departures": ["12:45"]}]}
+      ]
+    },
+    {
+      "routeCode": "Без номера",
+      "from": "Арциз",
+      "to": "Теплица",
+      "publication": {"date": "2024-10-31", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2024-12-26", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2025/01/Nakaz-Departamentu-vid-26.12.2024-30-O-2024.pdf", "label": "Решение о перевозчике"},
+      "directions": [
+        {"from": "Арциз", "to": "Теплица", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["07:15", "14:00"]}]},
+        {"from": "Теплица", "to": "Арциз", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["07:40", "14:30"]}]}
+      ]
+    },
+    {
+      "routeCode": "Без номера",
+      "from": "Кубей",
+      "to": "Болград",
+      "publication": {"date": "2024-10-31", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2024-12-11", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Кубей", "to": "Болград", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["07:10", "08:00", "08:40", "09:40", "10:50", "11:50", "12:50", "15:20"]}]},
+        {"from": "Болград", "to": "Кубей", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["08:50", "10:00", "10:50", "11:30", "12:20", "13:00", "14:00", "17:10"]}]}
+      ]
+    },
+    {
+      "routeCode": "Без номера",
+      "from": "Голица",
+      "to": "Болград",
+      "publication": {"date": "2024-10-31", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2024-12-11", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Голица", "to": "Болград", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["07:00"]}]},
+        {"from": "Болград", "to": "Голица", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["12:50"]}]}
+      ]
+    },
+    {
+      "routeCode": "Без номера",
+      "from": "Болград",
+      "to": "Банновка",
+      "publication": {"date": "2024-10-31", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2024-12-11", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Болград", "to": "Банновка", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["07:30", "10:30", "13:10"]}]},
+        {"from": "Банновка", "to": "Болград", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["08:00", "11:30", "13:50"]}]}
+      ]
+    },
+    {
+      "routeCode": "Без номера",
+      "from": "Садовое",
+      "to": "Арциз",
+      "publication": {"date": "2024-10-31", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2024-12-11", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Садовое", "to": "Арциз", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["07:00", "10:00", "13:00"]}]},
+        {"from": "Арциз", "to": "Садовое", "schedules": [{"days": "Ежедневно", "mode": "Маршрутное такси", "departures": ["08:00", "12:00", "14:00"]}]}
+      ]
+    },
+    {
+      "routeCode": "Без номера",
+      "from": "Весёлый Кут",
+      "to": "Белгород-Днестровский",
+      "publication": {"date": "2024-10-31", "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf", "label": "Официальный график маршрута"},
+      "award": {"date": "2024-12-11", "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/", "label": "Результаты конкурса перевозчиков"},
+      "directions": [
+        {"from": "Весёлый Кут", "to": "Белгород-Днестровский", "schedules": [{"days": "Ежедневно", "mode": "Обычный режим", "departures": ["06:40", "13:15"]}]},
+        {"from": "Белгород-Днестровский", "to": "Весёлый Кут", "schedules": [{"days": "Ежедневно", "mode": "Обычный режим", "departures": ["11:30", "15:45"]}]}
+      ]
+    }
+  ]
+}
+
