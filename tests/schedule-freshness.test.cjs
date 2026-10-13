@@ -26,10 +26,10 @@ test('every published departure has a service date, source and boarding location
   }
 });
 test('official reference schedules remain separate from date-confirmed ticket trips',()=>{
-  const referenceRoutes=routes.filter(route=>route.directions.some(direction=>direction.referenceSchedules?.length));
+  const referenceRoutes=routes.filter(route=>route.directions.some(direction=>direction.referenceKind==='official'));
   assert.equal(referenceRoutes.length,14);
-  assert.equal(referenceRoutes.flatMap(route=>route.directions).filter(direction=>direction.referenceSchedules?.length).length,28);
-  for(const route of referenceRoutes)for(const direction of route.directions.filter(item=>item.referenceSchedules?.length)){
+  assert.equal(referenceRoutes.flatMap(route=>route.directions).filter(direction=>direction.referenceKind==='official').length,28);
+  for(const route of referenceRoutes)for(const direction of route.directions.filter(item=>item.referenceKind==='official')){
     assert.equal(direction.departures.length,0,`${direction.name}: reference times leaked into current departures`);
     assert.ok(direction.officialReferences.length>=2,`${direction.name}: official references are missing`);
     assert.ok(direction.officialReferences.every(source=>source.url.startsWith('https://morhoz.od.gov.ua/')));
@@ -40,6 +40,23 @@ test('official reference schedules remain separate from date-confirmed ticket tr
   }
   const izmailKyslytsia=referenceRoutes.find(route=>route.places.includes('Измаил')&&route.places.includes('Кислица'));
   assert.ok(izmailKyslytsia.directions.some(direction=>direction.name==='Измаил → Кислица'&&direction.referenceSchedules.some(schedule=>schedule.departures.includes('20:00'))));
+});
+test('open station schedules are labelled and source backed',()=>{
+  const directions=routes.flatMap(route=>route.directions).filter(direction=>direction.referenceKind==='directory');
+  assert.ok(directions.length>=60);
+  for(const direction of directions){
+    assert.equal(direction.departures.length,0,`${direction.name}: reference times leaked into current departures`);
+    assert.ok(direction.referenceSchedules.some(schedule=>schedule.hours||schedule.interval||schedule.departures?.length),`${direction.name}: reference time is missing`);
+    assert.ok(direction.referenceSources?.length,`${direction.name}: source is missing`);
+    assert.ok(direction.referenceSources.every(source=>/^https:\/\//.test(source.url)));
+  }
+  const kamenka=routes.find(route=>route.places.includes('Измаил')&&route.places.includes('Каменка'));
+  const fromIzmail=kamenka.directions.find(direction=>direction.name==='Измаил → Каменка');
+  assert.deepEqual(fromIzmail.referenceSchedules[0].departures,['08:10','12:30','18:00']);
+});
+test('empty source-less routes are not published',()=>{
+  assert.ok(routes.every(route=>route.sources.length||route.directions.some(direction=>direction.trips?.length||direction.referenceSchedules?.length)));
+  assert.equal(routes.some(route=>route.places.includes('Афіни')||route.places.includes('Салоніки')),false);
 });
 test('route folders distinguish international and local destinations',()=>{
   assert.equal(model.category({places:['Одесса','Кишинёв']}),'international');

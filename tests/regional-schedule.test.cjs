@@ -33,8 +33,8 @@ test('cities and villages show every matching regional route without duplicate c
     assert.equal(await page.locator('.type-card').count(),4);
     await page.getByRole('button',{name:/По области и в сёла/}).click();
     await page.getByRole('button',{name:'Расписание Измаил — Каменка'}).click();
-    assert.match(await page.locator('#schedulePanel').innerText(),/не подтверждено/);
-    assert.equal(await page.locator('.departure').count(),0);
+    assert.match(await page.locator('#schedulePanel').innerText(),/Справочное время отправления/);
+    assert.equal(await page.locator('.departure').count(),3);
     await page.getByRole('button',{name:'К расписанию',exact:true}).click();
     assert.equal(await page.getByRole('button',{name:'Расписание Измаил — Каменка'}).isVisible(),true);
     await page.getByRole('button',{name:'Расписание Измаил — Кислица'}).click();

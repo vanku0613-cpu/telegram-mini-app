@@ -1,0 +1,55 @@
+{
+  "updated": "2026-10-13",
+  "routes": [
+    {
+      "from": "Измаил",
+      "to": "Каменка",
+      "directions": [
+        {
+          "from": "Измаил",
+          "to": "Каменка",
+          "schedules": [
+            {
+              "days": "Ежедневно, по открытому расписанию автостанции",
+              "mode": "Автобус / маршрутное такси",
+              "departures": ["08:10", "12:30", "18:00"]
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+          "label": "Расписание автостанции Измаил"
+        },
+        {
+          "url": "https://zabytki.in.ua/service/timetable/bus_station/364?lang=ru",
+          "label": "Табло автостанции Измаил"
+        }
+      ]
+    },
+    {
+      "from": "Измаил",
+      "to": "Кирнички",
+      "directions": [
+        {
+          "from": "Измаил",
+          "to": "Кирнички",
+          "schedules": [
+            {
+              "days": "Ежедневно, по открытому расписанию автостанции",
+              "mode": "Автобус / маршрутное такси",
+              "departures": ["14:00"]
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+          "label": "Расписание автостанции Измаил"
+        }
+      ]
+    }
+  ]
+}

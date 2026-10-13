@@ -51,10 +51,28 @@
               30.3415
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "11:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/artsiz/",
+              "label": "Открытое расписание автостанции Арциз",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:17+00:00",
@@ -90,10 +108,29 @@
               29.4182
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "09:50",
+                "14:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:09+00:00",
@@ -146,10 +183,28 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "05:10"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/artsiz/",
+              "label": "Открытое расписание автостанции Арциз",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:18+00:00",
@@ -185,10 +240,28 @@
               29.4182
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "11:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:12+00:00",
@@ -241,10 +314,34 @@
               30.7233
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "05:30",
+                "06:04",
+                "08:15",
+                "08:45",
+                "09:00",
+                "09:15",
+                "18:45"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/artsiz/",
+              "label": "Открытое расписание автостанции Арциз",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:17+00:00",
@@ -906,7 +1003,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -953,10 +1052,29 @@
               29.6142
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "10:10",
+                "13:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/artsiz/",
+              "label": "Открытое расписание автостанции Арциз",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:19+00:00",
@@ -1021,7 +1139,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-26",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2025/01/Nakaz-Departamentu-vid-26.12.2024-30-O-2024.pdf",
+              "label": "Решение о перевозчике"
+            }
+          ]
         },
         {
           "label": "Из Теплица",
@@ -1065,7 +1196,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-26",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2025/01/Nakaz-Departamentu-vid-26.12.2024-30-O-2024.pdf",
+              "label": "Решение о перевозчике"
+            }
+          ]
         }
       ],
       "sources": [
@@ -1112,10 +1256,29 @@
               30.656
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "05:10",
+                "12:50"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/artsiz/",
+              "label": "Открытое расписание автостанции Арциз",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:18+00:00",
@@ -1167,10 +1330,28 @@
               29.47
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "14:25"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -1218,10 +1399,28 @@
               28.6143
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:50"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:09+00:00",
@@ -1257,10 +1456,28 @@
               30.3415
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "14:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bolgrad/",
+              "label": "Открытое расписание автостанции Болград",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:20+00:00",
@@ -1316,6 +1533,7 @@
           "status": "reference",
           "trips": [],
           "references": [],
+          "referenceKind": "official",
           "referenceSchedules": [
             {
               "days": "Ежедневно",
@@ -1324,6 +1542,18 @@
                 "11:30",
                 "15:45"
               ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
             }
           ],
           "officialReferences": [
@@ -1396,7 +1626,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -1444,10 +1687,28 @@
               29.586
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "14:40"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:10+00:00",
@@ -1483,10 +1744,28 @@
               30.3415
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:25+00:00",
@@ -1539,10 +1818,30 @@
               29.936
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "10:30",
+                "12:30",
+                "17:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -1624,7 +1923,20 @@
             }
           ],
           "referenceRouteCode": "6 / 6А",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         },
         {
           "label": "Из Затока",
@@ -1689,7 +2001,20 @@
             }
           ],
           "referenceRouteCode": "6 / 6А",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -1736,10 +2061,29 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "10:00",
+                "14:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:07+00:00",
@@ -1775,10 +2119,29 @@
               30.3415
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30",
+                "14:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:12+00:00",
@@ -1893,7 +2256,25 @@
               "checkedAt": "2026-10-13T01:39:12+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:12+00:00",
@@ -1983,7 +2364,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -2030,10 +2413,28 @@
               29.665
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "13:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:10+00:00",
@@ -2085,10 +2486,28 @@
               30.097
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "14:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -2136,10 +2555,28 @@
               32.6169
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:25"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/",
+              "label": "Открытое расписание автостанции Белгород-Днестровский",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:11+00:00",
@@ -2204,7 +2641,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         },
         {
           "label": "Из Белгород-Днестровский",
@@ -2248,7 +2698,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -2295,52 +2758,34 @@
               28.765
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "13:25"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bolgrad/",
+              "label": "Открытое расписание автостанции Болград",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
       "sources": [
         "bolgrad:local:Александровка"
       ],
-      "category": "ukraine"
-    },
-    {
-      "id": "Афіни ↔ Болград",
-      "name": "Болград — Афіни",
-      "places": [
-        "Болград",
-        "Афіни"
-      ],
-      "days": "Даты и наличие рейсов уточняются",
-      "fare": "",
-      "directions": [
-        {
-          "label": "Из Болград",
-          "name": "Болград → Афіни",
-          "hours": "",
-          "interval": "",
-          "departures": [],
-          "extra": "",
-          "stops": [
-            {
-              "name": "Болград"
-            },
-            {
-              "name": "Афіни"
-            }
-          ],
-          "shape": [],
-          "trips": [],
-          "references": [],
-          "status": "unconfirmed",
-          "referenceSchedules": [],
-          "officialReferences": []
-        }
-      ],
-      "sources": [],
       "category": "ukraine"
     },
     {
@@ -2396,7 +2841,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         },
         {
           "label": "Из Банновка",
@@ -2441,7 +2899,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -2499,7 +2970,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -2568,7 +3041,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -2624,7 +3099,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -2669,10 +3146,33 @@
               28.567
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30",
+                "07:30",
+                "09:00",
+                "11:00",
+                "12:30",
+                "17:25"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bolgrad/",
+              "label": "Открытое расписание автостанции Болград",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -2720,10 +3220,33 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30",
+                "09:00",
+                "11:00",
+                "13:00",
+                "15:00",
+                "17:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bolgrad/",
+              "label": "Открытое расписание автостанции Болград",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:20+00:00",
@@ -2759,10 +3282,37 @@
               28.6143
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:00",
+                "08:00",
+                "09:00",
+                "10:00",
+                "11:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "17:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:13+00:00",
@@ -2815,10 +3365,29 @@
               28.1993
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "08:40",
+                "13:10"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bolgrad/",
+              "label": "Открытое расписание автостанции Болград",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -2866,10 +3435,29 @@
               28.811
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "12:55",
+                "17:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bolgrad/",
+              "label": "Открытое расписание автостанции Болград",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -2941,7 +3529,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -3009,7 +3599,32 @@
               "checkedAt": "2026-10-13T01:38:36+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "00:35",
+                "07:40",
+                "10:00",
+                "11:00",
+                "13:00",
+                "13:55",
+                "15:00",
+                "16:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bolgrad/",
+              "label": "Открытое расписание автостанции Болград",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:19+00:00",
@@ -3073,7 +3688,9 @@
             "result": "unavailable"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -3131,7 +3748,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -3176,10 +3795,28 @@
               28.2795
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "14:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/bolgrad/",
+              "label": "Открытое расписание автостанции Болград",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:20+00:00",
@@ -3215,10 +3852,28 @@
               28.6143
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "09:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/reni/",
+              "label": "Открытое расписание автостанции Рени",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:29+00:00",
@@ -3282,47 +3937,13 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
       "category": "international"
-    },
-    {
-      "id": "Болград ↔ Салоніки",
-      "name": "Болград — Салоніки",
-      "places": [
-        "Болград",
-        "Салоніки"
-      ],
-      "days": "Даты и наличие рейсов уточняются",
-      "fare": "",
-      "directions": [
-        {
-          "label": "Из Болград",
-          "name": "Болград → Салоніки",
-          "hours": "",
-          "interval": "",
-          "departures": [],
-          "extra": "",
-          "stops": [
-            {
-              "name": "Болград"
-            },
-            {
-              "name": "Салоніки"
-            }
-          ],
-          "shape": [],
-          "trips": [],
-          "references": [],
-          "status": "unconfirmed",
-          "referenceSchedules": [],
-          "officialReferences": []
-        }
-      ],
-      "sources": [],
-      "category": "ukraine"
     },
     {
       "id": "Болград ↔ София",
@@ -3374,7 +3995,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -3430,7 +4053,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -3475,10 +4100,28 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "08:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:25+00:00",
@@ -3514,10 +4157,30 @@
               29.586
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "08:00",
+                "15:30",
+                "17:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:15+00:00",
@@ -3632,7 +4295,25 @@
               "checkedAt": "2026-10-13T01:39:28+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "18:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:28+00:00",
@@ -3722,7 +4403,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -3831,7 +4514,25 @@
               "checkedAt": "2026-10-13T01:39:24+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "18:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:24+00:00",
@@ -3908,7 +4609,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -3955,10 +4658,29 @@
               29.6651
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30",
+                "18:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:26+00:00",
@@ -4010,10 +4732,28 @@
               29.6884
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:27+00:00",
@@ -4065,10 +4805,29 @@
               29.6142
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30",
+                "18:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:26+00:00",
@@ -4132,7 +4891,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         },
         {
           "label": "Из Болград",
@@ -4175,7 +4947,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -4222,10 +5007,39 @@
               28.77
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:05",
+                "08:10",
+                "09:30",
+                "10:00",
+                "11:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:20",
+                "20:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -4257,10 +5071,28 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "08:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -4309,10 +5141,37 @@
               28.896
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:30",
+                "08:30",
+                "09:30",
+                "11:30",
+                "12:30",
+                "13:30",
+                "14:30",
+                "15:30",
+                "16:30",
+                "17:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:14+00:00",
@@ -4348,10 +5207,30 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "09:00",
+                "10:00",
+                "12:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:21+00:00",
@@ -4454,7 +5333,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -4523,7 +5404,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -4568,10 +5451,29 @@
               29.17
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:30",
+                "15:10"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -4643,7 +5545,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -4688,10 +5592,36 @@
               28.858
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:35",
+                "07:45",
+                "08:40",
+                "11:00",
+                "12:35",
+                "14:00",
+                "15:00",
+                "16:10",
+                "17:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -4707,7 +5637,7 @@
         "Измаил",
         "Каменка"
       ],
-      "days": "Даты и наличие рейсов уточняются",
+      "days": "Справочное расписание",
       "fare": "",
       "directions": [
         {
@@ -4726,11 +5656,33 @@
             }
           ],
           "shape": [],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
-          "officialReferences": []
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно, по открытому расписанию автостанции",
+              "mode": "Автобус / маршрутное такси",
+              "departures": [
+                "08:10",
+                "12:30",
+                "18:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Расписание автостанции Измаил"
+            },
+            {
+              "url": "https://zabytki.in.ua/service/timetable/bus_station/364?lang=ru",
+              "label": "Табло автостанции Измаил"
+            }
+          ],
+          "officialReferences": [],
+          "referenceCheckedAt": "2026-10-13"
         },
         {
           "label": "Из Каменка",
@@ -4751,12 +5703,15 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceKind": "",
           "referenceSchedules": [],
+          "referenceSources": [],
           "officialReferences": []
         }
       ],
       "sources": [
-        "villages:villages:Каменка"
+        "villages:villages:Каменка",
+        "open-reference:измаил|каменка"
       ],
       "category": "nearby"
     },
@@ -4799,10 +5754,28 @@
               28.92
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "15:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -4834,10 +5807,28 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -4854,7 +5845,7 @@
         "Измаил",
         "Кирнички"
       ],
-      "days": "Даты и наличие рейсов уточняются",
+      "days": "Справочное расписание",
       "fare": "",
       "directions": [
         {
@@ -4873,11 +5864,27 @@
             }
           ],
           "shape": [],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
-          "officialReferences": []
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "Ежедневно, по открытому расписанию автостанции",
+              "mode": "Автобус / маршрутное такси",
+              "departures": [
+                "14:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Расписание автостанции Измаил"
+            }
+          ],
+          "officialReferences": [],
+          "referenceCheckedAt": "2026-10-13"
         },
         {
           "label": "Из Кирнички",
@@ -4898,12 +5905,15 @@
           "status": "unconfirmed",
           "trips": [],
           "references": [],
+          "referenceKind": "",
           "referenceSchedules": [],
+          "referenceSources": [],
           "officialReferences": []
         }
       ],
       "sources": [
-        "villages:villages:Кирнички"
+        "villages:villages:Кирнички",
+        "open-reference:измаил|кирнички"
       ],
       "category": "nearby"
     },
@@ -4949,6 +5959,7 @@
           "status": "reference",
           "trips": [],
           "references": [],
+          "referenceKind": "official",
           "referenceSchedules": [
             {
               "days": "Понедельник",
@@ -4983,6 +5994,18 @@
               "departures": [
                 "14:10"
               ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
             }
           ],
           "officialReferences": [
@@ -5032,6 +6055,7 @@
           "status": "reference",
           "trips": [],
           "references": [],
+          "referenceKind": "official",
           "referenceSchedules": [
             {
               "days": "Понедельник",
@@ -5066,6 +6090,18 @@
               "departures": [
                 "06:10"
               ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
             }
           ],
           "officialReferences": [
@@ -5154,7 +6190,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -5199,10 +6237,29 @@
               28.665
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "10:45",
+                "14:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -5250,10 +6307,30 @@
               28.747
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:05",
+                "07:30",
+                "14:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -5285,10 +6362,29 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:40",
+                "08:15"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -5337,10 +6433,31 @@
               28.994
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30",
+                "06:40",
+                "12:00",
+                "17:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -5388,10 +6505,33 @@
               28.789
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:20",
+                "10:10",
+                "12:10",
+                "14:20",
+                "15:40",
+                "17:05"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -5423,10 +6563,28 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:55"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -5475,10 +6633,31 @@
               29.254
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "10:00",
+                "13:00",
+                "15:00",
+                "17:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -5510,10 +6689,28 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:50"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -5586,7 +6783,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -5631,10 +6830,41 @@
               29.035
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:00",
+                "06:20",
+                "08:00",
+                "09:00",
+                "10:20",
+                "11:00",
+                "12:20",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:15",
+                "17:10",
+                "18:10",
+                "20:10"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -5666,10 +6896,34 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "08:50",
+                "11:20",
+                "13:20",
+                "15:00",
+                "17:20",
+                "19:10",
+                "21:10"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -5718,10 +6972,32 @@
               29.16
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:30",
+                "10:20",
+                "13:00",
+                "15:20",
+                "18:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -5753,10 +7029,28 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -5805,10 +7099,28 @@
               29.218
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "15:15"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -5918,7 +7230,46 @@
               "checkedAt": "2026-10-13T01:38:31+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "03:30–19:15",
+              "interval": "45",
+              "departures": [
+                "03:30",
+                "04:15",
+                "05:00",
+                "05:45",
+                "06:30",
+                "07:15",
+                "08:00",
+                "08:45",
+                "09:30",
+                "10:15",
+                "11:00",
+                "11:45",
+                "12:30",
+                "13:15",
+                "14:00",
+                "14:45",
+                "15:30",
+                "16:15",
+                "17:00",
+                "17:45",
+                "18:30",
+                "19:15"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -6394,7 +7745,23 @@
               "checkedAt": "2026-10-13T01:38:59+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "03:30–20:00",
+              "interval": "30–60",
+              "departures": []
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/odesa/",
+              "label": "Открытое расписание автостанции Одесса",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:38:59+00:00",
@@ -6447,10 +7814,37 @@
               28.682
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:10",
+                "09:00",
+                "11:00",
+                "12:30",
+                "13:00",
+                "14:00",
+                "15:20",
+                "17:15",
+                "18:10",
+                "19:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -6482,10 +7876,29 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:00",
+                "16:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -6534,10 +7947,31 @@
               29.13
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:15",
+                "10:50",
+                "14:50",
+                "17:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -6569,10 +8003,28 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:05"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -6632,7 +8084,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -6680,6 +8134,7 @@
           "status": "reference",
           "trips": [],
           "references": [],
+          "referenceKind": "official",
           "referenceSchedules": [
             {
               "days": "Ежедневно",
@@ -6698,6 +8153,18 @@
               "departures": [
                 "14:30"
               ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
             }
           ],
           "officialReferences": [
@@ -6747,6 +8214,7 @@
           "status": "reference",
           "trips": [],
           "references": [],
+          "referenceKind": "official",
           "referenceSchedules": [
             {
               "days": "Ежедневно",
@@ -6766,6 +8234,18 @@
               "departures": [
                 "07:30"
               ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
             }
           ],
           "officialReferences": [
@@ -6854,7 +8334,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -6910,7 +8392,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -6955,10 +8439,53 @@
               29.057
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:45",
+                "07:20",
+                "07:35",
+                "08:00",
+                "08:20",
+                "08:30",
+                "09:15",
+                "09:50",
+                "10:15",
+                "10:45",
+                "11:20",
+                "11:45",
+                "12:20",
+                "12:50",
+                "13:20",
+                "13:45",
+                "14:20",
+                "14:45",
+                "15:20",
+                "15:45",
+                "16:15",
+                "16:45",
+                "17:15",
+                "17:45",
+                "18:15",
+                "20:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -7006,10 +8533,33 @@
               28.953
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:45",
+                "09:40",
+                "11:40",
+                "13:00",
+                "15:00",
+                "18:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         },
         {
@@ -7041,10 +8591,29 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:45",
+                "10:40"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/",
+              "label": "Открытый справочник автобусных маршрутов Одесской области",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -7117,7 +8686,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -7446,7 +9017,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -7684,7 +9257,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -7857,7 +9432,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -7965,7 +9542,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -8060,7 +9639,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -8259,7 +9840,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -8341,7 +9924,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         },
         {
           "label": "Из Измаил",
@@ -8487,7 +10072,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -8842,7 +10429,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -9080,7 +10669,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -9149,7 +10740,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -9231,7 +10824,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         },
         {
           "label": "Из Рени",
@@ -9299,7 +10894,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -9667,7 +11264,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -9736,7 +11335,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -9784,6 +11385,7 @@
           "status": "reference",
           "trips": [],
           "references": [],
+          "referenceKind": "official",
           "referenceSchedules": [
             {
               "days": "Ежедневно",
@@ -9791,6 +11393,18 @@
               "departures": [
                 "12:00"
               ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
             }
           ],
           "officialReferences": [
@@ -9844,6 +11458,7 @@
           "status": "reference",
           "trips": [],
           "references": [],
+          "referenceKind": "official",
           "referenceSchedules": [
             {
               "days": "Ежедневно",
@@ -9851,6 +11466,18 @@
               "departures": [
                 "07:00"
               ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
             }
           ],
           "officialReferences": [
@@ -9919,10 +11546,31 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:30",
+                "08:50",
+                "12:30",
+                "15:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/kiliya/",
+              "label": "Открытое расписание автостанции Килия",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:23+00:00",
@@ -9958,10 +11606,35 @@
               29.2637
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "07:00",
+                "08:30",
+                "10:00",
+                "11:00",
+                "12:20",
+                "13:30",
+                "14:30",
+                "17:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:14+00:00",
@@ -10076,7 +11749,25 @@
               "checkedAt": "2026-10-13T01:39:23+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "17:10"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/kiliya/",
+              "label": "Открытое расписание автостанции Килия",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:23+00:00",
@@ -10218,7 +11909,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -10265,10 +11958,28 @@
               28.8638
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "09:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/kiliya/",
+              "label": "Открытое расписание автостанции Килия",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:22+00:00",
@@ -10320,10 +12031,28 @@
               29.218
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "12:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/kiliya/",
+              "label": "Открытое расписание автостанции Килия",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -10433,7 +12162,34 @@
               "checkedAt": "2026-10-13T01:39:22+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "04:20",
+                "05:00",
+                "08:10",
+                "09:10",
+                "10:45",
+                "11:15",
+                "12:35",
+                "14:15",
+                "15:00",
+                "16:00"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/kiliya/",
+              "label": "Открытое расписание автостанции Килия",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:22+00:00",
@@ -10718,7 +12474,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -10777,7 +12535,20 @@
             }
           ],
           "referenceRouteCode": "611",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         },
         {
           "label": "Из Старые Трояны",
@@ -10820,7 +12591,20 @@
             }
           ],
           "referenceRouteCode": "611",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -10886,7 +12670,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         },
         {
           "label": "Из Болград",
@@ -10936,7 +12733,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -10995,7 +12805,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         },
         {
           "label": "Из Болград",
@@ -11038,7 +12861,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -11096,47 +12932,13 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
       "category": "international"
-    },
-    {
-      "id": "Афіни ↔ Одесса",
-      "name": "Одесса — Афіни",
-      "places": [
-        "Одесса",
-        "Афіни"
-      ],
-      "days": "Даты и наличие рейсов уточняются",
-      "fare": "",
-      "directions": [
-        {
-          "label": "Из Одесса",
-          "name": "Одесса → Афіни",
-          "hours": "",
-          "interval": "",
-          "departures": [],
-          "extra": "",
-          "stops": [
-            {
-              "name": "Одесса"
-            },
-            {
-              "name": "Афіни"
-            }
-          ],
-          "shape": [],
-          "trips": [],
-          "references": [],
-          "status": "unconfirmed",
-          "referenceSchedules": [],
-          "officialReferences": []
-        }
-      ],
-      "sources": [],
-      "category": "ukraine"
     },
     {
       "id": "Белая Церковь ↔ Одесса",
@@ -11409,7 +13211,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -11522,7 +13326,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -11669,7 +13475,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -11764,7 +13572,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -11820,7 +13630,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -11941,7 +13753,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -12158,7 +13972,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -12349,7 +14165,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -15552,7 +17370,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         },
         {
           "label": "Из Киев",
@@ -15945,7 +17765,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -20110,7 +21932,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -20283,7 +22107,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -20339,7 +22165,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -20395,7 +22223,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -20451,7 +22281,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -20538,7 +22370,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -20651,7 +22485,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -21790,7 +23626,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -21859,7 +23697,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -22270,7 +24110,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -22339,7 +24181,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -22421,7 +24265,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -23313,7 +25159,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -23694,7 +25542,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -23872,7 +25722,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -24140,7 +25992,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -24196,7 +26050,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -24252,7 +26108,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -24321,7 +26179,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -24377,7 +26237,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -24422,10 +26284,30 @@
               28.8378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:15",
+                "10:40",
+                "15:20"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/reni/",
+              "label": "Открытое расписание автостанции Рени",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:29+00:00",
@@ -24461,10 +26343,38 @@
               28.2795
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "05:30",
+                "08:20",
+                "09:30",
+                "10:40",
+                "11:20",
+                "13:00",
+                "14:00",
+                "15:00",
+                "15:40",
+                "17:10",
+                "18:10"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/izmayil/",
+              "label": "Открытое расписание автостанции Измаил",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:15+00:00",
@@ -24517,10 +26427,28 @@
               28.323
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "09:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/reni/",
+              "label": "Открытое расписание автостанции Рени",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -24579,7 +26507,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -24647,7 +26577,25 @@
               "checkedAt": "2026-10-13T01:38:53+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "09:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/reni/",
+              "label": "Открытое расписание автостанции Рени",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:28+00:00",
@@ -24711,7 +26659,9 @@
             "result": "unavailable"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -24758,10 +26708,28 @@
               29.665
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "09:30"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/reni/",
+              "label": "Открытое расписание автостанции Рени",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:29+00:00",
@@ -24824,7 +26792,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -24880,7 +26850,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -24939,7 +26911,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         },
         {
           "label": "Из Арциз",
@@ -24984,7 +26969,20 @@
             }
           ],
           "referenceRouteCode": "Без номера",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2024-10-31",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2024/10/Odeski-visti-44-5581-vid-31.10.2024.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2024-12-11",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-11-grudnya-2024-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -25045,7 +27043,20 @@
             }
           ],
           "referenceRouteCode": "487",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         },
         {
           "label": "Из Суворово",
@@ -25090,7 +27101,20 @@
             }
           ],
           "referenceRouteCode": "487",
-          "referenceCheckedAt": "2026-10-13"
+          "referenceCheckedAt": "2026-10-13",
+          "referenceKind": "official",
+          "referenceSources": [
+            {
+              "date": "2023-03-09",
+              "url": "https://morhoz.od.gov.ua/wp-content/uploads/2023/03/Odeski-visti-10-5495-vid-9.03.2023-1.pdf",
+              "label": "Официальный график маршрута"
+            },
+            {
+              "date": "2023-05-03",
+              "url": "https://morhoz.od.gov.ua/avtomobilnyj-transport/konkursy-z-perevezennya-pasazhyriv-na-mizhmiskyh-ta-prymiskyh-avtobusnyh-marshrutah-zagalnogo-korystuvannya-v-odeskij-oblasti/konkurs-z-perevezennya-pasazhyriv-27-04-2023/rishennya-pro-rezultaty-konkursu-z-perevezennya-pasazhyriv-27-kvitnya-2023-roku/",
+              "label": "Результаты конкурса перевозчиков"
+            }
+          ]
         }
       ],
       "sources": [
@@ -25161,7 +27185,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -25256,7 +27282,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -25325,7 +27353,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -25432,7 +27462,25 @@
               "checkedAt": "2026-10-13T01:39:32+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "04:15"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/tatarbunari/",
+              "label": "Открытое расписание автостанции Татарбунары",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:32+00:00",
@@ -25782,7 +27830,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -26247,7 +28297,26 @@
               "checkedAt": "2026-10-13T01:39:33+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "19:20",
+                "20:10"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/tatarbunari/",
+              "label": "Открытое расписание автостанции Татарбунары",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": [],
           "audit": {
             "checkedAt": "2026-10-13T01:39:33+00:00",
@@ -26784,7 +28853,9 @@
             "result": "published"
           },
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [
@@ -26855,7 +28926,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -26911,7 +28984,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -26956,10 +29031,28 @@
               14.4378
             ]
           ],
-          "status": "unconfirmed",
+          "status": "reference",
           "trips": [],
           "references": [],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "06:40"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/tatarbunari/",
+              "label": "Открытое расписание автостанции Татарбунары",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -27031,7 +29124,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -27099,7 +29194,25 @@
               "checkedAt": "2026-10-13T01:38:56+00:00"
             }
           ],
-          "referenceSchedules": [],
+          "referenceKind": "directory",
+          "referenceSchedules": [
+            {
+              "days": "По опубликованному расписанию",
+              "mode": "Автобус / маршрутное такси",
+              "hours": "",
+              "interval": "",
+              "departures": [
+                "12:10"
+              ]
+            }
+          ],
+          "referenceSources": [
+            {
+              "url": "https://bus-info.in.ua/odeska-oblast/tatarbunari/",
+              "label": "Открытое расписание автостанции Татарбунары",
+              "checkedAt": "2026-10-13"
+            }
+          ],
           "officialReferences": []
         }
       ],
@@ -27158,7 +29271,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],
@@ -27240,7 +29355,9 @@
           ],
           "status": "dated",
           "referenceSchedules": [],
-          "officialReferences": []
+          "officialReferences": [],
+          "referenceKind": "",
+          "referenceSources": []
         }
       ],
       "sources": [],

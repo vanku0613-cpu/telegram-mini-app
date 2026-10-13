@@ -35,6 +35,30 @@ const cleanPlace = value => {
   return model.canonical(aliases.get(norm(trimmed)) || trimmed);
 };
 
+const stationReferencePages = new Map([
+  ['измаил', 'https://bus-info.in.ua/odeska-oblast/izmayil/'],
+  ['арциз', 'https://bus-info.in.ua/odeska-oblast/artsiz/'],
+  ['белгород днестровский', 'https://bus-info.in.ua/odeska-oblast/bilgorod-dnistrovskij/'],
+  ['болград', 'https://bus-info.in.ua/odeska-oblast/bolgrad/'],
+  ['килия', 'https://bus-info.in.ua/odeska-oblast/kiliya/'],
+  ['рени', 'https://bus-info.in.ua/odeska-oblast/reni/'],
+  ['татарбунары', 'https://bus-info.in.ua/odeska-oblast/tatarbunari/'],
+  ['одесса', 'https://bus-info.in.ua/odeska-oblast/odesa/']
+]);
+
+function directoryReference(direction) {
+  const stops = direction.stops || [];
+  const origin = cleanPlace(stops[0]?.name);
+  const page = stationReferencePages.get(norm(origin)) || 'https://bus-info.in.ua/odeska-oblast/';
+  return page ? [{
+    url: page,
+    label: stationReferencePages.has(norm(origin))
+      ? `Открытое расписание автостанции ${origin}`
+      : 'Открытый справочник автобусных маршрутов Одесской области',
+    checkedAt: '2026-10-13'
+  }] : [];
+}
+
 function routePlaces(route) {
   const fromName = String(route.name || '').split(/\s+(?:—|↔|⇄)\s+/).map(cleanPlace).filter(Boolean);
   if (fromName.length >= 2) return [fromName[0], fromName.at(-1)];
@@ -158,11 +182,24 @@ if (fs.existsSync(previousFile)) {
 for (const item of merged.values()) {
   item.days = 'Даты и наличие рейсов уточняются';
   item.fare = '';
-  item.directions = item.directions.map(d => ({
-    ...d, hours: '', interval: '', departures: [], extra: '',
-    status: 'unconfirmed', trips: [], references: [],
-    referenceSchedules: [], officialReferences: [],
-  }));
+  item.directions = item.directions.map(d => {
+    const hasReferenceTime = Boolean(d.hours || d.interval || (d.departures || []).length);
+    const referenceSchedules = hasReferenceTime ? [{
+      days: d.days || 'По опубликованному расписанию',
+      mode: 'Автобус / маршрутное такси',
+      hours: d.hours || '',
+      interval: d.interval || '',
+      departures: d.departures || []
+    }] : [];
+    return {
+      ...d, hours: '', interval: '', departures: [], extra: '',
+      status: hasReferenceTime ? 'reference' : 'unconfirmed', trips: [], references: [],
+      referenceKind: hasReferenceTime ? 'directory' : '',
+      referenceSchedules,
+      referenceSources: hasReferenceTime ? directoryReference(d) : [],
+      officialReferences: [],
+    };
+  });
 }
 
 // Official competition schedules are useful when a route is not currently
@@ -218,12 +255,56 @@ for (const route of officialReferenceData.routes || []) {
     }
     direction.referenceSchedules = referenceDirection.schedules || [];
     direction.officialReferences = [route.publication, route.award].filter(Boolean);
+    direction.referenceSources = direction.officialReferences;
+    direction.referenceKind = 'official';
     direction.referenceRouteCode = route.routeCode || '';
     direction.referenceCheckedAt = officialReferenceData.updated;
     direction.status = 'reference';
   }
   item.days = 'Официальное базовое расписание';
   item.sources.push(`official-reference:${route.routeCode || key}`);
+}
+
+// A few station-board departures do not exist in the legacy city files.
+// Keep these source-backed additions explicit so they can be reviewed and
+// updated without turning search snippets into generated data.
+const openReferenceFile = path.join(root, 'transport', 'schedule-open-references.json');
+const openReferenceData = JSON.parse(fs.readFileSync(openReferenceFile, 'utf8'));
+for (const route of openReferenceData.routes || []) {
+  const places = [cleanPlace(route.from), cleanPlace(route.to)];
+  const key = places.map(norm).sort().join('|');
+  let item = merged.get(key);
+  if (!item) {
+    item = {
+      id: places.slice().sort((a, b) => a.localeCompare(b, 'ru')).join(' ↔ '),
+      name: places.join(' — '), places, days: 'Справочное расписание', fare: '',
+      directions: [], sources: []
+    };
+    merged.set(key, item);
+  }
+  for (const referenceDirection of route.directions || []) {
+    const from = cleanPlace(referenceDirection.from);
+    const to = cleanPlace(referenceDirection.to);
+    let direction = item.directions.find(candidate => {
+      const stops = candidate.stops || [];
+      return cleanPlace(stops[0]?.name) === from && cleanPlace(stops.at(-1)?.name) === to;
+    });
+    if (!direction) {
+      direction = {
+        label: `Из ${from}`, name: `${from} → ${to}`,
+        hours: '', interval: '', departures: [], extra: '',
+        stops: [{name: from}, {name: to}], shape: [], trips: [], references: []
+      };
+      item.directions.push(direction);
+    }
+    direction.referenceSchedules = referenceDirection.schedules || [];
+    direction.referenceSources = route.references || [];
+    direction.referenceKind = 'directory';
+    direction.referenceCheckedAt = openReferenceData.updated;
+    direction.status = 'reference';
+  }
+  item.days = 'Справочное расписание';
+  item.sources.push(`open-reference:${key}`);
 }
 
 const sourceFile = path.join(root, 'transport', 'schedule-sources.json');
@@ -276,6 +357,7 @@ for (const source of snapshot.sources.filter(s=>s.url.startsWith('https://ticket
 const villages = JSON.parse(fs.readFileSync(path.join(dataDir,'villages.json'),'utf8')).groups.flatMap(g=>g.routes.map(r=>r.id));
 const nearbyPlaces = [...new Set([...villages, ...officialReferencePlaces])];
 const routes = [...merged.values()]
+  .filter(route => route.sources.length || route.directions.some(direction => direction.trips?.length || direction.referenceSchedules?.length))
   .map(route => ({...route, category:model.category(route,nearbyPlaces), directions:route.directions.map(d=>({...d,trips:d.trips.sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time))}))}))
   .map(route => ({ ...route, sources: [...new Set(route.sources)] }))
   .sort((a, b) => a.name.localeCompare(b.name, 'ru'));

@@ -75,7 +75,7 @@ test('city schedule opens details as a separate view and returns to the schedule
   assert.match(html, /data-view="schedule"/);
   assert.match(html, /data-view="map"/);
   assert.match(html, /data-view="stops"/);
-  assert.match(app, /regional-routes\.json\?v=20261013-1/);
+  assert.match(app, /regional-routes\.json\?v=20261013-2/);
   assert.match(app, /usesTransportTypes=safeCityKey==='kyiv'/);
   assert.match(app, /usesTransportTypes\?'Виды транспорта':'Вернуться в раздел'/);
   assert.match(html, /<button class="route-return"[^>]*id="backToRoutes"[^>]*>[\s\S]*?К расписанию<\/button>/);
@@ -89,7 +89,7 @@ test('regional routes are unique and keep departures attached to their real orig
   assert.equal(izmailUtkonosivka.length, 1, 'Izmail and Utkonosivka share one route record');
   assert.deepEqual(izmailUtkonosivka[0].directions.map(direction => direction.name), ['Измаил → Утконосовка', 'Утконосовка → Измаил']);
   const izmailArtsyz = regional.find(route => route.places.includes('Измаил') && route.places.includes('Арциз'));
-  assert.ok(izmailArtsyz.directions.some(direction => direction.name === 'Измаил → Арциз' && direction.status==='unconfirmed' && direction.departures.length===0));
+  assert.ok(izmailArtsyz.directions.some(direction => direction.name === 'Измаил → Арциз' && direction.status==='reference' && direction.referenceSchedules.length && direction.departures.length===0));
   const odesaIzmail = regional.find(route => route.places.includes('Одесса') && route.places.includes('Измаил'));
   assert.ok(odesaIzmail.directions.some(direction => direction.name === 'Одесса → Измаил' && direction.trips.length>0 && direction.hours===''));
   const novoselivka = regional.filter(route => route.places.includes('Новосёловка'));
