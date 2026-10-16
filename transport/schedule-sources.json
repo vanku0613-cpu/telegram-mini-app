@@ -1,35 +1,22 @@
 {
-  "collectedAt": "2026-10-15T22:47:16+00:00",
+  "collectedAt": "2026-10-16T01:47:59+00:00",
   "sources": [
     {
       "url": "https://likebus.ua/route/artsyz/odesa/",
-      "attemptedAt": "2026-10-15T22:46:15+00:00",
+      "attemptedAt": "2026-10-16T01:47:02+00:00",
       "error": "HTTPError",
       "trips": [],
       "lastError": "HTTPError"
     },
     {
       "url": "https://likebus.ua/route/bilhorod-dnistrovskyy/odesa/",
-      "checkedAt": "2026-10-15T22:46:15+00:00",
+      "checkedAt": "2026-10-16T01:47:02+00:00",
       "trips": []
     },
     {
       "url": "https://likebus.ua/route/bolhrad/kyiv/",
-      "checkedAt": "2026-10-15T22:46:15+00:00",
+      "checkedAt": "2026-10-16T01:47:02+00:00",
       "trips": [
-        {
-          "departure": "2026-10-17T08:20:00+03:00",
-          "arrival": "2026-10-17T20:40:00+03:00",
-          "from": "Болград",
-          "to": "Київ",
-          "fromStop": "Автовокзал",
-          "fromAddress": "вул. Варненська,22А",
-          "toStop": "АВ \"Центральний\"",
-          "toAddress": "пр-т Науки,1/2.",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Пловдів-Київ"
-        },
         {
           "departure": "2026-10-17T08:20:00+03:00",
           "arrival": "2026-10-17T20:20:00+03:00",
@@ -42,12 +29,25 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Пловдів-Київ"
+        },
+        {
+          "departure": "2026-10-17T08:20:00+03:00",
+          "arrival": "2026-10-17T20:40:00+03:00",
+          "from": "Болград",
+          "to": "Київ",
+          "fromStop": "Автовокзал",
+          "fromAddress": "вул. Варненська,22А",
+          "toStop": "АВ \"Центральний\"",
+          "toAddress": "пр-т Науки,1/2.",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Пловдів-Київ"
         }
       ]
     },
     {
       "url": "https://likebus.ua/route/izmail/odesa/",
-      "checkedAt": "2026-10-15T22:46:16+00:00",
+      "checkedAt": "2026-10-16T01:47:02+00:00",
       "trips": [
         {
           "departure": "2026-10-17T00:40:00+03:00",
@@ -105,12 +105,12 @@
     },
     {
       "url": "https://likebus.ua/route/kiliya/odesa/",
-      "checkedAt": "2026-10-15T22:46:16+00:00",
+      "checkedAt": "2026-10-16T01:47:03+00:00",
       "trips": []
     },
     {
       "url": "https://likebus.ua/route/kyiv/izmail/",
-      "checkedAt": "2026-10-15T22:46:16+00:00",
+      "checkedAt": "2026-10-16T01:47:03+00:00",
       "trips": [
         {
           "departure": "2026-10-17T11:15:00+03:00",
@@ -155,23 +155,10 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/kyiv/",
-      "checkedAt": "2026-10-15T22:46:17+00:00",
+      "checkedAt": "2026-10-16T01:47:03+00:00",
       "trips": [
         {
           "departure": "2026-10-17T05:30:00+03:00",
-          "arrival": "2026-10-17T11:40:00+03:00",
-          "from": "Одеса",
-          "to": "Київ",
-          "fromStop": "АС \"Привокзальна\"",
-          "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "Зупинка \"Метро Теремки\"",
-          "toAddress": "проспект Академіка Глушкова",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Одеса-Київ"
-        },
-        {
-          "departure": "2026-10-17T05:30:00+03:00",
           "arrival": "2026-10-17T11:50:00+03:00",
           "from": "Одеса",
           "to": "Київ",
@@ -197,6 +184,32 @@
           "service": "Одеса-Київ"
         },
         {
+          "departure": "2026-10-17T05:30:00+03:00",
+          "arrival": "2026-10-17T11:40:00+03:00",
+          "from": "Одеса",
+          "to": "Київ",
+          "fromStop": "АС \"Привокзальна\"",
+          "fromAddress": "пл. Старосінна,1Б",
+          "toStop": "Зупинка \"Метро Теремки\"",
+          "toAddress": "проспект Академіка Глушкова",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Одеса-Київ"
+        },
+        {
+          "departure": "2026-10-17T05:50:00+03:00",
+          "arrival": "2026-10-17T11:40:00+03:00",
+          "from": "Одеса",
+          "to": "Київ",
+          "fromStop": "Центральний Автовокзал",
+          "fromAddress": "вул. Колонтаївська,58",
+          "toStop": "Зупинка \"Метро Теремки\"",
+          "toAddress": "проспект Академіка Глушкова",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Одеса-Київ"
+        },
+        {
           "departure": "2026-10-17T05:50:00+03:00",
           "arrival": "2026-10-17T11:50:00+03:00",
           "from": "Одеса",
@@ -221,32 +234,6 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Одеса-Київ"
-        },
-        {
-          "departure": "2026-10-17T05:50:00+03:00",
-          "arrival": "2026-10-17T11:40:00+03:00",
-          "from": "Одеса",
-          "to": "Київ",
-          "fromStop": "Центральний Автовокзал",
-          "fromAddress": "вул. Колонтаївська,58",
-          "toStop": "Зупинка \"Метро Теремки\"",
-          "toAddress": "проспект Академіка Глушкова",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Одеса-Київ"
-        },
-        {
-          "departure": "2026-10-17T06:20:00+03:00",
-          "arrival": "2026-10-17T12:50:00+03:00",
-          "from": "Одеса",
-          "to": "Київ",
-          "fromStop": "АС \"Привокзальна\"",
-          "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "АВ \"Центральний\"",
-          "toAddress": "пр-т Науки,1/2.",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Одеса-Катовіце"
         },
         {
           "departure": "2026-10-17T06:20:00+03:00",
@@ -275,6 +262,32 @@
           "service": "Одеса-Катовіце"
         },
         {
+          "departure": "2026-10-17T06:20:00+03:00",
+          "arrival": "2026-10-17T12:50:00+03:00",
+          "from": "Одеса",
+          "to": "Київ",
+          "fromStop": "АС \"Привокзальна\"",
+          "fromAddress": "пл. Старосінна,1Б",
+          "toStop": "АВ \"Центральний\"",
+          "toAddress": "пр-т Науки,1/2.",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Одеса-Катовіце"
+        },
+        {
+          "departure": "2026-10-17T06:40:00+03:00",
+          "arrival": "2026-10-17T12:50:00+03:00",
+          "from": "Одеса",
+          "to": "Київ",
+          "fromStop": "Центральний Автовокзал",
+          "fromAddress": "вул. Колонтаївська,58",
+          "toStop": "АВ \"Центральний\"",
+          "toAddress": "пр-т Науки,1/2.",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Одеса-Катовіце"
+        },
+        {
           "departure": "2026-10-17T06:40:00+03:00",
           "arrival": "2026-10-17T12:40:00+03:00",
           "from": "Одеса",
@@ -301,17 +314,17 @@
           "service": "Одеса-Катовіце"
         },
         {
-          "departure": "2026-10-17T06:40:00+03:00",
-          "arrival": "2026-10-17T12:50:00+03:00",
+          "departure": "2026-10-17T07:30:00+03:00",
+          "arrival": "2026-10-17T14:30:00+03:00",
           "from": "Одеса",
           "to": "Київ",
-          "fromStop": "Центральний Автовокзал",
-          "fromAddress": "вул. Колонтаївська,58",
+          "fromStop": "АС \"Привокзальна\"",
+          "fromAddress": "пл. Старосінна,1Б",
           "toStop": "АВ \"Центральний\"",
           "toAddress": "пр-т Науки,1/2.",
           "country": "UA",
           "carrier": "LikeBus",
-          "service": "Одеса-Катовіце"
+          "service": "Одеса-Київ-Харків"
         },
         {
           "departure": "2026-10-17T07:30:00+03:00",
@@ -327,32 +340,6 @@
           "service": "Одеса-Київ-Харків"
         },
         {
-          "departure": "2026-10-17T07:30:00+03:00",
-          "arrival": "2026-10-17T14:30:00+03:00",
-          "from": "Одеса",
-          "to": "Київ",
-          "fromStop": "АС \"Привокзальна\"",
-          "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "АВ \"Центральний\"",
-          "toAddress": "пр-т Науки,1/2.",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Одеса-Київ-Харків"
-        },
-        {
-          "departure": "2026-10-17T08:00:00+03:00",
-          "arrival": "2026-10-17T14:30:00+03:00",
-          "from": "Одеса",
-          "to": "Київ",
-          "fromStop": "Центральний Автовокзал",
-          "fromAddress": "вул. Колонтаївська,58",
-          "toStop": "АВ \"Центральний\"",
-          "toAddress": "пр-т Науки,1/2.",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Одеса-Київ-Харків"
-        },
-        {
           "departure": "2026-10-17T08:00:00+03:00",
           "arrival": "2026-10-17T15:15:00+03:00",
           "from": "Одеса",
@@ -361,6 +348,19 @@
           "fromAddress": "вул. Колонтаївська,58",
           "toStop": "АС \"Перша\"  (р-н Осокорки, парковка Новус)",
           "toAddress": "вулиця Здолбунівська,7Г",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Одеса-Київ-Харків"
+        },
+        {
+          "departure": "2026-10-17T08:00:00+03:00",
+          "arrival": "2026-10-17T14:30:00+03:00",
+          "from": "Одеса",
+          "to": "Київ",
+          "fromStop": "Центральний Автовокзал",
+          "fromAddress": "вул. Колонтаївська,58",
+          "toStop": "АВ \"Центральний\"",
+          "toAddress": "пр-т Науки,1/2.",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Одеса-Київ-Харків"
@@ -445,26 +445,26 @@
         },
         {
           "departure": "2026-10-17T12:00:00+03:00",
-          "arrival": "2026-10-17T18:45:00+03:00",
+          "arrival": "2026-10-17T19:00:00+03:00",
           "from": "Одеса",
           "to": "Київ",
           "fromStop": "АС \"Привокзальна\"",
           "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "Зупинка \"Метро Теремки\"",
-          "toAddress": "проспект Академіка Глушкова",
+          "toStop": "АВ \"Центральний\"",
+          "toAddress": "пр-т Науки,1/2.",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Бухарест-Одеса-Київ"
         },
         {
           "departure": "2026-10-17T12:00:00+03:00",
-          "arrival": "2026-10-17T19:00:00+03:00",
+          "arrival": "2026-10-17T18:45:00+03:00",
           "from": "Одеса",
           "to": "Київ",
           "fromStop": "АС \"Привокзальна\"",
           "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "АВ \"Центральний\"",
-          "toAddress": "пр-т Науки,1/2.",
+          "toStop": "Зупинка \"Метро Теремки\"",
+          "toAddress": "проспект Академіка Глушкова",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Бухарест-Одеса-Київ"
@@ -549,6 +549,19 @@
         },
         {
           "departure": "2026-10-17T16:00:00+03:00",
+          "arrival": "2026-10-17T22:20:00+03:00",
+          "from": "Одеса",
+          "to": "Київ",
+          "fromStop": "АС \"Привокзальна\"",
+          "fromAddress": "пл. Старосінна,1Б",
+          "toStop": "АВ \"Центральний\"",
+          "toAddress": "пр-т Науки,1/2.",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Софія-Київ"
+        },
+        {
+          "departure": "2026-10-17T16:00:00+03:00",
           "arrival": "2026-10-17T22:10:00+03:00",
           "from": "Одеса",
           "to": "Київ",
@@ -569,32 +582,6 @@
           "fromAddress": "пл. Старосінна,1Б",
           "toStop": "смт \"Чабани\"",
           "toAddress": "вулиця Машинобудівників,1,автобусна зупинка",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Софія-Київ"
-        },
-        {
-          "departure": "2026-10-17T16:00:00+03:00",
-          "arrival": "2026-10-17T22:20:00+03:00",
-          "from": "Одеса",
-          "to": "Київ",
-          "fromStop": "АС \"Привокзальна\"",
-          "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "АВ \"Центральний\"",
-          "toAddress": "пр-т Науки,1/2.",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Софія-Київ"
-        },
-        {
-          "departure": "2026-10-17T16:20:00+03:00",
-          "arrival": "2026-10-17T22:20:00+03:00",
-          "from": "Одеса",
-          "to": "Київ",
-          "fromStop": "Центральний Автовокзал",
-          "fromAddress": "вул. Колонтаївська,58",
-          "toStop": "АВ \"Центральний\"",
-          "toAddress": "пр-т Науки,1/2.",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Софія-Київ"
@@ -626,6 +613,32 @@
           "service": "Софія-Київ"
         },
         {
+          "departure": "2026-10-17T16:20:00+03:00",
+          "arrival": "2026-10-17T22:20:00+03:00",
+          "from": "Одеса",
+          "to": "Київ",
+          "fromStop": "Центральний Автовокзал",
+          "fromAddress": "вул. Колонтаївська,58",
+          "toStop": "АВ \"Центральний\"",
+          "toAddress": "пр-т Науки,1/2.",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Софія-Київ"
+        },
+        {
+          "departure": "2026-10-17T22:00:00+03:00",
+          "arrival": "2026-10-18T05:00:00+03:00",
+          "from": "Одеса",
+          "to": "Київ",
+          "fromStop": "АС \"Привокзальна\"",
+          "fromAddress": "пл. Старосінна,1Б",
+          "toStop": "Зупинка \"Метро Теремки\"",
+          "toAddress": "проспект Академіка Глушкова",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Бухарест-Одеса-Київ"
+        },
+        {
           "departure": "2026-10-17T22:00:00+03:00",
           "arrival": "2026-10-18T05:10:00+03:00",
           "from": "Одеса",
@@ -652,32 +665,6 @@
           "service": "Бухарест-Одеса-Київ"
         },
         {
-          "departure": "2026-10-17T22:00:00+03:00",
-          "arrival": "2026-10-18T05:00:00+03:00",
-          "from": "Одеса",
-          "to": "Київ",
-          "fromStop": "АС \"Привокзальна\"",
-          "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "Зупинка \"Метро Теремки\"",
-          "toAddress": "проспект Академіка Глушкова",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Бухарест-Одеса-Київ"
-        },
-        {
-          "departure": "2026-10-17T22:20:00+03:00",
-          "arrival": "2026-10-18T05:00:00+03:00",
-          "from": "Одеса",
-          "to": "Київ",
-          "fromStop": "Центральний Автовокзал",
-          "fromAddress": "вул. Колонтаївська,58",
-          "toStop": "Зупинка \"Метро Теремки\"",
-          "toAddress": "проспект Академіка Глушкова",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Бухарест-Одеса-Київ"
-        },
-        {
           "departure": "2026-10-17T22:20:00+03:00",
           "arrival": "2026-10-18T05:10:00+03:00",
           "from": "Одеса",
@@ -704,14 +691,14 @@
           "service": "Бухарест-Одеса-Київ"
         },
         {
-          "departure": "2026-10-17T23:00:00+03:00",
-          "arrival": "2026-10-18T05:50:00+03:00",
+          "departure": "2026-10-17T22:20:00+03:00",
+          "arrival": "2026-10-18T05:00:00+03:00",
           "from": "Одеса",
           "to": "Київ",
-          "fromStop": "АС \"Привокзальна\"",
-          "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "АВ \"Центральний\"",
-          "toAddress": "пр-т Науки,1/2.",
+          "fromStop": "Центральний Автовокзал",
+          "fromAddress": "вул. Колонтаївська,58",
+          "toStop": "Зупинка \"Метро Теремки\"",
+          "toAddress": "проспект Академіка Глушкова",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Бухарест-Одеса-Київ"
@@ -751,6 +738,19 @@
           "fromAddress": "пл. Старосінна,1Б",
           "toStop": "смт \"Чабани\"",
           "toAddress": "вулиця Машинобудівників,1,автобусна зупинка",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Бухарест-Одеса-Київ"
+        },
+        {
+          "departure": "2026-10-17T23:00:00+03:00",
+          "arrival": "2026-10-18T05:50:00+03:00",
+          "from": "Одеса",
+          "to": "Київ",
+          "fromStop": "АС \"Привокзальна\"",
+          "fromAddress": "пл. Старосінна,1Б",
+          "toStop": "АВ \"Центральний\"",
+          "toAddress": "пр-т Науки,1/2.",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Бухарест-Одеса-Київ"
@@ -811,24 +811,24 @@
     },
     {
       "url": "https://likebus.ua/route/reni/izmail/",
-      "checkedAt": "2026-10-15T22:46:17+00:00",
+      "checkedAt": "2026-10-16T01:47:03+00:00",
       "trips": []
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/odesa/",
-      "checkedAt": "2026-10-15T22:46:18+00:00",
+      "checkedAt": "2026-10-16T01:47:04+00:00",
       "trips": []
     },
     {
       "url": "https://likebus.ua/route/vilkove/odesa/",
-      "attemptedAt": "2026-10-15T22:46:18+00:00",
+      "attemptedAt": "2026-10-16T01:47:04+00:00",
       "error": "HTTPError",
       "trips": [],
       "lastError": "HTTPError"
     },
     {
       "url": "https://odessa-bus.com.ua/",
-      "checkedAt": "2026-10-15T22:46:18+00:00",
+      "checkedAt": "2026-10-16T01:47:04+00:00",
       "trips": [
         {
           "departure": "2026-10-16T06:00:00",
@@ -1240,12 +1240,12 @@
     },
     {
       "url": "https://likebus.ua/route/bolhrad/afiny/",
-      "checkedAt": "2026-10-15T22:46:21+00:00",
+      "checkedAt": "2026-10-16T01:47:07+00:00",
       "trips": []
     },
     {
       "url": "https://likebus.ua/route/bolhrad/bila-tserkva/",
-      "checkedAt": "2026-10-15T22:46:21+00:00",
+      "checkedAt": "2026-10-16T01:47:07+00:00",
       "trips": [
         {
           "departure": "2026-10-17T08:20:00+03:00",
@@ -1264,21 +1264,8 @@
     },
     {
       "url": "https://likebus.ua/route/bolhrad/bukharest/",
-      "checkedAt": "2026-10-15T22:46:21+00:00",
+      "checkedAt": "2026-10-16T01:47:07+00:00",
       "trips": [
-        {
-          "departure": "2026-10-17T13:00:00+03:00",
-          "arrival": "2026-10-17T22:05:00+03:00",
-          "from": "Болград",
-          "to": "Бухарест",
-          "fromStop": "Автовокзал",
-          "fromAddress": "вул. Варненська,22А",
-          "toStop": "Аеропорт Отопені",
-          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Київ-Софія"
-        },
         {
           "departure": "2026-10-17T13:00:00+03:00",
           "arrival": "2026-10-17T22:30:00+03:00",
@@ -1291,12 +1278,25 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Київ-Софія"
+        },
+        {
+          "departure": "2026-10-17T13:00:00+03:00",
+          "arrival": "2026-10-17T22:05:00+03:00",
+          "from": "Болград",
+          "to": "Бухарест",
+          "fromStop": "Автовокзал",
+          "fromAddress": "вул. Варненська,22А",
+          "toStop": "Аеропорт Отопені",
+          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Київ-Софія"
         }
       ]
     },
     {
       "url": "https://likebus.ua/route/bolhrad/odesa/",
-      "checkedAt": "2026-10-15T22:46:21+00:00",
+      "checkedAt": "2026-10-16T01:47:07+00:00",
       "trips": [
         {
           "departure": "2026-10-17T08:20:00+03:00",
@@ -1315,7 +1315,7 @@
     },
     {
       "url": "https://likebus.ua/route/bolhrad/plovdiv/",
-      "checkedAt": "2026-10-15T22:46:21+00:00",
+      "checkedAt": "2026-10-16T01:47:07+00:00",
       "trips": [
         {
           "departure": "2026-10-17T13:00:00+03:00",
@@ -1334,7 +1334,7 @@
     },
     {
       "url": "https://likebus.ua/route/bolhrad/ruse/",
-      "checkedAt": "2026-10-15T22:46:21+00:00",
+      "checkedAt": "2026-10-16T01:47:07+00:00",
       "trips": [
         {
           "departure": "2026-10-17T13:00:00+03:00",
@@ -1353,12 +1353,12 @@
     },
     {
       "url": "https://likebus.ua/route/bolhrad/saloniky/",
-      "checkedAt": "2026-10-15T22:46:22+00:00",
+      "checkedAt": "2026-10-16T01:47:07+00:00",
       "trips": []
     },
     {
       "url": "https://likebus.ua/route/bolhrad/sofiya/",
-      "checkedAt": "2026-10-15T22:46:22+00:00",
+      "checkedAt": "2026-10-16T01:47:08+00:00",
       "trips": [
         {
           "departure": "2026-10-17T13:00:00+03:00",
@@ -1377,7 +1377,7 @@
     },
     {
       "url": "https://likebus.ua/route/bolhrad/uman/",
-      "checkedAt": "2026-10-15T22:46:22+00:00",
+      "checkedAt": "2026-10-16T01:47:08+00:00",
       "trips": [
         {
           "departure": "2026-10-17T08:20:00+03:00",
@@ -1396,7 +1396,7 @@
     },
     {
       "url": "https://likebus.ua/route/bolhrad/velyko-tyrnovo/",
-      "checkedAt": "2026-10-15T22:46:22+00:00",
+      "checkedAt": "2026-10-16T01:47:08+00:00",
       "trips": [
         {
           "departure": "2026-10-17T13:00:00+03:00",
@@ -1415,7 +1415,7 @@
     },
     {
       "url": "https://likebus.ua/route/izmail/bukharest/",
-      "checkedAt": "2026-10-15T22:46:22+00:00",
+      "checkedAt": "2026-10-16T01:47:08+00:00",
       "trips": [
         {
           "departure": "2026-10-17T14:00:00+03:00",
@@ -1473,7 +1473,7 @@
     },
     {
       "url": "https://likebus.ua/route/izmail/dnipro/",
-      "checkedAt": "2026-10-15T22:46:22+00:00",
+      "checkedAt": "2026-10-16T01:47:08+00:00",
       "trips": [
         {
           "departure": "2026-10-17T01:05:00+03:00",
@@ -1505,7 +1505,7 @@
     },
     {
       "url": "https://likebus.ua/route/izmail/kharkiv/",
-      "checkedAt": "2026-10-15T22:46:22+00:00",
+      "checkedAt": "2026-10-16T01:47:09+00:00",
       "trips": [
         {
           "departure": "2026-10-17T01:05:00+03:00",
@@ -1537,7 +1537,7 @@
     },
     {
       "url": "https://likebus.ua/route/izmail/konstantsa/",
-      "checkedAt": "2026-10-15T22:46:23+00:00",
+      "checkedAt": "2026-10-16T01:47:09+00:00",
       "trips": [
         {
           "departure": "2026-10-17T13:30:00+03:00",
@@ -1569,8 +1569,21 @@
     },
     {
       "url": "https://likebus.ua/route/izmail/kyiv/",
-      "checkedAt": "2026-10-15T22:46:23+00:00",
+      "checkedAt": "2026-10-16T01:47:09+00:00",
       "trips": [
+        {
+          "departure": "2026-10-17T00:40:00+03:00",
+          "arrival": "2026-10-17T12:50:00+03:00",
+          "from": "Ізмаїл",
+          "to": "Київ",
+          "fromStop": "Залізничний вокзал",
+          "fromAddress": "вул. Гагаріна,3",
+          "toStop": "АВ \"Центральний\"",
+          "toAddress": "пр-т Науки,1/2.",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Бухарест-Київ "
+        },
         {
           "departure": "2026-10-17T00:40:00+03:00",
           "arrival": "2026-10-17T12:40:00+03:00",
@@ -1598,17 +1611,17 @@
           "service": "Бухарест-Київ "
         },
         {
-          "departure": "2026-10-17T00:40:00+03:00",
-          "arrival": "2026-10-17T12:50:00+03:00",
+          "departure": "2026-10-17T07:30:00+03:00",
+          "arrival": "2026-10-17T20:20:00+03:00",
           "from": "Ізмаїл",
           "to": "Київ",
           "fromStop": "Залізничний вокзал",
           "fromAddress": "вул. Гагаріна,3",
-          "toStop": "АВ \"Центральний\"",
-          "toAddress": "пр-т Науки,1/2.",
+          "toStop": "Зупинка \"Метро Теремки\"",
+          "toAddress": "проспект Академіка Глушкова",
           "country": "UA",
           "carrier": "LikeBus",
-          "service": "Бухарест-Київ "
+          "service": "Пловдів-Київ"
         },
         {
           "departure": "2026-10-17T07:30:00+03:00",
@@ -1624,17 +1637,17 @@
           "service": "Пловдів-Київ"
         },
         {
-          "departure": "2026-10-17T07:30:00+03:00",
-          "arrival": "2026-10-17T20:20:00+03:00",
+          "departure": "2026-10-17T18:35:00+03:00",
+          "arrival": "2026-10-18T05:15:00+03:00",
           "from": "Ізмаїл",
           "to": "Київ",
           "fromStop": "Залізничний вокзал",
           "fromAddress": "вул. Гагаріна,3",
-          "toStop": "Зупинка \"Метро Теремки\"",
-          "toAddress": "проспект Академіка Глушкова",
+          "toStop": "смт \"Чабани\"",
+          "toAddress": "вулиця Машинобудівників,1,автобусна зупинка",
           "country": "UA",
           "carrier": "LikeBus",
-          "service": "Пловдів-Київ"
+          "service": "Бургас-Київ"
         },
         {
           "departure": "2026-10-17T18:35:00+03:00",
@@ -1674,25 +1687,12 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Бургас-Київ"
-        },
-        {
-          "departure": "2026-10-17T18:35:00+03:00",
-          "arrival": "2026-10-18T05:15:00+03:00",
-          "from": "Ізмаїл",
-          "to": "Київ",
-          "fromStop": "Залізничний вокзал",
-          "fromAddress": "вул. Гагаріна,3",
-          "toStop": "смт \"Чабани\"",
-          "toAddress": "вулиця Машинобудівників,1,автобусна зупинка",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Бургас-Київ"
         }
       ]
     },
     {
       "url": "https://likebus.ua/route/izmail/mykolaiv/",
-      "checkedAt": "2026-10-15T22:46:23+00:00",
+      "checkedAt": "2026-10-16T01:47:09+00:00",
       "trips": [
         {
           "departure": "2026-10-17T01:05:00+03:00",
@@ -1724,7 +1724,7 @@
     },
     {
       "url": "https://likebus.ua/route/izmail/plovdiv/",
-      "checkedAt": "2026-10-15T22:46:23+00:00",
+      "checkedAt": "2026-10-16T01:47:09+00:00",
       "trips": [
         {
           "departure": "2026-10-17T14:00:00+03:00",
@@ -1743,7 +1743,7 @@
     },
     {
       "url": "https://likebus.ua/route/izmail/sofiya/",
-      "checkedAt": "2026-10-15T22:46:24+00:00",
+      "checkedAt": "2026-10-16T01:47:10+00:00",
       "trips": [
         {
           "departure": "2026-10-17T14:00:00+03:00",
@@ -1762,7 +1762,7 @@
     },
     {
       "url": "https://likebus.ua/route/izmail/sonyachnyy-bereh/",
-      "checkedAt": "2026-10-15T22:46:24+00:00",
+      "checkedAt": "2026-10-16T01:47:10+00:00",
       "trips": [
         {
           "departure": "2026-10-17T13:30:00+03:00",
@@ -1794,7 +1794,7 @@
     },
     {
       "url": "https://likebus.ua/route/izmail/varna/",
-      "checkedAt": "2026-10-15T22:46:24+00:00",
+      "checkedAt": "2026-10-16T01:47:10+00:00",
       "trips": [
         {
           "departure": "2026-10-17T13:30:00+03:00",
@@ -1826,7 +1826,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/bila-tserkva/",
-      "checkedAt": "2026-10-15T22:46:24+00:00",
+      "checkedAt": "2026-10-16T01:47:10+00:00",
       "trips": [
         {
           "departure": "2026-10-17T05:30:00+03:00",
@@ -2157,41 +2157,28 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/bukharest/",
-      "checkedAt": "2026-10-15T22:46:25+00:00",
+      "checkedAt": "2026-10-16T01:47:10+00:00",
       "trips": [
         {
           "departure": "2026-10-17T11:15:00+03:00",
-          "arrival": "2026-10-18T07:30:00+03:00",
+          "arrival": "2026-10-18T07:00:00+03:00",
           "from": "Київ",
           "to": "Бухарест",
           "fromStop": "Автостанція \"Дачна\"",
           "fromAddress": "проспект Берестейський,142",
-          "toStop": "Автовокзал Militari",
-          "toAddress": "вулиця Valea Cascadelor,1",
+          "toStop": "Аеропорт Отопені",
+          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Київ-Бухарест"
         },
         {
           "departure": "2026-10-17T11:15:00+03:00",
-          "arrival": "2026-10-18T07:00:00+03:00",
+          "arrival": "2026-10-18T07:30:00+03:00",
           "from": "Київ",
           "to": "Бухарест",
           "fromStop": "Автостанція \"Дачна\"",
           "fromAddress": "проспект Берестейський,142",
-          "toStop": "Аеропорт Отопені",
-          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Київ-Бухарест"
-        },
-        {
-          "departure": "2026-10-17T12:30:00+03:00",
-          "arrival": "2026-10-18T07:30:00+03:00",
-          "from": "Київ",
-          "to": "Бухарест",
-          "fromStop": "АВ \"Центральний\"",
-          "fromAddress": "пр-т Науки,1/2.",
           "toStop": "Автовокзал Militari",
           "toAddress": "вулиця Valea Cascadelor,1",
           "country": "UA",
@@ -2213,26 +2200,39 @@
         },
         {
           "departure": "2026-10-17T12:30:00+03:00",
-          "arrival": "2026-10-18T07:00:00+03:00",
+          "arrival": "2026-10-18T07:30:00+03:00",
+          "from": "Київ",
+          "to": "Бухарест",
+          "fromStop": "АВ \"Центральний\"",
+          "fromAddress": "пр-т Науки,1/2.",
+          "toStop": "Автовокзал Militari",
+          "toAddress": "вулиця Valea Cascadelor,1",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Київ-Бухарест"
+        },
+        {
+          "departure": "2026-10-17T12:30:00+03:00",
+          "arrival": "2026-10-18T07:30:00+03:00",
           "from": "Київ",
           "to": "Бухарест",
           "fromStop": "АС \"Перша\"  (р-н Осокорки, парковка Новус)",
           "fromAddress": "вулиця Здолбунівська,7Г",
-          "toStop": "Аеропорт Отопені",
-          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
+          "toStop": "Автовокзал Militari",
+          "toAddress": "вулиця Valea Cascadelor,1",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Харьков-Киев-Бухарест"
         },
         {
           "departure": "2026-10-17T12:30:00+03:00",
-          "arrival": "2026-10-18T07:30:00+03:00",
+          "arrival": "2026-10-18T07:00:00+03:00",
           "from": "Київ",
           "to": "Бухарест",
           "fromStop": "АС \"Перша\"  (р-н Осокорки, парковка Новус)",
           "fromAddress": "вулиця Здолбунівська,7Г",
-          "toStop": "Автовокзал Militari",
-          "toAddress": "вулиця Valea Cascadelor,1",
+          "toStop": "Аеропорт Отопені",
+          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Харьков-Киев-Бухарест"
@@ -2278,37 +2278,24 @@
         },
         {
           "departure": "2026-10-17T22:30:00+03:00",
-          "arrival": "2026-10-18T22:05:00+03:00",
+          "arrival": "2026-10-18T22:30:00+03:00",
           "from": "Київ",
           "to": "Бухарест",
           "fromStop": "АС Київ (Центральний залізничний вокзал)",
           "fromAddress": "вул. Симона Петлюри,32,метро Вокзальна",
-          "toStop": "Аеропорт Отопені",
-          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
+          "toStop": "Залізничний вокзал",
+          "toAddress": "Piața Gării de Nord 1-3,,біля Starbucks",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Київ-Пловдів "
         },
         {
           "departure": "2026-10-17T22:30:00+03:00",
-          "arrival": "2026-10-18T22:30:00+03:00",
+          "arrival": "2026-10-18T22:05:00+03:00",
           "from": "Київ",
           "to": "Бухарест",
           "fromStop": "АС Київ (Центральний залізничний вокзал)",
           "fromAddress": "вул. Симона Петлюри,32,метро Вокзальна",
-          "toStop": "Залізничний вокзал",
-          "toAddress": "Piața Gării de Nord 1-3,,біля Starbucks",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Київ-Пловдів "
-        },
-        {
-          "departure": "2026-10-17T23:30:00+03:00",
-          "arrival": "2026-10-18T22:05:00+03:00",
-          "from": "Київ",
-          "to": "Бухарест",
-          "fromStop": "АВ \"Центральний\"",
-          "fromAddress": "пр-т Науки,1/2.",
           "toStop": "Аеропорт Отопені",
           "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
           "country": "UA",
@@ -2324,6 +2311,19 @@
           "fromAddress": "пр-т Науки,1/2.",
           "toStop": "Залізничний вокзал",
           "toAddress": "Piața Gării de Nord 1-3,,біля Starbucks",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Київ-Пловдів "
+        },
+        {
+          "departure": "2026-10-17T23:30:00+03:00",
+          "arrival": "2026-10-18T22:05:00+03:00",
+          "from": "Київ",
+          "to": "Бухарест",
+          "fromStop": "АВ \"Центральний\"",
+          "fromAddress": "пр-т Науки,1/2.",
+          "toStop": "Аеропорт Отопені",
+          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Київ-Пловдів "
@@ -2358,7 +2358,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/kharkiv/",
-      "checkedAt": "2026-10-15T22:46:25+00:00",
+      "checkedAt": "2026-10-16T01:47:11+00:00",
       "trips": [
         {
           "departure": "2026-10-17T14:45:00+03:00",
@@ -2390,7 +2390,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/kryve-ozero/",
-      "checkedAt": "2026-10-15T22:46:26+00:00",
+      "checkedAt": "2026-10-16T01:47:11+00:00",
       "trips": [
         {
           "departure": "2026-10-17T05:30:00+03:00",
@@ -2630,7 +2630,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/kyshyniv/",
-      "checkedAt": "2026-10-15T22:46:26+00:00",
+      "checkedAt": "2026-10-16T01:47:12+00:00",
       "trips": [
         {
           "departure": "2026-10-17T06:00:00+03:00",
@@ -2790,37 +2790,24 @@
         },
         {
           "departure": "2026-10-17T16:30:00+03:00",
-          "arrival": "2026-10-18T03:30:00+03:00",
+          "arrival": "2026-10-18T03:00:00+03:00",
           "from": "Київ",
           "to": "Кишинів",
           "fromStop": "АВ \"Центральний\"",
           "fromAddress": "пр-т Науки,1/2.",
-          "toStop": "АЗС \"Rompetromol\" біля АВ \"Північний\"",
-          "toAddress": "Калеа Мошилор,3",
+          "toStop": "Аеропорт",
+          "toAddress": "бульвар Дачія,80/3",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Киев-Кишинев"
         },
         {
           "departure": "2026-10-17T16:30:00+03:00",
-          "arrival": "2026-10-18T03:00:00+03:00",
+          "arrival": "2026-10-18T03:30:00+03:00",
           "from": "Київ",
           "to": "Кишинів",
           "fromStop": "АВ \"Центральний\"",
           "fromAddress": "пр-т Науки,1/2.",
-          "toStop": "Аеропорт",
-          "toAddress": "бульвар Дачія,80/3",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Киев-Кишинев"
-        },
-        {
-          "departure": "2026-10-17T16:50:00+03:00",
-          "arrival": "2026-10-18T03:30:00+03:00",
-          "from": "Київ",
-          "to": "Кишинів",
-          "fromStop": "смт \"Гатне\"",
-          "fromAddress": "вулиця Оптимістична,1,автобусна зупинка",
           "toStop": "АЗС \"Rompetromol\" біля АВ \"Північний\"",
           "toAddress": "Калеа Мошилор,3",
           "country": "UA",
@@ -2836,6 +2823,19 @@
           "fromAddress": "вулиця Оптимістична,1,автобусна зупинка",
           "toStop": "Аеропорт",
           "toAddress": "бульвар Дачія,80/3",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Киев-Кишинев"
+        },
+        {
+          "departure": "2026-10-17T16:50:00+03:00",
+          "arrival": "2026-10-18T03:30:00+03:00",
+          "from": "Київ",
+          "to": "Кишинів",
+          "fromStop": "смт \"Гатне\"",
+          "fromAddress": "вулиця Оптимістична,1,автобусна зупинка",
+          "toStop": "АЗС \"Rompetromol\" біля АВ \"Північний\"",
+          "toAddress": "Калеа Мошилор,3",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Киев-Кишинев"
@@ -2896,7 +2896,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/odesa/",
-      "checkedAt": "2026-10-15T22:46:26+00:00",
+      "checkedAt": "2026-10-16T01:47:12+00:00",
       "trips": [
         {
           "departure": "2026-10-17T05:30:00+03:00",
@@ -3305,7 +3305,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/poltava/",
-      "checkedAt": "2026-10-15T22:46:27+00:00",
+      "checkedAt": "2026-10-16T01:47:12+00:00",
       "trips": [
         {
           "departure": "2026-10-17T14:45:00+03:00",
@@ -3337,7 +3337,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/reni/",
-      "checkedAt": "2026-10-15T22:46:27+00:00",
+      "checkedAt": "2026-10-16T01:47:13+00:00",
       "trips": [
         {
           "departure": "2026-10-17T11:15:00+03:00",
@@ -3382,7 +3382,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/tatarbunary/",
-      "checkedAt": "2026-10-15T22:46:27+00:00",
+      "checkedAt": "2026-10-16T01:47:13+00:00",
       "trips": [
         {
           "departure": "2026-10-17T11:15:00+03:00",
@@ -3466,7 +3466,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/uman/",
-      "checkedAt": "2026-10-15T22:46:28+00:00",
+      "checkedAt": "2026-10-16T01:47:14+00:00",
       "trips": [
         {
           "departure": "2026-10-17T05:30:00+03:00",
@@ -3782,11 +3782,11 @@
         },
         {
           "departure": "2026-10-17T22:30:00+03:00",
-          "arrival": "2026-10-18T00:50:00+03:00",
+          "arrival": "2026-10-18T02:50:00+03:00",
           "from": "Київ",
           "to": "Умань",
-          "fromStop": "смт \"Гатне\"",
-          "fromAddress": "вулиця Оптимістична,1,автобусна зупинка",
+          "fromStop": "АС Київ (Центральний залізничний вокзал)",
+          "fromAddress": "вул. Симона Петлюри,32,метро Вокзальна",
           "toStop": "\"АЗС WOG\"",
           "toAddress": "вулиця Степана Бандери,1Б",
           "country": "UA",
@@ -3795,11 +3795,11 @@
         },
         {
           "departure": "2026-10-17T22:30:00+03:00",
-          "arrival": "2026-10-18T02:50:00+03:00",
+          "arrival": "2026-10-18T00:50:00+03:00",
           "from": "Київ",
           "to": "Умань",
-          "fromStop": "АС Київ (Центральний залізничний вокзал)",
-          "fromAddress": "вул. Симона Петлюри,32,метро Вокзальна",
+          "fromStop": "смт \"Гатне\"",
+          "fromAddress": "вулиця Оптимістична,1,автобусна зупинка",
           "toStop": "\"АЗС WOG\"",
           "toAddress": "вулиця Степана Бандери,1Б",
           "country": "UA",
@@ -3836,7 +3836,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/varshava/",
-      "checkedAt": "2026-10-15T22:46:28+00:00",
+      "checkedAt": "2026-10-16T01:47:14+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00+03:00",
@@ -3944,19 +3944,6 @@
         },
         {
           "departure": "2026-10-17T13:35:00+03:00",
-          "arrival": "2026-10-18T07:00:00+03:00",
-          "from": "Київ",
-          "to": "Варшава",
-          "fromStop": "АС \"Дачна\"",
-          "fromAddress": "проспект Берестейський,142",
-          "toStop": "Аеропорт імені Фридерика Шопена",
-          "toAddress": "Жвірки та Вігури,1",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Київ-Вільнюс"
-        },
-        {
-          "departure": "2026-10-17T13:35:00+03:00",
           "arrival": "2026-10-18T07:30:00+03:00",
           "from": "Київ",
           "to": "Варшава",
@@ -3967,12 +3954,25 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Київ-Вільнюс"
+        },
+        {
+          "departure": "2026-10-17T13:35:00+03:00",
+          "arrival": "2026-10-18T07:00:00+03:00",
+          "from": "Київ",
+          "to": "Варшава",
+          "fromStop": "АС \"Дачна\"",
+          "fromAddress": "проспект Берестейський,142",
+          "toStop": "Аеропорт імені Фридерика Шопена",
+          "toAddress": "Жвірки та Вігури,1",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Київ-Вільнюс"
         }
       ]
     },
     {
       "url": "https://likebus.ua/route/kyiv/vilnyus/",
-      "checkedAt": "2026-10-15T22:46:28+00:00",
+      "checkedAt": "2026-10-16T01:47:14+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00+03:00",
@@ -4043,7 +4043,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/vrotslav/",
-      "checkedAt": "2026-10-15T22:46:29+00:00",
+      "checkedAt": "2026-10-16T01:47:15+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00+03:00",
@@ -4101,7 +4101,7 @@
     },
     {
       "url": "https://likebus.ua/route/kyiv/zhytomyr/",
-      "checkedAt": "2026-10-15T22:46:29+00:00",
+      "checkedAt": "2026-10-16T01:47:15+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00+03:00",
@@ -4185,12 +4185,12 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/afiny/",
-      "checkedAt": "2026-10-15T22:46:29+00:00",
+      "checkedAt": "2026-10-16T01:47:15+00:00",
       "trips": []
     },
     {
       "url": "https://likebus.ua/route/odesa/bila-tserkva/",
-      "checkedAt": "2026-10-15T22:46:30+00:00",
+      "checkedAt": "2026-10-16T01:47:15+00:00",
       "trips": [
         {
           "departure": "2026-10-17T05:30:00+03:00",
@@ -4404,7 +4404,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/bolhrad/",
-      "checkedAt": "2026-10-15T22:46:30+00:00",
+      "checkedAt": "2026-10-16T01:47:16+00:00",
       "trips": [
         {
           "departure": "2026-10-17T08:00:00+03:00",
@@ -4436,30 +4436,30 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/bukharest/",
-      "checkedAt": "2026-10-15T22:46:30+00:00",
+      "checkedAt": "2026-10-16T01:47:16+00:00",
       "trips": [
         {
           "departure": "2026-10-17T08:00:00+03:00",
-          "arrival": "2026-10-17T22:30:00+03:00",
+          "arrival": "2026-10-17T22:05:00+03:00",
           "from": "Одеса",
           "to": "Бухарест",
           "fromStop": "АС \"Привокзальна\"",
           "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "Залізничний вокзал",
-          "toAddress": "Piața Gării de Nord 1-3,,біля Starbucks",
+          "toStop": "Аеропорт Отопені",
+          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Київ-Софія"
         },
         {
           "departure": "2026-10-17T08:00:00+03:00",
-          "arrival": "2026-10-17T22:05:00+03:00",
+          "arrival": "2026-10-17T22:30:00+03:00",
           "from": "Одеса",
           "to": "Бухарест",
           "fromStop": "АС \"Привокзальна\"",
           "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "Аеропорт Отопені",
-          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
+          "toStop": "Залізничний вокзал",
+          "toAddress": "Piața Gării de Nord 1-3,,біля Starbucks",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Київ-Софія"
@@ -4518,19 +4518,6 @@
         },
         {
           "departure": "2026-10-17T20:00:00+03:00",
-          "arrival": "2026-10-18T07:00:00+03:00",
-          "from": "Одеса",
-          "to": "Бухарест",
-          "fromStop": "Центральний Автовокзал",
-          "fromAddress": "вул. Колонтаївська,58",
-          "toStop": "Аеропорт Отопені",
-          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Київ-Одеса-Бухарест"
-        },
-        {
-          "departure": "2026-10-17T20:00:00+03:00",
           "arrival": "2026-10-18T07:30:00+03:00",
           "from": "Одеса",
           "to": "Бухарест",
@@ -4538,6 +4525,19 @@
           "fromAddress": "вул. Колонтаївська,58",
           "toStop": "Автовокзал Militari",
           "toAddress": "вулиця Valea Cascadelor,1",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Київ-Одеса-Бухарест"
+        },
+        {
+          "departure": "2026-10-17T20:00:00+03:00",
+          "arrival": "2026-10-18T07:00:00+03:00",
+          "from": "Одеса",
+          "to": "Бухарест",
+          "fromStop": "Центральний Автовокзал",
+          "fromAddress": "вул. Колонтаївська,58",
+          "toStop": "Аеропорт Отопені",
+          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Київ-Одеса-Бухарест"
@@ -4546,7 +4546,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/burhas/",
-      "checkedAt": "2026-10-15T22:46:30+00:00",
+      "checkedAt": "2026-10-16T01:47:16+00:00",
       "trips": [
         {
           "departure": "2026-10-17T09:00:00+03:00",
@@ -4604,7 +4604,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/dnipro/",
-      "checkedAt": "2026-10-15T22:46:30+00:00",
+      "checkedAt": "2026-10-16T01:47:16+00:00",
       "trips": [
         {
           "departure": "2026-10-17T07:00:00+03:00",
@@ -4792,7 +4792,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/izmail/",
-      "checkedAt": "2026-10-15T22:46:31+00:00",
+      "checkedAt": "2026-10-16T01:47:16+00:00",
       "trips": [
         {
           "departure": "2026-10-17T09:00:00+03:00",
@@ -4850,7 +4850,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/kharkiv/",
-      "checkedAt": "2026-10-15T22:46:31+00:00",
+      "checkedAt": "2026-10-16T01:47:16+00:00",
       "trips": [
         {
           "departure": "2026-10-17T07:00:00+03:00",
@@ -4880,19 +4880,6 @@
         },
         {
           "departure": "2026-10-17T07:30:00+03:00",
-          "arrival": "2026-10-17T22:00:00+03:00",
-          "from": "Одеса",
-          "to": "Харків",
-          "fromStop": "АС \"Привокзальна\"",
-          "fromAddress": "пл. Старосінна,1Б",
-          "toStop": "Автовокзал",
-          "toAddress": "пр-т. Юрія Гагаріна,22",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Одеса-Київ-Харків"
-        },
-        {
-          "departure": "2026-10-17T07:30:00+03:00",
           "arrival": "2026-10-17T19:30:00+03:00",
           "from": "Одеса",
           "to": "Харків",
@@ -4916,6 +4903,19 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Варна-Харків"
+        },
+        {
+          "departure": "2026-10-17T07:30:00+03:00",
+          "arrival": "2026-10-17T22:00:00+03:00",
+          "from": "Одеса",
+          "to": "Харків",
+          "fromStop": "АС \"Привокзальна\"",
+          "fromAddress": "пл. Старосінна,1Б",
+          "toStop": "Автовокзал",
+          "toAddress": "пр-т. Юрія Гагаріна,22",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Одеса-Київ-Харків"
         },
         {
           "departure": "2026-10-17T08:00:00+03:00",
@@ -5012,7 +5012,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/kryvyy-rih/",
-      "checkedAt": "2026-10-15T22:46:31+00:00",
+      "checkedAt": "2026-10-16T01:47:17+00:00",
       "trips": [
         {
           "departure": "2026-10-17T07:00:00+03:00",
@@ -5174,7 +5174,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/kyshyniv/",
-      "checkedAt": "2026-10-15T22:46:31+00:00",
+      "checkedAt": "2026-10-16T01:47:18+00:00",
       "trips": [
         {
           "departure": "2026-10-17T05:30:00+03:00",
@@ -5308,19 +5308,6 @@
         },
         {
           "departure": "2026-10-17T23:20:00+03:00",
-          "arrival": "2026-10-18T03:30:00+03:00",
-          "from": "Одеса",
-          "to": "Кишинів",
-          "fromStop": "Центральний Автовокзал",
-          "fromAddress": "вул. Колонтаївська,58",
-          "toStop": "АЗС \"Rompetromol\" біля АВ \"Північний\"",
-          "toAddress": "Калеа Мошилор,3",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Одеса-Кишинів"
-        },
-        {
-          "departure": "2026-10-17T23:20:00+03:00",
           "arrival": "2026-10-18T03:00:00+03:00",
           "from": "Одеса",
           "to": "Кишинів",
@@ -5331,12 +5318,25 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Одеса-Кишинів"
+        },
+        {
+          "departure": "2026-10-17T23:20:00+03:00",
+          "arrival": "2026-10-18T03:30:00+03:00",
+          "from": "Одеса",
+          "to": "Кишинів",
+          "fromStop": "Центральний Автовокзал",
+          "fromAddress": "вул. Колонтаївська,58",
+          "toStop": "АЗС \"Rompetromol\" біля АВ \"Північний\"",
+          "toAddress": "Калеа Мошилор,3",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Одеса-Кишинів"
         }
       ]
     },
     {
       "url": "https://likebus.ua/route/odesa/poznan/",
-      "checkedAt": "2026-10-15T22:46:32+00:00",
+      "checkedAt": "2026-10-16T01:47:18+00:00",
       "trips": [
         {
           "departure": "2026-10-17T10:15:00+03:00",
@@ -5368,7 +5368,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/praha/",
-      "checkedAt": "2026-10-15T22:46:32+00:00",
+      "checkedAt": "2026-10-16T01:47:18+00:00",
       "trips": [
         {
           "departure": "2026-10-17T08:00:00+03:00",
@@ -5400,7 +5400,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/reni/",
-      "checkedAt": "2026-10-15T22:46:32+00:00",
+      "checkedAt": "2026-10-16T01:47:18+00:00",
       "trips": [
         {
           "departure": "2026-10-17T19:30:00+03:00",
@@ -5432,7 +5432,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/uman/",
-      "checkedAt": "2026-10-15T22:46:32+00:00",
+      "checkedAt": "2026-10-16T01:47:18+00:00",
       "trips": [
         {
           "departure": "2026-10-17T05:30:00+03:00",
@@ -5750,7 +5750,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/varna/",
-      "checkedAt": "2026-10-15T22:46:33+00:00",
+      "checkedAt": "2026-10-16T01:47:19+00:00",
       "trips": [
         {
           "departure": "2026-10-17T09:00:00+03:00",
@@ -5808,7 +5808,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/vinnytsya/",
-      "checkedAt": "2026-10-15T22:46:33+00:00",
+      "checkedAt": "2026-10-16T01:47:19+00:00",
       "trips": [
         {
           "departure": "2026-10-17T08:00:00+03:00",
@@ -5892,7 +5892,7 @@
     },
     {
       "url": "https://likebus.ua/route/odesa/zaporizhzhya/",
-      "checkedAt": "2026-10-15T22:46:33+00:00",
+      "checkedAt": "2026-10-16T01:47:19+00:00",
       "trips": [
         {
           "departure": "2026-10-17T08:30:00+03:00",
@@ -6002,7 +6002,7 @@
     },
     {
       "url": "https://likebus.ua/route/reni/bila-tserkva/",
-      "checkedAt": "2026-10-15T22:46:33+00:00",
+      "checkedAt": "2026-10-16T01:47:19+00:00",
       "trips": [
         {
           "departure": "2026-10-17T23:15:00+03:00",
@@ -6021,7 +6021,7 @@
     },
     {
       "url": "https://likebus.ua/route/reni/breila/",
-      "checkedAt": "2026-10-15T22:46:34+00:00",
+      "checkedAt": "2026-10-16T01:47:20+00:00",
       "trips": [
         {
           "departure": "2026-10-17T00:15:00+03:00",
@@ -6040,21 +6040,8 @@
     },
     {
       "url": "https://likebus.ua/route/reni/bukharest/",
-      "checkedAt": "2026-10-15T22:46:34+00:00",
+      "checkedAt": "2026-10-16T01:47:20+00:00",
       "trips": [
-        {
-          "departure": "2026-10-17T00:15:00+03:00",
-          "arrival": "2026-10-17T07:00:00+03:00",
-          "from": "Рені",
-          "to": "Бухарест",
-          "fromStop": "\"АЗС Укр-Нафта\"",
-          "fromAddress": "вулиця Болградська,121-А",
-          "toStop": "Аеропорт Отопені",
-          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Київ-Одеса-Бухарест"
-        },
         {
           "departure": "2026-10-17T00:15:00+03:00",
           "arrival": "2026-10-17T07:30:00+03:00",
@@ -6067,17 +6054,30 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Київ-Одеса-Бухарест"
+        },
+        {
+          "departure": "2026-10-17T00:15:00+03:00",
+          "arrival": "2026-10-17T07:00:00+03:00",
+          "from": "Рені",
+          "to": "Бухарест",
+          "fromStop": "\"АЗС Укр-Нафта\"",
+          "fromAddress": "вулиця Болградська,121-А",
+          "toStop": "Аеропорт Отопені",
+          "toAddress": "вулиця Бухурештілор,224Е,майданчик для паркування P1",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Київ-Одеса-Бухарест"
         }
       ]
     },
     {
       "url": "https://likebus.ua/route/reni/dzhyurdzhyuleshty/",
-      "checkedAt": "2026-10-15T22:46:34+00:00",
+      "checkedAt": "2026-10-16T01:47:20+00:00",
       "trips": []
     },
     {
       "url": "https://likebus.ua/route/reni/halats/",
-      "checkedAt": "2026-10-15T22:46:34+00:00",
+      "checkedAt": "2026-10-16T01:47:20+00:00",
       "trips": [
         {
           "departure": "2026-10-17T00:15:00+03:00",
@@ -6096,7 +6096,7 @@
     },
     {
       "url": "https://likebus.ua/route/reni/kryve-ozero/",
-      "checkedAt": "2026-10-15T22:46:34+00:00",
+      "checkedAt": "2026-10-16T01:47:20+00:00",
       "trips": [
         {
           "departure": "2026-10-17T23:15:00+03:00",
@@ -6115,21 +6115,8 @@
     },
     {
       "url": "https://likebus.ua/route/reni/kyiv/",
-      "checkedAt": "2026-10-15T22:46:34+00:00",
+      "checkedAt": "2026-10-16T01:47:20+00:00",
       "trips": [
-        {
-          "departure": "2026-10-17T23:15:00+03:00",
-          "arrival": "2026-10-18T12:40:00+03:00",
-          "from": "Рені",
-          "to": "Київ",
-          "fromStop": "\"АЗС Укр-Нафта\"",
-          "fromAddress": "вулиця Болградська,121-А",
-          "toStop": "Зупинка \"Метро Теремки\"",
-          "toAddress": "проспект Академіка Глушкова",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Бухарест-Київ "
-        },
         {
           "departure": "2026-10-17T23:15:00+03:00",
           "arrival": "2026-10-18T12:50:00+03:00",
@@ -6155,12 +6142,25 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Бухарест-Київ "
+        },
+        {
+          "departure": "2026-10-17T23:15:00+03:00",
+          "arrival": "2026-10-18T12:40:00+03:00",
+          "from": "Рені",
+          "to": "Київ",
+          "fromStop": "\"АЗС Укр-Нафта\"",
+          "fromAddress": "вулиця Болградська,121-А",
+          "toStop": "Зупинка \"Метро Теремки\"",
+          "toAddress": "проспект Академіка Глушкова",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Бухарест-Київ "
         }
       ]
     },
     {
       "url": "https://likebus.ua/route/reni/odesa/",
-      "checkedAt": "2026-10-15T22:46:34+00:00",
+      "checkedAt": "2026-10-16T01:47:20+00:00",
       "trips": [
         {
           "departure": "2026-10-17T23:15:00+03:00",
@@ -6179,7 +6179,7 @@
     },
     {
       "url": "https://likebus.ua/route/reni/tatarbunary/",
-      "checkedAt": "2026-10-15T22:46:35+00:00",
+      "checkedAt": "2026-10-16T01:47:21+00:00",
       "trips": [
         {
           "departure": "2026-10-17T23:15:00+03:00",
@@ -6198,7 +6198,7 @@
     },
     {
       "url": "https://likebus.ua/route/reni/uman/",
-      "checkedAt": "2026-10-15T22:46:35+00:00",
+      "checkedAt": "2026-10-16T01:47:21+00:00",
       "trips": [
         {
           "departure": "2026-10-17T23:15:00+03:00",
@@ -6217,7 +6217,7 @@
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/bukharest/",
-      "checkedAt": "2026-10-15T22:46:35+00:00",
+      "checkedAt": "2026-10-16T01:47:21+00:00",
       "trips": [
         {
           "departure": "2026-10-17T11:00:00+03:00",
@@ -6275,7 +6275,7 @@
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/burhas/",
-      "checkedAt": "2026-10-15T22:46:35+00:00",
+      "checkedAt": "2026-10-16T01:47:21+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00+03:00",
@@ -6307,7 +6307,7 @@
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/konstantsa/",
-      "checkedAt": "2026-10-15T22:46:36+00:00",
+      "checkedAt": "2026-10-16T01:47:21+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00+03:00",
@@ -6339,21 +6339,8 @@
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/kyiv/",
-      "checkedAt": "2026-10-15T22:46:36+00:00",
+      "checkedAt": "2026-10-16T01:47:21+00:00",
       "trips": [
-        {
-          "departure": "2026-10-17T04:10:00+03:00",
-          "arrival": "2026-10-17T12:20:00+03:00",
-          "from": "Татарбунари",
-          "to": "Київ",
-          "fromStop": "Автовокзал",
-          "fromAddress": "вул. Степова,2",
-          "toStop": "смт \"Чабани\"",
-          "toAddress": "вулиця Машинобудівників,1,автобусна зупинка",
-          "country": "UA",
-          "carrier": "LikeBus",
-          "service": "Бухарест-Київ "
-        },
         {
           "departure": "2026-10-17T04:10:00+03:00",
           "arrival": "2026-10-17T12:50:00+03:00",
@@ -6381,17 +6368,17 @@
           "service": "Бухарест-Київ "
         },
         {
-          "departure": "2026-10-17T09:40:00+03:00",
-          "arrival": "2026-10-17T20:20:00+03:00",
+          "departure": "2026-10-17T04:10:00+03:00",
+          "arrival": "2026-10-17T12:20:00+03:00",
           "from": "Татарбунари",
           "to": "Київ",
           "fromStop": "Автовокзал",
           "fromAddress": "вул. Степова,2",
-          "toStop": "Зупинка \"Метро Теремки\"",
-          "toAddress": "проспект Академіка Глушкова",
+          "toStop": "смт \"Чабани\"",
+          "toAddress": "вулиця Машинобудівників,1,автобусна зупинка",
           "country": "UA",
           "carrier": "LikeBus",
-          "service": "Пловдів-Київ"
+          "service": "Бухарест-Київ "
         },
         {
           "departure": "2026-10-17T09:40:00+03:00",
@@ -6407,17 +6394,17 @@
           "service": "Пловдів-Київ"
         },
         {
-          "departure": "2026-10-17T20:00:00+03:00",
-          "arrival": "2026-10-18T05:25:00+03:00",
+          "departure": "2026-10-17T09:40:00+03:00",
+          "arrival": "2026-10-17T20:20:00+03:00",
           "from": "Татарбунари",
           "to": "Київ",
-          "fromStop": "Кафе  \"Тиха поляна\"",
-          "fromAddress": "вулиця Степова",
+          "fromStop": "Автовокзал",
+          "fromAddress": "вул. Степова,2",
           "toStop": "Зупинка \"Метро Теремки\"",
           "toAddress": "проспект Академіка Глушкова",
           "country": "UA",
           "carrier": "LikeBus",
-          "service": "Бургас-Київ"
+          "service": "Пловдів-Київ"
         },
         {
           "departure": "2026-10-17T20:00:00+03:00",
@@ -6457,12 +6444,25 @@
           "country": "UA",
           "carrier": "LikeBus",
           "service": "Бургас-Київ"
+        },
+        {
+          "departure": "2026-10-17T20:00:00+03:00",
+          "arrival": "2026-10-18T05:25:00+03:00",
+          "from": "Татарбунари",
+          "to": "Київ",
+          "fromStop": "Кафе  \"Тиха поляна\"",
+          "fromAddress": "вулиця Степова",
+          "toStop": "Зупинка \"Метро Теремки\"",
+          "toAddress": "проспект Академіка Глушкова",
+          "country": "UA",
+          "carrier": "LikeBus",
+          "service": "Бургас-Київ"
         }
       ]
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/plovdiv/",
-      "checkedAt": "2026-10-15T22:46:36+00:00",
+      "checkedAt": "2026-10-16T01:47:21+00:00",
       "trips": [
         {
           "departure": "2026-10-17T11:00:00+03:00",
@@ -6481,12 +6481,12 @@
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/reni/",
-      "checkedAt": "2026-10-15T22:46:36+00:00",
+      "checkedAt": "2026-10-16T01:47:22+00:00",
       "trips": []
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/sofiya/",
-      "checkedAt": "2026-10-15T22:46:37+00:00",
+      "checkedAt": "2026-10-16T01:47:22+00:00",
       "trips": [
         {
           "departure": "2026-10-17T11:00:00+03:00",
@@ -6505,7 +6505,7 @@
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/sonyachnyy-bereh/",
-      "checkedAt": "2026-10-15T22:46:37+00:00",
+      "checkedAt": "2026-10-16T01:47:22+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00+03:00",
@@ -6537,7 +6537,7 @@
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/stambul/",
-      "checkedAt": "2026-10-15T22:46:37+00:00",
+      "checkedAt": "2026-10-16T01:47:22+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00+03:00",
@@ -6556,7 +6556,7 @@
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/uman/",
-      "checkedAt": "2026-10-15T22:46:37+00:00",
+      "checkedAt": "2026-10-16T01:47:22+00:00",
       "trips": [
         {
           "departure": "2026-10-17T04:10:00+03:00",
@@ -6601,7 +6601,7 @@
     },
     {
       "url": "https://likebus.ua/route/tatarbunary/varna/",
-      "checkedAt": "2026-10-15T22:46:37+00:00",
+      "checkedAt": "2026-10-16T01:47:23+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00+03:00",
@@ -6633,43 +6633,15 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=MD0101000000&point_to=UA5122310100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:38+00:00",
+      "attemptedAt": "2026-10-16T01:47:23+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=MD0101000000&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:38+00:00",
+      "checkedAt": "2026-10-16T01:47:23+00:00",
       "trips": [
-        {
-          "departure": "2026-10-16T05:50:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Кишинёв",
-          "fromStop": "ОДЕСА ПРИВОЗ",
-          "fromAddress": "ул. Новощепной ряд, 5",
-          "toStop": "КИШИНІВ",
-          "toAddress": "",
-          "country": "MD",
-          "carrier": "ГАЛІЗ СВ ТОВ МЕРСЕДЕС-20",
-          "service": "126КШ ОДЕСА ПРИВОЗ - КИШИНІВ",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-16T06:15:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Кишинёв",
-          "fromStop": "ОДЕСА ПРИВОЗ",
-          "fromAddress": "ул. Новощепной ряд, 5",
-          "toStop": "КИШИНІВ",
-          "toAddress": "",
-          "country": "MD",
-          "carrier": "ГАЛІЗ СВ ТОВ МЕРСЕДЕС-20",
-          "service": "127КШ ОДЕСА ПРИВОЗ - КИШИНІВ",
-          "transfer": false
-        },
         {
           "departure": "2026-10-16T07:00:00",
           "arrival": "",
@@ -7647,7 +7619,7 @@
           "toAddress": "",
           "country": "MD",
           "carrier": "TOB. ЮHAC МЕРСЕДЕС- (49)",
-          "service": "1618 0615 Одеса - Кишинів Н",
+          "service": "1350 0615 Одеса - Кишинів",
           "transfer": false
         },
         {
@@ -7661,7 +7633,7 @@
           "toAddress": "",
           "country": "MD",
           "carrier": "TOB. ЮHAC МЕРСЕДЕС- (49)",
-          "service": "1350 0615 Одеса - Кишинів",
+          "service": "1618 0615 Одеса - Кишинів Н",
           "transfer": false
         },
         {
@@ -9957,7 +9929,7 @@
           "toAddress": "",
           "country": "MD",
           "carrier": "TOB. ЮHAC МЕРСЕДЕС- (49)",
-          "service": "1618 0615 Одеса - Кишинів Н",
+          "service": "1350 0615 Одеса - Кишинів",
           "transfer": false
         },
         {
@@ -9971,7 +9943,7 @@
           "toAddress": "",
           "country": "MD",
           "carrier": "TOB. ЮHAC МЕРСЕДЕС- (49)",
-          "service": "1350 0615 Одеса - Кишинів",
+          "service": "1618 0615 Одеса - Кишинів Н",
           "transfer": false
         },
         {
@@ -10902,14 +10874,14 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5110300000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:38+00:00",
+      "attemptedAt": "2026-10-16T01:47:23+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5110600000&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:40+00:00",
+      "checkedAt": "2026-10-16T01:47:25+00:00",
       "trips": [
         {
           "departure": "2026-10-16T07:30:00",
@@ -11335,14 +11307,14 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5110800000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:41+00:00",
+      "attemptedAt": "2026-10-16T01:47:25+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5120410100&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:42+00:00",
+      "checkedAt": "2026-10-16T01:47:27+00:00",
       "trips": [
         {
           "departure": "2026-10-16T09:50:00",
@@ -12020,36 +11992,22 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5121410100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:42+00:00",
+      "attemptedAt": "2026-10-16T01:47:27+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5122080701&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:43+00:00",
+      "attemptedAt": "2026-10-16T01:47:27+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5122310100&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:44+00:00",
+      "checkedAt": "2026-10-16T01:47:28+00:00",
       "trips": [
-        {
-          "departure": "2026-10-16T05:15:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Килия",
-          "fromStop": "ОДЕСА:Автостанція[ua]",
-          "fromAddress": "Автостанція \"Привокзальна\", вул. Старосінна, 1б",
-          "toStop": "КІЛІЯ:Автовокзал[ua]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "Автолайн Одеса n/a",
-          "service": "14995 Київ - Кілія (23:15)",
-          "transfer": false
-        },
         {
           "departure": "2026-10-16T10:15:00",
           "arrival": "",
@@ -12348,22 +12306,8 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5122310300&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:44+00:00",
+      "checkedAt": "2026-10-16T01:47:28+00:00",
       "trips": [
-        {
-          "departure": "2026-10-16T05:15:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Вилково",
-          "fromStop": "ОДЕСА:Автостанція[ua]",
-          "fromAddress": "Автостанція \"Привокзальна\", вул. Старосінна, 1б",
-          "toStop": "ВИЛКОВЕ:Автовокзал[ua]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "Автолайн Одеса n/a",
-          "service": "14995 Київ - Кілія (23:15)",
-          "transfer": false
-        },
         {
           "departure": "2026-10-17T05:15:00",
           "arrival": "",
@@ -12410,14 +12354,14 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5124110100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:44+00:00",
+      "attemptedAt": "2026-10-16T01:47:29+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5124555100&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:46+00:00",
+      "checkedAt": "2026-10-16T01:47:30+00:00",
       "trips": [
         {
           "departure": "2026-10-16T09:50:00",
@@ -13543,7 +13487,7 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5125010100&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:46+00:00",
+      "checkedAt": "2026-10-16T01:47:30+00:00",
       "trips": [
         {
           "departure": "2026-10-16T07:30:00",
@@ -14431,7 +14375,7 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA5125084703&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:46+00:00",
+      "checkedAt": "2026-10-16T01:47:30+00:00",
       "trips": [
         {
           "departure": "2026-10-16T10:15:00",
@@ -14857,7 +14801,7 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA6510100000&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:48+00:00",
+      "checkedAt": "2026-10-16T01:47:32+00:00",
       "trips": [
         {
           "departure": "2026-10-16T08:10:00",
@@ -15115,7 +15059,7 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110100000&point_to=UA8000000000&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:48+00:00",
+      "checkedAt": "2026-10-16T01:47:32+00:00",
       "trips": [
         {
           "departure": "2026-10-16T07:00:00",
@@ -15128,7 +15072,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "900007820-2447/6492 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -15142,21 +15086,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007820-2447/6492 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-16T07:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (Видубичі)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007820-2447/6492 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -15171,6 +15101,20 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-16T07:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (Видубичі)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900007820-2447/6492 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -15268,7 +15212,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007831-2754/7094 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "970007831-3099/7825 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -15282,7 +15226,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "970007831-3099/7825 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "900007831-2754/7094 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -15339,20 +15283,6 @@
           "country": "UA",
           "carrier": "PrusTravel n/a",
           "service": "24389 Білгород-Дністровський - Київ (13:00)",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-16T15:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (метро Теремки)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "970004928-2974/7544 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -15367,6 +15297,20 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900004928-2976/7541 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-16T15:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (метро Теремки)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "970004928-2974/7544 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -15576,6 +15520,20 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-16T23:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (метро Теремки)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900004929-2977/7829 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
@@ -15591,34 +15549,6 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "970004929-2975/7540 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-16T23:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (метро Теремки)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-16T23:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (Видубичі)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -15647,6 +15577,20 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "970004929-2975/7540 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-16T23:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (Видубичі)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -15716,20 +15660,6 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-17T07:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (метро Теремки)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "970007820-3021/7636 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
@@ -15754,6 +15684,34 @@
           "to": "Киев",
           "fromStop": "Одеса (Старосінна)[UA]",
           "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (метро Теремки)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-17T07:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (Видубичі)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-17T07:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
           "toStop": "Київ (Видубичі)[UA]",
           "toAddress": "",
           "country": "UA",
@@ -15773,20 +15731,6 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900007820-2447/6492 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-17T07:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (Видубичі)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16010,7 +15954,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "970004928-2974/7544 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "900004928-2976/7541 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16024,7 +15968,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900004928-2976/7541 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "970004928-2974/7544 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16094,7 +16038,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007824-2587/6776 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "970007824-3100/7826 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16108,7 +16052,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "970007824-3100/7826 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "900007824-2587/6776 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16346,6 +16290,20 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-17T23:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (метро Теремки)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900004929-2977/7829 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
@@ -16361,34 +16319,6 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "970004929-2975/7540 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-17T23:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (метро Теремки)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-17T23:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (Видубичі)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16417,6 +16347,20 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "970004929-2975/7540 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-17T23:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (Видубичі)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16444,20 +16388,6 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007820-2447/6492 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-18T07:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (метро Теремки)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
@@ -16482,6 +16412,34 @@
           "to": "Киев",
           "fromStop": "Одеса (Старосінна)[UA]",
           "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (метро Теремки)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900007820-2447/6492 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-18T07:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (Видубичі)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-18T07:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
           "toStop": "Київ (Видубичі)[UA]",
           "toAddress": "",
           "country": "UA",
@@ -16501,20 +16459,6 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900007820-2447/6492 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-18T07:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (Видубичі)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16571,20 +16515,6 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900004932-2987/7781 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-18T12:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (метро Теремки)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007831-2754/7094 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16599,6 +16529,20 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "970007831-3099/7825 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-18T12:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (метро Теремки)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900007831-2754/7094 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16738,7 +16682,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "970004928-2974/7544 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "900004928-2976/7541 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16752,7 +16696,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900004928-2976/7541 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "970004928-2974/7544 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16822,7 +16766,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007824-2587/6776 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "970007824-3100/7826 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -16836,7 +16780,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "970007824-3100/7826 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "900007824-2587/6776 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -17130,20 +17074,6 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-18T23:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (Видубичі)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900004929-2977/7829 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
@@ -17159,6 +17089,20 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "970004929-2975/7540 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-18T23:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (Видубичі)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -17228,6 +17172,20 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
+          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "transfer": false
+        },
+        {
+          "departure": "2026-10-19T07:00:00",
+          "arrival": "",
+          "from": "Одесса",
+          "to": "Киев",
+          "fromStop": "Одеса (Старосінна)[UA]",
+          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
+          "toStop": "Київ (метро Теремки)[UA]",
+          "toAddress": "",
+          "country": "UA",
+          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "970007820-3021/7636 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
@@ -17252,7 +17210,7 @@
           "to": "Киев",
           "fromStop": "Одеса (Старосінна)[UA]",
           "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (метро Теремки)[UA]",
+          "toStop": "Київ (Видубичі)[UA]",
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
@@ -17285,20 +17243,6 @@
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
           "service": "900007820-2447/6492 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
-          "transfer": false
-        },
-        {
-          "departure": "2026-10-19T07:00:00",
-          "arrival": "",
-          "from": "Одесса",
-          "to": "Киев",
-          "fromStop": "Одеса (Старосінна)[UA]",
-          "fromAddress": "Автостанцiя \"Старосiнна\", пл. Старосiнна, 1А-2, пл. № 4,5",
-          "toStop": "Київ (Видубичі)[UA]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900007820-2447/7947 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -17494,7 +17438,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "970004928-2974/7544 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "900004928-2976/7541 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -17508,7 +17452,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900004928-2976/7541 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "970004928-2974/7544 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -17760,7 +17704,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "970004929-2975/7540 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -17788,7 +17732,7 @@
           "toAddress": "",
           "country": "UA",
           "carrier": "ТОВ \"ААЗ ТРЕЙДІНГ-АВТОЛЮКС\" ECOLINES / АВТОЛЮКС",
-          "service": "970004929-2975/7540 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
+          "service": "900004929-2977/7951 ОДЕСА (СТАРОСІННА)[UA] - КИЇВ (ВИДУБИЧІ)[UA]",
           "transfer": false
         },
         {
@@ -17837,49 +17781,49 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110300000&point_to=UA5110600000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:48+00:00",
+      "attemptedAt": "2026-10-16T01:47:32+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110300000&point_to=UA5120410100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:49+00:00",
+      "attemptedAt": "2026-10-16T01:47:33+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110300000&point_to=UA5121410100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:49+00:00",
+      "attemptedAt": "2026-10-16T01:47:34+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110300000&point_to=UA5122310300&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:51+00:00",
+      "attemptedAt": "2026-10-16T01:47:35+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110300000&point_to=UA5124555100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:51+00:00",
+      "attemptedAt": "2026-10-16T01:47:35+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110300000&point_to=UA6510100000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:51+00:00",
+      "attemptedAt": "2026-10-16T01:47:35+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110300000&point_to=UA8000000000&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:52+00:00",
+      "checkedAt": "2026-10-16T01:47:36+00:00",
       "trips": [
         {
           "departure": "2026-10-16T09:35:00",
@@ -17997,56 +17941,56 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110600000&point_to=UA5110300000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:52+00:00",
+      "attemptedAt": "2026-10-16T01:47:36+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110600000&point_to=UA5120410100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:53+00:00",
+      "attemptedAt": "2026-10-16T01:47:36+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110600000&point_to=UA5121410100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:53+00:00",
+      "attemptedAt": "2026-10-16T01:47:38+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110600000&point_to=UA5122080701&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:53+00:00",
+      "attemptedAt": "2026-10-16T01:47:38+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110600000&point_to=UA5122310100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:54+00:00",
+      "attemptedAt": "2026-10-16T01:47:38+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110600000&point_to=UA5122310300&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:55+00:00",
+      "attemptedAt": "2026-10-16T01:47:39+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110600000&point_to=UA5124110100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:55+00:00",
+      "attemptedAt": "2026-10-16T01:47:39+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110600000&point_to=UA5125010100&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:46:55+00:00",
+      "checkedAt": "2026-10-16T01:47:39+00:00",
       "trips": [
         {
           "departure": "2026-10-16T13:45:00",
@@ -18304,84 +18248,84 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5110800000&point_to=UA5120410100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:56+00:00",
+      "attemptedAt": "2026-10-16T01:47:41+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5120410100&point_to=UA5110100000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:56+00:00",
+      "attemptedAt": "2026-10-16T01:47:41+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5120410100&point_to=UA5110300000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:57+00:00",
+      "attemptedAt": "2026-10-16T01:47:41+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5120410100&point_to=UA5110600000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:57+00:00",
+      "attemptedAt": "2026-10-16T01:47:42+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5120410100&point_to=UA5110800000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:57+00:00",
+      "attemptedAt": "2026-10-16T01:47:42+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5120410100&point_to=UA5125010100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:58+00:00",
+      "attemptedAt": "2026-10-16T01:47:42+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5121410100&point_to=UA5110100000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:59+00:00",
+      "attemptedAt": "2026-10-16T01:47:43+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5121410100&point_to=UA5110300000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:59+00:00",
+      "attemptedAt": "2026-10-16T01:47:43+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5121410100&point_to=UA5110600000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:46:59+00:00",
+      "attemptedAt": "2026-10-16T01:47:43+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5121410100&point_to=UA5124110100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:00+00:00",
+      "attemptedAt": "2026-10-16T01:47:45+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122080701&point_to=UA5110600000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:00+00:00",
+      "attemptedAt": "2026-10-16T01:47:45+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310100&point_to=MD0101000000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:01+00:00",
+      "attemptedAt": "2026-10-16T01:47:45+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
@@ -18389,18 +18333,20 @@
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310100&point_to=UA5110100000&date_add=3&fn=round_search&lang=ua",
       "checkedAt": "2026-10-15T22:47:01+00:00",
-      "trips": []
+      "trips": [],
+      "lastError": "ValueError",
+      "attemptedAt": "2026-10-16T01:47:46+00:00"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310100&point_to=UA5110600000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:01+00:00",
+      "attemptedAt": "2026-10-16T01:47:46+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310100&point_to=UA5122310300&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:02+00:00",
+      "attemptedAt": "2026-10-16T01:47:46+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
@@ -18408,51 +18354,55 @@
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310100&point_to=UA8000000000&date_add=3&fn=round_search&lang=ua",
       "checkedAt": "2026-10-15T22:47:03+00:00",
-      "trips": []
+      "trips": [],
+      "lastError": "ValueError",
+      "attemptedAt": "2026-10-16T01:47:47+00:00"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310300&point_to=UA5110100000&date_add=3&fn=round_search&lang=ua",
       "checkedAt": "2026-10-15T22:47:03+00:00",
-      "trips": []
+      "trips": [],
+      "lastError": "ValueError",
+      "attemptedAt": "2026-10-16T01:47:47+00:00"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310300&point_to=UA5110300000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:03+00:00",
+      "attemptedAt": "2026-10-16T01:47:47+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310300&point_to=UA5110600000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:04+00:00",
+      "attemptedAt": "2026-10-16T01:47:48+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310300&point_to=UA5122310100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:04+00:00",
+      "attemptedAt": "2026-10-16T01:47:48+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310300&point_to=UA5124555100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:05+00:00",
+      "attemptedAt": "2026-10-16T01:47:48+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310300&point_to=UA5125010100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:05+00:00",
+      "attemptedAt": "2026-10-16T01:47:49+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310300&point_to=UA5125084703&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:06+00:00",
+      "attemptedAt": "2026-10-16T01:47:49+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
@@ -18460,75 +18410,63 @@
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5122310300&point_to=UA8000000000&date_add=3&fn=round_search&lang=ua",
       "checkedAt": "2026-10-15T22:47:06+00:00",
-      "trips": []
+      "trips": [],
+      "lastError": "ValueError",
+      "attemptedAt": "2026-10-16T01:47:50+00:00"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5124110100&point_to=UA5110100000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:07+00:00",
+      "attemptedAt": "2026-10-16T01:47:51+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5124110100&point_to=UA5110600000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:07+00:00",
+      "attemptedAt": "2026-10-16T01:47:51+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5124110100&point_to=UA5121410100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:07+00:00",
+      "attemptedAt": "2026-10-16T01:47:51+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5124110100&point_to=UA5124555100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:08+00:00",
+      "attemptedAt": "2026-10-16T01:47:52+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5124555100&point_to=UA5110300000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:08+00:00",
+      "attemptedAt": "2026-10-16T01:47:52+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5124555100&point_to=UA5122310300&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:09+00:00",
+      "attemptedAt": "2026-10-16T01:47:52+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5124555100&point_to=UA5124110100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:09+00:00",
+      "attemptedAt": "2026-10-16T01:47:53+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5125010100&point_to=UA5110600000&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:47:10+00:00",
+      "checkedAt": "2026-10-16T01:47:53+00:00",
       "trips": [
-        {
-          "departure": "2026-10-16T05:30:00",
-          "arrival": "",
-          "from": "Татарбунары",
-          "to": "Измаил",
-          "fromStop": "ТАТАРБУНАРИ:Автовокзал,[ua]",
-          "fromAddress": "Автовокзал, вул. Степова, 2",
-          "toStop": "ІЗМАЇЛ:Залізничний[ua]",
-          "toAddress": "",
-          "country": "UA",
-          "carrier": "LuxBus n/a",
-          "service": "24922 Київ - Ізмаїл",
-          "transfer": false
-        },
         {
           "departure": "2026-10-17T05:00:00",
           "arrival": "",
@@ -18589,21 +18527,21 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5125010100&point_to=UA5120410100&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:10+00:00",
+      "attemptedAt": "2026-10-16T01:47:53+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5125010100&point_to=UA5122310300&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:11+00:00",
+      "attemptedAt": "2026-10-16T01:47:54+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5125010100&point_to=UA8000000000&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:47:11+00:00",
+      "checkedAt": "2026-10-16T01:47:55+00:00",
       "trips": [
         {
           "departure": "2026-10-16T20:00:00",
@@ -18847,21 +18785,21 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA5125084703&point_to=UA5122310300&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:11+00:00",
+      "attemptedAt": "2026-10-16T01:47:55+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA6510100000&point_to=UA5110300000&date_add=3&fn=round_search&lang=ua",
-      "attemptedAt": "2026-10-15T22:47:12+00:00",
+      "attemptedAt": "2026-10-16T01:47:56+00:00",
       "error": "ValueError",
       "trips": [],
       "lastError": "ValueError"
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA8000000000&point_to=UA5110300000&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:47:12+00:00",
+      "checkedAt": "2026-10-16T01:47:56+00:00",
       "trips": [
         {
           "departure": "2026-10-17T12:00:00",
@@ -18923,7 +18861,7 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA8000000000&point_to=UA5122310100&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:47:13+00:00",
+      "checkedAt": "2026-10-16T01:47:56+00:00",
       "trips": [
         {
           "departure": "2026-10-16T23:15:00",
@@ -19041,7 +18979,7 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA8000000000&point_to=UA5122310300&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:47:13+00:00",
+      "checkedAt": "2026-10-16T01:47:57+00:00",
       "trips": [
         {
           "departure": "2026-10-16T23:30:00",
@@ -19103,7 +19041,7 @@
     },
     {
       "url": "https://ticket.bus.com.ua/order/forming_bn?point_from=UA8000000000&point_to=UA5125010100&date_add=3&fn=round_search&lang=ua",
-      "checkedAt": "2026-10-15T22:47:14+00:00",
+      "checkedAt": "2026-10-16T01:47:57+00:00",
       "trips": [
         {
           "departure": "2026-10-16T18:30:00",
