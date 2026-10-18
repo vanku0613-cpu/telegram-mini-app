@@ -12,26 +12,22 @@
 <link rel="preload" as="image" href="../assets/izmail-desktop-blue-hour.webp" media="(min-width:1000px)">
 <link rel="stylesheet" href="./main.css?v=43">
 
-<script src="./settings.js?v=20261008-5" defer></script>
+<script src="./settings.js?v=20261008-5"></script>
 <script src="./desktop-resize.js?v=2" defer></script>
 
 <script src="../navigation.js?v=7" defer data-izmail-navigation="1"></script>
+<script src="../search-hints.js?v=1" defer></script>
 <link rel="stylesheet" href="../home-weather.css?v=5">
 <link rel="stylesheet" href="../home-info.css?v=24">
-<script src="../weather-profile.js?v=2" defer></script>
-<script src="../weather-source.js?v=2" defer></script>
-<script src="./main.js?v=17" defer></script>
-<script src="./startup.js?v=1" defer></script>
-<script src="../welcome.js?v=2" defer></script>
-<script src="../directory-search.js?v=32" defer></script>
-<script src="../search-hints.js?v=1" defer></script>
 <script src="../home-feedback.js?v=1" defer></script>
+<script src="../weather-profile.js?v=2"></script>
+<script src="../weather-source.js?v=2"></script>
 <link rel="stylesheet" href="../directory-search.css?v=3">
 </head>
 <body>
 <div id="app">
-  <img class="bg-blur" id="bgBlur" alt="" decoding="async">
-  <img class="bg-main" id="bgMain" alt="" fetchpriority="high" decoding="async">
+  <img class="bg-blur" id="bgBlur" src="../assets/izmail-home-summer-day.webp" alt="" decoding="async">
+  <img class="bg-main" id="bgMain" src="../assets/izmail-home-summer-day.webp" alt="" fetchpriority="high" decoding="async">
   <div class="fade"></div>
   <div class="scene-layer" id="sceneLayer" aria-hidden="true">
     <div class="time-filter" id="timeFilter"></div><div class="weather-shade" id="weatherShade"></div>
@@ -197,5 +193,8 @@
   <button id="desktopResizeHandle" type="button" aria-label="Изменить размер приложения"></button>
 </div>
 
+<script src="./main.js?v=18"></script>
+<script src="../welcome.js?v=2"></script>
+<script src="../directory-search.js?v=32"></script>
 </body>
 </html>

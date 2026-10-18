@@ -301,16 +301,11 @@
   }
   var pendingBackground='';
   var backgroundRequest=0;
-  var desktopArtwork=window.matchMedia('(min-width:1000px) and (hover:hover) and (pointer:fine)');
   function updateBackground(url){
-    // Desktop CSS uses this photograph in every season; do not download hidden mobile art.
-    if(desktopArtwork.matches)url='../assets/izmail-desktop-blue-hour.webp';
     if(pendingBackground===url) return;
     pendingBackground=url;
     var request=++backgroundRequest;
     var image=new Image();
-    image.fetchPriority='high';
-    image.decoding='async';
     image.onload=function(){
       if(request!==backgroundRequest)return;
       if(bgMain && bgMain.getAttribute('src')!==url)bgMain.src=url;
@@ -422,8 +417,6 @@
     state.time=realTimeOfDay();
     applyScene("live");
   }
-  if(desktopArtwork.addEventListener)desktopArtwork.addEventListener('change',function(){applyScene('live');});
-  else if(desktopArtwork.addListener)desktopArtwork.addListener(function(){applyScene('live');});
 
   resizeCanvas();
   requestAnimationFrame(drawWeather);
