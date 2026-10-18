@@ -1,7 +1,7 @@
 /* Application-wide resilience cache for the static GitHub Pages build. */
 const CACHE_PREFIX = "izmail-directory-";
-const STATIC_CACHE = CACHE_PREFIX + "static-v47" + "-schedules-20261013-2";
-const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v47" + "-schedules-20261013-2";
+const STATIC_CACHE = CACHE_PREFIX + "static-v48" + "-startup-20261018-1";
+const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v48" + "-startup-20261018-1";
 const OFFLINE_HOME = "./main-v2/index.html";
 
 /* Store every user-facing document under its own folder URL. Serving the
@@ -31,7 +31,8 @@ const APP_SHELL = [
   OFFLINE_HOME,
   "./main-v2/main.css?v=43",
   "./main-v2/desktop-resize.js?v=2",
-  "./main-v2/main.js?v=16",
+  "./main-v2/main.js?v=17",
+  "./main-v2/startup.js?v=1",
   "./welcome.js?v=2",
   "./main-v2/settings.js?v=20261008-5",
   "./main-v2/stage-lock.js?v=1",
@@ -42,6 +43,9 @@ const APP_SHELL = [
   "./directory-search.js?v=32",
   "./directory-search.css?v=3",
   "./weather-source.js?v=2",
+  "./weather-profile.js?v=2",
+  "./home-feedback.js?v=1",
+  "./search-hints.js?v=1",
   "./view-counter.js?v=6",
   "./main-v2/frank-rates.js?v=8",
   "./assets/izmail-home-summer-day.webp",
@@ -92,6 +96,18 @@ async function networkFirst(request) {
        into another folder address. */
     return Response.redirect(new URL(OFFLINE_HOME, self.registration.scope).href, 302);
   }
+}
+
+/* The home menu contains static links; show the saved current-release shell
+   immediately, then check for its next release without blocking opening.
+   Catalogs, dated schedules and exchange rates keep their own freshness rules. */
+async function homeNavigation(request, event) {
+  const runtime = await caches.open(RUNTIME_CACHE);
+  const hit = (await runtime.match(cacheKey(request))) || (await cached(request));
+  if (!hit) return networkFirst(request);
+  event.waitUntil(networkWithTimeout(request, 4500)
+    .then(response => put(RUNTIME_CACHE, request, response)).catch(() => null));
+  return hit;
 }
 
 /* Search must receive current contacts on its first online request. Preserve
@@ -162,11 +178,19 @@ self.addEventListener("fetch", event => {
   if (url.origin !== self.location.origin) return;
 
   if (request.mode === "navigate") {
-    event.respondWith(networkFirst(request));
+    const home = new URL(OFFLINE_HOME, self.registration.scope);
+    const root = new URL("./", self.registration.scope);
+    const clean = value => value.replace(/index\.html$/, "").replace(/\/$/, "");
+    event.respondWith([clean(home.pathname), clean(root.pathname)].includes(clean(url.pathname))
+      ? homeNavigation(request, event) : networkFirst(request));
     return;
   }
 
   if (url.pathname.endsWith(".json")) {
+    if (url.pathname.endsWith("/data/frank-rates.json")) {
+      event.respondWith(currentCatalog(request));
+      return;
+    }
     if (/\/transport\/(?:schedule-search|city-schedule\/data\/(?:regional-routes|kyiv|villages)|(?:bus|odessa)-schedule\/schedule-data)\.json$/.test(url.pathname)) {
       event.respondWith(currentSchedule(request));
       return;
