@@ -1,7 +1,7 @@
 /* Application-wide resilience cache for the static GitHub Pages build. */
 const CACHE_PREFIX = "izmail-directory-";
-const STATIC_CACHE = CACHE_PREFIX + "static-v48" + "-startup-20261018-1";
-const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v48" + "-startup-20261018-1";
+const STATIC_CACHE = CACHE_PREFIX + "static-v49" + "-startup-20261018-2";
+const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v49" + "-startup-20261018-2";
 const OFFLINE_HOME = "./main-v2/index.html";
 
 /* Store every user-facing document under its own folder URL. Serving the
@@ -70,7 +70,12 @@ async function put(cacheName, request, response) {
 }
 
 async function cached(request) {
-  return caches.match(cacheKey(request));
+  const key = cacheKey(request);
+  const runtime = await caches.open(RUNTIME_CACHE);
+  const current = await runtime.match(key);
+  if (current) return current;
+  const installed = await caches.open(STATIC_CACHE);
+  return installed.match(key);
 }
 
 async function networkWithTimeout(request, timeoutMs) {
@@ -102,8 +107,7 @@ async function networkFirst(request) {
    immediately, then check for its next release without blocking opening.
    Catalogs, dated schedules and exchange rates keep their own freshness rules. */
 async function homeNavigation(request, event) {
-  const runtime = await caches.open(RUNTIME_CACHE);
-  const hit = (await runtime.match(cacheKey(request))) || (await cached(request));
+  const hit = await cached(request);
   if (!hit) return networkFirst(request);
   event.waitUntil(networkWithTimeout(request, 4500)
     .then(response => put(RUNTIME_CACHE, request, response)).catch(() => null));

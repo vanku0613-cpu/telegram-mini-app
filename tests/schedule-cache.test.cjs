@@ -8,7 +8,7 @@ test('schedule fetch replaces old cache immediately and falls back only offline'
   const context={URL,Request,Response,AbortController,setTimeout,clearTimeout,
     self:{location:{origin:'https://example.test'},addEventListener:(name,fn)=>handlers[name]=fn},
     fetch:async()=>{calls++;if(offline)throw Error('offline');return new Response('{"date":"new"}');},
-    caches:{match:async r=>stored.get(r.url)?.clone(),open:async()=>({put:async(r,response)=>stored.set(r.url,response)})}
+    caches:{match:async r=>stored.get(r.url)?.clone(),open:async()=>({match:async r=>stored.get(r.url)?.clone(),put:async(r,response)=>stored.set(r.url,response)})}
   };
   vm.runInNewContext(fs.readFileSync(require.resolve('../sw.js'),'utf8'),context);
   for(const file of ['city-schedule/data/regional-routes.json','city-schedule/data/kyiv.json','bus-schedule/schedule-data.json','odessa-schedule/schedule-data.json','schedule-search.json']){

@@ -29,7 +29,7 @@ test('Existing full Telegram SDK is used when it is already available',()=>{
 test('Cached home opens while a stalled network refresh is still pending, then receives the new shell',async()=>{
  const handlers={},staticMap=new Map(),runtimeMap=new Map();let release,calls=0;
  const runtime={match:async r=>runtimeMap.get(r.url)?.clone(),put:async(r,v)=>runtimeMap.set(r.url,v)};
- const ctx={URL,Request,Response,AbortController,setTimeout,clearTimeout,self:{location:{origin:'https://example.test'},registration:{scope:'https://example.test/app/'},addEventListener:(n,f)=>handlers[n]=f},caches:{match:async r=>staticMap.get(r.url)?.clone(),open:async()=>runtime},fetch:()=>{calls++;return new Promise(r=>release=r);}};
+ const ctx={URL,Request,Response,AbortController,setTimeout,clearTimeout,self:{location:{origin:'https://example.test'},registration:{scope:'https://example.test/app/'},addEventListener:(n,f)=>handlers[n]=f},caches:{match:async()=>{throw Error('Unscoped cache search must not read obsolete app versions');},open:async name=>name.includes('runtime')?runtime:{match:async r=>staticMap.get(r.url)?.clone(),put:async(r,v)=>staticMap.set(r.url,v)}},fetch:()=>{calls++;return new Promise(r=>release=r);}};
  vm.runInNewContext(fs.readFileSync(require.resolve('../sw.js'),'utf8'),ctx);
  const request={method:'GET',url:'https://example.test/app/main-v2/?launch=1',mode:'navigate'};staticMap.set('https://example.test/app/main-v2/',new Response('installed home'));let result,background;
  handlers.fetch({request,respondWith:p=>result=p,waitUntil:p=>background=p});
