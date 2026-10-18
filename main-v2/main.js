@@ -614,6 +614,28 @@
 
 })();
 
+/* Show the wired home menu in Telegram without waiting for window.load.
+   The transports follow Telegram's official WebView postEvent implementation. */
+(function signalTelegramHomeReady(){
+  "use strict";
+  if(!document.getElementById("app"))return;
+  try{
+    var telegram=window.Telegram;
+    if(telegram && telegram.WebApp && typeof telegram.WebApp.ready==="function"){
+      telegram.WebApp.ready();
+    }else if(telegram && telegram.WebView && typeof telegram.WebView.postEvent==="function"){
+      telegram.WebView.postEvent("web_app_ready");
+    }else if(window.TelegramWebviewProxy && typeof window.TelegramWebviewProxy.postEvent==="function"){
+      window.TelegramWebviewProxy.postEvent("web_app_ready",JSON.stringify(""));
+    }else if(window.external && typeof window.external.notify==="function"){
+      window.external.notify(JSON.stringify({eventType:"web_app_ready",eventData:""}));
+    }else if(window.parent && window.parent!==window){
+      window.parent.postMessage(JSON.stringify({eventType:"web_app_ready",eventData:""}),"https://web.telegram.org");
+    }else return;
+    document.documentElement.setAttribute("data-native-ready","requested");
+  }catch(_){ /* A missing native bridge must not interrupt the browser menu. */ }
+})();
+
 /* Keep every main-card title fully visible at browser and OS text zoom levels. */
 (function(){
   "use strict";
