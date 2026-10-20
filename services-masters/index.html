@@ -100,7 +100,8 @@ const masters=[
  {title:'Электрик / сантехник',icon:'wrench',sub:[
   {title:'Электрик',icon:'bolt',desc:'Электромонтаж, ремонт и подключение оборудования.',source:'Публикация «Электрик»',people:contacts([['0688481795','Василий'],['0668153612','Александр','Инверторы и солнечные панели'],['0980298547','Злата'],['0977084305','','Электромонтажные работы'],['0972259606','Олег'],['0730405980','Виорел'],['0964173665','Юрий'],['0962389009','Иван']])},
   {title:'Сантехник',icon:'drop',desc:'Ремонт и сантехнические работы.',source:'Публикация «Сантехник»',people:contacts([['0688481795','Василий'],['0988959769','Ваш мастер'],['0989963599','Афанасий'],['0980298547','Злата'],['0661568315','Александр'],['0683289949','Александр'],['0730405980','Виорел'],['0962389009','Иван']])},
-  {title:'Чистка канализации',icon:'drain',desc:'Прочистка и обслуживание канализационных труб.',source:'Публикация «Чистка канализации»',people:contacts([['0988959769','Ваш мастер'],['0989963599','Афанасий'],['0661568315','Александр'],['0683289949','Александр']])}
+  {title:'Чистка канализации',icon:'drain',desc:'Прочистка и обслуживание канализационных труб.',source:'Публикация «Чистка канализации»',people:contacts([['0988959769','Ваш мастер'],['0989963599','Афанасий'],['0661568315','Александр'],['0683289949','Александр']])},
+  {title:'Солнечные станции',icon:'bolt',desc:'Станции под ключ: солнечные панели, инверторы и аккумуляторы. Продажа и установка. Гарантия.',source:'Сообщение «Ваш Мастер» от 20.10.2026, 16:02',people:contacts([['0988959769','Ваш мастер']])}
  ]},
  {title:'Строительство / ремонт',icon:'house',sub:[
   // Free-to-use Pexels image by Pietro Greco, photo 9908376.
@@ -122,11 +123,13 @@ const masters=[
   {title:'Бани и сауны',icon:'sauna',desc:'Обшивка бань, саун и помещений деревом.',source:'Публикация «По баням / саунам»',people:contacts([['0988959769','Ваш мастер']])}
  ]},
  {title:'Услуги по дому / участку',icon:'garden',sub:[
+  {title:'Чистка колодцев',icon:'drop',desc:'Чистка колодцев для воды.',source:'Сообщение «Ваш Мастер» от 20.10.2026, 16:00',people:contacts([['0988959769','Ваш мастер']])},
   {title:'Чистка ковров',icon:'carpet',desc:'Чистка ковров.',source:'Публикация «Чистка ковров»',people:contacts([['0980298547','Злата']])},
   {title:'Уход за садом',icon:'grass',desc:'Уход за садом и работы на участке.',source:'Публикация «Покос травы»',people:contacts([['0637563046','Дмитрий','',['0973388892']]])},
   {title:'Спил деревьев',icon:'tree',desc:'Спил деревьев, в том числе сложный.',source:'Публикация «Спил деревьев»',people:contacts([['0637563046','Дмитрий','',['0973388892']],['0931552062','Сергей']])}
  ]},
  {title:'Бытовая техника',icon:'appliance',sub:[
+  {title:'Тепловые насосы',icon:'ac',desc:'Тепловые насосы «воздух — вода». Продажа и установка. Гарантия.',source:'Сообщение «Ваш Мастер» от 20.10.2026, 16:04',people:contacts([['0988959769','Ваш мастер']])},
   {title:'Газовые котлы и колонки',icon:'boiler',desc:'Ремонт, обслуживание и установка газового оборудования.',source:'Публикация «Газовые котлы / колонки»',people:contacts([['0982641444','Владимир'],['0988959769','Ваш мастер']])},
   {title:'Холодильники',icon:'fridge',desc:'Ремонт, установка и заправка холодильников.',source:'Публикация «По холодильникам»',people:contacts([['0672101977','Сергей'],['0980298547','Злата'],['0634289616','Виктор']])},
   {title:'Кондиционеры',icon:'ac',desc:'Подбор, установка, ремонт и заправка кондиционеров.',source:'Публикация «По кондиционерам»',people:contacts([['0973522334','Ирина'],['0672101977','Сергей'],['0988959769','Ваш мастер'],['0977084305'],['0634289616','Виктор'],['0637322792','Денис'],['0679556041','Денис']])}
@@ -190,7 +193,7 @@ function render(){const data=section==='masters'?masters:services,hasBack=sectio
  if(depth==='subcategories'){
   viewIcon.innerHTML=icon(category.icon);title.textContent=category.title;hint.textContent='Выберите нужную услугу';view.innerHTML=`<div class="grid">${category.sub.map((x,i)=>categoryCard(x,i,true)).join('')}</div>`;view.querySelectorAll('[data-item]').forEach(b=>b.addEventListener('click',()=>{const sub=category.sub[Number(b.dataset.item)];if(!sub||!sub.people.length)return;category.selected=sub;depth='contacts';render()}));return
  }
- const sub=category.selected;viewIcon.innerHTML=icon(sub.icon);title.textContent=sub.title;hint.textContent=category.title+' · '+sub.people.length+' контактов';view.innerHTML=contactList(sub.people,sub.desc);
+ const sub=category.selected;viewIcon.innerHTML=icon(sub.icon);title.textContent=sub.title;hint.textContent=category.title+' · '+sub.people.length+' '+countLabel(sub.people.length,'контакт','контакта','контактов');view.innerHTML=contactList(sub.people,sub.desc);
 }
 function contactList(people,desc){return `<div class="list">${people.map(p=>`<article class="contact"><h3>${p.name||'Контакт услуги'}</h3><p>${p.note||desc||'Уточните детали услуги при звонке.'}</p><div class="phones">${(p.phones||[p.phone]).map(phone=>`<div class="phone-action"><a class="phone" href="tel:+380${phone.slice(1)}"><strong>+380 ${phone.slice(1,3)} ${phone.slice(3,6)} ${phone.slice(6,8)} ${phone.slice(8)}</strong><span>Позвонить</span></a><button type="button" class="favorite-toggle" data-favorite="" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное">☆</button></div>`).join('')}</div></article>`).join('')}</div>`}
 tabs.forEach(t=>t.addEventListener('click',()=>{section=t.dataset.section;category=null;depth='categories';render()}));backButtons.forEach(button=>button.addEventListener('click',backOneLevel));document.addEventListener('pointerdown',event=>{const button=event.target.closest('.section-tab,.inner-back,.home-back,.category,.subcat,.phone,.favorite-toggle');if(!button)return;button.classList.add('tap-lit');setTimeout(()=>button.classList.remove('tap-lit'),420)},{passive:true});render();
