@@ -11,22 +11,23 @@ test('desktop zoom keeps the counter and bottom navigation clear of adjacent row
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const browser=await chromium.launch({headless:true,channel:process.env.BROWSER_CHANNEL||'chrome'});
   try{
-    for(const viewport of [{width:1280,height:720},{width:800,height:600},{width:1366,height:500}]){
+    for(const viewport of [{width:1280,height:720},{width:800,height:600},{width:1366,height:500},{width:1024,height:768},{width:1920,height:1080}]){
       const page=await browser.newPage({viewport});
       await page.addInitScript(()=>{window.EventSource=undefined});
       await page.route('https://**',route=>route.abort());
       await page.goto(`http://127.0.0.1:${server.address().port}/main-v2/`);
       await page.waitForTimeout(400);
       const layout=await page.evaluate(()=>{const rect=selector=>{const value=document.querySelector(selector).getBoundingClientRect();return{top:value.top,bottom:value.bottom,left:value.left,right:value.right,width:value.width,height:value.height}};const art=document.querySelector('.bg-main');return{app:rect('#app'),art:{...rect('.bg-main'),naturalWidth:art.naturalWidth,naturalHeight:art.naturalHeight},brand:rect('.desktop-brand'),logo:rect('#mainLogoHotspot'),viewer:rect('.viewer'),weather:rect('.top-row'),groups:rect('.groups-row'),bottom:rect('.bottom'),agreement:rect('.agreement'),cards:[...document.querySelectorAll('.cards .card')].map(item=>{const value=item.getBoundingClientRect();return{top:value.top,left:value.left,right:value.right,bottom:value.bottom,width:value.width,height:value.height}}),bottomItems:[...document.querySelectorAll('.bottom .nav')].map(item=>{const value=item.getBoundingClientRect();return{left:value.left,right:value.right,scroll:item.scrollWidth,client:item.clientWidth}})}});
-      assert.ok(layout.app.width>=viewport.width-20&&layout.app.height>=viewport.height-20,`desktop app uses the available screen at ${viewport.width}x${viewport.height}`);
+      assert.ok(layout.app.width>=Math.min(1600,viewport.width-20)&&layout.app.height>=viewport.height-20,`desktop app uses the available screen up to its 1600px content limit at ${viewport.width}x${viewport.height}`);
       assert.ok(layout.cards.every(card=>card.left>=layout.app.left&&card.right<=layout.app.right&&card.bottom<=viewport.height),`all menu cards stay visible at ${viewport.width}x${viewport.height}`);
       assert.equal(new Set(layout.cards.slice(0,viewport.width>=1000?4:2).map(card=>Math.round(card.top))).size,1,`first desktop card row is aligned at ${viewport.width}x${viewport.height}`);
       assert.ok(Math.abs(layout.logo.width-layout.logo.height)<1,`desktop logo target stays circular at ${viewport.width}x${viewport.height}`);
       assert.ok(layout.cards.every(card=>card.width/card.height<3.1),`desktop menu cards keep professional proportions at ${viewport.width}x${viewport.height}`);
       if(viewport.width>=1000){
         assert.ok(Math.abs(layout.art.width-layout.app.width)<3&&Math.abs(layout.art.height-layout.app.height)<3,`desktop artwork fills the dashboard at ${viewport.width}x${viewport.height}`);
-        assert.ok(layout.brand.width>250&&layout.brand.bottom<=layout.cards[0].top,`desktop brand remains visible above the menu at ${viewport.width}x${viewport.height}`);
-        assert.ok(layout.cards.every(card=>card.width/card.height>1.45),`wide desktop cards use a readable tile layout at ${viewport.width}x${viewport.height}`);
+        assert.ok(layout.brand.width>Math.min(250,layout.app.width*.2)&&layout.brand.bottom<=layout.cards[0].top,`desktop brand remains visible above the menu at ${viewport.width}x${viewport.height}`);
+        assert.ok(layout.brand.right<=layout.weather.left,'desktop brand and information panels remain separate');
+        assert.ok(layout.cards.every(card=>card.width>card.height),`desktop cards remain wider than tall at ${viewport.width}x${viewport.height}`);
       }else{
         assert.ok(Math.abs(layout.art.width/layout.art.height-layout.art.naturalWidth/layout.art.naturalHeight)<.01,`desktop artwork keeps its original aspect ratio at ${viewport.width}x${viewport.height}`);
       }
@@ -37,6 +38,27 @@ test('desktop zoom keeps the counter and bottom navigation clear of adjacent row
       assert.ok(layout.agreement.bottom<=layout.app.bottom-5,`agreement must remain visible above the app edge at ${viewport.width}x${viewport.height}`);
       for(let index=1;index<layout.bottomItems.length;index++)assert.ok(layout.bottomItems[index-1].right<=layout.bottomItems[index].left,`bottom navigation buttons overlap at ${viewport.width}x${viewport.height}`);
       assert.ok(layout.bottomItems.every(item=>item.scroll<=item.client+1),`bottom navigation text is clipped at ${viewport.width}x${viewport.height}`);
+      const tiles=page.locator('.cards .card');
+      const labels=await tiles.evaluateAll(items=>items.map(item=>{
+        const card=item.getBoundingClientRect(),copy=item.querySelector('.card-copy').getBoundingClientRect(),small=item.querySelector('small').getBoundingClientRect();
+        return {height:card.height,copyTop:copy.top-card.top,subtitleTop:small.top-card.top,font:getComputedStyle(item.querySelector('strong')).fontSize};
+      }));
+      for(const label of labels){
+        assert.ok(Math.abs(label.height-labels[0].height)<.1,'all folder tiles have equal heights');
+        assert.ok(Math.abs(label.copyTop-labels[0].copyTop)<.1,'all folder labels start in the same lane');
+        assert.ok(Math.abs(label.subtitleTop-labels[0].subtitleTop)<.1,'all subtitles share the same baseline');
+        assert.equal(label.font,labels[0].font,'long names use the same desktop type size');
+      }
+      const clipped=await tiles.locator('small').evaluateAll(items=>items.filter(item=>item.scrollWidth>item.clientWidth+1).map(item=>({text:item.textContent,width:item.clientWidth,scroll:item.scrollWidth,font:getComputedStyle(item).fontSize})));
+      assert.deepEqual(clipped,[],`folder subtitles remain fully visible at ${viewport.width}x${viewport.height}`);
+      for(const tile of [tiles.first(),tiles.last()]){
+        const resting=await tile.boundingBox();
+        await tile.hover();await page.waitForTimeout(150);
+        assert.deepEqual(await tile.boundingBox(),resting,'a hovered folder must not float above its neighbours');
+        await tile.evaluate(el=>el.classList.add('tap-lit'));
+        assert.deepEqual(await tile.boundingBox(),resting,'tap feedback keeps the folder anchored');
+        await tile.evaluate(el=>el.classList.remove('tap-lit'));
+      }
       await page.close();
     }
   }finally{await browser.close();await new Promise(resolve=>server.close(resolve))}
