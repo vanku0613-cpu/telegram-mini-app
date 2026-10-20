@@ -13,6 +13,12 @@ test('home, current buttons, nested returns and future delegated buttons', async
     const file = path.join(root, name);
     if (!fs.existsSync(file)) { res.writeHead(404); return res.end(); }
     res.setHeader('Content-Type', name.endsWith('.js') ? 'text/javascript' : name.endsWith('.css') ? 'text/css' : name.endsWith('.json') ? 'application/json' : 'text/html');
+    // Exercise the deployed links against this test origin, including the
+    // absolute public URLs now used by the main menu and its configuration.
+    if (/\.(?:html|js)$/.test(name)) {
+      return res.end(fs.readFileSync(file, 'utf8').replaceAll(
+        'https://vanku0613-cpu.github.io/telegram-mini-app/', `http://${req.headers.host}/`));
+    }
     res.end(fs.readFileSync(file));
   });
   const browser = await chromium.launch({

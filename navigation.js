@@ -18,7 +18,6 @@
   var leaving = false;
   var lastRefresh = 0;
   var prefetched = new Set();
-  var pendingGlows = new Map();
 
   function path(url) { return url.pathname.replace(/index\.html$/i, "").replace(/\/$/, ""); }
   function inside(url) { return url.origin === root.origin && url.pathname.startsWith(root.pathname); }
@@ -105,24 +104,6 @@
     event.preventDefault();
     event.stopImmediatePropagation();
   }
-  function runWithMainMenuGlow(el, action) {
-    // Inner menus redraw in place, while the main menu opens another document.
-    // Let its tap-lit outline paint once before that document transition.
-    if (!(el.classList.contains("pressable") && el.closest && el.closest("#app"))) {
-      action();
-      return;
-    }
-    if (el.dataset.izmailGlowPending === "1") return;
-    el.dataset.izmailGlowPending = "1";
-    el.classList.add("tap-lit");
-    var timer = setTimeout(function () {
-      pendingGlows.delete(el);
-      el.classList.remove("tap-lit");
-      delete el.dataset.izmailGlowPending;
-      action();
-    }, 260);
-    pendingGlows.set(el, timer);
-  }
   document.addEventListener("click", function (event) {
     if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     var el = elementFor(event);
@@ -130,9 +111,9 @@
     if (el.hasAttribute("download") || (el.target && el.target !== "_self")) return;
     if (homeButton(el)) {
       stop(event);
-      // Lightweight page state (for example search) resets immediately, before the glow ends.
+      // Lightweight page state (for example search) resets immediately.
       window.dispatchEvent(new CustomEvent("izmail:home", { detail: { source: "home" } }));
-      runWithMainMenuGlow(el, returnHome);
+      returnHome();
       return;
     }
     var url = targetUrl(el);
@@ -141,7 +122,8 @@
     if (!inside(url) && el.tagName === "A") return;
     if (url.hash && samePage(url, new URL(location.href))) return;
     stop(event);
-    runWithMainMenuGlow(el, function () { navigate(url); });
+    // Pointer feedback is already painted on pointerdown; never delay a link.
+    navigate(url);
   }, true);
 
   // Declarative future buttons receive keyboard activation as well as taps.
@@ -169,14 +151,6 @@
   document.addEventListener("pointerdown", prefetch, { passive: true });
   document.addEventListener("focusin", prefetch);
   window.addEventListener("pageshow", function () { leaving = false; });
-  window.addEventListener("pagehide", function () {
-    pendingGlows.forEach(function (timer, el) {
-      clearTimeout(timer);
-      el.classList.remove('tap-lit');
-      delete el.dataset.izmailGlowPending;
-    });
-    pendingGlows.clear();
-  });
 
   var style = document.createElement("style");
   style.textContent = "a,button,[role=button],[role=link],[data-nav]{touch-action:manipulation}";

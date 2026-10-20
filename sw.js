@@ -1,7 +1,7 @@
 /* Application-wide resilience cache for the static GitHub Pages build. */
 const CACHE_PREFIX = "izmail-directory-";
-const STATIC_CACHE = CACHE_PREFIX + "static-v52" + "-movers-contact-20261020";
-const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v52" + "-movers-contact-20261020";
+const STATIC_CACHE = CACHE_PREFIX + "static-v53" + "-fast-navigation-20261020";
+const RUNTIME_CACHE = CACHE_PREFIX + "runtime-v53" + "-fast-navigation-20261020";
 const OFFLINE_HOME = "./main-v2/index.html";
 
 /* Store every user-facing document under its own folder URL. Serving the
@@ -31,15 +31,15 @@ const APP_SHELL = [
   OFFLINE_HOME,
   "./main-v2/main.css?v=43",
   "./main-v2/desktop-resize.js?v=2",
-  "./main-v2/main.js?v=19",
+  "./main-v2/main.js?v=20",
   "./welcome.js?v=2",
   "./main-v2/settings.js?v=20261008-5",
   "./main-v2/stage-lock.js?v=1",
   "./home-info.css?v=24",
-  "./home-weather.css?v=5",
+  "./home-weather.css?v=6",
   "./brand-watermark.css?v=1",
-  "./navigation.js?v=7",
-  "./directory-search.js?v=32",
+  "./navigation.js?v=8",
+  "./directory-search.js?v=33",
   "./directory-search.css?v=3",
   "./weather-source.js?v=2",
   "./weather-profile.js?v=2",
@@ -102,9 +102,8 @@ async function networkFirst(request) {
   }
 }
 
-/* The home menu contains static links; show the saved current-release shell
-   immediately, then check for its next release without blocking opening.
-   Catalogs, dated schedules and exchange rates keep their own freshness rules. */
+/* Show each saved current-release document immediately. Catalog JSON, dated
+   schedules and exchange rates retain their separate network-first rules. */
 async function homeNavigation(request, event) {
   const hit = await cached(request);
   if (!hit) return networkFirst(request);
@@ -181,11 +180,7 @@ self.addEventListener("fetch", event => {
   if (url.origin !== self.location.origin) return;
 
   if (request.mode === "navigate") {
-    const home = new URL(OFFLINE_HOME, self.registration.scope);
-    const root = new URL("./", self.registration.scope);
-    const clean = value => value.replace(/index\.html$/, "").replace(/\/$/, "");
-    event.respondWith([clean(home.pathname), clean(root.pathname)].includes(clean(url.pathname))
-      ? homeNavigation(request, event) : networkFirst(request));
+    event.respondWith(homeNavigation(request, event));
     return;
   }
 
@@ -208,6 +203,13 @@ self.addEventListener("fetch", event => {
   }
 
   if (request.destination === "image" || /\.(?:webp|png|jpe?g|svg|gif|ico)$/i.test(url.pathname)) {
+    event.respondWith(cacheFirst(request));
+    return;
+  }
+
+  // Versioned code/styles are immutable within this release. Revalidating
+  // every dependency on every transition competes with the visible page.
+  if (/\.(?:js|css)$/i.test(url.pathname) && url.searchParams.has("v")) {
     event.respondWith(cacheFirst(request));
     return;
   }

@@ -68,6 +68,8 @@
   var particles = [];
   var fxMode = "clear";
   var lastFrame = performance.now();
+  var weatherFrame = 0;
+  var canvasBounds = { width: 0, height: 0 };
   var autoTimer = null;
   var autoIndex = 0;
 
@@ -91,8 +93,11 @@
 
   function resizeCanvas(){
     if(!canvas || !ctx || !sceneLayer) return;
-    var r=sceneLayer.getBoundingClientRect();
-    var dpr=Math.min(window.devicePixelRatio||1,2);
+    // Use layout dimensions; the phone stage already applies its own scale.
+    // A decorative full-screen canvas does not need a retina-size backing store.
+    var r={width:sceneLayer.clientWidth,height:sceneLayer.clientHeight};
+    canvasBounds=r;
+    var dpr=1;
     canvas.width=Math.max(1,Math.round(r.width*dpr));
     canvas.height=Math.max(1,Math.round(r.height*dpr));
     canvas.style.width=r.width+"px";
@@ -200,14 +205,14 @@
   }
 
   function drawWeather(now){
-    if(!ctx || !sceneLayer){
-      requestAnimationFrame(drawWeather);
-      return;
-    }
-
-    if(document.hidden){lastFrame=now;requestAnimationFrame(drawWeather);return;}
-    if(reducedMotion.matches){ctx.clearRect(0,0,canvas.width,canvas.height);lastFrame=now;requestAnimationFrame(drawWeather);return;}
-    var r=sceneLayer.getBoundingClientRect();
+    weatherFrame=0;
+    if(!ctx || !sceneLayer) return;
+    if(document.hidden || reducedMotion.matches){restartWeather();return;}
+    if(!particles.length && !leaves.length && !hailstones.length && !state.thunder) return;
+    weatherFrame=requestAnimationFrame(drawWeather);
+    // Weather is decorative: leave CPU/GPU time for taps and transitions.
+    if(now-lastFrame<1000/30) return;
+    var r=canvasBounds;
     var dt=Math.min((now-lastFrame)/1000,.05);
     lastFrame=now;
     ctx.clearRect(0,0,r.width,r.height);
@@ -270,8 +275,21 @@
       }
     }
     drawSeasonDetails(now,dt,r);
-    requestAnimationFrame(drawWeather);
   }
+
+  function restartWeather(){
+    if(weatherFrame)cancelAnimationFrame(weatherFrame);
+    weatherFrame=0;
+    if(ctx)ctx.clearRect(0,0,canvas.width,canvas.height);
+    lastFrame=performance.now();
+    if(!document.hidden && !reducedMotion.matches)weatherFrame=requestAnimationFrame(drawWeather);
+    if(sceneLayer)sceneLayer.classList.toggle('effects-paused',document.hidden||reducedMotion.matches);
+  }
+  document.addEventListener('visibilitychange',restartWeather);
+  window.addEventListener('pagehide',function(){if(weatherFrame)cancelAnimationFrame(weatherFrame);weatherFrame=0;});
+  window.addEventListener('pageshow',restartWeather);
+  reducedMotion.addEventListener('change',restartWeather);
+  if(window.ResizeObserver)new ResizeObserver(function(){resizeCanvas();restartWeather();}).observe(sceneLayer);
 
   function updateButtons(){
     if(seasonBtn) seasonBtn.textContent="СЕЗОН · "+labels[state.season];
@@ -347,6 +365,7 @@
     seedParticles(state.weather);
     seedWind();
     seedSeasonDetails();
+    restartWeather();
   }
 
 
@@ -419,7 +438,6 @@
   }
 
   resizeCanvas();
-  requestAnimationFrame(drawWeather);
   syncRealScene();
 
   setInterval(function(){

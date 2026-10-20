@@ -2,7 +2,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const html=fs.readFileSync(require.resolve('../main-v2/index.html'),'utf8');
 test('Home uses the original dependency order and starts loading visible artwork from HTML',()=>{
  const scripts=[...html.matchAll(/<script\b([^>]*)src="([^"]+)"([^>]*)><\/script>/g)].map(m=>({url:m[2],defer:/\bdefer\b/.test(m[1]+m[3])}));
- assert.deepEqual(scripts.filter(s=>!s.defer).map(s=>s.url),['./stage-lock.js?v=1','./settings.js?v=20261008-5','../weather-profile.js?v=2','../weather-source.js?v=2','./main.js?v=19','../welcome.js?v=2','../directory-search.js?v=32']);
+ assert.deepEqual(scripts.filter(s=>!s.defer).map(s=>s.url),['./stage-lock.js?v=1','./settings.js?v=20261008-5','../weather-profile.js?v=2','../weather-source.js?v=2','./main.js?v=20','../welcome.js?v=2','../directory-search.js?v=33']);
  assert.ok(html.indexOf('id="app"')<html.indexOf('src="./main.js'));
  assert.match(html,/<img[^>]*id="bgMain"[^>]*src="\.\.\/assets\/izmail-home-summer-day\.webp"[^>]*fetchpriority="high"/);
  assert.match(html,/<img[^>]*id="bgBlur"[^>]*src="\.\.\/assets\/izmail-home-summer-day\.webp"/);
@@ -54,7 +54,7 @@ test('Cached home opens while a stalled network refresh is still pending, then r
 });
 test('An uncached interior page is still fetched under its own URL',async()=>{
  const handlers={},calls=[];
- const ctx={URL,Request,Response,AbortController,setTimeout,clearTimeout,self:{location:{origin:'https://example.test'},registration:{scope:'https://example.test/app/'},addEventListener:(n,f)=>handlers[n]=f},caches:{match:async()=>null,open:async()=>({put:async()=>{}})},fetch:async r=>{calls.push(r.url);return new Response('own section');}};
+ const ctx={URL,Request,Response,AbortController,setTimeout,clearTimeout,self:{location:{origin:'https://example.test'},registration:{scope:'https://example.test/app/'},addEventListener:(n,f)=>handlers[n]=f},caches:{match:async()=>null,open:async()=>({match:async()=>null,put:async()=>{}})},fetch:async r=>{calls.push(r.url);return new Response('own section');}};
  vm.runInNewContext(fs.readFileSync(require.resolve('../sw.js'),'utf8'),ctx);let result;handlers.fetch({request:{url:'https://example.test/app/health-care/',method:'GET',mode:'navigate'},respondWith:p=>result=p});assert.equal(await (await result).text(),'own section');assert.deepEqual(calls,['https://example.test/app/health-care/']);
 });
 test('Frank rates still wait for fresh data instead of showing a stale service-worker response',async()=>{
