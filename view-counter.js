@@ -1,4 +1,4 @@
-/* Shared, low-load counter. Only server-confirmed totals are displayed. */
+/* Shared, low-load counter with a fixed owner-requested display adjustment. */
 (function () {
   "use strict";
   var el = document.getElementById("viewCount");
@@ -11,6 +11,8 @@
   var READ_KEY = "izmail_directory_global_view_last_read_v2";
   var INTERVAL = 3600000;
   var READ_TTL = 60000;
+  // Keep raw totals in storage and messages so the adjustment is applied once.
+  var DISPLAY_ADDITION = 5000;
   var lastValue = -1;
   var reading = false;
   var channel = null;
@@ -29,7 +31,7 @@
     var value = data && data.value;
     if (!Number.isSafeInteger(value) || value < 0) throw new Error("Invalid counter");
     lastValue = Math.max(lastValue, value);
-    el.textContent = lastValue.toLocaleString("ru-RU");
+    el.textContent = (lastValue + DISPLAY_ADDITION).toLocaleString("ru-RU");
     if (save) persist(lastValue);
     if (announce && channel) {
       try { channel.postMessage({ value: lastValue }); } catch (_) {}

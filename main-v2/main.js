@@ -452,7 +452,7 @@
 
   /* Shared view counter; loaded independently of other page features. */
   var viewCounterScript = document.createElement("script");
-  viewCounterScript.src = "../view-counter.js?v=6";
+  viewCounterScript.src = "../view-counter.js?v=7";
   document.head.appendChild(viewCounterScript);
 
   /* Search results are handled by directory-search.js. */

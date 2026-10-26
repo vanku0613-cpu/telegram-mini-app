@@ -34,7 +34,7 @@ test('both actual entry pages load one shared counter without layout drift', asy
       await page.setViewportSize({ width, height: 844 });
       for (const entry of ['/', '/main-v2/']) {
         await page.goto(origin + entry);
-        await page.waitForFunction(() => document.getElementById('viewCount').textContent.replace(/\s/g, '') === '1234');
+        await page.waitForFunction(() => document.getElementById('viewCount').textContent.replace(/\s/g, '') === '6234');
         await page.waitForTimeout(450);
         const widths = await page.evaluate(() => {
           const viewer = document.querySelector('.viewer').getBoundingClientRect();
@@ -72,11 +72,12 @@ test('counter throttles tabs, keeps confirmed cache and avoids persistent stream
     return context;
   }
   async function open(context) { const page = await context.newPage(); await page.goto(origin); await page.addScriptTag({ content: source }); return page; }
-  async function displayed(page, expected) { await page.waitForFunction(n => document.getElementById('viewCount').textContent === String(n), expected); }
+  async function displayed(page, expected) { await page.waitForFunction(n => document.getElementById('viewCount').textContent.replace(/\s/g, '') === String(n + 5000), expected); }
   async function restart(page) { await page.reload(); await page.addScriptTag({ content: source }); }
   try {
     const a = await device(); const pageA = await open(a); await displayed(pageA, 41);
     await restart(pageA); await displayed(pageA, 41); assert.equal(hits, 1);
+    assert.equal(await pageA.evaluate(() => localStorage.getItem('izmail_directory_global_view_last_value_v2')), '41', 'cached totals never include the display addition');
 
     const b = await device(); const pageB = await open(b); await displayed(pageB, 42);
     await pageA.evaluate(() => dispatchEvent(new Event('online'))); await displayed(pageA, 42);
