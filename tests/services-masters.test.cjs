@@ -41,7 +41,7 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.ok(await page.locator('#view .category').evaluateAll(items=>items.every(item=>item.classList.contains('has-children'))),'buttons that open more folders use the folder color');
     await page.getByRole('button', { name: /Строительство \/ ремонт/ }).click();
     assert.match(await page.locator('#coverImage').getAttribute('src'),/masters-construction-cover-v1\.webp/,'the selected master folder gets its own meaningful cover');
-    assert.equal(await page.locator('.subcat').count(), 16, 'construction and repair services remain individually selectable');
+    assert.equal(await page.locator('.subcat').count(), 18, 'construction and repair services remain individually selectable');
     assert.equal(await page.locator('.subcat img').count(), 0, 'specialization buttons contain no added photos');
     assert.equal(await page.locator('[data-back]').first().textContent(), '← Вернуться в раздел');
     assert.equal(await page.locator('[data-back]').nth(1).textContent(), '← Вернуться в раздел');
@@ -53,6 +53,12 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.match(submenuBackground,/rgb\(32, 60, 87\)/,'buttons that open contacts use the calm blue-graphite surface');
     assert.notEqual(menuBackground,submenuBackground,'master categories and their specialization menu use distinct professional color surfaces');
     assert.ok(await page.locator('#view .subcat').evaluateAll(items=>items.every(item=>item.classList.contains('direct-entry'))),'buttons that open contacts use the direct-entry color');
+    for (const service of ['Кухни на заказ','Лестницы из дерева на заказ']) {
+      await page.getByRole('button',{name:new RegExp(service)}).click();
+      assert.equal(await page.locator('.contact h3').textContent(),'Ваш Мастер');
+      assert.equal(await page.locator('a.phone[href="tel:+380988959769"]').count(),1);
+      await page.locator('[data-back]').first().click();
+    }
     for(const nav of await page.locator('.paired-nav').all()){const row=await nav.locator('button,a').evaluateAll(items=>items.filter(e=>getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect().top));assert.equal(row[0],row[1],'section and home navigation share one row')}
     await page.locator('[data-back]').first().click();
 
@@ -81,6 +87,12 @@ test('services and masters follow the source category hierarchy and keep contact
       assert.ok((await page.locator('#coverImage').getAttribute('src')).includes(expectedCovers[categoryName]),`${categoryName} uses its own cover`);
       assert.ok(await page.locator('.subcat').count() > 0, `${categoryName} has selectable specializations`);
       assert.equal(await page.locator('.subcat img').count(), 0, `${categoryName} buttons have no photos`);
+      if(categoryName==='Окна и двери'){
+        await page.getByRole('button',{name:/Двери из дерева на заказ/}).click();
+        assert.equal(await page.locator('.contact h3').textContent(),'Ваш Мастер');
+        assert.equal(await page.locator('a.phone[href="tel:+380988959769"]').count(),1);
+        await page.locator('[data-back]').first().click();
+      }
       if(categoryName==='Услуги по дому / участку'){
         await page.getByRole('button',{name:/Уход за садом/}).click();
         assert.deepEqual(await page.locator('a.phone[href^="tel:"]').evaluateAll(items=>items.map(a=>a.getAttribute('href'))),['tel:+380637563046','tel:+380973388892'],'Dmitry has two unique phones in one service card');
@@ -110,7 +122,7 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=materials-contact-1"/);
     assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=materials-contact-1"/);
     const indexed=JSON.parse(fs.readFileSync(path.join(root,'directory-search-extra.json'),'utf8')).records.find(record=>record.id==='global-0988959769');
-    for(const categoryName of ['Стройматериалы','Сыпучие материалы','Пиломатериалы','Дрова, уголь, брикеты'])assert.match(indexed.category,new RegExp(categoryName));
+    for(const categoryName of ['Стройматериалы','Сыпучие материалы','Пиломатериалы','Дрова, уголь, брикеты','Кухни на заказ','Лестницы из дерева на заказ','Двери из дерева на заказ'])assert.match(indexed.category,new RegExp(categoryName));
     assert.equal(fs.existsSync(path.join(root,'services-masters','photos')),false,'downloaded category photos were removed');
     assert.equal(fs.existsSync(path.join(root,'services-masters','repair-underway.jpg')),false,'the remaining category photo was removed too');
   } finally {
