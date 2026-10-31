@@ -87,6 +87,14 @@ test('services and masters follow the source category hierarchy and keep contact
       assert.ok((await page.locator('#coverImage').getAttribute('src')).includes(expectedCovers[categoryName]),`${categoryName} uses its own cover`);
       assert.ok(await page.locator('.subcat').count() > 0, `${categoryName} has selectable specializations`);
       assert.equal(await page.locator('.subcat img').count(), 0, `${categoryName} buttons have no photos`);
+      if(categoryName==='Бытовая техника'){
+        await page.getByRole('button',{name:/Газовые котлы и колонки/}).click();
+        assert.deepEqual(await page.locator('a.phone[href^="tel:"]').evaluateAll(items=>items.map(a=>a.getAttribute('href'))),['tel:+380982641444'],'gas equipment retains Vladimir and omits the withdrawn Vash Master contact');
+        await page.locator('[data-back]').first().click();
+        await page.getByRole('button',{name:/Тепловые насосы/}).click();
+        assert.equal(await page.locator('a.phone[href="tel:+380988959769"]').count(),1,'Vash Master stays in other requested specialties');
+        await page.locator('[data-back]').first().click();
+      }
       if(categoryName==='Окна и двери'){
         await page.getByRole('button',{name:/Двери из дерева на заказ/}).click();
         assert.equal(await page.locator('.contact h3').textContent(),'Ваш Мастер');
@@ -122,6 +130,8 @@ test('services and masters follow the source category hierarchy and keep contact
     assert.match(fs.readFileSync(path.join(root, 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\/services-masters\/\?v=materials-contact-1"/);
     assert.match(fs.readFileSync(path.join(root, 'main-v2', 'settings.js'), 'utf8'), /"Услуги и мастера":\s*"\.\.\/services-masters\/\?v=materials-contact-1"/);
     const indexed=JSON.parse(fs.readFileSync(path.join(root,'directory-search-extra.json'),'utf8')).records.find(record=>record.id==='global-0988959769');
+    assert.doesNotMatch(indexed.category,/Газовые котлы и колонки/);
+    assert.doesNotMatch(indexed.specialties,/газового оборудования/);
     for(const categoryName of ['Стройматериалы','Сыпучие материалы','Пиломатериалы','Дрова, уголь, брикеты','Кухни на заказ','Лестницы из дерева на заказ','Двери из дерева на заказ'])assert.match(indexed.category,new RegExp(categoryName));
     assert.equal(fs.existsSync(path.join(root,'services-masters','photos')),false,'downloaded category photos were removed');
     assert.equal(fs.existsSync(path.join(root,'services-masters','repair-underway.jpg')),false,'the remaining category photo was removed too');
