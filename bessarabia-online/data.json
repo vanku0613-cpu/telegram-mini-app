@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-02T02:39:38.754Z",
+  "updatedAt": "2026-11-01T05:57:42.694Z",
   "sections": {
     "border": {
       "title": "Паромы и границы",
@@ -63,7 +63,7 @@
     "ferry": {
       "id": "ferry",
       "url": "https://www.porom.org/schedule",
-      "checkedAt": "2026-10-02T02:06:40.157Z",
+      "checkedAt": "2026-11-01T05:57:42.693Z",
       "ok": true
     }
   }
