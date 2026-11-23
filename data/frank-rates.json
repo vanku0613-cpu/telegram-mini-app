@@ -2,7 +2,7 @@
   "source": "Frank Exchange",
   "sourceChannel": "@frankexange",
   "sourceUrl": "https://t.me/frankexange",
-  "date": "22.11.2026",
+  "date": "23.11.2026",
   "usd": {
     "buy": 45,
     "sell": 45.7
@@ -11,5 +11,5 @@
     "buy": 49.3,
     "sell": 50.3
   },
-  "fetchedAt": "2026-11-22T09:55:29.503Z"
+  "fetchedAt": "2026-11-23T12:22:53.712Z"
 }
